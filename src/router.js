@@ -80,6 +80,14 @@ function renderHomeScreen() {
             </div>
             <span class="mode-arrow">→</span>
           </div>
+          <div class="mode-card learn" onclick="showLearnSetup()">
+            <div class="mode-icon-wrap">📖</div>
+            <div class="mode-info">
+              <span class="mode-name">Leer-modus</span>
+              <span class="mode-sub">Geen tijdsdruk · Uitleg na elk antwoord</span>
+            </div>
+            <span class="mode-arrow">→</span>
+          </div>
         </div>
 
         <div class="section-label fade-in-5">Domein</div>
