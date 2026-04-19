@@ -45,7 +45,7 @@ function startGame(mode) {
     lives: 3, timeLeft: 60,
     timer: null, nextQTimer: null, locked: false, active: true,
     timerPaused: false, waitingForModal: false, pendingEndGame: false,
-    domainStats: {},
+    domainStats: {}, wrongAnswers: [],
     dotStates: mode === 'classic' ? Array(10).fill('pending') : null,
   };
 
@@ -255,7 +255,10 @@ function processAnswer(ok, q) {
   } else {
     G.wrong++;
     G.streak = 0;
-    if (G.mode === 'classic') updateDot(dotIdx, 'wrong');
+    if (G.mode === 'classic') {
+      updateDot(dotIdx, 'wrong');
+      G.wrongAnswers.push({ q: q.q, correct: q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c], ex: q.ex, dl: q.dl });
+    }
     if (G.mode === 'survival') {
       G.lives--;
       renderLives();
@@ -327,6 +330,19 @@ function renderResultsScreen(acc) {
       <span class="lb-pts-col">${e.s}</span>
     </div>`).join('');
 
+  const wrongHTML = G.mode === 'classic' && G.wrongAnswers.length > 0
+    ? `<div class="breakdown-card fade-in-6" style="margin-top:1rem;">
+        <div class="breakdown-title">❌ Fout beantwoord (${G.wrongAnswers.length})</div>
+        ${G.wrongAnswers.map(w => `
+          <div class="wrong-review-item">
+            <div class="wrong-review-domain">${(w.dl || '').replace(' — Waar of Niet?', '')}</div>
+            <div class="wrong-review-q">${w.q}</div>
+            <div class="wrong-review-correct">✓ ${w.correct}</div>
+            <div class="wrong-review-ex">${w.ex}</div>
+          </div>`).join('')}
+      </div>`
+    : '';
+
   document.getElementById('app').innerHTML = `
     <div id="results" class="screen active">
         <div class="results-top">
@@ -347,7 +363,8 @@ function renderResultsScreen(acc) {
           <div class="lb-title">🏆 Leaderboard</div>
           ${lbHTML}
         </div>
-        <div class="action-row fade-in-6">
+        ${wrongHTML}
+        <div class="action-row fade-in-6" style="margin-top:1rem;">
           <button class="btn-primary" onclick="startGame('${currentMode}')">🔁 Opnieuw spelen</button>
           <button class="btn-secondary" onclick="showHome()">← Home</button>
         </div>

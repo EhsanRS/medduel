@@ -31,7 +31,7 @@ function toggleFavourite(e) {
   const favs = loadFavourites();
   const idx = favs.findIndex(f => f.q === currentFact.q);
   if (idx >= 0) favs.splice(idx, 1);
-  else favs.push({ q: currentFact.q, ex: currentFact.ex, dl: currentFact.dl, saved: Date.now() });
+  else favs.push({ q: currentFact.q, ex: currentFact.ex, dl: currentFact.dl, domain: currentFact.domain, saved: Date.now() });
   saveFavourites(favs);
   updateStarBtn();
   const btn = document.getElementById('factStarBtn');
@@ -48,9 +48,14 @@ function updateStarBtn() {
 // ── Fact modal ──
 function openFactModal() {
   if (!currentFact) return;
-  if (typeof G !== 'undefined') {
+  // Pause trivia timer / cancel auto-advance
+  if (typeof G !== 'undefined' && G.active) {
     if (G.mode === 'blitz' && G.timer) { clearInterval(G.timer); G.timerPaused = true; }
     if (G.nextQTimer) { clearTimeout(G.nextQTimer); G.nextQTimer = null; G.waitingForModal = true; }
+  }
+  // Cancel dossier auto-advance
+  if (typeof D !== 'undefined' && D.nextQTimer) {
+    clearTimeout(D.nextQTimer); D.nextQTimer = null; D.waitingForModal = true;
   }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
@@ -62,6 +67,13 @@ function openFactModal() {
 function closeFactModal() {
   document.getElementById('factModal').classList.remove('open');
   hideToast();
+  // Resume dossier
+  if (typeof D !== 'undefined' && D.waitingForModal) {
+    D.waitingForModal = false;
+    advanceDossier();
+    return;
+  }
+  // Resume trivia
   if (typeof G === 'undefined' || !G.active) return;
   if (G.timerPaused && G.timeLeft > 0) {
     G.timerPaused = false;
@@ -77,7 +89,73 @@ function closeFactModal() {
   }
 }
 
-// ── Combo burst ──
+// ── Keyboard shortcuts: A/B/C/D en 1/2/3/4 = antwoord kiezen ──
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('factModal').classList.contains('open')) return;
+  if (document.getElementById('toast').classList.contains('show')) return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+
+  const key = e.key.toUpperCase();
+  const idx = (key === 'A' || key === '1') ? 0
+            : (key === 'B' || key === '2') ? 1
+            : (key === 'C' || key === '3') ? 2
+            : (key === 'D' || key === '4') ? 3
+            : null;
+
+  if (idx === null) return;
+
+  // Trivia
+  if (typeof G !== 'undefined' && G.active && !G.locked && G.currentQ) {
+    e.preventDefault();
+    const q = G.currentQ;
+    if (q.type === 'truefalse') {
+      if (idx === 0) { const btn = document.querySelector('.true-btn');  if (btn && !btn.disabled) answerTF(true,  btn); }
+      if (idx === 1) { const btn = document.querySelector('.false-btn'); if (btn && !btn.disabled) answerTF(false, btn); }
+    } else {
+      const btn = document.querySelector(`.ans-btn[data-i="${idx}"]`);
+      if (btn && !btn.disabled) answerMC(idx, btn);
+    }
+    return;
+  }
+
+  // Dossier
+  if (typeof D !== 'undefined' && D.cases && !D.locked) {
+    const btn = document.querySelector(`#d-choices .ans-btn[data-i="${idx}"]`);
+    if (btn && !btn.disabled) { e.preventDefault(); dossierAnswer(idx, btn); }
+  }
+});
+
+// ── Keyboard shortcut: spatie = volgende vraag ──
+document.addEventListener('keydown', function(e) {
+  if (e.code !== 'Space') return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+
+  const modalOpen   = document.getElementById('factModal').classList.contains('open');
+  const toastActive = document.getElementById('toast').classList.contains('show');
+
+  if (modalOpen) { e.preventDefault(); closeFactModal(); return; }
+  if (!toastActive) return;
+  e.preventDefault();
+
+  // Trivia
+  if (typeof G !== 'undefined' && G.active && G.nextQTimer) {
+    clearTimeout(G.nextQTimer); G.nextQTimer = null;
+    hideToast();
+    if (G.pendingEndGame) { G.pendingEndGame = false; endGame(); return; }
+    if (G.mode === 'classic' && G.answered >= 10) { endGame(); return; }
+    if (G.mode === 'blitz' && G.timeLeft <= 0) return;
+    if (G.mode === 'survival' && G.queue.length === 0) G.queue = shuffleArr(getPool());
+    loadQ();
+    return;
+  }
+  // Dossier
+  if (typeof D !== 'undefined' && D.nextQTimer) {
+    clearTimeout(D.nextQTimer); D.nextQTimer = null;
+    hideToast(); advanceDossier();
+  }
+});
+
+
 function showCombo(num, label) {
   const el = document.getElementById('comboBurst');
   document.getElementById('comboNum').textContent = num;
@@ -118,6 +196,11 @@ function loadHomeStats() {
   if (played) played.textContent = s.played || 0;
   if (best)   best.textContent   = s.best   || '—';
   if (streak) streak.textContent = (s.dayStreak || 0) + '🔥';
+  const sub = document.getElementById('favHomeSub');
+  if (sub) {
+    const n = loadFavourites().length;
+    sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
+  }
 }
 
 // ── Helpers ──
