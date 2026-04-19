@@ -48,9 +48,14 @@ function updateStarBtn() {
 // ── Fact modal ──
 function openFactModal() {
   if (!currentFact) return;
-  if (typeof G !== 'undefined') {
+  // Pause trivia timer / cancel auto-advance
+  if (typeof G !== 'undefined' && G.active) {
     if (G.mode === 'blitz' && G.timer) { clearInterval(G.timer); G.timerPaused = true; }
     if (G.nextQTimer) { clearTimeout(G.nextQTimer); G.nextQTimer = null; G.waitingForModal = true; }
+  }
+  // Cancel dossier auto-advance
+  if (typeof D !== 'undefined' && D.nextQTimer) {
+    clearTimeout(D.nextQTimer); D.nextQTimer = null; D.waitingForModal = true;
   }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
@@ -62,6 +67,13 @@ function openFactModal() {
 function closeFactModal() {
   document.getElementById('factModal').classList.remove('open');
   hideToast();
+  // Resume dossier
+  if (typeof D !== 'undefined' && D.waitingForModal) {
+    D.waitingForModal = false;
+    advanceDossier();
+    return;
+  }
+  // Resume trivia
   if (typeof G === 'undefined' || !G.active) return;
   if (G.timerPaused && G.timeLeft > 0) {
     G.timerPaused = false;

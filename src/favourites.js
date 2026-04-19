@@ -9,6 +9,7 @@ const FAV_CATS = [
   { key: 'pharma',  label: 'Farmacologie',  icon: '💊' },
   { key: 'infectio',label: 'Infectiologie', icon: '🦠' },
   { key: 'lab',     label: 'Lab',           icon: '🧪' },
+  { key: 'dossier', label: 'Dossier',       icon: '🗂️' },
 ];
 
 function startFavourites() {

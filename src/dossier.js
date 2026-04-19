@@ -20,6 +20,7 @@ function startDossier() {
     caseIdx: 0, currentHints: 0,
     totalHints: 0, score: 0,
     caseResults: [], locked: false,
+    nextQTimer: null, waitingForModal: false,
   };
 
   renderDossierScreen();
@@ -212,25 +213,40 @@ function dossierAnswer(idx, btn) {
     hintsUsed: D.currentHints, stars: ok ? stars : 0, pts, ok,
   });
 
+  const fact = {
+    q: c.patient,
+    ex: ok
+      ? `Diagnose: ${c.diagnosis}. Je loste deze zaak op met ${D.currentHints + 1} hint${D.currentHints !== 0 ? 's' : ''}.`
+      : `De juiste diagnose was: ${c.diagnosis}. Probeer de volgende kasus met minder hints!`,
+    dl: 'Het Dossier',
+    domain: 'dossier',
+  };
+
   showToast(
     ok,
     ok ? `+${pts} punten ${'⭐'.repeat(stars)}` : `Helaas — ${c.diagnosis}`,
     ok
       ? `Correct! Je gebruikte ${D.currentHints + 1} hint${D.currentHints > 0 ? 's' : ''}.`
-      : `De juiste diagnose: ${c.diagnosis}.`
+      : `De juiste diagnose: ${c.diagnosis}.`,
+    fact
   );
 
-  setTimeout(() => {
+  D.nextQTimer = setTimeout(() => {
+    D.nextQTimer = null;
     hideToast();
-    D.caseIdx++;
-    if (D.caseIdx >= D.cases.length) {
-      endDossier();
-    } else {
-      renderDossierScreen();
-      showScreen('dossier');
-      loadDossierCase();
-    }
+    advanceDossier();
   }, 2800);
+}
+
+function advanceDossier() {
+  D.caseIdx++;
+  if (D.caseIdx >= D.cases.length) {
+    endDossier();
+  } else {
+    renderDossierScreen();
+    showScreen('dossier');
+    loadDossierCase();
+  }
 }
 
 function endDossier() {
