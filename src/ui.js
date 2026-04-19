@@ -57,6 +57,10 @@ function openFactModal() {
   if (typeof D !== 'undefined' && D.nextQTimer) {
     clearTimeout(D.nextQTimer); D.nextQTimer = null; D.waitingForModal = true;
   }
+  // Cancel daily auto-advance
+  if (typeof DC !== 'undefined' && DC.nextQTimer) {
+    clearTimeout(DC.nextQTimer); DC.nextQTimer = null; DC.waitingForModal = true;
+  }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
   document.getElementById('factModalEx').textContent = currentFact.ex || '';
@@ -71,6 +75,13 @@ function closeFactModal() {
   if (typeof D !== 'undefined' && D.waitingForModal) {
     D.waitingForModal = false;
     advanceDossier();
+    return;
+  }
+  // Resume daily
+  if (typeof DC !== 'undefined' && DC.waitingForModal) {
+    DC.waitingForModal = false;
+    if (DC.answered >= 10) { dcEnd(); return; }
+    dcLoadQ();
     return;
   }
   // Resume trivia
@@ -122,6 +133,20 @@ document.addEventListener('keydown', function(e) {
   if (typeof D !== 'undefined' && D.cases && !D.locked) {
     const btn = document.querySelector(`#d-choices .ans-btn[data-i="${idx}"]`);
     if (btn && !btn.disabled) { e.preventDefault(); dossierAnswer(idx, btn); }
+    return;
+  }
+
+  // Daily Challenge
+  if (typeof DC !== 'undefined' && DC.active && !DC.locked && DC.currentQ) {
+    e.preventDefault();
+    const q = DC.currentQ;
+    if (q.type === 'truefalse') {
+      if (idx === 0) { const btn = document.querySelector('#dc-answers .true-btn');  if (btn && !btn.disabled) dcAnswerTF(true,  btn); }
+      if (idx === 1) { const btn = document.querySelector('#dc-answers .false-btn'); if (btn && !btn.disabled) dcAnswerTF(false, btn); }
+    } else {
+      const btn = document.querySelector(`#dc-answers .ans-btn[data-i="${idx}"]`);
+      if (btn && !btn.disabled) dcAnswerMC(idx, btn);
+    }
   }
 });
 
@@ -152,6 +177,14 @@ document.addEventListener('keydown', function(e) {
   if (typeof D !== 'undefined' && D.nextQTimer) {
     clearTimeout(D.nextQTimer); D.nextQTimer = null;
     hideToast(); advanceDossier();
+    return;
+  }
+  // Daily
+  if (typeof DC !== 'undefined' && DC.nextQTimer) {
+    clearTimeout(DC.nextQTimer); DC.nextQTimer = null;
+    hideToast();
+    if (DC.answered >= 10) { dcEnd(); return; }
+    dcLoadQ();
   }
 });
 
