@@ -213,15 +213,9 @@ function dossierAnswer(idx, btn) {
     hintsUsed: D.currentHints, stars: ok ? stars : 0, pts, ok,
   });
 
-  const revealedClues = c.clues.slice(0, D.currentHints + 1)
-    .map(cl => `${cl.label}: ${cl.text}`).join('\n\n');
-
   const fact = {
     q: `${c.patient}\nDiagnose: ${c.diagnosis}`,
-    ex: (ok
-      ? `Correct! ${D.currentHints <= 1 ? 'Indrukwekkend — je had nauwelijks hints nodig.' : D.currentHints <= 3 ? 'Goed gedaan.' : 'Je had wat meer hints nodig, maar je hebt het opgelost.'}`
-      : `De juiste diagnose was: ${c.diagnosis}. Bestudeer de aanwijzingen goed.`)
-      + `\n\nOntsloten aanwijzingen:\n\n${revealedClues}`,
+    ex: c.explanation || `Diagnose: ${c.diagnosis}`,
     dl: 'Het Dossier',
     domain: 'dossier',
   };

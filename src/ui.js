@@ -57,6 +57,10 @@ function openFactModal() {
   if (typeof D !== 'undefined' && D.nextQTimer) {
     clearTimeout(D.nextQTimer); D.nextQTimer = null; D.waitingForModal = true;
   }
+  // Cancel daily auto-advance
+  if (typeof DC !== 'undefined' && DC.nextQTimer) {
+    clearTimeout(DC.nextQTimer); DC.nextQTimer = null; DC.waitingForModal = true;
+  }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
   document.getElementById('factModalEx').textContent = currentFact.ex || '';
@@ -71,6 +75,13 @@ function closeFactModal() {
   if (typeof D !== 'undefined' && D.waitingForModal) {
     D.waitingForModal = false;
     advanceDossier();
+    return;
+  }
+  // Resume daily
+  if (typeof DC !== 'undefined' && DC.waitingForModal) {
+    DC.waitingForModal = false;
+    if (DC.answered >= 10) { dcEnd(); return; }
+    dcLoadQ();
     return;
   }
   // Resume trivia
@@ -88,6 +99,56 @@ function closeFactModal() {
     loadQ();
   }
 }
+
+// ── Keyboard shortcuts: A/B/C/D en 1/2/3/4 = antwoord kiezen ──
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('factModal').classList.contains('open')) return;
+  if (document.getElementById('toast').classList.contains('show')) return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+
+  const key = e.key.toUpperCase();
+  const idx = (key === 'A' || key === '1') ? 0
+            : (key === 'B' || key === '2') ? 1
+            : (key === 'C' || key === '3') ? 2
+            : (key === 'D' || key === '4') ? 3
+            : null;
+
+  if (idx === null) return;
+
+  // Trivia
+  if (typeof G !== 'undefined' && G.active && !G.locked && G.currentQ) {
+    e.preventDefault();
+    const q = G.currentQ;
+    if (q.type === 'truefalse') {
+      if (idx === 0) { const btn = document.querySelector('.true-btn');  if (btn && !btn.disabled) answerTF(true,  btn); }
+      if (idx === 1) { const btn = document.querySelector('.false-btn'); if (btn && !btn.disabled) answerTF(false, btn); }
+    } else {
+      const btn = document.querySelector(`.ans-btn[data-i="${idx}"]`);
+      if (btn && !btn.disabled) answerMC(idx, btn);
+    }
+    return;
+  }
+
+  // Dossier
+  if (typeof D !== 'undefined' && D.cases && !D.locked) {
+    const btn = document.querySelector(`#d-choices .ans-btn[data-i="${idx}"]`);
+    if (btn && !btn.disabled) { e.preventDefault(); dossierAnswer(idx, btn); }
+    return;
+  }
+
+  // Daily Challenge
+  if (typeof DC !== 'undefined' && DC.active && !DC.locked && DC.currentQ) {
+    e.preventDefault();
+    const q = DC.currentQ;
+    if (q.type === 'truefalse') {
+      if (idx === 0) { const btn = document.querySelector('#dc-answers .true-btn');  if (btn && !btn.disabled) dcAnswerTF(true,  btn); }
+      if (idx === 1) { const btn = document.querySelector('#dc-answers .false-btn'); if (btn && !btn.disabled) dcAnswerTF(false, btn); }
+    } else {
+      const btn = document.querySelector(`#dc-answers .ans-btn[data-i="${idx}"]`);
+      if (btn && !btn.disabled) dcAnswerMC(idx, btn);
+    }
+  }
+});
 
 // ── Keyboard shortcut: spatie = volgende vraag ──
 document.addEventListener('keydown', function(e) {
@@ -116,6 +177,14 @@ document.addEventListener('keydown', function(e) {
   if (typeof D !== 'undefined' && D.nextQTimer) {
     clearTimeout(D.nextQTimer); D.nextQTimer = null;
     hideToast(); advanceDossier();
+    return;
+  }
+  // Daily
+  if (typeof DC !== 'undefined' && DC.nextQTimer) {
+    clearTimeout(DC.nextQTimer); DC.nextQTimer = null;
+    hideToast();
+    if (DC.answered >= 10) { dcEnd(); return; }
+    dcLoadQ();
   }
 });
 

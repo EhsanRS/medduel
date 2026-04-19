@@ -1,5 +1,5 @@
 // MedDuel — Dossier patiëntencasussen
-// Structuur: { id, patient, diagnosis, clues[], options[], correct }
+// Structuur: { id, patient, diagnosis, clues[], options[], correct, explanation }
 // clues: [{ label, text }] — worden één voor één onthuld
 // correct: index in options array
 
@@ -18,6 +18,7 @@ const DOSSIER_CASES = [
     ],
     options: ['STEMI', 'Longembolie', 'Pneumonie', 'Aortadissectie'],
     correct: 1,
+    explanation: 'De drie pijlers van Virchow verklaren waarom deze patiënt DVT en longembolie ontwikkelde: stase (10 dagen bedrust na operatie), hypercoagulabiliteit (postoperatief) en endotheelschade. Het gezwollen warme onderbeen met positief Homan-teken is de DVT-bron. Pleuritische pijn + hypoxie + tachycardie + S1Q3T3 op ECG (teken van acute rechterhartbelasting) vormen samen het klassieke longembolie-beeld. De sterk verhoogde D-dimeer en CT-PA bevestigen het definitief.\n\nWaarom niet de anderen? STEMI: geen ST-elevatie. Pneumonie: geen koorts/productieve hoest. Aortadissectie: geen scheurende interscapulaire pijn of bloeddrukasymmetrie.',
   },
   {
     id: 'c2',
@@ -33,6 +34,7 @@ const DOSSIER_CASES = [
     ],
     options: ['HHS (hyperosmolair)', 'Alcoholketoacidose', 'DKA bij DM type 1', 'Lactaatacidose'],
     correct: 2,
+    explanation: 'Insulinedeficiëntie → geen glucoseopname door cellen → hyperglykemie. Tegelijk: lipolyse → vrije vetzuren → ketonlichamen (aceton, acetoacetaat, β-hydroxybutyraat) → hoge anion gap metabole acidose (AG = Na − (Cl + HCO₃) = 24, normaal <12).\n\nDe Kussmaul-ademhaling (diep en snel) is compensatoir: door CO₂ uit te blazen probeert het lichaam de pH te corrigeren. De fruitige ademlucht is door aceton. Het hoge kalium is misleidend — totaallichaamskalium is juist verlaagd (kaliumverlies via urine), maar acidose drijft K⁺ de cel uit.\n\nWaarom niet de anderen? HHS: geen acidose, nauwelijks ketonurie, glucose nog hoger. Alcoholketoacidose: glucose normaal/laag, geen bekende DM type 1. Lactaatacidose: geen verhoogd lactaat, wél ketonurie.',
   },
   {
     id: 'c3',
@@ -48,6 +50,7 @@ const DOSSIER_CASES = [
     ],
     options: ['Reumatoïde artritis', 'Bacteriële endocarditis', 'Sepsis zonder focus', 'Systemische lupus'],
     correct: 1,
+    explanation: 'Endocarditis vereist een ingangspoort (iv-drugsgebruik, tandheelkundige ingreep) en een beschadigde of turbulente hartklep. De bacteriëmie hecht zich vast en vormt vegetaties.\n\nDe Duke-criteria maken de diagnose: 2 major criteria zijn voldoende. (1) Positieve bloedkweken met typisch micro-organisme (S. aureus uit 3/3 flesjes = persisterende bacteriëmie). (2) Echocardiografisch bewijs: vegetatie op de mitralisklep.\n\nDe perifere tekenen zijn door embolisatie van vegetatiefragmenten: splinterbloedingen (micro-embolieën in nagelbedcapillairen) en Janeway-laesies (septische embolieën naar de huid van handpalmen). Het nieuwe souffle duidt op klepbeschadiging door de vegetatie.\n\nWaarom niet de anderen? RA: geen koorts van 3 weken, geen positieve bloedkweken. SLE: geen butterfly-rash, geen ANA. Sepsis zonder focus: er IS een focus (de hartklep).',
   },
   {
     id: 'c4',
@@ -63,6 +66,7 @@ const DOSSIER_CASES = [
     ],
     options: ['Appendicitis', 'Ruptuur ovariumcyste', 'Ectopische zwangerschap', 'PID'],
     correct: 2,
+    explanation: 'Gouden regel: bij iedere vrouw in de vruchtbare leeftijd met acute buikpijn is een ectopische zwangerschap een spoeddiagnose totdat het uitgesloten is. Controleer altijd β-HCG.\n\nDe risicofactor hier is doorgemaakte chlamydia-infectie: dit veroorzaakt tubabeschadiging en verhoogt het risico op ectopische innesteling 6-10-voudig. De amenorroe van 7 weken bevestigt zwangerschap.\n\nHet klassieke drieluik van ruptuur: (1) Hemodynamische instabiliteit (BD 88/55, HF 135 = hemorrhagische shock). (2) Positieve β-HCG zonder intruteriene zwangerschap op echo. (3) Vrij vocht in de buik (hemoperitoneum) + adnexmassa.\n\nWaarom niet de anderen? Appendicitis: rechts gelokaliseerd, geen HCG. Ovariumcysteruptuur: HCG negatief. PID: HCG negatief, geen schok door acute bloeding.',
   },
   {
     id: 'c5',
@@ -78,5 +82,6 @@ const DOSSIER_CASES = [
     ],
     options: ['Ischemisch CVA', 'Subduraal hematoom', 'Hersentumor', 'Epiduraal hematoom'],
     correct: 1,
+    explanation: 'Een chronisch subduraal hematoom is een sluipende diagnose: door de langzame veneuze bloeding (bridging veins) bouwt de druk weken op voor er symptomen zijn — het klassieke "lucide interval" na het trauma.\n\nDe combinatie van anticoagulantia (INR 3.8!) en val 3 weken geleden verklaart alles: zelfs een gering trauma kan bij supratherapeutische INR leiden tot een niet-stoppende veneuze bloeding. De progressieve deterioratie (cognitief → focale uitval → midlijnverschuiving) volgt de toenemende herniadruk.\n\nCT-kenmerken: crescent-vormig (volgt de hersenvorm), hypodense massa bij chronisch beloop (>3 weken: bloed wordt afgebroken). Dit onderscheidt het van epiduraal hematoom (biconvex/lensvorming, arterieel, acuut) en ischemisch CVA (plotseling begin, geen bloeding, geen trauma-anamnese).\n\nBeleid: INR corrigeren (vitamine K + PCC), neurochirurgisch consult voor drainageoverweging.',
   },
 ];

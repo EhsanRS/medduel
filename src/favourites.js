@@ -3,13 +3,13 @@
 let favFilter = 'all';
 
 const FAV_CATS = [
-  { key: 'all',     label: 'Alles',         icon: '' },
-  { key: 'cardio',  label: 'Cardiologie',   icon: '🫀' },
-  { key: 'neuro',   label: 'Neurologie',    icon: '🧠' },
-  { key: 'pharma',  label: 'Farmacologie',  icon: '💊' },
-  { key: 'infectio',label: 'Infectiologie', icon: '🦠' },
-  { key: 'lab',     label: 'Lab',           icon: '🧪' },
-  { key: 'dossier', label: 'Dossier',       icon: '🗂️' },
+  { key: 'all',      label: 'Alles',         icon: '' },
+  { key: 'cardio',   label: 'Cardiologie',   icon: '🫀' },
+  { key: 'neuro',    label: 'Neurologie',    icon: '🧠' },
+  { key: 'pharma',   label: 'Farmacologie',  icon: '💊' },
+  { key: 'infectio', label: 'Infectiologie', icon: '🦠' },
+  { key: 'lab',      label: 'Lab',           icon: '🧪' },
+  { key: 'dossier',  label: 'Dossier',       icon: '🗂️' },
 ];
 
 function startFavourites() {
@@ -22,7 +22,6 @@ function renderFavouritesScreen() {
   const all = loadFavourites();
   const filtered = favFilter === 'all' ? all : all.filter(f => f.domain === favFilter);
 
-  // Count per domain (only show cats with entries)
   const counts = {};
   all.forEach(f => { if (f.domain) counts[f.domain] = (counts[f.domain] || 0) + 1; });
 

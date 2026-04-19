@@ -43,7 +43,10 @@ function renderHomeScreen() {
           </div>
         </div>
 
-        <div class="section-label fade-in-3">Kies modus</div>
+        <div class="section-label fade-in-3">Vandaag</div>
+        ${renderDailyHomeCard()}
+
+        <div class="section-label fade-in-4">Kies modus</div>
         <div class="mode-stack fade-in-4">
           <div class="mode-card blitz" onclick="startGame('blitz')">
             <div class="mode-icon-wrap">⚡</div>
@@ -75,11 +78,15 @@ function renderHomeScreen() {
               <span class="mode-name">Het Dossier</span>
               <span class="mode-sub">Ontsluit hints · Daag anderen uit</span>
             </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
-              <span class="mode-arrow">→</span>
-              <span style="font-size:10px;font-weight:600;letter-spacing:0.08em;
-                background:var(--pulse);color:white;padding:2px 7px;border-radius:6px;">NIEUW</span>
+            <span class="mode-arrow">→</span>
+          </div>
+          <div class="mode-card learn" onclick="showLearnSetup()">
+            <div class="mode-icon-wrap">📖</div>
+            <div class="mode-info">
+              <span class="mode-name">Leer-modus</span>
+              <span class="mode-sub">Geen tijdsdruk · Uitleg na elk antwoord</span>
             </div>
+            <span class="mode-arrow">→</span>
           </div>
         </div>
 
@@ -93,13 +100,13 @@ function renderHomeScreen() {
           <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
         </div>
 
-        <div class="fav-home-card fade-in-6" onclick="startFavourites()" id="favHomeCard">
+        <div class="fav-home-card fade-in-5" onclick="startFavourites()">
           <div class="fav-home-icon">★</div>
           <div class="fav-home-info">
             <span class="fav-home-name">Favorieten</span>
-            <span class="fav-home-sub" id="favHomeSub">Jouw opgeslagen feiten</span>
+            <span class="fav-home-sub" id="favHomeSub">Nog niets opgeslagen</span>
           </div>
-          <span class="mode-arrow">→</span>
+          <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
         </div>
 
     </div>`;
