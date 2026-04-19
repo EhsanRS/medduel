@@ -43,7 +43,8 @@ function startGame(mode) {
     score: 0, streak: 0, maxStreak: 0,
     correct: 0, wrong: 0, answered: 0,
     lives: 3, timeLeft: 60,
-    timer: null, locked: false, active: true,
+    timer: null, nextQTimer: null, locked: false, active: true,
+    timerPaused: false, waitingForModal: false, pendingEndGame: false,
     domainStats: {},
     dotStates: mode === 'classic' ? Array(10).fill('pending') : null,
   };
@@ -250,7 +251,7 @@ function processAnswer(ok, q) {
     if (G.streak === 3)  showCombo('3×',  'Streak!');
     if (G.streak === 5)  showCombo('5×',  'On fire!');
     if (G.streak === 10) showCombo('10×', 'Legendair!');
-    showToast(true, `+${bonus} punten`, q.ex);
+    showToast(true, `+${bonus} punten`, q.ex, q);
   } else {
     G.wrong++;
     G.streak = 0;
@@ -259,17 +260,19 @@ function processAnswer(ok, q) {
       G.lives--;
       renderLives();
       if (G.lives <= 0) {
-        showToast(false, 'Game over', q.ex);
+        G.pendingEndGame = true;
+        showToast(false, 'Game over', q.ex, q);
         updateHUD();
-        setTimeout(() => { hideToast(); endGame(); }, 2400);
+        G.nextQTimer = setTimeout(() => { G.nextQTimer = null; hideToast(); endGame(); }, 2400);
         return;
       }
     }
-    showToast(false, 'Niet correct', q.ex);
+    showToast(false, 'Niet correct', q.ex, q);
   }
 
   updateHUD();
-  setTimeout(() => {
+  G.nextQTimer = setTimeout(() => {
+    G.nextQTimer = null;
     hideToast();
     if (G.mode === 'classic' && G.answered >= 10) { endGame(); return; }
     if (G.mode === 'blitz' && G.timeLeft <= 0) return;

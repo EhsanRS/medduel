@@ -17,13 +17,33 @@
   <div id="app"></div>
 
   <!-- Toast & effects (always present) -->
-  <div class="toast" id="toast">
+  <div class="toast" id="toast" onclick="openFactModal()">
     <div class="toast-header">
       <div class="toast-dot"></div>
       <span id="toastHead"></span>
     </div>
     <div class="toast-body" id="toastBody"></div>
+    <div class="toast-hint">Tik voor uitleg →</div>
   </div>
+
+  <!-- Fact sheet (bottom sheet, always present) -->
+  <div class="fact-modal" id="factModal">
+    <div class="fact-backdrop" onclick="closeFactModal()"></div>
+    <div class="fact-sheet">
+      <div class="fact-handle"></div>
+      <div class="fact-sheet-top">
+        <div>
+          <div class="fact-domain" id="factModalDomain"></div>
+          <div class="fact-heading">Uitleg</div>
+        </div>
+        <button class="fact-star-btn" id="factStarBtn" onclick="toggleFavourite(event)">☆</button>
+      </div>
+      <div class="fact-question" id="factModalQ"></div>
+      <div class="fact-explanation" id="factModalEx"></div>
+      <button class="fact-close-btn" onclick="closeFactModal()">← Terug naar spel</button>
+    </div>
+  </div>
+
   <div class="combo-burst" id="comboBurst">
     <div class="combo-num" id="comboNum"></div>
     <div class="combo-label" id="comboLabel"></div>
