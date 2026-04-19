@@ -89,7 +89,37 @@ function closeFactModal() {
   }
 }
 
-// ── Combo burst ──
+// ── Keyboard shortcut: spatie = volgende vraag ──
+document.addEventListener('keydown', function(e) {
+  if (e.code !== 'Space') return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+
+  const modalOpen   = document.getElementById('factModal').classList.contains('open');
+  const toastActive = document.getElementById('toast').classList.contains('show');
+
+  if (modalOpen) { e.preventDefault(); closeFactModal(); return; }
+  if (!toastActive) return;
+  e.preventDefault();
+
+  // Trivia
+  if (typeof G !== 'undefined' && G.active && G.nextQTimer) {
+    clearTimeout(G.nextQTimer); G.nextQTimer = null;
+    hideToast();
+    if (G.pendingEndGame) { G.pendingEndGame = false; endGame(); return; }
+    if (G.mode === 'classic' && G.answered >= 10) { endGame(); return; }
+    if (G.mode === 'blitz' && G.timeLeft <= 0) return;
+    if (G.mode === 'survival' && G.queue.length === 0) G.queue = shuffleArr(getPool());
+    loadQ();
+    return;
+  }
+  // Dossier
+  if (typeof D !== 'undefined' && D.nextQTimer) {
+    clearTimeout(D.nextQTimer); D.nextQTimer = null;
+    hideToast(); advanceDossier();
+  }
+});
+
+
 function showCombo(num, label) {
   const el = document.getElementById('comboBurst');
   document.getElementById('comboNum').textContent = num;
