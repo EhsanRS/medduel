@@ -894,12 +894,14 @@ h1.logo em {
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
   border-bottom: 1.5px solid var(--cream-dark);
+  white-space: pre-line;
 }
 .fact-explanation {
   font-size: 15px;
   color: var(--ink);
   line-height: 1.75;
   margin-bottom: 2rem;
+  white-space: pre-line;
 }
 .fact-close-btn {
   background: var(--ink);
