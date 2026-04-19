@@ -21,7 +21,6 @@ function showHome() {
 function renderHomeScreen() {
   document.getElementById('app').innerHTML = `
     <div id="home" class="screen active">
-      <div style="max-width:480px;margin:0 auto;padding:0 1.25rem 3rem;">
 
         <div class="home-top">
           <div class="logo-eyebrow fade-in">medische trivia</div>
@@ -94,7 +93,6 @@ function renderHomeScreen() {
           <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
         </div>
 
-      </div>
     </div>`;
 }
 

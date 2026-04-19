@@ -17,7 +17,12 @@ function toggleCat(cat, el) {
     const active = [...pills]
       .filter(p => p.classList.contains('active'))
       .map(p => p.dataset.cat);
-    activeCats = active.length ? active : 'all';
+    if (active.length) {
+      activeCats = active;
+    } else {
+      activeCats = 'all';
+      document.querySelector('[data-cat="all"]').classList.add('active');
+    }
   }
 }
 
@@ -51,7 +56,7 @@ function startGame(mode) {
   if (mode === 'blitz') startTimer();
   else {
     document.getElementById('timerTxt').textContent = '—';
-    document.getElementById('timerArc').style.strokeDashoffset = 0;
+    document.getElementById('timerArc').style.stroke = 'transparent';
   }
 
   loadQ();
@@ -321,7 +326,6 @@ function renderResultsScreen(acc) {
 
   document.getElementById('app').innerHTML = `
     <div id="results" class="screen active">
-      <div style="max-width:480px;margin:0 auto;padding:0 1.25rem 3rem;">
         <div class="results-top">
           <div class="results-eyebrow fade-in">Ronde afgelopen</div>
           <div class="score-big fade-in-1"><span style="color:var(--pulse)">${G.score}</span></div>
@@ -344,7 +348,6 @@ function renderResultsScreen(acc) {
           <button class="btn-primary" onclick="startGame('${currentMode}')">🔁 Opnieuw spelen</button>
           <button class="btn-secondary" onclick="showHome()">← Home</button>
         </div>
-      </div>
     </div>`;
 }
 

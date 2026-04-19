@@ -246,6 +246,8 @@ h1.logo em {
   max-width: 480px;
   margin: 0 auto;
   padding: 0 1.25rem 2rem;
+}
+#game.active {
   display: flex;
   flex-direction: column;
 }
@@ -785,3 +787,4 @@ h1.logo em {
 .fade-in-3 { animation: fadeUp 0.4s 0.15s ease both; }
 .fade-in-4 { animation: fadeUp 0.4s 0.2s ease both; }
 .fade-in-5 { animation: fadeUp 0.4s 0.25s ease both; }
+.fade-in-6 { animation: fadeUp 0.4s 0.3s ease both; }
