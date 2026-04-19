@@ -93,6 +93,15 @@ function renderHomeScreen() {
           <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
         </div>
 
+        <div class="fav-home-card fade-in-6" onclick="startFavourites()" id="favHomeCard">
+          <div class="fav-home-icon">★</div>
+          <div class="fav-home-info">
+            <span class="fav-home-name">Favorieten</span>
+            <span class="fav-home-sub" id="favHomeSub">Jouw opgeslagen feiten</span>
+          </div>
+          <span class="mode-arrow">→</span>
+        </div>
+
     </div>`;
 }
 

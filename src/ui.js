@@ -31,7 +31,7 @@ function toggleFavourite(e) {
   const favs = loadFavourites();
   const idx = favs.findIndex(f => f.q === currentFact.q);
   if (idx >= 0) favs.splice(idx, 1);
-  else favs.push({ q: currentFact.q, ex: currentFact.ex, dl: currentFact.dl, saved: Date.now() });
+  else favs.push({ q: currentFact.q, ex: currentFact.ex, dl: currentFact.dl, domain: currentFact.domain, saved: Date.now() });
   saveFavourites(favs);
   updateStarBtn();
   const btn = document.getElementById('factStarBtn');
@@ -118,6 +118,11 @@ function loadHomeStats() {
   if (played) played.textContent = s.played || 0;
   if (best)   best.textContent   = s.best   || '—';
   if (streak) streak.textContent = (s.dayStreak || 0) + '🔥';
+  const sub = document.getElementById('favHomeSub');
+  if (sub) {
+    const n = loadFavourites().length;
+    sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
+  }
 }
 
 // ── Helpers ──
