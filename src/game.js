@@ -272,6 +272,7 @@ function processAnswer(ok, q) {
   G.answered++;
 
   if (ok) {
+    navigator.vibrate && navigator.vibrate(40);
     G.correct++;
     G.streak++;
     G.maxStreak = Math.max(G.maxStreak, G.streak);
@@ -286,6 +287,7 @@ function processAnswer(ok, q) {
     if (G.streak === 10) showCombo('10×', 'Legendair!');
     showToast(true, `+${bonus} punten`, q.ex, q);
   } else {
+    navigator.vibrate && navigator.vibrate([20, 50, 20]);
     G.wrong++;
     G.streak = 0;
     recordWeak(q);
@@ -402,8 +404,23 @@ function renderResultsScreen(acc) {
         <div class="action-row fade-in-6" style="margin-top:1rem;">
           <button class="btn-primary" onclick="startGame('${currentMode}')">🔁 Opnieuw spelen</button>
           <button class="btn-secondary" onclick="showHome()">← Home</button>
+          <button class="btn-share" onclick="shareScore()">📤 Deel score</button>
         </div>
     </div>`;
+}
+
+function shareScore() {
+  const rank = getRank(loadXP());
+  const mode = { blitz: 'Blitz', classic: 'Classic', survival: 'Survival' }[currentMode] || 'MedDuel';
+  const txt = `🏥 ${mode}: ${G.score} punten als ${rank.icon} ${rank.label} in MedDuel!\nKan jij mij verslaan? → ${window.location.origin}`;
+  if (navigator.share) {
+    navigator.share({ title: 'MedDuel', text: txt });
+  } else {
+    navigator.clipboard?.writeText(txt).then(() => {
+      showToast(true, 'Gekopieerd!', 'Plak de link in je favoriete app.');
+      setTimeout(hideToast, 2500);
+    });
+  }
 }
 
 function quitGame() {

@@ -321,9 +321,15 @@ function awardXP(amount) {
   if (getRank(next).label !== getRank(prev).label) {
     const rank = getRank(next);
     setTimeout(() => {
-      showToast(true, `Rang omhoog! ${rank.icon}`, `Je bent nu ${rank.label}. Blijf oefenen!`);
-      setTimeout(hideToast, 4000);
-    }, 500);
+      const el = document.getElementById('rankupOverlay');
+      if (el) {
+        document.getElementById('rankupIcon').textContent = rank.icon;
+        document.getElementById('rankupLabel').textContent = rank.label;
+        el.classList.add('show');
+        navigator.vibrate && navigator.vibrate([30, 60, 100]);
+        setTimeout(() => el.classList.remove('show'), 2800);
+      }
+    }, 600);
   }
   return next;
 }
