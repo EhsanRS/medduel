@@ -234,7 +234,62 @@ function loadHomeStats() {
     const n = loadFavourites().length;
     sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
   }
+  renderXPHome();
   renderDomainStatsHome();
+}
+
+// ── XP & Rangen ──
+const RANKS = [
+  { min: 0,    label: 'Pre-med',      icon: '📚', color: '#8B7355' },
+  { min: 100,  label: 'Co-assistent', icon: '🩺', color: '#1B5FA8' },
+  { min: 350,  label: 'ANIOS',        icon: '⚕️', color: '#1A7A4A' },
+  { min: 800,  label: 'AIOS',         icon: '🔬', color: '#D4820A' },
+  { min: 1800, label: 'Specialist',   icon: '🏥', color: '#E8410A' },
+  { min: 4000, label: 'Professor',    icon: '🎓', color: '#6B21A8' },
+];
+
+function loadXP() { try { return parseInt(localStorage.getItem('md_xp') || '0', 10); } catch { return 0; } }
+function saveXP(xp) { try { localStorage.setItem('md_xp', String(xp)); } catch {} }
+function getRank(xp) { return [...RANKS].reverse().find(r => xp >= r.min) || RANKS[0]; }
+function getNextRank(xp) { return RANKS.find(r => r.min > xp) || null; }
+
+function awardXP(amount) {
+  const prev = loadXP();
+  const next = prev + amount;
+  saveXP(next);
+  if (getRank(next).label !== getRank(prev).label) {
+    const rank = getRank(next);
+    setTimeout(() => {
+      showToast(true, `Rang omhoog! ${rank.icon}`, `Je bent nu ${rank.label}. Blijf oefenen!`);
+      setTimeout(hideToast, 4000);
+    }, 500);
+  }
+  return next;
+}
+
+function renderXPHome() {
+  const wrap = document.getElementById('xpWrap');
+  if (!wrap) return;
+  const xp = loadXP();
+  const rank = getRank(xp);
+  const next = getNextRank(xp);
+  const pct = next ? Math.round((xp - rank.min) / (next.min - rank.min) * 100) : 100;
+  wrap.innerHTML = `
+    <div class="xp-card">
+      <div class="xp-rank-row">
+        <span class="xp-icon">${rank.icon}</span>
+        <div class="xp-rank-info">
+          <div class="xp-rank-top">
+            <span class="xp-rank-label" style="color:${rank.color}">${rank.label}</span>
+            <span class="xp-total">${xp} XP</span>
+          </div>
+          <div class="xp-bar-bg">
+            <div class="xp-bar-fill" style="width:${pct}%;background:${rank.color}"></div>
+          </div>
+          <div class="xp-next-label">${next ? `${next.min - xp} XP naar ${next.icon} ${next.label}` : 'Maximale rang bereikt! 🎓'}</div>
+        </div>
+      </div>
+    </div>`;
 }
 
 // ── Domein statistieken ──

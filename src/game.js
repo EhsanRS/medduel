@@ -248,6 +248,7 @@ function processAnswer(ok, q) {
     G.maxStreak = Math.max(G.maxStreak, G.streak);
     G.domainStats[q.dl].c++;
     G.domainStatsByKey[q.domain].c++;
+    awardXP(G.streak >= 5 ? 15 : G.streak >= 3 ? 13 : 10);
     const bonus = G.streak >= 5 ? 30 : G.streak >= 3 ? 20 : 10;
     G.score += bonus;
     if (G.mode === 'classic') updateDot(dotIdx, 'done');

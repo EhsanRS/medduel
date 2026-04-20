@@ -203,6 +203,7 @@ function dossierAnswer(idx, btn) {
 
   const stars = D.currentHints <= 1 ? 3 : D.currentHints <= 3 ? 2 : 1;
   const pts   = ok ? (stars === 3 ? 150 : stars === 2 ? 100 : 50) : 0;
+  if (ok) awardXP(stars === 3 ? 20 : stars === 2 ? 15 : 10);
   D.score += pts;
 
   const scoreEl = document.getElementById('d-score');

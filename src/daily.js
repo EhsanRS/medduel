@@ -219,6 +219,7 @@ function dcProcess(ok, q) {
     DC.streak++;
     DC.maxStreak = Math.max(DC.maxStreak, DC.streak);
     DC.domainStatsByKey[q.domain].c++;
+    awardXP(DC.streak >= 5 ? 15 : DC.streak >= 3 ? 13 : 10);
     const bonus = DC.streak >= 5 ? 30 : DC.streak >= 3 ? 20 : 10;
     DC.score += bonus;
     dcUpdateDot(dotIdx, 'done');

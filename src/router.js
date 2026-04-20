@@ -28,6 +28,8 @@ function renderHomeScreen() {
           <p class="tagline fade-in-2">Test je kennis. Versla anderen. Word beter.</p>
         </div>
 
+        <div id="xpWrap" class="fade-in-2"></div>
+
         <div class="stats-strip fade-in-3">
           <div class="stat-item">
             <span class="stat-num" id="home-played">0</span>

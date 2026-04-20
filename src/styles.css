@@ -1377,3 +1377,36 @@ h1.logo em {
   border-radius: 3px;
   transition: width 0.4s ease;
 }
+
+/* XP & Rang */
+#xpWrap { margin-bottom: 0.75rem; }
+.xp-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 2px 8px rgba(74,63,53,0.07);
+}
+.xp-rank-row { display: flex; align-items: center; gap: 0.85rem; }
+.xp-icon { font-size: 28px; flex-shrink: 0; }
+.xp-rank-info { flex: 1; }
+.xp-rank-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.xp-rank-label { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; }
+.xp-total { font-size: 12px; font-weight: 600; color: var(--ink-mid); }
+.xp-bar-bg {
+  height: 8px;
+  background: var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.xp-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.xp-next-label { font-size: 11px; color: var(--ink-light); font-weight: 500; }
