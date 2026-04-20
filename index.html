@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>MedDuel — Medische Trivia</title>
   <meta name="description" content="Test je medische kennis. Versla anderen. Word beter.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#E8410A">
   <link rel="stylesheet" href="src/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -61,6 +63,11 @@
   <script src="src/favourites.js"></script>
   <script src="src/learn.js"></script>
   <script src="src/router.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
 
 </body>
 </html>
