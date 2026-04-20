@@ -31,12 +31,41 @@ function getPool() {
   return QUESTIONS.filter(q => activeCats.includes(q.domain));
 }
 
+function getStratifiedPool(n) {
+  const pool = getPool();
+  const byDomain = {};
+  pool.forEach(q => {
+    if (!byDomain[q.domain]) byDomain[q.domain] = [];
+    byDomain[q.domain].push(q);
+  });
+  // Shuffle within each domain
+  Object.keys(byDomain).forEach(k => { byDomain[k] = shuffleArr(byDomain[k]); });
+  // Round-robin pick from domains until we have n questions
+  const domains = shuffleArr(Object.keys(byDomain));
+  const result = [];
+  const idx = {};
+  domains.forEach(d => { idx[d] = 0; });
+  while (result.length < n) {
+    let added = false;
+    for (const d of domains) {
+      if (result.length >= n) break;
+      if (idx[d] < byDomain[d].length) {
+        result.push(byDomain[d][idx[d]++]);
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+  return shuffleArr(result);
+}
+
 // ── Game starten ──
 function startGame(mode) {
   currentMode = mode;
-  let pool = shuffleArr(getPool());
-  if (mode === 'classic')  pool = pool.slice(0, 10);
-  if (mode === 'survival') pool = [...pool, ...pool, ...shuffleArr(pool)];
+  let pool;
+  if (mode === 'classic')  pool = getStratifiedPool(10);
+  else if (mode === 'blitz') { const base = getStratifiedPool(40); pool = [...base, ...shuffleArr(getPool())]; }
+  else { pool = shuffleArr(getPool()); pool = [...pool, ...shuffleArr(pool), ...shuffleArr(pool)]; }
 
   G = {
     mode, queue: pool,
