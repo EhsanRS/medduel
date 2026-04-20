@@ -1,4 +1,4 @@
-const CACHE = 'medduel-v1';
+const CACHE = 'medduel-v4';
 const ASSETS = [
   '/',
   '/index.html',
@@ -9,6 +9,9 @@ const ASSETS = [
   '/src/daily.js',
   '/src/favourites.js',
   '/src/learn.js',
+  '/src/weak.js',
+  '/src/onboarding.js',
+  '/src/theory.js',
   '/src/router.js',
   '/src/data/questions.js',
   '/src/data/cases.js',
