@@ -85,21 +85,21 @@ const THEORY_TOPICS = {
     icon: '🩸',
     subtitle: 'Microcytair · Normocytair · Macrocytair',
     body: `
-      <div class="th-intro"><p>Eerste stap: MCV. Daarna reticulocyten en ijzerstatus. De tabel hieronder vat de vijf hoofdtypen samen.</p></div>
+      <div class="th-intro"><p>Eerste stap: MCV. Daarna reticulocyten en ijzerstatus. De tabel vat de vijf hoofdtypen samen.</p></div>
       <div class="th-section-title">Vergelijking</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th>Type</th><th>MCV</th><th>Ferritine</th><th>Retics</th><th>Kenmerk</th></tr></thead>
         <tbody>
-          <tr><td>IJzergebrek</td><td>↓</td><td>↓↓</td><td>↓</td><td>Menstruatie, GI-bloeding, coeliakie</td></tr>
-          <tr><td>Chronische ziekte</td><td>Normaal/↓</td><td>Normaal/↑</td><td>↓</td><td>Ontsteking, maligniteit; ijzer opgesloten in macrofagen</td></tr>
-          <tr><td>Thalassemie minor</td><td>↓↓</td><td>Normaal</td><td>↑</td><td>Hb-elektroforese afwijkend</td></tr>
-          <tr><td>Megaloblastair (B12/folaat)</td><td>↑↑</td><td>Normaal</td><td>↓</td><td>Hypersegmenteerden; B12-gebrek ook neurologisch</td></tr>
-          <tr><td>Hemolytisch</td><td>Normaal/↑</td><td>↑</td><td>↑↑</td><td>LDH↑, haptoglobine↓, indirect bili↑, schistocyten bij MAHA</td></tr>
+          <tr><td>IJzergebrek</td><td><span class="dn">↓</span></td><td><span class="dn">↓↓</span></td><td><span class="dn">↓</span></td><td>Menstruatie, GI-bloeding, coeliakie</td></tr>
+          <tr><td>Chronische ziekte</td><td>N/<span class="dn">↓</span></td><td>N/<span class="up">↑</span></td><td><span class="dn">↓</span></td><td>Ontsteking, maligniteit; ijzer opgesloten in macrofagen</td></tr>
+          <tr><td>Thalassemie minor</td><td><span class="dn">↓↓</span></td><td>N</td><td><span class="up">↑</span></td><td>Hb-elektroforese afwijkend</td></tr>
+          <tr><td>Megaloblastair</td><td><span class="up">↑↑</span></td><td>N</td><td><span class="dn">↓</span></td><td>Hypersegmenteerden; B12-gebrek ook neurologisch</td></tr>
+          <tr><td>Hemolytisch</td><td>N/<span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑↑</span></td><td>LDH↑, haptoglobine↓, indirect bili↑, schistocyten bij MAHA</td></tr>
         </tbody>
       </table></div>
       <div class="th-section-title">Klinische parels</div>
-      <div class="th-pearl"><strong>Ferritine</strong> is een acuut-fase-eiwit — bij infectie stijgt het ook zonder goede ijzervoorraden. Kijk bij twijfel ook naar transferrinesaturatie (&lt;16% = ijzergebrek).</div>
-      <div class="th-pearl"><strong>B12 vs folaat:</strong> beide macrocytair, maar B12-gebrek geeft ook neurologische uitval (subacute gecombineerde degeneratie). Geef nooit alleen folaat bij B12-deficiëntie — maskeert de neurologie!</div>
+      <div class="th-pearl"><strong>Ferritine</strong> is een acuut-fase-eiwit — bij infectie stijgt het ook zonder goede ijzervoorraden. Kijk bij twijfel naar transferrinesaturatie (&lt;16% = ijzergebrek).</div>
+      <div class="th-pearl"><strong>B12 vs folaat:</strong> beide macrocytair, maar B12-gebrek geeft ook neurologische uitval. Geef nooit alleen folaat bij B12-deficiëntie — maskeert de neurologie!</div>
       <div class="th-pearl"><strong>Schistocyten + trombocytopenie</strong> = TTP of HUS tot bewijs van het tegendeel. Bij TTP: plasmaferese DIRECT.</div>
     `
   },
