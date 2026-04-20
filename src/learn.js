@@ -141,7 +141,7 @@ function lmReveal(ok, q) {
   if (!LM.domainStatsByKey[q.domain]) LM.domainStatsByKey[q.domain] = { c: 0, t: 0 };
   LM.domainStatsByKey[q.domain].t++;
   if (ok) { LM.correct++; LM.domainStatsByKey[q.domain].c++; awardXP(10); }
-  else { LM.wrong++; if (LM.phase === 'learn') LM.wrongQueue.push(q); }
+  else { LM.wrong++; recordWeak(q); if (LM.phase === 'learn') LM.wrongQueue.push(q); }
 
   const expl = document.getElementById('lm-expl');
   const next = document.getElementById('lm-next');

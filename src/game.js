@@ -288,6 +288,7 @@ function processAnswer(ok, q) {
   } else {
     G.wrong++;
     G.streak = 0;
+    recordWeak(q);
     if (G.mode === 'classic') {
       updateDot(dotIdx, 'wrong');
       G.wrongAnswers.push({ q: q.q, correct: q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c], ex: q.ex, dl: q.dl });

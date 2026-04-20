@@ -236,6 +236,49 @@ function loadHomeStats() {
   }
   renderXPHome();
   renderDomainStatsHome();
+  renderWeakHome();
+}
+
+// ── Zwakke vragen ──
+function loadWeak() {
+  try { return JSON.parse(localStorage.getItem('md_weak') || '{}'); } catch { return {}; }
+}
+function saveWeak(w) {
+  try { localStorage.setItem('md_weak', JSON.stringify(w)); } catch {}
+}
+function recordWeak(q) {
+  const w = loadWeak();
+  const key = q.q.slice(0, 80);
+  w[key] = (w[key] || 0) + 2;
+  saveWeak(w);
+}
+function resolveWeak(q) {
+  const w = loadWeak();
+  const key = q.q.slice(0, 80);
+  if (!w[key]) return;
+  w[key]--;
+  if (w[key] <= 0) delete w[key];
+  saveWeak(w);
+}
+function getWeakCount() {
+  return Object.keys(loadWeak()).length;
+}
+function getWeakQuestions() {
+  const w = loadWeak();
+  return Object.entries(w)
+    .sort((a, b) => b[1] - a[1])
+    .map(([key]) => QUESTIONS.find(q => q.q.slice(0, 80) === key))
+    .filter(Boolean)
+    .slice(0, 20);
+}
+function renderWeakHome() {
+  const card = document.getElementById('weakHomeCard');
+  if (!card) return;
+  const n = getWeakCount();
+  if (n === 0) { card.style.display = 'none'; return; }
+  card.style.display = 'flex';
+  const sub = document.getElementById('weakHomeSub');
+  if (sub) sub.textContent = `${n} vraag${n === 1 ? '' : 'en'} om te oefenen`;
 }
 
 // ── XP & Rangen ──

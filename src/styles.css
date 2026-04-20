@@ -1410,3 +1410,47 @@ h1.logo em {
   transition: width 0.5s ease;
 }
 .xp-next-label { font-size: 11px; color: var(--ink-light); font-weight: 500; }
+
+/* Zwakke vragen kaart op home */
+.weak-home-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  margin-top: 0.75rem;
+  box-shadow: 0 2px 8px rgba(74,63,53,0.07);
+  cursor: pointer;
+  border: 2px solid var(--pulse);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.weak-home-card:active { transform: scale(0.98); }
+.weak-home-icon { font-size: 22px; }
+
+/* Train zwaktes scherm */
+.wk-progress-bar-bg {
+  height: 5px;
+  background: var(--cream-dark);
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+.wk-progress-bar-fill {
+  height: 100%;
+  background: var(--pulse);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.wk-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--pulse);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-bottom: 0.75rem;
+}

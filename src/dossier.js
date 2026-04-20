@@ -199,7 +199,7 @@ function dossierAnswer(idx, btn) {
     b.disabled = true;
     if (parseInt(b.dataset.i) === c.correct) b.classList.add('correct');
   });
-  if (!ok) btn.classList.add('wrong');
+  if (!ok) { btn.classList.add('wrong'); recordWeak({ q: `${c.patient} — ${c.diagnosis}`, ex: c.explanation || '', domain: 'dossier', dl: 'Het Dossier' }); }
 
   const stars = D.currentHints <= 1 ? 3 : D.currentHints <= 3 ? 2 : 1;
   const pts   = ok ? (stars === 3 ? 150 : stars === 2 ? 100 : 50) : 0;

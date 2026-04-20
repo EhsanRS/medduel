@@ -111,6 +111,15 @@ function renderHomeScreen() {
           <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
         </div>
 
+        <div id="weakHomeCard" class="weak-home-card fade-in-5" onclick="startWeakMode()" style="display:none;">
+          <div class="weak-home-icon">🎯</div>
+          <div class="fav-home-info">
+            <span class="fav-home-name">Train je Zwaktes</span>
+            <span class="fav-home-sub" id="weakHomeSub">Laden...</span>
+          </div>
+          <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
+        </div>
+
         <div id="domainStatsWrap" class="fade-in-5" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
 
     </div>`;

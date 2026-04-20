@@ -230,6 +230,7 @@ function dcProcess(ok, q) {
   } else {
     DC.wrong++;
     DC.streak = 0;
+    recordWeak(q);
     dcUpdateDot(dotIdx, 'wrong');
     showToast(false, 'Niet correct', q.ex, q);
   }
