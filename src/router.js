@@ -129,6 +129,11 @@ function renderHomeScreen() {
           <div class="th-home-pill" onclick="openTheory('anemie')"><span class="th-home-emoji">🩸</span><span class="th-home-name">Anemie</span></div>
           <div class="th-home-pill" onclick="openTheory('meningitis')"><span class="th-home-emoji">🔬</span><span class="th-home-name">Meningitis & LP</span></div>
           <div class="th-home-pill" onclick="openTheory('hartfalen')"><span class="th-home-emoji">❤️</span><span class="th-home-name">Hartfalen</span></div>
+          <div class="th-home-pill" onclick="openTheory('antibiotica')"><span class="th-home-emoji">💊</span><span class="th-home-name">Antibiotica</span></div>
+          <div class="th-home-pill" onclick="openTheory('stolling')"><span class="th-home-emoji">🩹</span><span class="th-home-name">Stolling & Antistolling</span></div>
+          <div class="th-home-pill" onclick="openTheory('diabetes')"><span class="th-home-emoji">🍬</span><span class="th-home-name">Diabetes Mellitus</span></div>
+          <div class="th-home-pill" onclick="openTheory('schildklier')"><span class="th-home-emoji">🦋</span><span class="th-home-name">Schildklier</span></div>
+          <div class="th-home-pill" onclick="openTheory('sepsis')"><span class="th-home-emoji">🚨</span><span class="th-home-name">Sepsis & Shock</span></div>
         </div>
 
     </div>`;
