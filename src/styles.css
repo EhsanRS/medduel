@@ -901,6 +901,28 @@ h1.logo em {
   line-height: 1.75;
   margin-bottom: 2rem;
 }
+.wiki-block {
+  margin-bottom: 1.1rem;
+  padding: 0.85rem 1rem;
+  background: var(--cream);
+  border-radius: 12px;
+  border-left: 3px solid var(--pulse);
+}
+.wiki-block:last-child { margin-bottom: 2rem; }
+.wiki-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  margin-bottom: 0.35rem;
+}
+.wiki-block p {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.65;
+  margin: 0;
+}
 .fact-close-btn {
   background: var(--ink);
   color: white;

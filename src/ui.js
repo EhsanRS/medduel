@@ -63,7 +63,19 @@ function openFactModal() {
   }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
-  document.getElementById('factModalEx').textContent = currentFact.ex || '';
+  const exEl = document.getElementById('factModalEx');
+  if (currentFact.wiki) {
+    const w = currentFact.wiki;
+    exEl.innerHTML = [
+      w.kern        && `<div class="wiki-block"><div class="wiki-label">Kern</div><p>${w.kern}</p></div>`,
+      w.mechanisme  && `<div class="wiki-block"><div class="wiki-label">Hoe ontstaat het?</div><p>${w.mechanisme}</p></div>`,
+      w.onderscheid && `<div class="wiki-block"><div class="wiki-label">Onderscheid</div><p>${w.onderscheid}</p></div>`,
+      w.therapie    && `<div class="wiki-block"><div class="wiki-label">Behandeling</div><p>${w.therapie}</p></div>`,
+    ].filter(Boolean).join('');
+  } else {
+    exEl.className = 'fact-explanation';
+    exEl.textContent = currentFact.ex || '';
+  }
   updateStarBtn();
   document.getElementById('factModal').classList.add('open');
 }

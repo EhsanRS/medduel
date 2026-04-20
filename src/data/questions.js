@@ -282,7 +282,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'cardio', dl:'Cardiologie',
     q:'Man 68j komt met hartkloppingen. ECG: geen P-toppen, onregelmatig QRS-ritme met freq 110/min. Wat is de diagnose?',
     a:['Atriumflutter','Atriumfibrilleren','Ventriculaire tachycardie','AV-nodale re-entry tachycardie'], c:1,
-    ex:'Atriumfibrilleren: chaotische atriumactiviteit → geen P-toppen, absoluut onregelmatig QRS. Risico: trombus in linker hartoor → embolie/beroerte. Behandeling: frequentiecontrole (bètablokker/digoxine) + anticoagulatie indien CHA₂DS₂-VASc ≥2.' },
+    ex:'Atriumfibrilleren: chaotische atriumactiviteit → geen P-toppen, absoluut onregelmatig QRS. Risico: trombus in linker hartoor → embolie/beroerte. Behandeling: frequentiecontrole (bètablokker/digoxine) + anticoagulatie indien CHA₂DS₂-VASc ≥2.',
+    wiki: {
+      kern: 'Atriumfibrilleren (AF) is het meest voorkomende hartritmestoornis. De atriums vuren chaotisch (400-600/min) in plaats van gecoördineerd — daardoor geen P-toppen op het ECG en een volledig onregelmatig QRS-ritme.',
+      mechanisme: 'Meerdere kleine elektrische golfjes cirkelen door de atriums (re-entry). Dit voorkomt een geordende samentrekking. Het gevolg: de atriums bewegen niet echt meer — bloed blijft stilstaan in het linker hartoor en kan stolsels vormen.',
+      onderscheid: 'Atriumflutter: wél regelmatig, zaagvormige flutter-golven (~300/min), vaak 2:1 geleiding → HR ~150. Ventriculaire tachycardie: breed QRS, levensbedreigend. AVNRT: plots begin/eind, normaal QRS, jonge patiënten.',
+      therapie: 'Twee doelen: (1) Frequentiecontrole met bètablokker of digoxine. (2) Anticoagulatie bij CHA₂DS₂-VASc ≥2 (man) of ≥3 (vrouw) — DOAC (bijv. apixaban) boven warfarine. Rytmecontrole (cardioversie) bij symptomatische patiënten.',
+    } },
 
   { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Bij atriumfibrilleren met een CHA₂DS₂-VASc score van 0 bij een man is anticoagulatie geïndiceerd.',
@@ -291,7 +297,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 55j met kortademigheid bij inspanning, orthopneu en dikke enkels. Echo: EF 35%, vergrote LV. Wat is de eersterangbehandeling?',
     a:['Alleen diuretica','ACE-remmer + bètablokker','Digoxine monotherapie','Calciumantagonist'], c:1,
-    ex:'Hartfalen met verminderde EF (HFrEF): ACE-remmer (of ARB/ARNI) + bètablokker verminderen mortaliteit. Diuretica verlichten symptomen. Digoxine alleen bij symptoomcontrole. Spironolacton toevoegen bij aanhoudende klachten.' },
+    ex:'Hartfalen met verminderde EF (HFrEF): ACE-remmer (of ARB/ARNI) + bètablokker verminderen mortaliteit. Diuretica verlichten symptomen. Digoxine alleen bij symptoomcontrole. Spironolacton toevoegen bij aanhoudende klachten.',
+    wiki: {
+      kern: 'Hartfalen met verminderde ejectiefractie (HFrEF, EF <40%) betekent dat het hart niet genoeg kracht heeft om bloed rond te pompen. Gevolg: vocht hoopt op in de longen (orthopneu, nachtelijk hoesten) en de benen (oedeem).',
+      mechanisme: 'Het hart compenseert via het RAAS-systeem (meer zout/water vasthouden) en adrenaline (sneller kloppen). Op korte termijn helpt dit, maar op lange termijn beschadigt het het hart verder — een vicieuze cirkel. ACE-remmers en bètablokkers doorbreken deze cirkel.',
+      onderscheid: 'HFpEF (EF behouden, ≥50%): hart pompt wel krachtig maar is te stijf — vult slecht. Ander mechanisme, minder bewezen medicatie. Acuut longoedeem: levensbedreigende vorm van HFrEF, behandel met zuurstof + furosemide IV + nitroglycerine.',
+      therapie: 'Vierpijlertherapie: (1) ACE-remmer/ARNI, (2) bètablokker, (3) MRA (spironolacton), (4) SGLT2-remmer (bijv. dapagliflozine). Elk van de vier vermindert mortaliteit. Diuretica verlichten klachten maar verlengen leven niet.',
+    } },
 
   { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Bij een STEMI moet PCI (dotterbehandeling) idealiter binnen 90 minuten na eerste medisch contact plaatsvinden.',
@@ -300,7 +312,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'cardio', dl:'Cardiologie',
     q:'Man 35j na griep: scherpe precordiale pijn, erger liggend, beter voorovergebogen. ECG: saddle-shape ST-elevatie in meerdere afleidingen. Diagnose?',
     a:['STEMI','Pericarditis','Longembolie','Aortadissectie'], c:1,
-    ex:'Pericarditis: pleuritische pijn (scherp, houdingsafhankelijk), pericardiaal wrijfgeruis, diffuse saddle-shape ST-elevatie. Oorzaak vaak viraal. Behandeling: ibuprofen + colchicine. Complicatie: pericarditamp.' },
+    ex:'Pericarditis: pleuritische pijn (scherp, houdingsafhankelijk), pericardiaal wrijfgeruis, diffuse saddle-shape ST-elevatie. Oorzaak vaak viraal. Behandeling: ibuprofen + colchicine. Complicatie: pericarditamp.',
+    wiki: {
+      kern: 'Pericarditis is een ontsteking van het hartzakje (pericard). De typische pijn is scherp en pleuritisch: erger bij inademen en platliggen, beter voorovergebogen zitten (vermindert druk op het pericard). Oorzaak is in 80-90% viraal (Coxsackie, EBV, CMV).',
+      mechanisme: 'Ontsteking van het pericard → ruwheid van de gladde perikardiale lagen → wrijfgeruis bij auscultatie (kenmerkend!). Als er vocht accumuleert wordt het geruis zachter maar neemt het risico op tamponnade toe. ECG: saddle-shape ST-elevatie diffuus (niet gelokaliseerd zoals STEMI) + PR-depressie.',
+      onderscheid: 'STEMI: ST-elevatie gelokaliseerd per coronairgebied, reciproke afwijkingen, ernstige pijn met uitstraling, geen houdinssafhankelijkheid. Longembolie: pleuritische pijn + dyspneu, normale of S1Q3T3 op ECG. Myocarditis: ook post-viraal maar troponine sterk verhoogd, pijn minder uitgesproken.',
+      therapie: 'Ibuprofen 600 mg 3x/dag + colchicine 0,5 mg 2x/dag gedurende 3 maanden (voorkomt recidieven). Rust bij actieve pericarditis. Recidief: corticosteroïden als NSAID faalt. Cave: tamponnade → pericardiocentese spoedmatig. Bij bacteriële oorzaak: antibiotica + drainage.',
+    } },
 
   { type:'diagnose', domain:'cardio', dl:'Cardiologie',
     q:'Patiënt met bekende pericarditis: acuut in shock, halsvenen gestuwd, gedempte harttonen. Wat is de diagnose?',
@@ -386,7 +404,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Vrouw 30j: episodisch dubbelzijdige armen en benen zwak, ooghangend (ptosis), erger aan einde van dag. Verbetering na ijs op oog. Diagnose?',
     a:['Multiple sclerose','Myasthenia gravis','Amyotrofische lateraalsclerose','Guillain-Barré'], c:1,
-    ex:'MG: auto-antilichamen tegen acetylcholinereceptor → neuromusculaire transmissie gestoord. Klassiek: vermoeibare zwakte, ptosis, wisselend beloop. IJstest: kou verbetert transmissie tijdelijk. Behandeling: pyridostigmine, immunosuppressie, thymectomie.' },
+    ex:'MG: auto-antilichamen tegen acetylcholinereceptor → neuromusculaire transmissie gestoord. Klassiek: vermoeibare zwakte, ptosis, wisselend beloop. IJstest: kou verbetert transmissie tijdelijk. Behandeling: pyridostigmine, immunosuppressie, thymectomie.',
+    wiki: {
+      kern: 'Myasthenia gravis is een auto-immuunziekte waarbij antilichamen de verbinding tussen zenuw en spier blokkeren. Het kenmerk: spierzwakte die verergert bij gebruik en verbetert na rust. Dit verklaart de typische "einde van de dag"-verslechtering.',
+      mechanisme: 'Antilichamen binden de acetylcholinereceptor (AChR) op de spier → minder receptoren beschikbaar → spiervezels reageren steeds minder op signalen. Bij de ijstest verbetert de AChR-functie tijdelijk omdat kou de antilichaamwerking remt.',
+      onderscheid: 'MS: centraal zenuwstelsel, demyelinisatie, sensibiliteit ook aangedaan. Lambert-Eaton (LEMS): ook neuromusculair, maar zwakte verbetert juist bij herhaald gebruik — vaak paraneoplastisch bij longkanker. ALS: ook motorisch, maar irreversibel en met fasciculaties.',
+      therapie: 'Stap 1: pyridostigmine (anticholinesterase — meer ACh beschikbaar). Stap 2: immunosuppressie (prednisolon, azathioprine). Thymectomie bij thymoom of jonge patiënten. Bij crisis: IVIG of plasmaferese. Vermijd bepaalde antibiotica (aminoglycosiden — verergeren MG).',
+    } },
 
   { type:'truefalse', domain:'neuro', dl:'Neurologie — Waar of Niet?',
     q:'Multiple sclerose tast zowel het centraal als het perifeer zenuwstelsel aan.',
@@ -395,7 +419,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Man 65j: progressief geheugenverlies, persoonlijkheidsverandering, 3 jaar klachten. MRI: diffuse corticale atrofie temporopariëtaal. Diagnose?',
     a:['Vasculaire dementie','Alzheimer','Lewy-body dementie','Frontotemporale dementie'], c:1,
-    ex:'Alzheimer: meest voorkomende dementievorm (60-70%). Pathologie: amyloïd-plaques + tau-neurofibrillaire klitten. Temporopariëtale atrofie op MRI. Vroeg: geheugenproblemen. Later: apraxie, agnosie. Behandeling: cholinesteraseremmers (symptomatisch).' },
+    ex:'Alzheimer: meest voorkomende dementievorm (60-70%). Pathologie: amyloïd-plaques + tau-neurofibrillaire klitten. Temporopariëtale atrofie op MRI. Vroeg: geheugenproblemen. Later: apraxie, agnosie. Behandeling: cholinesteraseremmers (symptomatisch).',
+    wiki: {
+      kern: 'Alzheimer is de meest voorkomende oorzaak van dementie (60-70%). Het begint sluipend met vergeetachtigheid voor recente gebeurtenissen en verloopt progressief over jaren. De hersenen krimpen zichtbaar, vooral in het geheugen- en oriëntatiegebied (temporopariëtaal).',
+      mechanisme: 'Twee eiwitten slaan mis: (1) bèta-amyloïd hoopt op als plaques tussen zenuwcellen en verstoort communicatie, (2) tau-eiwit klontert binnen neuronen als neurofibrillaire klitten. Samen leiden ze tot neuronsterfte. De acetylcholine-aanmaak daalt sterk — vandaar de behandeling.',
+      onderscheid: 'Vasculaire dementie: plots begin of trapsgewijs verloop, cardiovasculaire risicofactoren, witte stof afwijkingen op MRI. Lewy-body dementie: visuele hallucinaties, parkinsonisme, slaap-REM-stoornissen — extreem gevoelig voor antipsychotica. Frontotemporale dementie: jong begin (<65j), persoonlijkheidsverandering vóór geheugenklachten, taaluitval.',
+      therapie: 'Cholinesteraseremmers (donepezil, rivastigmine) verhogen acetylcholine — symptoomverlichting, geen genezing. Memantine (NMDA-remmer) bij matige-ernstige Alzheimer. Nieuw: lecanemab/donanemab (anti-amyloïd antilichamen) vertraagt ziekte bij vroege Alzheimer.',
+    } },
 
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Vrouw 35j: plotse eenzijdige visusdaling, pijn bij oogbewegingen, kleur ziet minder helder. MRI: witte stof afwijking in nervus opticus. Diagnose?',
@@ -419,7 +449,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Man 72j: rusttremor rechterhand, stijfheid, traagheid, kleine pasjes. Diagnose?',
     a:['Essentiële tremor','Parkinson','Multisystematrofie','Huntington'], c:1,
-    ex:'Parkinson: verlies dopaminerge neuronen in substantia nigra. Klassieke triade: rusttremor (pil-draaibewegingen) + rigiditeit + bradykinesie. Asymmetrisch begin. Behandeling: levodopa (meest effectief). Niet-motorische sympt: depressie, reukstoornissen.' },
+    ex:'Parkinson: verlies dopaminerge neuronen in substantia nigra. Klassieke triade: rusttremor (pil-draaibewegingen) + rigiditeit + bradykinesie. Asymmetrisch begin. Behandeling: levodopa (meest effectief). Niet-motorische sympt: depressie, reukstoornissen.',
+    wiki: {
+      kern: 'Parkinson ontstaat door het progressief afsterven van dopamine-producerende neuronen in de substantia nigra (middenhersenen). Dopamine is nodig voor vloeiende, gecoördineerde bewegingen. Als 70-80% verloren is, verschijnen de symptomen.',
+      mechanisme: 'Alfa-synucleine-eiwit klontert samen in Lewy-bodies in de resterende neuronen — dit versnelt de celdood. Waarom dit begint is onduidelijk (genetisch + omgevingsfactoren). De ziekte sluipt: reukproblemen en slaapstoornissen gaan jaren vooraf aan de motorische klachten.',
+      onderscheid: 'Essentiële tremor: tremor bij bewegen (niet in rust), geen rigiditeit/bradykinesie, verbetert met alcohol, familiegeschiedennis. MSA/PSP: Parkinson-plus syndromen, reageren slecht op levodopa, vallen vroeg in het beloop. DLB (Lewy-body dementie): parkinsonisme + dementie + hallucinaties tegelijk.',
+      therapie: 'Levodopa + carbidopa is het meest effectief (converteert naar dopamine in hersenen). Dopamine-agonisten (pramipexol) als alternatief bij jongeren. Later: diepe hersenstimulatie (DBS) bij therapieresistente tremor. Niet-motorisch: antidepressiva, slaapbegeleiding, fysiotherapie.',
+    } },
 
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Vrouw 40j: migraine-aanvallen, nu ook zwakte linkerarm tijdens aanval. Wat is de term hiervoor?',
@@ -452,7 +488,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'neuro', dl:'Neurologie',
     q:'Vrouw 28j: hoofdpijn, koorts 39°C, petechiën op armen en benen, nekstijfheid. Diagnose?',
     a:['Subarachnoïdale bloeding','Meningokokken meningitis/sepsis','Migraine','Herpesencefalitis'], c:1,
-    ex:'Meningokokkenziekte: meningitis + sepsis door Neisseria meningitidis. Petechiën/purpura = vasculitis → dreigend sepsis. SPOED: IV benzylpenicilline of cefotaxim DIRECT. Elke minuut telt. Isolatie en profylaxe contactpersonen.' },
+    ex:'Meningokokkenziekte: meningitis + sepsis door Neisseria meningitidis. Petechiën/purpura = vasculitis → dreigend sepsis. SPOED: IV benzylpenicilline of cefotaxim DIRECT. Elke minuut telt. Isolatie en profylaxe contactpersonen.',
+    wiki: {
+      kern: 'Meningokokkenziekte is een medische spoedsituatie. Neisseria meningitidis kan zowel meningitis als fulminante sepsis veroorzaken — soms allebei tegelijk. Het ziektebeloop kan binnen uren van koorts naar septische shock gaan. Petechiën zijn het alarmsignaal: tik op de huid — verbleken ze niet, dan is het purpura door vasculitis.',
+      mechanisme: 'N. meningitidis koloniseert de nasofarynx (asymptomatisch bij 10% van de bevolking). Bij invasie in de bloedbaan: endotoxine-storm → activatie complementsysteem en stollingscascade → DIC → petechiën en purpura. In de hersenvliezen: ontsteking → drukverhoging → hersenletsel.',
+      onderscheid: 'Virale meningitis: minder acuut, geen petechiën, liquor helder met lymfocyten, normaal glucose. SAB: thunderclap hoofdpijn, geen koorts/petechiën, CT of LP bewijzend. HSV-encefalitis: bewustzijnsdaling + temporale afwijkingen op MRI, behandel met aciclovir. Sepsis andere oorzaak: petechiën minder uitgesproken.',
+      therapie: 'Geen minuut verliezen: benzylpenicilline IV of cefotaxim/ceftriaxon IV direct. Dexamethason 15-30 min voor of gelijktijdig met antibiotica (vermindert gehoorschade en neurologische schade). Isolatie (druppelvoorzorgen 24u na start AB). Rifampicine-profylaxe voor huisgenoten.',
+    } },
 
   // ── Farmacologie (nieuw) ──
   { type:'pharma', domain:'pharma', dl:'Farmacologie',
@@ -561,7 +603,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'infectio', dl:'Infectiologie',
     q:'Patiënt met HIV, CD4 50 cellen/μL: hoest, koorts, nachtelijk zweten. Röntgen thorax: bilaterale perihilaire infiltraten. Diagnose?',
     a:['Bacteriële pneumonie','Pneumocystis jirovecii pneumonie (PCP)','Tuberculose','Longkanker'], c:1,
-    ex:'PCP: meest voorkomende opportunistische infectie bij HIV met CD4 <200. Kenmerk: bilaterale interstitiële infiltraten, hoge LDH, subacuut beloop. Behandeling: cotrimoxazol hoge dosis. Profylaxe bij CD4 <200. LDH-verhoging is kenmerkend.' },
+    ex:'PCP: meest voorkomende opportunistische infectie bij HIV met CD4 <200. Kenmerk: bilaterale interstitiële infiltraten, hoge LDH, subacuut beloop. Behandeling: cotrimoxazol hoge dosis. Profylaxe bij CD4 <200. LDH-verhoging is kenmerkend.',
+    wiki: {
+      kern: 'Pneumocystis jirovecii is een schimmel die bij gezonde mensen geen enkel probleem geeft — het immuunsysteem ruimt het op. Maar bij ernstige immuunsuppressie (HIV met CD4 <200, transplantatiepatiënten, hoge-dosis steroïden) kan het een levensbedreigende longontsteking veroorzaken.',
+      mechanisme: 'P. jirovecii hecht zich aan longblaasjes (alveoli) en veroorzaakt een interstitiële ontsteking — de ruimte tússen de cellen raakt ontstoken en vult zich met slijm. Dit geeft een diffuus patroon op CT (ground-glass opacities) en een hoog LDH (weefselschade). O₂-saturatie daalt ernstig bij inspanning.',
+      onderscheid: 'Bacteriële pneumonie: acuut begin, productieve hoest, lobaire infiltraten. CMV-pneumonie: ook bij CD4 <50, maar andere CT-kenmerken en diagnose via BAL. TBC: apicale cavitaties, lymfadenopathie, langzamer beloop. KS-longbetrokkenheid: Kaposi — huidlaesies aanwezig.',
+      therapie: 'Hoge-dosis cotrimoxazol (TMP-SMX) IV gedurende 21 dagen. Bij matige-ernstige PCP (pO₂ <70 mmHg): voeg prednison toe (vermindert inflammatie en mortaliteit). Profylaxe: cotrimoxazol laag-dosis als CD4 <200 — ook bij andere immuunsuppressie.',
+    } },
 
   { type:'diagnose', domain:'infectio', dl:'Infectiologie',
     q:'Man 52j terugkomend uit Afrika: koorts met perioden van rillingen, milt vergroot. Bloeduitstrijk: intraerytrocytaire parasiet. Diagnose?',
@@ -589,7 +637,13 @@ const QUESTIONS = [
   { type:'diagnose', domain:'infectio', dl:'Infectiologie',
     q:'Man 42j: aanhoudende hoest >3 weken, nachtzweten, gewichtsverlies, hemoptoe. Immuuncompetent. Röntgen: apicale cavitaties. Diagnose?',
     a:['Longkanker','Tuberculose','Sarcoidose','Longabces door aspiratie'], c:1,
-    ex:'TBC: Mycobacterium tuberculosis. Klassiek: langdurige hoest, nachtzweten, gewichtsverlies, hemoptoe, apicale cavitaties. Diagnose: sputumkweek (Ziehl-Neelsen), GeneXpert. Isolatie vereist. Behandeling: RIPE (rifampicine + isoniazide + pyrazinamide + ethambutol) 6 maanden.' },
+    ex:'TBC: Mycobacterium tuberculosis. Klassiek: langdurige hoest, nachtzweten, gewichtsverlies, hemoptoe, apicale cavitaties. Diagnose: sputumkweek (Ziehl-Neelsen), GeneXpert. Isolatie vereist. Behandeling: RIPE (rifampicine + isoniazide + pyrazinamide + ethambutol) 6 maanden.',
+    wiki: {
+      kern: 'Tuberculose wordt veroorzaakt door Mycobacterium tuberculosis, overgedragen via druppelinfectie. Bij 90% van de besmettingen blijft de infectie latent (immuunsysteem houd het in bedwang). Actieve TBC ontstaat bij immuunsuppressie, ondervoeding of hoge bacteriële belasting.',
+      mechanisme: 'De bacterie overleeft in macrofagen door de fagosoom-lysosoom-fusie te blokkeren. Het immuunsysteem vormt granulomen (kleine knobbeljes) om de bacteriën in te kapselen. Bij reactivatie breken granulomen open → longweefsel wordt vernietigd → cavitaties (holten) zichtbaar op röntgen.',
+      onderscheid: 'Longkanker: ook gewichtsverlies/hemoptoe maar doorgaans geen koorts/nachtelijk zweten; ouder, roker. Sarcoidose: ook granulomen, maar geen infectie — bilaterale hilus-vergroting, jongere patiënten, positieve ACE. NTM (niet-tuberculeuze mycobacteriën): vergelijkbaar beeld bij immuungecompromitteerden, ander behandelprotocol.',
+      therapie: 'RIPE-schema 6 maanden: Rifampicine + Isoniazide + Pyrazinamide + Ethambutol (2 maanden) → daarna alleen RI (4 maanden). Isolatie bij open TBC (aerosol-voorzorgsmaatregelen). Latente TBC: isoniazide profylaxe 6 maanden. Resistente TBC (MDR-TBC): tweede-lijns middelen, minstens 18 maanden.',
+    } },
 
   { type:'diagnose', domain:'infectio', dl:'Infectiologie',
     q:'Vrouw na vaginale partus: koorts dag 2, baarmoeder drukpijnlijk, foetor. Diagnose?',
@@ -632,7 +686,13 @@ const QUESTIONS = [
   { type:'lab', domain:'lab', dl:'Laboratorium',
     q:'Man 55j: Na 128 mmol/L, osmolaliteit laag, urine-Na >20. Geen oedeem. TSH en cortisol normaal. Diagnose?',
     a:['Psychogeen polydipsie','SIADH','Bijnierinsufficiëntie','Hypothyreoïdie'], c:1,
-    ex:'SIADH: inadequate ADH-secretie → waterretentie → dilutie-hyponatriëmie. Kenmerk: euvoleem + lage osmolaliteit + urine-Na >20 + urine osmolaliteit >serum osmolaliteit. Oorzaken: maligniteit (kleincellig longcarcinoom!), SSRIs, carbamazepine. Behandeling: vochtbeperking.' },
+    ex:'SIADH: inadequate ADH-secretie → waterretentie → dilutie-hyponatriëmie. Kenmerk: euvoleem + lage osmolaliteit + urine-Na >20 + urine osmolaliteit >serum osmolaliteit. Oorzaken: maligniteit (kleincellig longcarcinoom!), SSRIs, carbamazepine. Behandeling: vochtbeperking.',
+    wiki: {
+      kern: 'SIADH betekent dat het lichaam te veel ADH aanmaakt (of ectopisch produceert), waardoor het te veel water vasthoudt. Het bloed wordt als het ware verdund → natrium daalt. Kenmerkend: de patiënt is niet oedemateus (euvoleem) — er is geen zout-tekort, alleen wateroverschot.',
+      mechanisme: 'ADH (vasopressine) geeft normaal het signaal aan de nieren om water terug te nemen bij uitdroging. Bij SIADH gebeurt dit ongepast — ook zonder dat het lichaam uitgedroogd is. Oorzaken: longtumoren (kleincellig longcarcinoom produceert zelf ADH), hersenpathologie, SSRIs, carbamazepine.',
+      onderscheid: 'Bijnierinsufficiëntie: ook hyponatriëmie maar met lage bloeddruk, hyperkaliëmie en laag cortisol. Hypothyreoïdie: ook hyponatriëmie, maar TSH hoog. Psychogeen polydipsie: zeer laag urine-natrium en urine-osmolaliteit (sterk verdunde urine) — urine-Na <20. Hartfalen/cirrose: hypovoleem of oedemateus, niet euvoleem.',
+      therapie: 'Mild: vochtbeperking (800-1000 ml/dag). Acuut symptomatisch (convulsies, bewustzijnsdaling): hypertoon NaCl 3% voorzichtig — maximaal 8-10 mmol/dag stijging om osmotische demyelinisatie te voorkomen. Chronisch: tolvaptan (V2-receptorantagonist) bij refractaire SIADH.',
+    } },
 
   { type:'truefalse', domain:'lab', dl:'Laboratorium — Waar of Niet?',
     q:'Een verhoogd D-dimeer bewijst dat er een longembolie aanwezig is.',
@@ -655,7 +715,13 @@ const QUESTIONS = [
   { type:'lab', domain:'lab', dl:'Laboratorium',
     q:'Man 48j: glucosewaarde nuchter 7.2 mmol/L twee keer gemeten. Diagnose?',
     a:['Normale bloedsuiker','Gestoorde nuchtere glykemie','Diabetes mellitus type 2','Pre-diabetes borderline'], c:2,
-    ex:'DM2-diagnose: nuchter glucose ≥7.0 mmol/L op 2 aparte momenten, OF HbA1c ≥48 mmol/mol (6.5%), OF glucosetolerantietest 2u ≥11.1, OF willekeurig glucose ≥11.1 + symptomen. Hier: 7.2 ≥ 7.0 = diabetes.' },
+    ex:'DM2-diagnose: nuchter glucose ≥7.0 mmol/L op 2 aparte momenten, OF HbA1c ≥48 mmol/mol (6.5%), OF glucosetolerantietest 2u ≥11.1, OF willekeurig glucose ≥11.1 + symptomen. Hier: 7.2 ≥ 7.0 = diabetes.',
+    wiki: {
+      kern: 'Diabetes mellitus type 2 is een combinatie van insulineresistentie (cellen reageren minder op insuline) en relatief tekort aan insulineproductie. Het glucose blijft hoog in het bloed omdat het niet de cellen in kan. Begint sluipend, vaak jaren onopgemerkt.',
+      mechanisme: 'Overgewicht → vetcellen produceren ontstekingsstoffen → insulinereceptoren worden minder gevoelig → alvleesklier compenseert met meer insuline → uitputting van bètacellen → insulinedeficiëntie. Chronisch hoog glucose beschadigt bloedvaten en zenuwen (microangiopathie).',
+      onderscheid: 'DM1: auto-immuun, destrucctie bètacellen, jong begin, snel keton-acidose, altijd insuline nodig. MODY: monogene aandoening, familiair, jong begin zonder overgewicht. LADA: langzaam progressief auto-immuun (late-onset DM1), foutief gediagnosticeerd als DM2.',
+      therapie: 'Stap 1: leefstijl (afvallen, beweging) + metformine. Stap 2: toevoegen SGLT2-remmer (cardiovasculair voordeel) of GLP-1 agonist. Stap 3: insuline. Streef HbA1c <53 mmol/mol (7%). Metformine stoppen bij eGFR <30 (lactaatacidoserisico).',
+    } },
 
   { type:'lab', domain:'lab', dl:'Laboratorium',
     q:'Welke bloedwaarde is de beste maat voor langdurige glucoseregulatie bij diabetes?',
