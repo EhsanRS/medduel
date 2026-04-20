@@ -23,7 +23,7 @@ function renderHomeScreen() {
     <div id="home" class="screen active">
 
         <div class="home-top">
-          <div class="logo-eyebrow fade-in">medische trivia</div>
+          <div class="logo-eyebrow fade-in">${getGreeting() || 'medische trivia'}</div>
           <h1 class="logo fade-in-1">Med<em>Duel</em></h1>
           <p class="tagline fade-in-2">Test je kennis. Versla anderen. Word beter.</p>
         </div>
@@ -126,4 +126,8 @@ function renderHomeScreen() {
 }
 
 // ── Init ──
-showHome();
+if (isOnboarded()) {
+  showHome();
+} else {
+  startOnboarding();
+}
