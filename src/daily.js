@@ -73,7 +73,7 @@ function startDaily() {
     locked: false, active: true,
     nextQTimer: null, waitingForModal: false,
     dotStates: Array(10).fill('pending'),
-    answers: [],
+    answers: [], domainStatsByKey: {},
   };
 
   renderDailyGame();
@@ -211,10 +211,14 @@ function dcProcess(ok, q) {
   DC.answers.push(ok);
   DC.answered++;
 
+  if (!DC.domainStatsByKey[q.domain]) DC.domainStatsByKey[q.domain] = { c: 0, t: 0 };
+  DC.domainStatsByKey[q.domain].t++;
+
   if (ok) {
     DC.correct++;
     DC.streak++;
     DC.maxStreak = Math.max(DC.maxStreak, DC.streak);
+    DC.domainStatsByKey[q.domain].c++;
     const bonus = DC.streak >= 5 ? 30 : DC.streak >= 3 ? 20 : 10;
     DC.score += bonus;
     dcUpdateDot(dotIdx, 'done');
@@ -253,6 +257,7 @@ function dcEnd() {
     best: Math.max(loadStats().best || 0, DC.score),
     dayStreak,
   });
+  mergeDomainStats(DC.domainStatsByKey || {});
 
   renderDailyDone(rec);
   showScreen('daily-done');

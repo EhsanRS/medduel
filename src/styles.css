@@ -1347,3 +1347,33 @@ h1.logo em {
 .lm-domain-btn:hover  { border-color: var(--blue); background: var(--blue-light); }
 .lm-domain-btn.active { border-color: var(--blue); background: var(--blue-light); color: var(--blue); }
 .lm-domain-icon { font-size: 20px; }
+
+/* Domain stats op home */
+#domainStatsWrap { margin-top: 0.5rem; }
+.domain-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+}
+.domain-stat-icon { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+.domain-stat-info { flex: 1; }
+.domain-stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.domain-stat-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+.domain-stat-pct   { font-size: 13px; font-weight: 700; font-family: 'Fraunces', serif; }
+.domain-stat-bar-bg {
+  height: 6px;
+  background: var(--cream-dark);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.domain-stat-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}

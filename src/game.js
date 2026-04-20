@@ -45,7 +45,7 @@ function startGame(mode) {
     lives: 3, timeLeft: 60,
     timer: null, nextQTimer: null, locked: false, active: true,
     timerPaused: false, waitingForModal: false, pendingEndGame: false,
-    domainStats: {}, wrongAnswers: [],
+    domainStats: {}, domainStatsByKey: {}, wrongAnswers: [],
     dotStates: mode === 'classic' ? Array(10).fill('pending') : null,
   };
 
@@ -168,6 +168,8 @@ function loadQ() {
 
   if (!G.domainStats[q.dl]) G.domainStats[q.dl] = { c: 0, t: 0 };
   G.domainStats[q.dl].t++;
+  if (!G.domainStatsByKey[q.domain]) G.domainStatsByKey[q.domain] = { c: 0, t: 0 };
+  G.domainStatsByKey[q.domain].t++;
 
   if (G.mode === 'classic') updateDot(G.answered, 'current');
 
@@ -245,6 +247,7 @@ function processAnswer(ok, q) {
     G.streak++;
     G.maxStreak = Math.max(G.maxStreak, G.streak);
     G.domainStats[q.dl].c++;
+    G.domainStatsByKey[q.domain].c++;
     const bonus = G.streak >= 5 ? 30 : G.streak >= 3 ? 20 : 10;
     G.score += bonus;
     if (G.mode === 'classic') updateDot(dotIdx, 'done');
@@ -297,6 +300,7 @@ function endGame() {
     played: (loadStats().played || 0) + 1,
     best:   Math.max(loadStats().best || 0, G.score),
   });
+  mergeDomainStats(G.domainStatsByKey || {});
 
   renderResultsScreen(acc);
   showScreen('results');

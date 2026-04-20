@@ -109,6 +109,8 @@ function renderHomeScreen() {
           <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
         </div>
 
+        <div id="domainStatsWrap" class="fade-in-5" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
+
     </div>`;
 }
 

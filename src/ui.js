@@ -234,6 +234,62 @@ function loadHomeStats() {
     const n = loadFavourites().length;
     sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
   }
+  renderDomainStatsHome();
+}
+
+// ── Domein statistieken ──
+const DOMAIN_META = [
+  { key: 'cardio',   label: 'Cardiologie',   icon: '🫀' },
+  { key: 'neuro',    label: 'Neurologie',     icon: '🧠' },
+  { key: 'pharma',   label: 'Farmacologie',   icon: '💊' },
+  { key: 'infectio', label: 'Infectiologie',  icon: '🦠' },
+  { key: 'lab',      label: 'Laboratorium',   icon: '🧪' },
+];
+
+function loadDomainStats() {
+  try { return JSON.parse(localStorage.getItem('md_domain_stats') || '{}'); } catch { return {}; }
+}
+
+function mergeDomainStats(patch) {
+  try {
+    const s = loadDomainStats();
+    for (const [domain, { c, t }] of Object.entries(patch)) {
+      if (!s[domain]) s[domain] = { c: 0, t: 0 };
+      s[domain].c += c;
+      s[domain].t += t;
+    }
+    localStorage.setItem('md_domain_stats', JSON.stringify(s));
+  } catch {}
+}
+
+function renderDomainStatsHome() {
+  const wrap = document.getElementById('domainStatsWrap');
+  if (!wrap) return;
+  const s = loadDomainStats();
+  const hasAny = Object.values(s).some(d => d.t > 0);
+  if (!hasAny) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+  const rows = DOMAIN_META
+    .filter(({ key }) => s[key] && s[key].t > 0)
+    .map(({ key, label, icon }) => {
+      const d = s[key];
+      const pct = Math.round(d.c / d.t * 100);
+      const color = pct >= 80 ? 'var(--green)' : pct >= 60 ? 'var(--amber)' : 'var(--pulse)';
+      return `
+        <div class="domain-stat-row">
+          <span class="domain-stat-icon">${icon}</span>
+          <div class="domain-stat-info">
+            <div class="domain-stat-top">
+              <span class="domain-stat-label">${label}</span>
+              <span class="domain-stat-pct" style="color:${color}">${pct}%</span>
+            </div>
+            <div class="domain-stat-bar-bg">
+              <div class="domain-stat-bar-fill" style="width:${pct}%;background:${color}"></div>
+            </div>
+          </div>
+        </div>`;
+    });
+  wrap.innerHTML = `<div class="section-label">Jouw score per domein</div>` + rows.join('');
 }
 
 // ── Helpers ──

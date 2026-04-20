@@ -13,6 +13,7 @@ function startLearn(domain) {
     queue: pool,
     idx: 0,
     correct: 0, wrong: 0,
+    domainStatsByKey: {},
     wrongQueue: [],
     phase: 'learn', // 'learn' | 'repeat' | 'done'
     answered: false,
@@ -137,7 +138,10 @@ function lmAnswerTF(val, btn) {
 
 function lmReveal(ok, q) {
   LM.answered = true;
-  if (ok) LM.correct++; else { LM.wrong++; if (LM.phase === 'learn') LM.wrongQueue.push(q); }
+  if (!LM.domainStatsByKey[q.domain]) LM.domainStatsByKey[q.domain] = { c: 0, t: 0 };
+  LM.domainStatsByKey[q.domain].t++;
+  if (ok) { LM.correct++; LM.domainStatsByKey[q.domain].c++; }
+  else { LM.wrong++; if (LM.phase === 'learn') LM.wrongQueue.push(q); }
 
   const expl = document.getElementById('lm-expl');
   const next = document.getElementById('lm-next');
@@ -170,6 +174,7 @@ function lmShowRepeatIntro() {
 }
 
 function lmEnd() {
+  mergeDomainStats(LM.domainStatsByKey || {});
   const total = LM.correct + LM.wrong;
   const acc = total ? Math.round(LM.correct / total * 100) : 100;
   const [, gl, gc] = gradeFromPct(acc);
