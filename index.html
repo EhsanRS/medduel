@@ -46,6 +46,26 @@
     </div>
   </div>
 
+  <!-- Theorie-modal (bottom sheet, always present) -->
+  <div class="theory-overlay" id="theoryOverlay">
+    <div class="theory-backdrop" onclick="closeTheory()"></div>
+    <div class="theory-sheet">
+      <div class="theory-handle"></div>
+      <div class="theory-header">
+        <div class="theory-header-left">
+          <span class="theory-icon-wrap" id="theoryIcon">📖</span>
+          <div>
+            <div class="theory-eyebrow">Theorieboek</div>
+            <div class="theory-title" id="theoryTitle">Titel</div>
+            <div class="theory-subtitle" id="theorySubtitle"></div>
+          </div>
+        </div>
+        <button class="theory-close-btn" onclick="closeTheory()">✕</button>
+      </div>
+      <div class="theory-body" id="theoryBody"></div>
+    </div>
+  </div>
+
   <div class="combo-burst" id="comboBurst">
     <div class="combo-num" id="comboNum"></div>
     <div class="combo-label" id="comboLabel"></div>
@@ -64,6 +84,7 @@
   <script src="src/learn.js"></script>
   <script src="src/weak.js"></script>
   <script src="src/onboarding.js"></script>
+  <script src="src/theory.js"></script>
   <script src="src/router.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

@@ -1572,3 +1572,245 @@ h1.logo em {
   padding: 2px 8px;
   margin-bottom: 0.75rem;
 }
+
+/* ── Theorie-modal ── */
+.theory-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  visibility: hidden;
+  pointer-events: none;
+}
+.theory-overlay.open {
+  visibility: visible;
+  pointer-events: all;
+}
+.theory-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s;
+}
+.theory-overlay.open .theory-backdrop {
+  background: rgba(0,0,0,0.45);
+}
+.theory-sheet {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  max-height: 93vh;
+  background: var(--cream);
+  border-radius: 28px 28px 0 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.theory-overlay.open .theory-sheet {
+  transform: translateY(0);
+}
+.theory-handle {
+  width: 40px; height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+.theory-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 1;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.theory-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.theory-icon-wrap {
+  font-size: 30px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.theory-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pulse);
+  margin-bottom: 2px;
+}
+.theory-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.theory-subtitle {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 3px;
+}
+.theory-close-btn {
+  background: #e5e0d8;
+  border: none;
+  border-radius: 50%;
+  width: 34px; height: 34px;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.theory-body {
+  padding: 20px 20px 48px;
+}
+
+/* Theorie-body content blocks */
+.th-intro p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+.th-section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 24px 0 12px;
+}
+.th-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.th-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -4px;
+  border-radius: 14px;
+}
+.th-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 300px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.th-table th {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.th-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  vertical-align: top;
+  line-height: 1.45;
+  color: var(--ink-mid);
+}
+.th-table tr:last-child td { border-bottom: none; }
+.th-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+.th-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.th-steps { display: flex; flex-direction: column; gap: 10px; }
+.th-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+.th-step strong { color: var(--ink); }
+.th-step-num {
+  background: var(--pulse);
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.th-pearl {
+  background: white;
+  border-left: 3px solid var(--amber);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin-bottom: 10px;
+}
+.th-pearl strong { color: var(--ink); }
+.th-figure {
+  background: white;
+  border-radius: 16px;
+  padding: 16px 12px 10px;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+.th-figure-caption {
+  font-size: 11px;
+  color: var(--ink-light);
+  margin-top: 8px;
+}
+
+/* Theory button inside fact modal */
+.fact-theory-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,65,10,0.07);
+  color: var(--pulse);
+  border: 1.5px solid rgba(232,65,10,0.2);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+}
+.fact-theory-btn:active { background: rgba(232,65,10,0.15); }
+
+/* Theorieboek home grid */
+.th-home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+.th-home-pill {
+  background: white;
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.th-home-pill:active { background: var(--cream-dark); }
+.th-home-emoji { font-size: 22px; }
+.th-home-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}

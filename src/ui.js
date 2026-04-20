@@ -76,6 +76,12 @@ function openFactModal() {
     exEl.className = 'fact-explanation';
     exEl.textContent = currentFact.ex || '';
   }
+  // Theory link
+  const theoryId = typeof getRelatedTheory === 'function' ? getRelatedTheory(currentFact) : null;
+  if (theoryId && THEORY_TOPICS[theoryId]) {
+    const t = THEORY_TOPICS[theoryId];
+    exEl.innerHTML += `<button class="fact-theory-btn" onclick="openTheory('${theoryId}')">📖 Bekijk theorie: ${t.title} →</button>`;
+  }
   updateStarBtn();
   document.getElementById('factModal').classList.add('open');
 }

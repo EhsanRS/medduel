@@ -122,6 +122,15 @@ function renderHomeScreen() {
 
         <div id="domainStatsWrap" class="fade-in-5" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
 
+        <div class="section-label fade-in-5">Theorieboek</div>
+        <div class="th-home-grid fade-in-5">
+          <div class="th-home-pill" onclick="openTheory('dementie')"><span class="th-home-emoji">🧠</span><span class="th-home-name">Dementie­syndromen</span></div>
+          <div class="th-home-pill" onclick="openTheory('ecg')"><span class="th-home-emoji">📊</span><span class="th-home-name">ECG Basis</span></div>
+          <div class="th-home-pill" onclick="openTheory('anemie')"><span class="th-home-emoji">🩸</span><span class="th-home-name">Anemie</span></div>
+          <div class="th-home-pill" onclick="openTheory('meningitis')"><span class="th-home-emoji">🔬</span><span class="th-home-name">Meningitis & LP</span></div>
+          <div class="th-home-pill" onclick="openTheory('hartfalen')"><span class="th-home-emoji">❤️</span><span class="th-home-name">Hartfalen</span></div>
+        </div>
+
     </div>`;
 }
 
