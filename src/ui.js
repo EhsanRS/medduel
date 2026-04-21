@@ -453,12 +453,11 @@ function formatQ(str) {
   if (!str.includes('\n')) return escHtml(str);
   const lines = str.split('\n');
   const last  = lines.length - 1;
-  return lines.map((line, i) => {
-    const esc = escHtml(line);
-    if (i === 0)    return `<span class="fq-intro">${esc}</span>`;
-    if (i === last) return `<span class="fq-q">${esc}</span>`;
-    return `<span class="fq-item">${esc}</span>`;
-  }).join('');
+  const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
+  const items = lines.slice(1, last).map(l => `<span class="fq-item">${escHtml(l)}</span>`).join('');
+  const data  = `<div class="fq-data">${items}</div>`;
+  const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
+  return intro + data + q;
 }
 
 function gradeFromPct(pct) {

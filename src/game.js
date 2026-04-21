@@ -218,7 +218,7 @@ function loadQ() {
 
   const domain = document.getElementById('qDomain');
   const qtext  = document.getElementById('qText');
-  if (domain) domain.textContent = q.dl;
+  if (domain) domain.textContent = q.type === 'lab' ? '' : q.dl;
   if (qtext)  qtext.innerHTML = formatQ(q.q);
   const diff = document.getElementById('qDifficulty');
   if (diff) diff.innerHTML = diffStars(q.d);

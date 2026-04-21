@@ -100,7 +100,7 @@ function lmLoadQ() {
         <div class="q-type-tag ${typeCls}">${typeLabel}</div>
         <div class="q-difficulty">${diffStars(q.d)}</div>
       </div>
-      <div class="q-domain">${q.dl}</div>
+      <div class="q-domain">${q.type === 'lab' ? '' : q.dl}</div>
       <div class="q-text lm-q-text">${formatQ(q.q)}</div>
     </div>
     <div class="answers-wrap" id="lm-answers">${answersHTML}</div>

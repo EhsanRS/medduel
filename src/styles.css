@@ -397,24 +397,30 @@ h1.logo em {
 .fq-intro {
   display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--ink-mid);
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.45rem;
+}
+.fq-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 0.7rem;
 }
 .fq-item {
-  display: inline-block;
   background: rgba(26,20,16,0.06);
-  border-radius: 6px;
-  padding: 3px 9px;
+  border-radius: 8px;
+  padding: 4px 10px;
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
-  margin: 2px 4px 2px 0;
   color: var(--ink);
+  line-height: 1.4;
 }
 .fq-q {
   display: block;
-  margin-top: 0.65rem;
 }
 
 /* Answer buttons */
