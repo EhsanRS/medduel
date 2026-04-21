@@ -83,7 +83,7 @@ const DOSSIER_CASES = [
     options: ['Ischemisch CVA', 'Subduraal hematoom', 'Hersentumor', 'Epiduraal hematoom'],
     correct: 1,
     explanation: 'Een chronisch subduraal hematoom is een sluipende diagnose: door de langzame veneuze bloeding (bridging veins) bouwt de druk weken op voor er symptomen zijn — het klassieke "lucide interval" na het trauma.\n\nDe combinatie van anticoagulantia (INR 3.8!) en val 3 weken geleden verklaart alles: zelfs een gering trauma kan bij supratherapeutische INR leiden tot een niet-stoppende veneuze bloeding. De progressieve deterioratie (cognitief → focale uitval → midlijnverschuiving) volgt de toenemende herniadruk.\n\nCT-kenmerken: crescent-vormig (volgt de hersenvorm), hypodense massa bij chronisch beloop (>3 weken: bloed wordt afgebroken). Dit onderscheidt het van epiduraal hematoom (biconvex/lensvorming, arterieel, acuut) en ischemisch CVA (plotseling begin, geen bloeding, geen trauma-anamnese).\n\nBeleid: INR corrigeren (vitamine K + PCC), neurochirurgisch consult voor drainageoverweging.',
-  },,
+  },
 
   {
     id: 'c6',
@@ -169,5 +169,22 @@ const DOSSIER_CASES = [
     correct: 2,
     explanation: 'De petechiale huidafwijkingen zijn het cruciale klinische signaal: niet-wegdrukbaar purpura bij een zieke jongvolwassene = meningokokkensepsis tot het tegendeel bewezen. Direct ceftriaxon (2g iv) + dexamethason starten — niet wachten op LP als patiënt hemodynamisch instabiel is of CT vertraagd.\n\nLP-criteria voor bacterieel: troebel, PMN-pleocytose, glucose/plasmabloed-verhouding <40% (hier 1.7/5.4 = 31%), eiwit >1 g/L (hier 4.6), positieve Gram-kleuring. Gramnegatieve diplokokken = N. meningitidis, groepen B en C meest frequent op studentenhuizen.\n\nDexamethason vóór of gelijktijdig met antibiotica: vermindert TNF-gemedieerde inflammatie → minder kans op gehoorverlies als sequelaé (met name S. pneumoniae, maar ook bewezen bij N. meningitidis).\n\nWaarom niet de anderen? Virale meningitis: helder vocht, lymfocytose, normaal glucose. SAB: donderslag-hoofdpijn, geen koorts, helder bloedrood vocht. HSV-encefalitis: temporale lokalisatie, focale uitval, MRI-afwijkingen, andere LP-uitslag.',
   },
+
+  {
+    id: 'c11',
+    patient: 'Patiënt K — Man, 70 jaar',
+    diagnosis: 'Prerenaal acuut nierfalen',
+    clues: [
+      { label: 'Reden van komst',      text: 'Verminderde urineproductie, moeheid en lichte kortademigheid. Al 2 dagen weinig gedronken.' },
+      { label: 'Voorgeschiedenis',      text: 'DM type 2, hypertensie. Medicatie: diclofenac (kniepijn), lisinopril, hydrochloorthiazide.' },
+      { label: 'Vitale functies',       text: 'BD 102/65 mmHg, HF 96/min, SpO2 97%, T 37.0 graden. Gewicht 2 kg minder dan 2 weken geleden.' },
+      { label: 'Lichamelijk onderzoek', text: 'Droge slijmvliezen, verminderde huidturgor. Geen JVD. Geen oedeem.' },
+      { label: 'Lab',                   text: 'Kreatinine 468 umol/L (was 96 drie weken geleden). Ureum 22. K+ 5.9. HCO3- 17. Urine-Na 6 mmol/L, urine-osmolaliteit 710 mosm/kg, FeNa 0.4%.' },
+      { label: 'Echo nieren',           text: 'Normale niergrootte. Geen hydronefrose, geen obstructie.' },
+    ],
+    options: ['Renaal AKI (acute tubulaire necrose)', 'Prerenaal AKI door dehydratie + nefrotoxica', 'Postrenaal AKI (urineweg-obstructie)', 'Chronische nierziekte exacerbatie'],
+    correct: 1,
+    explanation: 'Prerenaal AKI: de tubuli functioneren nog normaal en proberen maximaal te compenseren. Intacte tubuli reabsorberen zoveel mogelijk Na (urine-Na laag: 6 mmol/L, FeNa <1%) en concentreren de urine maximaal (osmolaliteit 710 mosm/kg). Dit is het tegenovergestelde van ATN, waarbij beschadigde tubuli dit niet meer kunnen (urine-Na >40, FeNa >2%, isostenurie).\n\nDe drie oorzaken werkten hier samen: (1) Dehydratie (verminderde inname, thiazide). (2) NSAID (diclofenac) blokkeert prostaglandines die normaal de afferente arteriool dilateren bij hypovolemie. (3) ACE-remmer (lisinopril) blokkeert efferente arteriolencontractie. Samen => kno-effect => glomerulaire filtratiedruk daalt => AKI.\n\nBeleid: NSAID en ACE-remmer staken, IV vochtresuscitatie, elektrolyten corrigeren (K+ 5.9 monitoren), dagelijks kreatinine.\n\nWaarom niet de anderen? ATN: FeNa >2%, granulaircilinders in sediment. Postrenaal: hydronefrose op echo. CKD: kreatinine 96 was recent normaal, te acuut.',
+  }
 
 ];
