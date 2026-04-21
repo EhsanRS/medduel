@@ -241,12 +241,28 @@ function saveStats(patch) {
 
 function loadHomeStats() {
   const s = loadStats();
-  const played = document.getElementById('home-played');
-  const best   = document.getElementById('home-best');
-  const streak = document.getElementById('home-streak');
-  if (played) played.textContent = s.played || 0;
-  if (best)   best.textContent   = s.best   || '—';
-  if (streak) streak.textContent = (s.dayStreak || 0) + '🔥';
+
+  function countUp(el, target, suffix) {
+    if (!el) return;
+    const n = parseInt(target, 10);
+    const suf = suffix || '';
+    if (isNaN(n) || n === 0) { el.textContent = (isNaN(n) ? target : 0) + suf; return; }
+    const dur = 600, t0 = performance.now();
+    const step = now => {
+      const prog = Math.min((now - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - prog, 3);
+      el.textContent = Math.round(ease * n) + (prog >= 1 ? suf : '');
+      if (prog < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  countUp(document.getElementById('home-played'), s.played || 0);
+  const bestEl = document.getElementById('home-best');
+  if (bestEl) bestEl.textContent = s.best || '—';
+  countUp(document.getElementById('home-streak'), s.dayStreak || 0, '🔥');
+  countUp(document.getElementById('heroStreak'),  s.dayStreak || 0, '🔥');
+
   const sub = document.getElementById('favHomeSub');
   if (sub) {
     const n = loadFavourites().length;

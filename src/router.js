@@ -21,122 +21,168 @@ function showHome() {
 function renderHomeScreen() {
   document.getElementById('app').innerHTML = `
     <div id="home" class="screen active">
-
-        <div class="home-top">
-          <div class="logo-eyebrow fade-in">${getGreeting() || 'medische trivia'}</div>
-          <h1 class="logo fade-in-1">Med<em>Duel</em></h1>
-          <p class="tagline fade-in-2">Test je kennis. Versla anderen. Word beter.</p>
-        </div>
-
-        <div id="xpWrap" class="fade-in-2"></div>
-
-        <div class="stats-strip fade-in-3">
-          <div class="stat-item">
-            <span class="stat-num" id="home-played">0</span>
-            <span class="stat-lbl">Gespeeld</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="home-best">—</span>
-            <span class="stat-lbl">Record</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="home-streak">0🔥</span>
-            <span class="stat-lbl">Streak</span>
-          </div>
-        </div>
-
-        <div class="section-label fade-in-3">Vandaag</div>
-        ${renderDailyHomeCard()}
-
-        <div class="section-label fade-in-4">Kies modus</div>
-        <div class="mode-stack fade-in-4">
-          <div class="mode-card blitz" onclick="startGame('blitz')">
-            <div class="mode-icon-wrap">⚡</div>
-            <div class="mode-info">
-              <span class="mode-name">Blitz</span>
-              <span class="mode-sub">60 sec · Zo snel mogelijk</span>
-            </div>
-            <span class="mode-arrow">→</span>
-          </div>
-          <div class="mode-card classic" onclick="startGame('classic')">
-            <div class="mode-icon-wrap">🎯</div>
-            <div class="mode-info">
-              <span class="mode-name">Classic</span>
-              <span class="mode-sub">10 vragen · Op je gemak</span>
-            </div>
-            <span class="mode-arrow">→</span>
-          </div>
-          <div class="mode-card survival" onclick="startGame('survival')">
-            <div class="mode-icon-wrap">❤️</div>
-            <div class="mode-info">
-              <span class="mode-name">Survival</span>
-              <span class="mode-sub">3 levens · Hoe ver kom je?</span>
-            </div>
-            <span class="mode-arrow">→</span>
-          </div>
-          <div class="mode-card dossier" onclick="startDossier()">
-            <div class="mode-icon-wrap">🗂️</div>
-            <div class="mode-info">
-              <span class="mode-name">Het Dossier</span>
-              <span class="mode-sub">Ontsluit hints · Daag anderen uit</span>
-            </div>
-            <span class="mode-arrow">→</span>
-          </div>
-          <div class="mode-card learn" onclick="showLearnSetup()">
-            <div class="mode-icon-wrap">📖</div>
-            <div class="mode-info">
-              <span class="mode-name">Leer-modus</span>
-              <span class="mode-sub">Geen tijdsdruk · Uitleg na elk antwoord</span>
-            </div>
-            <span class="mode-arrow">→</span>
-          </div>
-        </div>
-
-        <div class="section-label fade-in-5">Domein</div>
-        <div class="cat-wrap fade-in-5" id="catPills">
-          <div class="cat-pill active" data-cat="all" onclick="toggleCat('all',this)">Alles</div>
-          <div class="cat-pill" data-cat="cardio"   onclick="toggleCat('cardio',this)">🫀 Cardiologie</div>
-          <div class="cat-pill" data-cat="neuro"    onclick="toggleCat('neuro',this)">🧠 Neurologie</div>
-          <div class="cat-pill" data-cat="pharma"   onclick="toggleCat('pharma',this)">💊 Farmacologie</div>
-          <div class="cat-pill" data-cat="infectio" onclick="toggleCat('infectio',this)">🦠 Infectiologie</div>
-          <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
-        </div>
-
-        <div class="fav-home-card fade-in-5" onclick="startFavourites()">
-          <div class="fav-home-icon">★</div>
-          <div class="fav-home-info">
-            <span class="fav-home-name">Favorieten</span>
-            <span class="fav-home-sub" id="favHomeSub">Nog niets opgeslagen</span>
-          </div>
-          <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
-        </div>
-
-        <div id="weakHomeCard" class="weak-home-card fade-in-5" onclick="startWeakMode()" style="display:none;">
-          <div class="weak-home-icon">🎯</div>
-          <div class="fav-home-info">
-            <span class="fav-home-name">Train je Zwaktes</span>
-            <span class="fav-home-sub" id="weakHomeSub">Laden...</span>
-          </div>
-          <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
-        </div>
-
-        <div id="domainStatsWrap" class="fade-in-5" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
-
-        <div class="section-label fade-in-5">Theorieboek</div>
-        <div class="th-home-grid fade-in-5">
-          <div class="th-home-pill" onclick="openTheory('dementie')"><span class="th-home-emoji">🧠</span><span class="th-home-name">Dementie­syndromen</span></div>
-          <div class="th-home-pill" onclick="openTheory('ecg')"><span class="th-home-emoji">📊</span><span class="th-home-name">ECG Basis</span></div>
-          <div class="th-home-pill" onclick="openTheory('anemie')"><span class="th-home-emoji">🩸</span><span class="th-home-name">Anemie</span></div>
-          <div class="th-home-pill" onclick="openTheory('meningitis')"><span class="th-home-emoji">🔬</span><span class="th-home-name">Meningitis & LP</span></div>
-          <div class="th-home-pill" onclick="openTheory('hartfalen')"><span class="th-home-emoji">❤️</span><span class="th-home-name">Hartfalen</span></div>
-          <div class="th-home-pill" onclick="openTheory('antibiotica')"><span class="th-home-emoji">💊</span><span class="th-home-name">Antibiotica</span></div>
-          <div class="th-home-pill" onclick="openTheory('stolling')"><span class="th-home-emoji">🩹</span><span class="th-home-name">Stolling & Antistolling</span></div>
-          <div class="th-home-pill" onclick="openTheory('diabetes')"><span class="th-home-emoji">🍬</span><span class="th-home-name">Diabetes Mellitus</span></div>
-          <div class="th-home-pill" onclick="openTheory('schildklier')"><span class="th-home-emoji">🦋</span><span class="th-home-name">Schildklier</span></div>
-          <div class="th-home-pill" onclick="openTheory('sepsis')"><span class="th-home-emoji">🚨</span><span class="th-home-name">Sepsis & Shock</span></div>
-        </div>
-
+      <div id="htab" class="home-tab-wrap"></div>
+      <nav class="bottom-nav" id="bottomNav">
+        <button class="bn-tab active" onclick="switchHomeTab('spelen',this)">
+          <span class="bn-icon">🎮</span>
+          <span class="bn-label">Spelen</span>
+        </button>
+        <button class="bn-tab" onclick="switchHomeTab('theorie',this)">
+          <span class="bn-icon">📖</span>
+          <span class="bn-label">Theorie</span>
+        </button>
+        <button class="bn-tab" onclick="switchHomeTab('profiel',this)">
+          <span class="bn-icon">👤</span>
+          <span class="bn-label">Profiel</span>
+        </button>
+      </nav>
     </div>`;
+  renderSpelenTab();
+}
+
+function renderSpelenTab() {
+  document.getElementById('htab').innerHTML = `
+    <div class="home-hero fade-in">
+      <div class="hero-left">
+        <div class="hero-eyebrow">${getGreeting() || 'medische trivia'}</div>
+        <h1 class="logo">Med<em>Duel</em></h1>
+      </div>
+      <div class="hero-streak-badge" id="heroStreak">0🔥</div>
+    </div>
+
+    <div id="xpWrap" class="fade-in-1"></div>
+
+    <div class="stats-strip fade-in-2">
+      <div class="stat-item">
+        <span class="stat-num" id="home-played">0</span>
+        <span class="stat-lbl">Gespeeld</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" id="home-best">—</span>
+        <span class="stat-lbl">Record</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" id="home-streak">0</span>
+        <span class="stat-lbl">Streak</span>
+      </div>
+    </div>
+
+    <div class="section-label fade-in-2">Vandaag</div>
+    ${renderDailyHomeCard()}
+
+    <div class="section-label fade-in-3">Kies modus</div>
+
+    <div class="mode-hero-card fade-in-3" onclick="startGame('blitz')">
+      <div class="mhc-tag">⚡ Populairste modus</div>
+      <div class="mhc-name">Blitz</div>
+      <div class="mhc-sub">60 seconden · Zo snel mogelijk</div>
+      <div class="mhc-cta">Start nu →</div>
+    </div>
+
+    <div class="mode-grid fade-in-3">
+      <div class="mode-card classic" onclick="startGame('classic')">
+        <div class="mode-icon-wrap">🎯</div>
+        <div class="mode-info">
+          <span class="mode-name">Classic</span>
+          <span class="mode-sub">10 vragen</span>
+        </div>
+      </div>
+      <div class="mode-card survival" onclick="startGame('survival')">
+        <div class="mode-icon-wrap">❤️</div>
+        <div class="mode-info">
+          <span class="mode-name">Survival</span>
+          <span class="mode-sub">3 levens</span>
+        </div>
+      </div>
+      <div class="mode-card dossier" onclick="startDossier()">
+        <div class="mode-icon-wrap">🗂️</div>
+        <div class="mode-info">
+          <span class="mode-name">Dossier</span>
+          <span class="mode-sub">Daag anderen uit</span>
+        </div>
+      </div>
+      <div class="mode-card learn" onclick="showLearnSetup()">
+        <div class="mode-icon-wrap">📖</div>
+        <div class="mode-info">
+          <span class="mode-name">Leer-modus</span>
+          <span class="mode-sub">Geen tijdsdruk</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label fade-in-4">Domein</div>
+    <div class="cat-wrap fade-in-4" id="catPills">
+      <div class="cat-pill active" data-cat="all" onclick="toggleCat('all',this)">Alles</div>
+      <div class="cat-pill" data-cat="cardio"   onclick="toggleCat('cardio',this)">🫀 Cardiologie</div>
+      <div class="cat-pill" data-cat="neuro"    onclick="toggleCat('neuro',this)">🧠 Neurologie</div>
+      <div class="cat-pill" data-cat="pharma"   onclick="toggleCat('pharma',this)">💊 Farmacologie</div>
+      <div class="cat-pill" data-cat="infectio" onclick="toggleCat('infectio',this)">🦠 Infectiologie</div>
+      <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
+    </div>`;
+}
+
+function renderTheorieTab() {
+  document.getElementById('htab').innerHTML = `
+    <div class="htab-header fade-in">
+      <h2 class="htab-title">Theorieboek</h2>
+      <p class="htab-sub">Klinische overzichten per thema</p>
+    </div>
+    <div class="th-home-grid fade-in-1">
+      <div class="th-home-pill" onclick="openTheory('dementie')"><span class="th-home-emoji">🧠</span><span class="th-home-name">Dementie­syndromen</span></div>
+      <div class="th-home-pill" onclick="openTheory('ecg')"><span class="th-home-emoji">📊</span><span class="th-home-name">ECG Basis</span></div>
+      <div class="th-home-pill" onclick="openTheory('anemie')"><span class="th-home-emoji">🩸</span><span class="th-home-name">Anemie</span></div>
+      <div class="th-home-pill" onclick="openTheory('meningitis')"><span class="th-home-emoji">🔬</span><span class="th-home-name">Meningitis & LP</span></div>
+      <div class="th-home-pill" onclick="openTheory('hartfalen')"><span class="th-home-emoji">❤️</span><span class="th-home-name">Hartfalen</span></div>
+      <div class="th-home-pill" onclick="openTheory('antibiotica')"><span class="th-home-emoji">💊</span><span class="th-home-name">Antibiotica</span></div>
+      <div class="th-home-pill" onclick="openTheory('stolling')"><span class="th-home-emoji">🩹</span><span class="th-home-name">Stolling & Antistolling</span></div>
+      <div class="th-home-pill" onclick="openTheory('diabetes')"><span class="th-home-emoji">🍬</span><span class="th-home-name">Diabetes Mellitus</span></div>
+      <div class="th-home-pill" onclick="openTheory('schildklier')"><span class="th-home-emoji">🦋</span><span class="th-home-name">Schildklier</span></div>
+      <div class="th-home-pill" onclick="openTheory('sepsis')"><span class="th-home-emoji">🚨</span><span class="th-home-name">Sepsis & Shock</span></div>
+    </div>`;
+}
+
+function renderProfielTab() {
+  const name = (typeof loadName === 'function' && loadName()) || '';
+  document.getElementById('htab').innerHTML = `
+    <div class="htab-header fade-in">
+      <h2 class="htab-title">${name ? `Hey, ${name}` : 'Mijn profiel'}</h2>
+      <p class="htab-sub">Jouw voortgang & statistieken</p>
+    </div>
+    <div id="xpWrap" class="fade-in-1"></div>
+    <div class="fav-home-card fade-in-2" onclick="startFavourites()">
+      <div class="fav-home-icon">★</div>
+      <div class="fav-home-info">
+        <span class="fav-home-name">Favorieten</span>
+        <span class="fav-home-sub" id="favHomeSub">Nog niets opgeslagen</span>
+      </div>
+      <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
+    </div>
+    <div id="weakHomeCard" class="weak-home-card fade-in-2" onclick="startWeakMode()" style="display:none;">
+      <div class="weak-home-icon">🎯</div>
+      <div class="fav-home-info">
+        <span class="fav-home-name">Train je Zwaktes</span>
+        <span class="fav-home-sub" id="weakHomeSub">Laden...</span>
+      </div>
+      <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
+    </div>
+    <div id="domainStatsWrap" class="fade-in-2" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>`;
+  renderXPHome();
+  const sub = document.getElementById('favHomeSub');
+  if (sub) {
+    const n = loadFavourites().length;
+    sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
+  }
+  renderDomainStatsHome();
+  renderWeakHome();
+}
+
+function switchHomeTab(tab, btn) {
+  document.querySelectorAll('#bottomNav .bn-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+  if (tab === 'spelen')  { renderSpelenTab(); loadHomeStats(); }
+  else if (tab === 'theorie') renderTheorieTab();
+  else if (tab === 'profiel') renderProfielTab();
 }
 
 // ── Init ──
