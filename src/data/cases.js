@@ -83,5 +83,91 @@ const DOSSIER_CASES = [
     options: ['Ischemisch CVA', 'Subduraal hematoom', 'Hersentumor', 'Epiduraal hematoom'],
     correct: 1,
     explanation: 'Een chronisch subduraal hematoom is een sluipende diagnose: door de langzame veneuze bloeding (bridging veins) bouwt de druk weken op voor er symptomen zijn — het klassieke "lucide interval" na het trauma.\n\nDe combinatie van anticoagulantia (INR 3.8!) en val 3 weken geleden verklaart alles: zelfs een gering trauma kan bij supratherapeutische INR leiden tot een niet-stoppende veneuze bloeding. De progressieve deterioratie (cognitief → focale uitval → midlijnverschuiving) volgt de toenemende herniadruk.\n\nCT-kenmerken: crescent-vormig (volgt de hersenvorm), hypodense massa bij chronisch beloop (>3 weken: bloed wordt afgebroken). Dit onderscheidt het van epiduraal hematoom (biconvex/lensvorming, arterieel, acuut) en ischemisch CVA (plotseling begin, geen bloeding, geen trauma-anamnese).\n\nBeleid: INR corrigeren (vitamine K + PCC), neurochirurgisch consult voor drainageoverweging.',
+  },,
+
+  {
+    id: 'c6',
+    patient: 'Patiënt F — Man, 58 jaar',
+    diagnosis: 'Inferieur STEMI (RCA-occlusie)',
+    clues: [
+      { label: 'Reden van komst',      text: 'Hevige drukkende retrosternale pijn uitstralend naar kaak en linkerarm, 40 minuten geleden begonnen. Zweten en misselijkheid.' },
+      { label: 'Voorgeschiedenis',      text: 'Hypertensie, roken 25 pakjaar, totaalcholesterol 6.8 mmol/L. Geen eerdere cardiologische voorgeschiedenis.' },
+      { label: 'Vitale functies',       text: 'BD 92/58 mmHg, HF 98/min, SpO₂ 96%, AF 20/min, T 37.0°C. Bleek en klam.' },
+      { label: 'Lichamelijk onderzoek', text: 'S4-gallopritme ausculteerbaar. Lichte jugulaire stuwing. Longen vrij. Geen oedeem.' },
+      { label: 'Lab',                   text: 'Troponine I 2.8 µg/L (sterk verhoogd). CK-MB 68 U/L. Kreat 105 µmol/L. Hb 9.1 mmol/L.' },
+      { label: 'ECG',                   text: 'ST-elevatie in II, III en aVF (2-3 mm). Reciproke ST-depressie in I en aVL. Geen bundeltakblok.' },
+    ],
+    options: ['Aortadissectie type A', 'Pericarditis acuta', 'Inferieur STEMI (RCA-occlusie)', 'NSTEMI lateraalwand'],
+    correct: 2,
+    explanation: 'Inferieure ST-elevaties (II, III, aVF) met reciproke depressie in I en aVL zijn het ECG-handschrift van een rechterkronierarterie (RCA)-occlusie. De RCA voedt 80% van de gevallen het inferieure myocard én het rechterventrikel — vandaar de lage bloeddruk (RV-infarct verlaagt preload linker ventrikel) en de jugulaire stuwing.\n\nDe S4-toon is het akoestisch gevolg van een stijf, ischemisch myocard dat weerstand biedt aan de atriumsystole. Gouden regel: bij inferieur MI altijd V3R/V4R-afleidingen maken om RV-infarct te bevestigen. Bij RV-infarct: cave nitraten (verlagen preload → shock!) en geef juist vulling.\n\nWaarom niet de anderen? Aortadissectie: geen scheurende interscapulaire pijn of bloeddrukasymmetrie; troponine past niet primair bij dissectie. Pericarditis: diffuse concave ST-elevatie + PR-depressie, geen reciproke depressies. NSTEMI lateraal: geen ST-elevatie, andere lokalisatie.',
   },
+
+  {
+    id: 'c7',
+    patient: 'Patiënt G — Vrouw, 72 jaar',
+    diagnosis: 'Septische shock bij community-acquired pneumonie',
+    clues: [
+      { label: 'Reden van komst',      text: '3 dagen productieve hoest met groen sputum, koorts en dyspneu. Ochtend thuis gevallen, nu verward.' },
+      { label: 'Voorgeschiedenis',      text: 'DM type 2, chronisch hartfalen (EF 45%), rookt 30 pakjaar. Woont alleen.' },
+      { label: 'Vitale functies',       text: 'BD 78/48 mmHg, HF 124/min, RR 32/min, SpO₂ 84% op kamerlucht, T 39.6°C. GCS 12.' },
+      { label: 'Lichamelijk onderzoek', text: 'Rechts basaal demping bij percussie en bronchiaal ademgeruis. Geen JVD. Geen crepitaties links.' },
+      { label: 'Lab',                   text: 'Leukocyten 19.4 × 10⁹/L, CRP 312 mg/L, kreat 198 µmol/L (norm 85), lactaat 3.8 mmol/L. Bloedgas: pH 7.28, pO₂ 54 mmHg (kamerlucht).' },
+      { label: 'Beeldvorming',          text: 'X-thorax: consolidatie gehele rechter onderkwab. Geen cardiomegalie, geen stuwing.' },
+    ],
+    options: ['Gedecompenseerd hartfalen', 'Longembolie met shock', 'Septische shock bij CAP', 'Exacerbatie COPD'],
+    correct: 2,
+    explanation: 'Septische shock = sepsis (levensbedreigende orgaandisfunctie door infectie) + persisterende hypotensie ondanks adequate vulling + lactaat >2 mmol/L. Hier: lactaat 3.8, BD 78/48, bewustzijnsverandering, nierfalen (kreat 198) → meerdere orgaansystemen aangedaan.\n\nDe CURB-65-score van deze patiënt is 4 (verwardheid, ureum verhoogd, RR 32, BD <90, leeftijd 72) → 30-dagenmortaliteit ~27%, opname op IC geïndiceerd. CAP-verwekker bij oudere diabeet: S. pneumoniae meest frequent; ook gramnegatieve (K. pneumoniae) en atypische verwekkers mogelijk.\n\nBeleid eerste uur (Sepsis-6 / Surviving Sepsis): bloedkweken × 2, antibiotica (bètalactam + atypische dekking), lactaatmeting, vochtbolus 30 mL/kg, urinekatheter voor urineproductie monitoring.\n\nWaarom niet de anderen? Hartfalen: geen JVD, geen stuwing op thoraxfoto, CRP 312 past niet. Longembolie: geen risicofactoren, consolidatie verklaart beeld beter. COPD-exacerbatie: geen voorgeschiedenis COPD, beeld te acuut en met koorts.',
+  },
+
+  {
+    id: 'c8',
+    patient: 'Patiënt H — Man, 66 jaar',
+    diagnosis: 'Ischemisch CVA — kandidaat trombolyse',
+    clues: [
+      { label: 'Reden van komst',      text: 'Plotse krachtsvermindering rechterarm en -been, spraak moeizaam. Begonnen 1 uur 45 minuten geleden.' },
+      { label: 'Voorgeschiedenis',      text: 'Atriumfibrilleren (niet behandeld met anticoagulantia), hypertensie, hypercholesterolemie.' },
+      { label: 'Vitale functies',       text: 'BD 185/105 mmHg, HF 82/min irregulair, SpO₂ 97%, T 37.1°C.' },
+      { label: 'Lichamelijk onderzoek', text: 'Dysartrie, rechtszijdige hemiparese arm > been, centrale facialisparese rechts, blikdeviatie naar links. NIHSS 14.' },
+      { label: 'Lab & ECG',             text: 'Glucose 7.2 mmol/L, INR 1.1, trombocyten 224. ECG: atriumfibrilleren met adequaat ventrikelritme (82/min).' },
+      { label: 'Beeldvorming',          text: 'CT hersenen: geen bloeding, geen vroeg-ischemische tekens. CT-angiografie: occlusie linker MCA M1-segment.' },
+    ],
+    options: ['Intracraniële bloeding', 'Ischemisch CVA — kandidaat trombolyse en trombectomie', 'TIA (volledig hersteld)', 'Hypertensieve encefalopathie'],
+    correct: 1,
+    explanation: 'Dit is een grote hemisfeerisch ischemisch CVA door cardio-embolie vanuit het linker atrium bij atriumfibrilleren (geen anticoagulantia!). De MCA-occlusie verklaart het klinisch beeld: contralaterale hemiparese (arm > been = anterieure MCA), centrale facialisparese, dysartrie en blikdeviatie ipsilateraal aan de laesie.\n\nTijdvenster trombolyse (alteplase iv): ≤4,5 uur na begin klachten — hier 1u45m, dus goed binnen het venster. Tegelijk: trombectomie is geïndiceerd bij M1-occlusie ≤24 uur met gunstige collaterale circulatie → direct naar interventie-centrum.\n\nBelangrijkste valkuil: de BD van 185/105 mmHg. Vóór trombolyse moet BD <185/110 mmHg zijn; verlagen tot net daaronder met labetalol of nicardipine, niet te agressief (collaterale druk!). Na trombolyse: BD <180/105 mmHg handhaven.\n\nWaarom niet de anderen? Bloeding: CT sluit dit uit. TIA: symptomen volledig hersteld bij TIA — hier persistent NIHSS 14. Hypertensieve encefalopathie: diffuus beeld, langzamer begin, geen focale uitval.',
+  },
+
+  {
+    id: 'c9',
+    patient: 'Patiënt I — Vrouw, 76 jaar',
+    diagnosis: 'Acuut gedecompenseerd hartfalen',
+    clues: [
+      { label: 'Reden van komst',      text: 'Toenemende kortademigheid afgelopen week, nu ook in rust. Kan niet meer plat liggen (3 kussens). Enkels dikker.' },
+      { label: 'Voorgeschiedenis',      text: 'Hartfalen (HFrEF, EF 32%), coronairlijden, hypertensie. Medicatie: furosemide 40 mg, lisinopril, carvedilol. Opent dit weekend veel snoep gegeten en "een beetje teveel gezout".' },
+      { label: 'Vitale functies',       text: 'BD 158/96 mmHg, HF 104/min, RR 26/min, SpO₂ 88% zittend, T 37.2°C.' },
+      { label: 'Lichamelijk onderzoek', text: 'Jugulaire veneuze druk +++ (>4 cm boven angulus Ludovici). S3-gallopritme. Bilateraal basale crepitaties tot scapula. Pitting oedeem enkels 3+.' },
+      { label: 'Lab',                   text: 'NT-proBNP 11.800 pg/mL (sterk verhoogd, norm <125). Kreat 132 µmol/L (was 98). Na 131 mmol/L. Hb 7.1 mmol/L.' },
+      { label: 'Beeldvorming',          text: 'X-thorax: cardiomegalie (CI >0,5), bilaterale hilair stuwing, Kerley-B-lijnen, peribronchiale manchetvorming.' },
+    ],
+    options: ['Bilaterale pneumonie', 'Acuut gedecompenseerd hartfalen', 'Nefrotisch syndroom', 'COPD-exacerbatie'],
+    correct: 1,
+    explanation: 'Alle klassieke kenmerken van gedecompenseerd hartfalen zijn aanwezig: verhoogde JVD (stuwing vanuit rechts), S3-gallopritme (snel gevuld, dilaterend ventrikel), basale crepitaties (longoedeem), orthopneu, perifeer oedeem en sterk verhoogd NT-proBNP.\n\nDe decompensatie is uitgelokt door zoutinname (natrium trekt vocht vast → vochtretentie), maar ook: subtherapeutische diurese, koorts, medicatienon-adherentie of nieuwe ischemie zijn klassieke triggers. Natriumhyponatriëmie (131) bij hartfalen = verdunningshyponatriëmie door ADH-release (niet tekort aan natrium maar overschot aan vrij water).\n\nBeleid: IV furosemide (hogere dosis dan oraal vanwege verminderde orale absorptie bij darmwandoedeem), monitor diurese (doel >0,5 mL/kg/uur), dagelijks gewicht, elektrolytencontrole. Cave: te snelle diurese → preloadvermindering → nierfalen (kreat al licht gestegen).\n\nWaarom niet de anderen? Pneumonie: bilateraal, geen koorts, CRP niet verhoogd, typisch hartfalenpatroon op X-thorax. Nefrotisch: proteïnurie, hypoalbuminemie, hypercholesterolemie — geen S3, geen JVD. COPD: piepen, voorgeschiedenis roken, anders beeld op X-thorax.',
+  },
+
+  {
+    id: 'c10',
+    patient: 'Patiënt J — Man, 21 jaar',
+    diagnosis: 'Bacteriële meningitis (N. meningitidis)',
+    clues: [
+      { label: 'Reden van komst',      text: 'Hevige hoofdpijn, nekstijfheid en koorts. Begonnen 6 uur geleden, snel verslechterend.' },
+      { label: 'Voorgeschiedenis',      text: 'Gezond. Studentenhuis, recent griep gehad. Niet gevaccineerd tegen meningokokken.' },
+      { label: 'Vitale functies',       text: 'T 40.2°C, HF 118/min, BD 105/70 mmHg, RR 22/min, GCS 14 (licht verward).' },
+      { label: 'Lichamelijk onderzoek', text: 'Sterk meningisme. Positief teken van Kernig en Brudzinski. Fotofobie. Niet-wegdrukbare petechiae verspreid over romp en benen.' },
+      { label: 'Lab',                   text: 'Leukocyten 19.8 × 10⁹/L, CRP 345 mg/L, BSE 82. Glucose 5.4 mmol/L.' },
+      { label: 'LP-uitslag',            text: 'Troebel vocht. PMN-pleocytose 1850 cellen/µL. Glucose 1.7 mmol/L (plasma 5.4). Eiwit 4.6 g/L. Gram-kleuring: gramnegatieve diplokokken.' },
+    ],
+    options: ['Virale meningitis (enterovirus)', 'Subarachnoïdale bloeding', 'Bacteriële meningitis (N. meningitidis)', 'HSV-encefalitis'],
+    correct: 2,
+    explanation: 'De petechiale huidafwijkingen zijn het cruciale klinische signaal: niet-wegdrukbaar purpura bij een zieke jongvolwassene = meningokokkensepsis tot het tegendeel bewezen. Direct ceftriaxon (2g iv) + dexamethason starten — niet wachten op LP als patiënt hemodynamisch instabiel is of CT vertraagd.\n\nLP-criteria voor bacterieel: troebel, PMN-pleocytose, glucose/plasmabloed-verhouding <40% (hier 1.7/5.4 = 31%), eiwit >1 g/L (hier 4.6), positieve Gram-kleuring. Gramnegatieve diplokokken = N. meningitidis, groepen B en C meest frequent op studentenhuizen.\n\nDexamethason vóór of gelijktijdig met antibiotica: vermindert TNF-gemedieerde inflammatie → minder kans op gehoorverlies als sequelaé (met name S. pneumoniae, maar ook bewezen bij N. meningitidis).\n\nWaarom niet de anderen? Virale meningitis: helder vocht, lymfocytose, normaal glucose. SAB: donderslag-hoofdpijn, geen koorts, helder bloedrood vocht. HSV-encefalitis: temporale lokalisatie, focale uitval, MRI-afwijkingen, andere LP-uitslag.',
+  },
+
 ];
