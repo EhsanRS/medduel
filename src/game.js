@@ -126,6 +126,7 @@ function renderGameScreen() {
         </div>
         <div class="q-domain" id="qDomain"></div>
         <div class="q-text" id="qText"></div>
+        <div class="q-figure" id="qFigure" style="display:none"></div>
       </div>
       <div class="answers-wrap" id="answersWrap"></div>
     </div>`;
@@ -220,6 +221,8 @@ function loadQ() {
   const qtext  = document.getElementById('qText');
   if (domain) domain.textContent = q.type === 'lab' ? '' : q.dl;
   if (qtext)  qtext.innerHTML = formatQ(q.q);
+  const figEl = document.getElementById('qFigure');
+  if (figEl) { if (q.fig) { figEl.innerHTML = q.fig; figEl.style.display = ''; } else { figEl.innerHTML = ''; figEl.style.display = 'none'; } }
   const diff = document.getElementById('qDifficulty');
   if (diff) diff.innerHTML = diffStars(q.d);
 

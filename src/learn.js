@@ -102,6 +102,7 @@ function lmLoadQ() {
       </div>
       <div class="q-domain">${q.type === 'lab' ? '' : q.dl}</div>
       <div class="q-text lm-q-text">${formatQ(q.q)}</div>
+      ${q.fig ? `<div class="q-figure">${q.fig}</div>` : ''}
     </div>
     <div class="answers-wrap" id="lm-answers">${answersHTML}</div>
     <div class="lm-explanation-box" id="lm-expl" style="display:none;"></div>

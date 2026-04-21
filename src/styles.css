@@ -2398,3 +2398,14 @@ h1.logo em {
   text-align: right;
   margin-top: 0.35rem;
 }
+
+/* ── Vraag-figuur (ECG, spirometrie, etc.) ── */
+.q-figure {
+  margin: 0.5rem 0 0.25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 0.4rem 0.5rem 0.2rem;
+}
+.q-figure svg { width: 100%; height: auto; display: block; }
