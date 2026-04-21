@@ -218,7 +218,41 @@ const DOSSIER_CASES = [
     ],
     options: ['Hypertensieve urgentie (geen eindorgaanschade)', 'Hypertensieve spoed (maligne hypertensie)', 'Hypertensieve encefalopathie', 'Pre-eclampsie'],
     correct: 1,
-    explanation: 'Hypertensieve spoed = ernstige hypertensie MET bewijs van acute eindorgaanschade. Hier zijn meerdere organen aangedaan: ogen (papilloedeem + retinabloedingen = hypertensieve retinopathie graad IV), nieren (kreatinine, proteïnurie), hematologie (fragmentocyten + trombocytopenie + hoog LDH = microangiopathische hemolyse = MAHA) en hart (LVH + strain).\n\nDit is maligne hypertensie: de MAHA (fragmentocyten door mechanische beschadiging van erytrocyten in de beschadigde microvasculatuur) onderscheidt dit van gewone hypertensieve crises. Behandeling: direct parenteral antihypertensief (labetalol of nicardipine IV), doel: BD dalen met max 20-25% eerste uur, dan geleidelijker. Nooit te snel dalen: risico op cerebraal hypoperfusie-infarct!\n\nHypertensieve urgentie = hoge BD zónder eindorgaanschade → oraal behandelen, ambulant. Hypertensieve spoed → altijd opname IC/CCU.\n\nWaarom niet pre-eclampsie? Geen zwangerschap vermeld. Hypertensieve encefalopathie: meer bewustzijnsverandering/convulsies, overlappend beeld, maar hier domineren de andere eindorgaankenmerken.',
+    explanation: 'Hypertensieve spoed = ernstige hypertensie MET bewijs van acute eindorgaanschade. Hier zijn meerdere organen aangedaan: ogen (papilloedeem + retinabloedingen = hypertensieve retinopathie graad IV), nieren (kreatinine, proteïnurie), hematologie (fragmentocyten + trombocytopenie + hoog LDH = microangiopathische hemolyse = MAHA) en hart (LVH + strain).\n\nDit is maligne hypertensie: de MAHA (fragmentocyten door mechanische beschadiging van erytrocyten in de beschadigde microvasculatuur) onderscheidt dit van gewone hypertensieve crises. Behandeling: direct parenteral antihypertensief (labetalol of nicardipine IV), doel: BD dalen met max 20-25% eerste uur, dan geleidelijker. Nooit te snel dalen: risico op cerebraal hypoperfusie-infarct!\n\nHypertensieve urgentie = hoge BD zónder eindorgaanschade -> oraal behandelen, ambulant. Hypertensieve spoed -> altijd opname IC/CCU.\n\nWaarom niet pre-eclampsie? Geen zwangerschap vermeld. Hypertensieve encefalopathie: meer bewustzijnsverandering/convulsies, overlappend beeld, maar hier domineren de andere eindorgaankenmerken.',
+  },
+
+  {
+    id: 'c14',
+    patient: 'Patiënt N — Man, 62 jaar',
+    diagnosis: 'Atriumfibrilleren met snel ventrikelritme (holiday heart)',
+    clues: [
+      { label: 'Reden van komst',      text: 'Palpitaties en hartkloppingen. Lichte dyspneu bij inspanning. Begonnen gisteren na feestweekend.' },
+      { label: 'Voorgeschiedenis',      text: 'Geen bekende hartafwijkingen. Drinkt sociaal maar dit weekend meer dan normaal (alcohol). Geen medicatie.' },
+      { label: 'Vitale functies',       text: 'BD 128/82 mmHg, HF 152/min irregulair, SpO2 97%, T 37.1 graden. Geen tekenen van shock.' },
+      { label: 'Lichamelijk onderzoek', text: 'Irregulair hartritme, geen souffles. Longen vrij. Geen JVD, geen perifeer oedeem. Geen focale neurologie.' },
+      { label: 'ECG',                   text: 'Geen P-golven, volledig irregulair ritme, smalle QRS-complexen. Ventrikelfrequentie 148-158/min. Geen ST-afwijkingen.' },
+      { label: 'Lab & echo',            text: 'TSH normaal. Elektrolyten normaal. Hb normaal. Echo: EF 58%, geen wandbewegingsstoornissen, linker atrium licht gedilateerd.' },
+    ],
+    options: ['Atriumflutter met 2:1-geleiding', 'Supraventriculaire tachycardie (AVNRT)', 'Atriumfibrilleren (holiday heart)', 'Ventriculaire tachycardie'],
+    correct: 2,
+    explanation: 'Atriumfibrilleren na excessieve alcoholinname = holiday heart syndroom: alcohol verhoogt de atriale prikkelbaarheid via autonome effecten en direct toxische werking. Klassiek na weekenden of feestdagen bij mensen zonder bekende hartziekte.\n\nECG-diagnose AF: (1) geen P-golven, (2) volledig irregulair ritme, (3) smal QRS (tenzij aberrante geleiding). Atriumflutter heeft typisch zaagtand-P-golven met regelmatig of semi-regelmatig ritme. SVT (AVNRT) is regelmatig. VT heeft brede QRS-complexen.\n\nManagement: rate control met metoprolol of diltiazem (doel HF <110/min in rust). Ritmeconversie overwegen als <48 uur en hemodynamisch stabiel. Anticoagulatie: CHA2DS2-VASc-score berekenen (hier 0 punten = geen anticoagulatie nodig). Bij eerste episode AF na alcohol: vaak spontane conversie, recidiefpreventie door alcoholreductie.\n\nWaarom niet de anderen? Flutter: zaagvormige F-golven 300/min, regelmatig ritme met vaste blokkeringsverhouding. AVNRT: smal QRS maar REGELMATIG ritme, retrograde P-golven. VT: breed QRS, ernstig zieke patient.',
+  },
+
+  {
+    id: 'c15',
+    patient: 'Patiënt O — Man, 23 jaar',
+    diagnosis: 'Acute appendicitis',
+    clues: [
+      { label: 'Reden van komst',      text: 'Buikpijn begonnen rond de navel, nu verplaatst naar rechter onderbuik. Misselijkheid, geen eetlust, subfebriel.' },
+      { label: 'Voorgeschiedenis',      text: 'Blanco. Geen medicatie. Nooit geopereerd.' },
+      { label: 'Vitale functies',       text: 'BD 125/78 mmHg, HF 98/min, T 38.3 graden, SpO2 99%. Pijnschaal 7/10.' },
+      { label: 'Lichamelijk onderzoek', text: 'Drukpijn maximaal op punt van McBurney. Loslaatpijn (Blumberg positief). Rovsing-teken positief. Defense musculaire rechts onderbuik.' },
+      { label: 'Lab',                   text: 'Leukocyten 14.2 x 10^9/L, CRP 78 mg/L. Urineonderzoek normaal. Zwangerschapstest negatief.' },
+      { label: 'Echo & CT',             text: 'Echo: appendix 11mm diameter, niet comprimeerbaar, periappendicaal vocht zichtbaar. CT-abdomen: appendix met omgevend vet-inflammatie, geen perforatie.' },
+    ],
+    options: ['Mesenteriale lymfadenitis', 'Ileitis terminalis (M. Crohn)', 'Acute appendicitis', 'Nier-/uretersteenkolieken'],
+    correct: 2,
+    explanation: 'Acute appendicitis: klassieke migrerende pijn (visceraal-pariëtaal) van periumbilicaal naar rechter fossa iliaca is het meest betrouwbare anamnestische kenmerk (aanwezig bij 50-60%). De ontsteking begint vanuit het lumen (fecaliet of hyperplastisch lymfweefsel), breidt uit naar de wand en irriteert dan de parietale peritoneum -> lokale peritoneale prikkeling.\n\nAlvarado-score (MANTRELS): migrerende pijn (1), anorexie (1), misselijkheid/braken (1), RIF-drukpijn (2), Rovsing (1), verhoogde temp (1), leukocytose (2), linksverschuiving (1). Totaal hier 8/10 = hoge verdenking, operatie geïndiceerd.\n\nBehandeling: laparoscopische appendectomie. Geen perforatie op CT -> electief maar spoedmatig. Bij perforatie: antibiotica pre-operatief, soms drainage en uitgestelde appendectomie.\n\nWaarom niet de anderen? Lymfadenitis: geen McBurney, geen Blumberg, vaak na bovenste luchtweginfectie, echo: geen appendixafwijking. Crohn: meer chronisch, diarree, gewichtsverlies, MRI typische kenmerken. Nierstenen: koliekerige pijn, hematurie, andere localisatie.',
   }
 
 ];
