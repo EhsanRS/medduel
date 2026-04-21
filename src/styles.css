@@ -345,6 +345,22 @@ h1.logo em {
   flex-shrink: 0;
 }
 
+.q-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.q-difficulty {
+  display: flex;
+  gap: 1px;
+  font-size: 14px;
+  line-height: 1;
+}
+.diff-star.on  { color: var(--amber); }
+.diff-star.off { color: rgba(26,20,16,0.14); }
+
 .q-type-tag {
   display: inline-flex;
   align-items: center;
@@ -355,7 +371,7 @@ h1.logo em {
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 8px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 .q-type-tag.diagnose { background: var(--pulse-light); color: var(--pulse); }
 .q-type-tag.truefalse { background: var(--amber-light); color: var(--amber); }

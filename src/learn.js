@@ -96,7 +96,10 @@ function lmLoadQ() {
 
   document.getElementById('lm-card-area').innerHTML = `
     <div class="q-card lm-q-card">
-      <div class="q-type-tag ${typeCls}" style="margin-bottom:0.75rem;">${typeLabel}</div>
+      <div class="q-card-header" style="margin-bottom:0.75rem;">
+        <div class="q-type-tag ${typeCls}">${typeLabel}</div>
+        <div class="q-difficulty">${diffStars(q.d)}</div>
+      </div>
       <div class="q-domain">${q.dl}</div>
       <div class="q-text lm-q-text">${q.q}</div>
     </div>

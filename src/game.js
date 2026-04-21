@@ -120,7 +120,10 @@ function renderGameScreen() {
       </div>
       <div class="progress-dots" id="progressDots"></div>
       <div class="q-card">
-        <div id="qTypeTag" class="q-type-tag diagnose">Diagnose</div>
+        <div class="q-card-header">
+          <div id="qTypeTag" class="q-type-tag diagnose">Diagnose</div>
+          <div id="qDifficulty" class="q-difficulty"></div>
+        </div>
         <div class="q-domain" id="qDomain"></div>
         <div class="q-text" id="qText"></div>
       </div>
@@ -217,6 +220,8 @@ function loadQ() {
   const qtext  = document.getElementById('qText');
   if (domain) domain.textContent = q.dl;
   if (qtext)  qtext.textContent  = q.q;
+  const diff = document.getElementById('qDifficulty');
+  if (diff) diff.innerHTML = diffStars(q.d);
 
   const wrap = document.getElementById('answersWrap');
   if (!wrap) return;

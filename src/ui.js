@@ -440,6 +440,11 @@ function shuffleArr(a) {
   return b;
 }
 
+function diffStars(d) {
+  const n = d || 2;
+  return [1,2,3].map(i => `<span class="diff-star ${i <= n ? 'on' : 'off'}">★</span>`).join('');
+}
+
 function gradeFromPct(pct) {
   const grades = [
     [90, '🏆 Expert niveau',       '#1A7A4A'],
