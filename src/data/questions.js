@@ -1044,3 +1044,4 @@ const QUESTIONS = [
   { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Bij een longembolie met hemodynamische instabiliteit is systemische trombolyse de behandeling van keuze.',
     c:true, ex:'WAAR. Massieve longembolie met shock of hartstilstand: trombolyse (alteplase) of chirurgische embolectomie. Bij stabiele patiënten: anticoagulatie (LMWH of DOAC). Trombolyse bij stabiele patiënten geeft te veel bloedingsrisico.' },
+];
