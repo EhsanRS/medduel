@@ -121,6 +121,8 @@ function renderTheorieTab() {
       <div class="th-home-pill" onclick="openTheory('diabetes')"><span class="th-home-emoji">🍬</span><span class="th-home-name">Diabetes Mellitus</span></div>
       <div class="th-home-pill" onclick="openTheory('schildklier')"><span class="th-home-emoji">🦋</span><span class="th-home-name">Schildklier</span></div>
       <div class="th-home-pill" onclick="openTheory('sepsis')"><span class="th-home-emoji">🚨</span><span class="th-home-name">Sepsis & Shock</span></div>
+      <div class="th-home-pill" onclick="openTheory('copd')"><span class="th-home-emoji">🫁</span><span class="th-home-name">COPD</span></div>
+      <div class="th-home-pill" onclick="openTheory('longembolie')"><span class="th-home-emoji">🩺</span><span class="th-home-name">Longembolie</span></div>
     </div>`;
 }
 

@@ -295,6 +295,89 @@ const THEORY_TOPICS = {
     `
   },
 
+  copd: {
+    title: 'COPD',
+    icon: '🫁',
+    subtitle: 'GOLD-stadiëring · Exacerbatie · Inhalatoren',
+    body: `
+      <div class="th-intro"><p>COPD is een chronische, grotendeels irreversibele luchtwegobstructie door langdurige blootstelling aan schadelijke stoffen, vooral tabaksrook. Spirometrie is de diagnosestandaard.</p></div>
+      <div class="th-section-title">GOLD-stadiëring (FEV1 na bronchodilatatie)</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th>GOLD</th><th>Omschrijving</th><th>FEV1 (% voorspeld)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Mild</td><td>≥80%</td></tr>
+          <tr><td>2</td><td>Matig</td><td>50–79%</td></tr>
+          <tr><td>3</td><td>Ernstig</td><td>30–49%</td></tr>
+          <tr><td>4</td><td>Zeer ernstig</td><td>&lt;30%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="th-section-title">Behandelladder stabiel COPD</div>
+      <div class="th-steps">
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>SABA</strong> (salbutamol) — zo nodig voor dyspneu</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>LAMA</strong> (tiotropium) — onderhoud bij MRC ≥2; vermindert exacerbaties het meest</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>LAMA + LABA</strong> — bij aanhoudende dyspneu</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>LAMA + LABA + ICS</strong> — bij ≥2 exacerbaties/jaar of eosinofielen &gt;300 cellen/µL</div></div>
+      </div>
+      <div class="th-section-title">Exacerbatie COPD — management</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th>Stap</th><th>Behandeling</th></tr></thead>
+        <tbody>
+          <tr><td>Bronchodilatatie</td><td>SABA + SAMA vernevelaar (salbutamol + ipratropium)</td></tr>
+          <tr><td>Corticosteroïden</td><td>Prednisolon 40 mg/dag oraal × 5 dagen</td></tr>
+          <tr><td>Antibiotica</td><td>Bij purulent sputum of verhoogde CRP: amoxicilline-clavulaanzuur of doxycycline</td></tr>
+          <tr><td>Zuurstof</td><td>Target SpO₂ <strong>88–92%</strong> (niet hoger — CO₂-retentie risico!)</td></tr>
+          <tr><td>NIV</td><td>Bij pH &lt;7.35 + CO₂-retentie → CPAP/BiPAP, voorkomt intubatie</td></tr>
+        </tbody>
+      </table></div>
+      <div class="th-pearl"><strong>Zuurstofvalkuil</strong>: COPD-patiënten met CO₂-retentie drijven hun ademhaling op hypoxie. Te hoog O₂ → ademdepressie. Target altijd 88–92%!</div>
+      <div class="th-pearl"><strong>Roststopadvies</strong> is de meest effectieve interventie bij COPD — vertraagt FEV1-daling en verlengt overleving meer dan elk geneesmiddel.</div>
+    `
+  },
+
+  longembolie: {
+    title: 'Longembolie',
+    icon: '🩺',
+    subtitle: 'Wells · Diagnose · Behandeling · Massieve LE',
+    body: `
+      <div class="th-intro"><p>Longembolie (LE) is verstopping van een pulmonaalarterie door een trombus, meestal afkomstig uit de diepe beenvenen (DVT). Jaarlijkse incidentie ~1 per 1000. Behandel altijd in aansluiting op diagnostiek.</p></div>
+      <div class="th-section-title">Wells-score (LE)</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th>Criterium</th><th>Punten</th></tr></thead>
+        <tbody>
+          <tr><td>Klinische tekenen DVT</td><td>3</td></tr>
+          <tr><td>Alternatieve diagnose minder waarschijnlijk dan LE</td><td>3</td></tr>
+          <tr><td>Hartfrequentie &gt;100/min</td><td>1.5</td></tr>
+          <tr><td>Immobilisatie &gt;3 dagen / recente operatie</td><td>1.5</td></tr>
+          <tr><td>Eerder DVT of LE</td><td>1.5</td></tr>
+          <tr><td>Hemoptysis</td><td>1</td></tr>
+          <tr><td>Maligniteit</td><td>1</td></tr>
+        </tbody>
+      </table></div>
+      <div class="th-steps">
+        <div class="th-step"><span class="th-step-num">≤4</span><div><strong>Laag risico</strong> — D-dimeer; als negatief: LE uitgesloten</div></div>
+        <div class="th-step"><span class="th-step-num">&gt;4</span><div><strong>Hoog risico</strong> — direct CT-pulmonaalangiografie (CTPA)</div></div>
+      </div>
+      <div class="th-section-title">Diagnose stap voor stap</div>
+      <div class="th-steps">
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Wells-score</strong> — risicostratificatie</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>D-dimeer</strong> — alleen bij lage Wells (&lt;/= 4); hoge sensitiviteit, lage specificiteit</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>CTPA</strong> — goudstandaard; bij hoge Wells of positieve D-dimeer</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Echo hart</strong> — bij hemodynamische instabiliteit: RV-dilatatie = indirect bewijs LE</div></div>
+      </div>
+      <div class="th-section-title">Behandeling</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th>Type LE</th><th>Behandeling</th></tr></thead>
+        <tbody>
+          <tr><td>Stabiel (niet-massief)</td><td>DOAC (rivaroxaban of apixaban) 3–6 maanden; start direct</td></tr>
+          <tr><td>Intermediair hoog risico</td><td>Anticoagulantia + monitoring IC; overweeg trombolyse bij verslechtering</td></tr>
+          <tr><td>Massieve LE (hemodynamisch instabiel)</td><td>Systemische trombolyse (alteplase) + anticoagulantia; bij contra-indicatie: chirurgie of kathetertrombolyse</td></tr>
+        </tbody>
+      </table></div>
+      <div class="th-pearl"><strong>Massieve LE</strong>: shock + RV-falen. Trombolyse (alteplase 100 mg IV over 2u) is levensreddend; groot bloedingsrisico → weeg af. Contra-indicaties: recente chirurgie, CVA &lt;3m, actieve bloeding.</div>
+      <div class="th-pearl"><strong>D-dimeer</strong> stijgt bij zwangerschap, infectie, trauma, maligniteit → nutteloos bij hoge a-priori kans. Pas toe als uitsluiter bij lage kans!</div>
+    `
+  },
+
   sepsis: {
     title: 'Sepsis & Septische Shock',
     icon: '🚨',
@@ -366,5 +449,7 @@ function getRelatedTheory(q) {
   if (/diabetes|hba1c|insuline|metformine|dka|hyperglykem|sglt2|glp.1/.test(txt)) return 'diabetes';
   if (/schildklier|tsh|hypothyreo|hyperthyreo|graves|hashimoto|thyrox/.test(txt)) return 'schildklier';
   if (/sepsis|septisch|sofa|lactaat|vasopressor|noradrenalin|bacteriem/.test(txt)) return 'sepsis';
+  if (/copd|luchtwegobstructie|bronchodilatator|tiotropium|exacerbatie.*long|spirometrie|fev1|lama|laba/.test(txt)) return 'copd';
+  if (/longembolie|embolie|pulmonaal|wells.*score|d.dimeer.*embol|ctpa|trombolyse.*long/.test(txt)) return 'longembolie';
   return null;
 }
