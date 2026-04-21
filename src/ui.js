@@ -445,6 +445,22 @@ function diffStars(d) {
   return [1,2,3].map(i => `<span class="diff-star ${i <= n ? 'on' : 'off'}">★</span>`).join('');
 }
 
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatQ(str) {
+  if (!str.includes('\n')) return escHtml(str);
+  const lines = str.split('\n');
+  const last  = lines.length - 1;
+  return lines.map((line, i) => {
+    const esc = escHtml(line);
+    if (i === 0)    return `<span class="fq-intro">${esc}</span>`;
+    if (i === last) return `<span class="fq-q">${esc}</span>`;
+    return `<span class="fq-item">${esc}</span>`;
+  }).join('');
+}
+
 function gradeFromPct(pct) {
   const grades = [
     [90, '🏆 Expert niveau',       '#1A7A4A'],

@@ -219,7 +219,7 @@ function loadQ() {
   const domain = document.getElementById('qDomain');
   const qtext  = document.getElementById('qText');
   if (domain) domain.textContent = q.dl;
-  if (qtext)  qtext.textContent  = q.q;
+  if (qtext)  qtext.innerHTML = formatQ(q.q);
   const diff = document.getElementById('qDifficulty');
   if (diff) diff.innerHTML = diffStars(q.d);
 
@@ -307,7 +307,7 @@ function processAnswer(ok, q) {
         G.pendingEndGame = true;
         showToast(false, 'Game over', q.ex, q);
         updateHUD();
-        G.nextQTimer = setTimeout(() => { G.nextQTimer = null; hideToast(); endGame(); }, 2400);
+        G.nextQTimer = setTimeout(() => { G.nextQTimer = null; hideToast(); endGame(); }, 5000);
         return;
       }
     }
@@ -322,7 +322,7 @@ function processAnswer(ok, q) {
     if (G.mode === 'blitz' && G.timeLeft <= 0) return;
     if (G.mode === 'survival' && G.queue.length === 0) G.queue = shuffleArr(getPool());
     loadQ();
-  }, 2400);
+  }, 5000);
 }
 
 // ── Einde ──

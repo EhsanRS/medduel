@@ -393,6 +393,30 @@ h1.logo em {
   color: var(--ink);
 }
 
+/* Formatted question parts (lab/data questions) */
+.fq-intro {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin-bottom: 0.5rem;
+}
+.fq-item {
+  display: inline-block;
+  background: rgba(26,20,16,0.06);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  margin: 2px 4px 2px 0;
+  color: var(--ink);
+}
+.fq-q {
+  display: block;
+  margin-top: 0.65rem;
+}
+
 /* Answer buttons */
 .answers-wrap {
   display: flex;
@@ -516,11 +540,19 @@ h1.logo em {
 .toast-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
   font-family: 'Fraunces', serif;
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 0.3rem;
+}
+.toast-ring { flex-shrink: 0; }
+@keyframes toast-drain {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 56.5; }
+}
+.toast.show .toast-ring-arc {
+  animation: toast-drain 5s linear forwards;
 }
 .toast-dot {
   width: 10px; height: 10px;

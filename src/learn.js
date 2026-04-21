@@ -101,7 +101,7 @@ function lmLoadQ() {
         <div class="q-difficulty">${diffStars(q.d)}</div>
       </div>
       <div class="q-domain">${q.dl}</div>
-      <div class="q-text lm-q-text">${q.q}</div>
+      <div class="q-text lm-q-text">${formatQ(q.q)}</div>
     </div>
     <div class="answers-wrap" id="lm-answers">${answersHTML}</div>
     <div class="lm-explanation-box" id="lm-expl" style="display:none;"></div>
