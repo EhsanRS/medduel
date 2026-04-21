@@ -441,8 +441,10 @@ function shuffleArr(a) {
 }
 
 function diffStars(d) {
-  const n = d || 2;
-  return [1,2,3].map(i => `<span class="diff-star ${i <= n ? 'on' : 'off'}">★</span>`).join('');
+  const n = d || 3;
+  const cls = n <= 2 ? 'easy' : n === 3 ? 'mid' : n === 4 ? 'hard' : 'expert';
+  const stars = [1,2,3,4,5].map(i => `<span class="diff-star ${i <= n ? 'on' : 'off'}">★</span>`).join('');
+  return `<span class="diff-wrap d-${cls}">${stars}</span>`;
 }
 
 function escHtml(s) {

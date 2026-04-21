@@ -148,7 +148,15 @@ function renderProfielTab() {
       </div>
       <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
     </div>
-    <div id="domainStatsWrap" class="fade-in-2" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>`;
+    <div id="domainStatsWrap" class="fade-in-2" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
+    <div class="adm-home-card fade-in-3" onclick="showAdmin()">
+      <span style="font-size:20px;">🗂️</span>
+      <div class="fav-home-info">
+        <span class="fav-home-name">Vragenbank</span>
+        <span class="fav-home-sub">${QUESTIONS.length} vragen · beheer &amp; overzicht</span>
+      </div>
+      <span style="font-size:18px;color:var(--ink-light);opacity:0.5;">→</span>
+    </div>`;
   renderXPHome();
   const sub = document.getElementById('favHomeSub');
   if (sub) {
@@ -169,7 +177,9 @@ function switchHomeTab(tab, btn) {
 }
 
 // ── Init ──
-if (isOnboarded()) {
+if (new URLSearchParams(window.location.search).get('admin') === '1') {
+  showAdmin();
+} else if (isOnboarded()) {
   showHome();
 } else {
   startOnboarding();

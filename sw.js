@@ -1,4 +1,4 @@
-const CACHE = 'medduel-v13';
+const CACHE = 'medduel-v14';
 const ASSETS = [
   '/',
   '/index.html',
@@ -12,6 +12,7 @@ const ASSETS = [
   '/src/weak.js',
   '/src/onboarding.js',
   '/src/theory.js',
+  '/src/admin.js',
   '/src/router.js',
   '/src/data/questions.js',
   '/src/data/cases.js',
