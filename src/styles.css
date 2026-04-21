@@ -1472,6 +1472,8 @@ h1.logo em {
   justify-content: center;
   padding: 2rem 1.5rem;
 }
+/* Override .screen.active { display: block } for onboarding flex layout */
+.screen.active.ob-screen { display: flex; }
 .ob-inner {
   max-width: 360px;
   width: 100%;
@@ -1916,8 +1918,8 @@ h1.logo em {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding-top: 3rem;
-  margin-bottom: 1.75rem;
+  padding-top: 2rem;
+  margin-bottom: 1.25rem;
 }
 .hero-eyebrow {
   font-size: 12px;

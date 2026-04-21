@@ -50,23 +50,6 @@ function renderSpelenTab() {
       <div class="hero-streak-badge" id="heroStreak">0🔥</div>
     </div>
 
-    <div id="xpWrap" class="fade-in-1"></div>
-
-    <div class="stats-strip fade-in-2">
-      <div class="stat-item">
-        <span class="stat-num" id="home-played">0</span>
-        <span class="stat-lbl">Gespeeld</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" id="home-best">—</span>
-        <span class="stat-lbl">Record</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num" id="home-streak">0</span>
-        <span class="stat-lbl">Streak</span>
-      </div>
-    </div>
-
     <div class="section-label fade-in-2">Vandaag</div>
     ${renderDailyHomeCard()}
 
