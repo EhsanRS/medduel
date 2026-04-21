@@ -185,6 +185,40 @@ const DOSSIER_CASES = [
     options: ['Renaal AKI (acute tubulaire necrose)', 'Prerenaal AKI door dehydratie + nefrotoxica', 'Postrenaal AKI (urineweg-obstructie)', 'Chronische nierziekte exacerbatie'],
     correct: 1,
     explanation: 'Prerenaal AKI: de tubuli functioneren nog normaal en proberen maximaal te compenseren. Intacte tubuli reabsorberen zoveel mogelijk Na (urine-Na laag: 6 mmol/L, FeNa <1%) en concentreren de urine maximaal (osmolaliteit 710 mosm/kg). Dit is het tegenovergestelde van ATN, waarbij beschadigde tubuli dit niet meer kunnen (urine-Na >40, FeNa >2%, isostenurie).\n\nDe drie oorzaken werkten hier samen: (1) Dehydratie (verminderde inname, thiazide). (2) NSAID (diclofenac) blokkeert prostaglandines die normaal de afferente arteriool dilateren bij hypovolemie. (3) ACE-remmer (lisinopril) blokkeert efferente arteriolencontractie. Samen => kno-effect => glomerulaire filtratiedruk daalt => AKI.\n\nBeleid: NSAID en ACE-remmer staken, IV vochtresuscitatie, elektrolyten corrigeren (K+ 5.9 monitoren), dagelijks kreatinine.\n\nWaarom niet de anderen? ATN: FeNa >2%, granulaircilinders in sediment. Postrenaal: hydronefrose op echo. CKD: kreatinine 96 was recent normaal, te acuut.',
+  },
+
+  {
+    id: 'c12',
+    patient: 'Patiënt L — Man, 64 jaar',
+    diagnosis: 'Geïnfecteerde COPD-exacerbatie',
+    clues: [
+      { label: 'Reden van komst',      text: 'Toenemende dyspneu, meer sputum dan normaal (nu geel/groen), hoest. Klachten 3 dagen.' },
+      { label: 'Voorgeschiedenis',      text: 'COPD GOLD III (FEV1 42% voorspeld), 40 pakjaar roken. Twee exacerbaties afgelopen jaar waarvoor prednison.' },
+      { label: 'Vitale functies',       text: 'BD 138/84 mmHg, HF 104/min, RR 28/min, SpO2 84% op kamerlucht, T 38.1 graden. Spreekt in korte zinnen.' },
+      { label: 'Lichamelijk onderzoek', text: 'Tonvormige thorax. Verlengd expirium. Diffuus expiratoir piepen. Gebruik hulpademhalingsspieren. Geen perifeer oedeem, geen JVD.' },
+      { label: 'Bloedgas (op 2L O2)',   text: 'pH 7.31, pCO2 68 mmHg, pO2 62 mmHg, HCO3- 33 mmol/L. Lactaat 1.4 mmol/L.' },
+      { label: 'Lab & X-thorax',        text: 'Leukocyten 11.8, CRP 62 mg/L. X-thorax: hyperinflatie, afgeplatte diafragmakoepels. Geen consolidatie, geen pneumothorax.' },
+    ],
+    options: ['Acuut astma-exacerbatie', 'Gedecompenseerd hartfalen', 'Geïnfecteerde COPD-exacerbatie', 'Longembolie'],
+    correct: 2,
+    explanation: 'De combinatie van bekende ernstige COPD, purulenter sputum (infectie-trigger), hyperinflatie en respiratoire acidose met gedeeltelijke metabole compensatie (HCO3- 33 = chronische retentie) is het handschrift van een geïnfecteerde COPD-exacerbatie.\n\nHet bloedgas toont type-2 respiratoir falen (pO2 laag EN pCO2 hoog). Cruciaal verschil met astma: bij COPD-exacerbatie is hypercapnie gevaarlijker om te corrigeren — te veel zuurstof onderdrukt de hypoxische aandrijving en verergert CO2-retentie. Doel SpO2 88-92%, niet hoger!\n\nAnthonisen-criteria voor infectieuze exacerbatie (2 van 3): (1) meer dyspneu, (2) meer sputum, (3) purulenter sputum. Hier alle drie aanwezig = antibiotica geïndiceerd (amoxicilline of doxycycline). Ook: prednisolon 30-40 mg 5 dagen, inhalatoire bronchusverwijders.\n\nWaarom niet de anderen? Astma: geen COPD-voorgeschiedenis, astma geeft zelden hypercapnie en tonvormige thorax. Hartfalen: geen JVD/S3/oedeem, X-thorax geen stuwing. Longembolie: geen pleuritische pijn, geen risicofactoren, CRP past meer bij infectie.',
+  },
+
+  {
+    id: 'c13',
+    patient: 'Patiënt M — Vrouw, 54 jaar',
+    diagnosis: 'Hypertensieve spoed (maligne hypertensie)',
+    clues: [
+      { label: 'Reden van komst',      text: 'Ernstige occipitale hoofdpijn, wazig zien en misselijkheid. Medicatie 3 maanden geleden gestopt.' },
+      { label: 'Voorgeschiedenis',      text: 'Hypertensie al 10 jaar bekend, maar slechte medicatietrouw. Roken 15 pakjaar.' },
+      { label: 'Vitale functies',       text: 'BD 218/134 mmHg rechts, 214/130 mmHg links, HF 92/min, SpO2 98%, T 37.0 graden.' },
+      { label: 'Lichamelijk onderzoek', text: 'Fundoscopie: papilloedeem beiderzijds, flame-shaped bloedingen, hard exsudaat. Geen focale neurologische uitval. GCS 15.' },
+      { label: 'Lab',                   text: 'Kreatinine 168 umol/L (norm 90). Proteïnurie +++. Hb 6.2 mmol/L, fragmentocyten op bloeduitstrijk. LDH 520 U/L. Trombocyten 88.' },
+      { label: 'ECG & aanvullend',      text: 'ECG: LVH-kenmerken met strain-patroon. Urine-dipstick: proteïne +++, bloed +.' },
+    ],
+    options: ['Hypertensieve urgentie (geen eindorgaanschade)', 'Hypertensieve spoed (maligne hypertensie)', 'Hypertensieve encefalopathie', 'Pre-eclampsie'],
+    correct: 1,
+    explanation: 'Hypertensieve spoed = ernstige hypertensie MET bewijs van acute eindorgaanschade. Hier zijn meerdere organen aangedaan: ogen (papilloedeem + retinabloedingen = hypertensieve retinopathie graad IV), nieren (kreatinine, proteïnurie), hematologie (fragmentocyten + trombocytopenie + hoog LDH = microangiopathische hemolyse = MAHA) en hart (LVH + strain).\n\nDit is maligne hypertensie: de MAHA (fragmentocyten door mechanische beschadiging van erytrocyten in de beschadigde microvasculatuur) onderscheidt dit van gewone hypertensieve crises. Behandeling: direct parenteral antihypertensief (labetalol of nicardipine IV), doel: BD dalen met max 20-25% eerste uur, dan geleidelijker. Nooit te snel dalen: risico op cerebraal hypoperfusie-infarct!\n\nHypertensieve urgentie = hoge BD zónder eindorgaanschade → oraal behandelen, ambulant. Hypertensieve spoed → altijd opname IC/CCU.\n\nWaarom niet pre-eclampsie? Geen zwangerschap vermeld. Hypertensieve encefalopathie: meer bewustzijnsverandering/convulsies, overlappend beeld, maar hier domineren de andere eindorgaankenmerken.',
   }
 
 ];
