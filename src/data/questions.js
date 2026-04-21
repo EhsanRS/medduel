@@ -31,7 +31,8 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Digoxine verhoogt de hartfrequentie en is geïndiceerd bij tachycardieën om het hart sneller te laten pompen.',
-    c:false, ex:'NIET WAAR. Digoxine verlaagt de HF (negatief chronotroop) via vagale stimulatie. Gebruikt bij AF met snelle ventrikelrespons.' },
+    c:false, ex:'NIET WAAR. Digoxine verlaagt de HF (negatief chronotroop) via vagale stimulatie. Gebruikt bij AF met snelle ventrikelrespons.',
+    wiki:{ kern:'Digoxine remt Na⁺/K⁺-ATPase → intracellulair Na⁺ stijgt → Ca²⁺ hoopt op → sterkere contractie (positief inotroop). Tegelijk stimuleert het de nervus vagus → tragere AV-knoopgeleiding → lagere ventrikelrespons bij AF.', mechanisme:'Smal therapeutisch venster: toxisch al boven 2 ng/ml. Hypokaliëmie verhoogt toxiciteit (K⁺ en digoxine concurreren om Na⁺/K⁺-ATPase) — altijd kalium corrigeren bij digoxinegebruik!', onderscheid:'Bètablokkers en verapamil/diltiazem verlagen ook de ventrikelrespons bij AF — méér effectief en veiliger als eerstekeus. Digoxine heeft voordeel bij hartfalen met lage EF: naast frequentiecontrole ook inotroop effect.' } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Een normaal ECG sluit een acuut myocardinfarct volledig uit.',
@@ -53,7 +54,8 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 58j: rusttremor, bradykinesie, hypomimie, kleine passen. Diagnose?',
     a:['Essentiële tremor','Huntington','Parkinson','MS'], c:2,
-    ex:'Parkinson: de 4 kardinale symptomen zijn rusttremor, rigiditeit, bradykinesie en posturale instabiliteit. Hypomimie is typisch.' },
+    ex:'Parkinson: de 4 kardinale symptomen zijn rusttremor, rigiditeit, bradykinesie en posturale instabiliteit. Hypomimie is typisch.',
+    wiki:{ kern:'Parkinson ontstaat door verlies van dopaminerge neuronen in de substantia nigra. Pas als ~80% verloren is, worden klachten merkbaar. Dopamine faciliteert vloeiende beweging — tekort eraan laat de remmende circuits overheersen → traagheid, rigiditeit, tremor.', mechanisme:'Lewy-lichaampjes (alfa-synuclein aggregaten) zijn het pathologische kenmerk. L-DOPA (dopamineprecursor) is de meest effectieve behandeling, maar verliest na jaren effectiviteit (wearing off) en kan dyskinesieën geven bij langdurig gebruik.', onderscheid:'Essentiële tremor: houdingstremor (niet in rust), geen bradykinesie/rigiditeit, familair, reageert op propranolol. Parkinson-plus syndromen (MSA, PSP): parkinsonisme + extra verschijnselen (vallen, autonome uitval, oogbewegingsstoornissen). Geneesmiddelgeïnduceerd parkinsonisme (antipsychotica, metoclopramide): reversibel bij staken.' } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 28j: visuele stoornissen, daarna zwakte been, maanden later tintelingen arm. MRI: lesies verspreid in tijd en ruimte.',
@@ -79,7 +81,8 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie — Waar of Niet?',
     q:'Bij een epiduraal hematoom is er typisch een lucide interval van uren tussen het initiële trauma en bewustzijnsdaling.',
-    c:true, ex:'WAAR. Epiduraal hematoom (arteria meningea media): kort bewustzijnsverlies → lucide interval (arteriële bloeding bouwt langzaam druk op) → snelle deterioratie. Neurochirurgische spoedinterventie levensreddend!' },
+    c:true, ex:'WAAR. Epiduraal hematoom (arteria meningea media): kort bewustzijnsverlies → lucide interval (arteriële bloeding bouwt langzaam druk op) → snelle deterioratie. Neurochirurgische spoedinterventie levensreddend!',
+    wiki:{ kern:'Epiduraal hematoom = bloeding tussen schedel en dura, vrijwel altijd arterieel (arteria meningea media bij temporale schedelfractuur). Arteriële druk stuwt het hematoom snel op → tentoriumincarcinatie → ipsilaterale pupildilatatie, contralaterale hemiparese, bewustzijnsdaling.', mechanisme:'Het lucide interval is het klassieke kenmerk: schedeltrauma → kort bewustzijnsverlies → herstel ("gaat goed") → uren later plotse deterioratie. Dit interval bestaat omdat de arteriële bloeding tijd nodig heeft om kritische druk op te bouwen.', onderscheid:'Subduraal hematoom: veneus, ouderen/antistolling, trager beloop, halvemaanvorm op CT. Subarachnoïdaal: geen trauma nodig, donderslaghoofdpijn, geen lucide interval. Diffuus axonaal letsel: coma direct na trauma, geen focale uitval, CT vaak normaal.' } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 38j: plotse "donderslag-hoofdpijn", maximale intensiteit bereikt in seconden, nekstijfheid, geen koorts. CT hersenen negatief. Volgende stap?',
@@ -119,7 +122,8 @@ const QUESTIONS = [
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
     q:'Antibioticum dat DNA-gyrase remt, werkzaam tegen gramnegatieve bacteriën. Cave: peesontstekingen.',
     a:['Amoxicilline','Doxycycline','Ciprofloxacine','Metronidazol'], c:2,
-    ex:'Ciprofloxacine is een fluorochinolon. Bijwerkingen: tendinitis, QTc-verlenging. Cave bij ouderen + corticosteroïden.' },
+    ex:'Ciprofloxacine is een fluorochinolon. Bijwerkingen: tendinitis, QTc-verlenging. Cave bij ouderen + corticosteroïden.',
+    wiki:{ kern:'Fluorochinolonen (ciprofloxacine, levofloxacine) remmen DNA-gyrase (gramnegatief) en topoisomerase IV (grampositief) — enzymen die DNA ontspiraliseren voor replicatie. Bactericide. Breed spectrum inclusief Pseudomonas (ciprofloxacine).', mechanisme:'Tendinitis/peesruptuur: verstoring collageensynthese in peesweefsel, m.n. achillespees. Risico verhoogd bij ouderen, corticosteroïden en nierinsufficiëntie. QTc-verlenging via hERG-kanaalremming → torsade de pointes risico bij combinatie met andere QTc-verlengende middelen (antipsychotica, antiarritmica).', onderscheid:'Bètalactams: celwandremming, geen DNA-schade, geen tendinitis. Doxycycline: ribosoomremmer (30S), ook atypisch, geen fluorochinolon-bijwerkingen. Trimethoprim: folaatremmering, specifiek voor UWI, geen systemisch spectrum.' } },
 
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
     q:'Welk antistollingsmiddel remt vitamine K-afhankelijke stollingsfactoren II, VII, IX en X?',
@@ -153,7 +157,8 @@ const QUESTIONS = [
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
     q:'Welk mechanisme verklaart de werkzaamheid van methotrexaat bij reumatoïde artritis?',
     a:['COX-2-remming','TNF-α blokkade','DHFR-inhibitie → anti-inflammatoir via adenosine','IL-6 receptorblokkade'], c:2,
-    ex:'Methotrexaat remt DHFR (dihydrofolaatreductase) → verminderde purinesynthese → adenosine-accumulatie → anti-inflammatoir effect. Foliumzuursuppletie verlaagt bijwerkingen (mucositis, myelosuppressie) zonder werkzaamheidsverlies.' },
+    ex:'Methotrexaat remt DHFR (dihydrofolaatreductase) → verminderde purinesynthese → adenosine-accumulatie → anti-inflammatoir effect. Foliumzuursuppletie verlaagt bijwerkingen (mucositis, myelosuppressie) zonder werkzaamheidsverlies.',
+    wiki:{ kern:'Bij RA werkt methotrexaat NIET via de folaatroute (zoals bij kanker). Bij lage dosis remt adenosine-opstapeling T-celactivatie en cytokineproductie. Dit verklaart waarom foliumzuursuppletie bijwerkingen (mucositis, beenmergdepressie) vermindert zónder het anti-inflammatoire effect weg te nemen.', mechanisme:'Hoge dosis (oncologie): DHFR-remming → geen DNA-synthese → celgroei gestopt. Lage dosis (RA): adenosine-accumulatie via AICAR → A2A-receptoractivatie → anti-inflammatoir. Het mechanisme verschilt per dosis — dat is klinisch relevant.', onderscheid:'TNF-α-blokkers (adalimumab, etanercept): sneller effectief, biologicals — tweede lijn na MTX-falen. IL-6-remmer (tocilizumab): ook effectief bij MTX-falen. Hydroxychloroquine: milde RA, minder toxisch maar ook minder krachtig. MTX is de hoeksteen van RA-behandeling — de meeste biologicals worden eraan toegevoegd, niet als vervanging.' } },
 
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
     q:'Aminoglycosiden (bijv. gentamicine) werken concentratie-afhankelijk bactericide. Welk doseringsschema benut dit optimaal?',
@@ -168,7 +173,8 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Jongeman 22j: koorts, extreme vermoeidheid, pharyngitis, cervicale lymfadenopathie, splenomegalie. Monospot positief.',
     a:['Streptokokken-angina','CMV-infectie','EBV-mononucleose','HIV primo-infectie'], c:2,
-    ex:'EBV = ziekte van Pfeiffer. Monospot detecteert heterofiele antistoffen. Cave: geen contactsporten bij splenomegalie!' },
+    ex:'EBV = ziekte van Pfeiffer. Monospot detecteert heterofiele antistoffen. Cave: geen contactsporten bij splenomegalie!',
+    wiki:{ kern:'EBV infecteert B-lymfocyten via de CD21-receptor. De klachten (koorts, extreme moeheid, pharyngitis, lymfadenopathie) worden NIET door het virus zelf veroorzaakt maar door de massieve CD8+ T-celrespons die de geïnfecteerde B-cellen probeert te elimineren. De "tonsillitis" is eigenlijk een immunologische storm.', mechanisme:'Splenomegalie door lymfocytaire infiltratie → ruptureerrisico bij contactsporten of trauma (2-4 weken). Monospot detecteert heterofiele IgM-antistoffen (kruisreactie met schaapseritrocyten). Cave: amoxicilline bij actieve EBV geeft bij ~80% een gegeneraliseerde huiduitslag — geen echte allergie!', onderscheid:'CMV-mononucleose: monospot negatief, mildere keelklachten, meer leverstoornissen. HIV primo-infectie: ook mononucleose-achtig + huiduitslag, hoog viraal HIV RNA, monospot negatief. Streptokokkenangina: geen splenomegalie, monospot negatief, GABHS-kweek positief.' } },
 
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Terugkerende van Azië: cyclische koorts elke 48 uur, rillingen, zweetstuipen. Dik-druppelpreparaat positief.',
@@ -190,7 +196,8 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 55j, exertionele dyspneu, ECHO: EF 65%, verhoogde vullingsdrukken, geen klepafwijkingen. Diagnose?',
     a:['Hartfalen met gereduceerde EF (HFrEF)','Hartfalen met behouden EF (HFpEF)','Pulmonale hypertensie','Hypertrofische cardiomyopathie'], c:1,
-    ex:'HFpEF: EF ≥50% maar diastolische dysfunctie → verhoogde vullingsdrukken. Behandeling richt zich op symptomen en risicofactoren. Geen EF-verbeterende medicatie (ACE-remmer, bèta-blokker) bewezen effectief zoals bij HFrEF.' },
+    ex:'HFpEF: EF ≥50% maar diastolische dysfunctie → verhoogde vullingsdrukken. Behandeling richt zich op symptomen en risicofactoren. Geen EF-verbeterende medicatie (ACE-remmer, bèta-blokker) bewezen effectief zoals bij HFrEF.',
+    wiki:{ kern:'Hartfalen met behouden EF (HFpEF) heeft normale pompkracht maar een stijve LV — het hart vult te langzaam en bij te hoge druk. Risicofactoren: ouderdom, hypertensie, DM, obesitas. Diastolische dysfunctie = het hart kan niet ontspannen, niet pompen.', mechanisme:'Chronische drukoverbelasting (hypertensie) → LV-hypertrofie + verlies van elasticiteit → hoge vullingsdrukken → stuwing in de longen. Het EF is bewaard omdat de contractie zelf intact is — het probleem zit in de relaxatiefase.', onderscheid:'HFrEF (EF <40%): systolische dysfunctie — bewezen mortaliteitsreductie met ACE-remmer + bètablokker + MRA + SGLT2i. HFpEF: tot voor kort geen bewezen medicatie; SGLT2-remmers (dapagliflozine) tonen recent voordeel. Klinisch gelijk: oedeem, orthopneu — onderscheid alleen via echocardiografie.' } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 26j, atleet: syncope tijdens inspanning, positieve familiegeschiedenis plotse hartdood. ECHO: asymmetrische septumhypertrofie 22mm, SAM van mitraalklep. Diagnose?',
@@ -220,7 +227,8 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Patiënt: HBsAg positief, anti-HBc IgM positief, anti-HBs negatief, HBeAg positief. Interpretatie?',
     a:['Chronische HBV-infectie','Acuut hepatitis B, hoog infectieus','Herstel van HBV (immuniteit)','Vaccinatie-immuniteit'], c:1,
-    ex:'Acuut HBV: HBsAg+ en anti-HBc IgM+ (verse infectie). HBeAg+ duidt op actieve virusreplicatie, hoog infectieus. Anti-HBs positief = herstel of vaccinatie. Chronisch HBV: HBsAg >6 maanden, IgM anti-HBc negatief.' },
+    ex:'Acuut HBV: HBsAg+ en anti-HBc IgM+ (verse infectie). HBeAg+ duidt op actieve virusreplicatie, hoog infectieus. Anti-HBs positief = herstel of vaccinatie. Chronisch HBV: HBsAg >6 maanden, IgM anti-HBc negatief.',
+    wiki:{ kern:'HBV-serologie lezen: HBsAg = virus aanwezig. Anti-HBc IgM = verse infectie. Anti-HBs = immuniteit (door herstel of vaccinatie). HBeAg = actieve replicatie, hoog besmettelijk. Elk patroon vertelt een fase van de infectie.', mechanisme:'Na besmetting: HBsAg verschijnt eerst (2-10w) → IgM anti-HBc → na herstel: HBsAg verdwijnt, anti-HBs verschijnt (window-periode: beiden negatief). Vaccinatie: ALLEEN anti-HBs positief, GEEN anti-HBc (nooit blootgesteld aan het virus zelf).', onderscheid:'Chronische drager: HBsAg >6 maanden + anti-HBc IgG (geen IgM). Immunotolerant: hoog HBV-DNA, normaal ALAT → nog geen behandeling. Actieve chronische hepatitis: verhoogd ALAT + hoog HBV-DNA → antivirale therapie. Window-periode (acuut herstel): alleen anti-HBc positief, HBsAg/anti-HBs beiden negatief.' } },
 
   { type:'truefalse', d:2, domain:'infectio', dl:'Infectiologie — Waar of Niet?',
     q:'MRSA-resistentie berust op het mecA-gen, dat codeert voor PBP2a — een transpeptidase met lage affiniteit voor alle bèta-lactam-antibiotica.',
@@ -250,7 +258,8 @@ const QUESTIONS = [
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
     q:'Na⁺ 128, lage osmolaliteit plasma, hoog urinesodium, geen oedeem. Welk syndroom?',
     a:['Diabetes insipidus','SIADH','Nefrotisch syndroom','Addisoncrisis'], c:1,
-    ex:'SIADH: hyponatriëmie, lage plasmaosmolaliteit, hoog urinenatrium. Geen oedeem — dat onderscheidt het van hartfalen/cirrose.' },
+    ex:'SIADH: hyponatriëmie, lage plasmaosmolaliteit, hoog urinenatrium. Geen oedeem — dat onderscheidt het van hartfalen/cirrose.',
+    wiki:{ kern:'SIADH is de meest voorkomende oorzaak van hyponatriëmie in het ziekenhuis. ADH wordt aangemaakt zonder osmotische prikkel → nieren houden water vast → verdunningshyponatriëmie. Oorzaken: kleincellig longcarcinoom, pneumonie, CNS-aandoeningen, carbamazepine, SSRI.', mechanisme:'ADH bindt V2-receptoren → aquaporine-2 inbouw → water-terugresorptie → geconcentreerde urine (osmolaliteit >100). Urine-Na hoog (>40) omdat Na-handling normaal is. Geen oedeem want geen zoutretentie — de totale natriumhoeveelheid is normaal, alleen het water is teveel.', onderscheid:'Hartfalen/cirrose/nefrotisch: ook hyponatriëmie maar MÉT oedeem + lage urine-Na (<20) door RAAS-activatie. Hypovolemische hyponatriëmie: dehydratie, droge slijmvliezen, hoge pols. Hypothyreoïdie/bijnierinsufficiëntie: "SIADH-like" → altijd TSH en cortisol bepalen voordat je de diagnose SIADH stelt!' } },
 
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
     q:'K⁺ 6.8, ECG: piekende T-toppen, verlengd PR. Eerste behandelstap?',
@@ -287,7 +296,8 @@ const QUESTIONS = [
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
     q:'Creatinine acuut gestegen: 188 µmol/L\nUrine-Na 9 mmol/L\nUrine-osmolaliteit 680 mosm/kg\nMeest waarschijnlijke oorzaak?',
     a:['Acute tubulusnecrose (ATN)','Prerenaal nierfalen','Post-renale obstructie','Acute glomerulonefritis'], c:1,
-    ex:'Prerenaal: tubulus functioneert nog → maximale Na-terugresorptie (urine-Na <20) + water-terugresorptie (osmolaliteit >500). ATN: tubuli beschadigd → urine-Na >40, osmolaliteit <350. Behandeling prerenaal: vochtresuscitatie.' },
+    ex:'Prerenaal: tubulus functioneert nog → maximale Na-terugresorptie (urine-Na <20) + water-terugresorptie (osmolaliteit >500). ATN: tubuli beschadigd → urine-Na >40, osmolaliteit <350. Behandeling prerenaal: vochtresuscitatie.',
+    wiki:{ kern:'Prerenaal nierfalen is functioneel: de tubuli werken normaal maar er is te weinig doorstroom. De nieren reageren correct: maximaal Na en water vasthouden. Herstel bij vochttoediening. ATN (acute tubulusnecrose) is structureel: tubuli zijn beschadigd door ischemie of toxines → kunnen niet meer reabsorberen.', mechanisme:'Prerenaal: lage renale perfusie → RAAS + ADH → urine-Na <20, osmolaliteit >500, FENa <1%. ATN: tubuli dood → urine-Na >40, osmolaliteit <350, FENa >2%. FENa = (urine-Na × plasma-creatinine) / (plasma-Na × urine-creatinine) × 100 — corriger voor diureticagebruik!', onderscheid:'Post-renale obstructie: echo toont hydronefrose. Glomerulonefritis: proteïnurie, hematurie, rode-bloedcel-cylinders. Contrast-nefropathie: stijging creatinine 24-48u na contrast, ATN-patroon. Hepatorenaal syndroom: bij cirrose, functioneel (FENa laag) maar reageert NIET op vochtsuppletie.' } },
 
   { type:'truefalse', d:2, domain:'lab', dl:'Laboratorium — Waar of Niet?',
     q:'Een verlengde APTT met normale PT zonder bloedingsklachten kan wijzen op een lupus anticoagulans.',
