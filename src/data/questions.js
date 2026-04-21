@@ -807,4 +807,50 @@ const QUESTIONS = [
     q:'Bloedgas: pH 7.28, PaCO2 32 mmHg, HCO3 15 mmol/L, AG 22. Welke stoornis?',
     a:['Respiratoire acidose','Metabole alkalose','Metabole acidose met verhoogd anion gap','Respiratoire alkalose'], c:2,
     ex:'Metabole acidose + hoog anion gap (normaal 8-12): AG = Na - (Cl + HCO3) = 22 → elevatie. Oorzaken MUDPILES: Methanol, Ureum, DKA, Propyleenglycol, INH/Ijzer, Lactaat, Ethanol/Ethyleenglycol, Salicylaten. PaCO2 laag = compensatoire respiratoire alkalose.' },
-];
+
+  // ── Cardiologie (nieuw batch 2) ──
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Vrouw 42j: plotse kortademigheid, pleuritische pijn, been gezwollen na lange vlucht. Meest waarschijnlijke diagnose?',
+    a:['Pneumonie','Longembolie','Pleuritis','Pneumothorax'], c:1,
+    ex:'Longembolie: klassieke risicofactoren zijn immobilisatie (lange vlucht), been-DVT, en plotse pleuritische pijn met dyspneu. D-dimeer bij lage klinische kans; CT-angiografie bij hoge kans of positief D-dimeer.' },
+
+  { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
+    q:'Een normaal D-dimeer bij een patiënt met hoge klinische kans op longembolie sluit longembolie uit.',
+    c:false, ex:'NIET WAAR. D-dimeer is alleen bruikbaar bij lage klinische kans (Wells ≤4). Bij hoge klinische kans altijd CT-angiografie, ongeacht D-dimeer. Een negatief D-dimeer bij hoge kans kan vals-negatief zijn.' },
+
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Patiënt na grote operatie: bloeddruk 75/50, hartfrequentie 120, koude extremiteiten, oligurie. Diagnose?',
+    a:['Septische shock','Cardiogene shock','Hypovolemische shock','Neurogene shock'], c:1,
+    ex:'Cardiogene shock: lage cardiac output → koude, klamme extremiteiten, lage bloeddruk, oligurie. Oorzaak: acuut MI, ernstig hartfalen. Behandeling: dobutamine (inotroop), noradrenaline bij refractaire hypotensie, overweeg IABP of Impella.' },
+
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Man 65j na inferieur MI: holosystolisch geruis aan de apex, uitstralend naar de oksel, nieuw ontstaan. Diagnose?',
+    a:['Aortastenose','Mitralisinsufficiëntie door papillairspierruptuur','Ventrikel­septumruptuur','Pericardwrijfgeruis'], c:1,
+    ex:'Acuute mitralisinsufficiëntie na MI: papillairspier­ruptuur → holosystolisch geruis → acute pulmonale stuwing. Medische noodtoestand. Onderscheid van VSD: bij VSD is het geruis ook holosystolisch maar parasternaal, met een thrill.' },
+
+  { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
+    q:'Nitraten (bijv. nitroglycerine) zijn absoluut gecontraïndiceerd bij gebruik van sildenafil (Viagra).',
+    c:true, ex:'WAAR. Beide middelen verwijden bloedvaten via cGMP. Combinatie → ernstige, levensbedreigende bloeddrukdaling. Wacht minimaal 24 uur na sildenafil (48u na tadalafil) voor nitraten. Vraag hier altijd naar bij een patiënt met pijn op de borst!' },
+
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Man 58j na doorgemaakte longembolie: wordt behandeld met apixaban. Na hoeveel maanden mag je stoppen bij een eerste uitgelokte embolie (bijv. na operatie)?',
+    a:['1 maand','3 maanden','6 maanden','Levenslang'], c:1,
+    ex:'Eerste uitgelokte longembolie (tijdelijke risicofactor zoals operatie of gips): 3 maanden antistolling volstaat. Bij idiopatische embolie of recidief: 6 maanden tot levenslang afhankelijk van risicoprofiel.' },
+
+  { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
+    q:'Na een hartinfarct verlaagt een statine het risico op een nieuw cardiovasculair event, ook als het LDL al normaal is.',
+    c:true, ex:'WAAR. Statines hebben naast LDL-verlaging ook ontstekingsremmende (pleiotrope) effecten op de vaatwand. Richtlijn: elke patiënt na MI krijgt een hoogintensieve statine, ongeacht de uitgangswaarde van LDL.' },
+
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Vrouw 70j: ECG toont een brede QRS-tachycardie (130/min) zonder duidelijke P-toppen. Meest gevaarlijke diagnose om als eerste uit te sluiten?',
+    a:['AVNRT','Sinustachycardie met bundeltakblok','Ventriculaire tachycardie','Atriumflutter met aberrante geleiding'], c:2,
+    ex:'Brede QRS-tachycardie = ventriculaire tachycardie (VT) tot het tegendeel bewezen. VT is levensbedreigend. Nooit zomaar adenosine geven bij brede QRS — kan VT verergeren. Bij instabiliteit: directe cardioversie.' },
+
+  { type:'diagnose', domain:'cardio', dl:'Cardiologie',
+    q:'Man 50j: ECG toont ST-elevatie in II, III en aVF. Welke coronairarterie is waarschijnlijk afgesloten?',
+    a:['Linker voorste dalende tak (LAD)','Rechter coronairarterie (RCA)','Linker circumflexarterie (LCx)','Hoofdstam (LMCA)'], c:1,
+    ex:'Inferieur MI (II, III, aVF) = RCA-occlusie in 80% van de gevallen. De RCA voedt ook het rechterventrikel → altijd rechter ECG-afleidingen (V3R/V4R) maken om RV-infarct uit te sluiten.' },
+
+  { type:'truefalse', domain:'cardio', dl:'Cardiologie — Waar of Niet?',
+    q:'Bij een longembolie met hemodynamische instabiliteit is systemische trombolyse de behandeling van keuze.',
+    c:true, ex:'WAAR. Massieve longembolie met shock of hartstilstand: trombolyse (alteplase) of chirurgische embolectomie. Bij stabiele patiënten: anticoagulatie (LMWH of DOAC). Trombolyse bij stabiele patiënten geeft te veel bloedingsrisico.' },
