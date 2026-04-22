@@ -28,55 +28,213 @@ const THEORY_TOPICS = {
   ecg: {
     title: 'ECG Basisinterpretatie',
     icon: '📊',
-    subtitle: 'Ritme · Intervallen · ST-afwijkingen · Aritmieën',
+    subtitle: 'PQRST · Intervallen · ST-patronen · Aritmieën',
     body: `
-      <div class="th-intro"><p>Lees elk ECG in dezelfde volgorde — dan mis je niets.</p></div>
+      <div class="th-intro"><p>Elk ECG is een tijdlijn van elektrische prikkels. Begrijp de fysiologie achter de golven — dan hoef je niets te stampen, je <em>leest</em> het verhaal van het hart.</p></div>
+
+      <div class="th-section-title">Het hart als elektrisch circuit</div>
+      <div class="th-conduction">SA-knoop → <strong>P-golf</strong> (atria) → AV-knoop (vertraging) → <strong>PR-interval</strong> → His + bundeltakken → <strong>QRS</strong> (ventrikels) → ST-segment (plateau) → <strong>T-golf</strong> (herstel)</div>
+      <p class="th-body-text">De <strong>AV-knoop vertraging</strong> is opzettelijk: die 120–200 ms geeft de atria tijd om de ventrikels vol te pompen vóórdat die samentrekken. Verdwijnt die vertraging (korte PR) → risico op re-entry aritmieën. Wordt die te lang (lang PR) → AV-blok.</p>
+
+      <div class="th-section-title">Eén heartbeat — annotated</div>
       <div class="th-figure">
-        <svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px">
-          <line x1="0" y1="65" x2="320" y2="65" stroke="#ddd" stroke-width="1"/>
-          <polyline points="10,65 35,65 43,55 51,50 59,65 73,65 80,70 91,10 102,73 113,65 128,65 139,57 151,38 163,57 176,65 310,65"
+        <svg viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px">
+          <!-- Grid -->
+          <line x1="0" y1="82" x2="340" y2="82" stroke="#e0d8cc" stroke-width="1"/>
+          <!-- Physiological labels (top) -->
+          <text x="42" y="12" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">Atriale</text>
+          <text x="42" y="21" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">depolarisatie</text>
+          <text x="110" y="12" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">Ventriculaire</text>
+          <text x="110" y="21" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">depolarisatie</text>
+          <text x="210" y="12" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">Ventriculaire</text>
+          <text x="210" y="21" font-size="8.5" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">repolarisatie</text>
+          <!-- Connector lines to waves -->
+          <line x1="42" y1="23" x2="42" y2="56" stroke="#ddd" stroke-width="0.8" stroke-dasharray="2,2"/>
+          <line x1="110" y1="23" x2="110" y2="28" stroke="#ddd" stroke-width="0.8" stroke-dasharray="2,2"/>
+          <line x1="210" y1="23" x2="210" y2="54" stroke="#ddd" stroke-width="0.8" stroke-dasharray="2,2"/>
+          <!-- ECG trace -->
+          <polyline points="10,82 28,82 34,72 42,66 50,82 64,82 70,86 78,20 90,88 100,82 118,82 128,70 142,52 156,70 170,82 310,82"
             stroke="#E8410A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="51" y="45" font-size="12" font-weight="bold" fill="#555" text-anchor="middle">P</text>
-          <text x="80" y="85" font-size="12" font-weight="bold" fill="#555" text-anchor="middle">Q</text>
-          <text x="91" y="7" font-size="12" font-weight="bold" fill="#E8410A" text-anchor="middle">R</text>
-          <text x="102" y="88" font-size="12" font-weight="bold" fill="#555" text-anchor="middle">S</text>
-          <text x="151" y="34" font-size="12" font-weight="bold" fill="#555" text-anchor="middle">T</text>
-          <line x1="35" y1="93" x2="113" y2="93" stroke="#bbb" stroke-width="0.8" stroke-dasharray="3,2"/>
-          <text x="74" y="100" font-size="9" fill="#aaa" text-anchor="middle">PR-interval (&lt;200ms)</text>
+          <!-- Wave labels -->
+          <text x="42" y="60" font-size="13" font-weight="bold" fill="#555" text-anchor="middle">P</text>
+          <text x="70" y="102" font-size="12" font-weight="bold" fill="#777" text-anchor="middle">Q</text>
+          <text x="78" y="15" font-size="13" font-weight="bold" fill="#E8410A" text-anchor="middle">R</text>
+          <text x="90" y="105" font-size="12" font-weight="bold" fill="#777" text-anchor="middle">S</text>
+          <text x="142" y="46" font-size="13" font-weight="bold" fill="#555" text-anchor="middle">T</text>
+          <!-- Interval brackets -->
+          <line x1="28" y1="95" x2="100" y2="95" stroke="#b0b8c4" stroke-width="1"/>
+          <line x1="28" y1="92" x2="28" y2="98" stroke="#b0b8c4" stroke-width="1"/>
+          <line x1="100" y1="92" x2="100" y2="98" stroke="#b0b8c4" stroke-width="1"/>
+          <text x="64" y="104" font-size="8" fill="#888" text-anchor="middle" font-family="DM Sans,sans-serif">PR 120–200ms</text>
+          <line x1="64" y1="110" x2="170" y2="110" stroke="#b0b8c4" stroke-width="1"/>
+          <line x1="64" y1="107" x2="64" y2="113" stroke="#b0b8c4" stroke-width="1"/>
+          <line x1="170" y1="107" x2="170" y2="113" stroke="#b0b8c4" stroke-width="1"/>
+          <text x="117" y="120" font-size="8" fill="#888" text-anchor="middle" font-family="DM Sans,sans-serif">QTc &lt;440ms</text>
+          <!-- ST segment label -->
+          <text x="110" y="78" font-size="8" fill="#aaa" text-anchor="middle" font-family="DM Sans,sans-serif">ST (isoelectrisch)</text>
         </svg>
-        <div class="th-figure-caption">PQRST-complex — de bouwsteen van elk ECG</div>
+        <div class="th-figure-caption">PQRST — één hartslag van SA-knoop tot herstel</div>
       </div>
-      <div class="th-section-title">7 stappen</div>
+
+      <div class="th-section-title">Golf voor golf</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th>Golf/interval</th><th>Fysiologie</th><th>Normaal</th><th>Afwijkend → denk aan</th></tr></thead>
+        <tbody>
+          <tr><td><strong>P</strong></td><td>Atriale depolarisatie (SA→AV)</td><td>Positief in II, smal</td><td>Geen P = AF; breed genotcheerd = linker atriumhypertrofie</td></tr>
+          <tr><td><strong>PR</strong></td><td>AV-knoopgeleiding</td><td>120–200 ms</td><td>&gt;200 = AV-blok; &lt;120 = WPW (delta-golf!)</td></tr>
+          <tr><td><strong>QRS</strong></td><td>Ventriculaire depolarisatie</td><td>&lt;120 ms</td><td>&gt;120 = bundeltakblok; breed + snel = VT</td></tr>
+          <tr><td><strong>ST</strong></td><td>Plateau (isoelectrisch hoort)</td><td>Op de basislijn</td><td>↑ = STEMI of pericarditis; ↓ = NSTEMI/ischemie</td></tr>
+          <tr><td><strong>T</strong></td><td>Ventriculaire repolarisatie</td><td>Positief, asymmetrisch</td><td>Spits/smal = hyperkaliëmie; inversie = ischemie of LVH</td></tr>
+          <tr><td><strong>QTc</strong></td><td>Totale ventriculaire activiteit</td><td>&lt;440 ms (M) / &lt;460 ms (V)</td><td>&gt;500 ms = torsade de pointes risico!</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="th-section-title">Frequentie & as in 10 seconden</div>
+      <div class="th-pearl"><strong>Frequentie:</strong> tel het aantal grote hokjes (5mm) tussen twee R-toppen → 300 ÷ dat getal. Voorbeeldtabel: 1 hokje = 300/min · 2 = 150 · 3 = 100 · 4 = 75 · 5 = 60 · 6 = 50/min.</div>
+      <div class="th-pearl"><strong>As:</strong> positief QRS in I én aVF = normale as. Negatief in I = rechts-as. Negatief in aVF = links-as. Klinisch relevant bij longembolie (rechts-as), LVH (links-as).</div>
+
+      <div class="th-section-title">Leesalgoritme — 5 stappen</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>Kalibratie</strong> — 25mm/s, 10mm/mV standaard?</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Ritme</strong> — regelmatig? P voor elk QRS?</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>Frequentie</strong> — 300 ÷ grote hokjes tussen twee R-toppen</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>As</strong> — normaal −30° tot +90°</div></div>
-        <div class="th-step"><span class="th-step-num">5</span><div><strong>Intervallen</strong> — PR &lt;200ms, QRS &lt;120ms, QTc &lt;440ms</div></div>
-        <div class="th-step"><span class="th-step-num">6</span><div><strong>R-topprogressie</strong> — groeit van V1→V5</div></div>
-        <div class="th-step"><span class="th-step-num">7</span><div><strong>ST-T veranderingen</strong> — elevatie, depressie, T-inversie</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Kalibratie</strong> — standaard 25mm/s, 10mm/mV? Zo niet: alles klopt niet.</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Ritme</strong> — regelmatig of niet? P-top vóór elk QRS? Zelfde P-morfologie?</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Frequentie + as</strong> — 300 ÷ R-R hokjes. As via I en aVF.</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Intervallen</strong> — PR (AV-blok?), QRS breed (BBB/VT?), QTc verlengd?</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>ST-T</strong> — elevatie (welke leads?), depressie, T-inversie, piekende T?</div></div>
       </div>
-      <div class="th-section-title">ST-afwijkingen</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>Patroon</th><th>Diagnose</th><th>Actie</th></tr></thead>
-        <tbody>
-          <tr><td>ST↑ gelokaliseerd + reciproke depressie</td><td>STEMI</td><td>Directe PCI</td></tr>
-          <tr><td>ST↑ diffuus saddle-shape + PR↓</td><td>Pericarditis</td><td>NSAID + colchicine</td></tr>
-          <tr><td>ST↓ + T-inversie</td><td>NSTEMI / ischemie</td><td>Troponine herhalen</td></tr>
-          <tr><td>Puntige T-toppen + breed QRS</td><td>Hyperkaliëmie</td><td>Calcium gluconaat IV</td></tr>
-        </tbody>
-      </table></div>
-      <div class="th-section-title">Aritmie-sneldiagnose</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>ECG-beeld</th><th>Diagnose</th></tr></thead>
-        <tbody>
-          <tr><td>Geen P, absoluut irregulier QRS</td><td>Atriumfibrilleren</td></tr>
-          <tr><td>Zagtand F-golven, QRS regulier 150/min</td><td>Atriumflutter 2:1</td></tr>
-          <tr><td>PR steeds langer → QRS uitvalt</td><td>Wenckebach (Mobitz I)</td></tr>
-          <tr><td>Plotse QRS-uitval, constant PR</td><td>Mobitz II → pacemaker</td></tr>
-          <tr><td>P en QRS volledig ontkoppeld</td><td>Derdegraads AV-blok</td></tr>
-        </tbody>
-      </table></div>
+
+      <div class="th-section-title">ST-patronen herkennen</div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="35" x2="200" y2="35" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,35 16,35 19,29 23,35 27,35 29,37 31,7 34,43 37,20 54,20 61,13 70,20 77,35 200,35"
+              stroke="#E8410A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="37" y1="22" x2="54" y2="22" stroke="rgba(232,65,10,0.35)" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="45" y="15" font-size="8" fill="#E8410A" font-family="DM Sans,sans-serif" font-weight="700">ST↑</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>ST-elevatie (STEMI)</strong>
+          <p>Convex (bolrond) ST boven de basislijn, gelokaliseerd (bijv. II/III/aVF = inferieur). Reciproke depressie in tegenoverliggende leads. <span class="th-strip-action">Directe PCI &lt;90 min</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="35" x2="200" y2="35" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,35 16,35 19,29 23,35 27,35 29,37 31,7 34,43 37,42 54,46 62,44 70,39 76,35 200,35"
+              stroke="#E8410A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="52" y="33" font-size="8" fill="#E8410A" font-family="DM Sans,sans-serif" font-weight="700">ST↓</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>ST-depressie (NSTEMI / ischemie)</strong>
+          <p>Dalende ST onder de basislijn, eventueel met T-inversie. Troponine bepalen en herhalen na 3 uur. <span class="th-strip-action">Troponine × 2 + cardiologie</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="35" x2="200" y2="35" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,35 12,35 14,32 18,34 20,35 22,37 24,7 27,43 30,24 38,28 46,24 56,16 64,22 70,35 200,35"
+              stroke="#E8410A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="46" y="12" font-size="8" fill="#888" font-family="DM Sans,sans-serif">zadelvorm</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Saddle-shape ST (pericarditis)</strong>
+          <p>Concaaf (zadelvormig) ST omhoog in <em>alle</em> afleidingen + PR-depressie. Na virale infectie. Geen reciproke afwijkingen. <span class="th-strip-safe">NSAID + colchicine</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="35" x2="200" y2="35" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,35 16,35 19,29 23,35 27,35 29,37 31,7 34,43 37,35 48,35 52,10 56,35 110,35 113,29 117,35 121,35 123,37 125,7 128,43 131,35 142,35 146,10 150,35 200,35"
+              stroke="#E8410A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="52" y="6" font-size="8" fill="#888" font-family="DM Sans,sans-serif">spitse T</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Piekende T-golven (hyperkaliëmie)</strong>
+          <p>Hoge, smalle, symmetrische T-toppen — "tentvorming". Bij K⁺ &gt;6,0 ook breed QRS. <span class="th-strip-action">Calcium gluconaat IV direct</span></p>
+        </div>
+      </div>
+
+      <div class="th-section-title">Aritmieën herkennen</div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="32" x2="200" y2="32" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,32 8,29 12,35 16,30 20,34 24,29 28,32 30,4 33,46 36,32 40,29 44,35 48,30 52,34 56,29 60,33 64,30 68,34 70,4 73,46 76,32 80,29 84,35 88,30 90,32 91,4 94,46 97,32 101,30 105,35 109,29 113,33 117,30 121,34 125,30 129,4 132,46 135,32 139,29 143,35 147,30 151,34 155,29 159,33 163,30 165,4 168,46 171,32 175,30 179,34 183,29 187,33 191,30 195,32 197,4 200,32"
+              stroke="#E8410A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Atriumfibrilleren (AF)</strong>
+          <p>Geen P-toppen, volledig onregelmatig QRS-ritme, chaotische fibrillatiebasisline. Risico: trombus → embolie. <span class="th-strip-action">Anticoagulatie + frequentiecontrole</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="32" x2="200" y2="32" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,32 10,22 15,36 20,22 25,36 30,22 35,32 37,34 39,5 42,46 45,32 50,22 55,36 60,22 65,36 70,22 75,36 80,22 85,32 87,34 89,5 92,46 95,32 100,22 105,36 110,22 115,36 120,22 125,36 130,22 135,32 137,34 139,5 142,46 145,32 150,22 155,36 160,22 165,36 170,22 175,36 180,22 185,32 187,34 189,5 192,46 195,32 200,32"
+              stroke="#E8410A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Atriumflutter (2:1 blok)</strong>
+          <p>Zaagvormige F-golven ~300/min, QRS <em>regulier</em> ~150/min (elke 2e F-golf geleid). Geen echte P-toppen. <span class="th-strip-safe">Frequentiecontrole of cardioversie</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="32" x2="200" y2="32" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <polyline points="5,32 12,32 14,26 16,32 24,32 26,28 28,5 31,44 34,32 40,32 44,26 46,32 58,32 60,26 62,5 65,44 68,32 74,32 78,26 80,32 98,32 100,26 102,5 105,44 108,32 114,32 200,32"
+              stroke="#E8410A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="14" y="48" font-size="7" fill="#888" font-family="DM Sans,sans-serif">PR kort</text>
+            <text x="44" y="48" font-size="7" fill="#888" font-family="DM Sans,sans-serif">PR langer</text>
+            <text x="78" y="48" font-size="7" fill="#888" font-family="DM Sans,sans-serif">PR lang</text>
+            <text x="100" y="20" font-size="7" fill="#E8410A" font-family="DM Sans,sans-serif">P geen QRS</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Wenckebach (Mobitz I)</strong>
+          <p>PR steeds langer → één QRS uitvalt → reset. Benigne, vaak bij inferieur MI of hoge vagustonus. <span class="th-strip-safe">Observeer · behandel oorzaak</span></p>
+        </div>
+      </div>
+
+      <div class="th-strip-card">
+        <div class="th-strip-mini">
+          <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="32" x2="200" y2="32" stroke="#e8e0d4" stroke-width="0.8" stroke-dasharray="3,3"/>
+            <!-- P waves (blue) regular fast -->
+            <polyline points="8,32 10,26 12,32 45,32 47,26 49,32 82,32 84,26 86,32 119,32 121,26 123,32 156,32 158,26 160,32 193,32 195,26 197,32"
+              stroke="#4a8fd4" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- QRS (red) regular slow -->
+            <polyline points="5,32 28,32 30,34 32,5 35,46 38,32 88,32 90,34 92,5 95,46 98,32 168,32 170,34 172,5 175,46 178,32 200,32"
+              stroke="#E8410A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="5" y="10" font-size="7" fill="#4a8fd4" font-family="DM Sans,sans-serif">P (75/min)</text>
+            <text x="5" y="48" font-size="7" fill="#E8410A" font-family="DM Sans,sans-serif">QRS (35/min)</text>
+          </svg>
+        </div>
+        <div class="th-strip-info">
+          <strong>Totaal AV-blok (3e graads)</strong>
+          <p>P-toppen en QRS volledig ontkoppeld. Eigen ventrikelritme ~35/min. Presyncope of syncope. <span class="th-strip-action">Urgente pacemaker</span></p>
+        </div>
+      </div>
+
+      <div class="th-pearl"><strong>Vuistregel brede QRS (&gt;120 ms):</strong> regulier + snel = ventriculaire tachycardie (VT) tot bewijs van het tegendeel. Behandel als VT! Nooit assumeer SVT met aberrantie bij hemodynamisch instabiele patiënt.</div>
+      <div class="th-pearl"><strong>Delta-golf + kort PR</strong> = WPW-syndroom (accessoire baan omzeilt AV-knoop). Cave: bij AF met WPW kan het ritme extreem snel worden → ventrikelfibrilleren. Geen AV-blokkers (adenosine, verapamil) — gebruik procaïnamide of elektrocardioversie.</div>
     `
   },
 

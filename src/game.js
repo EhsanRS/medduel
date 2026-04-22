@@ -222,7 +222,13 @@ function loadQ() {
   if (domain) domain.textContent = q.type === 'lab' ? '' : q.dl;
   if (qtext)  qtext.innerHTML = formatQ(q.q);
   const figEl = document.getElementById('qFigure');
-  if (figEl) { if (q.fig) { figEl.innerHTML = q.fig; figEl.style.display = ''; } else { figEl.innerHTML = ''; figEl.style.display = 'none'; } }
+  if (figEl) {
+    if (q.fig) {
+      const credit = q.figCredit ? `<div class="fig-credit">📷 ${q.figCredit.author} · ${q.figCredit.license}</div>` : '';
+      figEl.innerHTML = q.fig + credit;
+      figEl.style.display = '';
+    } else { figEl.innerHTML = ''; figEl.style.display = 'none'; }
+  }
   const diff = document.getElementById('qDifficulty');
   if (diff) diff.innerHTML = diffStars(q.d);
 

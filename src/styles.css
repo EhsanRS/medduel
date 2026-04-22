@@ -2409,3 +2409,16 @@ h1.logo em {
   padding: 0.4rem 0.5rem 0.2rem;
 }
 .q-figure svg { width: 100%; height: auto; display: block; }
+.q-figure img { width:100%; max-height:200px; object-fit:contain; display:block; border-radius:8px; }
+.fig-credit { font-size:9px; color:var(--ink-light); text-align:right; padding:0.2rem 0.1rem 0; opacity:0.75; }
+
+/* ── Theorie — ECG verbeteringen ── */
+.th-body-text { font-size:13px; color:var(--ink-mid); line-height:1.6; margin:0 0 0.75rem; }
+.th-conduction { background:rgba(232,65,10,0.05); border-left:3px solid var(--pulse); border-radius:8px; padding:0.55rem 0.75rem; font-size:13px; color:var(--ink); margin-bottom:0.75rem; line-height:1.7; font-family:'DM Sans',sans-serif; }
+.th-strip-card { display:grid; grid-template-columns:145px 1fr; gap:0.65rem; background:rgba(255,255,255,0.65); border-radius:12px; padding:0.65rem; margin-bottom:0.5rem; border:1px solid rgba(0,0,0,0.06); align-items:center; }
+@media (max-width:380px){ .th-strip-card { grid-template-columns:1fr; } }
+.th-strip-mini svg { width:100%; height:auto; display:block; }
+.th-strip-info strong { display:block; font-size:13px; margin-bottom:0.2rem; font-family:'DM Sans',sans-serif; }
+.th-strip-info p { font-size:12px; color:var(--ink-mid); line-height:1.45; margin:0; }
+.th-strip-action { display:inline-block; margin-top:0.3rem; font-size:11px; background:rgba(232,65,10,0.1); color:var(--pulse); border-radius:4px; padding:0.12rem 0.4rem; font-weight:600; }
+.th-strip-safe { display:inline-block; margin-top:0.3rem; font-size:11px; background:rgba(30,180,100,0.1); color:#1b7a50; border-radius:4px; padding:0.12rem 0.4rem; font-weight:600; }
