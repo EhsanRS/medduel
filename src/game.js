@@ -394,6 +394,31 @@ function renderResultsScreen(acc) {
       </div>`
     : '';
 
+  // XP progress to next rank
+  const xpNow   = loadXP();
+  const curRank = getRank(xpNow);
+  const nxtRank = getNextRank(xpNow);
+  const xpProgressHTML = nxtRank
+    ? (() => {
+        const needed = nxtRank.min - curRank.min;
+        const done   = xpNow - curRank.min;
+        const pct    = Math.min(100, Math.round(done / needed * 100));
+        const left   = nxtRank.min - xpNow;
+        return `
+        <div class="xp-progress-card fade-in-3">
+          <div class="xp-prog-row">
+            <span class="xp-prog-rank">${curRank.icon} ${curRank.label}</span>
+            <span class="xp-prog-next">Nog <strong>${left} XP</strong> → ${nxtRank.icon} ${nxtRank.label}</span>
+          </div>
+          <div class="xp-prog-bar-bg">
+            <div class="xp-prog-bar-fill" style="width:${pct}%;background:${nxtRank.color}"></div>
+          </div>
+        </div>`;
+      })()
+    : `<div class="xp-progress-card fade-in-3" style="text-align:center">
+        ${curRank.icon} <strong>${curRank.label}</strong> — maximaal rank bereikt!
+       </div>`;
+
   document.getElementById('app').innerHTML = `
     <div id="results" class="screen active">
         <div class="results-top">
@@ -406,7 +431,13 @@ function renderResultsScreen(acc) {
           <div class="stat-card"><span class="stat-big red">${G.wrong}</span><span class="stat-small">Fout</span></div>
           <div class="stat-card"><span class="stat-big">${acc}%</span><span class="stat-small">Accuraat</span></div>
         </div>
-        <div class="breakdown-card fade-in-4">
+        ${xpProgressHTML}
+        <div class="results-replay-card fade-in-4" onclick="startGame('${currentMode}')">
+          <div class="rrc-label">Nog één ronde?</div>
+          <div class="rrc-mode">${{ blitz:'⚡ Blitz', classic:'🎯 Classic', survival:'❤️ Survival' }[currentMode] || '🎮 Spelen'}</div>
+          <div class="rrc-arrow">→</div>
+        </div>
+        <div class="breakdown-card fade-in-5">
           <div class="breakdown-title">📊 Per domein</div>
           ${breakdownHTML}
         </div>
@@ -416,7 +447,6 @@ function renderResultsScreen(acc) {
         </div>
         ${wrongHTML}
         <div class="action-row fade-in-6" style="margin-top:1rem;">
-          <button class="btn-primary" onclick="startGame('${currentMode}')">🔁 Opnieuw spelen</button>
           <button class="btn-secondary" onclick="showHome()">← Home</button>
           <button class="btn-share" onclick="shareScore()">📤 Deel score</button>
         </div>

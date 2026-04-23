@@ -452,14 +452,53 @@ function escHtml(s) {
 }
 
 function formatQ(str) {
-  if (!str.includes('\n')) return escHtml(str);
-  const lines = str.split('\n');
-  const last  = lines.length - 1;
-  const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
-  const items = lines.slice(1, last).map(l => `<span class="fq-item">${escHtml(l)}</span>`).join('');
-  const data  = `<div class="fq-data">${items}</div>`;
-  const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
-  return intro + data + q;
+  // Explicit \n formatting (lab/data questions with predefined structure)
+  if (str.includes('\n')) {
+    const lines = str.split('\n');
+    const last  = lines.length - 1;
+    const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
+    const items = lines.slice(1, last).map(l => `<span class="fq-item">${escHtml(l)}</span>`).join('');
+    const data  = `<div class="fq-data">${items}</div>`;
+    const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
+    return intro + data + q;
+  }
+
+  // Auto-format clinical scenario questions
+  const clinical = tryFormatClinical(str);
+  if (clinical) return clinical;
+
+  return escHtml(str);
+}
+
+function tryFormatClinical(str) {
+  // Must start with a patient descriptor including age
+  if (!/^(?:Man|Vrouw|Kind|Jongen|Meisje|Patiënt(?:e?)|Jonge man|Jonge vrouw|Jongeman|Soldaat)\b.{0,30}?\d+\s*(?:jaar|j)\b/i.test(str)) return null;
+
+  // Separate the last sentence (= the actual question) from the clinical description
+  const lastDotIdx = str.lastIndexOf('. ');
+  if (lastDotIdx === -1 || !str.includes('?')) return null;
+  const body     = str.slice(0, lastDotIdx).trim();
+  const question = str.slice(lastDotIdx + 2).trim();
+  if (!question.endsWith('?')) return null;
+
+  // Patient header = everything up to first comma after the age
+  const headerMatch = body.match(/^.*?\d+\s*(?:jaar|j)\b[^,]*/i);
+  const header = headerMatch ? headerMatch[0].trim() : body.split(',')[0].trim();
+  const rest   = body.slice(header.length).replace(/^[,.\s]+/, '');
+
+  // Split remaining text into bullets on commas and sentence ends
+  const bullets = rest
+    .split(/(?:[.]\s+|,\s+)/)
+    .map(s => s.trim().replace(/\.$/, ''))
+    .filter(s => s.length > 4);
+
+  if (bullets.length < 2) return null;
+
+  const introHtml = `<span class="fq-intro">${escHtml(header)}</span>`;
+  const itemsHtml = bullets.map(b => `<span class="fq-bullet">→ ${escHtml(b)}</span>`).join('');
+  const dataHtml  = `<div class="fq-bullets">${itemsHtml}</div>`;
+  const qHtml     = `<span class="fq-q">${escHtml(question)}</span>`;
+  return introHtml + dataHtml + qHtml;
 }
 
 function gradeFromPct(pct) {
