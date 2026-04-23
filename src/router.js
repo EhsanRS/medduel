@@ -108,6 +108,7 @@ function renderSpelenTab() {
       <div class="cat-pill" data-cat="psych"   onclick="toggleCat('psych',this)">🧩 Psychiatrie</div>
       <div class="cat-pill" data-cat="derm"    onclick="toggleCat('derm',this)">🩹 Dermatologie</div>
       <div class="cat-pill" data-cat="rheum"   onclick="toggleCat('rheum',this)">🦴 Reumatologie</div>
+      <div class="cat-pill" data-cat="repro"   onclick="toggleCat('repro',this)">🤰 Reproductieve geneeskunde</div>
     </div>`;
 }
 
