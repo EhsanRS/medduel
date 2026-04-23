@@ -230,7 +230,10 @@ function loadQ() {
     } else if (q.fig && typeof q.fig === 'object') {
       if (q.fig.src) {
         const credit = q.fig.credit ? `<div class="fig-credit">📷 ${q.fig.credit}</div>` : '';
-        figEl.innerHTML = `<img src="${q.fig.src}" alt="${q.fig.alt || ''}" class="q-fig-img">${credit}`;
+        const isSvg = typeof q.fig.src === 'string' && q.fig.src.trim().startsWith('<svg');
+        figEl.innerHTML = isSvg
+          ? q.fig.src + credit
+          : `<img src="${q.fig.src}" alt="${q.fig.alt || ''}" class="q-fig-img">${credit}`;
         figEl.style.display = '';
       } else {
         figEl.innerHTML = `<div class="fig-placeholder">📷 Afbeelding volgt</div>`;
