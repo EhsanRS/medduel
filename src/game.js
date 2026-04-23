@@ -223,10 +223,19 @@ function loadQ() {
   if (qtext)  qtext.innerHTML = formatQ(q.q);
   const figEl = document.getElementById('qFigure');
   if (figEl) {
-    if (q.fig) {
+    if (q.fig && typeof q.fig === 'string') {
       const credit = q.figCredit ? `<div class="fig-credit">📷 ${q.figCredit.author} · ${q.figCredit.license}</div>` : '';
       figEl.innerHTML = q.fig + credit;
       figEl.style.display = '';
+    } else if (q.fig && typeof q.fig === 'object') {
+      if (q.fig.src) {
+        const credit = q.fig.credit ? `<div class="fig-credit">📷 ${q.fig.credit}</div>` : '';
+        figEl.innerHTML = `<img src="${q.fig.src}" alt="${q.fig.alt || ''}" class="q-fig-img">${credit}`;
+        figEl.style.display = '';
+      } else {
+        figEl.innerHTML = `<div class="fig-placeholder">📷 Afbeelding volgt</div>`;
+        figEl.style.display = '';
+      }
     } else { figEl.innerHTML = ''; figEl.style.display = 'none'; }
   }
   const diff = document.getElementById('qDifficulty');

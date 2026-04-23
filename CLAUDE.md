@@ -44,8 +44,22 @@ In `src/data/questions.js`, voeg toe aan de `QUESTIONS` array:
   a: ['Optie A', 'Optie B', 'Optie C', 'Optie D'],  // niet bij truefalse
   c: 0,                    // correct index, of true/false bij truefalse
   ex: 'Uitleg na antwoord...',
+  // Optioneel — gebruik fig alleen waar het écht waarde toevoegt:
+  fig: {
+    type: 'ecg',           // 'ecg' | 'xray' | 'derm' | 'histo' | 'ct' | 'graph'
+    src: null,             // null = placeholder; string = pad naar afbeelding of inline SVG
+    alt: 'Omschrijving',   // altijd invullen voor toegankelijkheid
+    credit: null,          // 'Auteur · Licentie' of null
+  },
 }
 ```
+
+**fig-regels:**
+- Gebruik `fig` alleen als de afbeelding de vraag zinvol verbetert (bijv. ECG lezen, dermatolgie spot-diagnose)
+- Niet elke vraag heeft een fig nodig — variatie is het doel
+- `src: null` → toont een "📷 Afbeelding volgt" badge; vraag is gewoon speelbaar
+- Inline SVG (als string in `fig.src`) werkt ook — handig voor ECG-schemaatjes
+- Legacy: `fig: '<svg>...</svg>'` (string) werkt nog steeds
 
 ## Hoe een nieuwe dossier casus toevoegen
 

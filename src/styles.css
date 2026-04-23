@@ -2493,6 +2493,8 @@ h1.logo em {
 .q-figure svg { width: 100%; height: auto; display: block; }
 .q-figure img { width:100%; max-height:200px; object-fit:contain; display:block; border-radius:8px; }
 .fig-credit { font-size:9px; color:var(--ink-light); text-align:right; padding:0.2rem 0.1rem 0; opacity:0.75; }
+.fig-placeholder { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-light); background:rgba(26,20,16,0.05); border:1.5px dashed rgba(26,20,16,0.15); border-radius:10px; padding:8px 14px; }
+.q-fig-img { width:100%; max-height:220px; object-fit:contain; display:block; border-radius:10px; }
 
 /* ── Theorie — ECG verbeteringen ── */
 .th-body-text { font-size:13px; color:var(--ink-mid); line-height:1.6; margin:0 0 0.75rem; }
