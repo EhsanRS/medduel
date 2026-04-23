@@ -105,6 +105,7 @@ function renderSpelenTab() {
       <div class="cat-pill" data-cat="gastro"  onclick="toggleCat('gastro',this)">🫃 Gastro-enterologie</div>
       <div class="cat-pill" data-cat="endo"    onclick="toggleCat('endo',this)">🔬 Endocrinologie</div>
       <div class="cat-pill" data-cat="nephro"  onclick="toggleCat('nephro',this)">🫘 Nefrologie</div>
+      <div class="cat-pill" data-cat="psych"   onclick="toggleCat('psych',this)">🧩 Psychiatrie</div>
     </div>`;
 }
 
