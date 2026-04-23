@@ -101,6 +101,14 @@ function renderSpelenTab() {
       <div class="cat-pill" data-cat="pharma"   onclick="toggleCat('pharma',this)">💊 Farmacologie</div>
       <div class="cat-pill" data-cat="infectio" onclick="toggleCat('infectio',this)">🦠 Infectiologie</div>
       <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
+      <div class="cat-pill" data-cat="pulmo"   onclick="toggleCat('pulmo',this)">🫁 Pulmonologie</div>
+      <div class="cat-pill" data-cat="gastro"  onclick="toggleCat('gastro',this)">🫃 Gastro-enterologie</div>
+      <div class="cat-pill" data-cat="endo"    onclick="toggleCat('endo',this)">🔬 Endocrinologie</div>
+      <div class="cat-pill" data-cat="nephro"  onclick="toggleCat('nephro',this)">🫘 Nefrologie</div>
+      <div class="cat-pill" data-cat="psych"   onclick="toggleCat('psych',this)">🧩 Psychiatrie</div>
+      <div class="cat-pill" data-cat="derm"    onclick="toggleCat('derm',this)">🩹 Dermatologie</div>
+      <div class="cat-pill" data-cat="rheum"   onclick="toggleCat('rheum',this)">🦴 Reumatologie</div>
+      <div class="cat-pill" data-cat="repro"   onclick="toggleCat('repro',this)">🤰 Reproductieve geneeskunde</div>
     </div>`;
 }
 
