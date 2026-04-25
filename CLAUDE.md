@@ -117,3 +117,19 @@ loadStats() / saveStats()   // localStorage stats
 3. Gebruikersaccounts via Supabase
 4. Echte leaderboard
 5. Live multiplayer via Partykit
+
+## Content verbeteringen — backlog
+
+De volgende inhoudelijke verbeteringen zijn gepland (opgepikt in vorige sessies):
+
+### Openstaand
+- **Point 3** — `wiki`-veld toevoegen aan ~20 nieuwere vragen die het nog missen
+  (run `grep -n "ex:" src/data/questions.js | grep -v "wiki:"` om ze te vinden)
+- **Point 6** — Nieuwe domeinen: reumatologie (RA, SLE, jicht, polymyalgia) en
+  psychiatrie (depressie, bipolair, schizofrenie, dementie) — 8-10 vragen per domein
+
+### Al gedaan (voor referentie)
+- Duplicaten verwijderd (6 stuks)
+- Subtype-badges (Differentiaal / Test-keuze) zichtbaar in UI
+- `ex`-velden verbeterd batch 1+2 — 11 vragen: punchline + onderscheid + actie
+- `dl`-labels opgeschoond (suffix "— Waar of Niet?" verwijderd)
