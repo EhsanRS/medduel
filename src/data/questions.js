@@ -20,7 +20,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw van 68j: kortademig bij inspanning, bilateraal enkelloedeem, verhoogde CVD, crepitaties basaal. Diagnose?',
     a:['Longembolie','Decompensatio cordis','COPD-exacerbatie','Nefrotisch syndroom'], c:1,
-    ex:'Decompensatio cordis: stuwing links (crepitaties) én rechts (oedeem, verhoogde CVD). Klassieke presentatie.',
+    ex:'Decompensatio cordis: stuwing links (crepitaties, orthopneu) én rechts (enkels, verhoogde CVD). Onderscheid van COPD: let op verhoogde CVD en S3-gallopritme. Behandeling: furosemide IV + rechtopzitten + O₂.',
     wiki:{ kern:'Acuut hartfalen (decompensatio cordis) is het plotse onvermogen van het hart om voldoende bloed rond te pompen. Linksdecompensatie stuft vocht in de longen (orthopneu, nachtelijke dyspneu, crepitaties). Rechtsdecompensatie stuwt vocht in de venen (enkels, buik, verhoogde CVD).', mechanisme:'Het falende hart activeert compensatiemechanismen: RAAS-activatie houdt water vast (meer vulling → meer pompkracht), sympathicus verhoogt hartfrequentie. Deze compensatie werkt tijdelijk maar overbelast het hart. Bij acute decompensatie treedt overstromingsoedeem op.', onderscheid:'Longembolie: ook plotse dyspneu maar géén crepitaties, wél pleuritische pijn en D-dimeer verhoogd. Pneumonie: koorts, purulent sputum, eenzijdige infiltraten. Tamponade: stuwing maar juist stille longen en gedempte harttonen.', therapie:'Acuut: rechtopzitten, zuurstof, furosemide IV (50-80 mg), nitraten bij normotensie. Monitor: diurese, saturatie, bloeddruk. Onderhoudsbehandeling zoals HFrEF of HFpEF (zie aldaar).' } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
@@ -168,13 +168,13 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Jongeman 22j: koorts, extreme vermoeidheid, pharyngitis, cervicale lymfadenopathie, splenomegalie. Monospot positief.',
     a:['Streptokokken-angina','CMV-infectie','EBV-mononucleose','HIV primo-infectie'], c:2,
-    ex:'EBV = ziekte van Pfeiffer. Monospot detecteert heterofiele antistoffen. Cave: geen contactsporten bij splenomegalie!',
+    ex:'EBV-mononucleose: koorts + keelpijn + extreme moeheid + splenomegalie. Cruciaal: geef GEEN amoxicilline — 80% krijgt een gegeneraliseerde huiduitslag (géén echte penicillineallergie!). Vermijd contactsporten 4 weken (miltruptuurrisico).',
     wiki:{ kern:'EBV infecteert B-lymfocyten via de CD21-receptor. De klachten (koorts, extreme moeheid, pharyngitis, lymfadenopathie) worden NIET door het virus zelf veroorzaakt maar door de massieve CD8+ T-celrespons die de geïnfecteerde B-cellen probeert te elimineren. De "tonsillitis" is eigenlijk een immunologische storm.', mechanisme:'Splenomegalie door lymfocytaire infiltratie → ruptureerrisico bij contactsporten of trauma (2-4 weken). Monospot detecteert heterofiele IgM-antistoffen (kruisreactie met schaapseritrocyten). Cave: amoxicilline bij actieve EBV geeft bij ~80% een gegeneraliseerde huiduitslag — geen echte allergie!', onderscheid:'CMV-mononucleose: monospot negatief, mildere keelklachten, meer leverstoornissen. HIV primo-infectie: ook mononucleose-achtig + huiduitslag, hoog viraal HIV RNA, monospot negatief. Streptokokkenangina: geen splenomegalie, monospot negatief, GABHS-kweek positief.' } },
 
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Terugkerende van Azië: cyclische koorts elke 48 uur, rillingen, zweetstuipen. Dik-druppelpreparaat positief.',
     a:['Tyfus','Malaria','Dengue','Leishmaniasis'], c:1,
-    ex:'Malaria: cyclische koorts + reizigerhistorie + positief dik-druppelpreparaat. P. vivax: 48u cyclus.',
+    ex:'Malaria: cyclische koorts na tropenreis → altijd uitsluiten, ook bij profylaxegebruik. P. falciparum mist de vaste cyclus maar is dodelijkst (hersenmalaria, ARDS). Dik-druppelpreparaat is goudstandaard. Behandeling: artemisinine-combinatietherapie.',
     wiki:{ kern:'Malaria wordt veroorzaakt door Plasmodium-parasieten, overgebracht via de Anopheles-mug. Vijf species: P. falciparum (meest dodelijk), P. vivax, P. ovale, P. malariae, P. knowlesi. De cyclische koorts ontstaat door synchrone lysis van geïnfecteerde rode bloedcellen.', mechanisme:'Parasiet injecteert sporozoïeten → lever (asymptomatisch, 1-2 weken) → merozieten vrijgekomen in bloed → infectie rode bloedcellen → cyclische ruptuur. P. falciparum maakt geïnfecteerde cellen kleverig → vaatblokkade → cerebrale malaria, ARDS, nierfalen.', onderscheid:'Dengue: ook reiziger + koorts maar hevige spier/gewrichtspijn, huiduitslag, geen cyclisch patroon, lage trombocyten. Typhoid: aanhoudende koorts, buikpijn, bradycardie. Leptospirose: watercontact, conjunctivale hyperemie. Rickettsiae: tekenbeet, huiduitslag.', therapie:'P. falciparum: artemisinine-combinatietherapie (bijv. artemether-lumefantrine). Ernstige malaria: IV artesunaat. P. vivax/ovale: chloroquine (+ primaquine om levervormen te elimineren, cave G6PD-deficiëntie). Profylaxe afhankelijk van bestemming en resistentiepatroon.' } },
 
   { type:'truefalse', d:2, domain:'infectio', dl:'Infectiologie — Waar of Niet?',
@@ -191,7 +191,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 55j, exertionele dyspneu, ECHO: EF 65%, verhoogde vullingsdrukken, geen klepafwijkingen. Diagnose?',
     a:['Hartfalen met gereduceerde EF (HFrEF)','Hartfalen met behouden EF (HFpEF)','Pulmonale hypertensie','Hypertrofische cardiomyopathie'], c:1,
-    ex:'HFpEF: EF ≥50% maar diastolische dysfunctie → verhoogde vullingsdrukken. Behandeling richt zich op symptomen en risicofactoren. Geen EF-verbeterende medicatie (ACE-remmer, bèta-blokker) bewezen effectief zoals bij HFrEF.',
+    ex:'HFpEF: het hart pompt goed (EF ≥50%) maar vult slecht — diastolische dysfunctie. Onderscheid van HFrEF uitsluitend via echo. SGLT2-remmers (dapagliflozine) recent bewezen effectief; ACE-remmer/bètablokker verminderen mortaliteit hier niet.',
     wiki:{ kern:'Hartfalen met behouden EF (HFpEF) heeft normale pompkracht maar een stijve LV — het hart vult te langzaam en bij te hoge druk. Risicofactoren: ouderdom, hypertensie, DM, obesitas. Diastolische dysfunctie = het hart kan niet ontspannen, niet pompen.', mechanisme:'Chronische drukoverbelasting (hypertensie) → LV-hypertrofie + verlies van elasticiteit → hoge vullingsdrukken → stuwing in de longen. Het EF is bewaard omdat de contractie zelf intact is — het probleem zit in de relaxatiefase.', onderscheid:'HFrEF (EF <40%): systolische dysfunctie — bewezen mortaliteitsreductie met ACE-remmer + bètablokker + MRA + SGLT2i. HFpEF: tot voor kort geen bewezen medicatie; SGLT2-remmers (dapagliflozine) tonen recent voordeel. Klinisch gelijk: oedeem, orthopneu — onderscheid alleen via echocardiografie.' } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
@@ -793,7 +793,7 @@ const QUESTIONS = [
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
     q:'Bloeduitslag:\nALAT 580 U/L\nASAT 320 U/L\nBilirubine licht verhoogd\nAlkalisch fosfatase normaal\nMeest waarschijnlijk patroon?',
     a:['Cholestatisch patroon (galwegobstructie)','Hepatocellulair patroon (hepatitis)','Spierziekte','Hemolytische anemie'], c:1,
-    ex:'Hepatocellulair patroon: ALAT en ASAT sterk verhoogd, ALP relatief normaal. ALAT is leverbspecifieker dan ASAT. Oorzaken: virale hepatitis, alcoholische hepatitis, auto-immuun hepatitis, geneesmiddelenschade. Bij ASAT/ALAT-ratio >2: denk aan alcohol.' },
+    ex:'Hepatocellulair patroon: ALAT en ASAT sterk verhoogd, ALP relatief normaal. ALAT is leverspecifieker dan ASAT. Oorzaken: virale hepatitis, alcoholische hepatitis, auto-immuunhepatitis, geneesmiddelenschade. ASAT/ALAT-ratio >2 → denk aan alcoholische hepatitis.' },
 
   { type:'truefalse', d:2, domain:'lab', dl:'Laboratorium — Waar of Niet?',
     q:'Bij ernstige hyponatriëmie moet het natriumgehalte zo snel mogelijk gecorrigeerd worden om hersenschade te voorkomen.',
@@ -836,7 +836,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Vrouw 22j: pijnloze vaginale afscheiding, pijn bij plassen. Kweek: gramnegatieve diplokok. Meest waarschijnlijke diagnose?',
     a:['Chlamydia','Gonorroe','Trichomonas','Bacteriële vaginose'], c:1,
-    ex:'Gonorroe (Neisseria gonorrhoeae): gramnegatieve diplokok, seksueel overdraagbaar. Vaak asymptomatisch bij vrouwen. Behandeling: ceftriaxon 500 mg IM eenmalig. Altijd testen op chlamydia erbij (co-infectie 20-40%). Partnerwaarschuwing verplicht.' },
+    ex:'Gonorroe: gramnegatieve diplokok, bij vrouwen vaak asymptomatisch. Behandeling: ceftriaxon 500 mg IM eenmalig — NIET amoxicilline (>40% resistent in NL). Altijd co-testen op chlamydia (co-infectie 20-40%). Partnerwaarschuwing wettelijk verplicht.' },
 
   { type:'truefalse', d:2, domain:'infectio', dl:'Infectiologie — Waar of Niet?',
     q:'Chlamydia trachomatis-infectie verloopt bij de meeste vrouwen zonder klachten (asymptomatisch).',
@@ -845,7 +845,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
     q:'Vrouw 28j: koorts 39°C, flankpijn rechts, pijn bij plassen, misselijkheid. Urinekweek: E. coli. Diagnose?',
     a:['Ongecompliceerde cystitis','Pyelonefritis','Appendicitis','Niersteen'], c:1,
-    ex:'Pyelonefritis: UWI met systemische tekenen (koorts, flankpijn, misselijkheid) = bovenste urineweginfectie. Behandeling: ciprofloxacine of cotrimoxazol oraal 7-14 dagen. Bij braken of ernstige ziekte: ziekenhuis­opname met IV antibiotica.' },
+    ex:'Pyelonefritis = bovenste UWI. Onderscheid van cystitis: koorts ≥38°C + flankpijn (slagpijn nierloges) wijst op nierparenchym. Cystitis: alleen dysurie/pollakisurie, géén koorts. Behandeling: fluoroquinolon 7 dagen; IV antibiotica bij braken of sepsis.' },
 
   { type:'truefalse', d:2, domain:'infectio', dl:'Infectiologie — Waar of Niet?',
     q:'Norovirus (buikgriep) verspreidt zich voornamelijk via de lucht (aerogene transmissie).',
@@ -930,7 +930,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 45j na auto-ongeluk: rugpijn, zwakte in beide benen, verlies van blaascontrole. Urgente diagnose?',
     a:['Lumbale hernia','Cauda equina syndroom','Perifere neuropathie','Wervelmetastase'], c:1,
-    ex:'Cauda equina syndroom: druk op de zenuwbundel onderaan het ruggenmerg → zwakte benen + blaas-/darmstoornissen + zadel­anesthesie. Neurochirurgische urgentie: MRI direct en decompressie binnen 24-48u voor beste herstel.' },
+    ex:'Cauda equina syndroom: ALARMSYMPTOOM is urineretentie (of -incontinentie) + zadelanesthesie. Zwakte benen is variabel. Neurochirurgische spoedurgentie: MRI binnen uren, decompressie binnen 24u — elke vertraging = permanent verlies van blaasfunctie.' },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 68j: draaiduizeligheid die seconden duurt, uitgelokt door omdraaien in bed, geen gehoorverlies. Diagnose?',
@@ -963,7 +963,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 60j met prostaatkanker: acute rugpijn, zwakte benen, gestoord gevoel onder de knieën. MRI: massa op hoogte T8. Diagnose?',
     a:['Lumbale hernia','Metastatische ruggenmergcompressie','Aortadissectie','Perifere neuropathie'], c:1,
-    ex:'Metastatische ruggenmergcompressie: oncologische urgentie! Direct dexamethason (16 mg IV) om zwelling te verminderen, gevolgd door radiotherapie of chirurgie. Hoe sneller behandeld, hoe meer loopfunctie behouden blijft.' },
+    ex:'Metastatische ruggenmergcompressie: UREN tellen — bij nieuw loopverlies kans op permanent letsel. Direct dexamethason 16 mg IV (antioedeem). Spoedradiotherapie of chirurgische decompressie. Kan lopen bij behandeling → grote kans op loopbehoud; al paraplegie → slechte prognose.' },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 55j met DM2: branderig gevoel en tintelingen in beide voeten, symmetrisch, erger \'s nachts. Diagnose?',
@@ -978,7 +978,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 42j: plotse kortademigheid, pleuritische pijn, been gezwollen na lange vlucht. Meest waarschijnlijke diagnose?',
     a:['Pneumonie','Longembolie','Pleuritis','Pneumothorax'], c:1,
-    ex:'Longembolie: klassieke risicofactoren zijn immobilisatie (lange vlucht), been-DVT, en plotse pleuritische pijn met dyspneu. D-dimeer bij lage klinische kans; CT-angiografie bij hoge kans of positief D-dimeer.' },
+    ex:'Longembolie: plotse pleuritische pijn + dyspneu + risicofactor (vlucht, DVT) = hoge klinische verdenking. Wells-score laag + negatief D-dimeer: LE uitgesloten. Wells hoog of D-dimeer positief: direct CT-PA. Behandeling: DOAC (apixaban of rivaroxaban).' },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Een normaal D-dimeer bij een patiënt met hoge klinische kans op longembolie sluit longembolie uit.',
@@ -987,7 +987,7 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Patiënt na grote operatie: bloeddruk 75/50, hartfrequentie 120, koude extremiteiten, oligurie. Diagnose?',
     a:['Septische shock','Cardiogene shock','Hypovolemische shock','Neurogene shock'], c:1,
-    ex:'Cardiogene shock: lage cardiac output → koude, klamme extremiteiten, lage bloeddruk, oligurie. Oorzaak: acuut MI, ernstig hartfalen. Behandeling: dobutamine (inotroop), noradrenaline bij refractaire hypotensie, overweeg IABP of Impella.' },
+    ex:'Cardiogene shock: lage cardiac output → koude, klamme extremiteiten + oligurie + lage RR. Onderscheid van septische shock: septisch heeft wárme extremiteiten (vasodilatatie), cardiogeen heeft kóude (vasoconstrictie). Behandeling: dobutamine (inotroop) + noradrenaline, overweeg IABP/Impella.' },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 65j na inferieur MI: holosystolisch geruis aan de apex, uitstralend naar de oksel, nieuw ontstaan. Diagnose?',
