@@ -381,6 +381,8 @@ h1.logo em {
 .q-type-tag.truefalse { background: var(--amber-light); color: var(--amber); }
 .q-type-tag.pharma { background: var(--blue-light); color: var(--blue); }
 .q-type-tag.lab { background: var(--green-light); color: var(--green); }
+.q-type-tag.diff { background: rgba(107,33,168,0.1); color: #6B21A8; }
+.q-type-tag.test { background: rgba(15,118,110,0.1); color: #0F766E; }
 
 .q-domain {
   font-size: 12px;

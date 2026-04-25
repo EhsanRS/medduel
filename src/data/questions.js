@@ -51,11 +51,6 @@ const QUESTIONS = [
     ex:'Meningeale prikkeling + koorts = bacteriële meningitis tot tegendeel bewezen. Directe antibiotica, geen LP afwachten!',
     wiki:{ kern:'Bacteriële meningitis is een ontsteking van de hersenvliezen door bacteriën. Het klassieke trio: koorts + nekstijfheid + fotofobie/fono­fobie. Mortaliteit is 20-30% — elke minuut vertraging in antibiotica vergroot het risico op overlijden of ernstige restverschijnselen (doofheid, cognitieve schade).', mechanisme:'Bacteriën bereiken de liquorruimte via hematogene spreiding of directe inokula­tie. In de subarachnoidale ruimte is het immuunsysteem zwak → bacteriën repliceren ongestoord → massiève ontsteking → verhoogde hersendruk → infarct en hersenletsel. S. pneumoniae (volwassenen) en N. meningitidis (jongeren).', onderscheid:'Virale meningitis: milder beloop, lymfocytaire pleocytose, normaal glucose, geen/lage koorts. SAB: thunderclap hoofdpijn maar geen koorts. Encefalitis: bewustzijnsdaling + gedragsverandering (=hersenparenchym aangedaan). Herpes-encefalitis: temporale MRI-afwijkingen, aciclovir direct.', therapie:'Cefotaxim/ceftriaxon + dexamethason (15-30 min vóór of gelijktijdig met AB — vermindert hersenletsel). Bloedkweken afnemen maar NIET wachten op LP of CT als er tekenen zijn van druk. LP na stabilisatie. Isolatie eerste 24u. Profylaxe contacten bij meningokokken.' } },
 
-  { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
-    q:'Man 58j: rusttremor, bradykinesie, hypomimie, kleine passen. Diagnose?',
-    a:['Essentiële tremor','Huntington','Parkinson','MS'], c:2,
-    ex:'Parkinson: de 4 kardinale symptomen zijn rusttremor, rigiditeit, bradykinesie en posturale instabiliteit. Hypomimie is typisch.',
-    wiki:{ kern:'Parkinson ontstaat door verlies van dopaminerge neuronen in de substantia nigra. Pas als ~80% verloren is, worden klachten merkbaar. Dopamine faciliteert vloeiende beweging — tekort eraan laat de remmende circuits overheersen → traagheid, rigiditeit, tremor.', mechanisme:'Lewy-lichaampjes (alfa-synuclein aggregaten) zijn het pathologische kenmerk. L-DOPA (dopamineprecursor) is de meest effectieve behandeling, maar verliest na jaren effectiviteit (wearing off) en kan dyskinesieën geven bij langdurig gebruik.', onderscheid:'Essentiële tremor: houdingstremor (niet in rust), geen bradykinesie/rigiditeit, familair, reageert op propranolol. Parkinson-plus syndromen (MSA, PSP): parkinsonisme + extra verschijnselen (vallen, autonome uitval, oogbewegingsstoornissen). Geneesmiddelgeïnduceerd parkinsonisme (antipsychotica, metoclopramide): reversibel bij staken.' } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 28j: visuele stoornissen, daarna zwakte been, maanden later tintelingen arm. MRI: lesies verspreid in tijd en ruimte.',
@@ -256,12 +251,6 @@ const QUESTIONS = [
 
   // ── LABORATORIUM ──
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
-    q:'Na⁺ 128, lage osmolaliteit plasma, hoog urinesodium, geen oedeem. Welk syndroom?',
-    a:['Diabetes insipidus','SIADH','Nefrotisch syndroom','Addisoncrisis'], c:1,
-    ex:'SIADH: hyponatriëmie, lage plasmaosmolaliteit, hoog urinenatrium. Geen oedeem — dat onderscheidt het van hartfalen/cirrose.',
-    wiki:{ kern:'SIADH is de meest voorkomende oorzaak van hyponatriëmie in het ziekenhuis. ADH wordt aangemaakt zonder osmotische prikkel → nieren houden water vast → verdunningshyponatriëmie. Oorzaken: kleincellig longcarcinoom, pneumonie, CNS-aandoeningen, carbamazepine, SSRI.', mechanisme:'ADH bindt V2-receptoren → aquaporine-2 inbouw → water-terugresorptie → geconcentreerde urine (osmolaliteit >100). Urine-Na hoog (>40) omdat Na-handling normaal is. Geen oedeem want geen zoutretentie — de totale natriumhoeveelheid is normaal, alleen het water is teveel.', onderscheid:'Hartfalen/cirrose/nefrotisch: ook hyponatriëmie maar MÉT oedeem + lage urine-Na (<20) door RAAS-activatie. Hypovolemische hyponatriëmie: dehydratie, droge slijmvliezen, hoge pols. Hypothyreoïdie/bijnierinsufficiëntie: "SIADH-like" → altijd TSH en cortisol bepalen voordat je de diagnose SIADH stelt!' } },
-
-  { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
     q:'K⁺ 6.8, ECG: piekende T-toppen, verlengd PR. Eerste behandelstap?',
     a:['Furosemide iv','Calcium gluconaat iv','Kayexalaat oraal','Hemodialyse'], c:1,
     ex:'Bij ernstige hyperkaliëmie met ECG-veranderingen: eerst calcium gluconaat voor cardioprotectie. Daarna K⁺ actief verlagen.',
@@ -310,17 +299,6 @@ const QUESTIONS = [
     wiki:{ kern:'Microangiopathische hemolytische anemie (MAHA) is een patroon waarbij rode bloedcellen mechanisch kapot worden gescheurd in kleine bloedvaten (trombotische microangiopathie). Schistocyten op de bloeduitstrijk zijn het pathognomonische teken — dit is altijd abnormaal.', mechanisme:'Trombotische occlusies in kleine vaten (TTP: ADAMTS13-deficiëntie → von Willebrand-multimeren accumuleren; HUS: shiga-toxine beschadigt endotheel; DIC: systemische stollingsactivatie). RBC worden hierdoor letterlijk doorgesneden → schistocyten, hemoglobine vrijgegeven → hoog LDH, laag haptoglobine.', onderscheid:'TTP: pentade = MAHA + trombocytopenie + neurologische uitval + nierfalen + koorts. HUS (typisch): kind na Campylobacter/EHEC O157, overheersend nierfalen. HELLP: zwangerschap, leverstoornissen, hypertensie. DIC: onderliggende oorzaak (sepsis, maligniteit), stollingstesten afwijkend (PT/APTT verlengd).', therapie:'TTP: plasmaferese SPOEDMATIG (verwijdert Von Willebrand-multimeren + suppleer ADAMTS13). Caplacizumab als adjuvans. HUS atypisch: eculizumab. HELLP: bevalling is definitieve behandeling. DIC: onderliggende oorzaak behandelen + stollingsfactoren suppleren.' } },
 
   // ── Cardiologie (nieuw) ──
-  { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
-    q:'Man 68j komt met hartkloppingen. ECG: geen P-toppen, onregelmatig QRS-ritme met freq 110/min. Wat is de diagnose?',
-    a:['Atriumflutter','Atriumfibrilleren','Ventriculaire tachycardie','AV-nodale re-entry tachycardie'], c:1,
-    ex:'Atriumfibrilleren: chaotische atriumactiviteit → geen P-toppen, absoluut onregelmatig QRS. Risico: trombus in linker hartoor → embolie/beroerte. Behandeling: frequentiecontrole (bètablokker/digoxine) + anticoagulatie indien CHA₂DS₂-VASc ≥2.',
-    wiki: {
-      kern: 'Atriumfibrilleren (AF) is het meest voorkomende hartritmestoornis. De atriums vuren chaotisch (400-600/min) in plaats van gecoördineerd — daardoor geen P-toppen op het ECG en een volledig onregelmatig QRS-ritme.',
-      mechanisme: 'Meerdere kleine elektrische golfjes cirkelen door de atriums (re-entry). Dit voorkomt een geordende samentrekking. Het gevolg: de atriums bewegen niet echt meer — bloed blijft stilstaan in het linker hartoor en kan stolsels vormen.',
-      onderscheid: 'Atriumflutter: wél regelmatig, zaagvormige flutter-golven (~300/min), vaak 2:1 geleiding → HR ~150. Ventriculaire tachycardie: breed QRS, levensbedreigend. AVNRT: plots begin/eind, normaal QRS, jonge patiënten.',
-      therapie: 'Twee doelen: (1) Frequentiecontrole met bètablokker of digoxine. (2) Anticoagulatie bij CHA₂DS₂-VASc ≥2 (man) of ≥3 (vrouw) — DOAC (bijv. apixaban) boven warfarine. Rytmecontrole (cardioversie) bij symptomatische patiënten.',
-    } },
-
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie — Waar of Niet?',
     q:'Bij atriumfibrilleren met een CHA₂DS₂-VASc score van 0 bij een man is anticoagulatie geïndiceerd.',
     c:false, ex:'NIET WAAR. CHA₂DS₂-VASc 0 (man) = laag risico → geen anticoagulatie aanbevolen. Score telt: hartfalen, hypertensie, leeftijd ≥75 (2 punten), diabetes, beroerte/TIA (2 punten), vaatziekte, leeftijd 65-74, vrouwelijk geslacht.' },
@@ -416,11 +394,6 @@ const QUESTIONS = [
     c:true, ex:'WAAR. Amiodaron bevat 37% jodium. Kan hypothyreoïdie veroorzaken (jodium remt schildklierhormoonproductie, Wolff-Chaikoff-effect) maar ook hyperthyreoïdie (jodiumoverload triggert autonome productie). Monitor TSH regelmatig.' },
 
   // ── Neurologie (nieuw) ──
-  { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
-    q:'Man 70j: plotse uitval van rechterarm en -been, dysartrie, na 45 minuten volledig hersteld. Diagnose?',
-    a:['Insulte (CVA)','TIA','Epileptische aanval','Migraine met aura'], c:1,
-    ex:'TIA: focale neurologische uitval <24 uur (meestal <1 uur) door tijdelijke ischemie. MRI-DWI kan toch kleine infarcten tonen. Hoog risico op CVA in komende 48 uur — ABCD²-score voor risicostratificatie. Spoed behandeling: aspirine + statine + bloeddrukcontrole.' },
-
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 45j: ergste hoofdpijn van haar leven, plotseling ontstaan, nekstijfheid, lichtschuw. CT hoofd normaal. Wat nu?',
     a:['Toedienen paracetamol en afwachten','Lumbaalpunctie uitvoeren','MRI hersenen aanvragen','Direct antibiotica starten zonder verder onderzoek'], c:1,
@@ -536,9 +509,6 @@ const QUESTIONS = [
     a:['Amoxicilline','Ciprofloxacine','Doxycycline','Azithromycine'], c:0,
     ex:'Bètalactam-antibiotica (penicillines, cefalosporines) remmen de transpeptidases (PBPs) die peptidoglycaan crosslinks vormen in de bacteriële celwand. Bacteriën zwellen op en lyseren. Resistentie: bètalactamase-productie of PBP-mutaties.' },
 
-  { type:'truefalse', d:2, domain:'pharma', dl:'Farmacologie — Waar of Niet?',
-    q:'Metformine is gecontra-indiceerd bij nierfunctiestoornissen vanwege het risico op lactaatacidose.',
-    c:true, ex:'WAAR. Metformine remt mitochondriaal complex I → verhoogde lactaatproductie. Bij nierfalen stapelt metformine op → toxisch. Stop bij eGFR <30, wees voorzichtig bij <45. Tijdelijk stoppen bij jodiumhoudend contrast of ernstige ziekte.' },
 
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
     q:'Welk medicijn geef je bij een opiaat-overdosis met bewusteloosheid en ademdepressie?',
@@ -707,10 +677,6 @@ const QUESTIONS = [
     a:['Ongecompliceerde cystitis','Urosepsis','Prostatitis','Vaginitis'], c:1,
     ex:'Urosepsis: UWI met systemische tekenen (koorts, tachycardie, hypotensie, verwardheid). Ouderen presenteren atypisch (verwardheid zonder koorts). Verwekker: E. coli (80%). Behandeling: IV breedspectrum antibiotica (cefuroxim, piperacilline-tazobactam), bloedkweken eerst.' },
 
-  { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
-    q:'Tiener 16j: keelpijn, moeheid, vergrote lymfklieren, vergrote milt. Atypische lymfocyten op bloeduitstrijk. Diagnose?',
-    a:['Streptokokkenfaryngitis','Infectious mononucleosis (EBV)','Leukemie','CMV-infectie'], c:1,
-    ex:'Ziekte van Pfeiffer (mononucleosis): EBV-infectie. Klassiek: koorts + keelpijn + lymfadenopathie + splenomegalie. Atypische lymfocyten, positieve monospot-test. Geef GEEN amoxicilline → exantheem! Rustig aan, vermijd contact­sport (miltruptuurrisico).' },
 
   { type:'truefalse', d:2, domain:'infectio', dl:'Infectiologie — Waar of Niet?',
     q:'Antiretrovirale therapie (ART) bij HIV zorgt voor volledige genezing van de infectie.',

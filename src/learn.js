@@ -75,8 +75,9 @@ function lmLoadQ() {
   if (counter) counter.textContent = `${idx + 1} / ${total}${LM.phase === 'repeat' ? ' · Herhaling' : ''}`;
 
   const typeMap = { diagnose:'Diagnose', truefalse:'Waar of Niet?', pharma:'Welk Medicijn?', lab:'Lab' };
-  const typeLabel = typeMap[q.type] || 'Vraag';
-  const typeCls = q.type || 'diagnose';
+  const subtypeMap = { diff:'Differentiaal', test:'Test-keuze' };
+  const typeLabel = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || 'Vraag';
+  const typeCls = (q.subtype && subtypeMap[q.subtype] ? q.subtype : q.type) || 'diagnose';
 
   let answersHTML;
   if (q.type === 'truefalse') {

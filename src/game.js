@@ -214,7 +214,11 @@ function loadQ() {
     pharma:    ['Welk Medicijn?', 'pharma'],
     lab:       ['Lab', 'lab'],
   };
-  const [label, cls] = typeMap[q.type] || typeMap.diagnose;
+  const subtypeMap = {
+    diff: ['Differentiaal', 'diff'],
+    test: ['Test-keuze', 'test'],
+  };
+  const [label, cls] = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || typeMap.diagnose;
   if (tag) { tag.textContent = label; tag.className = 'q-type-tag ' + cls; }
 
   const domain = document.getElementById('qDomain');
