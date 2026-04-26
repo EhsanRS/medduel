@@ -382,6 +382,8 @@ const DOMAIN_META = [
   { key: 'pharma',   label: 'Farmacologie',   icon: '💊' },
   { key: 'infectio', label: 'Infectiologie',  icon: '🦠' },
   { key: 'lab',      label: 'Laboratorium',   icon: '🧪' },
+  { key: 'rheum',    label: 'Reumatologie',   icon: '🦴' },
+  { key: 'psych',    label: 'Psychiatrie',    icon: '🧩' },
 ];
 
 function loadDomainStats() {
