@@ -12,7 +12,7 @@ function startSpoedkamer() {
     correct: 0, wrong: 0, answered: 0,
     lives: 3, timeLeft: 15,
     timer: null, nextQTimer: null,
-    locked: false, active: true,
+    locked: false, active: true, waitingForModal: false,
     domainStats: {}, domainStatsByKey: {},
     sessionLog: [], wrongAnswers: [],
     currentQ: null,

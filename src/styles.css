@@ -2912,3 +2912,23 @@ h1.logo em {
 }
 .mode-card.spoedkamer::after { background: var(--pulse); }
 .mode-card.spoedkamer .mode-icon-wrap { background: #fff0ec; }
+
+/* Volgende vraag knop (na sluiten fact modal) */
+.btn-next-q {
+  display: block;
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  text-align: center;
+}
+.btn-next-q:active { transform: scale(0.98); }
+.btn-next-q:hover  { background: #2d1f1a; }

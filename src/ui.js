@@ -61,6 +61,10 @@ function openFactModal() {
   if (typeof DC !== 'undefined' && DC.nextQTimer) {
     clearTimeout(DC.nextQTimer); DC.nextQTimer = null; DC.waitingForModal = true;
   }
+  // Cancel spoedkamer auto-advance
+  if (typeof SK !== 'undefined' && SK.active) {
+    if (SK.nextQTimer) { clearTimeout(SK.nextQTimer); SK.nextQTimer = null; SK.waitingForModal = true; }
+  }
   document.getElementById('factModalDomain').textContent = currentFact.dl || '';
   document.getElementById('factModalQ').textContent = currentFact.q || '';
   const exEl = document.getElementById('factModalEx');
@@ -102,6 +106,13 @@ function closeFactModal() {
     dcLoadQ();
     return;
   }
+  // Resume spoedkamer — toon "Volgende" knop zodat speler vraag nog kan bekijken
+  if (typeof SK !== 'undefined' && SK.waitingForModal) {
+    SK.waitingForModal = false;
+    if (!SK.active || SK.answered >= 10) { endSpoedkamer(); return; }
+    showNextButton(() => loadSKQuestion());
+    return;
+  }
   // Resume trivia
   if (typeof G === 'undefined' || !G.active) return;
   if (G.timerPaused && G.timeLeft > 0) {
@@ -113,9 +124,25 @@ function closeFactModal() {
     if (G.pendingEndGame) { G.pendingEndGame = false; endGame(); return; }
     if (G.mode === 'classic' && G.answered >= 10) { endGame(); return; }
     if (G.mode === 'blitz' && G.timeLeft <= 0) return;
-    if (G.mode === 'survival' && G.queue.length === 0) G.queue = shuffleArr(getPool());
-    loadQ();
+    if (G.mode === 'blitz') {
+      // Blitz: timer loopt al, laad direct volgende vraag
+      loadQ();
+    } else {
+      // Classic / Survival: toon knop, speler kiest zelf wanneer door
+      if (G.mode === 'survival' && G.queue.length === 0) G.queue = shuffleArr(getPool());
+      showNextButton(() => loadQ());
+    }
   }
+}
+
+function showNextButton(fn) {
+  const wrap = document.getElementById('answersWrap') || document.getElementById('skAnswersWrap');
+  if (!wrap) { fn(); return; }
+  const btn = document.createElement('button');
+  btn.className = 'btn-next-q fade-in';
+  btn.textContent = 'Volgende vraag →';
+  btn.onclick = fn;
+  wrap.appendChild(btn);
 }
 
 // ── Keyboard shortcuts: A/B/C/D en 1/2/3/4 = antwoord kiezen ──
