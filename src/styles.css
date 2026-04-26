@@ -468,24 +468,32 @@ h1.logo em {
   display: block;
 }
 
-/* Clinical scenario symptom chips */
+/* Clinical scenario symptom list */
 .fq-bullets {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin: 0.5rem 0 0.75rem;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0.4rem 0 0.65rem;
 }
 .fq-bullet {
-  display: inline-block;
+  display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1.35;
-  padding: 4px 10px;
-  background: rgba(26,20,16,0.07);
-  border-radius: 20px;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--ink-mid);
+  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
 }
+.fq-bullet::before {
+  content: '–';
+  position: absolute;
+  left: 1px;
+  color: var(--ink-light);
+  font-size: 11px;
+  top: 3px;
+}
+.fq-bullet-ind { font-size: 12px; margin-left: 2px; }
 
 /* Answer buttons */
 .answers-wrap {

@@ -528,6 +528,7 @@ const LAB_REFS = [
   ['transferrinesaturatie', 20,   50  ],
   ['albumine',              35,   50  ],
   ['creatinine',            50,   110 ],
+  ['kreatinine',            50,   110 ],
   ['bilirubine',            0,    17  ],
   ['fosfaat',               0.8,  1.5 ],
   ['calcium',               2.15, 2.55],
@@ -541,6 +542,16 @@ const LAB_REFS = [
   ['mcv',                   80,   100 ],
   ['egfr',                  60,   999 ],
   ['tsh',                   0.4,  4.0 ],
+  ['leukocyten',            4.0,  10.0],
+  ['wbc',                   4.0,  10.0],
+  ['trombocyten',           150,  400 ],
+  ['crp',                   0,    10  ],
+  ['hba1c',                 0,    53  ],
+  ['prolactine',            0,    500 ],
+  ['fsh',                   1,    25  ],
+  ['lh',                    1,    30  ],
+  ['hb',                    7.5,  11.0],
+  ['hemoglobine',           7.5,  11.0],
 ];
 
 function getLabStatus(name, val) {
@@ -548,10 +559,24 @@ function getLabStatus(name, val) {
   if (norm.startsWith('urine') || norm.startsWith('fractie')) return null;
   if (norm === 'k' || norm === 'k+' || norm === 'kalium') return val > 5.0 ? 'high' : val < 3.5 ? 'low' : 'ok';
   if (norm === 'na' || norm === 'natrium') return val > 145 ? 'high' : val < 135 ? 'low' : 'ok';
+  if (norm === 'cd4') return val < 200 ? 'low' : val < 500 ? 'low' : 'ok';
   for (const [key, lo, hi] of LAB_REFS) {
     if (norm.startsWith(key) || norm.includes(key)) return val > hi ? 'high' : val < lo ? 'low' : 'ok';
   }
   return null;
+}
+
+function annotateBullet(b) {
+  const m = b.match(/^([\w\s\-\+\/µ]+?)\s+([\d]+(?:[,.]\d+)?)\s*(.{0,20})$/);
+  if (!m) return escHtml(b);
+  const [, name, valStr, unit] = m;
+  const val = parseFloat(valStr.replace(',', '.'));
+  if (isNaN(val)) return escHtml(b);
+  const status = getLabStatus(name.trim(), val);
+  if (!status || status === 'ok') return escHtml(b);
+  const arrow = status === 'high' ? '↑' : '↓';
+  const color = status === 'high' ? '#DC2626' : '#2563EB';
+  return `${escHtml(b)} <span class="fq-bullet-ind" style="color:${color};font-weight:700">${arrow}</span>`;
 }
 
 function formatLabLine(line) {
@@ -615,7 +640,7 @@ function tryFormatClinical(str) {
   if (bullets.length < 2) return null;
 
   const introHtml = `<span class="fq-intro">${escHtml(header)}</span>`;
-  const itemsHtml = bullets.map(b => `<span class="fq-bullet">${escHtml(b)}</span>`).join('');
+  const itemsHtml = bullets.map(b => `<span class="fq-bullet">${annotateBullet(b)}</span>`).join('');
   const dataHtml  = `<div class="fq-bullets">${itemsHtml}</div>`;
   const qHtml     = `<span class="fq-q">${escHtml(question)}</span>`;
   return introHtml + dataHtml + qHtml;
