@@ -7,21 +7,36 @@ const THEORY_TOPICS = {
     icon: '🧠',
     subtitle: 'Alzheimer · Vasculair · Lewy-body · FTD · NPH',
     body: `
-      <div class="th-intro"><p>Dementie treft ~300.000 Nederlanders. De vijf hoofdvormen lijken op elkaar maar hebben elk een eigen patroon, biomarker en behandeling.</p></div>
-      <div class="th-section-title">Vergelijking</div>
+      <div class="th-intro"><p>Dementie treft ~300.000 Nederlanders. De vijf hoofdvormen lijken op elkaar maar hebben elk een eigen patroon, biomarker en behandeling — en één ervan is <em>potentieel reversibel</em>.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">60–70%</span><span class="th-keynum-lbl">Alzheimer van alle dementie</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;65j</span><span class="th-keynum-lbl">Typisch begin FTD</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">1</span><span class="th-keynum-lbl">Reversibele vorm (NPH)</span></div>
+      </div>
+
+      <div class="th-section-title">Vergelijking hoofdvormen</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th></th><th>Alzheimer</th><th>Vasculair</th><th>Lewy-body</th><th>FTD</th><th>NPH</th></tr></thead>
         <tbody>
-          <tr><td>Begin</td><td>Sluipend</td><td>Plotseling/trapsgewijs</td><td>Sluipend</td><td>Sluipend</td><td>Sluipend</td></tr>
-          <tr><td>Eerste klacht</td><td>Geheugen</td><td>Afh. locatie infarct</td><td>Hallucinaties / parkinsonisme</td><td>Gedrag / taal</td><td>Loopstoornis</td></tr>
-          <tr><td>MRI</td><td>Temporopariëtale atrofie</td><td>WS-laesies, infarcten</td><td>Weinig atrofie</td><td>Frontale atrofie</td><td>Grote ventrikels, geen corticale atrofie</td></tr>
-          <tr><td>Behandeling</td><td>Cholinesteraseremmer</td><td>Vasculaire RF</td><td>Rivastigmine</td><td>Symptomatisch</td><td>LP-drainage / shunt</td></tr>
+          <tr><td>Begin</td><td>Sluipend</td><td>Plotseling / trapsgewijs</td><td>Sluipend</td><td>Sluipend</td><td>Sluipend</td></tr>
+          <tr><td>Eerste klacht</td><td>Geheugen</td><td>Afh. locatie infarct</td><td>Hallucinaties · parkinsonisme</td><td>Gedrag / taal</td><td>Loopstoornis</td></tr>
+          <tr><td>MRI / biomarker</td><td>Temp-par. atrofie · amyloïd-PET</td><td>WS-laesies · lacunaire infarcten</td><td>DaTscan ↓ · weinig atrofie</td><td>Frontale atrofie</td><td>Grote ventrikels · brede sulci</td></tr>
+          <tr><td>Behandeling</td><td>Donepezil / rivastigmine</td><td>Vasculaire RF behandelen</td><td>Rivastigmine (niet haloperidol!)</td><td>Symptomatisch</td><td>LP-drainage / shunt</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Klinische parels</div>
-      <div class="th-pearl"><strong>Lewy-body</strong> is extreem gevoelig voor klassieke antipsychotica (haloperidol) → ernstig parkinsonisme, soms fataal. Altijd documenteren!</div>
-      <div class="th-pearl"><strong>NPH</strong> is de enige potentieel reversibele dementie. LP-test: 30-50 ml drainage → loopverbetering = bevestiging én behandeling.</div>
-      <div class="th-pearl"><strong>FTD vs Alzheimer</strong>: FTD begint vaker onder de 65 jaar met gedragsverandering vóór geheugenproblemen.</div>
+
+      <div class="th-section-title">NPH — onthoud de 3 W's</div>
+      <div class="th-mnemonic">
+        <span class="th-mnemonic-label">Mnemonisch — Wet · Wobbly · Wacky</span>
+        <div class="th-mnemonic-row"><b>W</b>et — urine-incontinentie (kan niet ophouden)</div>
+        <div class="th-mnemonic-row"><b>W</b>obbly — loopstoornis (breed-gebaseerd, magnetisch looppatroon)</div>
+        <div class="th-mnemonic-row"><b>W</b>acky — cognitieve stoornissen (relatief mild)</div>
+      </div>
+
+      <div class="th-redflag"><strong>Lewy-body + antipsychotica = levensgevaarlijk.</strong> Klassieke antipsychotica (haloperidol) veroorzaken ernstig rigiditeits-syndroom bij LBD — soms fataal. Altijd documenteren in het dossier!</div>
+      <div class="th-safe"><strong>NPH is de enige behandelbare dementie.</strong> LP-test: aspireer 30–50 ml liquor → loopverbetering binnen uren = positief → shunt-kandidaat.</div>
+      <div class="th-pearl"><strong>FTD vs Alzheimer:</strong> FTD begint vaker onder de 65 jaar met gedragsverandering of taalstoornis <em>vóór</em> geheugenproblemen. Familiegeschiedenis bij 30–40%.</div>
     `
   },
 
@@ -31,6 +46,13 @@ const THEORY_TOPICS = {
     subtitle: 'PQRST · Intervallen · ST-patronen · Aritmieën',
     body: `
       <div class="th-intro"><p>Elk ECG is een tijdlijn van elektrische prikkels. Begrijp de fysiologie achter de golven — dan hoef je niets te stampen, je <em>leest</em> het verhaal van het hart.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">300÷n</span><span class="th-keynum-lbl">Frequentie (n = R-R hokjes)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">120–200</span><span class="th-keynum-lbl">Normaal PR (ms)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;120</span><span class="th-keynum-lbl">Normaal QRS (ms)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&gt;500</span><span class="th-keynum-lbl">QTc ms = torsade-risico</span></div>
+      </div>
 
       <div class="th-section-title">Het hart als elektrisch circuit</div>
       <div class="th-conduction">SA-knoop → <strong>P-golf</strong> (atria) → AV-knoop (vertraging) → <strong>PR-interval</strong> → His + bundeltakken → <strong>QRS</strong> (ventrikels) → ST-segment (plateau) → <strong>T-golf</strong> (herstel)</div>
@@ -233,8 +255,8 @@ const THEORY_TOPICS = {
         </div>
       </div>
 
-      <div class="th-pearl"><strong>Vuistregel brede QRS (&gt;120 ms):</strong> regulier + snel = ventriculaire tachycardie (VT) tot bewijs van het tegendeel. Behandel als VT! Nooit assumeer SVT met aberrantie bij hemodynamisch instabiele patiënt.</div>
-      <div class="th-pearl"><strong>Delta-golf + kort PR</strong> = WPW-syndroom (accessoire baan omzeilt AV-knoop). Cave: bij AF met WPW kan het ritme extreem snel worden → ventrikelfibrilleren. Geen AV-blokkers (adenosine, verapamil) — gebruik procaïnamide of elektrocardioversie.</div>
+      <div class="th-redflag"><strong>Brede QRS + snel ritme = VT tot tegendeel bewezen.</strong> Regulier + breed + snel = ventriculaire tachycardie bij hemodynamisch instabiele patiënt. Nooit adenosine bij brede tachycardie zonder zekere P-toppen!</div>
+      <div class="th-trap"><strong>WPW + AF = gevaarlijk.</strong> Bij AF met accessoire baan kan het ventrikelritme extreem snel worden → VF. Geen AV-blokkers (adenosine, verapamil). Kies procaïnamide of elektrocardioversie.</div>
     `
   },
 
@@ -243,22 +265,42 @@ const THEORY_TOPICS = {
     icon: '🩸',
     subtitle: 'Microcytair · Normocytair · Macrocytair',
     body: `
-      <div class="th-intro"><p>Eerste stap: MCV. Daarna reticulocyten en ijzerstatus. De tabel vat de vijf hoofdtypen samen.</p></div>
-      <div class="th-section-title">Vergelijking</div>
+      <div class="th-intro"><p>Anemie is geen diagnose maar een symptoom. Eerste stap is altijd het MCV — daarna reticulocyten en ijzerstatus. De oorzaak bepaalt de behandeling.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">&lt;80</span><span class="th-keynum-lbl">MCV = microcytair</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">80–100</span><span class="th-keynum-lbl">MCV = normocytair</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&gt;100</span><span class="th-keynum-lbl">MCV = macrocytair</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;16%</span><span class="th-keynum-lbl">Transferrine-sat = ijzertekort</span></div>
+      </div>
+
+      <div class="th-section-title">Systematisch overzicht</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th>Type</th><th>MCV</th><th>Ferritine</th><th>Retics</th><th>Kenmerk</th></tr></thead>
         <tbody>
-          <tr><td>IJzergebrek</td><td><span class="dn">↓</span></td><td><span class="dn">↓↓</span></td><td><span class="dn">↓</span></td><td>Menstruatie, GI-bloeding, coeliakie</td></tr>
-          <tr><td>Chronische ziekte</td><td>N/<span class="dn">↓</span></td><td>N/<span class="up">↑</span></td><td><span class="dn">↓</span></td><td>Ontsteking, maligniteit; ijzer opgesloten in macrofagen</td></tr>
-          <tr><td>Thalassemie minor</td><td><span class="dn">↓↓</span></td><td>N</td><td><span class="up">↑</span></td><td>Hb-elektroforese afwijkend</td></tr>
-          <tr><td>Megaloblastair</td><td><span class="up">↑↑</span></td><td>N</td><td><span class="dn">↓</span></td><td>Hypersegmenteerden; B12-gebrek ook neurologisch</td></tr>
-          <tr><td>Hemolytisch</td><td>N/<span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑↑</span></td><td>LDH↑, haptoglobine↓, indirect bili↑, schistocyten bij MAHA</td></tr>
+          <tr><td>IJzergebrek</td><td><span class="dn">↓</span></td><td><span class="dn">↓↓</span></td><td><span class="dn">↓</span></td><td>Menstruatie, GI-bloeding, coeliakie · pallor + koilonychie</td></tr>
+          <tr><td>Chronische ziekte</td><td>N/<span class="dn">↓</span></td><td>N/<span class="up">↑</span></td><td><span class="dn">↓</span></td><td>Ontsteking, maligniteit; hepcidine verhindert ijzermobilisatie</td></tr>
+          <tr><td>Thalassemie minor</td><td><span class="dn">↓↓</span></td><td>N</td><td><span class="up">↑</span></td><td>Hb-elektroforese afwijkend · micro maar nauwelijks anemisch</td></tr>
+          <tr><td>Megaloblastair</td><td><span class="up">↑↑</span></td><td>N</td><td><span class="dn">↓</span></td><td>Hypersegmenteerden · B12-gebrek ook neurotoxisch</td></tr>
+          <tr><td>Hemolytisch</td><td>N/<span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑↑</span></td><td>LDH↑ · haptoglobine↓ · indirect bili↑ · schistocyten bij MAHA</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Klinische parels</div>
-      <div class="th-pearl"><strong>Ferritine</strong> is een acuut-fase-eiwit — bij infectie stijgt het ook zonder goede ijzervoorraden. Kijk bij twijfel naar transferrinesaturatie (&lt;16% = ijzergebrek).</div>
-      <div class="th-pearl"><strong>B12 vs folaat:</strong> beide macrocytair, maar B12-gebrek geeft ook neurologische uitval. Geef nooit alleen folaat bij B12-deficiëntie — maskeert de neurologie!</div>
-      <div class="th-pearl"><strong>Schistocyten + trombocytopenie</strong> = TTP of HUS tot bewijs van het tegendeel. Bij TTP: plasmaferese DIRECT.</div>
+
+      <div class="th-section-title">IJzergebrek vs Chronische ziekte — hoe onderscheid je ze?</div>
+      <div class="th-table-wrap"><table class="th-table">
+        <thead><tr><th></th><th>IJzergebrek</th><th>Chronische ziekte</th></tr></thead>
+        <tbody>
+          <tr><td>Ferritine</td><td><span class="dn">↓ (&lt;12 µg/L)</span></td><td>N of <span class="up">↑</span></td></tr>
+          <tr><td>Transferrinesaturatie</td><td><span class="dn">&lt;16%</span></td><td><span class="dn">&lt;20%</span></td></tr>
+          <tr><td>TIBC</td><td><span class="up">↑</span></td><td>N / <span class="dn">↓</span></td></tr>
+          <tr><td>Behandeling</td><td>Oorzaak vinden + ijzersuppletie</td><td>Onderliggende ziekte behandelen</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="th-redflag"><strong>Schistocyten + trombocytopenie = TTP of HUS.</strong> Bij TTP: ADAMTS13 &lt;10%. Plasmaferese DIRECT — mortaliteit zonder behandeling &gt;90%.</div>
+      <div class="th-trap"><strong>Ferritine is een acuut-fase-eiwit.</strong> Bij infectie stijgt ferritine ook bij een lege ijzerdepot. Kijk altijd naar transferrinesaturatie (&lt;16% = ijzergebrek, zelfs bij hoog ferritine).</div>
+      <div class="th-trap"><strong>Nooit alleen folaat geven bij B12-deficiëntie.</strong> Folaat normaliseert het bloedbeeld maar de neurologische schade verslechtert onzichtbaar door. Altijd B12 meten vóór folaat starten.</div>
+      <div class="th-pearl"><strong>Reticulocyten</strong> zijn de sleuteltest voor beenmergrespons. Hoog = actief aanmaken (hemolysis/bloeding). Laag = beenmergfalen of grondstoftekort (ijzer, B12).</div>
     `
   },
 
@@ -267,26 +309,39 @@ const THEORY_TOPICS = {
     icon: '🔬',
     subtitle: 'Bacterieel · Viraal · TBC · LP-interpretatie',
     body: `
-      <div class="th-intro"><p>Het klinische beeld alleen onderscheidt de vormen niet — liquoranalyse is essentieel. Maar antibiotica mogen nooit wachten op de LP.</p></div>
+      <div class="th-intro"><p>Bacteriële meningitis is een medische spoedsituatie. Mortaliteit 15–25% zelfs mét behandeling. Elk uur vertraging in antibiotica verslechtert de prognose. LP bevestigt de diagnose — maar mag AB nooit vertragen.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">15–25%</span><span class="th-keynum-lbl">Mortaliteit bacterieel</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;30 min</span><span class="th-keynum-lbl">Antibiotica na diagnose</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">~50%</span><span class="th-keynum-lbl">Kernig positief (laag!)</span></div>
+      </div>
+
       <div class="th-section-title">LP-uitslag vergelijking</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th></th><th>Bacterieel</th><th>Viraal</th><th>TBC</th></tr></thead>
         <tbody>
-          <tr><td>Uiterlijk</td><td>Troebel/purulent</td><td>Helder</td><td>Helder/opalescent</td></tr>
-          <tr><td>Leukocyten</td><td>↑↑↑ PMN</td><td>↑ lymfocyten</td><td>↑↑ lymfocyten</td></tr>
-          <tr><td>Glucose</td><td>↓↓ (&lt;2.5)</td><td>Normaal</td><td>↓</td></tr>
-          <tr><td>Eiwit</td><td>↑↑↑</td><td>Licht ↑</td><td>↑↑</td></tr>
+          <tr><td>Uiterlijk</td><td>Troebel / purulent</td><td>Helder</td><td>Helder / opalescent</td></tr>
+          <tr><td>Leukocyten</td><td><span class="up">↑↑↑</span> PMN (&gt;1000)</td><td><span class="up">↑</span> lymfocyten (&lt;500)</td><td><span class="up">↑↑</span> lymfocyten</td></tr>
+          <tr><td>Glucose (liquor/serum)</td><td><span class="dn">↓↓ &lt;0,5 ratio</span></td><td>Normaal (&gt;0,6)</td><td><span class="dn">↓ (0,3–0,5)</span></td></tr>
+          <tr><td>Eiwit</td><td><span class="up">↑↑↑ &gt;1 g/L</span></td><td>Licht <span class="up">↑</span></td><td><span class="up">↑↑</span></td></tr>
+          <tr><td>Gram-kleuring</td><td>Positief in 60–80%</td><td>Negatief</td><td>Ziehl-Neelsen voor BK</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Management bacteriële meningitis</div>
+
+      <div class="th-section-title">Management — volgorde is alles</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>Bloedkweken</strong> — 2 sets, max 2-3 minuten</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Dexamethason</strong> — gelijktijdig of vóór antibiotica (vermindert gehoorschade)</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>Cefotaxim/ceftriaxon IV</strong> — bij &gt;50j voeg amoxicilline toe (Listeria)</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>CT dan LP</strong> — LP pas na CT bij tekenen van verhoogde hersendruk. CT mag AB NIET vertragen!</div></div>
-        <div class="th-step"><span class="th-step-num">5</span><div><strong>Isolatie</strong> — eerste 24u. Rifampicine-profylaxe voor huisgenoten bij meningokokken.</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Bloedkweken × 2</strong> — max 2–3 minuten. Daarna direct verder.</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Dexamethason IV</strong> — gelijktijdig of vóór antibiotica. Vermindert gehoorschade en hersenoedeem.</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Ceftriaxon 2g IV</strong> — bij &gt;50j + amoxicilline 2g IV (Listeria!). Nooit vertragen.</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>CT indien nodig</strong> — alleen bij focale uitval, papiloedeem of bewustzijnsdaling. CT mag AB NOOIT vertragen.</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>LP</strong> — na CT of als CT niet nodig is. Bevestigt diagnose én verwekker.</div></div>
+        <div class="th-step"><span class="th-step-num">6</span><div><strong>Isolatie</strong> — eerste 24u. Rifampicine-profylaxe huisgenoten bij meningokokken.</div></div>
       </div>
-      <div class="th-pearl"><strong>Kernig/Brudzinski</strong> hebben slechte sensitiviteit (~50%). Een negatief teken sluit meningitis NIET uit.</div>
+
+      <div class="th-redflag"><strong>Petechiae/purpura + meningisme = meningokokkensepsis.</strong> Geef antibiotica direct — ook voor CT of LP. Elke minuut telt bij purpura fulminans. Dit is de enige situatie waarbij je AB geeft zonder kweek.</div>
+      <div class="th-trap"><strong>CT mag AB NIET vertragen.</strong> Geef antibiotica alvast als CT meer dan 20 minuten duurt. Onbehandelde meningitis vordert snel naar hersenabces en overlijden.</div>
+      <div class="th-pearl"><strong>Kernig/Brudzinski</strong> hebben slechte sensitiviteit (~50%). Een negatief teken sluit meningitis NIET uit bij klinisch vermoeden.</div>
     `
   },
 
@@ -295,25 +350,47 @@ const THEORY_TOPICS = {
     icon: '❤️',
     subtitle: 'HFrEF · HFpEF · Vierpijlertherapie',
     body: `
-      <div class="th-intro"><p>Hartfalen treft 1-2% van de volwassen bevolking. Onderscheid HFrEF (slechte pompfunctie) van HFpEF (stijf hart) — de behandeling verschilt.</p></div>
+      <div class="th-intro"><p>Hartfalen treft 1–2% van de volwassen bevolking en heeft een 5-jaarsmortaliteit van ~50% — vergelijkbaar met veel kankers. Vroeg herkennen en het vierpijler-regime instellen spaart jaren.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">1–2%</span><span class="th-keynum-lbl">Prevalentie volwassenen</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">~50%</span><span class="th-keynum-lbl">5-jaarsmortaliteit HFrEF</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;40%</span><span class="th-keynum-lbl">EF bij HFrEF</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">4</span><span class="th-keynum-lbl">Pijlers bewezen therapie</span></div>
+      </div>
+
       <div class="th-section-title">HFrEF vs HFpEF</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>HFrEF</th><th>HFpEF</th></tr></thead>
+        <thead><tr><th></th><th>HFrEF (EF &lt;40%)</th><th>HFpEF (EF ≥50%)</th></tr></thead>
         <tbody>
-          <tr><td>EF</td><td>&lt;40%</td><td>≥50%</td></tr>
-          <tr><td>Mechanisme</td><td>Systolische dysfunctie</td><td>Diastolische dysfunctie (stijf hart)</td></tr>
-          <tr><td>Oorzaak</td><td>MI, cardiomyopathie</td><td>Hypertensie, DM, obesitas, ouderdom</td></tr>
-          <tr><td>Bewezen medicatie</td><td>ACEi/ARNI + β-blokker + MRA + SGLT2i</td><td>SGLT2i (recent); diuretica symptomatisch</td></tr>
+          <tr><td>Mechanisme</td><td>Systolische dysfunctie (zwak hart)</td><td>Diastolische dysfunctie (stijf hart)</td></tr>
+          <tr><td>Oorzaak</td><td>MI, dilaterende cardiomyopathie, alcohol</td><td>Hypertensie, DM, obesitas, ouderdom</td></tr>
+          <tr><td>Echo</td><td>Verwijd, hypokinetisch LV</td><td>Normaal of klein LV, dikke wand</td></tr>
+          <tr><td>NT-proBNP</td><td><span class="up">↑↑</span></td><td><span class="up">↑</span> (minder sterk)</td></tr>
+          <tr><td>Bewezen therapie</td><td>BAMS vierpijler</td><td>SGLT2i; diuretica symptomatisch</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Vierpijlertherapie HFrEF</div>
-      <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>ACE-remmer of ARNI</strong> (sacubitril/valsartan) — RAAS-remming, mortaliteit −25%</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Bèta-blokker</strong> (bisoprolol, carvedilol) — anti-aritmisch, mortaliteit −34%</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>MRA</strong> (spironolacton) — anti-fibrotisch + diuretisch</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>SGLT2-remmer</strong> (dapagliflozine) — cardio- en nefroprotectief</div></div>
+
+      <div class="th-section-title">Vierpijlertherapie HFrEF — onthoud BAMS</div>
+      <div class="th-mnemonic">
+        <span class="th-mnemonic-label">Mnemonisch — BAMS</span>
+        <div class="th-mnemonic-row"><b>B</b>èta-blokker (bisoprolol, carvedilol) — mortaliteit −34%</div>
+        <div class="th-mnemonic-row"><b>A</b>CE-remmer of ARNI (sacubitril/valsartan) — mortaliteit −25%</div>
+        <div class="th-mnemonic-row"><b>M</b>RA (spironolacton / eplerenon) — anti-fibrotisch + diuretisch</div>
+        <div class="th-mnemonic-row"><b>S</b>GLT2-remmer (dapagliflozine) — cardio- en nefroprotectief</div>
       </div>
-      <div class="th-pearl"><strong>RV-infarct valkuil:</strong> hypotensie + hoge CVD + heldere longen → GEEN nitraten/diuretica. Geef juist voluumbelasting.</div>
+
+      <div class="th-section-title">Acuut hartfalen — aanpak</div>
+      <div class="th-steps">
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Zuurstof / NIV</strong> — bij SpO₂ &lt;90% of ernstige dyspneu; CPAP verlaagt preload en ademarbeid</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Furosemide IV</strong> — 40 mg IV (of dubbel de thuisdosis); doelstelling &gt;200 ml/uur</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Nitraten</strong> — bij hoge BP voor afterload-reductie (contra-indicatie: RV-falen!)</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Oorzaak zoeken</strong> — ACS? Aritmie? Infectie? Medicatiecompliantie? Zoutgebruik?</div></div>
+      </div>
+
+      <div class="th-redflag"><strong>RV-infarct valkuil: GEEN nitraten of diuretica.</strong> Hypotensie + hoge CVD + heldere longen = RV-infarct (inferieur MI). Behandel met voluumbelasting — diuretica verlagen de preload en doden de patiënt.</div>
+      <div class="th-trap"><strong>β-blokker stoppen bij acuut hartfalen?</strong> Alleen bij cardiogene shock. Bij gecompenseerd acuut hartfalen: continueer of halveer dosis. Stoppen verhoogt aritmierisico en mortaliteit.</div>
+      <div class="th-pearl"><strong>NT-proBNP:</strong> &gt;300 pg/ml bij acuut hartfalen sterk suggestief; &lt;125 pg/ml vrijwel uitgesloten. Verhoogd ook bij PE, nierfalen, AF — altijd in context interpreteren.</div>
     `
   },
 
@@ -322,7 +399,14 @@ const THEORY_TOPICS = {
     icon: '💊',
     subtitle: 'Werkingsmechanisme · Spectrum · Resistentie',
     body: `
-      <div class="th-intro"><p>Elk antibioticum heeft een eigen mechanisme en spectrum. Kennis hiervan voorkomt fout gebruik en resistentie.</p></div>
+      <div class="th-intro"><p>Elk antibioticum heeft een eigen mechanisme en spectrum. Kennis hiervan voorkomt fout gebruik en resistentie. Kies altijd zo smal mogelijk na identificatie van de verwekker.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">&gt;70%</span><span class="th-keynum-lbl">AB-gebruik is vermijdbaar</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">ESBL</span><span class="th-keynum-lbl">Snelst stijgende resistentie NL</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">48–72u</span><span class="th-keynum-lbl">De-escaleer na kweekuitslag</span></div>
+      </div>
+
       <div class="th-section-title">Overzicht per klasse</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th>Klasse</th><th>Mechanisme</th><th>Spectrum</th><th>Voorbeelden</th></tr></thead>
@@ -336,20 +420,22 @@ const THEORY_TOPICS = {
           <tr><td>Nitroimidazolen</td><td>DNA-schade (anaeroben)</td><td>Anaeroben, protozoa</td><td>Metronidazol, tinidazol</td></tr>
         </tbody>
       </table></div>
+
       <div class="th-section-title">Resistentiemechanismen</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>Mechanisme</th><th>Voorbeeld</th></tr></thead>
+        <thead><tr><th>Mechanisme</th><th>Voorbeeld</th><th>Klinisch gevolg</th></tr></thead>
         <tbody>
-          <tr><td>Enzym-inactivatie</td><td>Bètalactamase → amoxicilline-resistentie; ESBL → breed resistent</td></tr>
-          <tr><td>Target-mutatie</td><td>PBP2a (mecA-gen) → MRSA resistent tegen alle bètalactams</td></tr>
-          <tr><td>Effluxpomp</td><td>Chinolonen, tetracyclines uit cel gepompt</td></tr>
-          <tr><td>Verminderde opname</td><td>Veranderde porines bij Pseudomonas</td></tr>
+          <tr><td>Enzym-inactivatie</td><td>Bètalactamase → amox-resistentie · ESBL = breed resistent</td><td>Voeg clavulaanzuur toe of gebruik carbapenem</td></tr>
+          <tr><td>Target-mutatie</td><td>PBP2a (mecA-gen) → MRSA vs alle bètalactams</td><td>Vancomycine of linezolid verplicht</td></tr>
+          <tr><td>Effluxpomp</td><td>Chinolonen, tetracyclines uit cel gepompt</td><td>Dosisverhoging helpt niet</td></tr>
+          <tr><td>Verminderde opname</td><td>Veranderde porines bij Pseudomonas</td><td>Piperacilline of carbapenem nodig</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Klinische parels</div>
-      <div class="th-pearl"><strong>MRSA</strong>: resistent tegen alle bètalactams. Keuze: vancomycine of linezolid. Contactisolatie verplicht.</div>
-      <div class="th-pearl"><strong>Aminoglycosiden once-daily</strong>: hoge piekconcentratie = maximaal bactericide effect én minder nefrotoxiciteit (tubuluscellen recupereren tussen doses).</div>
-      <div class="th-pearl"><strong>Rifampicine</strong> is een krachtige CYP3A4-inductor → verlaagt effectiviteit anticonceptiepil, warfarine, en vele andere medicijnen.</div>
+
+      <div class="th-redflag"><strong>MRSA: resistent tegen ALLE bètalactams.</strong> Keuze: vancomycine of linezolid. Contactisolatie verplicht. Screen bij opname risicogroepen (IC-patiënten, ziekenhuiscontacten uit buitenland).</div>
+      <div class="th-trap"><strong>Amoxicilline bij EBV-mononucleosis = klassieke fout.</strong> Geeft exantheem bij ~90% van de patiënten. Test altijd monospot/EBV-antilichamen bij keelontsteking met lymfadenopathie bij jongeren.</div>
+      <div class="th-pearl"><strong>Aminoglycosiden once-daily:</strong> hoge piekconcentratie = maximaal bactericide effect én minder nefrotoxiciteit. Tubuluscellen recupereren tussen doses. Monitor trough-spiegel voor toxiciteit.</div>
+      <div class="th-pearl"><strong>Rifampicine</strong> is een krachtige CYP3A4-inductor → verlaagt effectiviteit anticonceptiepil, warfarine en vele andere middelen. Altijd medicatiecheck!</div>
     `
   },
 
@@ -358,68 +444,104 @@ const THEORY_TOPICS = {
     icon: '🩹',
     subtitle: 'Cascade · Heparine · VKA · DOAC',
     body: `
-      <div class="th-intro"><p>De bloedstolling verloopt via twee routes die samenkomen bij factor X. Elk antistollingsmiddel grijpt op een ander punt in.</p></div>
-      <div class="th-section-title">Stollingsmiddelen vergelijking</div>
+      <div class="th-intro"><p>De bloedstolling verloopt via twee routes die samenkomen bij factor X. Elk antistollingsmiddel grijpt op een ander punt in. Keuze hangt af van indicatie, nierfunctie en urgentie.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">INR 2–3</span><span class="th-keynum-lbl">Therapeutisch doel VKA</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">dag 5–10</span><span class="th-keynum-lbl">HIT-venster (gevaarlijk!)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">eGFR&lt;30</span><span class="th-keynum-lbl">Dabigatran gecontra-indiceerd</span></div>
+      </div>
+
+      <div class="th-section-title">Antistolling vergelijking</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th></th><th>Heparine (UFH/LMWH)</th><th>VKA (warfarine)</th><th>DOAC</th></tr></thead>
         <tbody>
           <tr><td>Werkingsmechanisme</td><td>Versterkt antitrombine III → remt IIa + Xa</td><td>Remt vit. K-cyclus → ↓ II, VII, IX, X</td><td>Directe remming Xa (rivaroxaban) of IIa (dabigatran)</td></tr>
-          <tr><td>Onset</td><td>Direct (IV) / 1-2u (SC)</td><td>3–5 dagen</td><td>1–3 uur</td></tr>
-          <tr><td>Monitoring</td><td>APTT (UFH) / anti-Xa (LMWH)</td><td>INR (doel 2–3)</td><td>Niet nodig</td></tr>
+          <tr><td>Onset</td><td>Direct (IV) / 1–2u (SC)</td><td>3–5 dagen</td><td>1–3 uur</td></tr>
+          <tr><td>Monitoring</td><td>APTT (UFH) / anti-Xa (LMWH)</td><td>INR (doel 2–3)</td><td>Niet nodig (voordeel!)</td></tr>
           <tr><td>Antidotum</td><td>Protaminesulfaat</td><td>Vit. K + PCC</td><td>Andexanet alfa (Xa) / idarucizumab (dabigatran)</td></tr>
-          <tr><td>Toediening</td><td>IV / SC</td><td>Oraal</td><td>Oraal</td></tr>
-          <tr><td>Indicatie voorkeur</td><td>Acuut, zwangerschap, nierfalen</td><td>Kunstkleppen, mechanische hartkleppen</td><td>AF, VTE — meeste patiënten</td></tr>
+          <tr><td>Voorkeursindicatie</td><td>Acuut · zwangerschap · IC</td><td>Kunstkleppen</td><td>AF · VTE — meeste patiënten</td></tr>
         </tbody>
       </table></div>
+
       <div class="th-section-title">INR-gids bij VKA</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>INR 2–3</strong>: doel bij AF, VTE, mechanische mitralisklep</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>INR 2.5–3.5</strong>: mechanische aortaklep met extra risicofactoren</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>INR 3.5–5</strong> (te hoog, geen bloeding): stop VKA, herhaal over 1–2 dagen</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>Ernstige bloeding</strong>: PCC (4-factoren) + vitamine K IV — werkt in minuten</div></div>
+        <div class="th-step"><span class="th-step-num">2–3</span><div><strong>Therapeutisch</strong> — doel bij AF, VTE, mechanische mitralisklep</div></div>
+        <div class="th-step"><span class="th-step-num">2,5–3,5</span><div><strong>Hoger doel</strong> — mechanische aortaklep met risicofactoren</div></div>
+        <div class="th-step"><span class="th-step-num">3,5–5</span><div><strong>Te hoog, geen bloeding</strong> — stop VKA, herhaal INR over 1–2 dagen</div></div>
+        <div class="th-step"><span class="th-step-num">!!</span><div><strong>Ernstige bloeding</strong> — PCC 4-factoren + vitamine K IV — effect binnen minuten</div></div>
       </div>
-      <div class="th-pearl"><strong>Heparine-geïnduceerde trombocytopenie (HIT)</strong>: trombocyten dalen ná dag 5 → paradoxaal tromboserisico! Stop heparine direct, start argatroban of fondaparinux.</div>
-      <div class="th-pearl"><strong>DOACs en nierfunctie</strong>: dabigatran is 80% renaal geklaard → bij eGFR &lt;30 gecontra-indiceerd. Rivaroxaban/apixaban minder niergevoelig.</div>
+
+      <div class="th-redflag"><strong>HIT (Heparine-geïnduceerde Trombocytopenie):</strong> trombocyten dalen ná dag 5–10 → paradoxaal tromboserisico! Elke nieuwe trombose bij heparinetherapie is HIT tot bewijs van tegendeel. Stop heparine direct, start argatroban of fondaparinux.</div>
+      <div class="th-trap"><strong>DOACs bij nierinsufficiëntie:</strong> dabigatran is 80% renaal geklaard → bij eGFR &lt;30 gecontra-indiceerd. Rivaroxaban/apixaban minder niergevoelig maar dosisaanpassing nodig bij ernstig nierfalen.</div>
+      <div class="th-pearl"><strong>Zwangerschap:</strong> LMWH is de enige veilige antistolling — VKA en DOACs zijn teratogeen. Bij kunstklep in de zwangerschap: VKA is het enige bewezen effectieve middel; weeg risico's per trimester.</div>
     `
   },
 
   diabetes: {
     title: 'Diabetes Mellitus',
     icon: '🍬',
-    subtitle: 'DM1 · DM2 · Complicaties · Behandeling',
+    subtitle: 'DM1 · DM2 · DKA · Complicaties',
     body: `
-      <div class="th-intro"><p>DM treft wereldwijd 500 miljoen mensen. DM2 (insulineresistentie) maakt 90% uit. DM1 (auto-immuun) vereist altijd insuline.</p></div>
+      <div class="th-intro"><p>DM treft wereldwijd 500 miljoen mensen. DM2 (insulineresistentie) maakt 90% uit. DM1 (auto-immuun bètacel-destructie) vereist levenslang insuline. De complicaties zijn de werkelijke killer.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">500M</span><span class="th-keynum-lbl">Wereldwijd DM-patiënten</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&lt;53</span><span class="th-keynum-lbl">HbA1c mmol/mol target DM2</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">3</span><span class="th-keynum-lbl">DKA-criteria (trilogie)</span></div>
+      </div>
+
       <div class="th-section-title">DM1 vs DM2</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th></th><th>DM type 1</th><th>DM type 2</th></tr></thead>
         <tbody>
-          <tr><td>Mechanisme</td><td>Auto-immuun destructie bètacellen</td><td>Insulineresistentie + relatief insulinetekort</td></tr>
-          <tr><td>Leeftijd begin</td><td>Vaak &lt;30j (maar kan op elke leeftijd)</td><td>Vaak &gt;40j (maar toename bij jongeren)</td></tr>
-          <tr><td>Presentatie</td><td>Acuut: polyurie, polydipsie, gewichtsverlies, DKA</td><td>Sluipend: moeheid, vaak toevalsbevinding</td></tr>
-          <tr><td>BMI</td><td>Normaal / laag</td><td>Vaak verhoogd</td></tr>
-          <tr><td>C-peptide</td><td><span class="dn">↓↓</span> (geen insulineproductie)</td><td>Normaal / <span class="up">↑</span></td></tr>
-          <tr><td>Insuline nodig?</td><td>Altijd</td><td>Later in ziekteverloop</td></tr>
+          <tr><td>Mechanisme</td><td>Auto-immuun destructie bètacellen</td><td>Insulineresistentie + relatief tekort</td></tr>
+          <tr><td>Leeftijd</td><td>Vaak &lt;30j (maar elke leeftijd)</td><td>Vaak &gt;40j (maar ook jongeren met obesitas)</td></tr>
+          <tr><td>Presentatie</td><td>Acuut: polyurie, polydipsie, gewichtsverlies, DKA</td><td>Sluipend: moeheid, toevalsbevinding bij screening</td></tr>
+          <tr><td>C-peptide</td><td><span class="dn">↓↓</span> (geen insulineproductie)</td><td>Normaal of <span class="up">↑</span></td></tr>
+          <tr><td>Auto-antilichamen</td><td>GAD, IA-2, ZnT8 positief</td><td>Negatief</td></tr>
+          <tr><td>Insuline?</td><td>Altijd, vanaf diagnose</td><td>Pas in later stadium</td></tr>
         </tbody>
       </table></div>
+
+      <div class="th-section-title">DKA — herken de trilogie</div>
+      <div class="th-mnemonic">
+        <span class="th-mnemonic-label">DKA diagnostiek (alle drie nodig)</span>
+        <div class="th-mnemonic-row"><b>K</b>etose — ketonurie of ketonaemie &gt;3 mmol/L</div>
+        <div class="th-mnemonic-row"><b>A</b>cidose — pH &lt;7,3 of bicarbonaat &lt;15 mmol/L</div>
+        <div class="th-mnemonic-row"><b>D</b>iabetes — bloedglucose &gt;11 mmol/L of bekende DM</div>
+      </div>
+
+      <div class="th-section-title">DKA behandeling — stap voor stap</div>
+      <div class="th-steps">
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Vocht IV</strong> — 0,9% NaCl 1L/uur eerste 2u, dan langzamer op geleide van kliniek</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Kalium controleren</strong> — start insuline NIET als K⁺ &lt;3,5 mmol/L (corrigeer eerst!)</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Insuline-infuus</strong> — 0,1 E/kg/uur IV; glucose niet sneller dan 3–4 mmol/uur laten dalen</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Kalium suppletie</strong> — altijd zodra insuline gestart is; K⁺ daalt snel door intracellulaire shift</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>Uitlokkende factor behandelen</strong> — infectie? Vergeten insuline? Nieuw ontdekte DM1?</div></div>
+      </div>
+
       <div class="th-section-title">DM2 behandelstappen</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>Leefstijl</strong> — afvallen, beweging; meest effectief</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Metformine</strong> — eerstekeus, goedkoop; stop bij eGFR &lt;30</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>SGLT2-remmer of GLP-1-agonist</strong> — bij cardiovasculair risico of obesitas</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>Insuline</strong> — basaal (nacht) → basaal-bolus bij onvoldoende controle</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Leefstijl</strong> — afvallen en beweging; meest effectieve interventie ooit gemeten</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Metformine</strong> — eerste keus; stop bij eGFR &lt;30, acuut ziek of jodiumcontrast</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>SGLT2i of GLP-1-agonist</strong> — bij cardiovasculair risico, nierfalen of obesitas</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Insuline</strong> — basaal (nacht) → basaal-bolus schema bij onvoldoende controle</div></div>
       </div>
-      <div class="th-section-title">Complicaties</div>
+
+      <div class="th-redflag"><strong>DKA + insuline → K⁺ daalt snel.</strong> Hypokaliëmie tijdens DKA-behandeling is een frequent dodelijke complicatie. Altijd kalium-infuus starten zodra K⁺ &lt;5,5 en insuline gestart is.</div>
+      <div class="th-trap"><strong>HHS bij DM2:</strong> extreem hoge glucose (&gt;30 mmol/L), weinig/geen ketosen, osmolariteit &gt;320 mOsm/kg. Behandeling: voorzichtiger hydraten (hyperosmolaire cel!) + lage-dosis insuline pas na vochtresuscitatie.</div>
+
+      <div class="th-section-title">Complicaties overzicht</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th>Type</th><th>Orgaan</th><th>Kenmerk</th></tr></thead>
         <tbody>
-          <tr><td>Microangiopathie</td><td>Retina</td><td>Retinopathie → blindheid</td></tr>
-          <tr><td>Microangiopathie</td><td>Nier</td><td>Nefropathie → CKD (microalbuminurie eerst)</td></tr>
-          <tr><td>Neuropathie</td><td>Perifere zenuwen</td><td>Brandende voeten, verlies tastzin, ulcera</td></tr>
-          <tr><td>Macroangiopathie</td><td>Hart, hersenen, benen</td><td>MI, CVA, PAV — leading cause of death</td></tr>
-          <tr><td>Acuut</td><td>Metabolisme</td><td>DKA (DM1), HHS (DM2)</td></tr>
+          <tr><td>Microangiopathie</td><td>Retina</td><td>Retinopathie → blindheid (jaarlijkse screening)</td></tr>
+          <tr><td>Microangiopathie</td><td>Nier</td><td>Nefropathie → CKD (microalbuminurie = vroeg signaal)</td></tr>
+          <tr><td>Neuropathie</td><td>Perifere zenuwen</td><td>Brandende voeten, verlies tastzin, voetulcera</td></tr>
+          <tr><td>Macroangiopathie</td><td>Hart · hersenen · benen</td><td>MI · CVA · PAV — leading cause of death</td></tr>
         </tbody>
       </table></div>
-      <div class="th-pearl"><strong>DKA</strong>: trilogie — hyperglykemie + ketose + acidose. Behandel met IV vocht, insuline-infuus en kaliumsuppletie (kalium daalt snel bij insuline!).</div>
     `
   },
 
@@ -428,28 +550,39 @@ const THEORY_TOPICS = {
     icon: '🦋',
     subtitle: 'Hypo · Hyper · Thyroiditis · Diagnostiek',
     body: `
-      <div class="th-intro"><p>De schildklier reguleert het metabolisme via T3 en T4. TSH is de gevoeligste screeningstest — kleine T4-verandering geeft grote TSH-respons.</p></div>
-      <div class="th-section-title">Hypo vs Hyper</div>
+      <div class="th-intro"><p>De schildklier reguleert het metabolisme via T3 en T4. TSH is de gevoeligste screeningstest — een kleine T4-verandering geeft een grote TSH-respons. Altijd TSH als eerste stap.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">TSH eerst</span><span class="th-keynum-lbl">Altijd eerste diagnostische stap</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">0,4–4,0</span><span class="th-keynum-lbl">Normaal TSH (mU/L)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">&gt;10</span><span class="th-keynum-lbl">TSH mU/L → behandel subclinisch hypo</span></div>
+      </div>
+
+      <div class="th-section-title">Hypo vs Hyper — klinisch beeld</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th></th><th>Hypothyreoïdie</th><th>Hyperthyreoïdie</th></tr></thead>
         <tbody>
           <tr><td>TSH</td><td><span class="up">↑</span></td><td><span class="dn">↓</span></td></tr>
           <tr><td>Vrij T4</td><td><span class="dn">↓</span></td><td><span class="up">↑</span></td></tr>
-          <tr><td>Klachten</td><td>Moeheid, kouwelijkheid, obstipatie, gewichtstoename, bradycardie, droge huid</td><td>Warmte-intolerantie, gewichtsverlies, tremor, tachycardie, diarree, exoftalmus (Graves)</td></tr>
-          <tr><td>Oorzaak</td><td>Hashimoto (auto-immuun, meest voorkomend), jodiumtekort, thyroïdectomie</td><td>Graves (TSI-antilichamen), toxisch adenoom, thyroiditis</td></tr>
-          <tr><td>Behandeling</td><td>Levothyroxine (T4 substitutie)</td><td>Thionamiden (PTU, carbimazol), jodium-131, thyroïdectomie</td></tr>
+          <tr><td>Symptomen</td><td>Moeheid · kouwelijkheid · obstipatie · gewichtstoename · bradycardie · droge huid · trage reflexen</td><td>Warmte-intolerantie · gewichtsverlies · tremor · tachycardie · diarree · exoftalmus (Graves)</td></tr>
+          <tr><td>Oorzaak</td><td>Hashimoto (auto-immuun, meest voorkomend) · jodiumtekort · thyroïdectomie</td><td>Graves (TSI-antilichamen) · toxisch adenoom · thyroiditis-fase</td></tr>
+          <tr><td>Behandeling</td><td>Levothyroxine (T4 substitutie)</td><td>Thionamiden (PTU, carbimazol) · jodium-131 · thyroïdectomie</td></tr>
         </tbody>
       </table></div>
-      <div class="th-section-title">Diagnostiek stap voor stap</div>
+
+      <div class="th-section-title">Diagnostiek — stap voor stap</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>TSH</strong> — eerste stap altijd. Normaal = euthyreoot.</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Vrij T4</strong> — bij afwijkend TSH voor ernst en richting.</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>Antilichamen</strong> — TPO-Ab (Hashimoto), TSI/TRAb (Graves).</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>Echo schildklier</strong> — bij palpabele struma of noduli.</div></div>
-        <div class="th-step"><span class="th-step-num">5</span><div><strong>Scintigrafie</strong> — bij hyperthyreoïdie om oorzaak te bepalen.</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>TSH</strong> — eerste stap altijd. Normaal TSH = euthyreoot; geen verdere tests nodig.</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Vrij T4</strong> — bij afwijkend TSH voor ernst en richting (hoog TSH + laag T4 = primair hypo).</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Antilichamen</strong> — TPO-Ab (Hashimoto), TSI/TRAb (Graves); bevestigen auto-immuunoorsprong.</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Echo schildklier</strong> — bij palpabele struma of noduli (knobbel &gt;1cm → FNAC overwegen).</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>Scintigrafie</strong> — bij hyperthyreoïdie om onderscheid Graves vs toxisch adenoom te maken.</div></div>
       </div>
-      <div class="th-pearl"><strong>Subklinisch</strong>: TSH afwijkend maar vrij T4 normaal. Subklinische hypothyreoïdie (TSH &gt;4): behandel bij TSH &gt;10 of symptomen of zwangerschap.</div>
-      <div class="th-pearl"><strong>Thyroïde storm</strong>: levensbedreigende hyperthyreoïdie. Behandeling: PTU + jodium + bèta-blokker + dexamethason. IC-opname.</div>
+
+      <div class="th-redflag"><strong>Thyroïde storm = IC-opname.</strong> Koorts &gt;40°C + hartfrequentie &gt;150 + bewustzijnsstoornissen na hyperthyreoïdie. Behandeling: PTU → jodium (1u na PTU) → propranolol → dexamethason.</div>
+      <div class="th-trap"><strong>Hypothyreoïdie verergert statine-myopathie.</strong> Bij onverklaard hoog CK of spierklachten bij statinegebruiker: altijd TSH meten. Myopathie verbetert bij correctie — zonder statinestop!</div>
+      <div class="th-pearl"><strong>Subklinisch hypothyreoïdie (hoog TSH, normaal T4):</strong> behandel bij TSH &gt;10, bij symptomen of bij zwangerschap. Bij TSH 4–10: watchful waiting en 6-maandelijks herhalen.</div>
+      <div class="th-pearl"><strong>Zwangerschap:</strong> TSH-norm is lager in het eerste trimester (&lt;2,5 mU/L). Hypothyreoïdie onbehandeld geeft cognitieve schade bij het kind. Pas levothyroxine-dosis aan.</div>
     `
   },
 
@@ -458,37 +591,49 @@ const THEORY_TOPICS = {
     icon: '🫁',
     subtitle: 'GOLD-stadiëring · Exacerbatie · Inhalatoren',
     body: `
-      <div class="th-intro"><p>COPD is een chronische, grotendeels irreversibele luchtwegobstructie door langdurige blootstelling aan schadelijke stoffen, vooral tabaksrook. Spirometrie is de diagnosestandaard.</p></div>
+      <div class="th-intro"><p>COPD is een chronische, grotendeels irreversibele luchtwegobstructie door langdurige blootstelling aan schadelijke stoffen, voornamelijk tabaksrook. De diagnose stelt spirometrie, niet de klacht. Vroeg stoppen met roken is de meest effectieve behandeling.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">FEV1/FVC &lt;0,70</span><span class="th-keynum-lbl">Definitie obstructie (na BD)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">88–92%</span><span class="th-keynum-lbl">SpO₂ doelwaarde COPD (!)</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">#1</span><span class="th-keynum-lbl">Rookstop = meest effectief</span></div>
+      </div>
+
       <div class="th-section-title">GOLD-stadiëring (FEV1 na bronchodilatatie)</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>GOLD</th><th>Omschrijving</th><th>FEV1 (% voorspeld)</th></tr></thead>
+        <thead><tr><th>GOLD</th><th>Omschrijving</th><th>FEV1 (% voorspeld)</th><th>Klinisch</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Mild</td><td>≥80%</td></tr>
-          <tr><td>2</td><td>Matig</td><td>50–79%</td></tr>
-          <tr><td>3</td><td>Ernstig</td><td>30–49%</td></tr>
-          <tr><td>4</td><td>Zeer ernstig</td><td>&lt;30%</td></tr>
+          <tr><td>1</td><td>Mild</td><td>≥80%</td><td>Hoest, sputum; vaak niet herkend</td></tr>
+          <tr><td>2</td><td>Matig</td><td>50–79%</td><td>Dyspneu bij inspanning (MRC ≥2)</td></tr>
+          <tr><td>3</td><td>Ernstig</td><td>30–49%</td><td>Dyspneu bij lichte inspanning</td></tr>
+          <tr><td>4</td><td>Zeer ernstig</td><td>&lt;30%</td><td>Dyspneu in rust · respiratoir falen</td></tr>
         </tbody>
       </table></div>
+
       <div class="th-section-title">Behandelladder stabiel COPD</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>SABA</strong> (salbutamol) — zo nodig voor dyspneu</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>LAMA</strong> (tiotropium) — onderhoud bij MRC ≥2; vermindert exacerbaties het meest</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>LAMA + LABA</strong> — bij aanhoudende dyspneu</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>LAMA + LABA + ICS</strong> — bij ≥2 exacerbaties/jaar of eosinofielen &gt;300 cellen/µL</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Rookstop + vaccinatie</strong> — griep + pneumokok; meest impactvol voor mortaliteit</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>SABA</strong> (salbutamol) — zo nodig voor acute dyspneu</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>LAMA</strong> (tiotropium) — onderhoud bij MRC ≥2; vermindert exacerbaties het meest</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>LAMA + LABA</strong> — bij aanhoudende dyspneu ondanks LAMA</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>+ ICS</strong> — bij ≥2 exacerbaties/jaar of eosinofielen &gt;300/µL</div></div>
       </div>
-      <div class="th-section-title">Exacerbatie COPD — management</div>
+
+      <div class="th-section-title">Exacerbatie — management</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>Stap</th><th>Behandeling</th></tr></thead>
+        <thead><tr><th>Stap</th><th>Behandeling</th><th>Details</th></tr></thead>
         <tbody>
-          <tr><td>Bronchodilatatie</td><td>SABA + SAMA vernevelaar (salbutamol + ipratropium)</td></tr>
-          <tr><td>Corticosteroïden</td><td>Prednisolon 40 mg/dag oraal × 5 dagen</td></tr>
-          <tr><td>Antibiotica</td><td>Bij purulent sputum of verhoogde CRP: amoxicilline-clavulaanzuur of doxycycline</td></tr>
-          <tr><td>Zuurstof</td><td>Target SpO₂ <strong>88–92%</strong> (niet hoger — CO₂-retentie risico!)</td></tr>
-          <tr><td>NIV</td><td>Bij pH &lt;7.35 + CO₂-retentie → CPAP/BiPAP, voorkomt intubatie</td></tr>
+          <tr><td>Bronchodilatatie</td><td>SABA + SAMA vernevelaar</td><td>Salbutamol + ipratropium elke 20 min</td></tr>
+          <tr><td>Corticosteroïden</td><td>Prednisolon 40 mg/dag oraal</td><td>5 dagen; niet langer</td></tr>
+          <tr><td>Antibiotica</td><td>Bij purulent sputum of hoog CRP</td><td>Amoxicilline-clav of doxycycline</td></tr>
+          <tr><td>Zuurstof</td><td>Target SpO₂ <strong>88–92%</strong></td><td>Niet hoger — CO₂-retentie risico!</td></tr>
+          <tr><td>NIV</td><td>Bij pH &lt;7,35 + CO₂-retentie</td><td>BiPAP voorkomt intubatie</td></tr>
         </tbody>
       </table></div>
-      <div class="th-pearl"><strong>Zuurstofvalkuil</strong>: COPD-patiënten met CO₂-retentie drijven hun ademhaling op hypoxie. Te hoog O₂ → ademdepressie. Target altijd 88–92%!</div>
-      <div class="th-pearl"><strong>Roststopadvies</strong> is de meest effectieve interventie bij COPD — vertraagt FEV1-daling en verlengt overleving meer dan elk geneesmiddel.</div>
+
+      <div class="th-redflag"><strong>Zuurstof &gt;92% bij COPD-patiënt = gevaarlijk.</strong> Patiënten met chronische CO₂-retentie drijven hun ademhaling op hypoxische prikkel. Te hoog O₂ → CO₂-accumulatie → ademdepressie → coma. Target altijd 88–92%!</div>
+      <div class="th-trap"><strong>ICS-monotherapie bij COPD = fout.</strong> Inhalatiecorticosteroïden bij COPD alleen als toevoeging aan LAMA+LABA, nooit als enige behandeling. Verhoogt kans op pneumonie.</div>
+      <div class="th-pearl"><strong>Rookstopadvies</strong> is de meest effectieve interventie bij COPD — vertraagt FEV1-daling en verlengt overleving meer dan elk geneesmiddel. Combineer met varenicline voor de hoogste slagingskans.</div>
     `
   },
 
@@ -497,78 +642,104 @@ const THEORY_TOPICS = {
     icon: '🩺',
     subtitle: 'Wells · Diagnose · Behandeling · Massieve LE',
     body: `
-      <div class="th-intro"><p>Longembolie (LE) is verstopping van een pulmonaalarterie door een trombus, meestal afkomstig uit de diepe beenvenen (DVT). Jaarlijkse incidentie ~1 per 1000. Behandel altijd in aansluiting op diagnostiek.</p></div>
-      <div class="th-section-title">Wells-score (LE)</div>
+      <div class="th-intro"><p>Longembolie (LE) is een verstopping van de longslagader door trombus, meestal vanuit diepe beenvenen. ~1 per 1000/jaar. Presentatie varieert van asymptomatisch tot hartstilstand — vroeg risicostratificeren is cruciaal.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">Wells ≤4</span><span class="th-keynum-lbl">Laag risico → D-dimeer</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">Wells &gt;4</span><span class="th-keynum-lbl">Hoog risico → direct CTPA</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">100 mg</span><span class="th-keynum-lbl">Alteplase bij massieve LE</span></div>
+      </div>
+
+      <div class="th-section-title">Wells-score — punten</div>
       <div class="th-table-wrap"><table class="th-table">
         <thead><tr><th>Criterium</th><th>Punten</th></tr></thead>
         <tbody>
-          <tr><td>Klinische tekenen DVT</td><td>3</td></tr>
+          <tr><td>Klinische tekenen DVT (zwelling, roodheid been)</td><td>3</td></tr>
           <tr><td>Alternatieve diagnose minder waarschijnlijk dan LE</td><td>3</td></tr>
-          <tr><td>Hartfrequentie &gt;100/min</td><td>1.5</td></tr>
-          <tr><td>Immobilisatie &gt;3 dagen / recente operatie</td><td>1.5</td></tr>
-          <tr><td>Eerder DVT of LE</td><td>1.5</td></tr>
+          <tr><td>Hartfrequentie &gt;100/min</td><td>1,5</td></tr>
+          <tr><td>Immobilisatie &gt;3 dagen / recente chirurgie</td><td>1,5</td></tr>
+          <tr><td>Eerder DVT of LE</td><td>1,5</td></tr>
           <tr><td>Hemoptysis</td><td>1</td></tr>
-          <tr><td>Maligniteit</td><td>1</td></tr>
+          <tr><td>Actieve maligniteit</td><td>1</td></tr>
         </tbody>
       </table></div>
-      <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">≤4</span><div><strong>Laag risico</strong> — D-dimeer; als negatief: LE uitgesloten</div></div>
-        <div class="th-step"><span class="th-step-num">&gt;4</span><div><strong>Hoog risico</strong> — direct CT-pulmonaalangiografie (CTPA)</div></div>
-      </div>
+
       <div class="th-section-title">Diagnose stap voor stap</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>Wells-score</strong> — risicostratificatie</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>D-dimeer</strong> — alleen bij lage Wells (&lt;/= 4); hoge sensitiviteit, lage specificiteit</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>CTPA</strong> — goudstandaard; bij hoge Wells of positieve D-dimeer</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>Echo hart</strong> — bij hemodynamische instabiliteit: RV-dilatatie = indirect bewijs LE</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Wells-score</strong> — pre-test kans bepalen (≤4 laag, &gt;4 hoog)</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>D-dimeer</strong> — <em>alleen</em> bij Wells ≤4. Negatief = LE uitgesloten. Positief → CTPA.</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>CTPA</strong> — bij Wells &gt;4 direct, of bij positieve D-dimeer. Goudstandaard.</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>Echo hart</strong> — bij hemodynamische instabiliteit: RV-dilatatie = bewijs massieve LE, direct handelen.</div></div>
       </div>
-      <div class="th-section-title">Behandeling</div>
+
+      <div class="th-section-title">Behandeling naar ernst</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>Type LE</th><th>Behandeling</th></tr></thead>
+        <thead><tr><th>Type</th><th>Hemodynamiek</th><th>Behandeling</th></tr></thead>
         <tbody>
-          <tr><td>Stabiel (niet-massief)</td><td>DOAC (rivaroxaban of apixaban) 3–6 maanden; start direct</td></tr>
-          <tr><td>Intermediair hoog risico</td><td>Anticoagulantia + monitoring IC; overweeg trombolyse bij verslechtering</td></tr>
-          <tr><td>Massieve LE (hemodynamisch instabiel)</td><td>Systemische trombolyse (alteplase) + anticoagulantia; bij contra-indicatie: chirurgie of kathetertrombolyse</td></tr>
+          <tr><td>Laag risico</td><td>Stabiel · RV normaal</td><td>DOAC (rivaroxaban/apixaban) · thuisbehandeling mogelijk</td></tr>
+          <tr><td>Intermediair hoog</td><td>Stabiel · RV-dilatatie of troponine↑</td><td>LMWH of DOAC · IC-monitoring · klaar voor trombolyse bij verslechtering</td></tr>
+          <tr><td>Massief</td><td>Shock · RV-falen</td><td>Alteplase 100 mg IV over 2u + heparine daarna</td></tr>
         </tbody>
       </table></div>
-      <div class="th-pearl"><strong>Massieve LE</strong>: shock + RV-falen. Trombolyse (alteplase 100 mg IV over 2u) is levensreddend; groot bloedingsrisico → weeg af. Contra-indicaties: recente chirurgie, CVA &lt;3m, actieve bloeding.</div>
-      <div class="th-pearl"><strong>D-dimeer</strong> stijgt bij zwangerschap, infectie, trauma, maligniteit → nutteloos bij hoge a-priori kans. Pas toe als uitsluiter bij lage kans!</div>
+
+      <div class="th-redflag"><strong>Massieve LE = shock + RV-falen → trombolyse direct.</strong> Alteplase 100 mg IV over 2 uur. Contra-indicaties: recente chirurgie &lt;3w, CVA &lt;3m, actieve bloeding, intracraniale tumor.</div>
+      <div class="th-trap"><strong>D-dimeer is onbruikbaar bij hoge pre-test kans.</strong> Bij zwangerschap, infectie, trauma of maligniteit stijgt D-dimeer altijd. Gebruik direct CTPA bij deze groepen zonder D-dimeer te bepalen.</div>
+      <div class="th-pearl"><strong>Leeftijdsaangepaste D-dimeer:</strong> bij patiënten &gt;50j gebruik afkapwaarde = leeftijd × 10 µg/L (bijv. 70j → &lt;700 µg/L = negatief). Verhoogt specificiteit zonder sensitiviteitsverlies.</div>
     `
   },
 
   sepsis: {
     title: 'Sepsis & Septische Shock',
     icon: '🚨',
-    subtitle: 'Criteria · Sepsis-3 · Antibiotica · Bundels',
+    subtitle: 'Sepsis-3 · qSOFA · Antibiotica · Bundels',
     body: `
-      <div class="th-intro"><p>Sepsis is een levensbedreigende orgaandisfunctie door een dysreguleerde gastheerrespons op infectie. Mortaliteit 15–25%; bij septische shock tot 40%.</p></div>
+      <div class="th-intro"><p>Sepsis is een levensbedreigende orgaandisfunctie door een dysreguleerde gastheerrespons op infectie. Mortaliteit 15–25%; bij septische shock tot 40%. Elke uur vertraging in antibiotica verhoogt mortaliteit met ~7%.</p></div>
+
+      <div class="th-keynums">
+        <div class="th-keynum"><span class="th-keynum-val">15–25%</span><span class="th-keynum-lbl">Mortaliteit sepsis</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">~40%</span><span class="th-keynum-lbl">Mortaliteit septische shock</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">1u</span><span class="th-keynum-lbl">Antibiotica-doelstelling</span></div>
+        <div class="th-keynum"><span class="th-keynum-val">+7%</span><span class="th-keynum-lbl">Mortaliteit per uur delay AB</span></div>
+      </div>
+
       <div class="th-section-title">Sepsis-3 definitie</div>
       <div class="th-steps">
         <div class="th-step"><span class="th-step-num">1</span><div><strong>Vermoeden van infectie</strong> + acute SOFA-stijging ≥2 punten = <strong>Sepsis</strong></div></div>
         <div class="th-step"><span class="th-step-num">2</span><div><strong>Septische shock</strong> = sepsis + vasopressoren nodig (MAP &lt;65) + lactaat &gt;2 mmol/L ondanks adequate vulling</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>qSOFA screening</strong> (buiten IC): ≥2 van: AF &gt;22, GCS-daling, RR &lt;100 systolisch</div></div>
       </div>
-      <div class="th-section-title">Sepsis-1u bundel (Surviving Sepsis)</div>
+
+      <div class="th-section-title">qSOFA — snel screenen buiten de IC</div>
+      <div class="th-mnemonic">
+        <span class="th-mnemonic-label">qSOFA (≥2 punten = verdacht voor sepsis)</span>
+        <div class="th-mnemonic-row"><b>R</b>espiratory rate ≥22/min</div>
+        <div class="th-mnemonic-row"><b>A</b>ltered mental status (GCS &lt;15)</div>
+        <div class="th-mnemonic-row"><b>B</b>loodpressure systolisch ≤100 mmHg</div>
+      </div>
+
+      <div class="th-section-title">Sepsis 1-uurs bundel (Surviving Sepsis)</div>
       <div class="th-steps">
-        <div class="th-step"><span class="th-step-num">1</span><div><strong>Lactaat meten</strong> — &gt;2 = tissue hypoperfusie</div></div>
-        <div class="th-step"><span class="th-step-num">2</span><div><strong>Bloedkweken × 2</strong> — vóór antibiotica (maar max 2-3 minuten)</div></div>
-        <div class="th-step"><span class="th-step-num">3</span><div><strong>Breedspectrum antibiotica</strong> — binnen 1 uur bij shock</div></div>
-        <div class="th-step"><span class="th-step-num">4</span><div><strong>30 ml/kg crystalloïd IV</strong> — bij hypotensie of lactaat &gt;4</div></div>
-        <div class="th-step"><span class="th-step-num">5</span><div><strong>Vasopressoren</strong> — noradrenaline eerstekeus bij onvoldoende respons op vulling</div></div>
+        <div class="th-step"><span class="th-step-num">1</span><div><strong>Lactaat meten</strong> — &gt;2 mmol/L = weefselhypoperfusie · &gt;4 = spoed-IC</div></div>
+        <div class="th-step"><span class="th-step-num">2</span><div><strong>Bloedkweken × 2</strong> — vóór antibiotica (max 2–3 minuten!)</div></div>
+        <div class="th-step"><span class="th-step-num">3</span><div><strong>Breedspectrum antibiotica</strong> — binnen 1u bij shock; nooit vertragen op kweekuitslag</div></div>
+        <div class="th-step"><span class="th-step-num">4</span><div><strong>30 ml/kg crystalloïd IV</strong> — bij hypotensie of lactaat &gt;4 mmol/L</div></div>
+        <div class="th-step"><span class="th-step-num">5</span><div><strong>Noradrenaline</strong> — eerstekeus vasopressor als vulling onvoldoende (MAP-target ≥65 mmHg)</div></div>
       </div>
-      <div class="th-section-title">Antibioticakeuze bij sepsis</div>
+
+      <div class="th-section-title">Empirisch antibioticakeuze</div>
       <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th>Focus</th><th>Empirisch antibioticum</th></tr></thead>
+        <thead><tr><th>Focus</th><th>Empirisch middel</th></tr></thead>
         <tbody>
-          <tr><td>Urosepsis</td><td>Cefuroxim IV of piperacilline/tazobactam bij risico op ESBL</td></tr>
-          <tr><td>Pneumonie-sepsis</td><td>Amoxicilline-clavulaanzuur + macrolide; of ceftriaxon</td></tr>
-          <tr><td>Abdominale sepsis</td><td>Piperacilline/tazobactam of meropenem + metronidazol</td></tr>
-          <tr><td>Onbekende focus</td><td>Piperacilline/tazobactam of meropenem; voeg vancomycine toe bij MRSA-risico</td></tr>
-          <tr><td>Meningitis-sepsis</td><td>Ceftriaxon + dexamethason; amoxicilline bij &gt;50j (Listeria)</td></tr>
+          <tr><td>Urosepsis</td><td>Cefuroxim IV (bij ESBL-risico: pip/tazo)</td></tr>
+          <tr><td>Pneumonie-sepsis</td><td>Amoxicilline-clav + macrolide; of ceftriaxon</td></tr>
+          <tr><td>Abdominale sepsis</td><td>Pip/tazo of meropenem + metronidazol</td></tr>
+          <tr><td>Onbekende focus</td><td>Pip/tazo of meropenem + vancomycine bij MRSA-risico</td></tr>
+          <tr><td>Meningitis-sepsis</td><td>Ceftriaxon + dexamethason + amoxicilline &gt;50j</td></tr>
         </tbody>
       </table></div>
-      <div class="th-pearl"><strong>De-escalatie</strong>: na 48-72u kweekuitslagen beschikbaar → versmall het spectrum zo snel mogelijk. Voorkomt resistentie en bijwerkingen.</div>
-      <div class="th-pearl"><strong>Lactaat herhalen</strong> na 2u. Bij daling &gt;10% → goede respons. Persisterende lactaatverhoging = slechte prognose, overweeg IC-opname.</div>
+
+      <div class="th-redflag"><strong>Lactaat &gt;4 mmol/L = absolute spoed.</strong> Dit is het teken van ernstige weefselhypoperfusie, ook zonder hypotensie. Direct IC-opname, agressieve vulling en vasopressoren gereed zetten.</div>
+      <div class="th-trap"><strong>Bloedkweken mogen AB NIET vertragen.</strong> Maximaal 2–3 minuten voor 2 sets kweken, dan direct AB. Nooit 30 minuten wachten bij hemodynamisch instabiele patiënt.</div>
+      <div class="th-safe"><strong>De-escalatie na 48–72u:</strong> na kweekuitslagen → versmall naar meest gerichte AB. Voorkomt resistentie en bijwerkingen. Documenteer in dossier waarom de brede keuze gemaakt werd.</div>
     `
   },
 
