@@ -453,14 +453,61 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
+const LAB_REFS = [
+  ['ph',                    7.35, 7.45],
+  ['pco',                   35,   45  ],
+  ['hco',                   22,   26  ],
+  ['po2',                   80,   100 ],
+  ['ferritine',             12,   300 ],
+  ['transferrinesaturatie', 20,   50  ],
+  ['albumine',              35,   50  ],
+  ['creatinine',            50,   110 ],
+  ['bilirubine',            0,    17  ],
+  ['fosfaat',               0.8,  1.5 ],
+  ['calcium',               2.15, 2.55],
+  ['uraat',                 0,    420 ],
+  ['glucose',               4.0,  6.0 ],
+  ['alat',                  0,    45  ],
+  ['asat',                  0,    40  ],
+  ['ldh',                   0,    250 ],
+  ['aniongap',              8,    12  ],
+  ['inr',                   0.9,  1.1 ],
+  ['mcv',                   80,   100 ],
+  ['egfr',                  60,   999 ],
+  ['tsh',                   0.4,  4.0 ],
+];
+
+function getLabStatus(name, val) {
+  const norm = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (norm.startsWith('urine') || norm.startsWith('fractie')) return null;
+  if (norm === 'k' || norm === 'k+' || norm === 'kalium') return val > 5.0 ? 'high' : val < 3.5 ? 'low' : 'ok';
+  if (norm === 'na' || norm === 'natrium') return val > 145 ? 'high' : val < 135 ? 'low' : 'ok';
+  for (const [key, lo, hi] of LAB_REFS) {
+    if (norm.startsWith(key) || norm.includes(key)) return val > hi ? 'high' : val < lo ? 'low' : 'ok';
+  }
+  return null;
+}
+
+function formatLabLine(line) {
+  const m = line.match(/^([^\d(]+?)\s+([\d]+(?:[,.]\d+)?)\s*(.*)$/);
+  if (!m) return `<div class="fq-row"><span class="fq-desc">${escHtml(line)}</span></div>`;
+  const name = m[1].replace(/[<>≤≥=\-–:]+\s*$/, '').trim();
+  const valStr = m[2];
+  const unit = (m[3] || '').split(/[,(]/)[0].trim();
+  const val = parseFloat(valStr.replace(',', '.'));
+  const status = getLabStatus(name, val);
+  const icon = { high: '↑', low: '↓', ok: '✓' }[status] || '';
+  return `<div class="fq-row${status ? ' fq-' + status : ''}"><span class="fq-name">${escHtml(name)}</span><span class="fq-val">${escHtml(valStr)}<span class="fq-unit">${unit ? ' ' + escHtml(unit) : ''}</span></span>${icon ? `<span class="fq-ind">${icon}</span>` : ''}</div>`;
+}
+
 function formatQ(str) {
   // Explicit \n formatting (lab/data questions with predefined structure)
   if (str.includes('\n')) {
     const lines = str.split('\n');
     const last  = lines.length - 1;
     const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
-    const items = lines.slice(1, last).map(l => `<span class="fq-item">${escHtml(l)}</span>`).join('');
-    const data  = `<div class="fq-data">${items}</div>`;
+    const rows  = lines.slice(1, last).map(formatLabLine).join('');
+    const data  = `<div class="fq-table">${rows}</div>`;
     const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
     return intro + data + q;
   }
