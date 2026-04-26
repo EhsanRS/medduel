@@ -405,14 +405,15 @@ h1.logo em {
 
 /* Formatted question parts (lab/data questions) */
 .fq-intro {
-  display: block;
+  display: inline-block;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--cream-dark);
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-bottom: 0.7rem;
 }
 .fq-table {
   margin-bottom: 0.85rem;
@@ -467,23 +468,23 @@ h1.logo em {
   display: block;
 }
 
-/* Clinical scenario bullet layout */
+/* Clinical scenario symptom chips */
 .fq-bullets {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 5px;
   margin: 0.5rem 0 0.75rem;
 }
 .fq-bullet {
-  display: block;
+  display: inline-block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--ink);
-  line-height: 1.4;
-  padding: 5px 10px 5px 12px;
-  border-left: 2.5px solid var(--pulse);
-  background: rgba(232,65,10,0.05);
-  border-radius: 0 8px 8px 0;
+  line-height: 1.35;
+  padding: 4px 10px;
+  background: rgba(26,20,16,0.07);
+  border-radius: 20px;
 }
 
 /* Answer buttons */
@@ -791,7 +792,6 @@ h1.logo em {
   background: var(--green);
   transition: width 0.6s cubic-bezier(0.34,1.2,0.64,1);
 }
-.breakdown-bar-fill.bad { background: var(--pulse); }
 .breakdown-pct {
   font-family: 'Fraunces', serif;
   font-size: 15px;

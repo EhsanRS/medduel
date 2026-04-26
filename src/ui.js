@@ -569,13 +569,18 @@ function formatLabLine(line) {
 function formatQ(str) {
   // Explicit \n formatting (lab/data questions with predefined structure)
   if (str.includes('\n')) {
-    const lines = str.split('\n');
-    const last  = lines.length - 1;
-    const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
-    const rows  = lines.slice(1, last).map(formatLabLine).join('');
-    const data  = `<div class="fq-table">${rows}</div>`;
-    const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
-    return intro + data + q;
+    const lines = str.split('\n').map(l => l.trim()).filter(Boolean);
+    // If only 2 lines (context + question), fall through to clinical formatter
+    if (lines.length > 2) {
+      const last = lines.length - 1;
+      const intro = `<span class="fq-intro">${escHtml(lines[0])}</span>`;
+      const rows  = lines.slice(1, last).map(formatLabLine).join('');
+      const data  = `<div class="fq-table">${rows}</div>`;
+      const q     = `<span class="fq-q">${escHtml(lines[last])}</span>`;
+      return intro + data + q;
+    }
+    // 2-line case: join as sentence and let tryFormatClinical handle it
+    str = lines.join(' ');
   }
 
   // Auto-format clinical scenario questions
@@ -610,7 +615,7 @@ function tryFormatClinical(str) {
   if (bullets.length < 2) return null;
 
   const introHtml = `<span class="fq-intro">${escHtml(header)}</span>`;
-  const itemsHtml = bullets.map(b => `<span class="fq-bullet">→ ${escHtml(b)}</span>`).join('');
+  const itemsHtml = bullets.map(b => `<span class="fq-bullet">${escHtml(b)}</span>`).join('');
   const dataHtml  = `<div class="fq-bullets">${itemsHtml}</div>`;
   const qHtml     = `<span class="fq-q">${escHtml(question)}</span>`;
   return introHtml + dataHtml + qHtml;

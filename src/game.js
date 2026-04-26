@@ -390,13 +390,14 @@ function renderResultsScreen(acc) {
   const rankCls = ['r1', 'r2', 'r3', '', ''];
 
   const breakdownHTML = Object.entries(G.domainStats).map(([name, s]) => {
-    const pct = s.t ? Math.round(s.c / s.t * 100) : 0;
+    const pct   = s.t ? Math.round(s.c / s.t * 100) : 0;
+    const color = pct >= 80 ? 'var(--green)' : pct >= 60 ? 'var(--amber)' : 'var(--pulse)';
     return `<div class="breakdown-row">
       <span class="breakdown-name">${name.replace(' — Waar of Niet?', '')}</span>
       <div class="breakdown-bar-wrap">
-        <div class="breakdown-bar-fill${pct < 60 ? ' bad' : ''}" style="width:${pct}%"></div>
+        <div class="breakdown-bar-fill" style="width:${pct}%;background:${color}"></div>
       </div>
-      <span class="breakdown-pct">${pct}%</span>
+      <span class="breakdown-pct" style="color:${color}">${pct}%</span>
     </div>`;
   }).join('');
 
