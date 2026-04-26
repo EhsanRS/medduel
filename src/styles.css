@@ -1949,45 +1949,41 @@ h1.logo em {
   margin-top: 2px;
 }
 .theory-body {
-  padding: 20px 20px 48px;
+  padding: 24px 20px 60px;
 }
 
 /* Theorie-body content blocks */
 .th-intro {
-  background: white;
-  border-radius: 16px;
-  padding: 14px 16px;
-  margin-bottom: 4px;
+  margin-bottom: 22px;
+
 }
 .th-intro p {
-  font-size: 14px;
-  color: var(--ink-mid);
-  line-height: 1.65;
+  font-family: 'Fraunces', serif;
+  font-size: 15.5px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.72;
   margin: 0;
 }
 .th-section-title {
   font-family: 'Fraunces', serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--ink);
-  margin: 22px 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  margin: 30px 0 12px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(26,20,16,0.08);
+  letter-spacing: -0.01em;
 }
 .th-section-title::before {
-  content: '';
-  display: block;
-  width: 4px; height: 18px;
-  background: var(--pulse);
-  border-radius: 2px;
-  flex-shrink: 0;
+  content: none;
 }
 .th-text p {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.68;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-table-wrap {
   overflow-x: auto;
@@ -2028,45 +2024,42 @@ h1.logo em {
 .th-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
 .up { color: var(--green); font-weight: 700; }
 .dn { color: var(--pulse); font-weight: 700; }
-.th-steps { display: flex; flex-direction: column; gap: 10px; }
+.th-steps { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
 .th-step {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink-mid);
+  gap: 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink);
   background: white;
   border-radius: 14px;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
-.th-step strong { color: var(--ink); }
+.th-step strong { color: var(--ink); font-weight: 700; }
 .th-step-num {
-  background: var(--pulse);
+  background: var(--ink);
   color: white;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 50%;
-  width: 26px; height: 26px;
+  width: 24px; height: 24px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 .th-pearl {
   background: white;
-  border-left: 4px solid var(--amber);
-  border-radius: 0 14px 14px 0;
-  padding: 12px 14px 12px 12px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-mid);
+  border-radius: 16px;
+  border-top: 3px solid var(--amber);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink);
   margin-bottom: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
 }
-.th-pearl strong { color: var(--ink); }
-.th-pearl::before {
-  content: '💡 ';
-  font-style: normal;
-}
+.th-pearl strong { color: var(--ink); font-weight: 700; }
+.th-pearl::before { content: '💡 '; }
 .th-figure {
   background: white;
   border-radius: 18px;
@@ -2130,21 +2123,25 @@ h1.logo em {
 
 /* ── Theory: Key Numbers callout row ── */
 .th-keynums {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 8px;
-  margin-bottom: 4px;
+  display: flex;
+  align-items: stretch;
+  background: white;
+  border-radius: 18px;
+  margin: 0 0 22px;
+  overflow: hidden;
 }
 .th-keynum {
-  background: white;
-  border-radius: 14px;
-  padding: 11px 8px;
+  flex: 1;
+  background: none;
+  border-radius: 0;
+  padding: 16px 10px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-right: 1px solid rgba(26,20,16,0.07);
 }
+.th-keynum:last-child { border-right: none; }
 .th-keynum-val {
   font-family: 'Fraunces', serif;
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--pulse);
   line-height: 1.1;
@@ -2153,79 +2150,83 @@ h1.logo em {
 .th-keynum-lbl {
   font-size: 10px;
   color: var(--ink-light);
-  margin-top: 3px;
+  margin-top: 5px;
   display: block;
   line-height: 1.3;
 }
 /* ── Theory: Red flag box ── */
 .th-redflag {
-  background: rgba(232,65,10,0.06);
-  border-left: 4px solid var(--pulse);
-  border-radius: 0 14px 14px 0;
-  padding: 12px 14px 12px 12px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-mid);
+  background: white;
+  border-radius: 16px;
+  border-top: 3px solid var(--pulse);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink);
   margin-bottom: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 .th-redflag::before { content: '🚩 '; }
 .th-redflag strong { color: var(--ink); }
 /* ── Theory: Pitfall / trap box ── */
 .th-trap {
-  background: rgba(212,144,10,0.07);
-  border-left: 4px solid #d4900a;
-  border-radius: 0 14px 14px 0;
-  padding: 12px 14px 12px 12px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-mid);
+  background: white;
+  border-radius: 16px;
+  border-top: 3px solid var(--amber);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink);
   margin-bottom: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 .th-trap::before { content: '⚠️ '; }
 .th-trap strong { color: var(--ink); }
 /* ── Theory: Mnemonic box ── */
 .th-mnemonic {
-  background: rgba(55,105,215,0.05);
-  border: 1.5px solid rgba(55,105,215,0.18);
-  border-radius: 14px;
-  padding: 13px 14px 10px;
+  background: white;
+  border-radius: 16px;
+  border-top: 3px solid var(--blue);
+  padding: 14px 16px 12px;
   margin-bottom: 10px;
 }
 .th-mnemonic-label {
   font-size: 10px;
-  font-weight: 700;
-  color: #3560b0;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: block;
 }
 .th-mnemonic-row {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--ink-mid);
-  margin-bottom: 3px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 4px;
 }
 .th-mnemonic-row b {
-  color: #3560b0;
+  color: var(--blue);
   font-size: 15px;
   display: inline-block;
   min-width: 22px;
   font-weight: 800;
 }
+/* Eerste section-title na keynums of intro: geen top-border */
+.th-keynums + .th-section-title,
+.th-intro + .th-section-title {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 18px;
+}
 /* ── Theory: Safe/green callout ── */
 .th-safe {
-  background: rgba(26,165,85,0.06);
-  border-left: 4px solid #1aaa58;
-  border-radius: 0 14px 14px 0;
-  padding: 12px 14px 12px 12px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--ink-mid);
+  background: white;
+  border-radius: 16px;
+  border-top: 3px solid var(--green);
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink);
   margin-bottom: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 .th-safe::before { content: '✅ '; }
 .th-safe strong { color: var(--ink); }
@@ -2722,8 +2723,8 @@ h1.logo em {
 .q-fig-img { width:100%; max-height:220px; object-fit:contain; display:block; border-radius:10px; }
 
 /* ── Theorie — ECG verbeteringen ── */
-.th-body-text { font-size:13px; color:var(--ink-mid); line-height:1.6; margin:0 0 0.75rem; }
-.th-conduction { background:rgba(232,65,10,0.05); border-left:3px solid var(--pulse); border-radius:8px; padding:0.55rem 0.75rem; font-size:13px; color:var(--ink); margin-bottom:0.75rem; line-height:1.7; font-family:'DM Sans',sans-serif; }
+.th-body-text { font-size:14px; color:var(--ink); line-height:1.68; margin:0 0 0.85rem; }
+.th-conduction { background:white; border-top:3px solid var(--pulse); border-radius:16px; padding:14px 16px; font-size:13.5px; color:var(--ink); margin-bottom:0.75rem; line-height:1.68; font-family:'DM Sans',sans-serif; }
 .th-strip-card { display:grid; grid-template-columns:145px 1fr; gap:0.65rem; background:rgba(255,255,255,0.65); border-radius:12px; padding:0.65rem; margin-bottom:0.5rem; border:1px solid rgba(0,0,0,0.06); align-items:center; }
 @media (max-width:380px){ .th-strip-card { grid-template-columns:1fr; } }
 .th-strip-mini svg { width:100%; height:auto; display:block; }
