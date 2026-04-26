@@ -2858,3 +2858,57 @@ h1.logo em {
 }
 .pr-fail-head { font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); margin-bottom: 0.4rem; }
 .pr-fail-ex   { font-family: var(--font-body); font-size: 0.82rem; color: var(--ink-mid, #6b5e50); line-height: 1.5; }
+
+/* ── Spoedkamer modus ── */
+.sk-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sk-nav-badge {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--pulse);
+  letter-spacing: 0.03em;
+}
+.sk-lives {
+  display: flex;
+  gap: 2px;
+}
+.sk-life {
+  font-size: 18px;
+  transition: opacity 0.2s;
+}
+.sk-life.lost {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+.sk-hud {
+  background: #1a0503;
+}
+.sk-timer-num {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  transition: color 0.3s;
+}
+.sk-q-card {
+  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+@keyframes sk-pulse-border {
+  0%, 100% { border-color: var(--pulse); box-shadow: 0 0 0 0 rgba(232,65,10,0.3); }
+  50%       { border-color: #ff0000;     box-shadow: 0 0 12px 2px rgba(255,0,0,0.25); }
+}
+.sk-q-card.sk-danger {
+  animation: sk-pulse-border 0.75s ease-in-out infinite;
+}
+
+/* Mode card — Spoedkamer */
+.mode-card.spoedkamer {
+  grid-column: span 2;
+}
+.mode-card.spoedkamer::after { background: var(--pulse); }
+.mode-card.spoedkamer .mode-icon-wrap { background: #fff0ec; }

@@ -92,6 +92,13 @@ function renderSpelenTab() {
           <span class="mode-sub">Geen tijdsdruk</span>
         </div>
       </div>
+      <div class="mode-card spoedkamer" onclick="startSpoedkamer()">
+        <div class="mode-icon-wrap">🚨</div>
+        <div class="mode-info">
+          <span class="mode-name">Spoedkamer</span>
+          <span class="mode-sub">10 patiënten · 15s per vraag</span>
+        </div>
+      </div>
     </div>
 
     <div class="section-label fade-in-4">Domein</div>
