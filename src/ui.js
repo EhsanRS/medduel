@@ -640,8 +640,8 @@ function tryFormatClinical(str) {
   if (bullets.length < 2) return null;
 
   const introHtml = `<span class="fq-intro">${escHtml(header)}</span>`;
-  const itemsHtml = bullets.map(b => `<span class="fq-bullet">${annotateBullet(b)}</span>`).join('');
-  const dataHtml  = `<div class="fq-bullets">${itemsHtml}</div>`;
+  const itemsHtml = bullets.map(b => annotateBullet(b)).join('<span class="fq-sep"> · </span>');
+  const dataHtml  = `<div class="fq-findings">${itemsHtml}</div>`;
   const qHtml     = `<span class="fq-q">${escHtml(question)}</span>`;
   return introHtml + dataHtml + qHtml;
 }
