@@ -2796,3 +2796,65 @@ h1.logo em {
 .sh-trend.up    { color: var(--green); }
 .sh-trend.down  { color: var(--pulse); }
 .sh-trend.eq    { color: var(--ink-light, #6b5e50); }
+
+/* ── Open patiënt kaart ── */
+.open-patient-card {
+  background: #fffbf4;
+  border: 2px solid var(--amber);
+  border-radius: 20px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 12px rgba(212,130,10,0.13);
+}
+.open-patient-card:active { transform: scale(0.98); }
+.opc-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+.opc-icon { font-size: 22px; flex-shrink: 0; }
+.opc-meta { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.opc-label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--amber); }
+.opc-urgency { font-family: var(--font-body); font-size: 0.8rem; color: var(--ink-mid, #6b5e50); line-height: 1.3; }
+.opc-days { font-family: var(--font-body); font-size: 0.72rem; font-weight: 800; color: var(--amber); background: var(--amber-light); padding: 0.18rem 0.5rem; border-radius: 8px; white-space: nowrap; }
+.opc-days.urgent { color: var(--pulse); background: #fff0ec; }
+.opc-q { font-family: var(--font-body); font-size: 0.88rem; color: var(--ink); line-height: 1.45; margin-bottom: 0.35rem; }
+.opc-wrong { font-family: var(--font-body); font-size: 0.78rem; color: var(--pulse); margin-bottom: 0.4rem; }
+.opc-cta { font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; color: var(--amber); }
+
+/* ── Patient replay scherm ── */
+.pr-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.5rem;
+}
+.pr-title { font-family: var(--font-body); font-weight: 700; font-size: 1rem; color: var(--ink); }
+.pr-context { padding: 0 1rem 0.75rem; }
+.pr-wrong-badge {
+  display: inline-block;
+  background: #fff5f2;
+  border: 1px solid var(--pulse);
+  border-radius: 10px;
+  padding: 0.35rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--pulse);
+}
+.pr-saved {
+  background: var(--green-light);
+  border-radius: 16px;
+  padding: 1.1rem 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--green);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.pr-fail {
+  background: #fff5f2;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.pr-fail-head { font-family: var(--font-body); font-size: 0.92rem; color: var(--ink); margin-bottom: 0.4rem; }
+.pr-fail-ex   { font-family: var(--font-body); font-size: 0.82rem; color: var(--ink-mid, #6b5e50); line-height: 1.5; }

@@ -412,6 +412,16 @@ function mergeDomainStats(patch) {
   } catch {}
 }
 
+function loadOpenPatient() {
+  try { return JSON.parse(localStorage.getItem('md_open_patient') || 'null'); } catch { return null; }
+}
+function saveOpenPatient(data) {
+  try { localStorage.setItem('md_open_patient', JSON.stringify(data)); } catch {}
+}
+function clearOpenPatient() {
+  localStorage.removeItem('md_open_patient');
+}
+
 function loadSessionHistory() {
   try { return JSON.parse(localStorage.getItem('md_session_hist') || '[]'); } catch { return []; }
 }

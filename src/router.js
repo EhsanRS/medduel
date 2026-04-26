@@ -52,6 +52,7 @@ function renderSpelenTab() {
 
     <div class="section-label fade-in-2">Vandaag</div>
     ${renderDailyHomeCard()}
+    ${renderOpenPatientCard()}
 
     <div class="section-label fade-in-3">Kies modus</div>
 
@@ -180,6 +181,114 @@ function renderProfielTab() {
     if (wrap) wrap.insertAdjacentHTML('afterend', histHTML);
   }
   renderWeakHome();
+}
+
+function renderOpenPatientCard() {
+  const p = loadOpenPatient();
+  if (!p) return '';
+  const days = Math.floor((Date.now() - p.savedAt) / 86400000);
+  const meta = DOMAIN_META.find(m => m.key === p.q.domain);
+  const icon = meta ? meta.icon : '🏥';
+  const urgency = days === 0 ? 'Wacht op de IC...'
+    : days === 1 ? 'Dag 1. Nog steeds geen diagnose.'
+    : `Dag ${days}. De familie vraagt om nieuws.`;
+  const qShort = p.q.q.length > 85 ? p.q.q.slice(0, 85) + '…' : p.q.q;
+  return `
+    <div class="open-patient-card fade-in-2" onclick="startPatientReplay()">
+      <div class="opc-top">
+        <span class="opc-icon">${icon}</span>
+        <div class="opc-meta">
+          <span class="opc-label">Jouw patiënt</span>
+          <span class="opc-urgency">${urgency}</span>
+        </div>
+        <span class="opc-days${days >= 2 ? ' urgent' : ''}">${days === 0 ? 'vandaag' : days + 'd'}</span>
+      </div>
+      <div class="opc-q">${qShort}</div>
+      ${p.wrongLabel ? `<div class="opc-wrong">Jij stelde: <strong>${p.wrongLabel}</strong></div>` : ''}
+      <div class="opc-cta">Herstel de diagnose →</div>
+    </div>`;
+}
+
+function startPatientReplay() {
+  const p = loadOpenPatient();
+  if (!p) return;
+  const q = p.q;
+  const letters = ['A', 'B', 'C', 'D'];
+  const answersHTML = q.type === 'truefalse'
+    ? `<div class="tf-wrap">
+        <button class="tf-btn true-btn"  onclick="answerPatient(true)">✓ Waar</button>
+        <button class="tf-btn false-btn" onclick="answerPatient(false)">✗ Niet Waar</button>
+       </div>`
+    : q.a.map((ans, i) =>
+        `<button class="ans-btn" onclick="answerPatient(${i})" data-i="${i}">
+          <span class="ans-key">${letters[i]}</span>${ans}
+         </button>`
+      ).join('');
+
+  document.getElementById('app').innerHTML = `
+    <div id="patient-replay" class="screen active">
+      <div class="pr-header">
+        <button class="quit-btn" onclick="showHome()">✕ Sluiten</button>
+        <span class="pr-title">🏥 Herstel je patiënt</span>
+      </div>
+      ${p.wrongLabel ? `<div class="pr-context fade-in"><div class="pr-wrong-badge">Jij stelde eerder: <strong>${p.wrongLabel}</strong></div></div>` : ''}
+      <div class="q-card fade-in-1">
+        <div class="q-domain">${q.dl || ''}</div>
+        <div class="q-text">${formatQ(q.q)}</div>
+      </div>
+      <div class="answers-wrap" id="prAnswersWrap">${answersHTML}</div>
+    </div>`;
+}
+
+function answerPatient(choice) {
+  const p = loadOpenPatient();
+  if (!p) return;
+  const q = p.q;
+  const ok = (choice === q.c);
+
+  if (q.type === 'truefalse') {
+    document.querySelectorAll('.tf-btn').forEach(b => {
+      b.disabled = true;
+      if ((b.classList.contains('true-btn') && q.c === true) || (b.classList.contains('false-btn') && q.c === false))
+        b.classList.add('correct');
+    });
+    if (!ok) {
+      const wrongBtn = document.querySelector(choice ? '.true-btn' : '.false-btn');
+      if (wrongBtn) wrongBtn.classList.add('wrong');
+    }
+  } else {
+    document.querySelectorAll('.ans-btn').forEach(b => {
+      b.disabled = true;
+      if (parseInt(b.dataset.i) === q.c) b.classList.add('correct');
+    });
+    if (!ok) {
+      const wrongBtn = document.querySelector(`.ans-btn[data-i="${choice}"]`);
+      if (wrongBtn) wrongBtn.classList.add('wrong');
+    }
+  }
+
+  const correctLabel = q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c];
+  const screen = document.getElementById('patient-replay');
+  if (!screen) return;
+
+  const div = document.createElement('div');
+  div.style.padding = '0 1rem 2rem';
+  div.className = 'fade-in';
+
+  if (ok) {
+    clearOpenPatient();
+    div.innerHTML = `
+      <div class="pr-saved">✓ Patiënt gered! Diagnose correct.</div>
+      <button class="btn-primary" style="margin-top:1rem;width:100%" onclick="showHome()">Terug naar huis →</button>`;
+  } else {
+    div.innerHTML = `
+      <div class="pr-fail">
+        <div class="pr-fail-head">Helaas. Correct: <strong>${correctLabel}</strong></div>
+        ${q.ex ? `<div class="pr-fail-ex">${q.ex}</div>` : ''}
+      </div>
+      <button class="btn-secondary" style="margin-top:1rem;width:100%" onclick="showHome()">Terug →</button>`;
+  }
+  screen.appendChild(div);
 }
 
 function renderSessionHistory() {

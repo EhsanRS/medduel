@@ -278,7 +278,7 @@ function answerMC(idx, btn) {
     if (parseInt(b.dataset.i) === q.c) b.classList.add('correct');
   });
   if (!ok) btn.classList.add('wrong');
-  processAnswer(ok, q);
+  processAnswer(ok, q, ok ? null : q.a[idx]);
 }
 
 function answerTF(val, btn) {
@@ -294,13 +294,13 @@ function answerTF(val, btn) {
         b.classList.add('correct');
     });
   }
-  processAnswer(ok, q);
+  processAnswer(ok, q, ok ? null : (val ? 'Waar' : 'Niet waar'));
 }
 
-function processAnswer(ok, q) {
+function processAnswer(ok, q, wrongLabel) {
   const dotIdx = G.answered;
   G.answered++;
-  G.sessionLog.push({ q, ok });
+  G.sessionLog.push({ q, ok, wrongLabel: wrongLabel || null });
 
   if (ok) {
     navigator.vibrate && navigator.vibrate(40);
@@ -366,6 +366,14 @@ function endGame() {
   });
   mergeDomainStats(G.domainStatsByKey || {});
   saveSessionToHistory({ mode: G.mode, acc, correct: G.correct, wrong: G.wrong, domainStats: G.domainStatsByKey });
+
+  if (!loadOpenPatient()) {
+    const wrongOnes = G.sessionLog.filter(i => !i.ok);
+    if (wrongOnes.length > 0) {
+      const pick = wrongOnes.find(i => i.q.wiki) || wrongOnes[0];
+      saveOpenPatient({ q: pick.q, wrongLabel: pick.wrongLabel, savedAt: Date.now() });
+    }
+  }
 
   renderResultsScreen(acc);
   showScreen('results');
