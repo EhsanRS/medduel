@@ -365,6 +365,7 @@ function endGame() {
     best:   Math.max(loadStats().best || 0, G.score),
   });
   mergeDomainStats(G.domainStatsByKey || {});
+  saveSessionToHistory({ mode: G.mode, acc, correct: G.correct, wrong: G.wrong, domainStats: G.domainStatsByKey });
 
   renderResultsScreen(acc);
   showScreen('results');

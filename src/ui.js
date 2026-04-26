@@ -412,6 +412,25 @@ function mergeDomainStats(patch) {
   } catch {}
 }
 
+function loadSessionHistory() {
+  try { return JSON.parse(localStorage.getItem('md_session_hist') || '[]'); } catch { return []; }
+}
+
+function saveSessionToHistory({ mode, acc, correct, wrong, domainStats }) {
+  const hist = loadSessionHistory();
+  hist.push({
+    date: new Date().toISOString().slice(0, 10),
+    ts: Date.now(),
+    mode,
+    acc,
+    correct,
+    wrong,
+    domains: domainStats,
+  });
+  if (hist.length > 30) hist.splice(0, hist.length - 30);
+  try { localStorage.setItem('md_session_hist', JSON.stringify(hist)); } catch {}
+}
+
 function renderDomainStatsHome() {
   const wrap = document.getElementById('domainStatsWrap');
   if (!wrap) return;

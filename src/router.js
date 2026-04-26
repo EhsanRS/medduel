@@ -174,7 +174,70 @@ function renderProfielTab() {
     sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
   }
   renderDomainStatsHome();
+  const histHTML = renderSessionHistory();
+  if (histHTML) {
+    const wrap = document.getElementById('domainStatsWrap');
+    if (wrap) wrap.insertAdjacentHTML('afterend', histHTML);
+  }
   renderWeakHome();
+}
+
+function renderSessionHistory() {
+  const hist = loadSessionHistory().slice(-7);
+  if (hist.length < 2) return '';
+
+  const bars = hist.map(s => {
+    const color = s.acc >= 80 ? 'var(--green)' : s.acc >= 60 ? 'var(--amber)' : 'var(--pulse)';
+    const modeLabel = { blitz: '⚡', classic: '🎯', survival: '❤️' }[s.mode] || '🎮';
+    return `
+      <div class="sh-bar-col">
+        <div class="sh-bar-wrap">
+          <div class="sh-bar-fill" style="height:${s.acc}%;background:${color}"></div>
+        </div>
+        <span class="sh-bar-pct">${s.acc}%</span>
+        <span class="sh-bar-mode">${modeLabel}</span>
+      </div>`;
+  }).join('');
+
+  const allHist = loadSessionHistory();
+  const recent = allHist.slice(-3);
+  const older  = allHist.slice(-6, -3);
+
+  const trendRows = DOMAIN_META
+    .filter(({ key }) => recent.some(s => s.domains && s.domains[key] && s.domains[key].t > 0))
+    .map(({ key, label, icon }) => {
+      const recentSessions = recent.filter(s => s.domains && s.domains[key] && s.domains[key].t);
+      const avgRecent = recentSessions.length
+        ? recentSessions.reduce((sum, s) => sum + s.domains[key].c / s.domains[key].t, 0) / recentSessions.length
+        : 0;
+
+      const olderSessions = older.filter(s => s.domains && s.domains[key] && s.domains[key].t);
+      const avgOlder = olderSessions.length
+        ? olderSessions.reduce((sum, s) => sum + s.domains[key].c / s.domains[key].t, 0) / olderSessions.length
+        : null;
+
+      const trend = avgOlder === null ? '' :
+        avgRecent > avgOlder + 0.05 ? '<span class="sh-trend up">↑</span>' :
+        avgRecent < avgOlder - 0.05 ? '<span class="sh-trend down">↓</span>' :
+        '<span class="sh-trend eq">=</span>';
+
+      const pct = Math.round(avgRecent * 100);
+      const color = pct >= 80 ? 'var(--green)' : pct >= 60 ? 'var(--amber)' : 'var(--pulse)';
+      return `
+        <div class="sh-trend-row">
+          <span class="sh-trend-icon">${icon}</span>
+          <span class="sh-trend-label">${label}</span>
+          <span class="sh-trend-pct" style="color:${color}">${pct}%</span>
+          ${trend}
+        </div>`;
+    }).join('');
+
+  return `
+    <div class="sh-card fade-in-3">
+      <div class="section-label">Recente sessies</div>
+      <div class="sh-bars">${bars}</div>
+      ${trendRows ? `<div class="section-label" style="margin-top:1rem;">Trend per domein</div>${trendRows}` : ''}
+    </div>`;
 }
 
 function switchHomeTab(tab, btn) {
