@@ -398,6 +398,31 @@ function renderResultsScreen(acc) {
       <span class="lb-pts-col">${e.s}</span>
     </div>`).join('');
 
+  // Smart post-game CTA: stuur naar theorie als zwak domein gevonden
+  const sessionDomains = Object.entries(G.domainStatsByKey)
+    .filter(([, s]) => s.t >= 3)
+    .map(([key, s]) => ({ key, pct: Math.round(s.c / s.t * 100) }))
+    .sort((a, b) => a.pct - b.pct);
+
+  const worstDomain = sessionDomains.find(d => d.pct < 60);
+  const theoryId = worstDomain && typeof DOMAIN_TO_THEORY !== 'undefined'
+    ? DOMAIN_TO_THEORY[worstDomain.key] : null;
+  const theoryTopic = theoryId && typeof THEORY_TOPICS !== 'undefined' && THEORY_TOPICS[theoryId]
+    ? THEORY_TOPICS[theoryId] : null;
+
+  const domainMeta = worstDomain
+    ? DOMAIN_META.find(m => m.key === worstDomain.key) : null;
+
+  const smartCTAHTML = G.wrong === 0 ? '' : theoryTopic && domainMeta
+    ? `<div class="smart-cta fade-in-6" onclick="openTheory('${theoryId}')">
+        <span class="smart-cta-icon">${domainMeta.icon}</span>
+        <div class="smart-cta-text">
+          <span class="smart-cta-title">${domainMeta.label}: ${worstDomain.pct}% — lees de theorie</span>
+          <span class="smart-cta-sub">${theoryTopic.title} →</span>
+        </div>
+       </div>`
+    : '';
+
   const totalWeak = getWeakCount();
   const weakCTAHTML = G.wrong > 0 && totalWeak > 0
     ? `<div class="weak-results-banner fade-in-6" onclick="startWeakMode()">
@@ -475,6 +500,7 @@ function renderResultsScreen(acc) {
           ${lbHTML}
         </div>
         ${wrongHTML}
+        ${smartCTAHTML}
         ${weakCTAHTML}
         <button class="btn-review-session fade-in-6" onclick="renderReviewScreen()">📋 Bespreek deze sessie</button>
         <div class="action-row fade-in-6" style="margin-top:0.75rem;">

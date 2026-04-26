@@ -1718,6 +1718,24 @@ h1.logo em {
 .wrb-sub   { font-family: var(--font-body); font-size: 0.8rem; color: var(--pulse); font-weight: 600; }
 .wrb-arrow { font-size: 18px; color: var(--pulse); opacity: 0.8; }
 
+.smart-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #f0f5ff;
+  border: 2px solid var(--blue);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.smart-cta:active { transform: scale(0.98); }
+.smart-cta-icon { font-size: 22px; flex-shrink: 0; }
+.smart-cta-text { display: flex; flex-direction: column; gap: 2px; }
+.smart-cta-title { font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+.smart-cta-sub   { font-family: var(--font-body); font-size: 0.82rem; color: var(--blue); font-weight: 600; }
+
 /* Train zwaktes scherm */
 .wk-progress-bar-bg {
   height: 5px;

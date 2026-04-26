@@ -386,6 +386,16 @@ const DOMAIN_META = [
   { key: 'psych',    label: 'Psychiatrie',    icon: '🧩' },
 ];
 
+const DOMAIN_TO_THEORY = {
+  cardio:   'hartfalen',
+  neuro:    'dementie',
+  infectio: 'antibiotica',
+  lab:      'anemie',
+  pulmo:    'copd',
+  endo:     'diabetes',
+  psych:    'dementie',
+};
+
 function loadDomainStats() {
   try { return JSON.parse(localStorage.getItem('md_domain_stats') || '{}'); } catch { return {}; }
 }
