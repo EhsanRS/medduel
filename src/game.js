@@ -397,6 +397,18 @@ function renderResultsScreen(acc) {
       <span class="lb-pts-col">${e.s}</span>
     </div>`).join('');
 
+  const totalWeak = getWeakCount();
+  const weakCTAHTML = G.wrong > 0 && totalWeak > 0
+    ? `<div class="weak-results-banner fade-in-6" onclick="startWeakMode()">
+        <span class="wrb-icon">🎯</span>
+        <div class="wrb-text">
+          <span class="wrb-title">Train je Zwaktes</span>
+          <span class="wrb-sub">Je hebt ${totalWeak} vraag${totalWeak === 1 ? '' : 'en'} die aandacht nodig</span>
+        </div>
+        <span class="wrb-arrow">→</span>
+       </div>`
+    : '';
+
   const wrongHTML = G.mode === 'classic' && G.wrongAnswers.length > 0
     ? `<div class="breakdown-card fade-in-6" style="margin-top:1rem;">
         <div class="breakdown-title">❌ Fout beantwoord (${G.wrongAnswers.length})</div>
@@ -462,6 +474,7 @@ function renderResultsScreen(acc) {
           ${lbHTML}
         </div>
         ${wrongHTML}
+        ${weakCTAHTML}
         <div class="action-row fade-in-6" style="margin-top:1rem;">
           <button class="btn-secondary" onclick="showHome()">← Home</button>
           <button class="btn-share" onclick="shareScore()">📤 Deel score</button>
