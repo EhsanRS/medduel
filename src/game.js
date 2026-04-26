@@ -74,7 +74,7 @@ function startGame(mode) {
     lives: 3, timeLeft: 60,
     timer: null, nextQTimer: null, locked: false, active: true,
     timerPaused: false, waitingForModal: false, pendingEndGame: false,
-    domainStats: {}, domainStatsByKey: {}, wrongAnswers: [],
+    domainStats: {}, domainStatsByKey: {}, wrongAnswers: [], sessionLog: [],
     dotStates: mode === 'classic' ? Array(10).fill('pending') : null,
   };
 
@@ -300,6 +300,7 @@ function answerTF(val, btn) {
 function processAnswer(ok, q) {
   const dotIdx = G.answered;
   G.answered++;
+  G.sessionLog.push({ q, ok });
 
   if (ok) {
     navigator.vibrate && navigator.vibrate(40);
@@ -475,7 +476,8 @@ function renderResultsScreen(acc) {
         </div>
         ${wrongHTML}
         ${weakCTAHTML}
-        <div class="action-row fade-in-6" style="margin-top:1rem;">
+        <button class="btn-review-session fade-in-6" onclick="renderReviewScreen()">📋 Bespreek deze sessie</button>
+        <div class="action-row fade-in-6" style="margin-top:0.75rem;">
           <button class="btn-secondary" onclick="showHome()">← Home</button>
           <button class="btn-share" onclick="shareScore()">📤 Deel score</button>
         </div>
@@ -494,6 +496,45 @@ function shareScore() {
       setTimeout(hideToast, 2500);
     });
   }
+}
+
+function renderReviewScreen() {
+  const nOk   = G.sessionLog.filter(i => i.ok).length;
+  const nWrong = G.sessionLog.filter(i => !i.ok).length;
+
+  const items = G.sessionLog.map((item, i) => {
+    const q = item.q;
+    const correctLabel = q.type === 'truefalse'
+      ? (q.c ? 'Waar' : 'Niet waar')
+      : (q.a ? q.a[q.c] : '—');
+    return `
+      <div class="rv-card ${item.ok ? 'rv-ok' : 'rv-wrong'}" onclick="reviewOpenFact(${i})">
+        <div class="rv-top">
+          <span class="rv-domain">${(q.dl || '').replace(' — Waar of Niet?', '')}</span>
+          <span class="rv-badge ${item.ok ? 'rv-badge-ok' : 'rv-badge-wrong'}">${item.ok ? '✓' : '✗'}</span>
+        </div>
+        <div class="rv-q">${q.q}</div>
+        ${!item.ok ? `<div class="rv-answer">✓ ${correctLabel}</div>` : ''}
+        ${q.wiki || q.ex ? '<div class="rv-tap-hint">Tik voor uitleg →</div>' : ''}
+      </div>`;
+  }).join('');
+
+  document.getElementById('app').innerHTML = `
+    <div id="review" class="screen active">
+      <div class="rv-header">
+        <button class="quit-btn" onclick="showHome()">← Home</button>
+        <div class="rv-header-info">
+          <span class="rv-title">Nabespreken</span>
+          <span class="rv-subtitle">${nWrong} fout &nbsp;·&nbsp; ${nOk} goed</span>
+        </div>
+      </div>
+      <div class="rv-list">${items}</div>
+    </div>`;
+}
+
+function reviewOpenFact(idx) {
+  currentFact = G.sessionLog[idx].q;
+  openFactModal();
 }
 
 function quitGame() {

@@ -1646,6 +1646,58 @@ h1.logo em {
 .weak-home-card:active { transform: scale(0.98); }
 .weak-home-icon { font-size: 22px; }
 
+/* Bespreek sessie knop op resultatenscherm */
+.btn-review-session {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--card);
+  border: 1.5px solid var(--cream-dark, #e0d8cc);
+  border-radius: 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(74,63,53,0.07);
+}
+.btn-review-session:active { transform: scale(0.98); }
+
+/* Nabespreek scherm */
+.rv-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.5rem;
+}
+.rv-header-info { display: flex; flex-direction: column; gap: 1px; }
+.rv-title  { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--ink); }
+.rv-subtitle { font-family: var(--font-body); font-size: 0.8rem; color: var(--ink-light, #6b5e50); }
+.rv-list { padding: 0.5rem 1rem 2rem; display: flex; flex-direction: column; gap: 0.65rem; }
+.rv-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  box-shadow: 0 2px 8px rgba(74,63,53,0.06);
+  transition: transform 0.12s;
+}
+.rv-card:active { transform: scale(0.98); }
+.rv-ok   { border-left-color: var(--green); }
+.rv-wrong { border-left-color: var(--pulse); }
+.rv-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; }
+.rv-domain { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; color: var(--ink-light, #6b5e50); text-transform: uppercase; letter-spacing: 0.04em; }
+.rv-badge { font-size: 0.78rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.rv-badge-ok   { background: #e6f5ed; color: var(--green); }
+.rv-badge-wrong { background: #fef0eb; color: var(--pulse); }
+.rv-q { font-family: var(--font-body); font-size: 0.9rem; color: var(--ink); line-height: 1.4; }
+.rv-answer { margin-top: 0.4rem; font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; color: var(--green); }
+.rv-tap-hint { margin-top: 0.4rem; font-family: var(--font-body); font-size: 0.75rem; color: var(--ink-light, #6b5e50); opacity: 0.7; }
+
 /* Zwaktes CTA op resultatenscherm */
 .weak-results-banner {
   display: flex;
