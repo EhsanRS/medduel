@@ -214,8 +214,8 @@ const DETECTIVE_CASES = [
 
     // Prompts for ChatGPT — use these to generate the images
     imagePrompts: {
-      'mri_rabies_brainstem.jpg': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis (rabies encephalitis pattern). Medical education quality, standard greyscale MRI appearance, no text labels on the image. The abnormality should be subtle but visible.',
-      'ecg_sinus_tachy.jpg': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities: normal QRS axis, no ST-segment changes, no conduction defects, normal P-waves before every QRS. Standard ECG paper with light pink grid lines, professional hospital quality, realistic ECG waveform.'
+      'mri_rabies_brainste.png': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis (rabies encephalitis pattern). Medical education quality, standard greyscale MRI appearance, no text labels on the image. The abnormality should be subtle but visible.',
+      'ecg_sinus_tachy.png': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities: normal QRS axis, no ST-segment changes, no conduction defects, normal P-waves before every QRS. Standard ECG paper with light pink grid lines, professional hospital quality, realistic ECG waveform.'
     }
   }
 ];
