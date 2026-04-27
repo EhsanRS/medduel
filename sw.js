@@ -1,4 +1,4 @@
-const CACHE = 'medduel-v45';
+const CACHE = 'medduel-v46';
 const ASSETS = [
   '/',
   '/index.html',
@@ -12,10 +12,12 @@ const ASSETS = [
   '/src/weak.js',
   '/src/onboarding.js',
   '/src/theory.js',
+  '/src/detective.js',
   '/src/admin.js',
   '/src/router.js',
   '/src/data/questions.js',
   '/src/data/cases.js',
+  '/src/data/detective_cases.js',
 ];
 
 self.addEventListener('install', e => {

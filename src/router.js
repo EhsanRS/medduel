@@ -27,6 +27,10 @@ function renderHomeScreen() {
           <span class="bn-icon">🎮</span>
           <span class="bn-label">Spelen</span>
         </button>
+        <button class="bn-tab" onclick="switchHomeTab('speurdokter',this)">
+          <span class="bn-icon">🔍</span>
+          <span class="bn-label">Speurder</span>
+        </button>
         <button class="bn-tab" onclick="switchHomeTab('theorie',this)">
           <span class="bn-icon">📖</span>
           <span class="bn-label">Theorie</span>
@@ -360,9 +364,10 @@ function switchHomeTab(tab, btn) {
   document.querySelectorAll('#bottomNav .bn-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   window.scrollTo(0, 0);
-  if (tab === 'spelen')  { renderSpelenTab(); loadHomeStats(); }
-  else if (tab === 'theorie') renderTheorieTab();
-  else if (tab === 'profiel') renderProfielTab();
+  if (tab === 'spelen')       { renderSpelenTab(); loadHomeStats(); }
+  else if (tab === 'speurdokter') renderSpeurdokterTab();
+  else if (tab === 'theorie')     renderTheorieTab();
+  else if (tab === 'profiel')     renderProfielTab();
 }
 
 // ── Init ──

@@ -2992,3 +2992,710 @@ h1.logo em {
 }
 .btn-next-q:active { transform: scale(0.98); }
 .btn-next-q:hover  { background: #2d1f1a; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SPEURDOKTER MODUS
+   ══════════════════════════════════════════════════════════════ */
+
+.sd-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+/* ── Nav ── */
+.sd-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0.75rem;
+}
+.sd-nav-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.sd-hud {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sd-hud-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+.sd-hud-val {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.sd-hud-lbl {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
+}
+.sd-hud-sep {
+  color: var(--ink-light);
+  font-size: 1.1rem;
+  margin-top: -4px;
+}
+
+/* ── Intro card ── */
+.sd-intro-card {
+  background: var(--ink);
+  border-radius: 24px;
+  padding: 1.6rem 1.4rem 1.4rem;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.sd-intro-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: rgba(232,65,10,0.15);
+  border-radius: 50%;
+}
+.sd-intro-stamp {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  background: rgba(232,65,10,0.15);
+  display: inline-block;
+  border-radius: 6px;
+  padding: 3px 9px;
+  margin-bottom: 0.8rem;
+}
+.sd-patient-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+.sd-patient-icon { font-size: 18px; }
+.sd-patient-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+.sd-case-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.35rem;
+  line-height: 1.2;
+}
+.sd-difficulty {
+  font-size: 0.9rem;
+  color: var(--amber);
+  margin-bottom: 0.85rem;
+  letter-spacing: 1px;
+}
+.sd-intro-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.82);
+  margin: 0 0 1.2rem;
+}
+.sd-start-btn {
+  width: 100%;
+  background: var(--pulse) !important;
+}
+.sd-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.sd-rule {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  background: var(--card);
+  border-radius: 10px;
+  padding: 0.5rem 0.85rem;
+}
+
+/* ── Evidence chips ── */
+.sd-clues-section {
+  margin-bottom: 0.75rem;
+}
+.sd-section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.4rem;
+}
+.sd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.sd-chip {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: rgba(26,20,16,0.07);
+  color: var(--ink-mid);
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+.sd-chip.key {
+  background: rgba(212,130,10,0.12);
+  color: var(--amber);
+}
+.sd-chip.eureka {
+  background: rgba(26,122,74,0.12);
+  color: var(--green);
+  font-weight: 700;
+}
+.sd-chip.not {
+  background: rgba(26,20,16,0.04);
+  color: var(--ink-light);
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+.sd-chips-empty {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+/* ── Investigation grid ── */
+.sd-inv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+.sd-inv-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 0.85rem 0.75rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  border: 1.5px solid transparent;
+  transition: transform 0.13s, box-shadow 0.13s, border-color 0.13s;
+  box-shadow: 0 1px 4px rgba(74,63,53,0.07);
+}
+.sd-inv-card:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 0 2px var(--pulse);
+}
+.sd-inv-card:hover {
+  border-color: rgba(232,65,10,0.25);
+}
+/* Category tint on left border */
+.sd-inv-card.sd-cat-physical { border-left: 3px solid #1B5FA8; }
+.sd-inv-card.sd-cat-history  { border-left: 3px solid #1A7A4A; }
+.sd-inv-card.sd-cat-lab      { border-left: 3px solid #7C3AED; }
+.sd-inv-card.sd-cat-imaging  { border-left: 3px solid #D4820A; }
+.sd-inv-card.sd-cat-micro    { border-left: 3px solid #DC2626; }
+.sd-inv-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.sd-inv-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ── Diagnose button wrap ── */
+.sd-diag-wrap {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sd-diag-btn {
+  width: 100%;
+}
+.sd-diag-btn:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+.sd-diag-hint {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  color: var(--ink-light);
+  margin-top: 0.4rem;
+}
+.sd-action-row {
+  display: flex;
+  gap: 0.6rem;
+}
+.sd-action-row .btn-secondary,
+.sd-action-row .btn-primary {
+  flex: 1;
+}
+
+/* ── Result card ── */
+.sd-result-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(74,63,53,0.08);
+}
+.sd-result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(26,20,16,0.07);
+}
+.sd-result-icon { font-size: 1.2rem; }
+.sd-result-label {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.sd-result-text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+.sd-result-quote {
+  font-family: 'Fraunces', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+  border-left: 3px solid var(--pulse);
+  margin: 0 0 0.75rem;
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  line-height: 1.55;
+}
+.sd-result-eureka {
+  background: linear-gradient(135deg, rgba(26,122,74,0.08), rgba(26,122,74,0.04));
+  border: 1.5px solid rgba(26,122,74,0.2);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+.sd-result-note {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(26,20,16,0.06);
+}
+
+/* Result badges */
+.sd-badge-eureka,
+.sd-badge-key,
+.sd-badge-useful,
+.sd-badge-not {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 4px 10px;
+  margin-top: 0.1rem;
+}
+.sd-badge-eureka {
+  background: rgba(26,122,74,0.1);
+  color: var(--green);
+}
+.sd-badge-key {
+  background: rgba(212,130,10,0.1);
+  color: var(--amber);
+}
+.sd-badge-useful {
+  background: rgba(27,95,168,0.1);
+  color: var(--blue);
+}
+.sd-badge-not {
+  background: rgba(26,20,16,0.06);
+  color: var(--ink-light);
+}
+
+/* ── Lab table ── */
+.sd-lab-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}
+.sd-lab-table th {
+  text-align: left;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding: 0.2rem 0.35rem;
+  border-bottom: 1px solid rgba(26,20,16,0.1);
+}
+.sd-lab-table td {
+  padding: 0.35rem 0.35rem;
+  border-bottom: 1px solid rgba(26,20,16,0.05);
+  vertical-align: middle;
+  color: var(--ink);
+}
+.sd-lab-table tr:last-child td { border-bottom: none; }
+.sd-lab-name { font-weight: 600; color: var(--ink-mid); }
+.sd-lab-val  { font-weight: 700; white-space: nowrap; }
+.sd-lab-ref  { color: var(--ink-light); font-size: 0.73rem; }
+.sd-arrow {
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-left: 2px;
+}
+.sd-arrow.high { color: #DC2626; }
+.sd-arrow.low  { color: #2563EB; }
+
+/* ── Imaging ── */
+.sd-img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  background: #f0f0f0;
+}
+.sd-result-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.sd-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  height: 120px;
+  background: rgba(26,20,16,0.04);
+  border-radius: 12px;
+  color: var(--ink-light);
+  font-size: 2rem;
+  margin-bottom: 0.65rem;
+}
+.sd-img-placeholder small {
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  color: var(--ink-light);
+}
+
+/* ── Diagnosis options ── */
+.sd-diag-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1.2rem 1rem;
+  margin-bottom: 1rem;
+}
+.sd-diag-prompt {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.sd-diag-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+.sd-diag-option {
+  background: rgba(26,20,16,0.04);
+  border: 1.5px solid rgba(26,20,16,0.1);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.13s, border-color 0.13s, transform 0.1s;
+}
+.sd-diag-option:hover   { background: rgba(26,20,16,0.07); border-color: rgba(26,20,16,0.2); }
+.sd-diag-option:active  { transform: scale(0.98); }
+.sd-diag-option.correct { background: rgba(26,122,74,0.1); border-color: var(--green); color: var(--green); }
+.sd-diag-option.wrong   { background: rgba(232,65,10,0.1); border-color: var(--pulse); color: var(--pulse); }
+.sd-back-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink-light);
+  cursor: pointer;
+  padding: 0.4rem;
+  text-align: center;
+}
+.sd-back-btn:hover { color: var(--ink); }
+
+/* ── Reveal screen ── */
+.sd-reveal-header {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+.sd-reveal-verdict {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 0.6rem;
+}
+.sd-reveal-verdict.correct { background: rgba(26,122,74,0.12); color: var(--green); }
+.sd-reveal-verdict.wrong   { background: rgba(232,65,10,0.12); color: var(--pulse); }
+.sd-reveal-diag {
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.sd-reveal-score {
+  font-family: 'Fraunces', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--pulse);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.sd-reveal-score span {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink-light);
+  font-family: var(--font-body);
+}
+.sd-reveal-barwrap {
+  height: 7px;
+  background: rgba(26,20,16,0.08);
+  border-radius: 8px;
+  margin: 0.4rem auto 0.5rem;
+  max-width: 220px;
+  overflow: hidden;
+}
+.sd-reveal-bar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 1s cubic-bezier(0.34,1.2,0.64,1);
+}
+.sd-reveal-meta {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--ink-light);
+}
+
+/* ── Explanation card ── */
+.sd-explain-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+}
+.sd-explain-head {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.6rem;
+}
+.sd-explain-text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+.sd-wiki {
+  border-top: 1px solid rgba(26,20,16,0.07);
+  padding-top: 0.65rem;
+}
+.sd-wiki summary {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pulse);
+  cursor: pointer;
+  padding: 0.2rem 0;
+  list-style: none;
+}
+.sd-wiki summary::-webkit-details-marker { display: none; }
+.sd-wiki summary::before { content: '+ '; }
+details[open].sd-wiki summary::before { content: '− '; }
+.sd-wiki p {
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin: 0.6rem 0 0;
+}
+
+/* ── Countdown ── */
+.sd-countdown-card {
+  text-align: center;
+  padding: 0.9rem;
+  background: var(--card);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+.sd-countdown-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-light);
+  margin-bottom: 0.25rem;
+}
+.sd-countdown {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+/* ── Home tab ── */
+.sd-home-card {
+  background: var(--ink);
+  border-radius: 22px;
+  padding: 1.3rem 1.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s;
+}
+.sd-home-card::before {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: rgba(232,65,10,0.18);
+  border-radius: 50%;
+}
+.sd-home-card:active { transform: scale(0.98); }
+.sd-home-card.played {
+  background: var(--card);
+  border: 2px solid rgba(26,20,16,0.08);
+}
+.sd-home-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  margin-bottom: 0.4rem;
+}
+.sd-home-solved {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+.sd-home-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.3rem;
+  line-height: 1.25;
+}
+.sd-home-card.played .sd-home-title { color: var(--ink); }
+.sd-home-meta {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.8rem;
+}
+.sd-home-card.played .sd-home-meta { color: var(--ink-mid); }
+.sd-home-cta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
+.sd-home-card.played .sd-home-cta { color: var(--pulse); }
+.sd-tab-empty {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ── How it works card ── */
+.sd-how-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+}
+.sd-how-title {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+}
+.sd-how-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(26,20,16,0.05);
+  line-height: 1.4;
+}
+.sd-how-step:last-child { border-bottom: none; }
+.sd-how-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
