@@ -1971,8 +1971,8 @@ h1.logo em {
   font-size: 17px;
   font-weight: 700;
   color: var(--ink);
-  margin: 30px 0 12px;
-  padding-top: 22px;
+  margin: 34px 0 14px;
+  padding-top: 24px;
   border-top: 1px solid rgba(26,20,16,0.08);
   letter-spacing: -0.01em;
 }
@@ -2024,7 +2024,23 @@ h1.logo em {
 .th-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
 .up { color: var(--green); font-weight: 700; }
 .dn { color: var(--pulse); font-weight: 700; }
-.th-steps { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+.th-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+}
+.th-steps::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: rgba(26,20,16,0.09);
+  border-radius: 1px;
+}
 .th-step {
   display: flex;
   align-items: flex-start;
@@ -2032,9 +2048,9 @@ h1.logo em {
   font-size: 13.5px;
   line-height: 1.6;
   color: var(--ink);
-  background: white;
-  border-radius: 14px;
-  padding: 12px 14px;
+  background: none;
+  border-radius: 0;
+  padding: 9px 0;
 }
 .th-step strong { color: var(--ink); font-weight: 700; }
 .th-step-num {
@@ -2047,16 +2063,18 @@ h1.logo em {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   margin-top: 1px;
+  position: relative;
+  z-index: 1;
 }
 .th-pearl {
-  background: white;
-  border-radius: 16px;
-  border-top: 3px solid var(--amber);
-  padding: 14px 16px;
+  border-left: 3px solid var(--amber);
+  background: rgba(212,130,10,0.07);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 15px;
   font-size: 13.5px;
   line-height: 1.65;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-pearl strong { color: var(--ink); font-weight: 700; }
 .th-pearl::before { content: '💡 '; }
@@ -2156,37 +2174,37 @@ h1.logo em {
 }
 /* ── Theory: Red flag box ── */
 .th-redflag {
-  background: white;
-  border-radius: 16px;
-  border-top: 3px solid var(--pulse);
-  padding: 14px 16px;
+  border-left: 3px solid var(--pulse);
+  background: rgba(232,65,10,0.07);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 15px;
   font-size: 13.5px;
   line-height: 1.65;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-redflag::before { content: '🚩 '; }
 .th-redflag strong { color: var(--ink); }
 /* ── Theory: Pitfall / trap box ── */
 .th-trap {
-  background: white;
-  border-radius: 16px;
-  border-top: 3px solid var(--amber);
-  padding: 14px 16px;
+  border-left: 3px solid var(--amber);
+  background: rgba(212,130,10,0.07);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 15px;
   font-size: 13.5px;
   line-height: 1.65;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-trap::before { content: '⚠️ '; }
 .th-trap strong { color: var(--ink); }
 /* ── Theory: Mnemonic box ── */
 .th-mnemonic {
-  background: white;
-  border-radius: 16px;
-  border-top: 3px solid var(--blue);
+  border-left: 3px solid var(--blue);
+  background: rgba(27,95,168,0.07);
+  border-radius: 0 12px 12px 0;
   padding: 14px 16px 12px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-mnemonic-label {
   font-size: 10px;
@@ -2219,14 +2237,14 @@ h1.logo em {
 }
 /* ── Theory: Safe/green callout ── */
 .th-safe {
-  background: white;
-  border-radius: 16px;
-  border-top: 3px solid var(--green);
-  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: rgba(26,122,74,0.07);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 15px;
   font-size: 13.5px;
   line-height: 1.65;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .th-safe::before { content: '✅ '; }
 .th-safe strong { color: var(--ink); }
@@ -2723,8 +2741,8 @@ h1.logo em {
 .q-fig-img { width:100%; max-height:220px; object-fit:contain; display:block; border-radius:10px; }
 
 /* ── Theorie — ECG verbeteringen ── */
-.th-body-text { font-size:14px; color:var(--ink); line-height:1.68; margin:0 0 0.85rem; }
-.th-conduction { background:white; border-top:3px solid var(--pulse); border-radius:16px; padding:14px 16px; font-size:13.5px; color:var(--ink); margin-bottom:0.75rem; line-height:1.68; font-family:'DM Sans',sans-serif; }
+.th-body-text { font-size:14px; color:var(--ink); line-height:1.7; margin:0 0 1rem; }
+.th-conduction { border-left:3px solid var(--pulse); background:rgba(232,65,10,0.07); border-radius:0 12px 12px 0; padding:12px 15px; font-size:13.5px; color:var(--ink); margin-bottom:0.75rem; line-height:1.68; font-family:'DM Sans',sans-serif; }
 .th-strip-card { display:grid; grid-template-columns:145px 1fr; gap:0.65rem; background:rgba(255,255,255,0.65); border-radius:12px; padding:0.65rem; margin-bottom:0.5rem; border:1px solid rgba(0,0,0,0.06); align-items:center; }
 @media (max-width:380px){ .th-strip-card { grid-template-columns:1fr; } }
 .th-strip-mini svg { width:100%; height:auto; display:block; }
