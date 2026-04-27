@@ -48,10 +48,10 @@ body {
 }
 
 .screen { display: none; position: relative; z-index: 1; }
-.screen.active { display: block; animation: screenFadeIn 0.2s ease forwards; }
+.screen.active { display: block; animation: screenFadeIn 0.2s ease; }
 @keyframes screenFadeIn {
   from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ── HOME ── */
@@ -220,18 +220,19 @@ h1.logo em {
 }
 .mode-card:hover .mode-arrow { transform: translateX(3px); }
 
-/* Category pills */
+/* ── Domain filter ── */
 .cat-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
   margin-bottom: 2rem;
 }
+/* Base pill (used in favourites, learn etc.) */
 .cat-pill {
+  display: inline-flex;
+  align-items: center;
   background: var(--card);
-  border: 1.5px solid var(--cream-dark);
+  border: 1.5px solid rgba(26,20,16,0.1);
   border-radius: 100px;
   padding: 0.4rem 0.9rem;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -243,6 +244,70 @@ h1.logo em {
   border-color: var(--ink);
   color: white;
 }
+/* "Alle domeinen" full-width pill */
+.cat-pill.cat-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid rgba(26,20,16,0.1);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-mid);
+  transition: all 0.15s;
+  margin-bottom: 0.55rem;
+}
+.cat-pill.cat-all.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+}
+/* Domain grid */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+}
+.cat-pill.domain-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.65rem 0.25rem 0.55rem;
+  background: var(--dtc, var(--card));
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.13s, box-shadow 0.13s, background 0.13s;
+}
+.cat-pill.domain-tile:active { transform: scale(0.95); }
+.cat-pill.domain-tile.active {
+  background: var(--ink);
+  box-shadow: 0 2px 8px rgba(26,20,16,0.18);
+}
+.dt-icon { font-size: 1.35rem; line-height: 1; }
+.dt-name {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--ink-mid);
+  letter-spacing: 0.01em;
+  text-align: center;
+  line-height: 1.2;
+}
+.cat-pill.domain-tile.active .dt-name { color: rgba(255,255,255,0.9); }
+.dt-count {
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  color: var(--ink-light);
+  font-weight: 500;
+}
+.cat-pill.domain-tile.active .dt-count { color: rgba(255,255,255,0.5); }
 
 /* ── GAME ── */
 #game {
@@ -2524,11 +2589,11 @@ h1.logo em {
 .bn-tab.active { color: var(--pulse); }
 .bn-tab.active::after { transform: translateX(-50%) scaleX(1); }
 .bn-tab:active { opacity: 0.7; }
-.bn-icon { font-size: 20px; line-height: 1; }
+.bn-icon { font-size: 18px; line-height: 1; }
 .bn-label {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 /* ── Home tab content wrapper ── */

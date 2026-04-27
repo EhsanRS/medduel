@@ -106,22 +106,44 @@ function renderSpelenTab() {
     </div>
 
     <div class="section-label fade-in-4">Domein</div>
-    <div class="cat-wrap fade-in-4" id="catPills">
-      <div class="cat-pill active" data-cat="all" onclick="toggleCat('all',this)">Alles</div>
-      <div class="cat-pill" data-cat="cardio"   onclick="toggleCat('cardio',this)">🫀 Cardiologie</div>
-      <div class="cat-pill" data-cat="neuro"    onclick="toggleCat('neuro',this)">🧠 Neurologie</div>
-      <div class="cat-pill" data-cat="pharma"   onclick="toggleCat('pharma',this)">💊 Farmacologie</div>
-      <div class="cat-pill" data-cat="infectio" onclick="toggleCat('infectio',this)">🦠 Infectiologie</div>
-      <div class="cat-pill" data-cat="lab"      onclick="toggleCat('lab',this)">🧪 Lab</div>
-      <div class="cat-pill" data-cat="pulmo"   onclick="toggleCat('pulmo',this)">🫁 Pulmonologie</div>
-      <div class="cat-pill" data-cat="gastro"  onclick="toggleCat('gastro',this)">🫃 Gastro-enterologie</div>
-      <div class="cat-pill" data-cat="endo"    onclick="toggleCat('endo',this)">🔬 Endocrinologie</div>
-      <div class="cat-pill" data-cat="nephro"  onclick="toggleCat('nephro',this)">🫘 Nefrologie</div>
-      <div class="cat-pill" data-cat="psych"   onclick="toggleCat('psych',this)">🧩 Psychiatrie</div>
-      <div class="cat-pill" data-cat="derm"    onclick="toggleCat('derm',this)">🩹 Dermatologie</div>
-      <div class="cat-pill" data-cat="rheum"   onclick="toggleCat('rheum',this)">🦴 Reumatologie</div>
-      <div class="cat-pill" data-cat="repro"   onclick="toggleCat('repro',this)">🤰 Reproductieve geneeskunde</div>
+    ${renderDomainGrid()}`;
+}
+
+function renderDomainGrid() {
+  const domains = [
+    { key: 'cardio',   icon: '🫀', name: 'Cardio',   color: '#FEECE8' },
+    { key: 'neuro',    icon: '🧠', name: 'Neuro',    color: '#EDE9FE' },
+    { key: 'pharma',   icon: '💊', name: 'Pharma',   color: '#E0F2FE' },
+    { key: 'infectio', icon: '🦠', name: 'Infectio', color: '#DCFCE7' },
+    { key: 'lab',      icon: '🧪', name: 'Lab',      color: '#F3E8FF' },
+    { key: 'pulmo',    icon: '🫁', name: 'Pulmo',    color: '#E0F6FF' },
+    { key: 'gastro',   icon: '🫃', name: 'Gastro',   color: '#FEF3C7' },
+    { key: 'endo',     icon: '🔬', name: 'Endo',     color: '#CCFBF1' },
+    { key: 'nephro',   icon: '🫘', name: 'Nefro',    color: '#DBEAFE' },
+    { key: 'psych',    icon: '🧩', name: 'Psych',    color: '#FDF4FF' },
+    { key: 'derm',     icon: '🩹', name: 'Derm',     color: '#FCE7F3' },
+    { key: 'rheum',    icon: '🦴', name: 'Reuma',    color: '#FEF9C3' },
+    { key: 'repro',    icon: '🤰', name: 'Repro',    color: '#FFE4E6' },
+  ];
+
+  const tiles = domains.map(d => {
+    const n = typeof QUESTIONS !== 'undefined'
+      ? QUESTIONS.filter(q => q.domain === d.key).length : 0;
+    return `<div class="cat-pill domain-tile fade-in-4" data-cat="${d.key}"
+        style="--dtc:${d.color}"
+        onclick="toggleCat('${d.key}',this)">
+      <span class="dt-icon">${d.icon}</span>
+      <span class="dt-name">${d.name}</span>
+      ${n ? `<span class="dt-count">${n}v</span>` : ''}
     </div>`;
+  }).join('');
+
+  return `<div class="cat-wrap fade-in-4" id="catPills">
+    <div class="cat-pill cat-all active" data-cat="all" onclick="toggleCat('all',this)">
+      Alle domeinen
+    </div>
+    <div class="domain-grid">${tiles}</div>
+  </div>`;
 }
 
 function renderTheorieTab() {
