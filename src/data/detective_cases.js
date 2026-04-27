@@ -149,7 +149,7 @@ const DETECTIVE_CASES = [
           badge: 'not',
           note: 'Geen cardiale pathologie. Verliest u kostbare tijd?',
           text: 'Sinusritme 110/min. Geen ST-segment afwijkingen, geen geleidingsstoornissen. Normaal ECG.',
-          img: 'ecg_sinus_tachy.jpg'
+          img: 'ecg_sinus_tachy.png'
         }
       },
       {
@@ -165,7 +165,7 @@ const DETECTIVE_CASES = [
           badge: 'useful',
           note: 'Past bij virale encefalitis, maar niet pathognomonisch voor rabiës specifiek.',
           text: 'T2/FLAIR-hyperintensiteit in de hersenstam en basale ganglia, bilateraal. Subtiel maar aanwezig. Past bij virale encefalitis.',
-          img: 'mri_rabies_brainstem.jpg'
+          img: 'mri_rabies_brainste.png'
         }
       },
       {
