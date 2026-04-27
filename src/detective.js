@@ -371,8 +371,9 @@ function renderSpeurdokterReveal(rec) {
   if (!c) { showHome(); return; }
 
   const correctLabel = c.diagnosis.options[c.diagnosis.correct];
+  const isCorrect = rec.correct;
 
-  const clueChips = rec.clues.map(cl => {
+  const clueChips = (rec.clues || []).map(cl => {
     const cls = cl.badge === 'eureka' ? 'sd-chip eureka'
               : cl.badge === 'key'    ? 'sd-chip key'
               : cl.badge === 'not'    ? 'sd-chip not'
@@ -380,11 +381,20 @@ function renderSpeurdokterReveal(rec) {
     return `<span class="${cls}">${escHtml(cl.summary)}</span>`;
   }).join('');
 
-  // Max theoretical score for this case
   const invMax = c.investigations.filter(i => i.useful).reduce((s, i) => s + i.points, 0);
   const maxScore = 100 + invMax + 50 + 80;
   const pct = Math.min(100, Math.round(rec.score / maxScore * 100));
   const barColor = pct >= 70 ? 'var(--green)' : pct >= 45 ? 'var(--amber)' : 'var(--pulse)';
+  const barLabel = pct >= 70 ? 'Uitstekend' : pct >= 45 ? 'Goed' : 'Kan beter';
+
+  const memoryHtml = (c.memory && c.memory.length)
+    ? `<div class="sd-memory-card fade-in-2">
+        <div class="sd-memory-head">🔑 Onthoud dit</div>
+        <ul class="sd-memory-list">
+          ${c.memory.map(m => `<li class="sd-memory-item">${escHtml(m)}</li>`).join('')}
+        </ul>
+      </div>`
+    : '';
 
   const wikiHtml = c.diagnosis.wiki
     ? `<details class="sd-wiki">
@@ -395,38 +405,50 @@ function renderSpeurdokterReveal(rec) {
 
   document.getElementById('app').innerHTML = `
     <div id="speurdokter-result" class="screen active">
+
+      <div class="sd-reveal-hero ${isCorrect ? 'correct' : 'wrong'} fade-in">
+        <div class="sd-reveal-stamp">${isCorrect ? 'DIAGNOSE VASTGESTELD' : 'DIAGNOSE GEMIST'}</div>
+        <div class="sd-reveal-name">${escHtml(correctLabel)}</div>
+        ${!isCorrect
+          ? `<div class="sd-reveal-chosen">Uw keuze: ${escHtml(c.diagnosis.options[rec.chosenIdx] || '?')}</div>`
+          : ''}
+      </div>
+
       <div class="sd-wrap">
-        <div class="sd-reveal-header fade-in">
-          <div class="sd-reveal-verdict ${rec.correct ? 'correct' : 'wrong'}">
-            ${rec.correct ? '✓ Correct!' : '✗ Niet correct'}
+
+        <div class="sd-reveal-scorebox fade-in-1">
+          <div class="sd-reveal-score-row">
+            <div class="sd-reveal-score-num">${rec.score}<span>pt</span></div>
+            <div class="sd-reveal-score-badge" style="color:${barColor}">${barLabel}</div>
           </div>
-          <div class="sd-reveal-diag">${escHtml(correctLabel)}</div>
-          <div class="sd-reveal-score">${rec.score} <span>punten</span></div>
           <div class="sd-reveal-barwrap">
             <div class="sd-reveal-bar" style="width:${pct}%;background:${barColor}"></div>
           </div>
-          <div class="sd-reveal-meta">${rec.stepsUsed} onderzoek${rec.stepsUsed === 1 ? '' : 'en'} gebruikt</div>
+          <div class="sd-reveal-meta">${rec.stepsUsed} onderzoek${rec.stepsUsed === 1 ? '' : 'en'} · ${pct}% efficiency</div>
         </div>
 
-        <div class="sd-clues-section fade-in-1">
-          <div class="sd-section-label">Uw bewijs</div>
-          <div class="sd-chips">${clueChips || '<span class="sd-chips-empty">Geen onderzoeken gedaan</span>'}</div>
-        </div>
+        ${memoryHtml}
 
-        <div class="sd-explain-card fade-in-2">
+        ${clueChips ? `<div class="sd-clues-section fade-in-3">
+          <div class="sd-section-label">Uw spoor</div>
+          <div class="sd-chips">${clueChips}</div>
+        </div>` : ''}
+
+        <div class="sd-explain-card fade-in-4">
           <div class="sd-explain-head">Uitleg</div>
           <p class="sd-explain-text">${escHtml(c.diagnosis.explanation)}</p>
           ${wikiHtml}
         </div>
 
-        <div class="sd-countdown-card fade-in-3">
+        <div class="sd-countdown-card fade-in-5">
           <div class="sd-countdown-label">Volgende zaak over</div>
           <div class="sd-countdown" id="sdCountdown">--:--:--</div>
         </div>
 
-        <div class="action-row fade-in-4">
+        <div class="action-row fade-in-5">
           <button class="btn-secondary" style="width:100%;" onclick="showHome()">← Terug naar home</button>
         </div>
+
       </div>
     </div>`;
 

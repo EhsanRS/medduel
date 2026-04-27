@@ -257,6 +257,13 @@ const DETECTIVE_CASES = [
       wiki: 'Rabiës (lyssavirus) verspreidt zich via perifere zenuwen retrograad naar de hersenen. Incubatietijd: gemiddeld 1–3 maanden. Prodromaal stadium: koorts, malaise, paresthesieën bij de beet. Encefalitische fase: reactie op water (80%), aerofobia, agitatie, hallucinaties, autonome ontregeling. Terminale fase: coma → overlijden. Post-expositieprofylaxe (wondreiniging + vaccin + immunoglobuline) is effectief vóór symptoomonset. Jaarlijks ~59.000 doden wereldwijd, voornamelijk in Azië en Afrika.'
     },
 
+    memory: [
+      'Hydrofobia (heftige angst voor water bij aanbieden) is vrijwel pathognomonisch voor rabiës — één blik is genoeg om de diagnose te overwegen.',
+      'Reisgeneeskunde: elk diercontact in een endemisch gebied (Azië, Afrika) vereist post-expositieprofylaxe, ook bij een "kleine" bijtwond of lik.',
+      'Tweefasig beloop is kenmerkend: griepachtig prodroom → gedragsverandering & encefalitis — het is nooit "gewoon griep" als de patiënt daarna anders wordt.',
+      'Na symptoomonset is rabiës vrijwel altijd fataal. Tijdige wondreiniging + vaccin + immunoglobuline is de enige kans op overleven.',
+    ],
+
     imagePrompts: {
       'mri_rabies_brainste.png': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis. Medical education quality, standard greyscale MRI appearance, no text labels on the image.',
       'ecg_sinus_tachy.png': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities. Standard ECG paper with light pink grid lines, professional hospital quality.'
