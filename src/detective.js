@@ -40,10 +40,12 @@ function startSpeurdokter() {
     score: 100,
     clues: [],
     remaining: c.investigations.map(i => i.id),
+    board: [],        // 4 visible options at any time
     lastResult: null,
     date: today,
     chosenIdx: -1,
   };
+  sdRefillBoard();
 
   renderSpeurdokterIntro();
 }
@@ -90,14 +92,31 @@ function sdBeginInvestigation() {
   renderSpeurdokterGame();
 }
 
+// ── Board helpers ─────────────────────────────────────────────
+
+function sdRefillBoard() {
+  const pool = SD.remaining.filter(id => !SD.board.includes(id));
+  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  while (SD.board.length < 4 && shuffled.length > 0) {
+    SD.board.push(shuffled.pop());
+  }
+}
+
+function sdAdvanceBoard(pickedId) {
+  SD.remaining = SD.remaining.filter(id => id !== pickedId);
+  SD.board     = SD.board.filter(id => id !== pickedId);
+  sdRefillBoard();
+}
+
 // ── Investigation screen ──────────────────────────────────────
 
 function renderSpeurdokterGame() {
   const c = SD.case;
-  const remaining = c.investigations.filter(i => SD.remaining.includes(i.id));
+  const boardInvs = c.investigations.filter(i => SD.board.includes(i.id));
   const canDiagnose = SD.stepsUsed >= 2;
+  const totalLeft = SD.remaining.length;
 
-  const invCards = remaining.map(inv => `
+  const invCards = boardInvs.map(inv => `
     <div class="sd-inv-card sd-cat-${inv.category}" onclick="sdPickInvestigation('${inv.id}')">
       <span class="sd-inv-icon">${inv.icon}</span>
       <span class="sd-inv-label">${escHtml(inv.label)}</span>
@@ -123,7 +142,10 @@ function renderSpeurdokterGame() {
 
         ${sdClueStrip()}
 
-        <div class="sd-section-label">Welk onderzoek kiest u?</div>
+        <div class="sd-board-header">
+          <span class="sd-section-label">Welk onderzoek kiest u?</span>
+          <span class="sd-board-pool">${totalLeft} beschikbaar</span>
+        </div>
         <div class="sd-inv-grid">${invCards}</div>
 
         <div class="sd-diag-wrap">
@@ -142,9 +164,9 @@ function sdPickInvestigation(id) {
   const inv = SD.case.investigations.find(i => i.id === id);
   if (!inv) return;
 
-  SD.remaining = SD.remaining.filter(r => r !== id);
+  sdAdvanceBoard(id);
   SD.stepsUsed++;
-  SD.score = Math.max(0, SD.score + (inv.useful ? inv.points : inv.points));
+  SD.score = Math.max(0, SD.score + inv.points);
 
   SD.clues.push({
     id: inv.id,
@@ -171,7 +193,7 @@ function renderSpeurdokterResult(inv) {
 
   const contentHtml = sdResultContent(inv);
   const canDiagnose = SD.stepsUsed >= 2;
-  const forceDiagnose = SD.remaining.length === 0 || SD.stepsUsed >= SD.maxSteps;
+  const forceDiagnose = (SD.remaining.length === 0 && SD.board.length === 0) || SD.stepsUsed >= SD.maxSteps;
 
   let actionHtml;
   if (forceDiagnose) {

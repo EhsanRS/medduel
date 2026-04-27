@@ -22,7 +22,7 @@ const DETECTIVE_CASES = [
           text: 'T 38.9°C · HR 118/min · RR 20/min · SpO₂ 98% · BD 132/84 mmHg',
           badge: 'useful',
           summary: 'Koorts · tachycardie',
-          note: 'Koorts en tachycardie aanwezig — past bij infectie of systemische aandoening.'
+          note: 'Koorts en tachycardie wijzen op een actief systemisch ziekteproces.'
         }
       },
       {
@@ -37,7 +37,7 @@ const DETECTIVE_CASES = [
           text: '"Eerst leek het gewoon griep: koorts, pijn in zijn armen, moe. Dat was een dag of tien geleden. Daarna werd hij anders. Onrustig. Angstig voor van alles."',
           badge: 'useful',
           summary: 'Prodroom: griepachtig',
-          note: 'Klassiek rabiës-prodroom: griepklachten gevolgd door gedragsverandering en angst.'
+          note: 'Een griepachtig begin gevolgd door gedragsverandering — dat tweefasige patroon verdient aandacht.'
         }
       },
       {
@@ -46,13 +46,13 @@ const DETECTIVE_CASES = [
         category: 'history',
         icon: '👨‍👩‍👦',
         useful: false,
-        points: -5,
+        points: -8,
         result: {
           type: 'quote',
           text: '"Nee, niemand anders in zijn omgeving is ziek. Het is echt alleen hij."',
           badge: 'not',
           summary: 'Geen clusterbesmetting',
-          note: 'Geen aanwijzing voor een contactbesmettelijke oorzaak.'
+          note: 'Geen aanwijzing voor overdracht via nauw contact.'
         }
       },
       {
@@ -61,13 +61,13 @@ const DETECTIVE_CASES = [
         category: 'history',
         icon: '💊',
         useful: false,
-        points: -5,
+        points: -8,
         result: {
           type: 'quote',
           text: '"Nee. Hij gebruikt niets — geen medicijnen, geen recreatieve middelen. Altijd een gezonde man geweest."',
           badge: 'not',
           summary: 'Geen medicatie of drugs',
-          note: 'Geen farmacologische verklaring voor de symptomen.'
+          note: 'Farmacologische of toxische oorzaak minder waarschijnlijk.'
         }
       },
       {
@@ -81,8 +81,8 @@ const DETECTIVE_CASES = [
           type: 'quote',
           text: '"Ja, ik ben zo\'n zes weken geleden teruggekomen. We hebben drie weken doorgebracht in India, voornamelijk in de buurt van Kolkata — ook een paar dagen in afgelegen dorpjes op het platteland."',
           badge: 'useful',
-          summary: 'Reis naar India (6 weken geleden)',
-          note: 'India is hyperendemisch voor rabiës. Plattelandsverblijf verhoogt blootstelling aanzienlijk.'
+          summary: 'Recente reis naar India',
+          note: 'Reisgeneeskunde is relevant. Bepaalde gebieden kennen specifieke infectieziekten die in Nederland niet endemisch zijn.'
         }
       },
       {
@@ -97,7 +97,7 @@ const DETECTIVE_CASES = [
           text: '"Er was een straathond bij een dorpje... die speelde met mijn hand. Die heeft me gelikt, en misschien een beetje gebeten. Maar dat stelde toch niets voor, dacht ik."',
           badge: 'key',
           summary: 'Contact met straathond — mogelijk gebeten',
-          note: 'Potentiële rabiësblootstelling. Straathonden in India zijn frequent drager van het lyssavirus.'
+          note: 'Diercontact in bepaalde regio\'s kan klinisch zeer relevant zijn, ook weken na de blootstelling.'
         }
       },
       {
@@ -111,8 +111,8 @@ const DETECTIVE_CASES = [
           type: 'quote',
           text: '"We hebben het even afgespoeld maar verder niets gedaan. We zijn niet naar een dokter gegaan — dachten niet dat het nodig was."',
           badge: 'useful',
-          summary: 'Geen wondverzorging · geen PEP',
-          note: 'Geen post-expositieprofylaxe ontvangen. Vaccin + HRIG hadden rabiës kunnen voorkomen.'
+          summary: 'Geen wondverzorging · geen profylaxe',
+          note: 'Bij bepaalde blootstellingen is tijdige profylaxe cruciaal. Geen actie ondernomen.'
         }
       },
       {
@@ -126,7 +126,7 @@ const DETECTIVE_CASES = [
           type: 'labs',
           summary: 'Milde ontstekingsreactie',
           badge: 'useful',
-          note: 'Lichte leukocytose en CRP-stijging. Niet specifiek — past bij diverse infecties.',
+          note: 'Milde ontstekingsreactie aanwezig. Niet specifiek genoeg om de diagnose te stellen.',
           labs: [
             { name: 'Leukocyten',  value: 13.8, unit: '×10⁹/L', status: 'high', ref: '4.0–10.0' },
             { name: 'CRP',         value: 28,   unit: 'mg/L',   status: 'high', ref: '<5' },
@@ -142,13 +142,13 @@ const DETECTIVE_CASES = [
         category: 'imaging',
         icon: '📈',
         useful: false,
-        points: -5,
+        points: -12,
         result: {
           type: 'imaging',
           summary: 'ECG zonder afwijkingen',
           badge: 'not',
-          note: 'Geen cardiale pathologie. Verliest u kostbare tijd?',
-          text: 'Sinusritme 110/min. Geen ST-segment afwijkingen, geen geleidingsstoornissen. Normaal ECG.',
+          note: 'Geen cardiale pathologie. Niet bijdragend aan het klinische beeld.',
+          text: 'Sinusritme 110/min. Geen ST-segment afwijkingen, geen geleidingsstoornissen.',
           img: 'ecg_sinus_tachy.png'
         }
       },
@@ -163,8 +163,8 @@ const DETECTIVE_CASES = [
           type: 'imaging',
           summary: 'Subtiele hersenstam-afwijking',
           badge: 'useful',
-          note: 'Past bij virale encefalitis, maar niet pathognomonisch voor rabiës specifiek.',
-          text: 'T2/FLAIR-hyperintensiteit in de hersenstam en basale ganglia, bilateraal. Subtiel maar aanwezig. Past bij virale encefalitis.',
+          note: 'Subtiele bevinding in het CZS. Klinische correlatie essentieel — beeldvorming alleen is onvoldoende.',
+          text: 'T2/FLAIR-hyperintensiteit in de hersenstam en basale ganglia, bilateraal. Subtiel maar aanwezig.',
           img: 'mri_rabies_brainste.png'
         }
       },
@@ -177,9 +177,9 @@ const DETECTIVE_CASES = [
         points: 15,
         result: {
           type: 'labs',
-          summary: 'Virale encefalitis-patroon op LP',
+          summary: 'Virale CZS-betrokkenheid op LP',
           badge: 'useful',
-          note: 'Lymfocytaire pleiocytose: past bij virale encefalitis (rabiës, HSV, enterovirus).',
+          note: 'Patroon past bij virale betrokkenheid van het centrale zenuwstelsel. De procedure is invasief en pijnlijk — weeg de indicatie zorgvuldig.',
           labs: [
             { name: 'Opening pressure',  value: 22,   unit: 'cmH₂O', status: 'high', ref: '7–18' },
             { name: 'Leukocyten (liq.)', value: 120,  unit: '/µL',    status: 'high', ref: '<5' },
@@ -194,28 +194,72 @@ const DETECTIVE_CASES = [
         category: 'physical',
         icon: '💧',
         useful: true,
-        points: 30,
+        points: 35,
         result: {
           type: 'eureka',
-          summary: 'Hydrofobia geconfirmeerd',
+          summary: 'Ongewone reactie op water',
           badge: 'eureka',
-          note: 'Hydrofobia (onwillekeurige laryngospasme bij water) is pathognomonisch voor rabiës.',
+          note: 'Een klinisch teken dat zelden optreedt, maar — wanneer aanwezig — sterk richtinggevend is.',
           text: 'Bij het aanreiken van het glas water reageert de patiënt met plotselinge hevige angst. Zijn keel trekt samen. Hij hyperventileert, gooit het glas weg en deinst achteruit, trillend. "Ik... ik kan niet. Doe het weg. Alsjeblieft." Zijn ogen staan groot.'
         }
-      }
+      },
+      {
+        id: 'ct',
+        label: 'CT hoofd aanvragen',
+        category: 'imaging',
+        icon: '🖥️',
+        useful: false,
+        points: -15,
+        result: {
+          type: 'text',
+          text: 'Geen intracraniële bloeding. Geen massa of compressie. Subtiel sulcaal effacement beiderzijds als enige bevinding.',
+          badge: 'not',
+          summary: 'CT hoofd: geen acute afwijking',
+          note: 'Geen relevante bevinding. Blootstelling aan ioniserende straling voor een niet-bijdragend resultaat.'
+        }
+      },
+      {
+        id: 'bloedkweken',
+        label: 'Bloedkweken afnemen',
+        category: 'lab',
+        icon: '🧫',
+        useful: false,
+        points: -10,
+        result: {
+          type: 'text',
+          text: 'Geen bacteriële groei na 48 uur incubatie.',
+          badge: 'not',
+          summary: 'Bloedkweken: negatief',
+          note: 'Geen bacteriëmie aangetoond. Dit onderzoek was niet gericht op de meest waarschijnlijke oorzaak.'
+        }
+      },
+      {
+        id: 'toxicologie',
+        label: 'Toxicologisch bloedonderzoek',
+        category: 'lab',
+        icon: '⚗️',
+        useful: false,
+        points: -12,
+        result: {
+          type: 'text',
+          text: 'Geen toxische stoffen aantoonbaar in het serum. Paracetamol, benzodiazepinen, opiaten: alle negatief.',
+          badge: 'not',
+          summary: 'Toxicologie: negatief',
+          note: 'Intoxicatie uitgesloten. Aanvraag was een dure omweg.'
+        }
+      },
     ],
     diagnosis: {
       prompt: 'Wat is uw diagnose?',
       options: ['Tetanus', 'Rabies', 'HSV-encefalitis', 'Cryptococcen-meningitis'],
       correct: 1,
-      explanation: 'Rabiës is een vrijwel altijd fatale virale encefalitis veroorzaakt door het lyssavirus, overgedragen via beet of liksels van een geïnfecteerd dier. Sleutelbevindingen: reis naar endemisch gebied, contact met straathond zonder PEP, prodromale fase, en de karakteristieke hydrofobia. Zonder tijdige post-expositieprofylaxe is er na symptoomonset geen effectieve behandeling.',
-      wiki: 'Rabiës (lyssavirus) verspreidt zich via perifere zenuwen retrograad naar de hersenen en salivaire klieren. Incubatietijd: gemiddeld 1–3 maanden (range: 1 week – 1 jaar), afhankelijk van locatie en ernst beet. Prodromaal stadium: koorts, malaise, paresthesieën ter plaatse van de beet. Encefalitische fase: hydrofobia (80%), aerofobia, agitatie, hallucinaties, autonome ontregeling. Terminale fase: coma → overlijden. PEP (uitgebreide wondreiniging + rabiësvaccin + rabiësimmunoglobuline) is effectief als gegeven vóór symptoomonset. Jaarlijks ~59.000 doden wereldwijd, voornamelijk in Azië en Afrika.'
+      explanation: 'Rabiës is een vrijwel altijd fatale virale encefalitis veroorzaakt door het lyssavirus, overgedragen via beet of liksels van een geïnfecteerd dier. Sleutelbevindingen: reis naar endemisch gebied, diercontact zonder profylaxe, tweefasig beloop, en de karakteristieke reactie op water. Zonder tijdige post-expositieprofylaxe is er na symptoomonset geen effectieve behandeling.',
+      wiki: 'Rabiës (lyssavirus) verspreidt zich via perifere zenuwen retrograad naar de hersenen. Incubatietijd: gemiddeld 1–3 maanden. Prodromaal stadium: koorts, malaise, paresthesieën bij de beet. Encefalitische fase: reactie op water (80%), aerofobia, agitatie, hallucinaties, autonome ontregeling. Terminale fase: coma → overlijden. Post-expositieprofylaxe (wondreiniging + vaccin + immunoglobuline) is effectief vóór symptoomonset. Jaarlijks ~59.000 doden wereldwijd, voornamelijk in Azië en Afrika.'
     },
 
-    // Prompts for ChatGPT — use these to generate the images
     imagePrompts: {
-      'mri_rabies_brainste.png': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis (rabies encephalitis pattern). Medical education quality, standard greyscale MRI appearance, no text labels on the image. The abnormality should be subtle but visible.',
-      'ecg_sinus_tachy.png': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities: normal QRS axis, no ST-segment changes, no conduction defects, normal P-waves before every QRS. Standard ECG paper with light pink grid lines, professional hospital quality, realistic ECG waveform.'
+      'mri_rabies_brainste.png': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis. Medical education quality, standard greyscale MRI appearance, no text labels on the image.',
+      'ecg_sinus_tachy.png': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities. Standard ECG paper with light pink grid lines, professional hospital quality.'
     }
   }
 ];

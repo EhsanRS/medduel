@@ -3244,6 +3244,20 @@ h1.logo em {
   font-style: italic;
 }
 
+/* ── Board header ── */
+.sd-board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.sd-board-pool {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--ink-light);
+  font-weight: 500;
+}
+
 /* ── Investigation grid ── */
 .sd-inv-grid {
   display: grid;
