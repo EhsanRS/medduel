@@ -16,15 +16,48 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">Vergelijking hoofdvormen</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>Alzheimer</th><th>Vasculair</th><th>Lewy-body</th><th>FTD</th><th>NPH</th></tr></thead>
-        <tbody>
-          <tr><td>Begin</td><td>Sluipend</td><td>Plotseling / trapsgewijs</td><td>Sluipend</td><td>Sluipend</td><td>Sluipend</td></tr>
-          <tr><td>Eerste klacht</td><td>Geheugen</td><td>Afh. locatie infarct</td><td>Hallucinaties · parkinsonisme</td><td>Gedrag / taal</td><td>Loopstoornis</td></tr>
-          <tr><td>MRI / biomarker</td><td>Temp-par. atrofie · amyloïd-PET</td><td>WS-laesies · lacunaire infarcten</td><td>DaTscan ↓ · weinig atrofie</td><td>Frontale atrofie</td><td>Grote ventrikels · brede sulci</td></tr>
-          <tr><td>Behandeling</td><td>Donepezil / rivastigmine</td><td>Vasculaire RF behandelen</td><td>Rivastigmine (niet haloperidol!)</td><td>Symptomatisch</td><td>LP-drainage / shunt</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Begin</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Alzheimer</span><span class="th-cv">Sluipend</span></div>
+            <div class="th-compare-row"><span class="th-cw">Vasculair</span><span class="th-cv">Plotseling / trapsgewijs</span></div>
+            <div class="th-compare-row"><span class="th-cw">Lewy-body</span><span class="th-cv">Sluipend</span></div>
+            <div class="th-compare-row"><span class="th-cw">FTD</span><span class="th-cv">Sluipend</span></div>
+            <div class="th-compare-row"><span class="th-cw">NPH</span><span class="th-cv">Sluipend</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Eerste klacht</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Alzheimer</span><span class="th-cv">Geheugen</span></div>
+            <div class="th-compare-row"><span class="th-cw">Vasculair</span><span class="th-cv">Afh. locatie infarct</span></div>
+            <div class="th-compare-row"><span class="th-cw">Lewy-body</span><span class="th-cv">Hallucinaties · parkinsonisme</span></div>
+            <div class="th-compare-row"><span class="th-cw">FTD</span><span class="th-cv">Gedrag / taal</span></div>
+            <div class="th-compare-row"><span class="th-cw">NPH</span><span class="th-cv">Loopstoornis</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">MRI / biomarker</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Alzheimer</span><span class="th-cv">Temp-par. atrofie · amyloïd-PET</span></div>
+            <div class="th-compare-row"><span class="th-cw">Vasculair</span><span class="th-cv">WS-laesies · lacunaire infarcten</span></div>
+            <div class="th-compare-row"><span class="th-cw">Lewy-body</span><span class="th-cv">DaTscan ↓ · weinig atrofie</span></div>
+            <div class="th-compare-row"><span class="th-cw">FTD</span><span class="th-cv">Frontale atrofie</span></div>
+            <div class="th-compare-row"><span class="th-cw">NPH</span><span class="th-cv">Grote ventrikels · brede sulci</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Behandeling</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Alzheimer</span><span class="th-cv">Donepezil / rivastigmine</span></div>
+            <div class="th-compare-row"><span class="th-cw">Vasculair</span><span class="th-cv">Vasculaire RF behandelen</span></div>
+            <div class="th-compare-row"><span class="th-cw">Lewy-body</span><span class="th-cv">Rivastigmine (niet haloperidol!)</span></div>
+            <div class="th-compare-row"><span class="th-cw">FTD</span><span class="th-cv">Symptomatisch</span></div>
+            <div class="th-compare-row"><span class="th-cw">NPH</span><span class="th-cv">LP-drainage / shunt</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">NPH — onthoud de 3 W's</div>
       <div class="th-mnemonic">
@@ -287,15 +320,36 @@ const THEORY_TOPICS = {
       </table></div>
 
       <div class="th-section-title">IJzergebrek vs Chronische ziekte — hoe onderscheid je ze?</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>IJzergebrek</th><th>Chronische ziekte</th></tr></thead>
-        <tbody>
-          <tr><td>Ferritine</td><td><span class="dn">↓ (&lt;12 µg/L)</span></td><td>N of <span class="up">↑</span></td></tr>
-          <tr><td>Transferrinesaturatie</td><td><span class="dn">&lt;16%</span></td><td><span class="dn">&lt;20%</span></td></tr>
-          <tr><td>TIBC</td><td><span class="up">↑</span></td><td>N / <span class="dn">↓</span></td></tr>
-          <tr><td>Behandeling</td><td>Oorzaak vinden + ijzersuppletie</td><td>Onderliggende ziekte behandelen</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Ferritine</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">IJzergebrek</span><span class="th-cv"><span class="dn">↓ (&lt;12 µg/L)</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Chr. ziekte</span><span class="th-cv">Normaal of <span class="up">↑</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Transferrinesaturatie</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">IJzergebrek</span><span class="th-cv"><span class="dn">&lt;16%</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Chr. ziekte</span><span class="th-cv"><span class="dn">&lt;20%</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">TIBC</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">IJzergebrek</span><span class="th-cv"><span class="up">↑</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Chr. ziekte</span><span class="th-cv">Normaal / <span class="dn">↓</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Behandeling</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">IJzergebrek</span><span class="th-cv">Oorzaak vinden + ijzersuppletie</span></div>
+            <div class="th-compare-row"><span class="th-cw">Chr. ziekte</span><span class="th-cv">Onderliggende ziekte behandelen</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-redflag"><strong>Schistocyten + trombocytopenie = TTP of HUS.</strong> Bij TTP: ADAMTS13 &lt;10%. Plasmaferese DIRECT — mortaliteit zonder behandeling &gt;90%.</div>
       <div class="th-trap"><strong>Ferritine is een acuut-fase-eiwit.</strong> Bij infectie stijgt ferritine ook bij een lege ijzerdepot. Kijk altijd naar transferrinesaturatie (&lt;16% = ijzergebrek, zelfs bij hoog ferritine).</div>
@@ -318,16 +372,48 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">LP-uitslag vergelijking</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>Bacterieel</th><th>Viraal</th><th>TBC</th></tr></thead>
-        <tbody>
-          <tr><td>Uiterlijk</td><td>Troebel / purulent</td><td>Helder</td><td>Helder / opalescent</td></tr>
-          <tr><td>Leukocyten</td><td><span class="up">↑↑↑</span> PMN (&gt;1000)</td><td><span class="up">↑</span> lymfocyten (&lt;500)</td><td><span class="up">↑↑</span> lymfocyten</td></tr>
-          <tr><td>Glucose (liquor/serum)</td><td><span class="dn">↓↓ &lt;0,5 ratio</span></td><td>Normaal (&gt;0,6)</td><td><span class="dn">↓ (0,3–0,5)</span></td></tr>
-          <tr><td>Eiwit</td><td><span class="up">↑↑↑ &gt;1 g/L</span></td><td>Licht <span class="up">↑</span></td><td><span class="up">↑↑</span></td></tr>
-          <tr><td>Gram-kleuring</td><td>Positief in 60–80%</td><td>Negatief</td><td>Ziehl-Neelsen voor BK</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Uiterlijk</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Bacterieel</span><span class="th-cv">Troebel / purulent</span></div>
+            <div class="th-compare-row"><span class="th-cw">Viraal</span><span class="th-cv">Helder</span></div>
+            <div class="th-compare-row"><span class="th-cw">TBC</span><span class="th-cv">Helder / opalescent</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Leukocyten</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Bacterieel</span><span class="th-cv"><span class="up">↑↑↑</span> PMN (&gt;1000)</span></div>
+            <div class="th-compare-row"><span class="th-cw">Viraal</span><span class="th-cv"><span class="up">↑</span> lymfocyten (&lt;500)</span></div>
+            <div class="th-compare-row"><span class="th-cw">TBC</span><span class="th-cv"><span class="up">↑↑</span> lymfocyten</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Glucose (liquor/serum)</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Bacterieel</span><span class="th-cv"><span class="dn">↓↓ &lt;0,5 ratio</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Viraal</span><span class="th-cv">Normaal (&gt;0,6)</span></div>
+            <div class="th-compare-row"><span class="th-cw">TBC</span><span class="th-cv"><span class="dn">↓ (0,3–0,5)</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Eiwit</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Bacterieel</span><span class="th-cv"><span class="up">↑↑↑ &gt;1 g/L</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Viraal</span><span class="th-cv">Licht <span class="up">↑</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">TBC</span><span class="th-cv"><span class="up">↑↑</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Gram-kleuring</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Bacterieel</span><span class="th-cv">Positief in 60–80%</span></div>
+            <div class="th-compare-row"><span class="th-cw">Viraal</span><span class="th-cv">Negatief</span></div>
+            <div class="th-compare-row"><span class="th-cw">TBC</span><span class="th-cv">Ziehl-Neelsen voor BK</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">Management — volgorde is alles</div>
       <div class="th-steps">
@@ -360,16 +446,43 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">HFrEF vs HFpEF</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>HFrEF (EF &lt;40%)</th><th>HFpEF (EF ≥50%)</th></tr></thead>
-        <tbody>
-          <tr><td>Mechanisme</td><td>Systolische dysfunctie (zwak hart)</td><td>Diastolische dysfunctie (stijf hart)</td></tr>
-          <tr><td>Oorzaak</td><td>MI, dilaterende cardiomyopathie, alcohol</td><td>Hypertensie, DM, obesitas, ouderdom</td></tr>
-          <tr><td>Echo</td><td>Verwijd, hypokinetisch LV</td><td>Normaal of klein LV, dikke wand</td></tr>
-          <tr><td>NT-proBNP</td><td><span class="up">↑↑</span></td><td><span class="up">↑</span> (minder sterk)</td></tr>
-          <tr><td>Bewezen therapie</td><td>BAMS vierpijler</td><td>SGLT2i; diuretica symptomatisch</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Mechanisme</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">HFrEF &lt;40%</span><span class="th-cv">Systolische dysfunctie (zwak hart)</span></div>
+            <div class="th-compare-row"><span class="th-cw">HFpEF ≥50%</span><span class="th-cv">Diastolische dysfunctie (stijf hart)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Oorzaak</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">HFrEF &lt;40%</span><span class="th-cv">MI, dilaterende cardiomyopathie, alcohol</span></div>
+            <div class="th-compare-row"><span class="th-cw">HFpEF ≥50%</span><span class="th-cv">Hypertensie, DM, obesitas, ouderdom</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Echo</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">HFrEF &lt;40%</span><span class="th-cv">Verwijd, hypokinetisch LV</span></div>
+            <div class="th-compare-row"><span class="th-cw">HFpEF ≥50%</span><span class="th-cv">Normaal of klein LV, dikke wand</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">NT-proBNP</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">HFrEF &lt;40%</span><span class="th-cv"><span class="up">↑↑</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">HFpEF ≥50%</span><span class="th-cv"><span class="up">↑</span> (minder sterk)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Bewezen therapie</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">HFrEF &lt;40%</span><span class="th-cv">BAMS vierpijler</span></div>
+            <div class="th-compare-row"><span class="th-cw">HFpEF ≥50%</span><span class="th-cv">SGLT2i; diuretica symptomatisch</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">Vierpijlertherapie HFrEF — onthoud BAMS</div>
       <div class="th-mnemonic">
@@ -453,16 +566,48 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">Antistolling vergelijking</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>Heparine (UFH/LMWH)</th><th>VKA (warfarine)</th><th>DOAC</th></tr></thead>
-        <tbody>
-          <tr><td>Werkingsmechanisme</td><td>Versterkt antitrombine III → remt IIa + Xa</td><td>Remt vit. K-cyclus → ↓ II, VII, IX, X</td><td>Directe remming Xa (rivaroxaban) of IIa (dabigatran)</td></tr>
-          <tr><td>Onset</td><td>Direct (IV) / 1–2u (SC)</td><td>3–5 dagen</td><td>1–3 uur</td></tr>
-          <tr><td>Monitoring</td><td>APTT (UFH) / anti-Xa (LMWH)</td><td>INR (doel 2–3)</td><td>Niet nodig (voordeel!)</td></tr>
-          <tr><td>Antidotum</td><td>Protaminesulfaat</td><td>Vit. K + PCC</td><td>Andexanet alfa (Xa) / idarucizumab (dabigatran)</td></tr>
-          <tr><td>Voorkeursindicatie</td><td>Acuut · zwangerschap · IC</td><td>Kunstkleppen</td><td>AF · VTE — meeste patiënten</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Werkingsmechanisme</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Heparine</span><span class="th-cv">Versterkt antitrombine III → remt IIa + Xa</span></div>
+            <div class="th-compare-row"><span class="th-cw">VKA</span><span class="th-cv">Remt vit. K-cyclus → ↓ II, VII, IX, X</span></div>
+            <div class="th-compare-row"><span class="th-cw">DOAC</span><span class="th-cv">Directe remming Xa (rivaroxaban) of IIa (dabigatran)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Onset</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Heparine</span><span class="th-cv">Direct (IV) / 1–2u (SC)</span></div>
+            <div class="th-compare-row"><span class="th-cw">VKA</span><span class="th-cv">3–5 dagen</span></div>
+            <div class="th-compare-row"><span class="th-cw">DOAC</span><span class="th-cv">1–3 uur</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Monitoring</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Heparine</span><span class="th-cv">APTT (UFH) / anti-Xa (LMWH)</span></div>
+            <div class="th-compare-row"><span class="th-cw">VKA</span><span class="th-cv">INR (doel 2–3)</span></div>
+            <div class="th-compare-row"><span class="th-cw">DOAC</span><span class="th-cv">Niet nodig (voordeel!)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Antidotum</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Heparine</span><span class="th-cv">Protaminesulfaat</span></div>
+            <div class="th-compare-row"><span class="th-cw">VKA</span><span class="th-cv">Vit. K + PCC</span></div>
+            <div class="th-compare-row"><span class="th-cw">DOAC</span><span class="th-cv">Andexanet alfa (Xa) / idarucizumab (dabigatran)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Voorkeursindicatie</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Heparine</span><span class="th-cv">Acuut · zwangerschap · IC</span></div>
+            <div class="th-compare-row"><span class="th-cw">VKA</span><span class="th-cv">Kunstkleppen</span></div>
+            <div class="th-compare-row"><span class="th-cw">DOAC</span><span class="th-cv">AF · VTE — meeste patiënten</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">INR-gids bij VKA</div>
       <div class="th-steps">
@@ -492,17 +637,50 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">DM1 vs DM2</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>DM type 1</th><th>DM type 2</th></tr></thead>
-        <tbody>
-          <tr><td>Mechanisme</td><td>Auto-immuun destructie bètacellen</td><td>Insulineresistentie + relatief tekort</td></tr>
-          <tr><td>Leeftijd</td><td>Vaak &lt;30j (maar elke leeftijd)</td><td>Vaak &gt;40j (maar ook jongeren met obesitas)</td></tr>
-          <tr><td>Presentatie</td><td>Acuut: polyurie, polydipsie, gewichtsverlies, DKA</td><td>Sluipend: moeheid, toevalsbevinding bij screening</td></tr>
-          <tr><td>C-peptide</td><td><span class="dn">↓↓</span> (geen insulineproductie)</td><td>Normaal of <span class="up">↑</span></td></tr>
-          <tr><td>Auto-antilichamen</td><td>GAD, IA-2, ZnT8 positief</td><td>Negatief</td></tr>
-          <tr><td>Insuline?</td><td>Altijd, vanaf diagnose</td><td>Pas in later stadium</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Mechanisme</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv">Auto-immuun destructie bètacellen</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Insulineresistentie + relatief tekort</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Leeftijd</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv">Vaak &lt;30j (maar elke leeftijd)</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Vaak &gt;40j (maar ook jongeren met obesitas)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Presentatie</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv">Acuut: polyurie, polydipsie, gewichtsverlies, DKA</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Sluipend: moeheid, toevalsbevinding bij screening</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">C-peptide</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv"><span class="dn">↓↓</span> (geen insulineproductie)</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Normaal of <span class="up">↑</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Auto-antilichamen</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv">GAD, IA-2, ZnT8 positief</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Negatief</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Insuline nodig?</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">DM type 1</span><span class="th-cv">Altijd, vanaf diagnose</span></div>
+            <div class="th-compare-row"><span class="th-cw">DM type 2</span><span class="th-cv">Pas in later stadium</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">DKA — herken de trilogie</div>
       <div class="th-mnemonic">
@@ -559,16 +737,36 @@ const THEORY_TOPICS = {
       </div>
 
       <div class="th-section-title">Hypo vs Hyper — klinisch beeld</div>
-      <div class="th-table-wrap"><table class="th-table">
-        <thead><tr><th></th><th>Hypothyreoïdie</th><th>Hyperthyreoïdie</th></tr></thead>
-        <tbody>
-          <tr><td>TSH</td><td><span class="up">↑</span></td><td><span class="dn">↓</span></td></tr>
-          <tr><td>Vrij T4</td><td><span class="dn">↓</span></td><td><span class="up">↑</span></td></tr>
-          <tr><td>Symptomen</td><td>Moeheid · kouwelijkheid · obstipatie · gewichtstoename · bradycardie · droge huid · trage reflexen</td><td>Warmte-intolerantie · gewichtsverlies · tremor · tachycardie · diarree · exoftalmus (Graves)</td></tr>
-          <tr><td>Oorzaak</td><td>Hashimoto (auto-immuun, meest voorkomend) · jodiumtekort · thyroïdectomie</td><td>Graves (TSI-antilichamen) · toxisch adenoom · thyroiditis-fase</td></tr>
-          <tr><td>Behandeling</td><td>Levothyroxine (T4 substitutie)</td><td>Thionamiden (PTU, carbimazol) · jodium-131 · thyroïdectomie</td></tr>
-        </tbody>
-      </table></div>
+      <div class="th-compare-group">
+        <div class="th-compare-block">
+          <div class="th-compare-prop">TSH / vrij T4</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Hypothyro</span><span class="th-cv">TSH <span class="up">↑</span> · vrij T4 <span class="dn">↓</span></span></div>
+            <div class="th-compare-row"><span class="th-cw">Hyperthyro</span><span class="th-cv">TSH <span class="dn">↓</span> · vrij T4 <span class="up">↑</span></span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Symptomen</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Hypothyro</span><span class="th-cv">Moeheid · kouwelijkheid · obstipatie · gewichtstoename · bradycardie · droge huid · trage reflexen</span></div>
+            <div class="th-compare-row"><span class="th-cw">Hyperthyro</span><span class="th-cv">Warmte-intolerantie · gewichtsverlies · tremor · tachycardie · diarree · exoftalmus (Graves)</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Oorzaak</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Hypothyro</span><span class="th-cv">Hashimoto (auto-immuun, meest voorkomend) · jodiumtekort · thyroïdectomie</span></div>
+            <div class="th-compare-row"><span class="th-cw">Hyperthyro</span><span class="th-cv">Graves (TSI-antilichamen) · toxisch adenoom · thyroiditis-fase</span></div>
+          </div>
+        </div>
+        <div class="th-compare-block">
+          <div class="th-compare-prop">Behandeling</div>
+          <div class="th-compare-rows">
+            <div class="th-compare-row"><span class="th-cw">Hypothyro</span><span class="th-cv">Levothyroxine (T4 substitutie)</span></div>
+            <div class="th-compare-row"><span class="th-cw">Hyperthyro</span><span class="th-cv">Thionamiden (PTU, carbimazol) · jodium-131 · thyroïdectomie</span></div>
+          </div>
+        </div>
+      </div>
 
       <div class="th-section-title">Diagnostiek — stap voor stap</div>
       <div class="th-steps">
