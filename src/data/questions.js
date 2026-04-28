@@ -9,7 +9,34 @@ const QUESTIONS = [
     q:'Man van 55 jaar: drukkende thoraxpijn uitstralend naar de linkerarm, zweten, misselijkheid. Meest waarschijnlijke diagnose?',
     a:['STEMI','Longembolie','Aortadissectie','Pancreatitis'], c:0,
     ex:'Klassieke STEMI-presentatie: drukkende pijn, uitstraling, vegetatieve verschijnselen. Directe PCI binnen 90 min.',
-    wiki:{ kern:'STEMI (ST-elevatie myocardinfarct) is een acuut hartinfarct door complete afsluiting van een coronairarterie. Elke minuut vertraging = meer myocardschade. Het hart heeft slechts 20-40 minuten voordat irreversibele necrose begint.', mechanisme:'Atherosclerotische plaque ruptureert → bloedplaatjes aggregeren → trombus sluit coronairarterie volledig af → transmuraal infarct (volle dikte van hartspier). ST-elevatie op ECG = transmuraal letsel. Vrijkomen troponine/CK-MB bevestigt necrose.', onderscheid:'NSTEMI: geen ST-elevatie, partiële occlusie, troponine verhoogd. Pericarditis: diffuse saddle-shape ST, pleuritische pijn. Longembolie: rechterbelastingspatroon (S1Q3T3), geen regionale ST-elevatie. Aortadissectie: verscheurende pijn, bloeddrukasymmetrie — trombolyse is dan fataal!', therapie:'"MONA": Morfine (pijn), Zuurstof (bij SpO₂<94%), Nitro (bij stabiele BD), Aspirine 300 mg + P2Y12-remmer (ticagrelor). Urgente PCI binnen 90 min. Heparine bridging. Bij PCI niet beschikbaar: trombolyse <30 min na deur. Daarna: statine, bètablokker, ACE-remmer.' } },
+    wiki:{
+      kern: 'Acuut hartinfarct door complete afsluiting van een coronairarterie. Elke minuut vertraging betekent meer irreversibel myocardverlies.',
+      bigfact: { num: '90\'', label: 'Deur-tot-ballon tijd', sub: 'Maximale tijd van aankomst SEH tot opening coronairarterie via PCI.' },
+      redflag: 'Vrouwen en diabetici presenteren atypisch — misselijkheid en moeheid zónder thoraxpijn.',
+      mechanisme: [
+        { title: 'Plaque ruptuur', desc: 'Atherosclerotische plaque scheurt open, subendotheliaal collageen wordt blootgesteld.' },
+        { title: 'Trombusvorming', desc: 'Bloedplaatjes aggregeren op de ruptuurplek en sluiten de arterie volledig af.' },
+        { title: 'Transmuraal infarct', desc: 'Volledige dikte hartspier wordt necrotisch — ST-elevatie op ECG, troponine stijgt na 3–6u.' },
+        { title: 'Irreversibele schade', desc: 'Begint al na 20–40 minuten. Elke minuut ≈ 2g myocard verloren.' },
+      ],
+      mnemonic: { word: 'MONA', items: ['M — Morfine (pijn)', 'O — Oxygen (SpO₂ <94%)', 'N — Nitro (stabiele BD)', 'A — Aspirine 300 mg + P2Y12'] },
+      onderscheid: [
+        { label: 'STEMI', desc: 'ST-elevatie in ≥2 aangrenzende afleidingen, regionale verdeling. Directe PCI.', type: 'ok' },
+        { label: 'Aortadissectie', desc: 'Trombolyse is hier fataal — altijd uitsluiten bij asymmetrie en scheurende pijn.', type: 'danger' },
+        { label: 'NSTEMI', desc: 'Geen ST-elevatie maar troponine wél verhoogd. PCI binnen 24–72u.', type: 'warn' },
+        { label: 'Pericarditis', desc: 'Diffuse saddle-shape ST-elevatie, pijn erger bij liggen, geen regionale verdeling.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Directe PCI binnen 90 minuten — dit is de enige maatstaf die telt.',
+        stappen: [
+          { naam: 'Dubbele plaatjesremming', detail: 'Aspirine 300 mg + ticagrelor 180 mg direct bij aankomst.' },
+          { naam: 'Heparine IV', detail: 'Bridging tot PCI — voorkomt verdere trombusgroei.' },
+          { naam: 'Geen PCI beschikbaar?', detail: 'Trombolyse binnen 30 minuten na aankomst als alternatief.' },
+          { naam: 'Secundaire preventie', detail: 'Statine + bètablokker + ACE-remmer — altijd na ontslag.' },
+        ],
+      },
+    },
+  },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'ECG: geen P-toppen, irregulair ritme met "zagtand" baseline. Frequentie 150/min. Diagnose?',

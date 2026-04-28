@@ -1,4 +1,4 @@
-const CACHE = 'medduel-v52';
+const CACHE = 'medduel-v53';
 const ASSETS = [
   '/',
   '/index.html',

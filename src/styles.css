@@ -1159,27 +1159,287 @@ h1.logo em {
   line-height: 1.75;
   margin-bottom: 2rem;
 }
-.wiki-block {
-  margin-bottom: 1.1rem;
-  padding: 0.85rem 1rem;
-  background: var(--cream);
-  border-radius: 12px;
-  border-left: 3px solid var(--pulse);
+/* ── Wiki Tabs ── */
+.wiki-tab-nav {
+  flex-shrink: 0;
+  padding: 12px 0 0;
 }
-.wiki-block:last-child { margin-bottom: 2rem; }
-.wiki-label {
+.wiki-tab-labels {
+  display: flex;
+}
+.wiki-tab-label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-light);
+  cursor: pointer;
+  padding-bottom: 10px;
+  transition: color 0.2s;
+  user-select: none;
+  font-family: 'DM Sans', sans-serif;
+}
+.wiki-tab-label.active {
+  color: var(--ink);
+  font-weight: 600;
+}
+.wiki-tab-underline-track {
+  height: 2px;
+  background: var(--cream-dark);
+  border-radius: 1px;
+  position: relative;
+  margin: 0 0 2px;
+}
+.wiki-tab-underline-pill {
+  position: absolute;
+  height: 2px;
+  background: var(--pulse);
+  border-radius: 1px;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  top: 0;
+}
+.wiki-panels-viewport {
+  overflow: hidden;
+  flex: 1;
+  min-height: 200px;
+}
+.wiki-panels-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.wiki-panel {
+  min-width: 100%;
+  overflow-y: auto;
+  padding: 14px 0 60px;
+  scrollbar-width: none;
+}
+.wiki-panel::-webkit-scrollbar { display: none; }
+
+/* Kern */
+.wiki-kern-lede {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.6;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cream-dark);
+  margin-bottom: 14px;
+}
+.wiki-bigfact {
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.wiki-bigfact-num {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--pulse);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.wiki-bigfact-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.wiki-bigfact-sub {
+  font-size: 12px;
+  color: var(--ink-light);
+  line-height: 1.4;
+}
+.wiki-redflag {
+  background: rgba(232, 74, 74, 0.06);
+  border: 1px solid rgba(232, 74, 74, 0.2);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.wiki-redflag-dot {
+  width: 7px;
+  height: 7px;
+  background: #E84A4A;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.wiki-redflag-text {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* Mechanisme */
+.wiki-mech-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.wiki-mech-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.wiki-mech-num {
+  width: 26px;
+  height: 26px;
+  background: var(--ink);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wiki-mech-line {
+  width: 1.5px;
+  flex: 1;
+  background: var(--cream-dark);
+  margin: 4px 0;
+  min-height: 16px;
+}
+.wiki-mech-body {
+  padding: 2px 0 18px;
+  flex: 1;
+}
+.wiki-mech-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.wiki-mech-desc {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.wiki-mnemonic {
+  background: rgba(79, 70, 229, 0.07);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-top: 4px;
+}
+.wiki-mnemonic-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--pulse);
-  margin-bottom: 0.35rem;
+  color: #6D5FB5;
+  margin-bottom: 10px;
 }
-.wiki-block p {
-  font-size: 14px;
+.wiki-mnemonic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.wiki-mnemonic-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.wiki-mnemonic-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #4F46E5;
+  line-height: 1;
+  min-width: 14px;
+  flex-shrink: 0;
+}
+.wiki-mnemonic-word {
+  font-size: 12.5px;
+  color: #312E81;
+  line-height: 1.4;
+  padding-top: 3px;
+}
+
+/* Onderscheid */
+.wiki-diff-item {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--cream-dark);
+  display: grid;
+  grid-template-columns: 3px 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+.wiki-diff-item:last-child { border-bottom: none; }
+.wiki-diff-stripe { border-radius: 2px; }
+.wiki-diff-stripe.ok     { background: var(--green); }
+.wiki-diff-stripe.warn   { background: var(--amber); }
+.wiki-diff-stripe.danger { background: #E84A4A; }
+.wiki-diff-name {
+  font-size: 13px;
+  font-weight: 600;
   color: var(--ink);
-  line-height: 1.65;
-  margin: 0;
+  margin-bottom: 2px;
+}
+.wiki-diff-name.ok     { color: #1A5C38; }
+.wiki-diff-name.danger { color: #B83030; }
+.wiki-diff-desc {
+  font-size: 12.5px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* Behandeling */
+.wiki-treat-urgent {
+  background: var(--ink);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.wiki-treat-urgent-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 5px;
+}
+.wiki-treat-urgent-text {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.45;
+}
+.wiki-treat-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.wiki-treat-row:last-child { border-bottom: none; }
+.wiki-treat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pulse);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.wiki-treat-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.wiki-treat-detail {
+  font-size: 12.5px;
+  color: var(--ink-mid);
+  line-height: 1.4;
 }
 .fact-close-btn {
   background: var(--ink);

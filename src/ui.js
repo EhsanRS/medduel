@@ -45,6 +45,145 @@ function updateStarBtn() {
   btn.classList.toggle('starred', saved);
 }
 
+// ── Wiki Tabs ──
+function renderWikiTabs(w) {
+  const tabs = ['Kern', 'Mechanisme', 'Onderscheid', 'Behandeling'];
+
+  const bigfactHTML = w.bigfact ? `
+    <div class="wiki-bigfact">
+      <div class="wiki-bigfact-num">${w.bigfact.num}</div>
+      <div class="wiki-bigfact-body">
+        <div class="wiki-bigfact-label">${w.bigfact.label}</div>
+        <div class="wiki-bigfact-sub">${w.bigfact.sub}</div>
+      </div>
+    </div>` : '';
+
+  const kernHTML = `
+    <div class="wiki-panel active" id="wiki-panel-kern">
+      <div class="wiki-kern-lede">${w.kern}</div>
+      ${bigfactHTML}
+      ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-dot"></div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
+    </div>`;
+
+  const mechSteps = (w.mechanisme || []).map((s, i, arr) => `
+    <div class="wiki-mech-step">
+      <div class="wiki-mech-left">
+        <div class="wiki-mech-num">${i + 1}</div>
+        ${i < arr.length - 1 ? '<div class="wiki-mech-line"></div>' : ''}
+      </div>
+      <div class="wiki-mech-body">
+        <div class="wiki-mech-title">${s.title}</div>
+        <div class="wiki-mech-desc">${s.desc}</div>
+      </div>
+    </div>`).join('');
+
+  const mnemonicHTML = w.mnemonic ? `
+    <div class="wiki-mnemonic">
+      <div class="wiki-mnemonic-label">Geheugensteuntje</div>
+      <div class="wiki-mnemonic-grid">
+        ${w.mnemonic.items.map(item => `
+          <div class="wiki-mnemonic-item">
+            <div class="wiki-mnemonic-letter">${item[0]}</div>
+            <div class="wiki-mnemonic-word">${item.slice(4)}</div>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  const mechHTML = `
+    <div class="wiki-panel" id="wiki-panel-mechanisme">
+      ${mechSteps}
+      ${mnemonicHTML}
+    </div>`;
+
+  const diffItems = (w.onderscheid || []).map(d => `
+    <div class="wiki-diff-item">
+      <div class="wiki-diff-stripe ${d.type || 'warn'}"></div>
+      <div class="wiki-diff-body">
+        <div class="wiki-diff-name ${d.type || ''}">${d.label}</div>
+        <div class="wiki-diff-desc">${d.desc}</div>
+      </div>
+    </div>`).join('');
+
+  const diffHTML = `
+    <div class="wiki-panel" id="wiki-panel-onderscheid">
+      ${diffItems}
+    </div>`;
+
+  const therapieStappen = w.therapie && w.therapie.stappen ? w.therapie.stappen.map(s => `
+    <div class="wiki-treat-row">
+      <div class="wiki-treat-dot"></div>
+      <div class="wiki-treat-body">
+        <div class="wiki-treat-name">${s.naam}</div>
+        <div class="wiki-treat-detail">${s.detail}</div>
+      </div>
+    </div>`).join('') : '';
+
+  const treatHTML = `
+    <div class="wiki-panel" id="wiki-panel-therapie">
+      ${w.therapie && w.therapie.urgent ? `
+        <div class="wiki-treat-urgent">
+          <div class="wiki-treat-urgent-label">Prioriteit</div>
+          <div class="wiki-treat-urgent-text">${w.therapie.urgent}</div>
+        </div>` : ''}
+      ${therapieStappen}
+    </div>`;
+
+  const tabLabels = tabs.map((t, i) => `
+    <div class="wiki-tab-label${i === 0 ? ' active' : ''}" data-tab="${t.toLowerCase()}">${t}</div>`
+  ).join('');
+
+  return `
+    <div class="wiki-tab-nav">
+      <div class="wiki-tab-labels">${tabLabels}</div>
+      <div class="wiki-tab-underline-track">
+        <div class="wiki-tab-underline-pill" id="wikiUnderlinePill"></div>
+      </div>
+    </div>
+    <div class="wiki-panels-viewport">
+      <div class="wiki-panels-track" id="wikiPanelsTrack">
+        ${kernHTML}
+        ${mechHTML}
+        ${diffHTML}
+        ${treatHTML}
+      </div>
+    </div>`;
+}
+
+function initWikiTabs() {
+  const labels = document.querySelectorAll('.wiki-tab-label');
+  const track = document.getElementById('wikiPanelsTrack');
+  const pill = document.getElementById('wikiUnderlinePill');
+  if (!labels.length || !track || !pill) return;
+
+  let currentTab = 0;
+
+  function goTab(idx) {
+    labels.forEach((l, i) => l.classList.toggle('active', i === idx));
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    const trackW = pill.parentElement.offsetWidth;
+    pill.style.width = (trackW / 4) + 'px';
+    pill.style.left = (idx * trackW / 4) + 'px';
+    document.querySelectorAll('.wiki-panel')[idx].scrollTop = 0;
+    currentTab = idx;
+  }
+
+  labels.forEach((label, i) => {
+    label.onclick = () => goTab(i);
+  });
+
+  let startX = 0;
+  const vp = track.parentElement;
+  vp.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  vp.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) {
+      goTab(Math.max(0, Math.min(3, currentTab + (dx < 0 ? 1 : -1))));
+    }
+  });
+
+  setTimeout(() => goTab(0), 50);
+}
+
 // ── Fact modal ──
 function openFactModal() {
   if (!currentFact) return;
@@ -70,12 +209,8 @@ function openFactModal() {
   const exEl = document.getElementById('factModalEx');
   if (currentFact.wiki) {
     const w = currentFact.wiki;
-    exEl.innerHTML = [
-      w.kern        && `<div class="wiki-block"><div class="wiki-label">Kern</div><p>${w.kern}</p></div>`,
-      w.mechanisme  && `<div class="wiki-block"><div class="wiki-label">Hoe ontstaat het?</div><p>${w.mechanisme}</p></div>`,
-      w.onderscheid && `<div class="wiki-block"><div class="wiki-label">Onderscheid</div><p>${w.onderscheid}</p></div>`,
-      w.therapie    && `<div class="wiki-block"><div class="wiki-label">Behandeling</div><p>${w.therapie}</p></div>`,
-    ].filter(Boolean).join('');
+    exEl.innerHTML = renderWikiTabs(w);
+    setTimeout(() => initWikiTabs(), 0);
   } else {
     exEl.className = 'fact-explanation';
     exEl.textContent = currentFact.ex || '';
