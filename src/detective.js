@@ -226,7 +226,16 @@ function sdPickInvestigation(id) {
 
   SD.lastResult = inv;
   SD.phase = 'result-shown';
+  sdShowScorePop(inv.points);
   renderSpeurdokterResult(inv);
+}
+
+function sdShowScorePop(pts) {
+  const el = document.createElement('div');
+  el.className = 'sd-score-pop ' + (pts > 0 ? 'pos' : 'neg');
+  el.textContent = pts > 0 ? `+${pts}` : `${pts}`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 900);
 }
 
 // ── Result screen ─────────────────────────────────────────────
