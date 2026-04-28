@@ -928,10 +928,27 @@ const QUESTIONS = [
     a:['STEMI','Pericarditis','Longembolie','Aortadissectie'], c:1,
     ex:'Pericarditis: pleuritische pijn (scherp, houdingsafhankelijk), pericardiaal wrijfgeruis, diffuse saddle-shape ST-elevatie. Oorzaak vaak viraal. Behandeling: ibuprofen + colchicine. Complicatie: pericarditamp.',
     wiki: {
-      kern: 'Pericarditis is een ontsteking van het hartzakje (pericard). De typische pijn is scherp en pleuritisch: erger bij inademen en platliggen, beter voorovergebogen zitten (vermindert druk op het pericard). Oorzaak is in 80-90% viraal (Coxsackie, EBV, CMV).',
-      mechanisme: 'Ontsteking van het pericard → ruwheid van de gladde perikardiale lagen → wrijfgeruis bij auscultatie (kenmerkend!). Als er vocht accumuleert wordt het geruis zachter maar neemt het risico op tamponnade toe. ECG: saddle-shape ST-elevatie diffuus (niet gelokaliseerd zoals STEMI) + PR-depressie.',
-      onderscheid: 'STEMI: ST-elevatie gelokaliseerd per coronairgebied, reciproke afwijkingen, ernstige pijn met uitstraling, geen houdinssafhankelijkheid. Longembolie: pleuritische pijn + dyspneu, normale of S1Q3T3 op ECG. Myocarditis: ook post-viraal maar troponine sterk verhoogd, pijn minder uitgesproken.',
-      therapie: 'Ibuprofen 600 mg 3x/dag + colchicine 0,5 mg 2x/dag gedurende 3 maanden (voorkomt recidieven). Rust bij actieve pericarditis. Recidief: corticosteroïden als NSAID faalt. Cave: tamponnade → pericardiocentese spoedmatig. Bij bacteriële oorzaak: antibiotica + drainage.',
+      kern: 'Pericarditis is een ontsteking van het hartzakje. De pijn is scherp en pleuritisch — erger bij inademen en platliggen, beter voorovergebogen zitten. Oorzaak is in 80-90% viraal (Coxsackie, EBV, CMV).',
+      redflag: 'Tamponnade: als vocht snel accumuleert kan 200 ml al fataal zijn — Beck\'s triade: hypotensie + gestuwd halsvenen + gedempte harttonen.',
+      mechanisme: [
+        { title: 'Perikardontsteking', desc: 'Ontsteking maakt de perikardiale lagen ruw → wrijfgeruis bij auscultatie (kenmerkend, "kraakachtig leer").' },
+        { title: 'ECG-patroon', desc: 'Diffuse saddle-shape ST-elevatie (alle afleidingen) + PR-depressie — in tegenstelling tot STEMI geen regionale verdeling en geen reciproke ST-depressie.' },
+        { title: 'Vochtaccumulatie', desc: 'Sterker ontstoken pericard produceert exsudaat → pericardeffusie → geruis verdwijnt maar tamponnade-risico neemt toe.' },
+      ],
+      onderscheid: [
+        { label: 'Pericarditis', desc: 'Scherpe houdingsafhankelijke pijn, diffuse saddle-shape ST + PR-depressie, pijn beter voorovergebogen, wrijfgeruis.', type: 'ok' },
+        { label: 'STEMI', desc: 'Gelokaliseerde ST-elevatie (regionale verdeling), reciproke depressies, drukkende pijn — geen houdingseffect.', type: 'danger' },
+        { label: 'Myocarditis', desc: 'Ook post-viraal maar troponine sterk verhoogd, pijn minder uitgesproken, diffuse LV-dysfunctie op echo.', type: 'warn' },
+        { label: 'Longembolie', desc: 'Pleuritische pijn + dyspneu, S1Q3T3 op ECG, D-dimeer verhoogd — geen saddle-shape ST.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Ibuprofen 600 mg 3×/dag + colchicine 0,5 mg 2×/dag — start direct, gedurende 3 maanden (recidief-preventie).',
+        stappen: [
+          { naam: 'Rust', detail: 'Geen inspanning tot 3 maanden klachtenvrij — sport verhoogt aritmierisico bij actieve perikardontsteking.' },
+          { naam: 'Recidief', detail: 'Corticosteroïden als NSAID + colchicine falen — terughoudend inzetten (hogere recidiefkans bij afbouwen).' },
+          { naam: 'Tamponnade', detail: 'Pericardiocentese spoedmatig bij hemodynamisch compromis (echo-geleid, subxifoidale toegang).' },
+        ],
+      },
     } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
@@ -947,9 +964,10 @@ const QUESTIONS = [
             { title: "Stap 4", desc: "compensatoire tachycardie en perifere vasoconstrictie. Kenmerkend: pulsus paradoxus (BD-daling >10 mmHg tijdens inspiratie) door wedijvering LV/RV om vulling." },
           ],
           onderscheid: [
-            { label: "RV-infarct", desc: "ook lage BD + hoge CVD maar géén gedempte harttonen, ECG-afwijkingen.", type: 'ok' },
-            { label: "Spanningspneumothorax", desc: "ook gedaalde BD + gestuwd CVD maar eenzijdig verminderd ademgeruis, trachea-deviatie.", type: 'warn' },
-            { label: "Hartfalen", desc: "geen plotse deterioratie, wél longoedeem.", type: 'danger' },
+            { label: 'Harttamponnade', desc: 'Beck\'s triade: hypotensie + gestuwd halsvenen + gedempte harttonen. Pulsus paradoxus >10 mmHg. Echo: vrije vloeistof + RV-collaps diastole.', type: 'ok' },
+            { label: 'RV-infarct', desc: 'Ook lage BD + hoge CVD maar géén gedempte harttonen, ST-elevatie in V4R, geen pericardeffusie op echo.', type: 'warn' },
+            { label: 'Spanningspneumothorax', desc: 'Ook lage BD + gestuwd CVD maar eenzijdig afwezig ademgeruis, hypersonore percussie, trachea deviatie.', type: 'danger' },
+            { label: 'Cardiogene shock', desc: 'Koude extremiteiten + longoedeem + lage BD maar geen gestuwd halsvenen of gedempte harttonen.', type: 'warn' },
           ],
           therapie: {
             urgent: "Pericardiocentese spoedmatig: naald subxifoidaal, echo-geleide drainage.",
@@ -977,9 +995,10 @@ const QUESTIONS = [
             { title: "Stap 3", desc: "diastolische dysfunctie." },
           ],
           onderscheid: [
-            { label: "HOCM", desc: "ook systolisch geruis + syncope bij jongeren maar geruis neemt tóé bij Valsalva (anders dan aortastenose).", type: 'ok' },
-            { label: "Mitralisinsufficiëntie", desc: "geruis holosystolisch, uitstralend naar oksel.", type: 'warn' },
-            { label: "Hypertensieve cardiomyopathie", desc: "geen geruis, echte klepafwijking ontbreekt.", type: 'danger' },
+            { label: 'Ernstige aortastenose', desc: 'AV-oppervlak <1,0 cm², klassieke triade syncope + angina + dyspneu, geruis rechts parasternaal, uitstralend naar hals.', type: 'ok' },
+            { label: 'HOCM', desc: 'Ook syncope + geruis bij jongeren maar geruis neemt tóé bij Valsalva (verminderde vulling). Geruis aortastenose neemt áf bij Valsalva.', type: 'warn' },
+            { label: 'Mitralisinsufficiëntie', desc: 'Holosystolisch geruis, uitstralend naar oksel, apex maximaal.', type: 'warn' },
+            { label: 'Pulmonale hypertensie', desc: 'Dyspneu + syncope maar luide P2, geen uitdrijvingsgeruis rechts parasternaal.', type: 'danger' },
           ],
           therapie: {
             urgent: "Aortaklepvervanging (chirurgisch of TAVI) is de enige curatieve behandeling.",
@@ -1005,11 +1024,10 @@ const QUESTIONS = [
             { title: "Stap 5", desc: "plotse blokkering. Derdegraads: geen enkele prikkel door." },
           ],
           onderscheid: [
-            { label: "Eerstegraads", desc: "geen klinisch gevolg, vaak atleten of slaap.", type: 'ok' },
-            { label: "Wenckebach", desc: "benigne, typisch bij inferieur MI (RCA).", type: 'warn' },
-            { label: "Mobitz II", desc: "meer kans op progressie naar totaal blok → pacemaker-indicatie.", type: 'danger' },
-            { label: "Derdegraads bij inferieur MI", desc: "tijdelijk, junctionaal escape.", type: 'warn' },
-            { label: "Derdegraads bij anterieur MI", desc: "venticulair escape, slecht teken — urgent pacemaker.", type: 'warn' },
+            { label: 'Wenckebach (Mobitz I)', desc: 'Progressief verlengend PR → QRS-uitval → reset. Benigne, typisch bij inferieur MI (RCA-ischemie AV-knoop), ook bij verhoogde vagustonus.', type: 'ok' },
+            { label: 'Eerstegraads AV-blok', desc: 'PR >200 ms maar elke P geleidt naar QRS. Asymptomatisch, geen behandeling bij atleten of vaguseffect.', type: 'warn' },
+            { label: 'Mobitz II', desc: 'Constant PR tot plotse QRS-uitval — structurele His-bundelschade, kans op totaal blok → urgente pacemaker.', type: 'danger' },
+            { label: 'Totaal (derdegraads) AV-blok', desc: 'P en QRS volledig ontkoppeld — urgente pacemaker altijd geïndiceerd.', type: 'warn' },
           ],
           therapie: {
             urgent: "Eerstegraads: geen.",
@@ -1057,10 +1075,10 @@ const QUESTIONS = [
             { title: "Stap 4", desc: "pijn verdwijnt. Bij kritisch ischemie is flow onvoldoende voor het basale weefsel: necrose dreigt." },
           ],
           onderscheid: [
-            { label: "DVT", desc: "ook beenpijn maar zwelling + roodheid + D-dimeer positief, geen claudicatiepatroon.", type: 'ok' },
-            { label: "Spataderen", desc: "veneus, oppervlakkig, geen ischemie.", type: 'warn' },
-            { label: "Spinale stenose (neurogeen claudicatio)", desc: "verergert bij achteroverbuigen, verbetert bij vooroverbuigen en stoppen, ABI normaal.", type: 'danger' },
-            { label: "Diabetische neuropathie", desc: "branderig, \\'s nachts erger, geen verband met lopen.", type: 'warn' },
+            { label: 'PAV (claudicatio intermittens)', desc: 'Pijn bij lopen, verdwijnt snel in rust, ABI <0,9. Atherosclerose arteria femoralis superficialis (meest frequent).', type: 'ok' },
+            { label: 'DVT', desc: 'Zwelling, roodheid, D-dimeer positief — pijn is constant, geen claudicatiepatroon. ABI normaal.', type: 'warn' },
+            { label: 'Spinale stenose (neurogeen claudicatio)', desc: 'Pijn + uitstraling in rug en benen, verbetert bij vooroverbuigen en stoppen. ABI normaal — het grote onderscheid!', type: 'danger' },
+            { label: 'Diabetische neuropathie', desc: 'Brandende pijn, \'s nachts erger, geen directe relatie met loopafstand. ABI normaal of licht verlaagd.', type: 'warn' },
           ],
           therapie: {
             urgent: "Leefstijl: stoppen met roken (risico ×4), looptraining (evidence-based, vergelijkbaar met PTA).",
@@ -1991,10 +2009,10 @@ const QUESTIONS = [
             { title: "Stap 3", desc: "Adenosine kan VT omzetten in VF — gevaarlijk!." },
           ],
           onderscheid: [
-            { label: "SVT met bundeltakblok", desc: "zelfde brede QRS maar P-toppen gekoppeld aan QRS, herstelt met adenosine.", type: 'ok' },
-            { label: "Preëxcitatie-tachycardie (WPW)", desc: "delta-golf en korte PR in sinusritme.", type: 'warn' },
-            { label: "AVNRT", desc: "smalcomplex doorgaans, plotse start/stop.", type: 'danger' },
-            { label: "Artifakt", desc: "geen hemodynamische gevolgen, baseline-bewegingen rondom QRS.", type: 'warn' },
+            { label: 'Ventriculaire tachycardie (VT)', desc: 'Brede QRS >120 ms, frequentie 100-250/min, AV-dissociatie (pathognomonisch), fusion beats, Brugada-criteria positief. ALTIJD VT aannemen tot tegendeel bewezen.', type: 'ok' },
+            { label: 'SVT met bundeltakblok', desc: 'Ook breed QRS maar P-toppen gekoppeld aan QRS, herstelt met adenosine. Adenosine NIET geven als VT niet uitgesloten!', type: 'warn' },
+            { label: 'Pre-excitatie (WPW)', desc: 'Delta-golf + kort PR in sinusritme. AF bij WPW kan razendsnel worden — geen adenosine of verapamil.', type: 'danger' },
+            { label: 'Artifakt', desc: 'Geen hemodynamische gevolgen, chaotische baseline buiten het "QRS"-gebied, patiënt voelt niks.', type: 'warn' },
           ],
           therapie: {
             urgent: "Hemodynamisch instabiel: onmiddellijke gesynchroniseerde DC-cardioversie.",
@@ -2157,9 +2175,10 @@ const QUESTIONS = [
             { title: "Stap 4", desc: "embolisatie naar hersenen of andere organen. Dit verklaard waarom anticoagulatie de hoeksteen is van de behandeling." },
           ],
           onderscheid: [
-            { label: "Atriumflutter", desc: "regelmatig ritme ~150/min, zaagvormige F-golven in II/III/aVF.", type: 'ok' },
-            { label: "Sinustachycardie", desc: "regelmatig, duidelijke P-top voor elk QRS.", type: 'warn' },
-            { label: "AVNRT", desc: "paroxysmaal, regelmatig, plotse start/stop, P verborgen in QRS.", type: 'danger' },
+            { label: 'Atriumfibrilleren', desc: 'Absoluut irregulair RR-ritme, geen P-toppen, chaotische fibrillatiebasisline. Anticoagulatie op basis van CHA₂DS₂-VASc-score.', type: 'ok' },
+            { label: 'Atriumflutter', desc: 'Regelmatig ~150/min, zaagvormige F-golven in II/III/aVF, carotismassage maakt F-golven zichtbaar.', type: 'warn' },
+            { label: 'Sinustachycardie', desc: 'Regelmatig, duidelijke P-top vóór elk QRS, frequentie varieert met ademhaling.', type: 'warn' },
+            { label: 'AVNRT', desc: 'Paroxysmaal, regelmatig smalcomplex, plotse start/stop, P verborgen in of net achter QRS.', type: 'danger' },
           ],
         } },
 
@@ -2178,9 +2197,10 @@ const QUESTIONS = [
             { title: "Stap 5", desc: "ST-elevatie. Reciproke depressie in de voorwandafleidingen (I, aVL) bevestigt de localiteit. Na occlussie: ischemie (minuten)." },
           ],
           onderscheid: [
-            { label: "Pericarditis", desc: "saddle-shape ST-elevatie in alle afleidingen, PR-depressie, pleuritische pijn.", type: 'ok' },
-            { label: "NSTEMI", desc: "geen ST-elevatie, troponine stijgt wel.", type: 'warn' },
-            { label: "Vroege repolarisatie", desc: "ook ST-elevatie maar concaaf (schotelvormig), geen klachten, jonge patiënten.", type: 'danger' },
+            { label: 'Inferieur STEMI (RCA-occlusie)', desc: 'ST-elevatie in II, III en aVF. Reciproke depressie in I en aVL. Altijd rechter-ECG (V4R) afnemen om RV-infarct uit te sluiten.', type: 'ok' },
+            { label: 'Pericarditis', desc: 'Diffuse saddle-shape ST-elevatie in álle afleidingen, PR-depressie, geen reciproke depressies, houdingsafhankelijke pijn.', type: 'warn' },
+            { label: 'NSTEMI', desc: 'Geen ST-elevatie, wél troponine verhoogd. ST-depressie en T-inversie mogelijk.', type: 'warn' },
+            { label: 'Vroege repolarisatie', desc: 'Concave (schaalvormige) ST-elevatie bij jonge patiënten zonder klachten — benigne variant.', type: 'danger' },
           ],
         } },
 
@@ -2197,9 +2217,10 @@ const QUESTIONS = [
             { title: "Stap 3", desc: "Verhouding beschrijft hoeveel P/QRS per periode." },
           ],
           onderscheid: [
-            { label: "Mobitz II", desc: "constant PR tot plotse uitval — schade aan de His-bundel, ernstiger, kan plots totaal blok geven → pacemaker-indicatie.", type: 'ok' },
-            { label: "Derdegraads", desc: "alle P-toppen worden geblokkeerd, P en QRS volledig ontkoppeld.", type: 'warn' },
-            { label: "Eerstegraads", desc: "verlengd PR maar altijd geleiding.", type: 'danger' },
+            { label: 'Wenckebach (Mobitz I)', desc: 'Progressief langer PR → QRS-uitval → reset. Benigne, AV-knoodfenomeen, typisch bij inferieur MI of digoxine-toxiciteit.', type: 'ok' },
+            { label: 'Mobitz II', desc: 'Constant PR-interval tot plotse QRS-uitval — His-bundelschade, ernstiger, kan snel totaal blok geven → pacemaker indicatie.', type: 'danger' },
+            { label: 'Eerstegraads AV-blok', desc: 'PR >200 ms maar elke P geleidt → asymptomatisch, geen behandeling nodig.', type: 'warn' },
+            { label: 'Derdegraads AV-blok', desc: 'P en QRS volledig ontkoppeld, ventriculair escape-ritme ~35/min — urgente pacemaker altijd.', type: 'warn' },
           ],
         } },
 
@@ -2215,10 +2236,10 @@ const QUESTIONS = [
             { title: "Stap 2", desc: "Het escape-ritme is laag en onbetrouwbaar → synkope, hemodynamische collaps." },
           ],
           onderscheid: [
-            { label: "Wenckebach", desc: "sommige P-golven geleid, PR progressief verlengd.", type: 'ok' },
-            { label: "Mobitz II", desc: "sommige P-golven geblokkeerd maar constante PR.", type: 'warn' },
-            { label: "Sinusbradycardie", desc: "langzaam maar P en QRS altijd gekoppeld.", type: 'danger' },
-            { label: "AV-dissociatie", desc: "overkoepelende term voor iedere toestand waarbij P en QRS niet gekoppeld zijn (incl. derdegraads blok).", type: 'warn' },
+            { label: 'Totaal (derdegraads) AV-blok', desc: 'P-toppen (~75/min) en QRS-escape-ritme (~35/min) volledig ontkoppeld — geen enkele atriale prikkel bereikt de ventrikels. Urgente pacemaker.', type: 'ok' },
+            { label: 'Wenckebach (Mobitz I)', desc: 'Sommige P-golven geleid, PR progressief verlengd → QRS-uitval → reset. Benigne.', type: 'warn' },
+            { label: 'Mobitz II', desc: 'Constant PR tot plotse QRS-uitval — ook ernstig maar P-QRS-relatie bestaat nog.', type: 'warn' },
+            { label: 'Sinusbradycardie', desc: 'Traag maar P en QRS altijd gecorreleerd met normaal PR-interval.', type: 'danger' },
           ],
         } },
 
@@ -5002,10 +5023,10 @@ const QUESTIONS = [
             { title: "Stap 5", desc: "verlaagd HMV." },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "Regulier smalcomplex-tachycardie = SVT/flutter.", type: 'ok' },
-            { label: "Optie 2", desc: "Regulier breecomplex = VT of SVT+bundeltakblok.", type: 'warn' },
-            { label: "Optie 3", desc: "Irregulier smalcomplex = AF (meest waarschijnlijk).", type: 'danger' },
-            { label: "Optie 4", desc: "Irregulier breecomplex = AF+bundeltakblok of polymorf VT.", type: 'warn' },
+            { label: 'Atriumfibrillatie (AF)', desc: 'Absoluut irregulair smalcomplex ritme, geen P-toppen, chaotische fibrillatiegolven. Frequentie 100-160/min ongecontroleerd.', type: 'ok' },
+            { label: 'Atriumflutter', desc: 'Regelmatig ~150/min, zaagvormige F-golven in II/III/aVF — carotismassage onthult de flutter-golven.', type: 'warn' },
+            { label: 'AVNRT / SVT', desc: 'Regelmatig smalcomplex, plotse start/stop — P verborgen in QRS.', type: 'warn' },
+            { label: 'AF met bundeltakblok', desc: 'Irregulier maar breed QRS — kan op VT lijken. Polymorf VT bij QTc-verlenging.', type: 'danger' },
           ],
           therapie: {
             urgent: "Acuut hemodynamisch instabiel: elektrische cardioversie.",
@@ -5033,9 +5054,10 @@ const QUESTIONS = [
             { title: "Stap 5", desc: "Q-golf (uren)." },
           ],
           onderscheid: [
-            { label: "NSTEMI", desc: "geen ST-elevatie, wel troponine positief.", type: 'ok' },
-            { label: "UA", desc: "geen troponinestijging.", type: 'warn' },
-            { label: "Vroeg STEMI vs pericarditis → pericarditis", desc: "diffuus, concaaf, geen Q-golf, PR-depressie.", type: 'danger' },
+            { label: 'STEMI', desc: 'ST-elevatie ≥1 mm in ≥2 contiguë afleidingen (≥2 mm in V1-V3), hyperacute T-toppen in vroeg stadium. Directe PCI <90 minuten.', type: 'ok' },
+            { label: 'Pericarditis', desc: 'Diffuse saddle-shape ST-elevatie + PR-depressie in álle afleidingen — geen regionale verdeling, geen reciproke depressies.', type: 'warn' },
+            { label: 'NSTEMI', desc: 'Geen ST-elevatie maar troponine stijgt wél. ST-depressie en T-inversie als ECG-tekenen.', type: 'warn' },
+            { label: 'Vroege repolarisatie', desc: 'Concave ST-elevatie bij jonge patiënten zonder klachten — benigne bevinding.', type: 'danger' },
           ],
           therapie: {
             urgent: "Primaire PCI: gouden standaard <12u na symptomen.",
@@ -5063,10 +5085,10 @@ const QUESTIONS = [
             { title: "Stap 4", desc: "breed genofd QRS in laterale afleidingen." },
           ],
           onderscheid: [
-            { label: "RBTB", desc: "rSR\\' in V1, breed S in I/V6.", type: 'ok' },
-            { label: "LBTB", desc: "geen Q in lateraal, M-patroon in I/V6, diepe S in V1.", type: 'warn' },
-            { label: "Incompleet", desc: "QRS 110-120ms.", type: 'danger' },
-            { label: "WPW", desc: "delta-golf (preëxcitatie), kort PR.", type: 'warn' },
+            { label: 'LBTB (linker bundeltakblok)', desc: 'QRS >120 ms, breed genofd M-patroon in I/aVL/V5-V6, geen initiële Q in I/V6, rS of QS in V1. Discordante ST-T-veranderingen.', type: 'ok' },
+            { label: 'RBTB (rechter bundeltakblok)', desc: 'rSR\'-patroon in V1 ("konijnenoren"), breed S in I/V6. Incomplete RBTB: QRS 110-120 ms.', type: 'warn' },
+            { label: 'WPW', desc: 'Delta-golf (preëxcitatie begin QRS), kort PR <120 ms — gevaar bij AF (razendsnelle geleiding).', type: 'danger' },
+            { label: 'Ventriculaire hypertrofie', desc: 'Breed QRS niet aanwezig — wel amplitude-criteria en repolarisatieafwijkingen.', type: 'warn' },
           ],
           therapie: {
             urgent: "LBTB op zichzelf geen behandeling nodig.",
@@ -5093,8 +5115,10 @@ const QUESTIONS = [
             { title: "Stap 4", desc: "ventrikels via eigen escape-pacemaker. Junctioneel escape: 40-60/min, smal QRS. Ventriculair escape: 20-40/min, breed QRS. Hemodynamisch instabiel door laag HMV." },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "AV-dissociatie ≠ altijd 3e graads AV-blok (ook bij VT of isorhythmische dissociatie). 3e graads: atria sneller dan ventrikels, volledig onafhankelijk.", type: 'ok' },
-            { label: "Sinusbradycardie", desc: "elke P gevolgd door QRS.", type: 'warn' },
+            { label: 'Totaal (derdegraads) AV-blok', desc: 'P-golven en QRS volledig ontkoppeld. Atria sneller dan ventrikels. Ventriculair escape-ritme 20-40/min (breed QRS) of junctionaal 40-60/min (smal QRS).', type: 'ok' },
+            { label: 'Sinusbradycardie', desc: 'Traag maar P en QRS altijd gekoppeld met constant PR-interval.', type: 'warn' },
+            { label: 'Wenckebach (Mobitz I)', desc: 'Sommige P-golven geblokkeerd maar geleidde P-golven hebben een vaste P-QRS-relatie (progressief verlengend PR).', type: 'warn' },
+            { label: 'Junctioneel escape-ritme', desc: 'Ventrikelritme 40-60/min met smal QRS — bij totaal blok op AV-knoop-niveau. Ventriculair escape (breed QRS) bij lager blok.', type: 'danger' },
           ],
           therapie: {
             urgent: "Acuut: transcutane pacemaker of isoprenaline infuus als overbrugging.",
@@ -5228,9 +5252,10 @@ const QUESTIONS = [
             { title: "Stap 3", desc: "eerder positief." },
           ],
           onderscheid: [
-            { label: "Troponine niet specifiek voor ACS", desc: "ook verhoogd bij PE, myocarditis, hartfalen, sepsis, nierfalen, ablatie, cardioversie.", type: 'ok' },
-            { label: "Optie 2", desc: "Combineer met kliniek en ECG.", type: 'warn' },
-            { label: "Optie 3", desc: "HEART-score (History, ECG, Age, Risk factors, Troponin): risicostratificatie op SEH.", type: 'danger' },
+            { label: 'Tijdsverloop hs-troponine', desc: 'Stijgt na 1-3u, piek bij 12-24u, normaliseert na 5-14 dagen. Seriële meting (0/1h of 0/3h protocol) is essentieel voor de diagnose.', type: 'ok' },
+            { label: 'Andere oorzaken verhoogd troponine', desc: 'LE, myocarditis, hartfalen, sepsis, nierfalen, cardioversie — troponine is cardiospecifiek maar niet ACS-specifiek.', type: 'warn' },
+            { label: 'HEART-score', desc: 'History + ECG + Age + Risk factors + Troponin — risicostratificatie op SEH: score ≤3 laag risico, ≥7 hoog risico.', type: 'warn' },
+            { label: 'CK-MB', desc: 'Minder sensitief en specifiek dan hs-troponine — niet meer standaard bij ACS-diagnostiek.', type: 'danger' },
           ],
           therapie: {
             urgent: "Positief hs-troponine + klachten: rule-in ACS.",
@@ -5257,9 +5282,10 @@ const QUESTIONS = [
             { title: "Stap 5", desc: "aritmierisico. Hyperkaliëmie." },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "U-golf normaal aanwezig maar klein (<1mm, <T-golf).", type: 'ok' },
-            { label: "Prominent (>T) = pathologisch", desc: "hypokaliëmie, bradycardie, medicatie (digoxine, chinidine).", type: 'warn' },
-            { label: "QTc-verlenging", desc: "meet van begin Q tot einde T, corrigeer voor HF (Bazett-formule).", type: 'danger' },
+            { label: 'Hypokaliëmie', desc: 'Afgeplatte/geïnverteerde T-golven + prominente U-golven (>T-golf in V2-V3), QTc verlengd → risico torsades de pointes.', type: 'ok' },
+            { label: 'Hyperkaliëmie', desc: 'Hoge piekende T-golven (tent-shaped), breed QRS, verlengd PR, sinusgolf-patroon bij K+ >7 mmol/L.', type: 'danger' },
+            { label: 'Hypocalciëmie', desc: 'QTc verlenging (geen T-golvenverandering), risico ventrikelaritmieën.', type: 'warn' },
+            { label: 'Digoxine-effect', desc: 'Reversed tick ST-depressie, afgeplatte T, U-golf prominent — ook bradycardie en AV-geleidingsverlenging.', type: 'warn' },
           ],
           therapie: {
             urgent: "Hypokaliëmie: oraal kalium (KC1 retard) bij milde stoornis.",
