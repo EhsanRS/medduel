@@ -1163,6 +1163,10 @@ h1.logo em {
 .wiki-tab-nav {
   flex-shrink: 0;
   padding: 12px 0 0;
+  position: sticky;
+  top: 0;
+  background: var(--card);
+  z-index: 2;
 }
 .wiki-tab-labels {
   display: flex;
@@ -1200,8 +1204,7 @@ h1.logo em {
 }
 .wiki-panels-viewport {
   overflow: hidden;
-  flex: 1;
-  min-height: 200px;
+  height: 58vh;
 }
 .wiki-panels-track {
   display: flex;
