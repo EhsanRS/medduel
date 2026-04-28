@@ -43,95 +43,116 @@ const QUESTIONS = [
     a:['Atriumfibrilleren','Atriumflutter','Ventriculaire tachycardie','WPW-syndroom'], c:1,
     ex:'Atriumflutter: F-golven (zagtand), typisch regulier 2:1-blok → 150/min. AF is juist irregulair zonder F-golven.',
     wiki:{
-          kern: "Atriumflutter is een snel maar georganiseerd atriumritme (~300/min) door een re-entry circuit in het rechter atrium (typisch round the tricuspidalisklep). De AV-knoop geleidt niet elke prikkel door — typisch 2:1 blokkering → ventrikelfrequentie ~150/min, regelmatig.",
-          mechanisme: [
-            { title: "Stap 1", desc: "Grote re-entry lus in het rechteratrium (isthmusdependente flutter)." },
-            { title: "Stap 2", desc: "In tegenstelling tot AF zijn er herkenbare F-golven (zagtand) in afleidingen II, III, aVF en V1." },
-            { title: "Stap 3", desc: "Omdat het ritme regulier is, is het soms moeilijker te onderscheiden van sinustachycardie of AVNRT zonder carotismassage/adenosine." },
-          ],
-          onderscheid: [
-            { label: "AF", desc: "absoluut irregulaire respons, geen F-golven.", type: 'ok' },
-            { label: "Sinustachycardie", desc: "regelmatig, P-toppen aanwezig vóór elk QRS.", type: 'warn' },
-            { label: "AVNRT", desc: "plotse start/stop, P-toppen verborgen in of achter QRS.", type: 'danger' },
-            { label: "Volledig AV-blok met junctionaal escape", desc: "langzaam regulier ritme, P-toppen los van QRS.", type: 'warn' },
-          ],
-          therapie: {
-            urgent: "Frequentiecontrole: bètablokker of calciumantagonist.",
-            stappen: [
-              { naam: "Cardioversie", detail: "elektrisch (lage energie effectief bij flutter) of farmacologisch." },
-              { naam: "Catheterablatie", detail: "bij recidieven hoog succes (>95%) — curatief door onderbreken isthmus." },
-              { naam: "Anticoagulatie", detail: "zelfde als bij AF (tromboserisico)." },
-            ],
-          },
-        } },
+      kern: 'Atriumflutter is een georganiseerd re-entrycircuit in het rechteratrium (~300/min) met typisch 2:1 AV-blokkering → ventrikelfrequentie precies ~150/min, regelmatig.',
+      bigfact: { num: '150', label: 'Ventrikelfrequentie', sub: 'Regelmatig 150/min door 2:1 AV-blokkering — het "magische getal" dat aan flutter doet denken.' },
+      redflag: 'Een regelmatig ritme van precies 150/min is atriumflutter tot het tegendeel bewezen — niet sinustachycardie.',
+      mechanisme: [
+        { title: 'Re-entry circuit', desc: 'Elektrische impuls cirkelt in het rechteratrium via de cavotricuspidalisistmus (~300/min).' },
+        { title: 'F-golven', desc: 'Zagtandpatroon zichtbaar in II, III, aVF en V1 — kenmerkend negatief in onderwand-afleidingen.' },
+        { title: 'AV-blokkering', desc: 'AV-knoop geleidt niet elke impuls: typisch 2:1 → 150/min; bij medicatie 3:1 of 4:1.' },
+        { title: 'Carotismassage', desc: 'Verhoogt vagustonus → vertraagt AV-geleiding tijdelijk → F-golven worden zichtbaar.' },
+      ],
+      onderscheid: [
+        { label: 'Atriumflutter', desc: 'Regelmatig ~150/min, zagtand F-golven in II/III/aVF, onthult zich bij carotismassage.', type: 'ok' },
+        { label: 'Atriumfibrilleren', desc: 'Absoluut irregulair, geen F-golven, grillige basislijn — nooit precies 150/min.', type: 'warn' },
+        { label: 'Sinustachycardie', desc: 'Regelmatig maar P-toppen vóór elk QRS zichtbaar, frequentie varieert met ademhaling.', type: 'warn' },
+        { label: 'AVNRT', desc: 'Smalcomplex tachycardie, plotse start/stop, P-toppen verstopt in of net ná QRS.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Frequentiecontrole met bètablokker of non-DHP calciumantagonist (verapamil/diltiazem).',
+        stappen: [
+          { naam: 'Cardioversie', detail: 'Elektrisch effectief met lage energie (50J); flutter is makkelijker te cardioverteren dan AF.' },
+          { naam: 'Catheterablatie', detail: '>95% curatief succes door onderbreken cavotricuspidalisistmus — eerstekeus bij recidief.' },
+          { naam: 'Anticoagulatie', detail: 'Zelfde indicaties als AF (CHA₂DS₂-VASc) — tromboserisico is vergelijkbaar.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw van 68j: kortademig bij inspanning, bilateraal enkelloedeem, verhoogde CVD, crepitaties basaal. Diagnose?',
     a:['Longembolie','Decompensatio cordis','COPD-exacerbatie','Nefrotisch syndroom'], c:1,
     ex:'Decompensatio cordis: stuwing links (crepitaties, orthopneu) én rechts (enkels, verhoogde CVD). Onderscheid van COPD: let op verhoogde CVD en S3-gallopritme. Behandeling: furosemide IV + rechtopzitten + O₂.',
     wiki:{
-          kern: "Acuut hartfalen (decompensatio cordis) is het plotse onvermogen van het hart om voldoende bloed rond te pompen. Linksdecompensatie stuft vocht in de longen (orthopneu, nachtelijke dyspneu, crepitaties).",
-          mechanisme: [
-            { title: "Stap 1", desc: "Het falende hart activeert compensatiemechanismen: RAAS-activatie houdt water vast (meer vulling → meer pompkracht), sympathicus verhoogt hartfrequentie." },
-            { title: "Stap 2", desc: "Deze compensatie werkt tijdelijk maar overbelast het hart." },
-            { title: "Stap 3", desc: "Bij acute decompensatie treedt overstromingsoedeem op." },
-          ],
-          onderscheid: [
-            { label: "Longembolie", desc: "ook plotse dyspneu maar géén crepitaties, wél pleuritische pijn en D-dimeer verhoogd.", type: 'ok' },
-            { label: "Pneumonie", desc: "koorts, purulent sputum, eenzijdige infiltraten.", type: 'warn' },
-            { label: "Tamponade", desc: "stuwing maar juist stille longen en gedempte harttonen.", type: 'danger' },
-          ],
-          therapie: {
-            urgent: "Acuut: rechtopzitten, zuurstof, furosemide IV (50-80 mg), nitraten bij normotensie.",
-            stappen: [
-              { naam: "Monitor", detail: "diurese, saturatie, bloeddruk." },
-              { naam: "Stap 2", detail: "Onderhoudsbehandeling zoals HFrEF of HFpEF (zie aldaar)." },
-            ],
-          },
-        } },
+      kern: 'Decompensatio cordis is het onvermogen van het hart om voldoende cardiac output te leveren — vocht stapelt op in de longen (links) en/of systemische circulatie (rechts). Linksdecompensatie geeft orthopneu en crepitaties; rechtsdecompensatie geeft enkels en verhoogde CVD.',
+      redflag: 'COPD-exacerbatie en hartfalen lijken op elkaar — verhoogde CVD, S3-gallopritme en crepitaties wijzen specifiek op hartfalen.',
+      mechanisme: [
+        { title: 'Verminderde cardiac output', desc: 'Hart pompt onvoldoende → RAAS en sympathicus activeren als compensatie.' },
+        { title: 'RAAS-activatie', desc: 'Renine → angiotensine II → aldosteron → zout- en waterretentie → meer vulling, hogere vullingsdruk.' },
+        { title: 'Longoedeem (links)', desc: 'Verhoogde linkeratrium-druk → stuwing in pulmonaalvenen → transudaat in alveoli → crepitaties.' },
+        { title: 'Perifeer oedeem (rechts)', desc: 'Verhoogde rechteratrium-druk → stuwing halsvenen, lever, enkels.' },
+      ],
+      onderscheid: [
+        { label: 'Decompensatio cordis', desc: 'Crepitaties bilateraal, verhoogde CVD, S3-gallopritme, orthopneu. BNP sterk verhoogd.', type: 'ok' },
+        { label: 'Longembolie', desc: 'Plotse dyspneu maar geen crepitaties, pleuritische pijn, D-dimeer verhoogd.', type: 'danger' },
+        { label: 'COPD-exacerbatie', desc: 'Verlengd expirium, piepen, geen verhoogde CVD. BNP normaal of licht verhoogd.', type: 'warn' },
+        { label: 'Pneumonie', desc: 'Koorts, eenzijdige infiltraten, purulent sputum. Geen verhoogde CVD.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Rechtopzitten + zuurstof + furosemide IV 40–80 mg — binnen minuten handelen.',
+        stappen: [
+          { naam: 'Nitraten', detail: 'Bij systolische BD >100 mmHg: isosorbidedinitraat sublinguaal of IV — snelle afterloadreductie.' },
+          { naam: 'Monitoring', detail: 'Diurese (doel >0,5 ml/kg/u), saturatie, BD om 15 min — titreer furosemide op respons.' },
+          { naam: 'Onderhoudstherapie', detail: 'Start of optimaliseer HFrEF-medicatie na stabilisatie: ACE-remmer, bètablokker, MRA, SGLT2i.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 45j: plotse "scheurende" interscapulaire pijn, bloeddrukasymmetrie > 20 mmHg. Urgente diagnose?',
     a:['STEMI','Aortadissectie','Longembolie','Pericard­tamponade'], c:1,
     ex:'Aortadissectie: scheurend karakter, interscapulair, bloeddrukasymmetrie. CT-angio is diagnostisch. Levensbedreiging.',
     wiki:{
-          kern: "Aortadissectie ontstaat wanneer de binnenste laag van de aortawand (intima) scheurt en bloed tussen de wandlagen dringt. Het is een van de meest levensbedreigende spoedgevallen — mortaliteit stijgt 1-2% per uur zonder behandeling.",
-          mechanisme: [
-            { title: "Stap 1", desc: "Langdurige hypertensie verzwakt de aortawand (cystische medianecrose). Bij de scheur dringt bloed in de valse lumen." },
-            { title: "Stap 2", desc: "kompressie van echte lumen en zijarteries." },
-            { title: "Stap 3", desc: "uitval van organen of ledematen. Type A: opstijgende aorta (60%)." },
-            { title: "Stap 4", desc: "risico op tamponade, MI, CVA. Type B: dalende aorta." },
-          ],
-          onderscheid: [
-            { label: "STEMI", desc: "pijn uitstralend naar kaak/arm, geen bloeddrukasymmetrie, ECG-veranderingen.", type: 'ok' },
-            { label: "Longembolie", desc: "pleuritische pijn, geen asymmetrie, D-dimeer hoog.", type: 'warn' },
-            { label: "Aorta-aneurysma", desc: "chronisch aanwezig, pijn pas bij expansie/ruptuur.", type: 'danger' },
-            { label: "Pericarditis", desc: "houdingsafhankelijk, saddle-shape ECG.", type: 'warn' },
-          ],
-          therapie: {
-            urgent: "Type A: spoedindicatie voor chirurgie (vervanging opstijgende aorta).",
-            stappen: [
-              { naam: "Type B", detail: "bloeddrukcontrole met IV bètablokker (labetalol/esmolol), doelRR <120 systolisch." },
-              { naam: "Stap 2", detail: "Endovasculaire stentplaatsing (TEVAR) bij complicaties." },
-              { naam: "Stap 3", detail: "CT-angio bevestigt diagnose." },
-            ],
-          },
-        } },
+      kern: 'Aortadissectie is een scheur in de intima van de aortawand waarbij bloed een vals lumen creëert. Mortaliteit stijgt 1–2% per uur zonder behandeling — dit is het meest urgente cardiovasculaire spoedgeval.',
+      bigfact: { num: '1-2%', label: 'Mortaliteit per uur', sub: 'Type A zonder chirurgie: 50% overlijdt binnen 48 uur.' },
+      redflag: 'Sluit aortadissectie altijd uit vóór trombolyse — trombolyse bij dissectie is fataal door bloedingsrisico in het valse lumen.',
+      mechanisme: [
+        { title: 'Intima-scheur', desc: 'Hypertensie of bindweefselziekte (Marfan) verzwakt de aortawand → scheur onder systolische druk.' },
+        { title: 'Vals lumen', desc: 'Bloed dringt tussen intima en media → vals lumen groeit en comprimeert het echte lumen.' },
+        { title: 'Orgaanischemie', desc: 'Zijarteries (coronair, carotis, renaal, mesenteriaal) worden afgeklemd → MI, CVA, nierfalen.' },
+        { title: 'Type A vs B', desc: 'Type A (60%): opstijgende aorta aangedaan → risico tamponade, AI, coronairischemie → chirurgie. Type B: dalend → medisch beleid.' },
+      ],
+      onderscheid: [
+        { label: 'Aortadissectie', desc: 'Scheurende pijn, bloeddrukasymmetrie >20 mmHg tussen armen, breed mediastinum op X-thorax.', type: 'ok' },
+        { label: 'STEMI', desc: 'Drukkende pijn, uitstraling naar kaak/arm, ST-elevaties op ECG, geen bloeddrukasymmetrie.', type: 'danger' },
+        { label: 'Longembolie', desc: 'Pleuritische pijn, dyspneu, D-dimeer verhoogd, geen pijn in de rug.', type: 'warn' },
+        { label: 'Aorta-aneurysma', desc: 'Chronische verwijding zonder acute scheur — pas pijn bij expansie of ruptuur.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Type A → spoedindicatie chirurgie. Type B → IV bètablokker labetalol/esmolol, doel-BD <120 mmHg systolisch.',
+        stappen: [
+          { naam: 'Diagnostiek', detail: 'CT-angiografie aorta is goudstandaard — bevestigt diagnose en onderscheidt type A vs B.' },
+          { naam: 'Pijncontrole', detail: 'Morfine IV voor adequate pijnstilling — vermindert sympathicusactivatie en aortadruk.' },
+          { naam: 'Type B complicaties', detail: 'TEVAR (endovasculaire stent) bij ischemie, expansie of ruptuur als medicamenteus falen.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Digoxine verhoogt de hartfrequentie en is geïndiceerd bij tachycardieën om het hart sneller te laten pompen.',
     c:false, ex:'NIET WAAR. Digoxine verlaagt de HF (negatief chronotroop) via vagale stimulatie. Gebruikt bij AF met snelle ventrikelrespons.',
     wiki:{
-          kern: "Digoxine remt Na⁺/K⁺-ATPase → intracellulair Na⁺ stijgt → Ca²⁺ hoopt op → sterkere contractie (positief inotroop). Tegelijk stimuleert het de nervus vagus → tragere AV-knoopgeleiding → lagere ventrikelrespons bij AF.",
-          mechanisme: [
-            { title: "Smal therapeutisch venster", desc: "toxisch al boven 2 ng/ml." },
-            { title: "Stap 2", desc: "Hypokaliëmie verhoogt toxiciteit (K⁺ en digoxine concurreren om Na⁺/K⁺-ATPase) — altijd kalium corrigeren bij digoxinegebruik!." },
-          ],
-          onderscheid: [
-            { label: "Optie 1", desc: "Bètablokkers en verapamil/diltiazem verlagen ook de ventrikelrespons bij AF — méér effectief en veiliger als eerstekeus.", type: 'ok' },
-            { label: "Digoxine heeft voordeel bij hartfalen met lage EF", desc: "naast frequentiecontrole ook inotroop effect.", type: 'warn' },
-          ],
-        } },
+      kern: 'Digoxine remt Na⁺/K⁺-ATPase → intracellulair Na⁺ ↑ → Ca²⁺ ↑ → sterkere contractie (positief inotroop) én stimuleert de nervus vagus → tragere AV-knoopgeleiding (negatief chronotroop). Het verlaagt de hartfrequentie, het verhoogt die niet.',
+      redflag: 'Hypokaliëmie vertienvoudigt het toxiciteitsrisico — altijd K⁺ >3,5 mmol/L houden bij digoxinegebruik.',
+      mechanisme: [
+        { title: 'Na⁺/K⁺-ATPase remming', desc: 'Digoxine blokkeert de natriumpomp → intracellulair Na⁺ stijgt → Na⁺/Ca²⁺-uitwisselaar werkt minder → Ca²⁺ stapelt op.' },
+        { title: 'Positief inotroop', desc: 'Meer intracellulair Ca²⁺ → sterkere spiersamentrekking → hogere cardiac output bij hartfalen.' },
+        { title: 'Negatief chronotroop', desc: 'Verhoogde vagustonus remt de AV-knoop → tragere ventrikelrespons bij AF.' },
+        { title: 'Smal therapeutisch venster', desc: 'Therapeutisch: 0,5–2,0 ng/ml. Toxisch: >2 ng/ml. Tekens: misselijkheid, bradycardie, visuele halos.' },
+      ],
+      onderscheid: [
+        { label: 'Digoxine', desc: 'Negatief chronotroop via vagus + positief inotroop. Voordeel bij AF mét hartfalen (lage EF).', type: 'ok' },
+        { label: 'Bètablokkers', desc: 'Effectiever voor frequentiecontrole bij AF, geen inotroop effect. Eerstekeus bij AF zonder hartfalen.', type: 'warn' },
+        { label: 'Verapamil/diltiazem', desc: 'Non-DHP calciumantagonisten: ook frequentiecontrole maar negatief inotroop — gecontraïndiceerd bij lage EF.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Stop digoxine bij tekens van toxiciteit — digoxine-specifieke antilichaamfragmenten (Fab) bij ernstige toxiciteit.',
+        stappen: [
+          { naam: 'Kalium corrigeren', detail: 'K⁺ altijd >3,5 houden — hypokaliëmie verhoogt toxiciteitsrisico dramatisch.' },
+          { naam: 'Nierspiegel monitoren', detail: 'Digoxine wordt renaal geklaard — dosisreductie bij nierinsufficiëntie.' },
+          { naam: 'Spiegelbepaling', detail: 'Meten minimaal 6u na inname; therapeutisch venster 0,5–2,0 ng/ml.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Een normaal ECG sluit een acuut myocardinfarct volledig uit.',
@@ -571,72 +592,86 @@ const QUESTIONS = [
     a:['Cardiogene shock','Rechterventrikeli­nfarct','Papillairspierruptuur','Ventrikelseptumruptuur'], c:1,
     ex:'RV-infarct bij inferieur MI (RCA-occlusie): triade hypotensie + hoge CVD + heldere longen. CAVE: nitraten en diuretica zijn gecontraïndiceerd — preload is essentieel! Volumebelasting is eerste stap.',
     wiki:{
-          kern: "Rechterventrikelinfarct (RVI) treedt op bij 30-50% van inferieure MI\\'s (RCA-occlusie proximaal). Het RV faalt als pomp → terugstuwing → hoge CVD (gestuwd halsvenen) maar géén longoedeem (lege longen, heldere longen).",
-          mechanisme: [
-            { title: "Stap 1", desc: "De RCA voedt het RV-myocard. Bij proximale occlusie: RV-contractiliteit daalt." },
-            { title: "Stap 2", desc: "onvoldoende vulling van het LV (preload afhankelijkheid)." },
-            { title: "Stap 3", desc: "lage cardiac output." },
-            { title: "Stap 4", desc: "hypotensie. Het RV is uniek: het heeft een lage werkdruk en is extreem gevoelig voor preloadreductie." },
-          ],
-          onderscheid: [
-            { label: "LV-infarct met cardiogene shock", desc: "longoedeem aanwezig, crepitaties, niet heldere longen.", type: 'ok' },
-            { label: "Pericardtamponnade", desc: "ook lage bloeddruk + gestuwd CVD maar geen MI-ECG, echocardiografie bewijzend.", type: 'warn' },
-            { label: "Longembolie", desc: "ook hoge CVD maar pleuritische pijn, D-dimeer hoog.", type: 'danger' },
-          ],
-          therapie: {
-            urgent: "CAVE: nitraten en diuretica zijn ABSOLUUT gecontraïndiceerd bij RVI (verminderen preload → shock verergert).",
-            stappen: [
-              { naam: "Behandeling", detail: "volumebelasting (NaCl 0,9% IV), urgente PCI van de RCA, noradrenaline bij refractaire shock." },
-              { naam: "ECG", detail: "ST-elevatie in V4R (rechter precordiale afleidingen)." },
-            ],
-          },
-        } },
+      kern: 'Rechterventrikelinfarct (RVI) treedt op bij 30–50% van inferieure MI\'s door proximale RCA-occlusie. Het RV faalt als pomp → hoge CVD maar heldere longen — de klassieke valkuil die nitraten en diuretica verbiedt.',
+      redflag: 'Nitraten en diuretica zijn absoluut gecontraïndiceerd bij RVI — ze verminderen de preload en verergeren de shock onmiddellijk.',
+      mechanisme: [
+        { title: 'RCA-occlusie', desc: 'Proximale RCA verzorgt het RV-myocard — afsluiting geeft direct RV-dysfunctie.' },
+        { title: 'RV-pompfalen', desc: 'RV contraheert onvoldoende → terugstuwing → hoge CVD, gestuwd halsvenen.' },
+        { title: 'LV ondervulling', desc: 'RV pompt te weinig bloed naar LV (preload-afhankelijkheid) → lage cardiac output → hypotensie.' },
+        { title: 'Heldere longen', desc: 'LV zelf is intact — geen longoedeem. Combinatie van hypotensie + hoge CVD + heldere longen = RVI tot bewijs van het tegendeel.' },
+      ],
+      onderscheid: [
+        { label: 'RV-infarct', desc: 'Hypotensie + verhoogde CVD + heldere longen na inferieur STEMI. V4R: ST-elevatie.', type: 'ok' },
+        { label: 'LV-infarct/cardiogene shock', desc: 'Hypotensie maar ook longoedeem en crepitaties — LV is het probleem.', type: 'warn' },
+        { label: 'Harttamponade', desc: 'Ook hypotensie + hoge CVD maar gedempte harttonen, echo bewijzend. Geen MI-ECG.', type: 'danger' },
+        { label: 'Longembolie', desc: 'Hoge CVD maar pleuritische pijn, geen ST-elevatie in V4R, D-dimeer verhoogd.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Volumebelasting: NaCl 0,9% IV 500 ml bolus — het RV heeft preload nodig om te pompen.',
+        stappen: [
+          { naam: 'Urgente PCI', detail: 'Recanalisatie van de RCA is de definitieve behandeling — hoe sneller, hoe beter RV-herstel.' },
+          { naam: 'Noradrenaline', detail: 'Bij refractaire shock na volumebelasting — onderhoudt coronaire perfusiedruk.' },
+          { naam: 'ECG-diagnostiek', detail: 'Altijd V4R afnemen bij inferieur MI — ST-elevatie ≥1 mm bevestigt RVI.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 55j, exertionele dyspneu, ECHO: EF 65%, verhoogde vullingsdrukken, geen klepafwijkingen. Diagnose?',
     a:['Hartfalen met gereduceerde EF (HFrEF)','Hartfalen met behouden EF (HFpEF)','Pulmonale hypertensie','Hypertrofische cardiomyopathie'], c:1,
     ex:'HFpEF: het hart pompt goed (EF ≥50%) maar vult slecht — diastolische dysfunctie. Onderscheid van HFrEF uitsluitend via echo. SGLT2-remmers (dapagliflozine) recent bewezen effectief; ACE-remmer/bètablokker verminderen mortaliteit hier niet.',
     wiki:{
-          kern: "Hartfalen met behouden EF (HFpEF) heeft normale pompkracht maar een stijve LV — het hart vult te langzaam en bij te hoge druk. Risicofactoren: ouderdom, hypertensie, DM, obesitas.",
-          mechanisme: [
-            { title: "Stap 1", desc: "Chronische drukoverbelasting (hypertensie)." },
-            { title: "Stap 2", desc: "LV-hypertrofie + verlies van elasticiteit." },
-            { title: "Stap 3", desc: "hoge vullingsdrukken." },
-            { title: "Stap 4", desc: "stuwing in de longen. Het EF is bewaard omdat de contractie zelf intact is — het probleem zit in de relaxatiefase." },
-          ],
-          onderscheid: [
-            { label: "HFrEF (EF <40%)", desc: "systolische dysfunctie — bewezen mortaliteitsreductie met ACE-remmer + bètablokker + MRA + SGLT2i.", type: 'ok' },
-            { label: "HFpEF", desc: "tot voor kort geen bewezen medicatie; SGLT2-remmers (dapagliflozine) tonen recent voordeel.", type: 'warn' },
-            { label: "Klinisch gelijk", desc: "oedeem, orthopneu — onderscheid alleen via echocardiografie.", type: 'danger' },
-          ],
-        } },
+      kern: 'HFpEF: het hart pompt normaal (EF ≥50%) maar vult slecht door een stijve, niet-ontspannende LV. Het probleem zit in de diastole, niet in de systole.',
+      redflag: 'ACE-remmers en bètablokkers verminderen mortaliteit bij HFrEF maar NIET bij HFpEF — onderscheid is klinisch cruciaal.',
+      mechanisme: [
+        { title: 'Diastolische dysfunctie', desc: 'LV-relaxatie vertraagt → vulling kost meer druk → verhoogde E/e\' op echo (>14 = diagnostisch).' },
+        { title: 'LV-hypertrofie', desc: 'Chronische hypertensie → conccentrische hypertrofie → stijvere ventrikelwand.' },
+        { title: 'Verhoogde vullingsdruk', desc: 'Hoge LVEDP stuwt terug naar linkeratrium en longen → dyspneu bij inspanning, orthopneu.' },
+        { title: 'EF bewaard', desc: 'Contractie intact — EF ≥50%. Onderscheid van HFrEF uitsluitend via echocardiografie.' },
+      ],
+      onderscheid: [
+        { label: 'HFpEF (EF ≥50%)', desc: 'Diastolische dysfunctie, stijve LV, normale contractie. SGLT2-remmers tonen voordeel.', type: 'ok' },
+        { label: 'HFrEF (EF <40%)', desc: 'Systolische dysfunctie — bewezen mortaliteitsreductie met ACE-i + bètablokker + MRA + SGLT2i.', type: 'warn' },
+        { label: 'Pulmonale hypertensie', desc: 'RV-overbelasting, P pulmonale op ECG, geen LV-hypertrofie. Echo onderscheidt.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Diuretica voor symptoomverlichting (oedeem, dyspneu) — verlichten klachten maar verlengen leven niet.',
+        stappen: [
+          { naam: 'SGLT2-remmer', detail: 'Dapagliflozine of empagliflozine — als eerste bewezen middelen met mortaliteitsvoordeel bij HFpEF.' },
+          { naam: 'Risicofactoren', detail: 'Hypertensie, DM en obesitas agressief behandelen — dit zijn de oorzaken van HFpEF.' },
+          { naam: 'Geen bètablokker/ACE-i', detail: 'Geen bewezen mortaliteitsreductie bij HFpEF — niet standaard toevoegen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 26j, atleet: syncope tijdens inspanning, positieve familiegeschiedenis plotse hartdood. ECHO: asymmetrische septumhypertrofie 22mm, SAM van mitraalklep. Diagnose?',
     a:['Aortaklepstenose','Hypertrofische obstructieve cardiomyopathie (HOCM)','Dilatatieve cardiomyopathie','Longembolie'], c:1,
     ex:'HOCM: septumhypertrofie + SAM (systolic anterior motion) mitraalklep → dynamische LVOT-obstructie. Belangrijkste oorzaak van plotse hartdood bij jonge atleten. ICD-indicatie bij hoog-risico profiel. Sportontheffing verplicht.',
     wiki:{
-          kern: "Hypertrofische (obstructieve) cardiomyopathie (HOCM/HCM) is een genetische hartspierziekte (autosomaaldominant, sarcomeer-mutaties) gekenmerkt door asymmetrische hypertrofie van het interventriculaire septum. Het is de meest voorkomende oorzaak van plotse hartdood bij jongeren en atleten.",
-          mechanisme: [
-            { title: "Stap 1", desc: "Het verdikt septum kan tijdens de systole de uitstroombaan van het LV (LVOT) obstrueren." },
-            { title: "Stap 2", desc: "De mitraalklep beweegt mee naar voren (SAM) → verergert de obstructie + mitralisinsufficiëntie." },
-            { title: "Stap 3", desc: "Obstructie neemt toe bij afnemende preload (staan, Valsalva, dehydratie) en vermindert bij toenemende preload (hurken, liggen)." },
-          ],
-          onderscheid: [
-            { label: "Aortastenose", desc: "ook systolisch geruis maar afneemt bij Valsalva (vaste obstructie).", type: 'ok' },
-            { label: "Dilatatieve CMP", desc: "grote LV, lage EF, wijde QRS.", type: 'warn' },
-            { label: "WPW-syndroom", desc: "ook syncope bij jongeren maar ECG met delta-golf en korte PR.", type: 'danger' },
-            { label: "Myocarditis", desc: "acuut begin na infectie, troponine hoog.", type: 'warn' },
-          ],
-          therapie: {
-            urgent: "Symptomatisch: bètablokker of niet-dihydropyridine calciumantagonist (verapamil) — verlagen hartfrequentie → meer vultijd → minder obstructie.",
-            stappen: [
-              { naam: "Stap 1", detail: "ICD bij hoog risico (familielid plotse hartdood, onverklaard syncope, NSVT)." },
-              { naam: "Stap 2", detail: "Sportontheffing." },
-              { naam: "Stap 3", detail: "Septumreductie (chirurgie of alcohol-ablatie) bij refractaire LVOT-obstructie." },
-            ],
-          },
-        } },
+      kern: 'HOCM is een autosomaal-dominante sarcomeer-mutatie die asymmetrische septumhypertrofie veroorzaakt. Het is de meest voorkomende oorzaak van plotse hartdood bij jongeren en atleten.',
+      redflag: 'Het geruis van HOCM neemt tóé bij Valsalva (minder vulling → meer obstructie) — dit is het tegenovergestelde van aortastenose.',
+      mechanisme: [
+        { title: 'Septumhypertrofie', desc: 'Verdikt IVS obstrueert de LVOT tijdens de systole → uitstromingsgradient.' },
+        { title: 'SAM (systolic anterior motion)', desc: 'Mitraalklep beweegt mee naar voren door Venturi-effect → verergert LVOT-obstructie + mitralisinsufficiëntie.' },
+        { title: 'Dynamische obstructie', desc: 'Toeneemt bij ↓ preload (staan, Valsalva, dehydratie) en ↓ afterload; vermindert bij ↑ preload (hurken).' },
+        { title: 'Ritmestoornissen', desc: 'Hypertrofisch myocard is aritmogeen → VT/VF → syncope of plotse hartdood, ook bij jonge atleten.' },
+      ],
+      onderscheid: [
+        { label: 'HOCM', desc: 'Geruis neemt toe bij Valsalva/staan; asyncmetrische septumhypertrofie op echo; familieanamnese.', type: 'ok' },
+        { label: 'Aortastenose', desc: 'Geruis neemt áf bij Valsalva (vaste mechanische obstructie). Calcificatie op echo.', type: 'danger' },
+        { label: 'WPW-syndroom', desc: 'Ook syncope bij jongeren maar delta-golf en korte PR op ECG — geen echo-afwijking.', type: 'warn' },
+        { label: 'Dilatatieve CMP', desc: 'Verwijde LV met lage EF — tegenovergesteld van HOCM.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Bètablokker of verapamil — verlagen hartfrequentie → langere vultijd → minder LVOT-gradient.',
+        stappen: [
+          { naam: 'ICD-indicatie', detail: 'Bij ≥1 risicofactor: familielid met plotse hartdood, onverklaarde syncope, NSVT, septum ≥30mm, hypotensie bij inspanning.' },
+          { naam: 'Sportontheffing', detail: 'Competitief sporten verboden — inspanning verhoogt LVOT-gradient en aritmierisico.' },
+          { naam: 'Septumreductie', detail: 'Chirurgische myectomie of alcohol-ablatie bij refractaire LVOT-obstructie (gradient >50 mmHg).' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Hypokaliëmie (K⁺ < 3.5) is een onafhankelijke risicofactor voor ventrikelfibrilleren bij een acuut myocardinfarct.',
@@ -859,10 +894,29 @@ const QUESTIONS = [
     a:['Alleen diuretica','ACE-remmer + bètablokker','Digoxine monotherapie','Calciumantagonist'], c:1,
     ex:'Hartfalen met verminderde EF (HFrEF): ACE-remmer (of ARB/ARNI) + bètablokker verminderen mortaliteit. Diuretica verlichten symptomen. Digoxine alleen bij symptoomcontrole. Spironolacton toevoegen bij aanhoudende klachten.',
     wiki: {
-      kern: 'Hartfalen met verminderde ejectiefractie (HFrEF, EF <40%) betekent dat het hart niet genoeg kracht heeft om bloed rond te pompen. Gevolg: vocht hoopt op in de longen (orthopneu, nachtelijk hoesten) en de benen (oedeem).',
-      mechanisme: 'Het hart compenseert via het RAAS-systeem (meer zout/water vasthouden) en adrenaline (sneller kloppen). Op korte termijn helpt dit, maar op lange termijn beschadigt het het hart verder — een vicieuze cirkel. ACE-remmers en bètablokkers doorbreken deze cirkel.',
-      onderscheid: 'HFpEF (EF behouden, ≥50%): hart pompt wel krachtig maar is te stijf — vult slecht. Ander mechanisme, minder bewezen medicatie. Acuut longoedeem: levensbedreigende vorm van HFrEF, behandel met zuurstof + furosemide IV + nitroglycerine.',
-      therapie: 'Vierpijlertherapie: (1) ACE-remmer/ARNI, (2) bètablokker, (3) MRA (spironolacton), (4) SGLT2-remmer (bijv. dapagliflozine). Elk van de vier vermindert mortaliteit. Diuretica verlichten klachten maar verlengen leven niet.',
+      kern: 'HFrEF (EF <40%) is systolisch hartfalen — het hart pompt onvoldoende. Vier medicijnklassen verminderen elk onafhankelijk de mortaliteit.',
+      mnemonic: { word: 'ABMS', items: ['A — ACE-remmer of ARNI', 'B — Bètablokker', 'M — MRA (spironolacton)', 'S — SGLT2-remmer'] },
+      redflag: 'Calciumantagonisten (verapamil, diltiazem) zijn gecontraïndiceerd bij HFrEF — negatief inotroop effect verslechtert de pompfunctie.',
+      mechanisme: [
+        { title: 'Verminderde contractie', desc: 'LV-myocard beschadigd (ischemie, viraal, idiopathisch) → EF daalt → RAAS/sympathicus geactiveerd.' },
+        { title: 'Neurohormonale activatie', desc: 'Compensatoire RAAS en adrenaline → zout/waterretentie en hogere hartfrequentie — korte termijn nuttig.' },
+        { title: 'Vicieuze cirkel', desc: 'Chronische RAAS-activatie → myocardiale fibrose, remodelling → EF daalt verder.' },
+        { title: 'Medicatie doorbreekt cirkel', desc: 'ACE-i/bètablokker/MRA/SGLT2i blokkeren elk een arm van de neurohormonale activatie → reverse remodelling.' },
+      ],
+      onderscheid: [
+        { label: 'HFrEF (EF <40%)', desc: 'Systolische dysfunctie. Vier-pijlertherapie geïndiceerd met bewezen mortaliteitsreductie.', type: 'ok' },
+        { label: 'HFpEF (EF ≥50%)', desc: 'Diastolische dysfunctie. Alleen SGLT2-remmers tonen voordeel — ACE-i/bètablokker niet.', type: 'warn' },
+        { label: 'Acuut longoedeem', desc: 'Levensbedreigende decompensatie van HFrEF — zuurstof + furosemide IV + nitraten spoedmatig.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Start vierpijlertherapie zo snel als hemodynamisch verdraagbaar na stabilisatie.',
+        stappen: [
+          { naam: 'ACE-remmer/ARNI', detail: 'Lisinopril of sacubitril-valsartan (ARNI superieur bij stabiel HFrEF) — verlaagt afterload en RAAS.' },
+          { naam: 'Bètablokker', detail: 'Carvedilol, bisoprolol of metoprolol-succinaat — alleen starten bij stabiele patiënt, laag en opbouwen.' },
+          { naam: 'MRA', detail: 'Spironolacton 25–50 mg — kaliumsparend diureticum met extra mortaliteitsreductie (RALES-trial).' },
+          { naam: 'SGLT2-remmer', detail: 'Dapagliflozine of empagliflozine — meest recente pijler, werkt onafhankelijk van de andere drie.' },
+        ],
+      },
     } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
