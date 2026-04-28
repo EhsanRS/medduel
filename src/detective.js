@@ -40,13 +40,12 @@ function startSpeurdokter() {
     score: 0,
     clues: [],
     remaining: c.investigations.map(i => i.id),
-    board: [],
-    activeCategory: null,
+    pickedCategory: null,
+    currentOptions: [],
     lastResult: null,
     date: today,
     chosenIdx: -1,
   };
-  sdRefillBoard();
 
   renderSpeurdokterIntro();
 }
@@ -93,126 +92,126 @@ function sdBeginInvestigation() {
   renderSpeurdokterGame();
 }
 
-// ── Board helpers ─────────────────────────────────────────────
+// ── Category navigation ───────────────────────────────────────
 
-function sdRefillBoard() {
-  const pool = SD.remaining.filter(id => {
-    if (SD.board.includes(id)) return false;
-    if (!SD.activeCategory) return true;
-    const inv = SD.case.investigations.find(i => i.id === id);
-    return inv && inv.category === SD.activeCategory;
-  });
-  const shuffled = [...pool].sort(() => Math.random() - 0.5);
-  while (SD.board.length < 4 && shuffled.length > 0) {
-    SD.board.push(shuffled.pop());
-  }
-}
+const SD_CATS = [
+  { key: 'history',  icon: '💬', name: 'Anamnese',        desc: 'Stel de patiënt een vraag' },
+  { key: 'physical', icon: '🩺', name: 'Lich. onderzoek', desc: 'Onderzoek de patiënt' },
+  { key: 'lab',      icon: '🔬', name: 'Laboratorium',    desc: 'Bloed, urine, liquor...' },
+  { key: 'imaging',  icon: '🖼️', name: 'Beeldvorming',    desc: 'Röntgen, CT, echo, MRI...' },
+];
 
-function sdAdvanceBoard(pickedId) {
-  SD.remaining = SD.remaining.filter(id => id !== pickedId);
-  SD.board     = SD.board.filter(id => id !== pickedId);
-  sdRefillBoard();
-}
-
-function sdSetCategory(key) {
-  const newCat = key === 'all' ? null : key;
-  SD.activeCategory = SD.activeCategory === newCat ? null : newCat;
-  // Flush board items that don't match new category, refill
-  if (SD.activeCategory) {
-    SD.board = SD.board.filter(id => {
-      const inv = SD.case.investigations.find(i => i.id === id);
-      return inv && inv.category === SD.activeCategory;
-    });
-  }
-  sdRefillBoard();
-  renderSpeurdokterGame();
-}
-
-function sdCategoryCount(cat) {
+function sdCountRemaining(catKey) {
   return SD.remaining.filter(id => {
     const inv = SD.case.investigations.find(i => i.id === id);
-    return inv && inv.category === cat;
+    return inv && inv.category === catKey;
   }).length;
 }
 
-function sdBuildCatTabs() {
-  const CATS = [
-    { key: 'all',      icon: '⬡',  label: 'Alle',     filter: null },
-    { key: 'history',  icon: '📋', label: 'Anamnese', filter: 'history' },
-    { key: 'lab',      icon: '🔬', label: 'Lab',      filter: 'lab' },
-    { key: 'imaging',  icon: '🖼️', label: 'Beeld',    filter: 'imaging' },
-    { key: 'physical', icon: '🩺', label: 'LO',       filter: 'physical' },
-  ];
-  return CATS.map(cat => {
-    const count = cat.filter ? sdCategoryCount(cat.filter) : SD.remaining.length;
-    const isActive = SD.activeCategory === cat.filter;
-    const isEmpty = cat.filter && count === 0;
-    const countBadge = cat.filter ? ` <span class="sd-cat-count">${count}</span>` : '';
-    return `<button class="sd-cat-tab${isActive ? ' active' : ''}${isEmpty ? ' empty' : ''}"
-      onclick="sdSetCategory('${cat.key}')"${isEmpty ? ' disabled' : ''}>
-      ${cat.icon} ${cat.label}${countBadge}
-    </button>`;
-  }).join('');
+function sdPickCategory(key) {
+  const pool = SD.remaining.filter(id => {
+    const inv = SD.case.investigations.find(i => i.id === id);
+    return inv && inv.category === key;
+  });
+  SD.currentOptions = [...pool].sort(() => Math.random() - 0.5).slice(0, 3);
+  SD.pickedCategory = key;
+  renderSpeurdokterGame();
+}
+
+function sdBackToCategories() {
+  SD.pickedCategory = null;
+  renderSpeurdokterGame();
 }
 
 // ── Investigation screen ──────────────────────────────────────
 
 function renderSpeurdokterGame() {
   const c = SD.case;
-  const boardInvs = c.investigations.filter(i => SD.board.includes(i.id));
   const canDiagnose = SD.stepsUsed >= 2;
-  const totalLeft = SD.remaining.length;
-
-  const invCards = boardInvs.map(inv => `
-    <div class="sd-inv-card sd-cat-${inv.category}" onclick="sdPickInvestigation('${inv.id}')">
-      <span class="sd-inv-icon">${inv.icon}</span>
-      <span class="sd-inv-label">${escHtml(inv.label)}</span>
-    </div>`).join('');
-
-  document.getElementById('app').innerHTML = `
-    <div id="speurdokter" class="screen active">
-      <div class="sd-wrap">
-        <div class="sd-nav">
-          <button class="quit-btn" onclick="sdQuit()">✕ Stop</button>
-          <div class="sd-hud">
-            <span class="sd-hud-item">
-              <span class="sd-hud-val">${SD.score}</span>
-              <span class="sd-hud-lbl">Punten</span>
-            </span>
-            <span class="sd-hud-sep">·</span>
-            <span class="sd-hud-item">
-              <span class="sd-hud-val">${SD.stepsUsed}/${SD.maxSteps}</span>
-              <span class="sd-hud-lbl">Stappen</span>
-            </span>
-          </div>
-        </div>
-
-        ${sdClueStrip()}
-
-        <div class="sd-board-header">
-          <span class="sd-section-label">Welk onderzoek kiest u?</span>
-          <span class="sd-board-pool">${totalLeft} beschikbaar</span>
-        </div>
-        <div class="sd-cat-tabs">${sdBuildCatTabs()}</div>
-        <div class="sd-inv-grid">${invCards || `<div class="sd-cat-empty">Geen onderzoeken beschikbaar in deze categorie</div>`}</div>
-
-        <div class="sd-diag-wrap">
-          <button class="btn-primary sd-diag-btn"
-            onclick="sdStartDiagnosis()"
-            ${canDiagnose ? '' : 'disabled'}>
-            Diagnose stellen →
-          </button>
-          ${!canDiagnose ? '<div class="sd-diag-hint">Doe eerst minimaal 2 onderzoeken</div>' : ''}
-        </div>
+  const sdNav = `
+    <div class="sd-nav">
+      <button class="quit-btn" onclick="sdQuit()">✕ Stop</button>
+      <div class="sd-hud">
+        <span class="sd-hud-item">
+          <span class="sd-hud-val">${SD.score}</span>
+          <span class="sd-hud-lbl">Punten</span>
+        </span>
+        <span class="sd-hud-sep">·</span>
+        <span class="sd-hud-item">
+          <span class="sd-hud-val">${SD.stepsUsed}/${SD.maxSteps}</span>
+          <span class="sd-hud-lbl">Stappen</span>
+        </span>
       </div>
     </div>`;
+
+  if (SD.pickedCategory === null) {
+    // Level 1 — choose a category
+    const cards = SD_CATS.map(cat => {
+      const count = sdCountRemaining(cat.key);
+      const empty = count === 0;
+      return `<div class="sd-cat-card${empty ? ' empty' : ''}" ${empty ? '' : `onclick="sdPickCategory('${cat.key}')"`}>
+        <div class="sd-cat-card-left">
+          <span class="sd-cat-card-icon">${cat.icon}</span>
+          <div>
+            <div class="sd-cat-card-name">${cat.name}</div>
+            <div class="sd-cat-card-desc">${empty ? 'Volledig onderzocht' : cat.desc}</div>
+          </div>
+        </div>
+        <span class="sd-cat-card-count">${empty ? '✓' : count}</span>
+      </div>`;
+    }).join('');
+
+    document.getElementById('app').innerHTML = `
+      <div id="speurdokter" class="screen active">
+        <div class="sd-wrap">
+          ${sdNav}
+          ${sdClueStrip()}
+          <div class="sd-section-label" style="margin-bottom:0.6rem">Hoe wilt u verder?</div>
+          <div class="sd-cat-cards fade-in">${cards}</div>
+          <div class="sd-diag-wrap">
+            <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
+              Diagnose stellen →
+            </button>
+            ${!canDiagnose ? '<div class="sd-diag-hint">Doe eerst minimaal 2 onderzoeken</div>' : ''}
+          </div>
+        </div>
+      </div>`;
+  } else {
+    // Level 2 — choose a specific investigation
+    const cat = SD_CATS.find(ct => ct.key === SD.pickedCategory);
+    const rows = SD.currentOptions.map(id => {
+      const inv = c.investigations.find(i => i.id === id);
+      if (!inv) return '';
+      return `<div class="sd-inv-row" onclick="sdPickInvestigation('${inv.id}')">
+        <span class="sd-inv-row-icon">${inv.icon}</span>
+        <span class="sd-inv-row-label">${escHtml(inv.label)}</span>
+        <span class="sd-inv-row-arrow">→</span>
+      </div>`;
+    }).join('');
+
+    document.getElementById('app').innerHTML = `
+      <div id="speurdokter" class="screen active">
+        <div class="sd-wrap">
+          ${sdNav}
+          ${sdClueStrip()}
+          <button class="sd-back-cat" onclick="sdBackToCategories()">← ${cat.icon} ${cat.name}</button>
+          <div class="sd-inv-list fade-in">${rows}</div>
+          <div class="sd-diag-wrap">
+            <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
+              Diagnose stellen →
+            </button>
+          </div>
+        </div>
+      </div>`;
+  }
 }
 
 function sdPickInvestigation(id) {
   const inv = SD.case.investigations.find(i => i.id === id);
   if (!inv) return;
 
-  sdAdvanceBoard(id);
+  SD.remaining = SD.remaining.filter(rid => rid !== id);
+  SD.pickedCategory = null;
   SD.stepsUsed++;
   SD.score = Math.max(0, SD.score + inv.points);
 
@@ -251,7 +250,7 @@ function renderSpeurdokterResult(inv) {
 
   const contentHtml = sdResultContent(inv);
   const canDiagnose = SD.stepsUsed >= 2;
-  const forceDiagnose = (SD.remaining.length === 0 && SD.board.length === 0) || SD.stepsUsed >= SD.maxSteps;
+  const forceDiagnose = SD.remaining.length === 0 || SD.stepsUsed >= SD.maxSteps;
 
   let actionHtml;
   if (forceDiagnose) {
@@ -259,11 +258,11 @@ function renderSpeurdokterResult(inv) {
   } else if (canDiagnose) {
     actionHtml = `
       <div class="sd-action-row">
-        <button class="btn-secondary" onclick="sdContinueInvestigation()">Meer onderzoek</button>
+        <button class="btn-secondary" onclick="sdContinueInvestigation()">← Terug naar overzicht</button>
         <button class="btn-primary"   onclick="sdStartDiagnosis()">Diagnose stellen →</button>
       </div>`;
   } else {
-    actionHtml = `<button class="btn-secondary" style="width:100%;" onclick="sdContinueInvestigation()">Volgende onderzoek →</button>`;
+    actionHtml = `<button class="btn-secondary" style="width:100%;" onclick="sdContinueInvestigation()">← Terug naar overzicht</button>`;
   }
 
   document.getElementById('app').innerHTML = `

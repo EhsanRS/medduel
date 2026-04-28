@@ -102,17 +102,17 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'wond',
-        label: 'Is er wondverzorging gegeven na het diercontact?',
+        label: 'Heeft u tijdens of na uw verblijf in het buitenland medische hulp gezocht?',
         category: 'history',
         icon: '🩹',
         useful: true,
         points: 15,
         result: {
           type: 'quote',
-          text: '"We hebben het even afgespoeld maar verder niets gedaan. We zijn niet naar een dokter gegaan — dachten niet dat het nodig was."',
+          text: '"Nee. Er was wel een klein incident op een van de laatste dagen — iets met een dier. We hebben het afgespoeld en er niet verder bij stilgestaan. We zagen geen reden om naar een dokter te gaan."',
           badge: 'useful',
-          summary: 'Geen wondverzorging · geen profylaxe',
-          note: 'Bij bepaalde blootstellingen is tijdige profylaxe cruciaal. Geen actie ondernomen.'
+          summary: 'Geen medische zorg gezocht na incident',
+          note: 'Het nalaten van medische nazorg na een incident in een risicogebied is een relevante anamnestische bevinding.'
         }
       },
       {
