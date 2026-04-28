@@ -37,10 +37,11 @@ function startSpeurdokter() {
     phase: 'intro',
     stepsUsed: 0,
     maxSteps: 5,
-    score: 100,
+    score: 0,
     clues: [],
     remaining: c.investigations.map(i => i.id),
-    board: [],        // 4 visible options at any time
+    board: [],
+    activeCategory: null,
     lastResult: null,
     date: today,
     chosenIdx: -1,
@@ -95,7 +96,12 @@ function sdBeginInvestigation() {
 // ── Board helpers ─────────────────────────────────────────────
 
 function sdRefillBoard() {
-  const pool = SD.remaining.filter(id => !SD.board.includes(id));
+  const pool = SD.remaining.filter(id => {
+    if (SD.board.includes(id)) return false;
+    if (!SD.activeCategory) return true;
+    const inv = SD.case.investigations.find(i => i.id === id);
+    return inv && inv.category === SD.activeCategory;
+  });
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   while (SD.board.length < 4 && shuffled.length > 0) {
     SD.board.push(shuffled.pop());
@@ -106,6 +112,47 @@ function sdAdvanceBoard(pickedId) {
   SD.remaining = SD.remaining.filter(id => id !== pickedId);
   SD.board     = SD.board.filter(id => id !== pickedId);
   sdRefillBoard();
+}
+
+function sdSetCategory(key) {
+  const newCat = key === 'all' ? null : key;
+  SD.activeCategory = SD.activeCategory === newCat ? null : newCat;
+  // Flush board items that don't match new category, refill
+  if (SD.activeCategory) {
+    SD.board = SD.board.filter(id => {
+      const inv = SD.case.investigations.find(i => i.id === id);
+      return inv && inv.category === SD.activeCategory;
+    });
+  }
+  sdRefillBoard();
+  renderSpeurdokterGame();
+}
+
+function sdCategoryCount(cat) {
+  return SD.remaining.filter(id => {
+    const inv = SD.case.investigations.find(i => i.id === id);
+    return inv && inv.category === cat;
+  }).length;
+}
+
+function sdBuildCatTabs() {
+  const CATS = [
+    { key: 'all',      icon: '⬡',  label: 'Alle',     filter: null },
+    { key: 'history',  icon: '📋', label: 'Anamnese', filter: 'history' },
+    { key: 'lab',      icon: '🔬', label: 'Lab',      filter: 'lab' },
+    { key: 'imaging',  icon: '🖼️', label: 'Beeld',    filter: 'imaging' },
+    { key: 'physical', icon: '🩺', label: 'LO',       filter: 'physical' },
+  ];
+  return CATS.map(cat => {
+    const count = cat.filter ? sdCategoryCount(cat.filter) : SD.remaining.length;
+    const isActive = SD.activeCategory === cat.filter;
+    const isEmpty = cat.filter && count === 0;
+    const countBadge = cat.filter ? ` <span class="sd-cat-count">${count}</span>` : '';
+    return `<button class="sd-cat-tab${isActive ? ' active' : ''}${isEmpty ? ' empty' : ''}"
+      onclick="sdSetCategory('${cat.key}')"${isEmpty ? ' disabled' : ''}>
+      ${cat.icon} ${cat.label}${countBadge}
+    </button>`;
+  }).join('');
 }
 
 // ── Investigation screen ──────────────────────────────────────
@@ -146,7 +193,8 @@ function renderSpeurdokterGame() {
           <span class="sd-section-label">Welk onderzoek kiest u?</span>
           <span class="sd-board-pool">${totalLeft} beschikbaar</span>
         </div>
-        <div class="sd-inv-grid">${invCards}</div>
+        <div class="sd-cat-tabs">${sdBuildCatTabs()}</div>
+        <div class="sd-inv-grid">${invCards || `<div class="sd-cat-empty">Geen onderzoeken beschikbaar in deze categorie</div>`}</div>
 
         <div class="sd-diag-wrap">
           <button class="btn-primary sd-diag-btn"
@@ -172,7 +220,8 @@ function sdPickInvestigation(id) {
     id: inv.id,
     summary: inv.result.summary,
     badge: inv.result.badge,
-    category: inv.category
+    category: inv.category,
+    points: inv.points,
   });
 
   SD.lastResult = inv;
@@ -382,10 +431,37 @@ function renderSpeurdokterReveal(rec) {
   }).join('');
 
   const invMax = c.investigations.filter(i => i.useful).reduce((s, i) => s + i.points, 0);
-  const maxScore = 100 + invMax + 50 + 80;
+  const maxScore = invMax + 50 + 80;
   const pct = Math.min(100, Math.round(rec.score / maxScore * 100));
   const barColor = pct >= 70 ? 'var(--green)' : pct >= 45 ? 'var(--amber)' : 'var(--pulse)';
   const barLabel = pct >= 70 ? 'Uitstekend' : pct >= 45 ? 'Goed' : 'Kan beter';
+
+  // Score breakdown
+  const clueLines = (rec.clues || []).map(cl => {
+    const sign = cl.points > 0 ? '+' : '';
+    return `<div class="sd-score-line ${cl.points > 0 ? 'pos' : 'neg'}">
+      <span>${escHtml(cl.summary)}</span><span>${sign}${cl.points}</span>
+    </div>`;
+  }).join('');
+  let diagBonus = rec.correct ? 50 : -50;
+  let stepBonus = 0;
+  if (rec.correct) {
+    if (rec.stepsUsed <= 2) stepBonus = 80;
+    else if (rec.stepsUsed <= 3) stepBonus = 50;
+    else if (rec.stepsUsed <= 4) stepBonus = 25;
+  }
+  const breakdownHtml = `
+    <details class="sd-score-breakdown">
+      <summary>Hoe is deze score opgebouwd?</summary>
+      ${clueLines}
+      <div class="sd-score-line divider"></div>
+      <div class="sd-score-line ${rec.correct ? 'pos' : 'neg'}">
+        <span>${rec.correct ? 'Juiste diagnose' : 'Foute diagnose'}</span>
+        <span>${rec.correct ? '+50' : '−50'}</span>
+      </div>
+      ${stepBonus > 0 ? `<div class="sd-score-line pos"><span>Snelheidsbonus</span><span>+${stepBonus}</span></div>` : ''}
+      <div class="sd-score-line total"><span>Totaal</span><span>${rec.score}</span></div>
+    </details>`;
 
   const memoryHtml = (c.memory && c.memory.length)
     ? `<div class="sd-memory-card fade-in-2">
@@ -425,6 +501,7 @@ function renderSpeurdokterReveal(rec) {
             <div class="sd-reveal-bar" style="width:${pct}%;background:${barColor}"></div>
           </div>
           <div class="sd-reveal-meta">${rec.stepsUsed} onderzoek${rec.stepsUsed === 1 ? '' : 'en'} · ${pct}% efficiency</div>
+          ${breakdownHtml}
         </div>
 
         ${memoryHtml}

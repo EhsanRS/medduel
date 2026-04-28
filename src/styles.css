@@ -3258,6 +3258,60 @@ h1.logo em {
   font-weight: 500;
 }
 
+/* ── Category tabs ── */
+.sd-cat-tabs {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.75rem;
+  scrollbar-width: none;
+}
+.sd-cat-tabs::-webkit-scrollbar { display: none; }
+.sd-cat-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  border: 1.5px solid rgba(26,20,16,0.12);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.sd-cat-tab.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.sd-cat-tab.empty {
+  opacity: 0.3;
+  cursor: default;
+}
+.sd-cat-count {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(26,20,16,0.1);
+  border-radius: 6px;
+  padding: 1px 5px;
+}
+.sd-cat-tab.active .sd-cat-count {
+  background: rgba(255,255,255,0.2);
+}
+.sd-cat-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--ink-light);
+}
+
 /* ── Investigation grid ── */
 .sd-inv-grid {
   display: grid;
@@ -3627,6 +3681,48 @@ h1.logo em {
   font-family: var(--font-body);
   font-size: 0.78rem;
   color: var(--ink-light);
+}
+
+/* ── Score breakdown ── */
+.sd-score-breakdown {
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(26,20,16,0.08);
+  padding-top: 0.6rem;
+}
+.sd-score-breakdown summary {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  cursor: pointer;
+  list-style: none;
+  padding: 0.15rem 0;
+}
+.sd-score-breakdown summary::-webkit-details-marker { display: none; }
+.sd-score-breakdown summary::before { content: '+ '; }
+details[open].sd-score-breakdown summary::before { content: '− '; }
+.sd-score-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.22rem 0;
+  font-family: var(--font-body);
+  font-size: 0.81rem;
+  color: var(--ink-mid);
+}
+.sd-score-line.pos span:last-child { color: var(--green); font-weight: 700; }
+.sd-score-line.neg span:last-child { color: var(--pulse); font-weight: 700; }
+.sd-score-line.divider {
+  border-top: 1px solid rgba(26,20,16,0.08);
+  padding: 0; margin: 0.2rem 0;
+}
+.sd-score-line.total {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.87rem;
+  border-top: 1.5px solid rgba(26,20,16,0.15);
+  padding-top: 0.4rem;
+  margin-top: 0.1rem;
 }
 
 /* ── Memory / pearls card ── */
