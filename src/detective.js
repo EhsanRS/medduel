@@ -22,36 +22,7 @@ function saveDetectiveRecord(r) {
 
 function startSpeurdokter() {
   const c = getTodayDetectiveCase();
-  if (!c) return;
-  const today = getTodayStr();
-  const rec = loadDetectiveRecord();
-
-  if (rec && rec.date === today && rec.caseId === c.id && rec.phase === 'done') {
-    SD = { case: c, chosenIdx: rec.chosenIdx };
-    renderSpeurdokterReveal(rec);
-    return;
-  }
-
-  SD = {
-    case: c,
-    phase: 'intro',
-    stepsUsed: 0,
-    maxSteps: 5,
-    score: 0,
-    clues: [],
-    remaining: c.investigations.map(i => i.id),
-    pickedPhase: null,
-    currentOptions: [],
-    lastResult: null,
-    date: today,
-    chosenIdx: -1,
-    timeUsed: 0,
-    currentVitals: c.vitals_baseline ? { ...c.vitals_baseline } : null,
-    triggeredAlerts: [],
-    pendingAlert: null,
-  };
-
-  renderSpeurdokterIntro();
+  if (c) startSpeurdokterCase(c.id);
 }
 
 // ── Intro ────────────────────────────────────────────────────
@@ -767,43 +738,62 @@ function sdStars(n) {
 
 // ── Home tab render ───────────────────────────────────────────
 
-function renderSpeurdokterTab() {
-  const c = getTodayDetectiveCase();
+function startSpeurdokterCase(caseId) {
+  const c = DETECTIVE_CASES.find(x => x.id === caseId);
+  if (!c) return;
   const today = getTodayStr();
   const rec = loadDetectiveRecord();
-  const done = rec && rec.date === today && c && rec.caseId === c.id && rec.phase === 'done';
-  const stars = c ? sdStars(c.difficulty) : '';
 
-  let heroHtml = '';
-  if (!c) {
-    heroHtml = `<div class="sd-tab-empty">Geen zaak beschikbaar vandaag.</div>`;
-  } else if (done) {
-    heroHtml = `
-      <div class="sd-home-card played fade-in-1" onclick="startSpeurdokter()">
-        <div class="sd-home-solved">✓ ZAAK OPGELOST</div>
+  if (rec && rec.caseId === c.id && rec.phase === 'done') {
+    SD = { case: c, chosenIdx: rec.chosenIdx };
+    renderSpeurdokterReveal(rec);
+    return;
+  }
+
+  SD = {
+    case: c, phase: 'intro', stepsUsed: 0, maxSteps: 5, score: 0,
+    clues: [], remaining: c.investigations.map(i => i.id),
+    pickedPhase: null, currentOptions: [], lastResult: null,
+    date: today, chosenIdx: -1, timeUsed: 0,
+    currentVitals: c.vitals_baseline ? { ...c.vitals_baseline } : null,
+    triggeredAlerts: [], pendingAlert: null,
+  };
+  renderSpeurdokterIntro();
+}
+
+function renderSpeurdokterTab() {
+  const today = getTodayStr();
+  const rec = loadDetectiveRecord();
+
+  const cards = DETECTIVE_CASES.map((c, idx) => {
+    const isToday = c.date === today;
+    const played = rec && rec.caseId === c.id && rec.phase === 'done';
+    const stars = sdStars(c.difficulty);
+    const animClass = `fade-in-${idx + 1}`;
+
+    if (played) {
+      return `<div class="sd-home-card played ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
+        <div class="sd-home-solved">✓ OPGELOST</div>
         <div class="sd-home-title">${escHtml(c.title)}</div>
-        <div class="sd-home-meta">${stars} · ${rec.score} punten · ${rec.stepsUsed} stap${rec.stepsUsed === 1 ? '' : 'pen'}</div>
+        <div class="sd-home-meta">${stars} · ${rec.score} pt · ${rec.stepsUsed} stappen</div>
         <div class="sd-home-cta">Bekijk uitleg →</div>
       </div>`;
-  } else {
-    heroHtml = `
-      <div class="sd-home-card fade-in-1" onclick="startSpeurdokter()">
-        <div class="sd-home-eyebrow">Nieuwe zaak beschikbaar</div>
-        <div class="sd-home-title">${escHtml(c.title)}</div>
-        <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
-        <div class="sd-home-cta">Begin onderzoek →</div>
-      </div>`;
-  }
+    }
+    return `<div class="sd-home-card ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
+      <div class="sd-home-eyebrow">${isToday ? 'Vandaag' : escHtml(c.date)}</div>
+      <div class="sd-home-title">${escHtml(c.title)}</div>
+      <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
+      <div class="sd-home-cta">Begin onderzoek →</div>
+    </div>`;
+  }).join('');
 
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
       <h2 class="htab-title">🔍 Speurdokter</h2>
-      <p class="htab-sub">Eén mysterieuze patiënt per dag. Jij stelt de diagnose.</p>
+      <p class="htab-sub">Mysterieuze patiënten. Jij stelt de diagnose.</p>
     </div>
-
-    ${heroHtml}
-
-    <div class="sd-how-card fade-in-2">
+    ${cards}
+    <div class="sd-how-card fade-in">
       <div class="sd-how-title">Hoe werkt het?</div>
       <div class="sd-how-step"><span class="sd-how-icon">🔬</span><span>Kies welke onderzoeken je wilt doen</span></div>
       <div class="sd-how-step"><span class="sd-how-icon">📋</span><span>Verzamel bewijs en bouw een beeld op</span></div>
