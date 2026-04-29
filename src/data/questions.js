@@ -156,7 +156,28 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Een normaal ECG sluit een acuut myocardinfarct volledig uit.',
-    c:false, ex:'NIET WAAR. Bij een NSTEMI of posterieur infarct kan het ECG initieel normaal zijn. Troponines zijn essentieel.' },
+    c:false, ex:'NIET WAAR. Bij een NSTEMI of posterieur infarct kan het ECG initieel normaal zijn. Troponines zijn essentieel.',
+    wiki: {
+      kern: 'Een normaal ECG sluit een acuut myocardinfarct NIET uit. NSTEMI, posterieur MI en vroeg-stadium infarct kunnen een normaal of subtiel ECG tonen. Seriële hoogsensitief troponine is de hoeksteen van diagnose.',
+      redflag: 'Posterior MI (afsluiting LCx): ST-depressie V1-V3 is het enige ECG-teken — aanvullend V7-V9 afleidingen zijn nodig voor de diagnose.',
+      mechanisme: [
+        { title: 'NSTEMI: geen ST-elevatie', desc: 'Bij NSTEMI is de coronaire occlusie subtotaal of intermitterend → geen transmuraal infarct → geen ST-elevatie. ST-depressie en T-inversie kunnen voorkomen, maar het ECG kan ook geheel normaal zijn.' },
+        { title: 'Posterieur MI', desc: 'Linkscircumflexarterie (LCx) voedt het achterste myocardium — dit gebied is niet direct zichtbaar in standaard afleidingen. Enige teken: reciproke ST-depressie in V1-V3 en hoge R in V1.' },
+        { title: 'Tijdsvenster', desc: 'ECG-veranderingen kunnen pas na 15-30 minuten optreden. Een eerste ECG bij binnenkomst kan normaal zijn terwijl het infarct net begint.' },
+      ],
+      onderscheid: [
+        { label: 'Normaal ECG sluit MI NIET uit', desc: 'Bij hoge klinische verdenking altijd hs-troponine (0+1u of 0+3u protocol). Normaal ECG + lage troponine = MI onwaarschijnlijk.', type: 'ok' },
+        { label: 'STEMI', desc: 'ST-elevatie ≥1mm in ≥2 aangrenzende afleidingen — transmuraal, directe PCI <90 min.', type: 'danger' },
+        { label: 'NSTEMI', desc: 'Troponine verhoogd zonder ST-elevatie. ST-depressie of T-inversie mogelijk maar ECG ook normaal.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Altijd seriële troponine meten bij pijn op de borst, ongeacht het ECG.',
+        stappen: [
+          { naam: '0/1u-protocol', detail: 'Hs-troponine bij aankomst + na 1 uur: significante stijging (delta) = rule-in ACS.' },
+          { naam: 'Posterior-afleidingen', detail: 'V7-V9 afnemen bij verdenking LCx-occlusie (ST-depressie V1-V3 + hoge R in V1).' },
+        ],
+      },
+    } },
 
   // ── NEUROLOGIE ──
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
@@ -674,16 +695,78 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Hypokaliëmie (K⁺ < 3.5) is een onafhankelijke risicofactor voor ventrikelfibrilleren bij een acuut myocardinfarct.',
-    c:true, ex:'WAAR. Hypokaliëmie verlaagt de drempelwaarde voor ventriculaire aritmieën, met name bij ischemie. Target K⁺ ≥ 4.0 mmol/L bij ACS is aanbevolen. Actieve suppletie is onderdeel van standaardzorg op de CCU.' },
+    c:true, ex:'WAAR. Hypokaliëmie verlaagt de drempelwaarde voor ventriculaire aritmieën, met name bij ischemie. Target K⁺ ≥ 4.0 mmol/L bij ACS is aanbevolen. Actieve suppletie is onderdeel van standaardzorg op de CCU.',
+    wiki:{
+      kern: 'Kalium is cruciaal voor de rustmembraanpotentiaal van cardiomyocyten. Hypokaliëmie verhoogt de automaticiteit en verlengt de repolarisatie → aritmiedrempel verlaagd, met name in ischemisch myocard.',
+      redflag: 'Op de CCU geldt: K⁺ ≥4,0 mmol/L en Mg²⁺ ≥0,8 mmol/L als target — lager dan dit verdubbelt het aritmierisico bij ACS.',
+      mechanisme: [
+        { title: 'Rustmembraanpotentiaal', desc: 'Lager extracellulair K⁺ → grotere K⁺-gradiënt → membraanpotentiaal meer negatief → cel is hyperexcitabel.' },
+        { title: 'Verlengde repolarisatie', desc: 'K⁺-kanalen werken minder effectief → langzamere repolarisatie → QTc-verlenging → risico torsades de pointes.' },
+        { title: 'Ischemische synergisme', desc: 'Ischemisch myocard verliest al K⁺ via ATP-gevoelige K⁺-kanalen → combinatie met hypokaliëmie geeft gevaarlijk lage drempelwaarde voor VF.' },
+      ],
+      onderscheid: [
+        { label: 'Hypokaliëmie (K⁺ <3,5)', desc: 'Afgeplatte T-golf, U-golf prominent, QTc verlengd → risico torsades. Oorzaken: diuretica, braken, diarree, hyperaldosteronisme.', type: 'ok' },
+        { label: 'Hyperkaliëmie (K⁺ >5,5)', desc: 'Piekende T-golven, breed QRS, sinusgolfpatroon bij K⁺ >7 → VF-risico door andere route. Behandel met calcium, glucose+insuline, bicarbonaat.', type: 'danger' },
+        { label: 'Hypomagnesiëmie', desc: 'Versterkt hypokaliëmie (Mg²⁺-tekort maakt K⁺-suppletie refractair) — altijd samen suppleren.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'K⁺ oraal/IV suppletie bij K⁺ <3,5. Op CCU: IV KCl als K⁺ <3,0 of ECG-afwijkingen.',
+        stappen: [
+          { naam: 'Target CCU', detail: 'K⁺ ≥4,0 mmol/L + Mg²⁺ ≥0,8 mmol/L — controleer 1-2× per dag bij ACS-patiënten.' },
+          { naam: 'Maximale infusiesnelheid', detail: 'Perifeer: max 10-20 mmol/u. Centraal: max 40 mmol/u onder ECG-bewaking.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Patiënt met hartfalen EF 30%, intolerantie voor ACE-remmer wegens angiooedeem. Beste alternatief?',
     a:['Verapamil','ARB (bijv. valsartan)','Amlodipine hoge dosis','Diltiazem'], c:1,
-    ex:'ARB veroorzaakt geen angiooedeem — bradykinine-pathway niet betrokken. Verapamil en diltiazem zijn negatief inotroop en gecontraïndiceerd bij lage EF. Hydralazine + nitraat is tweede keuze bij ARB-intolerantie.' },
+    ex:'ARB veroorzaakt geen angiooedeem — bradykinine-pathway niet betrokken. Verapamil en diltiazem zijn negatief inotroop en gecontraïndiceerd bij lage EF. Hydralazine + nitraat is tweede keuze bij ARB-intolerantie.',
+    wiki:{
+      kern: 'Angiooedeem bij ACE-remmers is een klasse-effect via bradykinineaccumulatie — niet via allergisch mechanisme. ARBs blokkeren de AT1-receptor direct en beïnvloeden bradykinine niet → géén angiooedeem.',
+      redflag: 'Verapamil en diltiazem zijn absoluut gecontraïndiceerd bij HFrEF — het negatief inotroop effect verlaagt de toch al lage EF verder en verergert hartfalen.',
+      mechanisme: [
+        { title: 'ACE-remmer angiooedeem', desc: 'ACE breekt bradykinine af. Remming → bradykinine stapelt op → activatie bradykinine B2-receptoren → vasodilatatie en oedeem van huid/mucosa. Niet IgE-gemedieerd — antihistaminica helpen niet.' },
+        { title: 'ARB-mechanisme', desc: 'ARBs blokkeren de angiotensine II type-1 receptor (AT1) direct. ACE wordt niet geremd → bradykinine-spiegel normaal → geen angiooedeem (incidentie <0,1% vs 0,1-0,7% bij ACE-i).' },
+        { title: 'Alternatief bij ARB-intolerantie', desc: 'Hydralazine (arterieel vasodilatans) + isosorbidedinitraat (veneus) — bewezen alternatief bij AfroAmerikanen en bij zowel ACE-i- als ARB-intolerantie (A-HeFT-trial).' },
+      ],
+      onderscheid: [
+        { label: 'ARB (valsartan, candesartan)', desc: 'Zelfde RAAS-blokkade als ACE-remmer, zonder bradykinine-effect. Gelijke nefroprotectie en mortaliteitsreductie bij HFrEF. Eerstekeus bij ACE-remmer-intolerantie.', type: 'ok' },
+        { label: 'ARNI (sacubitril/valsartan)', desc: 'Superieur aan ACE-remmer/ARB bij stabiel HFrEF (PARADIGM-HF) — maar bij angiooedeem-voorgeschiedenis: terughoudend (sacubitril verhoogt bradykinine).', type: 'warn' },
+        { label: 'Verapamil/diltiazem', desc: 'Non-DHP calciumantagonisten: negatief inotroop én chronotroop → gecontraïndiceerd bij HFrEF. Enige uitzondering: amlodipine (DHP, geen negatief inotroop effect) is veilig.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'ACE-remmer direct stoppen bij angiooedeem. Vervang door ARB na herstel (wacht minimaal 4-6 weken).',
+        stappen: [
+          { naam: 'ARB dosering', detail: 'Start laag, titreer omhoog: valsartan 40 mg 2dd → doel 160 mg 2dd (CHARM-trial-dosis).' },
+          { naam: 'ARNI overwegen', detail: 'Sacubitril/valsartan als volgende stap bij stabiele patiënt na minimaal 36u ACE-remmer-vrije periode.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Een eerstegraads AV-blok (PR-interval > 200ms) bij een asymptomatische patiënt vereist altijd een pacemaker.',
-    c:false, ex:'NIET WAAR. Eerstegraads AV-blok bij asymptomatische patiënt: geen behandeling nodig, alleen observatie. Pacemaker is geïndiceerd bij symptomatisch tweedegraads Mobitz II of derdegraads AV-blok.' },
+    c:false, ex:'NIET WAAR. Eerstegraads AV-blok bij asymptomatische patiënt: geen behandeling nodig, alleen observatie. Pacemaker is geïndiceerd bij symptomatisch tweedegraads Mobitz II of derdegraads AV-blok.',
+    wiki:{
+      kern: 'Eerstegraads AV-blok = PR >200 ms maar elke P-golf geleidt naar een QRS. Het is een vertraging in de AV-knoop, geen blokkade — alle atriale prikkels bereiken de ventrikels.',
+      mechanisme: [
+        { title: 'Vertraagde AV-knoopgeleiding', desc: 'Elke atriale prikkel bereikt de ventrikels maar trager. Oorzaken: vagale hypertonus (atleten), ischemie inferieure wand, digoxine, bètablokker, calcium-antagonist.' },
+        { title: 'Geen hemodynamische consequentie', desc: 'Alle prikkels bereiken de ventrikels → normale hartfrequentie en cardiac output → asymptomatisch. Alleen observatie nodig.' },
+      ],
+      onderscheid: [
+        { label: '1e graads AV-blok', desc: 'PR >200 ms, elke P→QRS. Asymptomatisch, geen behandeling. Kan progresseren naar 2e graads bij bepaalde oorzaken.', type: 'ok' },
+        { label: '2e graads Mobitz II', desc: 'Constant PR maar plotse QRS-uitval — His-bundelschade → risico op totaal blok → urgente pacemaker-evaluatie.', type: 'danger' },
+        { label: '3e graads (totaal) AV-blok', desc: 'P en QRS volledig ontkoppeld — altijd urgente pacemaker nodig, ongeacht symptomen.', type: 'danger' },
+        { label: 'Wenckebach (Mobitz I)', desc: 'Progressief langer PR tot QRS-uitval → reset. Benigne, AV-knoop-niveau, geen pacemaker nodig tenzij symptomatisch.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Eerstegraads AV-blok: geen behandeling. Zoek onderliggende oorzaak (medicatie, ischemie).',
+        stappen: [
+          { naam: 'Stop culprit-medicatie', detail: 'Digoxine, bètablokker of non-DHP calciumantagonist als oorzaak → staken of dosisreductie.' },
+          { naam: 'Follow-up', detail: 'Jaarlijkse controle bij persisterende 1e graads blok — progress naar hogere graad is zeldzaam maar mogelijk.' },
+        ],
+      },
+    } },
 
   // ── INFECTIOLOGIE — moeilijker ──
   { type:'diagnose', d:3, domain:'infectio', dl:'Infectiologie',
@@ -886,7 +969,28 @@ const QUESTIONS = [
   // ── Cardiologie (nieuw) ──
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Bij atriumfibrilleren met een CHA₂DS₂-VASc score van 0 bij een man is anticoagulatie geïndiceerd.',
-    c:false, ex:'NIET WAAR. CHA₂DS₂-VASc 0 (man) = laag risico → geen anticoagulatie aanbevolen. Score telt: hartfalen, hypertensie, leeftijd ≥75 (2 punten), diabetes, beroerte/TIA (2 punten), vaatziekte, leeftijd 65-74, vrouwelijk geslacht.' },
+    c:false, ex:'NIET WAAR. CHA₂DS₂-VASc 0 (man) = laag risico → geen anticoagulatie aanbevolen. Score telt: hartfalen, hypertensie, leeftijd ≥75 (2 punten), diabetes, beroerte/TIA (2 punten), vaatziekte, leeftijd 65-74, vrouwelijk geslacht.',
+    wiki: {
+      kern: 'CHA₂DS₂-VASc berekent het jaarlijkse CVA-risico bij atriumfibrilleren. Man met score 0 = risico <1%/jaar → anticoagulatie geeft meer schade dan voordeel. Anticoagulatie: mannen ≥2 punten, vrouwen ≥3 punten.',
+      mnemonic: { word: 'CHA₂DS₂-VASc', items: ['C — Congestief hartfalen (1)', 'H — Hypertensie (1)', 'A₂ — Age ≥75 jaar (2)', 'D — Diabetes mellitus (1)', 'S₂ — Stroke/TIA voorheen (2)', 'V — Vaatziekte (1)', 'A — Age 65-74 jaar (1)', 'Sc — Sex category vrouw (1)'] },
+      redflag: 'Vrouwen: het vrouwelijk geslacht is een risicoversterkend factor, geen onafhankelijke indicatie — een vrouw met alleen het vrouwelijk geslacht (score 1) krijgt GEEN anticoagulatie.',
+      mechanisme: [
+        { title: 'CVA-risico bij AF', desc: 'Stase in linker hartoor → trombus → embolie naar hersenvaten. CHA₂DS₂-VASc kwantificeert dit risico aan de hand van comorbiditeiten.' },
+        { title: 'Bloedingsrisico (HAS-BLED)', desc: 'Tegenover anticoagulatievoordeel staat bloedingsrisico. HAS-BLED-score (Hypertensie, Abnormale nier/leverfunctie, CVA, Bloeding, Labiele INR, Elderly, Drugs/alcohol) helpt dit in kaart brengen.' },
+      ],
+      onderscheid: [
+        { label: 'Score 0 (man): geen anticoagulatie', desc: 'Jaarlijks CVA-risico <1% — anticoagulatie-geïnduceerd bloedingsrisico > CVA-preventie-voordeel. Geen behandeling geïndiceerd.', type: 'ok' },
+        { label: 'Score ≥2 (man) of ≥3 (vrouw)', desc: 'DOAC (apixaban, rivaroxaban, dabigatran of edoxaban) tenzij contra-indicatie. VKA alleen bij mechanische hartklep of mitralisstenose.', type: 'danger' },
+        { label: 'Score 1 (man)', desc: 'Grijs gebied — anticoagulatie overwegen, individueel beslissen, voorkeur voor DOAC als klinisch voordeel aanwezig.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Acuut AF <48u: cardioversie mogelijk zonder anticoagulatie (of na TEE om trombus uit te sluiten).',
+        stappen: [
+          { naam: 'Rate control', detail: 'Bètablokker of non-DHP calciumantagonist voor frequentiebeheersing (<110/min in rust).' },
+          { naam: 'Anticoagulatie', detail: 'DOAC op basis van CHA₂DS₂-VASc — start na bloedingsrisicobeoordeling (HAS-BLED).' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 55j met kortademigheid bij inspanning, orthopneu en dikke enkels. Echo: EF 35%, vergrote LV. Wat is de eersterangbehandeling?',
@@ -920,7 +1024,29 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Bij een STEMI moet PCI (dotterbehandeling) idealiter binnen 90 minuten na eerste medisch contact plaatsvinden.',
-    c:true, ex:'WAAR. "Door-to-balloon time" <90 min is de richtlijn. Hoe sneller, hoe meer myocard gered. Alternatief: trombolyse binnen 30 min als PCI niet tijdig beschikbaar is (deur-tot-naald <30 min).' },
+    c:true, ex:'WAAR. "Door-to-balloon time" <90 min is de richtlijn. Hoe sneller, hoe meer myocard gered. Alternatief: trombolyse binnen 30 min als PCI niet tijdig beschikbaar is (deur-tot-naald <30 min).',
+    wiki: {
+      kern: 'STEMI-tijdsdoelen: "Time is muscle." Primaire PCI is de gouden standaard — elke 30 minuten extra vertraging = ~7,5% meer myocardverlies. Door-to-balloon <90 minuten is de norm.',
+      bigfact: { num: '90', label: 'minuten', sub: 'deur-tot-ballon tijdsdoel bij STEMI (primaire PCI)' },
+      redflag: 'Trombolyse is gereserveerd als PCI niet binnen 120 minuten na het eerste medisch contact bereikbaar is — deur-tot-naald dan <30 minuten. Na lyse: transfer naar PCI-centrum binnen 2-24u voor coronairangiografie.',
+      mechanisme: [
+        { title: 'Myocardverlies per tijdseenheid', desc: 'Volledige coronaire afsluiting → 1 g myocard per minuut in de risiczone sterft af. Na 90 minuten is gemiddeld 30-40 g myocard necrotisch. PCI herstelt de doorbloeding en reddend myocard behoud is tijdskritisch.' },
+        { title: 'PCI vs trombolyse', desc: 'Primaire PCI: hogere TIMI 3-flow, minder re-occlusie, minder bloedingen dan trombolyse. Trombolyse: sneller te starten maar beperkt tot eerste 12u, contra-indicaties bloeding.' },
+      ],
+      onderscheid: [
+        { label: 'STEMI: PCI binnen 90 minuten', desc: 'Gouden standaard. Door-to-balloon <90 min na eerste medisch contact. Dubbele plaatjesremming (aspirine + ticagrelor/prasugrel) direct geven.', type: 'ok' },
+        { label: 'Trombolyse als alternatief', desc: 'Alteplase als PCI niet beschikbaar binnen 120 min. Deur-tot-naald <30 min. Absolute CI: eerdere hersenbloeding, actieve bloeding, ernstige hypertensie.', type: 'warn' },
+        { label: 'NSTEMI/instabiele angina', desc: 'Geen ST-elevatie — minder urgent, coronairangiografie binnen 24-72u afhankelijk van risicoscore (GRACE-score).', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Direct naar katheterslab — geen onnodige diagnostiek of vertragend overleg.',
+        stappen: [
+          { naam: 'Direct aspirine + ticagrelor', detail: 'Aspirine 300 mg + ticagrelor 180 mg (of prasugrel 60 mg bij PCI-plan) oraal bij aankomst.' },
+          { naam: 'Heparine IV', detail: '70-100 IE/kg bolus voor PCI — anticogulatie periprocedureel.' },
+          { naam: 'Secundaire preventie', detail: 'Na STEMI: statine hoog-intensief + bètablokker + ACE-remmer + SGLT2-remmer.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 35j na griep: scherpe precordiale pijn, erger liggend, beter voorovergebogen. ECG: saddle-shape ST-elevatie in meerdere afleidingen. Diagnose?',
@@ -980,7 +1106,28 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'ACE-remmers zijn gecontra-indiceerd bij hartfalen met verminderde ejectiefractie (HFrEF).',
-    c:false, ex:'NIET WAAR. ACE-remmers zijn juist eerstekeusmiddelen bij HFrEF — ze verminderen mortaliteit. Contra-indicaties zijn: bilaterale nierslagadervernauwing, zwangerschap, en overgevoeligheid (bijv. angio-oedeem).' },
+    c:false, ex:'NIET WAAR. ACE-remmers zijn juist eerstekeusmiddelen bij HFrEF — ze verminderen mortaliteit. Contra-indicaties zijn: bilaterale nierslagadervernauwing, zwangerschap, en overgevoeligheid (bijv. angio-oedeem).',
+    wiki: {
+      kern: 'ACE-remmers zijn niet gecontraïndiceerd maar juist geïndiceerd bij HFrEF. Ze verminderen RAAS-activatie en verbeteren de overleving met ~20%. Enige absolute contra-indicaties: bilaterale nierslagadervernauwing, zwangerschap, angio-oedeem in de voorgeschiedenis.',
+      redflag: 'Echte contra-indicaties ACE-remmers: bilaterale nierslagadervernauwing (acute verslechtering nierfunctie), zwangerschap (fetotoxisch), eerder angio-oedeem door ACE-remmer (switch naar ARB). Droge hoest → switch naar ARB (ook bewezen bij HFrEF).',
+      mechanisme: [
+        { title: 'RAAS-blokkade', desc: 'ACE-remmers blokkeren de omzetting van angiotensine I naar II → minder aldosteron → minder natrium/waterretentie + minder vasoconstrictie → lagere preload en afterload.' },
+        { title: 'Reverse remodelling', desc: 'Chronische RAAS-activatie bij HFrEF leidt tot myocardfibrose en verdere EF-daling. ACE-remmers doorbreken deze cyclus → reverse remodelling → EF stijgt gemiddeld 5-10% na 3-6 maanden.' },
+        { title: 'Mortaliteitsreductie', desc: 'CONSENSUS- en SOLVD-studie: enalapril verlaagde mortaliteit bij HFrEF met 16-40%. Combinatie met bètablokker + MRA + SGLT2i geeft additieve reductie.' },
+      ],
+      onderscheid: [
+        { label: 'ACE-remmers: eerstekeus bij HFrEF', desc: 'Geïndiceerd bij alle HFrEF-patiënten tenzij echte contra-indicatie. Mortaliteitsreductie 16-27% in gerandomiseerde studies.', type: 'ok' },
+        { label: 'ARB: alternatief bij hoest/angio-oedeem', desc: 'Valsartan, candesartan of losartan als ACE-remmer niet verdraagbaar. Geen hoest (geen bradykinine-effect). CHARM-studie: bewezen bij HFrEF.', type: 'warn' },
+        { label: 'ARNI (sacubitril/valsartan)', desc: 'Superieur aan ACE-remmer (PARADIGM-HF: 20% sterftereductie vs. enalapril). Wordt aanbevolen als volgende stap bij stabiele HFrEF-patiënten die al ACE-remmer/ARB gebruiken.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Start zo snel als hemodynamisch verdraagbaar na stabilisatie.',
+        stappen: [
+          { naam: 'Starten laag', detail: 'Begin met lage dosis (bijv. enalapril 2,5 mg 2dd), ophogen naar doeldosis (enalapril 10-20 mg 2dd) over 2-4 weken.' },
+          { naam: 'Nierfunctie monitoren', detail: 'Creatinine + kalium na 1-2 weken — stijging creatinine <30% is acceptabel. Stijging K⁺ >5,5 mmol/L → dosis verlagen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 72j: systolisch geruis graad 4/6 rechts parasternaal, uitstralend naar hals, syncope bij inspanning, kortademigheid. Echo: AV-oppervlak 0.7 cm². Diagnose?',
@@ -1040,26 +1187,133 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Statines verlagen LDL-cholesterol door HMG-CoA-reductase te remmen.',
-    c:true, ex:'WAAR. HMG-CoA-reductase is het sleutelenzym in cholesterolsynthese in de lever. Remming → minder intracellulair cholesterol → meer LDL-receptoren → meer LDL-opname uit bloed. Bijwerking: myopathie (check CK bij spierpijn).' },
+    c:true, ex:'WAAR. HMG-CoA-reductase is het sleutelenzym in cholesterolsynthese in de lever. Remming → minder intracellulair cholesterol → meer LDL-receptoren → meer LDL-opname uit bloed. Bijwerking: myopathie (check CK bij spierpijn).',
+    wiki:{
+      kern: 'HMG-CoA-reductase is het snelheidsbeperkende enzym in de endogene cholesterolsynthese. Remming → lever maakt minder cholesterol → compenseert met meer LDL-receptoren → LDL-opname uit bloed verhoogd.',
+      bigfact: { num: '50%', label: 'LDL-daling', sub: 'Met hoog-intensieve statine (atorvastatine 40-80 mg of rosuvastatine 20-40 mg).' },
+      mechanisme: [
+        { title: 'HMG-CoA remming', desc: 'Statines blokkeren de omzetting van HMG-CoA naar mevalonaat — de eerste stap in de cholesterolsynthese. Dit verlaagt het intracellulair cholesterolgehalte van de hepatocyt.' },
+        { title: 'Upregulatie LDL-receptoren', desc: 'Lagere intracellulair cholesterol → SREBP-2 geactiveerd → meer LDL-receptorexpressie → meer LDL-opname uit plasma. Gevolg: LDL daalt 30-55%.' },
+        { title: 'Pleiotrope effecten', desc: 'Naast LDL-verlaging: plaques stabiliseren, endothelfunctie verbeteren, CRP verlagen. Mede verantwoordelijk voor cardiovasculaire bescherming ook bij normaal LDL.' },
+      ],
+      onderscheid: [
+        { label: 'Statines (HMG-CoA-remmers)', desc: 'Eerstekeus. Hoog-intensief (atorva 40-80 mg, rosuva 20-40 mg): >50% LDL-daling. Laag-intensief (prava 10-20 mg): 20-30%.', type: 'ok' },
+        { label: 'Ezetimib', desc: 'Remt intestinale cholesterolabsorptie (NPC1L1). Combinatie met statine: additioneel 15-20% LDL-daling. Goed verdragen.', type: 'warn' },
+        { label: 'PCSK9-remmers (evolocumab, alirocumab)', desc: 'Blokkeren PCSK9 → meer LDL-receptors → extreme LDL-daling (50-60% bovenop statine). Indicatie: FH of hoog risico met onvoldoende statine-effect.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Na MI: start direct hoog-intensieve statine (atorvastatine 80 mg of rosuvastatine 40 mg), ongeacht LDL-uitgangswaarde.',
+        stappen: [
+          { naam: 'Bijwerking myopathie', detail: 'Stop statine bij CK >10× normaal (rhabdomyolyse). Bij spierpijn zonder CK-stijging: schakel over op andere statine of lager doseer.' },
+          { naam: 'Monitoring', detail: 'Lever-enzymes bij aanvang — routine monitoring niet meer aanbevolen tenzij symptomen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Jongeman 22j valt flauw op het sportveld. Vader overleed plotseling op 38j. Systolisch geruis dat toeneemt bij Valsalva. Diagnose?',
     a:['Aortastenose','Hypertrofische cardiomyopathie (HCM)','Mitralisklepprolaps','Wolff-Parkinson-White'], c:1,
-    ex:'HCM: asymmetrische septumhypertrofie, autosomaaldominant. Geruis neemt toe bij Valsalva (minder vulling → meer obstructie). Risico plotse hartdood bij jongeren. Behandeling: bètablokker, ICD bij hoog risico, sport verboden.' },
+    ex:'HCM: asymmetrische septumhypertrofie, autosomaaldominant. Geruis neemt toe bij Valsalva (minder vulling → meer obstructie). Risico plotse hartdood bij jongeren. Behandeling: bètablokker, ICD bij hoog risico, sport verboden.',
+    wiki:{
+      kern: 'HCM (hypertrofische cardiomyopathie) is de meest voorkomende erfelijke hartziekte (1:500) en de meest voorkomende oorzaak van plotse hartdood bij jonge atleten. Autosomaal dominante mutatie in sarcomeer-eiwitten (MYH7, MYBPC3).',
+      redflag: 'Het geruis van HCM neemt TÓÉ bij Valsalva en staan (minder vulling → meer obstructie) — dit is het tegenovergestelde van aortastenose, waarbij het geruis afneemt.',
+      mechanisme: [
+        { title: 'Asymmetrische septumhypertrofie', desc: 'Verdikt interventriculair septum (IVS) obstrueert de LVOT (uitstroomtract) tijdens systole → dynamische drukgradient.' },
+        { title: 'SAM (systolic anterior motion)', desc: 'Venturi-effect trekt het anterieure mitraalblad naar het IVS → verergert LVOT-obstructie + mitralisinsufficiëntie. Zichtbaar op echo.' },
+        { title: 'Dynamische obstructie', desc: 'Gradient neemt toe bij ↓ preload (staan, Valsalva, dehydratie) en ↓ afterload. Neemt af bij ↑ preload (hurken, handdruktest). Hierom zijn nitraten gevaarlijk.' },
+        { title: 'Aritmierisico', desc: 'Gedesorganiseerde spiervezels + fibrose → re-entry circuits → VT/VF → syncope of plotse hartdood, ook bij jonge atleten zonder voorgeschiedenis.' },
+      ],
+      onderscheid: [
+        { label: 'Hypertrofische cardiomyopathie (HCM)', desc: 'Geruis neemt tóé bij Valsalva/staan. Asymmetrisch IVS >15 mm op echo. SAM van mitraalklep. Familiaire anamnese plotse hartdood.', type: 'ok' },
+        { label: 'Aortastenose', desc: 'Geruis neemt áf bij Valsalva (vaste mechanische obstructie). Oudere patiënt. Calcificatie op echo. Geen familiaire plotse hartdood.', type: 'danger' },
+        { label: 'WPW', desc: 'Syncope door plotse tachyaritmie, delta-golf + kort PR op ECG. Geen septumhypertrofie op echo.', type: 'warn' },
+        { label: 'Mitralisklepprolaps', desc: 'Midsystolische klik + laat-systolisch geruis. Goed-aardige aandoening, zelden plotse hartdood.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Bètablokker (eerstekeus) — verlaagt hartfrequentie → langere vultijd → minder obstructie.',
+        stappen: [
+          { naam: 'ICD-indicatie', detail: 'Bij ≥1 risicofactor: overleefde VT/VF, syncope, familiaire plotse hartdood, septum ≥30 mm, NSVT, hypotensiereactie bij inspanning.' },
+          { naam: 'Sportontheffing', detail: 'Competitief sporten verboden — inspanning verhoogt LVOT-gradient en aritmierisico dramatisch.' },
+          { naam: 'Septumreductie', detail: 'Chirurgische myectomie of alcohol-ablatie bij refractaire LVOT-gradient >50 mmHg ondanks medicatie.' },
+        ],
+      },
+    } },
 
   { type:'lab', d:5, domain:'cardio', dl:'Cardiologie',
     q:'Man 52j: pijn op de borst 3 uur geleden. Eerste troponine normaal. Wat is het juiste beleid?',
     a:['Ontslaan: eerste troponine normaal','Herhaal troponine na 3-6 uur','Direct PCI starten','Alleen ECG herhalen'], c:1,
-    ex:'Troponine stijgt pas 3-6 uur na infarct. Eén normale waarde sluit NSTEMI niet uit. Herhaal na 3-6 uur (of 1-2 uur met hoog-sensitief troponine). Combineer met ECG en kliniek. Laat de patiënt nooit te vroeg gaan.' },
+    ex:'Troponine stijgt pas 3-6 uur na infarct. Eén normale waarde sluit NSTEMI niet uit. Herhaal na 3-6 uur (of 1-2 uur met hoog-sensitief troponine). Combineer met ECG en kliniek. Laat de patiënt nooit te vroeg gaan.',
+    wiki:{
+      kern: 'Hs-troponine stijgt pas 1-3 uur na infarct en bereikt de piek bij 12-24 uur. Eén normaal troponine bij klachten <3u sluit NSTEMI NIET uit — seriële meting is verplicht.',
+      bigfact: { num: '0+1h', label: 'ESC-protocol', sub: 'Meten op aankomst en na 1 uur — combinatie van absolute waarde + delta sluit ACS snel in of uit.' },
+      mechanisme: [
+        { title: 'Kinetiek troponine-vrijgave', desc: 'Troponine T en I lekken uit ischemische cardiomyocyten — detectie met hs-assay na 1-3u, piek 12-24u, normaliseert 5-14 dagen.' },
+        { title: 'Serieel meten', desc: '0+1h ESC-protocol: hoog absoluut hs-troponine op t=0 = rule-in. Laag op t=0 én t=1h = rule-out (NPV >99%). Significante stijging (delta) = rule-in ACS.' },
+        { title: 'Vals-negatief risico', desc: 'Bij klachten <3u: troponine kan nog normaal zijn ondanks lopend infarct. Vroegtijdig ontslaan op basis van één meting is gevaarlijk.' },
+      ],
+      onderscheid: [
+        { label: 'Serieel hs-troponine (0+1h of 0+3h)', desc: 'Standaardprotocol bij verdenking ACS op de SEH. Combineer altijd met ECG en klinisch beeld.', type: 'ok' },
+        { label: 'Verhoogd troponine zonder ACS', desc: 'LE, myocarditis, sepsis, nierfalen, cardiomyopathie — troponine is cardiospecifiek maar niet ACS-specifiek. Klinische context is bepalend.', type: 'warn' },
+        { label: 'HEART-score', desc: 'History + ECG + Age + Risk + Troponin: risicostratificatie ≤3 = laag risico (0,9% MACE), ≥7 = hoog risico (50% MACE). Helpt ontslagindicatie bepalen.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'STEMI: directe PCI. NSTEMI: aspirine + ticagrelor, heparine, coronairangiografie binnen 2-72u afhankelijk van risico.',
+        stappen: [
+          { naam: 'Laag-risico NSTEMI', detail: 'GRACE-score <140 + stabiel: conservatief beleid met coronairangiografie binnen 72u.' },
+          { naam: 'Hoog-risico NSTEMI', detail: 'GRACE-score ≥140 of refractaire klachten: urgente coronairangiografie binnen 2-24u.' },
+        ],
+      },
+    } },
 
   { type:'lab', d:5, domain:'cardio', dl:'Cardiologie',
     q:'Welke biomarker is het meest specifiek verhoogd bij acuut myocardinfarct?',
     a:['CK-MB','Myoglobine','Troponine I of T','LDH'], c:2,
-    ex:'Troponine I en T zijn hartspecifiek en de gouden standaard voor AMI. CK-MB is minder specifiek (ook in skeletspier). Myoglobine stijgt vroeg maar is niet cardiospecifiek. Hoog-sensitief troponine detecteert zelfs kleine infarcten.' },
+    ex:'Troponine I en T zijn hartspecifiek en de gouden standaard voor AMI. CK-MB is minder specifiek (ook in skeletspier). Myoglobine stijgt vroeg maar is niet cardiospecifiek. Hoog-sensitief troponine detecteert zelfs kleine infarcten.',
+    wiki:{
+      kern: 'Cardiaal troponine I (cTnI) en troponine T (cTnT) zijn de biomarkers van keuze bij verdenking AMI — ze zijn vrijwel exclusief aanwezig in cardiale spiercellen en niet in skeletspier.',
+      mechanisme: [
+        { title: 'Troponine: hartspecifiek', desc: 'cTnI en cTnT zijn isovormen die alleen in het myocard voorkomen (andere isovormen in skeletspier). Bij ischemische celschade lekken ze vrij → detecteerbaar na 1-3u.' },
+        { title: 'Hoog-sensitieve assay', desc: 'Hs-troponine detecteert concentraties 10-100× lager dan conventionele assays → eerder positief, kleinere infarcten detecteerbaar, 0+1h protocol mogelijk.' },
+        { title: 'CK-MB en myoglobine', desc: 'CK-MB: ook aanwezig in skeletspier (minder specifiek). Myoglobine: stijgt vroegst (1-2u) maar ook in skeletspier. Beide vervangen door hs-troponine in moderne diagnostiek.' },
+      ],
+      onderscheid: [
+        { label: 'Hs-troponine I of T', desc: 'Hartspecifiek, stijgt 1-3u, piek 12-24u. Gouden standaard AMI-diagnose. NPV >99% bij 0+1h protocol.', type: 'ok' },
+        { label: 'CK-MB', desc: 'Minder specifiek (skeletspiercontaminatie). Nuttig voor herinfarcering (normaliseert sneller dan troponine, dus nieuwe stijging detecteerbaar).', type: 'warn' },
+        { label: 'Myoglobine', desc: 'Vroegste stijging (1-2u) maar niet hartspecifiek — verhoogd bij elke spiertrauma. Niet meer gebruikt als primaire AMI-marker.', type: 'danger' },
+        { label: 'LDH', desc: 'Stijgt laat (48-72u), niet cardiospecifiek. Historisch gebruikt bij late presentatie — nu vervangen door troponine.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Troponine ≥URL + klachten = AMI tot bewijs van het tegendeel. Start ACS-protocol.',
+        stappen: [
+          { naam: 'Niet-cardiale oorzaken', detail: 'Altijd uitsluiten bij troponine-stijging: LE, myocarditis, sepsis, nierfalen, cardioversie — klinische context is doorslaggevend.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Een droge hoest is een bekende bijwerking van ACE-remmers.',
-    c:true, ex:'WAAR. ACE-remmers remmen ook de afbraak van bradykinine → accumulatie → prikkeling van de hoestreflex. Komt voor bij 10-15% van patiënten. Oplossing: overstappen op ARB (bijv. valsartan), die bradykinine niet ophopen.' },
+    c:true, ex:'WAAR. ACE-remmers remmen ook de afbraak van bradykinine → accumulatie → prikkeling van de hoestreflex. Komt voor bij 10-15% van patiënten. Oplossing: overstappen op ARB (bijv. valsartan), die bradykinine niet ophopen.',
+    wiki: {
+      kern: 'ACE-remmers blokkeren niet alleen angiotensine II-productie, maar ook de afbraak van bradykinine. Bradykinine-accumulatie stimuleert de C-vezel hoestreflex in de bronchiën → droge prikkelhoest bij 10-15% van patiënten (vaker bij Aziatische populaties >30%).',
+      bigfact: { num: '10–15%', label: 'kans op droge hoest', sub: 'bij gebruik van ACE-remmers; vaker bij vrouwen en Aziatische patiënten' },
+      mechanisme: [
+        { title: 'Bradykinine-accumulatie', desc: 'ACE (angiotensin-converting enzyme) breekt normaal bradykinine af. ACE-remmer blokkeert dit → bradykinine stapelt op in bronchiaal epitheel → C-vezel stimulatie → droge, persisterende hoest.' },
+        { title: 'Onderscheid van hartfalenhoest', desc: 'ACE-remmerhoest: droog, prikkelend, niet productief, continu aanwezig, geen dyspneu-correlatie. Hartfalenhoest: nachtelijke dyspneu, roze schuimend sputum, ortopneu.' },
+        { title: 'ARB: geen hoest', desc: 'ARBs blokkeren angiotensine II-receptoren maar hebben geen effect op bradykinine-afbraak → ARBs geven geen bradykinine-accumulatie → geen hoest.' },
+      ],
+      onderscheid: [
+        { label: 'ACE-remmerhoest', desc: 'Droog, prikkelend, aanwezig bij 10-15% — switch naar ARB (bewezen equivalente werkzaamheid bij HFrEF en hypertensie). Hoest verdwijnt na 1-4 weken na staken.', type: 'ok' },
+        { label: 'Angio-oedeem', desc: 'Zeldzamere ernstige bijwerking: plotseling oedeem tong/lippen/keel — levensbedreiging. Stop ACE-remmer permanent, geen switch naar ARB (ook ARB-gerelateerd angio-oedeem mogelijk).', type: 'danger' },
+        { label: 'ARNI (sacubitril/valsartan)', desc: 'Bij HFrEF: vervang ACE-remmer door ARNI voor extra mortaliteitsreductie. ARNI bevat valsartan (ARB) + neprilysine-remmer — verhoogt NP-peptiden, ook geen bradykinine-hoest.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Stop ACE-remmer bij invaliderende hoest of angio-oedeem.',
+        stappen: [
+          { naam: 'Switch naar ARB', detail: 'Valsartan, candesartan of losartan — vergelijkbare effectiviteit bij HFrEF/hypertensie, geen hoest.' },
+          { naam: 'Overweeg ARNI', detail: 'Bij stabiele HFrEF: sacubitril/valsartan superieur aan ACE-remmer voor mortaliteitsreductie (PARADIGM-HF).' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 62j: pijn in de kuit bij lopen, verdwijnt in rust, rookt 30 jaar. ABI (enkel-arm-index) = 0.65. Diagnose?',
@@ -1092,16 +1346,84 @@ const QUESTIONS = [
   { type:'pharma', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Wat is het werkingsmechanisme van aspirine als bloedplaatjesremmer?',
     a:['Blokkeert ADP-receptor P2Y12','Remt COX-1 irreversibel → minder tromboxaan A2','Blokkeert glycoproteïne IIb/IIIa','Activeert plasminogeen'], c:1,
-    ex:'Aspirine acetyleert COX-1 irreversibel → geen TXA2-synthese → bloedplaatjes aggregeren minder. Effect duurt levenslang van het plaatje (7-10 dagen). Hoge dosis = anti-inflammatoir. Lage dosis (80-100mg) = antithrombotisch.' },
+    ex:'Aspirine acetyleert COX-1 irreversibel → geen TXA2-synthese → bloedplaatjes aggregeren minder. Effect duurt levenslang van het plaatje (7-10 dagen). Hoge dosis = anti-inflammatoir. Lage dosis (80-100mg) = antithrombotisch.',
+    wiki:{
+      kern: 'Aspirine acetyleert COX-1 irreversibel in bloedplaatjes → geen tromboxaan A2-synthese → verminderde plaatjesaggregatie. Omdat bloedplaatjes geen kern hebben, kunnen ze COX-1 niet herstellen → effect duurt de levensduur van het plaatje (7-10 dagen).',
+      mnemonic: { word: 'DAPT', items: ['D — Dubbele plaatjesremming', 'A — Aspirine (COX-1 remmer)', 'P — P2Y12-remmer (clopidogrel/ticagrelor)', 'T — Tijd: 12 maanden na stentplaatsing'] },
+      mechanisme: [
+        { title: 'Irreversibele COX-1-acetylering', desc: 'Aspirine acetyleert serine-530 van COX-1 covalent. Bloedplaatjes missen een celkern → kunnen geen nieuw COX-1 maken → effect duurt 7-10 dagen (levensduur plaatje).' },
+        { title: 'Geen tromboxaan A2', desc: 'COX-1 maakt prostaglandine H2 → tromboxaan A2 (TXA2). TXA2 stimuleert plaatjesaggregatie en vasoconstrictie. Zonder TXA2: plaatjes zijn minder kleverig.' },
+        { title: 'Dosis-afhankelijk effect', desc: 'Lage dosis (80-100 mg): selectief COX-1 in plaatjes (COX-2 in vaatwand gespaard → prostacycline I2 behouden). Hoge dosis: ook COX-2 remming → anti-inflammatoir, maar meer bijwerkingen.' },
+      ],
+      onderscheid: [
+        { label: 'Aspirine (COX-1 remmer)', desc: 'Irreversibeel, duur 7-10 dagen, lage dosis antithrombotisch. Standaard bij ACS en preventie cardiovasculaire events.', type: 'ok' },
+        { label: 'Clopidogrel/ticagrelor (P2Y12-remmer)', desc: 'Blokkeert ADP-receptor P2Y12 op plaatjes. Ticagrelor reversibel en sneller dan clopidogrel (pro-drug). DAPT = aspirine + P2Y12-remmer na stent.', type: 'warn' },
+        { label: 'Glycoproteïne IIb/IIIa-remmers', desc: 'Abciximab, eptifibatide — blokkeert eindgemeenschappelijke weg plaatjesaggregatie. Alleen IV, bij hoog-risico PCI.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Aspirine 300 mg direct bij verdenking ACS (oplaaddosis), daarna 80-100 mg/dag levenslang.',
+        stappen: [
+          { naam: 'DAPT na PCI', detail: 'Aspirine + ticagrelor/prasugrel 12 maanden. Ticagrelor superieur aan clopidogrel (PLATO-trial).' },
+          { naam: 'Bijwerkingen', detail: 'Maagbloeding (PPI co-medicatie overwegen bij hoog GI-risico), aspirine-exacerbated respiratory disease bij astma.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 60j met hypertensie: plotse verscheurende pijn tussen schouderbladen, RR rechts 160/90, links 120/80. CT: dubbelloop aorta. Diagnose?',
     a:['STEMI','Longembolie','Aortadissectie','Aorta-aneurysma ruptuur'], c:2,
-    ex:'Aortadissectie: intima scheurt → bloed in aortawand. Klassiek: plotse verscheurende pijn + bloeddruksverschil tussen armen. Type A (opstijgend): chirurgie spoedmatig. Type B (dalend): medisch met bètablokker + bloeddrukcontrole.' },
+    ex:'Aortadissectie: intima scheurt → bloed in aortawand. Klassiek: plotse verscheurende pijn + bloeddruksverschil tussen armen. Type A (opstijgend): chirurgie spoedmatig. Type B (dalend): medisch met bètablokker + bloeddrukcontrole.',
+    wiki:{
+      kern: 'Aortadissectie: scheur in de intima → bloed scheidt intima van media → vals lumen. De "dubbelloop aorta" op CT is het pathognomonische beeld. Mortaliteit type A stijgt 1-2% per uur zonder chirurgie.',
+      redflag: 'Sluit aortadissectie ALTIJD uit vóór trombolyse bij pijn op de borst — trombolyse bij dissectie is fataal (bloeding in het valse lumen).',
+      mechanisme: [
+        { title: 'Intima-ruptuur', desc: 'Hypertensie (meest voorkomend), bindweefselziekte (Marfan, Ehlers-Danlos), bicuspide aortaklep of trauma → cyclische drukstress scheurt de intima open.' },
+        { title: 'Propagatie van het valse lumen', desc: 'Arteriële druk pompt bloed via de scheur → vals lumen groeit proximaal en distaal, kan zijarteries afsluiten → orgaanischemie.' },
+        { title: 'Bloeddrukasymmetrie', desc: 'Valse lumen kan de arteria subclavia links of rechts afsluiten → bloeddrukasymmetrie >20 mmHg tussen armen. Kenmerkend teken.' },
+        { title: 'Stanford-classificatie', desc: 'Type A (60%): opstijgende aorta betrokken → risico tamponade, aortaklep-insufficiëntie, coronaire ischemie → chirurgie. Type B (40%): alleen dalend → medisch tenzij complicaties.' },
+      ],
+      onderscheid: [
+        { label: 'Aortadissectie', desc: 'Maximale pijn direct bij begin ("verscheurend"), bloeddrukasymmetrie >20 mmHg, breed mediastinum op X-thorax, CT: dubbelloop aorta.', type: 'ok' },
+        { label: 'STEMI', desc: 'Drukkende/knijpende pijn, ST-elevaties ECG, troponine stijgt, geen bloeddrukasymmetrie. Trombolyse wél geïndiceerd.', type: 'danger' },
+        { label: 'Longembolie', desc: 'Pleuritische pijn, dyspneu, D-dimeer verhoogd, geen bloeddrukasymmetrie, geen dubbelloop op CT.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Type A: directe chirurgie (mortaliteit 25-30% met chirurgie vs 50-80% zonder). Type B: IV labetalol of esmolol → BD <120 mmHg systolisch.',
+        stappen: [
+          { naam: 'Diagnostiek', detail: 'CT-angiografie aorta: snel, sensitief (>95%), onderscheidt type A vs B en toont orgaanischemie.' },
+          { naam: 'Pijncontrole', detail: 'Morfine IV — vermindert sympathicusactivatie en aortale wandspanning.' },
+          { naam: 'Type B complicaties', detail: 'TEVAR (endovasculaire stent) bij ischemie, expansie (>5 mm/jaar) of aortaruptuur.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Amiodaron kan zowel hypo- als hyperthyreoïdie veroorzaken.',
-    c:true, ex:'WAAR. Amiodaron bevat 37% jodium. Kan hypothyreoïdie veroorzaken (jodium remt schildklierhormoonproductie, Wolff-Chaikoff-effect) maar ook hyperthyreoïdie (jodiumoverload triggert autonome productie). Monitor TSH regelmatig.' },
+    c:true, ex:'WAAR. Amiodaron bevat 37% jodium. Kan hypothyreoïdie veroorzaken (jodium remt schildklierhormoonproductie, Wolff-Chaikoff-effect) maar ook hyperthyreoïdie (jodiumoverload triggert autonome productie). Monitor TSH regelmatig.',
+    wiki: {
+      kern: 'Amiodaron bevat 37% jodium — elke 200 mg tablet geeft ~75 mg vrij jodium (normale dagelijkse inname ~150 µg). Dit jodiumoverload kan via twee mechanismen de schildklier beschadigen: remming (hypothyreoïdie) of stimulatie (hyperthyreoïdie). TSH moet elke 6 maanden gemonitord worden.',
+      bigfact: { num: '37%', label: 'jodium in amiodaron', sub: 'per 200 mg tablet ~75 mg vrij jodium — 500× de normale dagelijkse inname' },
+      redflag: 'Amiodaron-geïnduceerde hyperthyreoïdie (AIH) type II (destructieve thyroïditis) kan plotseling ontstaan en hemodynamisch significant zijn — herken het vroegtijdig. Thiamazol werkt mogelijk niet — dan prednison (type II) of thyreoïdectomie.',
+      mechanisme: [
+        { title: 'Hypothyreoïdie (type 1)', desc: 'Wolff-Chaikoff-effect: jodiumoverload remt transiënt de schildklierhormoonproductie. Bij kwetsbare schildklier (bijv. autoimmuun) is dit onvoldoende reversibel → persistente hypothyreoïdie.' },
+        { title: 'Hyperthyreoïdie type 1', desc: 'Jodium-geïnduceerde autonome hormoonproductie bij onderliggende nodulaire schildklier (Jod-Basedow). Behandeling: thiamazol + perchlorate (om jodiumopname te blokkeren).' },
+        { title: 'Hyperthyreoïdie type 2', desc: 'Amiodaron beschadigt schildklierfollikels direct → destructieve thyroïditis → massale hormoonafgifte. Geen nodulair substraat. Behandeling: corticosteroïden, niet thiamazol.' },
+        { title: 'Andere bijwerkingen amiodaron', desc: 'Pulmonale toxiciteit (pneumonitis), levertoxiciteit (transaminasen stijging), fotodermatose, cornea-microsafzettingen, perifere neuropathie. Bloedspiegels helpen bij dosering.' },
+      ],
+      onderscheid: [
+        { label: 'Amiodaron-thyreotoxicose (hyper + hypo)', desc: 'Beide kunnen optreden — TSH 6-maandelijks monitoren. Bij klachten direct TSH/fT4/fT3 meten.', type: 'ok' },
+        { label: 'Hypothyreoïdie', desc: 'TSH verhoogd, fT4 verlaagd — behandeling: levothyroxine, amiodaron niet per se staken.', type: 'warn' },
+        { label: 'Hyperthyreoïdie type 1', desc: 'TSH verlaagd, fT4 verhoogd — thiamazol + perchlorate. Erwägen: amiodaron staken.', type: 'danger' },
+        { label: 'Hyperthyreoïdie type 2', desc: 'TSH verlaagd, fT4 verhoogd + klinisch ziek — prednisolon 40-60 mg/dag. Echografie: geen hypervascularisatie (vs type 1).', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Amiodaron-thyreotoxicose: endocrinologisch consult + cardiologisch overleg over stoppen vs doorgaan.',
+        stappen: [
+          { naam: 'TSH-monitoring', detail: 'Elke 6 maanden TSH, fT4, leverenzymen, X-thorax en oogheelkundig onderzoek.' },
+          { naam: 'Dosisreductie', detail: 'Minimaal effectieve amiodaron-dosis gebruiken (doorgaans 100-200 mg/dag onderhoud).' },
+        ],
+      },
+    } },
 
   // ── Neurologie (nieuw) ──
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
@@ -2019,34 +2341,184 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 42j: plotse kortademigheid, pleuritische pijn, been gezwollen na lange vlucht. Meest waarschijnlijke diagnose?',
     a:['Pneumonie','Longembolie','Pleuritis','Pneumothorax'], c:1,
-    ex:'Longembolie: plotse pleuritische pijn + dyspneu + risicofactor (vlucht, DVT) = hoge klinische verdenking. Wells-score laag + negatief D-dimeer: LE uitgesloten. Wells hoog of D-dimeer positief: direct CT-PA. Behandeling: DOAC (apixaban of rivaroxaban).' },
+    ex:'Longembolie: plotse pleuritische pijn + dyspneu + risicofactor (vlucht, DVT) = hoge klinische verdenking. Wells-score laag + negatief D-dimeer: LE uitgesloten. Wells hoog of D-dimeer positief: direct CT-PA. Behandeling: DOAC (apixaban of rivaroxaban).',
+    wiki: {
+      kern: 'Longembolie (LE): occlusie van een pulmonaalarterie door een (meest veneuze) trombus. Risicofactoren: immobilisatie, chirurgie, maligniteit, zwangerschap, eerdere DVT. Diagnose via Wells-score + D-dimeer of CT-pulmonalisangiografie.',
+      redflag: 'Massieve LE: hemodynamische instabiliteit (BP <90 mmHg of daling >40 mmHg) = levensbedreiging. Directe trombolyse of chirurgische embolectomie — anticoagulatie alleen onvoldoende.',
+      mechanisme: [
+        { title: 'DVT → LE', desc: 'Diep veneuze trombus (meestal iliofemoraal) losraakt → stroomt via rechterhart naar pulmonaalarteriën → obstructie pulmonaalcirculatie.' },
+        { title: 'RV-falen', desc: 'Plotse verhoogde pulmonaalweerstand → RV-drukoverbelasting → RV-dilatatie → septumdissociatie → LV-vulling daalt → cardiac output daalt → hemodynamische collaps bij massieve LE.' },
+        { title: 'Pleuritische pijn', desc: 'Perifere LE-occlusie → infarct pleuravlies → pleuritische pijn (scherp, inademen verergert). Centrale LE: meer dyspneu en hemodynamische instabiliteit, minder pleurapijn.' },
+      ],
+      onderscheid: [
+        { label: 'Longembolie', desc: 'Plotse dyspneu + pleuritische pijn + tachycardie + risicofactor (immobilisatie, DVT, chirurgie). D-dimeer + CT-PA of V/Q-scan.', type: 'ok' },
+        { label: 'Pneumonie', desc: 'Koorts, productieve hoest, infiltraat op X-thorax, CRP hoog, geleidelijk ontstaan — geen typische risicofactoren voor trombose.', type: 'warn' },
+        { label: 'Pneumothorax', desc: 'Plotse dyspneu + eenzijdig verminderd ademgeruis, tympanisch percussiegeluid, geen been-oedeem. X-thorax toont luchtband zonder longpatroon.', type: 'danger' },
+        { label: 'Pleuritis', desc: 'Pleuritische pijn met pleurawrijfgeruis, doorgaans na virale infectie — geen DVT-teken.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Zuurstof + veneuze toegang + anticoagulatie onmiddellijk starten (LMWH of UFH).',
+        stappen: [
+          { naam: 'DOAC eerste keus', detail: 'Rivaroxaban 15 mg 2dd (21 dagen) dan 20 mg 1dd, of apixaban 10 mg 2dd (7 dagen) dan 5 mg 2dd.' },
+          { naam: 'Duur antistolling', detail: 'Uitgelokt (tijdelijke risicofactor, bijv. vlucht): 3 maanden. Idiopatisch of recidief: 6 maanden tot levenslang.' },
+          { naam: 'Massieve LE', detail: 'Trombolyse (alteplase 100 mg/2u) bij hemodynamische instabiliteit — absolute bloedingscontra-indicaties uitsluiten.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Een normaal D-dimeer bij een patiënt met hoge klinische kans op longembolie sluit longembolie uit.',
-    c:false, ex:'NIET WAAR. D-dimeer is alleen bruikbaar bij lage klinische kans (Wells ≤4). Bij hoge klinische kans altijd CT-angiografie, ongeacht D-dimeer. Een negatief D-dimeer bij hoge kans kan vals-negatief zijn.' },
+    c:false, ex:'NIET WAAR. D-dimeer is alleen bruikbaar bij lage klinische kans (Wells ≤4). Bij hoge klinische kans altijd CT-angiografie, ongeacht D-dimeer. Een negatief D-dimeer bij hoge kans kan vals-negatief zijn.',
+    wiki: {
+      kern: 'D-dimeer is een uitsluitingstest, geen bevestigingstest. Waarde alleen bij lage pre-testkans (Wells ≤4). Sensitiviteit >99% maar specificiteit slechts ~40% — bij hoge klinische kans zijn de meeste positieve D-dimeren ook écht longembolieën, en een negatief D-dimeer is niet betrouwbaar genoeg.',
+      redflag: 'Fout: "D-dimeer is normaal dus geen LE." Bij hoge klinische waarschijnlijkheid kan een normaal D-dimeer een vals-negatief resultaat geven — altijd CT-PA bij hoge klinische kans, ongeacht D-dimeer.',
+      mechanisme: [
+        { title: 'D-dimeer: wat het is', desc: 'Afbraakproduct van gekruislinkt fibrine. Verhoogd bij actieve trombose maar ook bij infectie, trauma, zwangerschap, postoperatief, maligniteit, hoge leeftijd → lage specificiteit.' },
+        { title: 'Sensitiviteit vs specificiteit', desc: 'Sens >99%: vrijwel alle LE-patiënten hebben verhoogd D-dimeer. Spec ~40%: veel vals-positieven, dus alleen bruikbaar voor uitsluiting bij laag risico (NPV hoog, PPV laag).' },
+        { title: 'Bayesiaanse redenering', desc: 'Bij hoge pre-testkans is de post-test kans op LE na negatief D-dimeer nog steeds te hoog om LE uit te sluiten — directe beeldvorming is de enige veilige optie.' },
+      ],
+      onderscheid: [
+        { label: 'D-dimeer bij hoge klinische kans: NIET bruikbaar', desc: 'Wells >4 of hoge klinische verdenking → direct CT-PA, D-dimeer testen voegt niets toe en kan misleiden.', type: 'ok' },
+        { label: 'D-dimeer bij lage klinische kans (Wells ≤4)', desc: 'Negatief D-dimeer (<500 µg/L ELISA) + lage klinische kans = LE veilig uitgesloten. Geen beeldvorming nodig.', type: 'warn' },
+        { label: 'Leeftijdsafhankelijke afkap', desc: 'YEARS-algoritme: bij patiënten >50 jaar hogere afkap (leeftijd × 10 µg/L) → minder onnodige CT-scans.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Bij hoge klinische kans: anticoagulatie starten terwijl CT-PA wordt aangevraagd.',
+        stappen: [
+          { naam: 'CT-PA', detail: 'Gouden standaard voor LE-diagnose — sensitiviteit 95-98% voor subsegmentale en grotere emboli.' },
+          { naam: 'V/Q-scan', detail: 'Alternatief bij contrastallergie of nierfalen — normaal V/Q-scan sluit LE uit.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Patiënt na grote operatie: bloeddruk 75/50, hartfrequentie 120, koude extremiteiten, oligurie. Diagnose?',
     a:['Septische shock','Cardiogene shock','Hypovolemische shock','Neurogene shock'], c:1,
-    ex:'Cardiogene shock: lage cardiac output → koude, klamme extremiteiten + oligurie + lage RR. Onderscheid van septische shock: septisch heeft wárme extremiteiten (vasodilatatie), cardiogeen heeft kóude (vasoconstrictie). Behandeling: dobutamine (inotroop) + noradrenaline, overweeg IABP/Impella.' },
+    ex:'Cardiogene shock: lage cardiac output → koude, klamme extremiteiten + oligurie + lage RR. Onderscheid van septische shock: septisch heeft wárme extremiteiten (vasodilatatie), cardiogeen heeft kóude (vasoconstrictie). Behandeling: dobutamine (inotroop) + noradrenaline, overweeg IABP/Impella.',
+    wiki: {
+      kern: 'Cardiogene shock: inadequate cardiac output door primair hartfalen (STEMI, acute MR, myocarditis) → lage perfusie perifeer + longoedeem. Kenmerk: koude, klamme extremiteiten (vasoconstrictie) + verhoogde CVD/longoedeem — dit onderscheidt het van septische shock.',
+      redflag: 'Cardiogene shock mortaliteit 40-60% zonder behandeling. Herkennen = overlevingskans: STEMI + cardiogene shock → directe PCI. Mechanische complicaties (VSD, papillairruptuur) → spoedingreep chirurgie.',
+      mechanisme: [
+        { title: 'Primair pompfalen', desc: 'LV-contractiliteit daalt (infarct, myocarditis, decompensatio cordis) → lage slagvolumen → cardiac output daalt → systemische perfusie verminderd.' },
+        { title: 'Compensatoire vasoconstrictie', desc: 'Sympathicusactivatie → perifere vasoconstrictie → koude, klamme extremiteiten. In tegenstelling tot septische shock (vasodilatatie → warme extremiteiten).' },
+        { title: 'Longoedeem', desc: 'Lage cardiac output → backup van bloed in de pulmonaalcirculatie → verhoogde pulmonaalwiggedruk → longoedeem. Combinatie van lage output + longoedeem = cardiogene shock.' },
+      ],
+      onderscheid: [
+        { label: 'Cardiogene shock', desc: 'Koude, klamme extremiteiten + longoedeem + crepitaties + verhoogde CVD. Lage cardiac output. Troponine hoog bij STEMI-oorzaak.', type: 'ok' },
+        { label: 'Septische shock', desc: 'Warme, rode extremiteiten (distributieve shock), koorts, infectiebron, lage SVR. Hoog cardiac output vroeg in sepsis.', type: 'warn' },
+        { label: 'Hypovolemische shock', desc: 'Koude extremiteiten maar lage CVD (niet verhoogd), geen longoedeem — bloedverlies/dehydratie als oorzaak.', type: 'danger' },
+        { label: 'Obstructieve shock (tamponnade/massieve LE)', desc: 'Gelijkend op cardiogeen maar oorzaak mechanisch — pericardiocentese/trombolyse, niet inotropica.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Zuurstof + IV-toegang + oorzaak behandelen (PCI bij STEMI).',
+        stappen: [
+          { naam: 'Noradrenaline', detail: 'Vasopressor als eerstekeus bij cardiogene shock — target MAP ≥65 mmHg.' },
+          { naam: 'Dobutamine', detail: 'Inotropicum toevoegen bij persisterende lage cardiac output ondanks vasopressor.' },
+          { naam: 'Mechanische circulatiebewegingsondersteuning', detail: 'IABP (intra-aortale ballonpomp) of Impella bij refractaire cardiogene shock als bridge-to-recovery of bridge-to-transplant.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 65j na inferieur MI: holosystolisch geruis aan de apex, uitstralend naar de oksel, nieuw ontstaan. Diagnose?',
     a:['Aortastenose','Mitralisinsufficiëntie door papillairspierruptuur','Ventrikel­septumruptuur','Pericardwrijfgeruis'], c:1,
-    ex:'Acuute mitralisinsufficiëntie na MI: papillairspier­ruptuur → holosystolisch geruis → acute pulmonale stuwing. Medische noodtoestand. Onderscheid van VSD: bij VSD is het geruis ook holosystolisch maar parasternaal, met een thrill.' },
+    ex:'Acuute mitralisinsufficiëntie na MI: papillairspier­ruptuur → holosystolisch geruis → acute pulmonale stuwing. Medische noodtoestand. Onderscheid van VSD: bij VSD is het geruis ook holosystolisch maar parasternaal, met een thrill.',
+    wiki: {
+      kern: 'Acute mitralisinsufficiëntie door papillairspierruptuur is een mechanische complicatie van MI (met name inferieur MI = RCA-occlusie voedt de posteromediaal papillairspier). Plotse regurgitatie van bloed naar het LA → acute pulmonale stuwing → longoedeem. Medische spoed: chirurgische klepvervanging.',
+      redflag: 'Nieuwe holosystolisch geruis na MI = mechanische complicatie tot bewezen tegendeel. Echo is de sleuteldiagnostiek. Cardiochirurgie diezelfde dag — mortaliteit zonder chirurgie >70% binnen 24u.',
+      mechanisme: [
+        { title: 'Papillairspierruptuur', desc: 'Inferieur MI → ischemie/necrose posteromediaal papillairspier (slechts één bloedtoevoer: RCA) → ruptuur (dag 1-5) → mitraalblad valt weg → acute regurgitatie groot volume naar LA.' },
+        { title: 'Acuut longoedeem', desc: 'LA is niet vergroot en niet aangepast aan plotse volume-overload → LA-druk stijgt snel → backward failure → pulmonale oedeem. Geen compensatoir dilatatie (anders dan chronische MR).' },
+        { title: 'Onderscheid VSD', desc: 'VSD is ook een mechanische complicatie na MI — geruis holosystolisch maar aan de linker sternumrand (niet apex) + thrill + rechts-naar-links shunting (rechter catheter: stap-up O₂-saturatie in RV).' },
+      ],
+      onderscheid: [
+        { label: 'Acuute MR (papillairruptuur)', desc: 'Holosystolisch geruis apex, uitstraling oksel, plotse pulmonale stuwing na MI. Echo: flail mitral leaflet, eccentrische regurgitatiestroom.', type: 'ok' },
+        { label: 'Ventrikelseptumruptuur (VSD)', desc: 'Holosystolisch geruis links parasteernaal + thrill, links-rechts shunting — PA-catheter: O₂-stap-up in RV. Meestal anterieur MI (LAD-occlusie).', type: 'warn' },
+        { label: 'Pericardwrijfgeruis', desc: 'Kratend geruis, trifasisch (systolisch + diastolisch), in meerdere houdingen hoorbaar — geen regurgitatiestroom op echo.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'IABP als bridge + spoed echocardiografie + cardiochirurgie consult.',
+        stappen: [
+          { naam: 'Nitroprusside', detail: 'Afterloadreductie — verlaagt regurgitatiefrActie, verbetering forward output terwijl spoed-chirurgie geregeld wordt.' },
+          { naam: 'Chirurgische klepvervanging', detail: 'Gouden standaard: klepvervanging (doorgaans mechanische klep) of klepreparatie. Mortaliteit spoed-chirurgie 20-30%, maar overleving zonder chirurgie bijna 0%.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Nitraten (bijv. nitroglycerine) zijn absoluut gecontraïndiceerd bij gebruik van sildenafil (Viagra).',
-    c:true, ex:'WAAR. Beide middelen verwijden bloedvaten via cGMP. Combinatie → ernstige, levensbedreigende bloeddrukdaling. Wacht minimaal 24 uur na sildenafil (48u na tadalafil) voor nitraten. Vraag hier altijd naar bij een patiënt met pijn op de borst.' },
+    c:true, ex:'WAAR. Beide middelen verwijden bloedvaten via cGMP. Combinatie → ernstige, levensbedreigende bloeddrukdaling. Wacht minimaal 24 uur na sildenafil (48u na tadalafil) voor nitraten. Vraag hier altijd naar bij een patiënt met pijn op de borst.',
+    wiki: {
+      kern: 'Nitraten (NO-donors) en PDE5-remmers (sildenafil, tadalafil, vardenafil) werken beide via het cGMP-systeem om glad spierweefsel te ontspannen → gecombineerd gebruik veroorzaakt een synergistische, ernstige bloeddrukdaling → cardiovasculaire collaps. Absolute contra-indicatie.',
+      redflag: 'Vraag ALTIJD naar gebruik van PDE5-remmers bij pijn op de borst. Sildenafil 24u vóór nitraten is een contra-indicatie. Tadalafil (langere halfwaardetijd): 48u wachttijd. Combinatie kan fataal zijn.',
+      mechanisme: [
+        { title: 'Nitraten: NO → cGMP', desc: 'Nitroglycerine wordt omgezet naar NO → activeert guanylaat cyclase → cGMP stijgt → proteïnekinase G activeert → myosine depHosforylatase → gladde spier relaxatie → vasodilatatie (vnl. veneus).' },
+        { title: 'Sildenafil: PDE5-remming', desc: 'PDE5 breekt normaal cGMP af. Sildenafil remt PDE5 → cGMP stapelt op → verlengde gladde spierrelaxatie. Gecombineerd met nitraten: dubbele cGMP-verhoging → massieve vasodilatatie → ernstige hypotensie.' },
+        { title: 'Halfwaardetijden', desc: 'Sildenafil: ~4u (klinisch 24u aanhouden). Vardenafil: ~5u (24u aanhouden). Tadalafil: ~18u (48u aanhouden vanwege langere werkingsduur).' },
+      ],
+      onderscheid: [
+        { label: 'Nitraten + PDE5-remmer: absolute contra-indicatie', desc: 'Ernstige levensbedreigende hypotensie. Geen uitzonderingen. Wachttijden: sildenafil 24u, tadalafil 48u na laatste dosis.', type: 'ok' },
+        { label: 'Nitraten + alcohol', desc: 'Relatieve contra-indicatie — ook verhoogd hypotensierisico, maar niet absoluut.', type: 'warn' },
+        { label: 'Nitraten bij RV-infarct', desc: 'Absolute contra-indicatie — afhankelijk van preload voor cardiac output. Nitraten → preloadreductie → ernstige hypotensie bij RV-infarct.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Nitroglycerine alleen geven als PDE5-gebruik in laatste 24-48u is uitgesloten.',
+        stappen: [
+          { naam: 'Anamnese bij SEH', detail: 'Bij pijn op de borst altijd vragen naar sildenafil/tadalafil. Geen nitraten geven zonder zekerheid over PDE5-remmer-gebruik.' },
+          { naam: 'Nitraat-indicaties', detail: 'Angina pectoris (spray sublinguaal), acuut coronair syndroom (IV), longoedeem/hartfalen (verlagend afterload/preload). Contra-indicaties: PDE5-remmers, RV-infarct, ernstige hypotensie.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 58j na doorgemaakte longembolie: wordt behandeld met apixaban. Na hoeveel maanden mag je stoppen bij een eerste uitgelokte embolie (bijv. na operatie)?',
     a:['1 maand','3 maanden','6 maanden','Levenslang'], c:1,
-    ex:'Eerste uitgelokte longembolie (tijdelijke risicofactor zoals operatie of gips): 3 maanden antistolling volstaat. Bij idiopatische embolie of recidief: 6 maanden tot levenslang afhankelijk van risicoprofiel.' },
+    ex:'Eerste uitgelokte longembolie (tijdelijke risicofactor zoals operatie of gips): 3 maanden antistolling volstaat. Bij idiopatische embolie of recidief: 6 maanden tot levenslang afhankelijk van risicoprofiel.',
+    wiki: {
+      kern: 'Duur anticoagulatie na longembolie hangt af van of de LE uitgelokt of idiopatisch was. Uitgelokt door tijdelijke factor (operatie, immobilisatie, gips): 3 maanden. Idiopatisch/onuitgelokt of recidief: verlengde behandeling (6 maanden tot levenslang).',
+      mechanisme: [
+        { title: 'Uitgelokte LE', desc: 'Tijdelijke risicofactor (chirurgie, lange vlucht, gips, zwangerschap) → risico verdwijnt na eliminatie van de trigger → 3 maanden antistolling voldoende om het vroege recidiefrisico te overbruggen.' },
+        { title: 'Idiopatische LE', desc: 'Geen duidelijke tijdelijke trigger → onderliggend hypercoagulabiliteitsprobleem (trombofilie, maligniteit, antifosfolipiden syndroom) → jaarlijks recidiefrisico 5-10% → verlengde of levenslange anticoagulatie.' },
+        { title: 'Maligniteit-geassocieerde LE', desc: 'Kanker verhoogt LE-risico ~4-7×. LMWH of DOAC (rivaroxaban, apixaban) — duur: zolang maligniteit actief is of behandeld wordt.' },
+      ],
+      onderscheid: [
+        { label: 'Uitgelokte LE (eerste): 3 maanden', desc: 'Tijdelijke risicofactor is verdwenen (operatie genezen, gips af). Recidiefrisico na stoppen laag. 3 maanden DOAC.', type: 'ok' },
+        { label: 'Idiopatische/unprovoked LE: ≥6 maanden', desc: 'Geen tijdelijke trigger → verhoogd recidiefrisico → verlengde anticoagulatie overwegen. Bloedingsrisico vs tromboserisico afwegen.', type: 'warn' },
+        { label: 'Recidief LE of DVT: levenslang', desc: 'Recidief trombose ondanks anticoagulatie of na stoppen → levenslange anticoagulatie (DOAC).', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'DOAC (apixaban of rivaroxaban) als eerstekeus bij hemodynamisch stabiele LE.',
+        stappen: [
+          { naam: 'Apixaban schema', detail: '10 mg 2dd × 7 dagen, daarna 5 mg 2dd voor de resterende periode.' },
+          { naam: 'Stopcriteria', detail: 'Na 3 maanden bij uitgelokte LE: herstel voltooid + risicofactor verdwenen. Controleer op maligniteit bij onverklaarde recidive LE.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Na een hartinfarct verlaagt een statine het risico op een nieuw cardiovasculair event, ook als het LDL al normaal is.',
-    c:true, ex:'WAAR. Statines hebben naast LDL-verlaging ook ontstekingsremmende (pleiotrope) effecten op de vaatwand. Richtlijn: elke patiënt na MI krijgt een hoogintensieve statine, ongeacht de uitgangswaarde van LDL.' },
+    c:true, ex:'WAAR. Statines hebben naast LDL-verlaging ook ontstekingsremmende (pleiotrope) effecten op de vaatwand. Richtlijn: elke patiënt na MI krijgt een hoogintensieve statine, ongeacht de uitgangswaarde van LDL.',
+    wiki: {
+      kern: 'Na een hartinfarct wordt hoogintensieve statinetherapie voor iedereen aanbevolen, ongeacht het uitgangs-LDL. Dit komt door LDL-verlaging (streefwaarde <1,4 mmol/L) én door pleiotrope effecten: plaques stabiliseren, endothelfunctie verbeteren, ontstekingsremming.',
+      bigfact: { num: '<1.4', label: 'mmol/L LDL-streefwaarde', sub: 'na myocardinfarct (zeer hoog cardiovasculair risico) — ESC 2021' },
+      mechanisme: [
+        { title: 'LDL-verlaging', desc: 'Statine blokkeert HMG-CoA-reductase → minder intracellulair cholesterol in lever → meer LDL-receptoren → LDL-opname uit bloed verhoogd → LDL-daling 30-55%.' },
+        { title: 'Pleiotrope effecten', desc: 'Naast LDL-verlaging: stabilisatie van de atherosclerotische plaque (dikkere fibreuze cap, minder lipide), ontstekingsremming (CRP ↓), verbetering endotheelfunctie (NO-productie ↑).' },
+        { title: 'Klinische evidence', desc: 'HPS, 4S, LIPID-studie: statines verlagen MACE (MI, CVA, cardiovasculair overlijden) na MI met 25-35%. Dit voordeel bestaat ongeacht uitgangs-LDL.' },
+      ],
+      onderscheid: [
+        { label: 'Statine na MI: altijd, ongeacht LDL', desc: 'Hoog-intensief statine (atorvastatine 40-80 mg of rosuvastatine 20-40 mg) bij iedereen na MI. Streefwaarde LDL <1,4 mmol/L en ≥50% reductie.', type: 'ok' },
+        { label: 'Toevoegen ezetimib', detail: 'Bij onvoldoende LDL-verlaging op maximale statinedosis — extra 15-20% reductie.' },
+        { label: 'PCSK9-remmers', desc: 'Bij LDL >1,4 mmol/L ondanks maximale statine + ezetimib — alirocumab of evolocumab (50-60% extra LDL-verlaging).', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Start hoogintensieve statine nog tijdens ziekenhuisopname na MI.',
+        stappen: [
+          { naam: 'Atorvastatine 40-80 mg', detail: 'Of rosuvastatine 20-40 mg — >50% LDL-verlaging.' },
+          { naam: 'Controle LDL na 4-6 weken', detail: 'Target: LDL <1,4 mmol/L. Toevoegen ezetimib 10 mg als doel niet bereikt.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Vrouw 70j: ECG toont een brede QRS-tachycardie (130/min) zonder duidelijke P-toppen. Meest gevaarlijke diagnose om als eerste uit te sluiten?',
@@ -2055,9 +2527,9 @@ const QUESTIONS = [
     wiki:{
           kern: "Brede QRS-tachycardie (QRS >120 ms, frequentie >100/min) moet altijd als VT worden behandeld totdat het tegendeel bewezen is. VT = aritmie die uit het ventrikel zelf ontstaat, zonder AV-knoop als pacemaker.",
           mechanisme: [
-            { title: "Stap 1", desc: "VT ontstaat door re-entry in littekenweefsel (meest bij ischemische HFrEF), triggered activity of automaticiteit." },
-            { title: "Stap 2", desc: "Brugada-criteria of Vereckei-criteria helpen VT van SVT-met-aberrantie te onderscheiden op ECG: AV-dissociatie is pathognomonisch voor VT." },
-            { title: "Stap 3", desc: "Adenosine kan VT omzetten in VF — gevaarlijk!." },
+            { title: "Origine en triggers", desc: "VT ontstaat door re-entry in littekenweefsel (meest bij ischemische HFrEF), triggered activity of abnormale automaticiteit. Electrolytstoornissen (hypokaliëmie, hypomagnesiëmie), ischemie en medicatie (QT-verlenging) zijn uitlokkende factoren." },
+            { title: "ECG-criteria voor VT", desc: "Brugada-criteria of Vereckei-criteria helpen VT van SVT-met-aberrantie te onderscheiden: AV-dissociatie (P-golven onafhankelijk van QRS) is pathognomonisch voor VT. Fusion beats en capture beats bevestigen VT." },
+            { title: "Gevaar van adenosine bij brede QRS", desc: "Adenosine kan VT omzetten in VF — nooit geven bij brede QRS-tachycardie zonder zekerheid over SVT. Bij WPW + AF kan adenosine ook levensgevaarlijk zijn." },
           ],
           onderscheid: [
             { label: 'Ventriculaire tachycardie (VT)', desc: 'Brede QRS >120 ms, frequentie 100-250/min, AV-dissociatie (pathognomonisch), fusion beats, Brugada-criteria positief. ALTIJD VT aannemen tot tegendeel bewezen.', type: 'ok' },
@@ -2069,8 +2541,8 @@ const QUESTIONS = [
             urgent: "Hemodynamisch instabiel: onmiddellijke gesynchroniseerde DC-cardioversie.",
             stappen: [
               { naam: "Stabiel", detail: "amiodaron IV (300 mg bolus) als eerste keuze." },
-              { naam: "Stap 2", detail: "Sotalol of procainamide als alternatief." },
-              { naam: "Stap 3", detail: "ICD-implantatie na overleefde VT/VF." },
+              { naam: "Sotalol of procainamide", detail: "Alternatieve antiaritmica bij VT — sotalol ook als ICD-profylaxe bij structureel hartlijden." },
+              { naam: "ICD-implantatie", detail: "Na overleefde VT/VF (sekundaire preventie): altijd ICD. Primaire preventie: ICD bij HFrEF EF <35% na ≥3 maanden optimale medicamenteuze therapie." },
               { naam: "Behandel onderliggende oorzaak", detail: "ischemie, elektrolytstoornissen (K⁺/Mg²⁺), medicatie." },
             ],
           },
@@ -2079,28 +2551,133 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
     q:'Man 50j: ECG toont ST-elevatie in II, III en aVF. Welke coronairarterie is waarschijnlijk afgesloten?',
     a:['Linker voorste dalende tak (LAD)','Rechter coronairarterie (RCA)','Linker circumflexarterie (LCx)','Hoofdstam (LMCA)'], c:1,
-    ex:'Inferieur MI (II, III, aVF) = RCA-occlusie in 80% van de gevallen. De RCA voedt ook het rechterventrikel → altijd rechter ECG-afleidingen (V3R/V4R) maken om RV-infarct uit te sluiten.' },
+    ex:'Inferieur MI (II, III, aVF) = RCA-occlusie in 80% van de gevallen. De RCA voedt ook het rechterventrikel → altijd rechter ECG-afleidingen (V3R/V4R) maken om RV-infarct uit te sluiten.',
+    wiki: {
+      kern: 'ECG-lokalisatie van STEMI: de aangedane afleidingen vertellen welke coronairarterie afgesloten is. Inferieur (II, III, aVF) = RCA in 80% of LCx in 20%. Anterieur (V1-V4) = LAD. Lateraal (I, aVL, V5-V6) = LCx of diagonaaltak.',
+      mnemonic: { word: 'ECG-lokalisatie', items: ['II/III/aVF = Inferieur = RCA (80%) of LCx (20%)', 'V1-V4 = Anterieur = LAD', 'I/aVL/V5-V6 = Lateraal = LCx of diagonaaltak', 'V1-V6 + I/aVL = Extensief anterieur = LAD proximaal of LMCA'] },
+      redflag: 'Inferieur STEMI + rechts ECG (V4R): ST-elevatie ≥1 mm = RV-infarct. Belangrijk: geen nitraten of diuretica — RV is preload-afhankelijk. Vloeistofresuscitatie en dobutamine bij RV-shock.',
+      mechanisme: [
+        { title: 'RCA-voedstoebrenging', desc: 'RCA voedt: inferieure wand LV, onderwand septum, RV-vrije wand, SA-knoop (55%), AV-knoop (90%) → RCA-occlusie kan ook ritmestoornissen (sinusbradycardie, AV-blok) geven.' },
+        { title: 'Reciproke depressie', desc: 'ST-elevatie inferieur (II/III/aVF) geeft spiegelbeeldige ST-depressie in I en aVL — dit bevestigt de inferiorlokalisatie en sluit pericarditis uit (diffuse elevatie, geen reciproke depressie).' },
+        { title: 'LCx-occlusie', desc: 'Linker circumflexarterie voedt de posterolaterale wand. Occlusie geeft ST-elevatie in V5-V6 + I/aVL (lateraal), soms ook inferieur. ST-depressie V1-V3 kan posterieur MI zijn (mirror image).' },
+      ],
+      onderscheid: [
+        { label: 'Inferieur STEMI (RCA-occlusie)', desc: 'ST-elevatie in II, III, aVF. Reciproke depressie in I en aVL. V4R voor RV-infarct uitsluiten. AV-blok mogelijk (AV-knoop RCA-gevoed).', type: 'ok' },
+        { label: 'Anterieur STEMI (LAD)', desc: 'ST-elevatie V1-V4 — grootste risicogebied (laterale wand + septum). Reciproke depressie in II/III/aVF. LV-functie ernstig aangedaan.', type: 'warn' },
+        { label: 'Lateraal STEMI (LCx)', desc: 'ST-elevatie I/aVL/V5-V6. ECG soms subtiel — LCx-occlusie is de meest "gemiste" STEMI.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Directe PCI + rechter-ECG (V3R/V4R) afnemen bij alle inferieure STEMI\'s.',
+        stappen: [
+          { naam: 'RV-infarct protocol', detail: 'Geen nitraten/diuretica. Vloeistofbolus (500 ml NaCl) bij lage bloeddruk. Dobutamine bij persisterende hemodynamische instabiliteit.' },
+          { naam: 'AV-blok bewaking', detail: 'Inferieur MI: tijdelijke AV-blok verwacht (reversibel na PCI). Transcutane pacemaker standby bij totaal blok.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'cardio', dl:'Cardiologie',
     q:'Bij een longembolie met hemodynamische instabiliteit is systemische trombolyse de behandeling van keuze.',
-    c:true, ex:'WAAR. Massieve longembolie met shock of hartstilstand: trombolyse (alteplase) of chirurgische embolectomie. Bij stabiele patiënten: anticoagulatie (LMWH of DOAC). Trombolyse bij stabiele patiënten geeft te veel bloedingsrisico.' },
+    c:true, ex:'WAAR. Massieve longembolie met shock of hartstilstand: trombolyse (alteplase) of chirurgische embolectomie. Bij stabiele patiënten: anticoagulatie (LMWH of DOAC). Trombolyse bij stabiele patiënten geeft te veel bloedingsrisico.',
+    wiki: {
+      kern: 'Massieve longembolie (hemodynamische instabiliteit: systolische BP <90 mmHg of shock) vereist reperfusietherapie: systemische trombolyse (alteplase) of chirurgische embolectomie. Antistolling alleen is onvoldoende bij massieve LE.',
+      redflag: 'Absolute contra-indicaties trombolyse bij LE: eerdere intracraniale bloeding, recente hersenchirurgie (<3 maanden), recent CVA (<3 maanden), actieve ernstige bloeding. Bij LE + hartstilstand: trombolyse geven ondanks CPR (geen contra-indicatie).',
+      mechanisme: [
+        { title: 'Massieve LE → RV-falen', desc: 'Grote trombus occludeert centrale pulmonaalarterie → plotse RV-afterloadstijging → RV-dilatatie → septumdevie naar LV → LV-output daalt → cardiogene shock → overlijden zonder behandeling.' },
+        { title: 'Trombolyse-mechanisme', desc: 'Alteplase (rt-PA) activeert plasminogeen → plasmine → fibrinedegradatie → snelle vermindering pulmonaalweerstand → RV-druk daalt → hemodynamisch herstel binnen minuten tot uren.' },
+        { title: 'Submassieve LE', desc: 'Hemodynamisch stabiel maar RV-dysfunctie op echo of verhoogd BNP/troponine — de rol van trombolyse is controversieel (PEITHO-studie: minder hemodynamische decompensatie maar meer intracraniale bloedingen).' },
+      ],
+      onderscheid: [
+        { label: 'Massieve LE: trombolyse', desc: 'Hemodynamische instabiliteit (BP <90 mmHg) of hartstilstand. Alteplase 100 mg/2u (of 0,6 mg/kg bolus bij CPR). Direct na diagnose.', type: 'ok' },
+        { label: 'Submassieve LE (RV-dysfunctie, hemodynamisch stabiel)', desc: 'Anticoagulatie + bewaking IC. Trombolyse overwegen alleen bij klinische verslechtering ondanks anticoagulatie.', type: 'warn' },
+        { label: 'Stabiele LE', desc: 'DOAC (apixaban of rivaroxaban) als eerstekeus — ambulant behandelen mogelijk bij laag-risico patiënten (HESTIA/PESI-score).', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Alteplase 100 mg IV over 2 uur bij massieve LE — anticoagulatie pauzeren tijdens en 24u na trombolyse.',
+        stappen: [
+          { naam: 'Chirurgische embolectomie', detail: 'Alternatief bij absolute contra-indicatie trombolyse of refractaire shock na lyse.' },
+          { naam: 'Percutane katheter-gerichte therapie', detail: 'Katheter-gerichte lokale trombolyse of aspiratietechniek bij submassieve LE — minder systemisch bloedingsrisico.' },
+        ],
+      },
+    } },
 
   // ── DIFFERENTIAALDIAGNOSTIEK ──
 
   { type:'diagnose', d:5, domain:'cardio', dl:'Cardiologie', subtype:'diff',
     q:'Man 60j: hevige thoraxpijn bij binnenkomst.\nUitstraling naar rug/interscapulair\nBloeddrukasymmetrie 28 mmHg\nECG normaal, troponine borderline\nACS of aortadissectie — wat pleit voor dissectie?',
     a:['ST-elevatie met reciproke afwijkingen','Scheurende pijn + bloeddrukasymmetrie + normaal ECG','Troponine sterk verhoogd','Uitstraling naar linkerarm + zweten'],
-    c:1, ex:'Aortadissectie: plotse maximale pijn, scheurend karakter, uitstraling interscapulair, bloeddrukasymmetrie >20 mmHg, normaal ECG en troponine. ACS: drukkende pijn, uitstraling arm/kaak, ST-veranderingen, troponine verhoogd. Bloeddrukasymmetrie + normaal ECG = dissectie tot tegendeel bewezen.' },
+    c:1, ex:'Aortadissectie: plotse maximale pijn, scheurend karakter, uitstraling interscapulair, bloeddrukasymmetrie >20 mmHg, normaal ECG en troponine. ACS: drukkende pijn, uitstraling arm/kaak, ST-veranderingen, troponine verhoogd. Bloeddrukasymmetrie + normaal ECG = dissectie tot tegendeel bewezen.',
+    wiki: {
+      kern: 'Aortadissectie vs ACS: twee levensbedreigende oorzaken van acute thoraxpijn. Het onderscheid is cruciaal — trombolyse bij ACS kan fataal zijn bij niet-gediagnosticeerde aortadissectie. Scheurend karakter + maximale pijn bij aanvang + bloeddrukasymmetrie = dissectie tot bewezen anders.',
+      redflag: 'Trombolyse bij niet-gediagnosticeerde aortadissectie = fataal. Altijd bewust van de mogelijkheid van dissectie vóór het starten van antistolling of lyse. ADD-RS (Aortic Dissection Detection Risk Score) helpt de klinische verdenking te kwantificeren.',
+      mechanisme: [
+        { title: 'Aortadissectie: intima-scheur', desc: 'Scheur in de intima van de aortawand → bloed baant zich een vals lumen → propagatie proximaal en/of distaal → afsluiting van aftakkende arteriën → ischemie (coronair, renaal, mesenterisch, spinaal).' },
+        { title: 'Bloeddrukasymmetrie', desc: 'Dissectievlap dicht de A. subclavia of A. axillaris af aan één zijde → bloeddruk arm-asymmetrie >20 mmHg. Tegelijk: neurologische uitval (spinale ischemie), nierinsufficientie (renale ischemie).' },
+        { title: 'ACS: plaque-ruptuur', desc: 'Atherosclerotische plaque scheurt → trombus → myocardischemie → troponine stijgt → ST-veranderingen. Pijn drukkend, uitstraling arm/kaak/schouder, beter op nitraten.' },
+      ],
+      onderscheid: [
+        { label: 'Aortadissectie (type A of B)', desc: 'Scheurende/scheurende maximale pijn bij aanvang, uitstraling interscapulair, bloeddrukasymmetrie >20 mmHg, normaal/minimaal afwijkend ECG en troponine.', type: 'ok' },
+        { label: 'ACS (STEMI/NSTEMI)', desc: 'Drukkende, samenknijpende pijn, uitstraling arm/kaak, zweten, troponine verhoogd, ST-veranderingen op ECG, symptomen beter op nitraten.', type: 'warn' },
+        { label: 'Longembolie', desc: 'Pleuritische pijn, tachycardie, dyspneu, risicofactor DVT — D-dimeer verhoogd. Normaal troponine tenzij RV-overbelasting.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Type A-dissectie: spoedingreep chirurgie (binnen uren). Type B: bloeddrukcontrole (labetalol IV, target SBP <120 mmHg).',
+        stappen: [
+          { naam: 'CT-angiografie aorta', detail: 'Gouden standaard voor aortadissectie — met contrast, borst-buik-bekken.' },
+          { naam: 'Geen antistolling', detail: 'Bij verdenking dissectie: geen aspirine/heparine tot dissectie uitgesloten — dit kan het vals lumen vergroten.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie', subtype:'diff',
     q:'Vrouw 72j: acuut dyspneu, orthopneu, bilateraal crepitaties basaal, enkelloedeem. Hartfalen of COPD-exacerbatie — welk kenmerk is het meest specifiek voor hartfalen?',
     a:['Verlengd expirium met diffuus piepen','Verhoogde CVD + S3-gallopritme','Hyperinflatie op X-thorax','Piekstroom verminderd'],
-    c:1, ex:'Hartfalen: verhoogde CVD (jugulaire stuwing), S3-gallopritme, basale crepitaties, orthopneu, snel verbeterend op diuretica. COPD: verlengd expirium, piepen, hyperinflatie, lage piekstroom. S3 + verhoogde CVD is vrijwel pathognomonisch voor decompensatio cordis.' },
+    c:1, ex:'Hartfalen: verhoogde CVD (jugulaire stuwing), S3-gallopritme, basale crepitaties, orthopneu, snel verbeterend op diuretica. COPD: verlengd expirium, piepen, hyperinflatie, lage piekstroom. S3 + verhoogde CVD is vrijwel pathognomonisch voor decompensatio cordis.',
+    wiki: {
+      kern: 'Hartfalen vs COPD: beide geven dyspneu maar via totaal andere mechanismen. Veneuze stuwing (verhoogde CVD, hepatomegalie, oedeem) en gallopritme (S3) zijn vrijwel pathognomonisch voor decompensatio cordis. BNP is een krachtige biomarker om het onderscheid te maken.',
+      mechanisme: [
+        { title: 'Hartfalen: backward failure', desc: 'Verminderde LV-output → backward failure → pulmonaalstuwing → crepitaties, orthopneu, en bij RV-falen: verhoogde CVD, hepatomegalie, perifeer oedeem.' },
+        { title: 'S3-gallopritme', desc: 'Vroeg-diastolisch geluid door plotse deceleratie van bloed bij de snel-gevulde, stijve LV-wand. Vrijwel pathognomonisch voor verhoogde LV-vullingsdruk (HFrEF of HFpEF).' },
+        { title: 'COPD: obstructief mechanisme', desc: 'Luchtwegobstructie → verlengde expiratie, luchtval → hyperinflatie (barrel chest, hyperinflatie X-thorax). Geen veneuze stuwing (tenzij cor pulmonale bij eindstadium COPD).' },
+      ],
+      onderscheid: [
+        { label: 'Decompensatio cordis', desc: 'Verhoogde CVD + S3-gallopritme + orthopneu + snel verbeterend op furosemide. BNP/NT-proBNP verhoogd. Echo: verlaagde EF of verhoogde vullingsdrukken.', type: 'ok' },
+        { label: 'COPD-exacerbatie', desc: 'Verlengd expirium + diffuus piepen + hyperinflatie op X-thorax + piekstroom verlaagd. Verhoogde CRP. Verbeterend op bronchodilatatie.', type: 'warn' },
+        { label: 'Overlap (cor pulmonale bij COPD)', desc: 'Chronisch obstructief longlijden + rechterhartfalen → verhoogde CVD + oedeem. BNP matig verhoogd. Echo: RV-dilatatie, normale LV-functie.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Decompensatio cordis: furosemide IV 40-80 mg + zuurstof + semi-zittende houding.',
+        stappen: [
+          { naam: 'BNP/NT-proBNP', detail: 'Bij twijfel: normaal BNP (<35 pg/mL of NT-proBNP <125 pg/mL) maakt hartfalen onwaarschijnlijk — overweeg COPD als diagnose.' },
+          { naam: 'Echocardiografie', detail: 'Bepaalt EF, vullingsdrukken, klepgebrek — essentieel voor diagnose en behandelgeleiding.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie', subtype:'diff',
     q:'Jongeman 25j: pleuritische precordiale pijn, erger bij liggen, beter bij vooroverbuigen. ECG: diffuse concave ST-elevatie, PR-depressie. Pericarditis of ACS?',
     a:['ACS: focale ST-elevatie in twee afleidingen, troponine sterk verhoogd','Pericarditis: diffuse concave ST-elevatie + PR-depressie + houdingsafhankelijke pijn','Myocarditis: diffuus + jonge patient','Aortadissectie: scheurende pijn naar rug'],
-    c:1, ex:'Pericarditis: diffuse concave ST-elevatie, PR-depressie (pathognomonisch), pijn beter bij vooroverbuigen/erger bij liggen, vaak na virale infectie. ACS: focale ST-elevatie (twee aangrenzende afleidingen), geen PR-depressie, troponine verhoogd, geen houdingseffect op pijn.' },
+    c:1, ex:'Pericarditis: diffuse concave ST-elevatie, PR-depressie (pathognomonisch), pijn beter bij vooroverbuigen/erger bij liggen, vaak na virale infectie. ACS: focale ST-elevatie (twee aangrenzende afleidingen), geen PR-depressie, troponine verhoogd, geen houdingseffect op pijn.',
+    wiki: {
+      kern: 'Pericarditis vs ACS: het ECG-onderscheid is cruciaal. Pericarditis: diffuse concave ("saddle-shape") ST-elevatie in alle afleidingen + PR-depressie (meest specifieke teken). ACS: focale ST-elevatie (regionale verdeling, aangrenzende afleidingen) + reciproke depressie.',
+      redflag: 'Tamponade als complicatie: als pericarditis vocht accumuleert — Beck\'s triade (hypotensie + gestuwd halsvenen + gedempte harttonen). Pericardiocentese noodzakelijk. Constrictieve pericarditis = late complicatie (Kussmaul-teken, pericardknop op echo).',
+      mechanisme: [
+        { title: 'PR-depressie: pathognomonisch', desc: 'Ontsteking van het pericard treft ook de atriale wand → abnormale atriale repolarisatie → PR-depressie (vrijwel alleen bij pericarditis gezien). Beter zichtbaar in II en aVF.' },
+        { title: 'Diffuse ST-elevatie', desc: 'In tegenstelling tot ACS (regionale verdeling): pericardontsteking is diffuus → ST-elevatie in vrijwel alle afleidingen behalve aVR (ST-depressie in aVR). Concaaf (spelvormig) vs convex (koepelvormig) bij STEMI.' },
+        { title: 'Houdingsafhankelijke pijn', desc: 'Ontsteking maakt pericard ruw → wrijfgeruis. Vooroverbuigen: hart beweegt van het pericard af → minder wrijving → minder pijn. Platliggen: meer druk pericard → meer pijn.' },
+      ],
+      onderscheid: [
+        { label: 'Pericarditis', desc: 'Diffuse concave ST-elevatie + PR-depressie + houdingsafhankelijke pijn (beter voorovergebogen) + pericardiaal wrijfgeruis. Troponine licht verhoogd (myopericarditis) mogelijk.', type: 'ok' },
+        { label: 'STEMI', desc: 'Focale ST-elevatie (regionale afleidingen) + reciproke depressies + troponine sterk verhoogd. Pijn drukkend, uitstraling arm, niet houdingsafhankelijk.', type: 'warn' },
+        { label: 'Myocarditis', desc: 'Diffuus + jonge patiënt + post-viraal. Troponine significant verhoogd. ST-elevaties mogelijk maar irregulairder patroon. MRI hart = gouden standaard.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Ibuprofen 600 mg 3dd + colchicine 0,5 mg 2dd — 3 maanden voor recidiefpreventie.',
+        stappen: [
+          { naam: 'Rust', detail: 'Geen sport tot klachtenvrij + normalisatie CRP + troponine — bij myopericarditis minimaal 3-6 maanden.' },
+          { naam: 'Corticosteroïden', detail: 'Alleen bij recidiverende pericarditis of specifieke oorzaken (auto-immuun) — niet bij eerste episode (verhoogt recidiefrisico).' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie', subtype:'diff',
     q:'Man 68j: tremor van rechterhand in rust, verbetert bij bewegen, kleine handschrift. Parkinson of essentiële tremor — wat past bij Parkinson?',
@@ -2168,17 +2745,80 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie', subtype:'test',
     q:'Man 58j: drukkende thoraxpijn 20 min, uitstraling linkerarm, zweten. Verdenking ACS — wat doe je als eerste diagnostische stap?',
     a:['CT-coronair angiografie: anatomie coronairen','ECG binnen 10 minuten + hoogsensitief troponine (0u en 1u/3u)','Stress-echo: ischemie provoceren','Holter: ritmestoornis uitsluiten'],
-    c:1, ex:'Richtlijn: ECG binnen 10 minuten na binnenkomst (STEMI = direct katheterslab). Hoogsensitief troponine bij aankomst + 1u of 3u later (0/1h-protocol of 0/3h). Dit algoritme sluit >99% van NSTEMI/ACS uit of bevestigt het. CT-coronair bij stabiele patiënt met lagere verdenking.' },
+    c:1, ex:'Richtlijn: ECG binnen 10 minuten na binnenkomst (STEMI = direct katheterslab). Hoogsensitief troponine bij aankomst + 1u of 3u later (0/1h-protocol of 0/3h). Dit algoritme sluit >99% van NSTEMI/ACS uit of bevestigt het. CT-coronair bij stabiele patiënt met lagere verdenking.',
+    wiki: {
+      kern: 'ACS-diagnostiek volgt een strikt tijdprotocol. ECG binnen 10 minuten identificeert STEMI voor directe PCI. Hs-troponine op 0u en 1-3u later sluit NSTEMI uit of bevestigt het. Dit algoritme heeft een negatief voorspellende waarde van >99,5%.',
+      bigfact: { num: '10', label: 'minuten', sub: 'ECG-tijdsdoel na aankomst bij verdenking ACS — bij STEMI direct katheterslab activeren' },
+      mechanisme: [
+        { title: 'ECG: onmiddellijke beslissing', desc: 'STEMI (ST-elevatie ≥1mm in ≥2 aangrenzende afleidingen) = directe PCI, geen verdere diagnostiek nodig. Geen STEMI maar klachten: NSTEMI-protokol starten.' },
+        { title: 'Hs-troponine tijdsvenster', desc: 'Troponine lekt na myocardschade uit → meetbaar in bloed na 1-3 uur. Eén meting is onvoldoende. Serieel (delta-troponine) meten: stijging of daling van ≥52% over 1u = rule-in ACS.' },
+        { title: '0/1u vs 0/3u protocol', desc: '0/1u-algoritme (ESC 2020): snellere triage. Meetbare stijging in 1 uur = rule-in. Geen stijging + laag absoluut niveau = rule-out. 0/3u bij onduidelijk hs-TnT-baseline.' },
+      ],
+      onderscheid: [
+        { label: 'ECG + hs-troponine 0/1h protocol', desc: 'Eerste keus bij verdenking ACS: ECG <10 min, troponine bij aankomst + 1u. Sensitiever en sneller dan conventioneel troponine-protocol.', type: 'ok' },
+        { label: 'CT-coronair angiografie', desc: 'Voor stabiele patiënten met lage-tot-matige pre-testkans op coronairlijden (buiten de acute fase). Niet geschikt als eerste stap bij acuut ACS.', type: 'warn' },
+        { label: 'Inspanningstest/stress-echo', desc: 'Alleen bij stabiele patiënten met twijfelachtig klachtenpatroon na uitsluiten acuut MI. Nooit in de acute presentatiefase.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Bij STEMI: activeer katheterslab terwijl ECG nog wordt gemaakt — geen minuut verliezen.',
+        stappen: [
+          { naam: 'NSTEMI/onzeker', detail: 'Aspirine + heparine + GRACE-score bepalen → invasieve strategie (coronairangiografie) binnen 24-72u afhankelijk van risicoscore.' },
+          { naam: 'Rule-out na 0/1u-protocol', detail: 'Negatief hs-troponine op 0u EN 1u + geen ECG-afwijkingen + lage HEART-score → ontslag veilig mogelijk.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie', subtype:'test',
     q:'Vrouw 68j: dyspneu, enkelloedeem, verhoogde CVD. Verdenking hartfalen — BNP/NT-proBNP of echocardiografie als eerste test?',
     a:['Echocardiografie altijd eerst: definitieve diagnose','BNP/NT-proBNP eerst: snel, hoge negatieve predictieve waarde — normaal sluit hartfalen vrijwel uit','X-thorax: vochtige longen = bewijs hartfalen','24u urinecortisol: bijnierinsufficiëntie uitsluiten'],
-    c:1, ex:'BNP/NT-proBNP: hoge negatieve predictieve waarde. Normaal BNP (<35 pg/mL) maakt hartfalen onwaarschijnlijk → geen echo nodig. Verhoogd BNP → echo voor bevestiging (systolisch/diastolisch) en behandelgeleiding. Hartfalen + normaal BNP = denk aan andere oorzaak dyspneu.' },
+    c:1, ex:'BNP/NT-proBNP: hoge negatieve predictieve waarde. Normaal BNP (<35 pg/mL) maakt hartfalen onwaarschijnlijk → geen echo nodig. Verhoogd BNP → echo voor bevestiging (systolisch/diastolisch) en behandelgeleiding. Hartfalen + normaal BNP = denk aan andere oorzaak dyspneu.',
+    wiki: {
+      kern: 'BNP (brain natriuretic peptide) en NT-proBNP worden vrijgegeven door cardiomyocyten bij verhoogde wandspanning (volume- of drukoverload). Negatief BNP (<35 pg/mL voor BNP, <125 pg/mL voor NT-proBNP) sluit hartfalen vrijwel uit als oorzaak van dyspneu.',
+      bigfact: { num: '>99%', label: 'negatief voorspellende waarde', sub: 'normaal BNP (<35 pg/mL) bij verdenking hartfalen in de acute setting' },
+      mechanisme: [
+        { title: 'Synthese en vrijgave', desc: 'Ventrikelwand gerekt door verhoogde vullingsdruk of verhoogd volume → pro-BNP gesplitst → actief BNP + inactief NT-proBNP. BNP: actieve natriurese en vasodilatatie. NT-proBNP: langere halfwaardetijd (~70u vs ~20 min BNP) → stabielere spiegel.' },
+        { title: 'Specificiteit BNP', desc: 'BNP/NT-proBNP verhoogd bij hartfalen, maar ook bij: nierfalen, sepsis, PE, COPD-exacerbatie, ouderen. Specificiteit ~70% → verhoogd BNP = verdenking hartfalen, maar bevestiging via echo nodig.' },
+        { title: 'Echo na verhoogd BNP', desc: 'Echocardiografie bepaalt type hartfalen (HFrEF EF <40% vs HFpEF EF ≥50%), onderliggende oorzaak (klepgebrek, wandbewegingsstoornissen) en behandelgeleiding.' },
+      ],
+      onderscheid: [
+        { label: 'BNP/NT-proBNP eerst: uitsluiting hartfalen', desc: 'Normaal BNP maakt hartfalen onwaarschijnlijk — goedkoop, snel. Verhoogd BNP → echo voor bevestiging en specificatie.', type: 'ok' },
+        { label: 'Echocardiografie: definitieve diagnose', desc: 'Bevestigt hartfalen, bepaalt EF, vullingsdrukken, klepgebrek. Indicatie na verhoogd BNP of bij sterke klinische verdenking ondanks normaal BNP.', type: 'warn' },
+        { label: 'X-thorax bij hartfalen', desc: 'Pulmonaalstuwing, Kerley-B-lijnen, cardiomegalie — ondersteunend maar niet diagnostisch. Specifiek bij acuut longoedeem maar minder gevoelig.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Acuut hartfalen met verhoogd BNP + klinische kenmerken: furosemide IV + zuurstof.',
+        stappen: [
+          { naam: 'BNP als behandeldoel', detail: 'BNP-geleid dosisaanpassing van diuretica verlaagt recidief-ziekenhuisopnames (PRIMA-studie). Target: BNP-daling >30% na behandeling.' },
+          { naam: 'Echo voor therapiekeuze', detail: 'HFrEF vs HFpEF bepaalt de medicamenteuze strategie — echo is hiervoor onmisbaar.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:5, domain:'cardio', dl:'Cardiologie', subtype:'test',
     q:'Patient met koorts, nieuw hartgeruis en positieve bloedkweken (S. aureus). Verdenking endocarditis — TTE of TEE?',
     a:['TTE altijd voldoende: goede beeldkwaliteit bij alle patiënten','TEE: hogere sensitiviteit (>90%) voor vegetaties en complicaties, altijd bij hoog-risico of negatieve TTE','CT-thorax: perifere embolieën opsporen','Alleen bloedkweken voldoende voor diagnose'],
-    c:1, ex:'TTE (transthoracaal): eerste keus, non-invasief, sensitiviteit 60-75%. TEE (transoesofageaal): sensitiviteit >90%, indicatie bij: negatieve TTE maar hoge klinische verdenking, prostetische kleppen, S. aureus-bacteriemie, aortaklep-betrokkenheid, complicaties zoeken. Duke-criteria: twee major (bloedkweken + echo) = definitief.' },
+    c:1, ex:'TTE (transthoracaal): eerste keus, non-invasief, sensitiviteit 60-75%. TEE (transoesofageaal): sensitiviteit >90%, indicatie bij: negatieve TTE maar hoge klinische verdenking, prostetische kleppen, S. aureus-bacteriemie, aortaklep-betrokkenheid, complicaties zoeken. Duke-criteria: twee major (bloedkweken + echo) = definitief.',
+    wiki: {
+      kern: 'Endocarditis-diagnostiek: TTE is de eerste stap (niet-invasief, snel), maar TEE is essentieel bij hoog-risico patiënten (S. aureus, kunstklep, negatieve TTE bij hoge klinische verdenking). TEE heeft sensitiviteit >90% vs 60-75% voor TTE.',
+      redflag: 'S. aureus-bacteriemie = TEE altijd verplicht, ook bij negatieve TTE. S. aureus hecht ook aan intacte kleppen en veroorzaakt snel klepdestructie — missen van endocarditis is fataal. Chirurgie-indicaties vroegtijdig overwegen.',
+      mechanisme: [
+        { title: 'Duke-criteria', desc: 'Major: ≥2 positieve bloedkweken van typische verwekker + echocardiografisch bewijs (vegetatie/abces/perforatie). Minor: predispositie, koorts, vasculaire fenomenen, immunologische tekenen. Definitief: 2 major, of 1 major + 3 minor.' },
+        { title: 'TEE vs TTE', desc: 'TTE: sonde extern, longweefsel/ribben/vet attenueren het beeld. TEE: sonde in oesofagus direct achter het hart → geen attentuatie → hogere resolutie, detectie vegetaties <3 mm, abcessen in aortawortel/ringgebied.' },
+        { title: 'Indicaties TEE', desc: 'Negatieve TTE bij hoge klinische verdenking, kunstkleppen (TTE bijna altijd onvoldoende), S. aureus-bacteriemie, intracardiaal apparaat (ICD/pacemaker), klinische verslechtering.' },
+      ],
+      onderscheid: [
+        { label: 'TEE bij hoog-risico endocarditis', desc: 'S. aureus-bacteriemie, negatieve TTE bij hoge verdenking, kunstklep, aortaklep-betrokkenheid. Sensitiviteit >90% voor vegetaties en complicaties (abces, fistel).', type: 'ok' },
+        { label: 'TTE als eerste stap', desc: 'Non-invasief, breed beschikbaar. Voldoende bij: lage verdenking endocarditis, goede beeldkwaliteit, natieve mitris-/aortaklep zonder complicaties. Gevolgd door TEE indien positief of bij twijfel.', type: 'warn' },
+        { label: 'CT-thorax/abdomen', desc: 'Aanvullend voor perifere septische embolieën, aortabetrokkenheid, chirurgische planning. Niet voor diagnose endocarditis.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Start empirische antibiotica na het afnemen van ten minste 2 sets bloedkweken — nooit uitstellen voor echocardiografie.',
+        stappen: [
+          { naam: 'Antibiotica (S. aureus MSSA)', detail: 'Flucloxacilline 12g/dag IV gedurende 6 weken.' },
+          { naam: 'Chirurgie-indicaties', detail: 'Hartfalen, ongecontroleerde infectie, embolieprophylaxe (vegetatie >10 mm + hoog-risico verwekker). Endocarditis-team beslist multidisciplinair.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:2, domain:'lab', dl:'Laboratorium', subtype:'test',
     q:'Patient met moeheid, gewichtstoename, kouwelijkheid. Schildklierfunctie evalueren — welke test is de beste eerste stap?',
@@ -5644,7 +6284,7 @@ const QUESTIONS = [
           therapie: {
             urgent: "PE bevestigd: DOAC (rivaroxaban, apixaban) eerste keus.",
             stappen: [
-              { naam: "Stap 1", detail: "Massieve PE met hemodynamische instabiliteit: trombolyse (alteplase) of chirurgische trombectomie." },
+              { naam: "Massieve PE", detail: "Hemodynamische instabiliteit: trombolyse (alteplase) of chirurgische trombectomie." },
               { naam: "Duur therapie", detail: "uitgelokt 3 maanden, niet-uitgelokt 6 maanden-levenslang (op basis van recidiefrisico)." },
             ],
           },
@@ -6069,7 +6709,7 @@ const QUESTIONS = [
             urgent: "Hoog-intensiteit statines (atorvastatine 40-80 mg, rosuvastatine 20-40 mg): LDL-verlaging 50-55%.",
             stappen: [
               { naam: "Toevoegen ezetimib", detail: "extra 15-20% LDL-verlaging." },
-              { naam: "Stap 2", detail: "PCSK9-inhibitoren (alirocumab, evolocumab): 50-60% extra reductie, zeer hoog risico of statine-intolerantie." },
+              { naam: "PCSK9-remmers toevoegen", detail: "PCSK9-inhibitoren (alirocumab, evolocumab): 50-60% extra reductie, zeer hoog risico of statine-intolerantie." },
             ],
           },
         } },
