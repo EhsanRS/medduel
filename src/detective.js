@@ -336,6 +336,11 @@ function renderSpeurdokterResult(inv, oooPenalty) {
             <span class="sd-result-label">${escHtml(inv.label)}</span>
           </div>
           ${contentHtml}
+          ${inv.result.findings && inv.result.findings.length ? `
+            <div class="sd-findings">
+              <div class="sd-findings-label">Ook opgemerkt</div>
+              ${inv.result.findings.map(f => `<span class="sd-finding-chip">${escHtml(f)}</span>`).join('')}
+            </div>` : ''}
           <div class="${bc.cls}">${bc.text} <strong>${bc.pts} pt</strong></div>
           ${inv.result.note ? `<div class="sd-result-note">${escHtml(inv.result.note)}</div>` : ''}
         </div>
@@ -459,8 +464,71 @@ function sdSubmitDiagnosis(idx) {
     chosenIdx: idx,
     stepsUsed: SD.stepsUsed,
     clues: SD.clues,
-    phase: 'done',
+    phase: c.management ? 'management' : 'done',
   };
+  saveDetectiveRecord(rec);
+
+  if (c.management) {
+    setTimeout(() => renderSpeurdokterManagement(rec), 700);
+  } else {
+    rec.phase = 'done';
+    saveDetectiveRecord(rec);
+    setTimeout(() => renderSpeurdokterReveal(rec), 700);
+  }
+}
+
+// ── Management screen ─────────────────────────────────────────
+
+function renderSpeurdokterManagement(rec) {
+  const c = SD.case;
+  const m = c.management;
+  const correctLabel = c.diagnosis.options[c.diagnosis.correct];
+
+  const verdict = rec.correct
+    ? `<div class="sd-mgmt-verdict correct">✓ Juiste diagnose: ${escHtml(correctLabel)}</div>`
+    : `<div class="sd-mgmt-verdict wrong">De diagnose was: ${escHtml(correctLabel)}</div>`;
+
+  const options = m.options.map((opt, i) =>
+    `<button class="sd-diag-option" onclick="sdSubmitManagement(${i})" data-i="${i}">${escHtml(opt)}</button>`
+  ).join('');
+
+  document.getElementById('app').innerHTML = `
+    <div id="speurdokter" class="screen active">
+      <div class="sd-wrap">
+        <div class="sd-nav">
+          <span></span>
+          <span class="sd-nav-title">Behandeling</span>
+        </div>
+        <div class="sd-diag-card fade-in">
+          ${verdict}
+          <div class="sd-diag-prompt" style="margin-top:1rem">${escHtml(m.question)}</div>
+          <div class="sd-diag-options">${options}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function sdSubmitManagement(idx) {
+  const c = SD.case;
+  const m = c.management;
+  const correct = idx === m.correct;
+
+  document.querySelectorAll('.sd-diag-option').forEach(b => {
+    b.disabled = true;
+    if (parseInt(b.dataset.i) === m.correct) b.classList.add('correct');
+  });
+  if (!correct) {
+    const wrongBtn = document.querySelector(`.sd-diag-option[data-i="${idx}"]`);
+    if (wrongBtn) wrongBtn.classList.add('wrong');
+  }
+
+  if (correct) SD.score = Math.max(0, SD.score + 20);
+
+  const rec = loadDetectiveRecord();
+  rec.score = SD.score;
+  rec.managementIdx = idx;
+  rec.managementCorrect = correct;
+  rec.phase = 'done';
   saveDetectiveRecord(rec);
 
   setTimeout(() => renderSpeurdokterReveal(rec), 700);

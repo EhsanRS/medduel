@@ -23,7 +23,12 @@ const DETECTIVE_CASES = [
           text: 'T 38.9°C · HR 118/min · RR 20/min · SpO₂ 98% · BD 132/84 mmHg',
           badge: 'useful',
           summary: 'Koorts · tachycardie',
-          note: 'Koorts en tachycardie wijzen op een actief systemisch ziekteproces.'
+          note: 'Koorts en tachycardie wijzen op een actief systemisch ziekteproces.',
+          findings: [
+            'Patiënt is angstig en hyperalert op omgevingsprikkels',
+            'Fijne tremor zichtbaar aan de handen',
+            'Hypersalivatie subtiel aanwezig',
+          ]
         }
       },
       {
@@ -173,11 +178,16 @@ const DETECTIVE_CASES = [
         points: 10,
         result: {
           type: 'imaging',
-          summary: 'Subtiele hersenstam-afwijking',
+          summary: 'MRI: afwijkend signaal meerdere regio\'s',
           badge: 'useful',
-          note: 'Subtiele bevinding in het CZS. Klinische correlatie essentieel — beeldvorming alleen is onvoldoende.',
+          note: 'Beeldvorming toont afwijkingen op meerdere plekken. Klinische correlatie is essentieel — beeldvorming alleen stelt geen diagnose.',
           text: 'T2/FLAIR-hyperintensiteit in de hersenstam en basale ganglia, bilateraal. Subtiel maar aanwezig.',
-          img: 'mri_rabies_brainste.png'
+          img: 'mri_rabies_brainste.png',
+          findings: [
+            'Hersenstam: bilateraal T2-signaal verhoogd',
+            'Basale ganglia: subtiele betrokkenheid',
+            'Geen massa, geen bloeding, geen oedeem',
+          ]
         }
       },
       {
@@ -190,9 +200,9 @@ const DETECTIVE_CASES = [
         points: 15,
         result: {
           type: 'labs',
-          summary: 'Virale CZS-betrokkenheid op LP',
+          summary: 'Ontsteking in liquor aangetoond',
           badge: 'useful',
-          note: 'Patroon past bij virale betrokkenheid van het centrale zenuwstelsel. De procedure is invasief en pijnlijk — weeg de indicatie zorgvuldig.',
+          note: 'Ontsteking in het liquor aangetoond. Weeg de indicatie altijd zorgvuldig — een lumbaalpunctie is een invasieve ingreep met risico\'s.',
           labs: [
             { name: 'Opening pressure',  value: 22,   unit: 'cmH₂O', status: 'high', ref: '7–18' },
             { name: 'Leukocyten (liq.)', value: 120,  unit: '/µL',    status: 'high', ref: '<5' },
@@ -213,8 +223,13 @@ const DETECTIVE_CASES = [
           type: 'eureka',
           summary: 'Ongewone reactie op water',
           badge: 'eureka',
-          note: 'Een klinisch teken dat zelden optreedt, maar — wanneer aanwezig — sterk richtinggevend is.',
-          text: 'Bij het aanreiken van het glas water reageert de patiënt met plotselinge hevige angst. Zijn keel trekt samen. Hij hyperventileert, gooit het glas weg en deinst achteruit, trillend. "Ik... ik kan niet. Doe het weg. Alsjeblieft." Zijn ogen staan groot.'
+          note: 'Een klinisch teken dat zelden optreedt, maar wanneer aanwezig sterk richtinggevend is.',
+          text: 'Bij het aanreiken van het glas water reageert de patiënt met plotselinge hevige angst. Zijn keel trekt samen. Hij hyperventileert, gooit het glas weg en deinst achteruit, trillend. "Ik... ik kan niet. Doe het weg. Alsjeblieft." Zijn ogen staan groot.',
+          findings: [
+            'Faryngospasme bij zicht op water',
+            'Profuus zweten tijdens de reactie',
+            'Hypersalivatie duidelijk verergerd',
+          ]
         }
       },
       {
@@ -246,7 +261,7 @@ const DETECTIVE_CASES = [
           text: 'Geen bacteriële groei na 48 uur incubatie.',
           badge: 'not',
           summary: 'Bloedkweken: negatief',
-          note: 'Geen bacteriëmie aangetoond. Dit onderzoek was niet gericht op de meest waarschijnlijke oorzaak.'
+          note: 'Geen bacteriëmie aangetoond. Geen bijdrage aan het klinische beeld.'
         }
       },
       {
@@ -272,6 +287,18 @@ const DETECTIVE_CASES = [
       correct: 1,
       explanation: 'Rabiës is een vrijwel altijd fatale virale encefalitis veroorzaakt door het lyssavirus, overgedragen via beet of liksels van een geïnfecteerd dier. Sleutelbevindingen: reis naar endemisch gebied, diercontact zonder profylaxe, tweefasig beloop, en de karakteristieke reactie op water. Zonder tijdige post-expositieprofylaxe is er na symptoomonset geen effectieve behandeling.',
       wiki: 'Rabiës (lyssavirus) verspreidt zich via perifere zenuwen retrograad naar de hersenen. Incubatietijd: gemiddeld 1–3 maanden. Prodromaal stadium: koorts, malaise, paresthesieën bij de beet. Encefalitische fase: reactie op water (80%), aerofobia, agitatie, hallucinaties, autonome ontregeling. Terminale fase: coma → overlijden. Post-expositieprofylaxe (wondreiniging + vaccin + immunoglobuline) is effectief vóór symptoomonset. Jaarlijks ~59.000 doden wereldwijd, voornamelijk in Azië en Afrika.'
+    },
+
+    management: {
+      question: 'De diagnose is gesteld. Wat is nu de meest passende aanpak?',
+      options: [
+        'Palliatieve zorg: symptoombestrijding en isolatie',
+        'Post-expositieprofylaxe starten (vaccin + immunoglobuline)',
+        'Antivirale therapie met ribavirin starten',
+        'Milwaukee protocol: farmacologisch coma induceren',
+      ],
+      correct: 0,
+      explanation: 'Na symptoomonset bestaat er geen bewezen curatieve behandeling. Post-expositieprofylaxe (vaccin + immunoglobuline) is levensreddend vóór de symptomen, maar niet meer daarna. Het Milwaukee protocol (geïnduceerd coma) is experimenteel en heeft bij slechts een handvol patiënten ooit resultaat gehad. Palliatieve zorg met strikte isolatie — speeksel is besmettelijk — is de standaard.',
     },
 
     memory: [
