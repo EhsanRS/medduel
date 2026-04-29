@@ -5,6 +5,10 @@
 > syntaxis checken → SW-versie ophogen in `sw.js` → committen → pushen.
 > Nooit 10 dingen tegelijk. Voor volledig projectoverzicht: lees **BRIEFING.md**.
 
+> **Branch-beleid — ALTIJD direct op `main`.**
+> Geen feature-branches. Commit en push rechtstreeks naar `main`.
+> `git push -u origin main` na elke batch.
+
 ## Wat is dit project?
 
 Een medische trivia web-app voor studenten, coassistenten en zorgprofessionals.
@@ -18,7 +22,7 @@ Geen build step. Direct openen of via `npx serve .`.
 ## Alle bestanden
 
 | Bestand | Wat het doet |
-|---------|--------------|
+|---------|-------------- |
 | `src/data/questions.js` | Vragenbank — 387 vragen, QUESTIONS array |
 | `src/data/cases.js` | Dossier casussen — 18 casussen, DOSSIER_CASES array |
 | `src/ui.js` | Gedeelde functies + lab-formatter + DOMAIN_META |
