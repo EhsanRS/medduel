@@ -1,7 +1,8 @@
-const CACHE = 'medduel-v66';
+const CACHE = 'medduel-v67';
 const ASSETS = [
   '/',
   '/index.html',
+  '/history.html',
   '/src/styles.css',
   '/src/ui.js',
   '/src/game.js',

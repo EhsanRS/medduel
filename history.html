@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedDuel — Versiegeschiedenis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F0E8;
+      --pulse: #E8410A;
+      --ink: #1A1A1A;
+      --ink-soft: #6B6560;
+      --white: #FFFFFF;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .page-header .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pulse);
+      margin-bottom: 0.5rem;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .stat-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-card .num {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--pulse);
+      line-height: 1;
+    }
+    .stat-card .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .phase {
+      margin-bottom: 2rem;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .phase-dot {
+      position: absolute;
+      left: -2rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--pulse);
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--pulse);
+      flex-shrink: 0;
+    }
+    .phase-date {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2px 10px;
+    }
+    .phase-title {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phase-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .entry {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .entry:last-child { border-bottom: none; padding-bottom: 0; }
+    .entry:first-child { padding-top: 0; }
+
+    .entry-icon {
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .entry-body {}
+    .entry-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .entry-sub {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 2px 7px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-feat   { background: #E8F5E9; color: #2E7D32; }
+    .tag-fix    { background: #FFF3E0; color: #E65100; }
+    .tag-design { background: #EDE7F6; color: #4527A0; }
+    .tag-data   { background: #E3F2FD; color: #1565C0; }
+    .tag-refact { background: #FCE4EC; color: #880E4F; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <div class="eyebrow">MedDuel • Intern</div>
+    <h1>Versiegeschiedenis</h1>
+    <p>Alles wat we gebouwd hebben, van dag één tot nu.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">387</div>
+      <div class="lbl">Vragen</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">13</div>
+      <div class="lbl">Domeinen</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">v66</div>
+      <div class="lbl">Versie</div>
+    </div>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+
+</div>
+
+<script>
+const PHASES = [
+  {
+    date: '23 april 2026',
+    title: 'De start — Fundament',
+    entries: [
+      { icon: '🚀', title: 'Project opgestart', sub: 'Vanilla HTML/CSS/JS, geen framework, mobile-first', tag: null },
+      { icon: '🫀', title: '5 domeinen live', sub: 'Cardiologie · Neurologie · Farmacologie · Infectiologie · Lab', tag: 'data' },
+      { icon: '❓', title: '+50 vragen (batch 1)', sub: '10 vragen per domein — cardio, neuro, pharma, infectio, lab', tag: 'data' },
+      { icon: '❓', title: '+20 vragen (ronde 2)', sub: 'SAB, malaria, HFrEF, lithium, HOCM, endocarditis, pre-eclampsie…', tag: 'data' },
+      { icon: '🧹', title: '6 duplicaten verwijderd', sub: 'Vragenbank opgeschoond', tag: 'fix' },
+      { icon: '🏷️', title: 'Subtype-badges toegevoegd', sub: 'Differentiaal- en Test-keuze vragen zichtbaar in UI', tag: 'feat' },
+    ]
+  },
+  {
+    date: '25 april 2026',
+    title: 'Kwaliteit & Uitleg',
+    entries: [
+      { icon: '✍️', title: 'Uitlegvelden (ex) verbeterd', sub: 'Batch 1+2 — rijkere uitleg met onderscheid + actie (11 vragen)', tag: 'data' },
+      { icon: '🧽', title: 'dl-labels opgeschoond', sub: '"— Waar of Niet?" suffix verwijderd van alle truefalse vragen', tag: 'fix' },
+      { icon: '📖', title: 'Wiki-velden toegevoegd', sub: '14 hoge-prioriteit diagnose-vragen voorzien van wiki', tag: 'data' },
+    ]
+  },
+  {
+    date: '26 april 2026',
+    title: '13 Domeinen + Theorieboek',
+    entries: [
+      { icon: '🌍', title: '8 nieuwe domeinen', sub: 'Pulmo · Gastro · Endo · Nephro · Psych · Derm · Rheum · Repro → totaal 13', tag: 'feat' },
+      { icon: '🧪', title: 'Lab-display redesign', sub: 'Verticale tabel met ↑/↓/✓ indicatoren', tag: 'design' },
+      { icon: '📚', title: 'Theorieboek overhaul', sub: '12 topics — keynums, redflag, trap, mnemonic blokken', tag: 'feat' },
+      { icon: '✨', title: 'Smooth screen transitions', sub: 'Fade-in animaties tussen alle schermen', tag: 'design' },
+      { icon: '📊', title: 'Session review screen', sub: 'Overzicht na elke spelronde', tag: 'feat' },
+      { icon: '📈', title: 'Voortgang over tijd', sub: 'Recente sessies grafiek toegevoegd', tag: 'feat' },
+      { icon: '🚨', title: 'Spoedkamer modus', sub: '10 patiënten · 15s per vraag · 3 levens', tag: 'feat' },
+      { icon: '⏸️', title: 'Timer pauzeert bij fact-modal', sub: 'Fix: timer liep door terwijl wiki open was', tag: 'fix' },
+    ]
+  },
+  {
+    date: '26–27 april 2026',
+    title: 'Grote Redesign Golf',
+    entries: [
+      { icon: '🎨', title: 'Vraagweergave chips + kleurschaal', sub: 'Betere visuele breakdown van antwoorden', tag: 'design' },
+      { icon: '🎨', title: 'Symptoomlijst lichter gemaakt', sub: 'Lab-annotatie in bullets, interpunct-stroom', tag: 'design' },
+      { icon: '📖', title: 'Theorie: uniform card-systeem', sub: 'Minder visuele ruis, consistente kaarten', tag: 'design' },
+      { icon: '📖', title: 'Theorie: accent-balk + timeline', sub: 'Linker rode streep + horizontale tijdlijn per stap', tag: 'design' },
+      { icon: '📋', title: 'Vergelijkingstabellen redesign', sub: 'Eigenschap-eerst layout, 2-koloms grid, rode titels', tag: 'design' },
+      { icon: '🏠', title: 'Home + bottom nav redesign', sub: 'Sticky bottom nav + domein-grid op homescreen', tag: 'design' },
+    ]
+  },
+  {
+    date: '27–28 april 2026',
+    title: 'Speurdokter — Dr. House Modus',
+    entries: [
+      { icon: '🕵️', title: 'Speurdokter toegevoegd', sub: 'Dr. House-stijl detective modus — casus sd-01', tag: 'feat' },
+      { icon: '🏆', title: 'Score + category tabs', sub: 'Score breakdown per onderzoekstype, start op 0', tag: 'feat' },
+      { icon: '🎭', title: 'Dramatic reveal screen', sub: 'Diagnose onthulling met klinische geheugenparels', tag: 'feat' },
+      { icon: '🗂️', title: 'Twee-niveau navigatie', sub: 'Guided categorie → specifiek onderzoek flow', tag: 'refact' },
+      { icon: '⚡', title: 'Klinisch fasensysteem', sub: 'Conditional unlocks + OOO-straf voor overonderzoek', tag: 'feat' },
+      { icon: '📋', title: 'Notes + multi-finding chips', sub: 'Management flow + bevindingen als chips', tag: 'feat' },
+    ]
+  },
+  {
+    date: '28 april 2026',
+    title: 'Wiki Structuur Migratie',
+    entries: [
+      { icon: '🔄', title: '214 wiki-velden gemigreerd', sub: 'Flat string → gestructureerd schema (stap, type, ok, onderscheid…)', tag: 'refact' },
+      { icon: '📑', title: 'Wiki: tabbed layout', sub: 'Nieuwe tabbladen per wiki-sectie in fact-modal', tag: 'design' },
+      { icon: '🛠️', title: 'Wiki modal crash-fix', sub: 'Tab-layout bugs opgelost', tag: 'fix' },
+      { icon: '✍️', title: 'Cardiologie wikis batch 1', sub: '8 vragen volledig herschreven met nieuw schema', tag: 'data' },
+      { icon: '✍️', title: 'Neurologie + infectio batch', sub: '9 ok-labels gefixed, 3 string-wikis geconverteerd', tag: 'data' },
+    ]
+  },
+  {
+    date: '29 april 2026',
+    title: 'Cardiologie Compleet + Kern Tab',
+    entries: [
+      { icon: '🫀', title: 'Alle 58 cardio-wikis herschreven', sub: 'Alle Stap-placeholders vervangen door echte uitleg', tag: 'data' },
+      { icon: '🎨', title: 'Kern tab redesign', sub: 'Nieuwe lay-out voor de kern-informatie tab in wiki-modal', tag: 'design' },
+      { icon: '🕵️', title: 'Casus sd-02 toegevoegd', sub: 'Feochromocytoom — vitals decay, treatment flow, outcome reveal', tag: 'data' },
+      { icon: '🕵️', title: 'Alle casussen zichtbaar in tab', sub: 'Speurdokter overzicht toont alle beschikbare casussen', tag: 'feat' },
+      { icon: '⚙️', title: 'SW versie v66', sub: 'Service worker cache bijgewerkt', tag: 'fix' },
+    ]
+  },
+];
+
+function tag(type) {
+  if (!type) return '';
+  const labels = { feat: 'Nieuw', fix: 'Fix', design: 'Design', data: 'Content', refact: 'Refactor' };
+  return `<span class="tag tag-${type}">${labels[type]}</span>`;
+}
+
+const tl = document.getElementById('timeline');
+tl.innerHTML = PHASES.map(phase => `
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-dot"></div>
+      <span class="phase-date">${phase.date}</span>
+      <span class="phase-title">${phase.title}</span>
+    </div>
+    <div class="phase-card">
+      ${phase.entries.map(e => `
+        <div class="entry">
+          <div class="entry-icon">${e.icon}</div>
+          <div class="entry-body">
+            <div class="entry-title">${e.title}${tag(e.tag)}</div>
+            ${e.sub ? `<div class="entry-sub">${e.sub}</div>` : ''}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+`).join('');
+</script>
+</body>
+</html>
