@@ -4071,6 +4071,83 @@ details[open].sd-score-breakdown summary::before { content: '− '; }
   font-weight: 700;
 }
 
+/* ── Vitals bar ── */
+.sd-vitals-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(26,20,16,0.05);
+  border-radius: 12px;
+  padding: 0.45rem 0.85rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.sd-vital {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+}
+.sd-vital.warn {
+  color: var(--pulse);
+  font-weight: 800;
+}
+.sd-vital small {
+  font-weight: 400;
+  font-size: 0.68rem;
+  margin-left: 1px;
+}
+.sd-vital-time {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  color: var(--ink-light);
+}
+
+/* ── Alert banner ── */
+.sd-alert-banner {
+  background: rgba(212,130,10,0.12);
+  border: 1px solid rgba(212,130,10,0.3);
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--amber, #D4820A);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ── Outcome reveal hero variants ── */
+.sd-reveal-hero.warning  { background: #5a3800; }
+.sd-reveal-hero.critical { background: #3d0808; }
+.sd-reveal-hero.late     { background: #2a2000; }
+.sd-reveal-hero.saved    { background: var(--ink); }
+
+/* ── Outcome story card ── */
+.sd-outcome-story {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 1.1rem 1rem;
+  margin-bottom: 1rem;
+}
+.sd-outcome-text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+.sd-outcome-lesson {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--ink);
+  font-weight: 600;
+  border-top: 1px solid rgba(26,20,16,0.07);
+  padding-top: 0.65rem;
+  line-height: 1.5;
+}
+
 /* ── Multi-finding chips ── */
 .sd-findings {
   margin-top: 0.85rem;
