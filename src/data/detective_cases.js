@@ -360,7 +360,7 @@ const DETECTIVE_CASES = [
 
   {
     id: 'sd-02',
-    date: '2026-05-04',
+    date: '2026-04-29',
     title: 'De Vrouw Die Dacht Dat Ze Gek Werd',
     difficulty: 4,
     domain: 'endo',
