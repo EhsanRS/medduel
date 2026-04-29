@@ -3529,49 +3529,60 @@ h1.logo em {
 
 /* ── Board header ── */
 /* ── Category cards (level 1) ── */
-.sd-cat-cards {
+/* ── Phase cards (level 1) ── */
+.sd-phase-cards {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
   margin-bottom: 1rem;
 }
-.sd-cat-card {
+.sd-phase-card {
   background: var(--card);
   border-radius: 18px;
   padding: 1rem 1.1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.9rem;
   cursor: pointer;
   border: 1.5px solid transparent;
   transition: transform 0.12s, border-color 0.12s;
   box-shadow: 0 1px 4px rgba(74,63,53,0.07);
   -webkit-tap-highlight-color: transparent;
 }
-.sd-cat-card:active { transform: scale(0.98); border-color: rgba(232,65,10,0.3); }
-.sd-cat-card.empty  { opacity: 0.4; cursor: default; }
-.sd-cat-card-left {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+.sd-phase-card:not(.done):active { transform: scale(0.98); border-color: rgba(232,65,10,0.3); }
+.sd-phase-card.done  { opacity: 0.42; cursor: default; }
+.sd-phase-card.risky { border-color: rgba(212,130,10,0.35); }
+.sd-phase-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--ink);
+  opacity: 0.18;
+  width: 1.7rem;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
 }
-.sd-cat-card-icon { font-size: 1.55rem; line-height: 1; }
-.sd-cat-card-name {
+.sd-phase-card:not(.done) .sd-phase-num { opacity: 0.22; }
+.sd-phase-card.risky .sd-phase-num { color: var(--amber); opacity: 0.7; }
+.sd-phase-info { flex: 1; min-width: 0; }
+.sd-phase-name {
   font-family: var(--font-body);
   font-size: 0.93rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
 }
-.sd-cat-card-desc {
+.sd-phase-desc {
   font-family: var(--font-body);
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   color: var(--ink-light);
   margin-top: 0.1rem;
 }
-.sd-cat-card-count {
+.sd-phase-card.risky .sd-phase-desc { color: var(--amber); }
+.sd-phase-badge {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   color: var(--ink-mid);
   background: rgba(26,20,16,0.06);
@@ -3579,10 +3590,31 @@ h1.logo em {
   padding: 3px 10px;
   flex-shrink: 0;
 }
-.sd-cat-card.empty .sd-cat-card-count {
-  color: var(--green);
-  background: rgba(26,122,74,0.1);
-  font-size: 0.9rem;
+.sd-phase-badge.done { color: var(--green); background: rgba(26,122,74,0.1); font-size: 1rem; padding: 2px 8px; }
+.sd-phase-badge.warn { color: var(--amber); background: rgba(212,130,10,0.1); }
+
+/* ── Out-of-order warning ── */
+.sd-oo-banner {
+  background: rgba(212,130,10,0.12);
+  border: 1px solid rgba(212,130,10,0.3);
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+}
+.sd-oo-warning {
+  background: rgba(212,130,10,0.1);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 10px 10px 0;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
 }
 
 /* ── Back button (level 2) ── */
@@ -4037,6 +4069,51 @@ details[open].sd-score-breakdown summary::before { content: '− '; }
   left: 0;
   color: #e8a93a;
   font-weight: 700;
+}
+
+/* ── Multi-finding chips ── */
+.sd-findings {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(26,20,16,0.07);
+}
+.sd-findings-label {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.5rem;
+}
+.sd-finding-chip {
+  display: inline-block;
+  background: rgba(26,20,16,0.05);
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink-mid);
+  padding: 0.25rem 0.7rem;
+  margin: 0 0.3rem 0.3rem 0;
+}
+
+/* ── Management verdict ── */
+.sd-mgmt-verdict {
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.sd-mgmt-verdict.correct {
+  background: rgba(26,122,74,0.12);
+  color: var(--green);
+}
+.sd-mgmt-verdict.wrong {
+  background: rgba(232,65,10,0.1);
+  color: var(--pulse);
 }
 
 /* ── Explanation card ── */

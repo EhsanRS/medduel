@@ -40,7 +40,7 @@ function startSpeurdokter() {
     score: 0,
     clues: [],
     remaining: c.investigations.map(i => i.id),
-    pickedCategory: null,
+    pickedPhase: null,
     currentOptions: [],
     lastResult: null,
     date: today,
@@ -94,32 +94,46 @@ function sdBeginInvestigation() {
 
 // ── Category navigation ───────────────────────────────────────
 
-const SD_CATS = [
-  { key: 'history',  icon: '💬', name: 'Anamnese',        desc: 'Stel de patiënt een vraag' },
-  { key: 'physical', icon: '🩺', name: 'Lich. onderzoek', desc: 'Onderzoek de patiënt' },
-  { key: 'lab',      icon: '🔬', name: 'Laboratorium',    desc: 'Bloed, urine, liquor...' },
-  { key: 'imaging',  icon: '🖼️', name: 'Beeldvorming',    desc: 'Röntgen, CT, echo, MRI...' },
+// ── Phase system ──────────────────────────────────────────────
+
+const SD_PHASES = [
+  { num: 1, icon: '🩺', name: 'Eerste indruk',        desc: 'Vitalen en eerste observatie' },
+  { num: 2, icon: '💬', name: 'Anamnese',              desc: 'De patiënt uithoren' },
+  { num: 3, icon: '🔍', name: 'Lichamelijk onderzoek', desc: 'Gericht onderzoek van de patiënt' },
+  { num: 4, icon: '🔬', name: 'Aanvullend onderzoek',  desc: 'Lab, beeldvorming, puncties...' },
 ];
 
-function sdCountRemaining(catKey) {
-  return SD.remaining.filter(id => {
-    const inv = SD.case.investigations.find(i => i.id === id);
-    return inv && inv.category === catKey;
-  }).length;
+// Penalty for using Phase 3/4 before Phase 1 is done
+const SD_OOO_PENALTY = { 3: 20, 4: 50 };
+
+function sdReqsMet(inv) {
+  if (!inv.requires || inv.requires.length === 0) return true;
+  return inv.requires.every(reqId => SD.clues.some(cl => cl.id === reqId));
 }
 
-function sdPickCategory(key) {
-  const pool = SD.remaining.filter(id => {
+function sdPhasePool(phaseNum) {
+  return SD.remaining.filter(id => {
     const inv = SD.case.investigations.find(i => i.id === id);
-    return inv && inv.category === key;
+    return inv && inv.phase === phaseNum && sdReqsMet(inv);
   });
+}
+
+function sdPhaseCompleted(phaseNum) {
+  return SD.clues.some(cl => {
+    const inv = SD.case.investigations.find(i => i.id === cl.id);
+    return inv && inv.phase === phaseNum;
+  });
+}
+
+function sdPickPhase(num) {
+  const pool = sdPhasePool(num);
   SD.currentOptions = [...pool].sort(() => Math.random() - 0.5).slice(0, 3);
-  SD.pickedCategory = key;
+  SD.pickedPhase = num;
   renderSpeurdokterGame();
 }
 
-function sdBackToCategories() {
-  SD.pickedCategory = null;
+function sdBackToPhases() {
+  SD.pickedPhase = null;
   renderSpeurdokterGame();
 }
 
@@ -128,6 +142,8 @@ function sdBackToCategories() {
 function renderSpeurdokterGame() {
   const c = SD.case;
   const canDiagnose = SD.stepsUsed >= 2;
+  const phase1Done = sdPhaseCompleted(1);
+
   const sdNav = `
     <div class="sd-nav">
       <button class="quit-btn" onclick="sdQuit()">✕ Stop</button>
@@ -144,20 +160,37 @@ function renderSpeurdokterGame() {
       </div>
     </div>`;
 
-  if (SD.pickedCategory === null) {
-    // Level 1 — choose a category
-    const cards = SD_CATS.map(cat => {
-      const count = sdCountRemaining(cat.key);
-      const empty = count === 0;
-      return `<div class="sd-cat-card${empty ? ' empty' : ''}" ${empty ? '' : `onclick="sdPickCategory('${cat.key}')"`}>
-        <div class="sd-cat-card-left">
-          <span class="sd-cat-card-icon">${cat.icon}</span>
-          <div>
-            <div class="sd-cat-card-name">${cat.name}</div>
-            <div class="sd-cat-card-desc">${empty ? 'Volledig onderzocht' : cat.desc}</div>
-          </div>
+  if (SD.pickedPhase === null) {
+    // Level 1 — choose a phase
+    const cards = SD_PHASES.map(ph => {
+      const pool  = sdPhasePool(ph.num);
+      const count = pool.length;
+      const done  = count === 0 && sdPhaseCompleted(ph.num);
+      const risky = !phase1Done && SD_OOO_PENALTY[ph.num] && count > 0;
+      const onclick = count > 0 ? `onclick="sdPickPhase(${ph.num})"` : '';
+
+      let badge, desc;
+      if (done) {
+        badge = `<span class="sd-phase-badge done">✓</span>`;
+        desc  = 'Volledig afgerond';
+      } else if (risky) {
+        badge = `<span class="sd-phase-badge warn">⚠ −${SD_OOO_PENALTY[ph.num]}</span>`;
+        desc  = 'Eerste indruk nog niet gedaan';
+      } else if (count === 0) {
+        badge = `<span class="sd-phase-badge done">✓</span>`;
+        desc  = 'Niets meer beschikbaar';
+      } else {
+        badge = `<span class="sd-phase-badge">${count}</span>`;
+        desc  = ph.desc;
+      }
+
+      return `<div class="sd-phase-card${done ? ' done' : ''}${risky ? ' risky' : ''}" ${onclick}>
+        <div class="sd-phase-num">${ph.num}</div>
+        <div class="sd-phase-info">
+          <div class="sd-phase-name">${ph.icon} ${ph.name}</div>
+          <div class="sd-phase-desc">${desc}</div>
         </div>
-        <span class="sd-cat-card-count">${empty ? '✓' : count}</span>
+        ${badge}
       </div>`;
     }).join('');
 
@@ -166,8 +199,8 @@ function renderSpeurdokterGame() {
         <div class="sd-wrap">
           ${sdNav}
           ${sdClueStrip()}
-          <div class="sd-section-label" style="margin-bottom:0.6rem">Hoe wilt u verder?</div>
-          <div class="sd-cat-cards fade-in">${cards}</div>
+          <div class="sd-section-label" style="margin-bottom:0.6rem">Klinische aanpak</div>
+          <div class="sd-phase-cards fade-in">${cards}</div>
           <div class="sd-diag-wrap">
             <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
               Diagnose stellen →
@@ -177,9 +210,10 @@ function renderSpeurdokterGame() {
         </div>
       </div>`;
   } else {
-    // Level 2 — choose a specific investigation
-    const cat = SD_CATS.find(ct => ct.key === SD.pickedCategory);
-    const rows = SD.currentOptions.map(id => {
+    // Level 2 — pick a specific investigation
+    const ph   = SD_PHASES.find(p => p.num === SD.pickedPhase);
+    const risky = !phase1Done && SD_OOO_PENALTY[ph.num];
+    const rows  = SD.currentOptions.map(id => {
       const inv = c.investigations.find(i => i.id === id);
       if (!inv) return '';
       return `<div class="sd-inv-row" onclick="sdPickInvestigation('${inv.id}')">
@@ -194,7 +228,8 @@ function renderSpeurdokterGame() {
         <div class="sd-wrap">
           ${sdNav}
           ${sdClueStrip()}
-          <button class="sd-back-cat" onclick="sdBackToCategories()">← ${cat.icon} ${cat.name}</button>
+          <button class="sd-back-cat" onclick="sdBackToPhases()">← ${ph.icon} ${ph.name}</button>
+          ${risky ? `<div class="sd-oo-banner">⚠ Zonder eerste indruk: extra −${SD_OOO_PENALTY[ph.num]} straf per onderzoek</div>` : ''}
           <div class="sd-inv-list fade-in">${rows}</div>
           <div class="sd-diag-wrap">
             <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
@@ -211,22 +246,27 @@ function sdPickInvestigation(id) {
   if (!inv) return;
 
   SD.remaining = SD.remaining.filter(rid => rid !== id);
-  SD.pickedCategory = null;
+  SD.pickedPhase = null;
   SD.stepsUsed++;
-  SD.score = Math.max(0, SD.score + inv.points);
+
+  // Out-of-order penalty: Phase 3/4 before Phase 1 done
+  const oooPenalty = (!sdPhaseCompleted(1) && SD_OOO_PENALTY[inv.phase]) || 0;
+  const pts = Math.max(-100, inv.points - oooPenalty);
+  SD.score = Math.max(0, SD.score + pts);
 
   SD.clues.push({
     id: inv.id,
     summary: inv.result.summary,
     badge: inv.result.badge,
     category: inv.category,
-    points: inv.points,
+    points: pts,
+    ooo: oooPenalty > 0,
   });
 
   SD.lastResult = inv;
   SD.phase = 'result-shown';
-  sdShowScorePop(inv.points);
-  renderSpeurdokterResult(inv);
+  sdShowScorePop(pts);
+  renderSpeurdokterResult(inv, oooPenalty);
 }
 
 function sdShowScorePop(pts) {
@@ -239,14 +279,18 @@ function sdShowScorePop(pts) {
 
 // ── Result screen ─────────────────────────────────────────────
 
-function renderSpeurdokterResult(inv) {
+function renderSpeurdokterResult(inv, oooPenalty) {
+  const lastClue = SD.clues[SD.clues.length - 1];
+  const effectivePts = lastClue ? lastClue.points : inv.points;
   const badgeCfg = {
-    eureka: { cls: 'sd-badge-eureka', text: '⚡ Cruciale bevinding!', pts: `+${inv.points} punten` },
-    key:    { cls: 'sd-badge-key',    text: '🔑 Sleutelbevinding',   pts: `+${inv.points} punten` },
-    useful: { cls: 'sd-badge-useful', text: '✓ Nuttige bevinding',   pts: `+${inv.points} punten` },
-    not:    { cls: 'sd-badge-not',    text: '— Niet relevant',       pts: `${inv.points} punten` },
+    eureka: { cls: 'sd-badge-eureka', text: '⚡ Cruciale bevinding!', pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    key:    { cls: 'sd-badge-key',    text: '🔑 Sleutelbevinding',   pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    useful: { cls: 'sd-badge-useful', text: '✓ Nuttige bevinding',   pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    not:    { cls: 'sd-badge-not',    text: '— Niet relevant',       pts: `${effectivePts}` },
   };
   const bc = badgeCfg[inv.result.badge] || badgeCfg.useful;
+  const oooWarning = oooPenalty > 0
+    ? `<div class="sd-oo-warning">⚠ Eerste indruk overgeslagen: −${oooPenalty} extra straf</div>` : '';
 
   const contentHtml = sdResultContent(inv);
   const canDiagnose = SD.stepsUsed >= 2;
@@ -285,13 +329,19 @@ function renderSpeurdokterResult(inv) {
 
         ${sdClueStrip()}
 
+        ${oooWarning}
         <div class="sd-result-card fade-in">
           <div class="sd-result-header">
             <span class="sd-result-icon">${inv.icon}</span>
             <span class="sd-result-label">${escHtml(inv.label)}</span>
           </div>
           ${contentHtml}
-          <div class="${bc.cls}">${bc.text} <strong>${bc.pts}</strong></div>
+          ${inv.result.findings && inv.result.findings.length ? `
+            <div class="sd-findings">
+              <div class="sd-findings-label">Ook opgemerkt</div>
+              ${inv.result.findings.map(f => `<span class="sd-finding-chip">${escHtml(f)}</span>`).join('')}
+            </div>` : ''}
+          <div class="${bc.cls}">${bc.text} <strong>${bc.pts} pt</strong></div>
           ${inv.result.note ? `<div class="sd-result-note">${escHtml(inv.result.note)}</div>` : ''}
         </div>
 
@@ -414,8 +464,71 @@ function sdSubmitDiagnosis(idx) {
     chosenIdx: idx,
     stepsUsed: SD.stepsUsed,
     clues: SD.clues,
-    phase: 'done',
+    phase: c.management ? 'management' : 'done',
   };
+  saveDetectiveRecord(rec);
+
+  if (c.management) {
+    setTimeout(() => renderSpeurdokterManagement(rec), 700);
+  } else {
+    rec.phase = 'done';
+    saveDetectiveRecord(rec);
+    setTimeout(() => renderSpeurdokterReveal(rec), 700);
+  }
+}
+
+// ── Management screen ─────────────────────────────────────────
+
+function renderSpeurdokterManagement(rec) {
+  const c = SD.case;
+  const m = c.management;
+  const correctLabel = c.diagnosis.options[c.diagnosis.correct];
+
+  const verdict = rec.correct
+    ? `<div class="sd-mgmt-verdict correct">✓ Juiste diagnose: ${escHtml(correctLabel)}</div>`
+    : `<div class="sd-mgmt-verdict wrong">De diagnose was: ${escHtml(correctLabel)}</div>`;
+
+  const options = m.options.map((opt, i) =>
+    `<button class="sd-diag-option" onclick="sdSubmitManagement(${i})" data-i="${i}">${escHtml(opt)}</button>`
+  ).join('');
+
+  document.getElementById('app').innerHTML = `
+    <div id="speurdokter" class="screen active">
+      <div class="sd-wrap">
+        <div class="sd-nav">
+          <span></span>
+          <span class="sd-nav-title">Behandeling</span>
+        </div>
+        <div class="sd-diag-card fade-in">
+          ${verdict}
+          <div class="sd-diag-prompt" style="margin-top:1rem">${escHtml(m.question)}</div>
+          <div class="sd-diag-options">${options}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function sdSubmitManagement(idx) {
+  const c = SD.case;
+  const m = c.management;
+  const correct = idx === m.correct;
+
+  document.querySelectorAll('.sd-diag-option').forEach(b => {
+    b.disabled = true;
+    if (parseInt(b.dataset.i) === m.correct) b.classList.add('correct');
+  });
+  if (!correct) {
+    const wrongBtn = document.querySelector(`.sd-diag-option[data-i="${idx}"]`);
+    if (wrongBtn) wrongBtn.classList.add('wrong');
+  }
+
+  if (correct) SD.score = Math.max(0, SD.score + 20);
+
+  const rec = loadDetectiveRecord();
+  rec.score = SD.score;
+  rec.managementIdx = idx;
+  rec.managementCorrect = correct;
+  rec.phase = 'done';
   saveDetectiveRecord(rec);
 
   setTimeout(() => renderSpeurdokterReveal(rec), 700);
