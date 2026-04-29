@@ -224,7 +224,7 @@ const QUESTIONS = [
     wiki:{
           kern: "Multiple sclerose (MS) is een chronische auto-immuun demyeliniserende aandoening van het centraal zenuwstelsel. Auto-reactieve T-cellen beschadigen myeline → vertraagde of geblokkeerde zenuwgeleiding.",
           mechanisme: [
-            { title: "Stap 1", desc: "Oligodendrocyten (myelineproduce­rende cellen in de hersenen) worden aangevallen." },
+            { title: "Myeline-aanval", desc: "Auto-reactieve T-cellen kruisen de bloed-hersenbarrière en vallen oligodendrocyten (myelineproducerende cellen) aan → vertraagde of geblokkeerde zenuwgeleiding." },
             { title: "Na demyelinisatie", desc: "gedeeltelijk herstel door remyelinisatie, maar ook axonale schade." },
             { title: "Bij schubs", desc: "actieve inflammatie." },
             { title: "Progressieve fase", desc: "chronische neurodestructie zonder actieve ontsteking." },
@@ -367,17 +367,16 @@ const QUESTIONS = [
     a:['Omeprazol','Metoclopramide','Famotidine','Sucralfaat'], c:0,
     ex:'Omeprazol is een protonpompremmer (PPI). Famotidine is een H2-blokker — minder effectief, ander aanknopingspunt.',
     wiki:{
-          kern: "Protonpompremmers (PPIs) zijn de krachtigste maagzuurremmers beschikbaar. Ze blokkeren irreversibel de H⁺/K⁺-ATPase (protonpomp) op de pariëtaalcel van de maag → zuurproductie daalt met >90%.",
+          kern: "Protonpompremmers (PPIs) zijn de krachtigste maagzuurremmers. Ze blokkeren irreversibel de H⁺/K⁺-ATPase (protonpomp) op de pariëtaalcel → zuurproductie daalt met >90%. Neem 30 min vóór ontbijt in — pariëtaalcellen moeten actief zijn voor activatie.",
           mechanisme: [
-            { title: "Stap 1", desc: "PPIs zijn prodrugs die geactiveerd worden in het zure milieu van de pariëtaalcel." },
-            { title: "Stap 2", desc: "Ze binden covalent aan de protonpomp — effect duurt 24-48u ondanks korte halfwaardetijd in bloed." },
-            { title: "Stap 3", desc: "Nieuwe pompen worden continu aangemaakt → dagelijkse inname nodig." },
-            { title: "Beste effect", desc: "30 min voor ontbijt." },
+            { title: "Prodrug-activatie", desc: "PPIs zijn prodrugs die in het zure milieu van de pariëtaalcel omgezet worden naar de actieve sulfenamide." },
+            { title: "Irreversibele binding", desc: "Sulfenamide bindt covalent aan de H⁺/K⁺-ATPase → effect duurt 24-48u ondanks korte halfwaardetijd in bloed." },
+            { title: "Dagelijkse inname", desc: "Nieuwe protonpompen worden continu aangemaakt → PPI moet dagelijks ingenomen worden om effect te onderhouden." },
           ],
           onderscheid: [
-            { label: "H2-blokkers (famotidine, ranitidine)", desc: "minder effectief, snel tachyfylaxie, bruikbaar bij nachtelijke klachten of als PPI niet beschikbaar.", type: 'ok' },
-            { label: "Antacida (aluminiumhydroxide)", desc: "directe maar kortdurende zuurverwijdering, geen genezing.", type: 'warn' },
-            { label: "Sucralfaat", desc: "beschermende laag over ulcus, geen maagzuurremming.", type: 'danger' },
+            { label: "Protonpompremmers (PPI)", desc: "Irreversibele protonpompblokkade, >90% zuurdaling, voorkeursmiddel bij GERD/PU. Neem 30 min vóór ontbijt.", type: 'ok' },
+            { label: "H2-blokkers (famotidine)", desc: "Minder effectief, snelle tachyfylaxie. Bruikbaar bij nachtelijke maagklachten of als PPI niet verdragen wordt.", type: 'warn' },
+            { label: "Antacida (aluminiumhydroxide)", desc: "Directe maar kortdurende zuurverzadiging, geen genezing van ulcera — symptoombehandeling alleen.", type: 'warn' },
           ],
           therapie: {
             urgent: "Indicaties: GERD, peptisch ulcus, H. pylori-eradicatie (triple therapy), NSAID-bescherming bij hoog risico, Zollinger-Ellison.",
@@ -392,22 +391,23 @@ const QUESTIONS = [
     a:['Amlodipine','Metoprolol','Spironolacton','Hydralazine'], c:1,
     ex:'Metoprolol is een cardioselectieve bèta-1-blokker. Bèta-2-blokkade veroorzaakt bronchospasme — gevaarlijk bij astma.',
     wiki:{
-          kern: "Bètablokkers blokkeren bèta-adrenerge receptoren. Bèta-1 (hart): lagere hartfrequentie en contractiliteit.",
+          kern: "Bètablokkers blokkeren bèta-adrenerge receptoren. Bèta-1-selectieve middelen (metoprolol, bisoprolol) zijn cardiosaelectief: lagere hartfrequentie + contractiliteit + AV-geleiding, met minimale bèta-2-bijwerkingen.",
           mechanisme: [
-            { title: "Stap 1", desc: "Door blokkade van bèta-1 receptoren: verlaging hartfrequentie (negatief chronotroop) + contractiekracht (negatief inotroop) + geleidingssnelheid AV-knoop (negatief dromotroop)." },
-            { title: "Stap 2", desc: "Dit vermindert myocardiaal zuurstofverbruik." },
-            { title: "Bij hartfalen", desc: "initieel voorzichtig opstarten (kan acuut verslechteren)." },
+            { title: "Bèta-1-blokkade", desc: "Negatief chronotroop (lagere HF) + negatief inotroop (minder contractiekracht) + negatief dromotroop (tragere AV-geleiding)." },
+            { title: "Zuurstofverbruik ↓", desc: "Lagere hartfrequentie en contractiliteit verminderen myocardiaal zuurstofverbruik — effectief bij angina en post-MI." },
+            { title: "Bij hartfalen", desc: "Paradoxaal effectief ondanks negatieve inotropie — neurohumerale remming verbetert lange-termijn remodelling. Start laag, titreer langzaam." },
           ],
           onderscheid: [
-            { label: "Calciumantagonisten", desc: "ook negatief chronotroop (verapamil, diltiazem) maar via ander mechanisme.", type: 'ok' },
-            { label: "Optie 2", desc: "Amlodipine is dihydropyridine — alleen vaatverwijdend, geen hartfrequentie-effect.", type: 'warn' },
-            { label: "Ivabradin", desc: "enkel sinusknoop, zonder negatief inotropie — bruikbaar bij bètablokker-intolerantie.", type: 'danger' },
+            { label: "Bètablokkers (metoprolol)", desc: "Bèta-1-selectief, negatief chronotroop/inotroop. Cave: astma, AV-blok, PAOD. Nooit abrupt stoppen.", type: 'ok' },
+            { label: "Calciumantagonisten non-DHP (verapamil, diltiazem)", desc: "Ook negatief chronotroop maar via L-type Ca²⁺-kanaalremming — niet combineren met bètablokker.", type: 'warn' },
+            { label: "Amlodipine (dihydropyridine)", desc: "Alleen vaatverwijdend, geen hartfrequentie-effect — geschikt bij hartfalen + angina.", type: 'warn' },
+            { label: "Ivabradin", desc: "Remt alleen de sinusknoop (If-stroom) zonder negatieve inotropie — bruikbaar bij bètablokker-intolerantie of als aanvulling.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Indicaties: hypertensie, angina, hartfalen (HFrEF), AF-frequentiecontrole, na MI.",
+            urgent: "Indicaties: hypertensie, angina, HFrEF, AF-frequentiecontrole, post-MI.",
             stappen: [
-              { naam: "Contra-indicaties", detail: "ernstig astma, symptomatisch bradycardie, AV-blok °II-III, acute decompensatio cordis." },
-              { naam: "Stap 2", detail: "Nooit abrupt stoppen — rebound-effect (angina, hypertensie)." },
+              { naam: "Contra-indicaties", detail: "Ernstig astma, symptomatische bradycardie, AV-blok °II-III, acute decompensatio cordis." },
+              { naam: "Afbouwen", detail: "Nooit abrupt stoppen — rebound: tachycardie, angina, hypertensie. Afbouwen over 2-4 weken." },
             ],
           },
         } },
@@ -417,25 +417,22 @@ const QUESTIONS = [
     a:['Losartan','Lisinopril','Verapamil','Furosemide'], c:1,
     ex:'Lisinopril = ACE-remmer. Losartan is een ARB (angiotensine-II-receptorblokker) — géén hoest als bijwerking.',
     wiki:{
-          kern: "ACE-remmers (lisinopril, enalapril, ramipril) blokkeren het angiotensine-converterend enzym → minder angiotensine II → vaatverwijding + minder aldosteron → bloeddrukdaling + minder zout/waterretentie. Ze beschermen ook de nieren bij diabetes en verminderen mortaliteit bij hartfalen.",
+          kern: "ACE-remmers (lisinopril, enalapril, ramipril) blokkeren het angiotensine-converterend enzym → minder angiotensine II → vaatverwijding + minder aldosteron → bloeddrukdaling. Ze bieden nierbescherming bij diabetes en verminderen mortaliteit bij HFrEF.",
           mechanisme: [
-            { title: "Stap 1", desc: "ACE zet angiotensine I om in angiotensine II én breekt bradykinine af. Remming." },
-            { title: "Stap 2", desc: "bradykinine-accumulatie." },
-            { title: "Stap 3", desc: "prostaglandine-productie." },
-            { title: "Stap 4", desc: "droge hoest bij 10-15% (via bradykinine in de keel). ARBs blokkeren de AT1-receptor direct — zelfde bloeddrukeffect zonder bradykinine-ophoping." },
-            { title: "Stap 5", desc: "geen hoest." },
+            { title: "ACE-remming", desc: "ACE zet angiotensine I om in angiotensine II én breekt bradykinine af. Blokkade verlaagt angiotensine II (minder vasoconstrictie, minder aldosteron) en stapelt bradykinine op." },
+            { title: "Bradykinine → hoest", desc: "Bradykinine-accumulatie stimuleert prostaglandinesynthese en prikkelt hoestrecept in de keel → droge hoest bij 10-15%. Dit is een klasse-bijwerking, geen allergie." },
+            { title: "ARBs vs ACE-remmers", desc: "ARBs (losartan, valsartan) blokkeren de AT1-receptor direct — zelfde antihypertensief effect, zelfde nefroprotectie, zonder bradykinine-stapeling → geen hoest." },
           ],
           onderscheid: [
-            { label: "ARB (losartan, valsartan)", desc: "zelfde indicaties, geen hoest.", type: 'ok' },
-            { label: "ARNI (sacubitril/valsartan)", desc: "ARB + neprilysineremmer, superieur aan ACE-remmer bij HFrEF.", type: 'warn' },
-            { label: "Bètablokker", desc: "ook mortaliteitsvoordeel HFrEF maar via ander mechanisme.", type: 'danger' },
-            { label: "Calciumantagonist", desc: "geen nefroprotectie, geen mortaliteitsvoordeel HF.", type: 'warn' },
+            { label: "ACE-remmers (lisinopril)", desc: "Verlagen angiotensine II + stapelen bradykinine. Cave hoest (10-15%), angio-oedeem, hyperkaliëmie, teratogeen.", type: 'ok' },
+            { label: "ARB (losartan, valsartan)", desc: "Zelfde indicaties als ACE-remmer, géén hoest. Keuze bij ACE-remmer-intolerantie.", type: 'warn' },
+            { label: "ARNI (sacubitril/valsartan)", desc: "ARB + neprilysineremmer — superieur aan ACE-remmer bij HFrEF (PARADIGM-HF). Vervangt ACE-remmer, nooit combineren.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Indicaties: hypertensie, hartfalen (HFrEF), nefroprotectie bij diabetes nefropathie, post-MI.",
+            urgent: "Indicaties: hypertensie, HFrEF, nefroprotectie bij diabetische nefropathie, post-MI.",
             stappen: [
-              { naam: "Contra-indicaties", detail: "zwangerschap (teratogeen!), bilaterale nierarteriestenose, hyperkaliëmie, angio-oedeem bij ACE-remmer (→ overstap op ARB)." },
-              { naam: "Stap 2", detail: "Starten met lage dosis, ophogen." },
+              { naam: "Contra-indicaties", detail: "Zwangerschap (teratogeen!), bilaterale nierarteriestenose, hyperkaliëmie, eerder angio-oedeem bij ACE-remmer." },
+              { naam: "Dosisophoging", detail: "Start laag (bijv. lisinopril 2,5 mg), ophogen op geleide van bloeddruk en kreatinine/K⁺." },
             ],
           },
         } },
@@ -445,16 +442,16 @@ const QUESTIONS = [
     a:['Amoxicilline','Doxycycline','Ciprofloxacine','Metronidazol'], c:2,
     ex:'Ciprofloxacine is een fluorochinolon. Bijwerkingen: tendinitis, QTc-verlenging. Cave bij ouderen + corticosteroïden.',
     wiki:{
-          kern: "Fluorochinolonen (ciprofloxacine, levofloxacine) remmen DNA-gyrase (gramnegatief) en topoisomerase IV (grampositief) — enzymen die DNA ontspiraliseren voor replicatie. Bactericide.",
+          kern: "Fluorochinolonen (ciprofloxacine, levofloxacine) remmen DNA-gyrase en topoisomerase IV — enzymen die DNA ontspiraliseren voor replicatie. Breed gramnegatief spectrum. Bactericide. Drie klasse-bijwerkingen om te onthouden: pees, QTc, C. diff.",
           mechanisme: [
-            { title: "Tendinitis/peesruptuur", desc: "verstoring collageensynthese in peesweefsel, m.n. achillespees." },
-            { title: "Stap 2", desc: "Risico verhoogd bij ouderen, corticosteroïden en nierinsufficiëntie." },
-            { title: "Stap 3", desc: "QTc-verlenging via hERG-kanaalremming → torsade de pointes risico bij combinatie met andere QTc-verlengende middelen (antipsychotica, antiarritmica)." },
+            { title: "Tendinitis & peesruptuur", desc: "Verstoring van collageensynthese in peesweefsel, m.n. achillespees. Risico verhoogd bij ouderen, corticosteroïden en nierinsufficiëntie." },
+            { title: "QTc-verlenging", desc: "hERG-kanaalremming → verlengde repolarisatie → torsade de pointes risico bij combinatie met andere QTc-verlengende middelen (antipsychotica, antiarritmica)." },
+            { title: "C. diff-risico", desc: "Breed spectrum verstoort de darmflora — fluorochinolonen zijn een belangrijke trigger voor Clostridioides difficile-infectie." },
           ],
           onderscheid: [
-            { label: "Bètalactams", desc: "celwandremming, geen DNA-schade, geen tendinitis.", type: 'ok' },
-            { label: "Doxycycline", desc: "ribosoomremmer (30S), ook atypisch, geen fluorochinolon-bijwerkingen.", type: 'warn' },
-            { label: "Trimethoprim", desc: "folaatremmering, specifiek voor UWI, geen systemisch spectrum.", type: 'danger' },
+            { label: "Fluorochinolonen (ciprofloxacine)", desc: "DNA-gyrase-remmer. Breed gramnegatief + atypisch spectrum. Cave: pees, QTc, C. diff, groeiende resistentie.", type: 'ok' },
+            { label: "Bètalactams (amoxicilline, cefalosporines)", desc: "Celwandremming via PBP. Geen tendinitis, geen DNA-schade. Eerste keus bij de meeste infecties.", type: 'warn' },
+            { label: "Doxycycline", desc: "30S-ribosoomremmer. Ook effectief bij atypische verwekkers (Chlamydia, Mycoplasma). Geen fluorochinolon-bijwerkingen.", type: 'warn' },
           ],
         } },
 
@@ -463,23 +460,23 @@ const QUESTIONS = [
     a:['Heparine','Warfarine','Rivaroxaban','Dabigatran'], c:1,
     ex:'Warfarine/acenocoumarol remmen de vitamine K-cyclus → verminderde aanmaak stollingsfactoren. INR monitoren.',
     wiki:{
-          kern: "Vitamine K-antagonisten (VKA) zoals warfarine en acenocoumarol remmen de vitamine K-afhankelijke stollingsfactoren II (protrombine), VII, IX en X, en de anticoagulante eiwitten C en S. Werking treedt pas na 3-5 dagen volledig op (bestaande factoren moeten afgebroken worden).",
+          kern: "VKA (warfarine, acenocoumarol) remmen vitamine K-afhankelijke stollingsfactoren II, VII, IX, X én anticoagulante eiwitten C en S. Werking treedt pas na 3-5 dagen op — bestaande factoren moeten eerst afgebroken worden. Smalle therapeutische marge: INR 2-3.",
           mechanisme: [
-            { title: "Stap 1", desc: "Vitamine K is nodig voor gamma-carboxylering van stollingsfactoren. VKA blokkeren de vitamine K-epoxide-reductase (VKOR)." },
-            { title: "Stap 2", desc: "geoxideerde vorm van vitamine K kan niet geregenereerd worden." },
-            { title: "Stap 3", desc: "inactieve stollingsfactoren. INR meet de vertraging in de extrinsieke stollingsroute." },
+            { title: "VKOR-remming", desc: "Vitamine K is nodig voor gamma-carboxylering van stollingsfactoren. VKA blokkeren vitamine K-epoxide-reductase (VKOR) → geoxideerde vitamine K kan niet geregenereerd worden." },
+            { title: "Inactieve stollingsfactoren", desc: "Zonder actief vitamine K worden de stollingseiwitten (II, VII, IX, X) aangemaakt als inactieve precursors. Factor VII heeft de kortste halfwaardetijd → INR stijgt het snelst." },
+            { title: "INR-monitoring", desc: "INR meet de vertraging in de extrinsieke stollingsroute. Therapeutische INR: 2-3 (meeste indicaties), 2,5-3,5 bij mechanische hartklep." },
           ],
           onderscheid: [
-            { label: "Heparine", desc: "directe werking via antitrombine III, parenteraal, effect direct — voor overbrugging.", type: 'ok' },
-            { label: "DOACs (rivaroxaban, apixaban, dabigatran)", desc: "direct werkend, geen INR-monitoring, minder interacties, maar niet voor alle indicaties.", type: 'warn' },
-            { label: "VKA", desc: "goedkoop, omkeerbaar met vitamine K, keuze bij kunstkleppen.", type: 'danger' },
+            { label: "VKA (warfarine/acenocoumarol)", desc: "Indirect via VKOR-remming. INR-monitoring vereist. Keuze bij kunstkleppen, mitralisstenose. Talrijke interacties (CYP2C9).", type: 'ok' },
+            { label: "Heparine (LMWH/UFH)", desc: "Direct via antitrombine III, parenteraal. Effect direct — voor bridging, acute situaties en tijdens zwangerschap.", type: 'warn' },
+            { label: "DOACs (rivaroxaban, apixaban, dabigatran)", desc: "Direct werkend, geen INR-monitoring. Gecontraïndiceerd bij mechanische kunstkleppen en ernstige mitraalklepstenose.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Therapeutische INR: 2-3 (meeste indicaties), 2,5-3,5 (kunstklepp).",
+            urgent: "Therapeutische INR: 2-3 (meeste indicaties), 2,5-3,5 (mechanische hartklep).",
             stappen: [
-              { naam: "Te hoog INR", detail: "vitamine K po/IV." },
-              { naam: "Ernstige bloeding", detail: "4-factoren protrombinecomplex-concentraat (PCC) + vitamine K." },
-              { naam: "Stap 3", detail: "Vele CYP2C9-interacties — altijd controleren bij nieuwe medicatie." },
+              { naam: "Te hoog INR (bloeding)", detail: "Vitamine K po/IV + 4-factoren PCC bij ernstige/levensbedreigende bloeding." },
+              { naam: "Te laag INR", detail: "Dosis ophogen, altijd CYP2C9-interacties controleren bij nieuwe medicatie." },
+              { naam: "CYP2C9-interacties", detail: "Vele middelen verhogen (antibiotica, azolen) of verlagen (rifampicine, sint-janskruid) de INR — altijd controleren bij nieuwe medicatie." },
             ],
           },
         } },
@@ -512,19 +509,17 @@ const QUESTIONS = [
     a:['COX-2-remming','TNF-α blokkade','DHFR-inhibitie → anti-inflammatoir via adenosine','IL-6 receptorblokkade'], c:2,
     ex:'Methotrexaat remt DHFR (dihydrofolaatreductase) → verminderde purinesynthese → adenosine-accumulatie → anti-inflammatoir effect. Foliumzuursuppletie verlaagt bijwerkingen (mucositis, myelosuppressie) zonder werkzaamheidsverlies.',
     wiki:{
-          kern: "Bij RA werkt methotrexaat NIET via de folaatroute (zoals bij kanker). Bij lage dosis remt adenosine-opstapeling T-celactivatie en cytokineproductie.",
+          kern: "Bij RA werkt methotrexaat NIET primair via de folaatroute (zoals bij kanker). Bij lage dosering accumuleert adenosine via AICAR → A2A-receptoractivatie → anti-inflammatoir. MTX is de hoeksteen van RA-behandeling; de meeste biologicals worden eraan toegevoegd.",
           mechanisme: [
-            { title: "Stap 1", desc: "Hoge dosis (oncologie): DHFR-remming." },
-            { title: "Stap 2", desc: "geen DNA-synthese." },
-            { title: "Stap 3", desc: "celgroei gestopt. Lage dosis (RA): adenosine-accumulatie via AICAR." },
-            { title: "Stap 4", desc: "A2A-receptoractivatie." },
-            { title: "Stap 5", desc: "anti-inflammatoir. Het mechanisme verschilt per dosis — dat is klinisch relevant." },
+            { title: "Hoge dosis (oncologie)", desc: "DHFR-remming → geen purinesynthese → geen DNA-replicatie → celgroei gestopt." },
+            { title: "Lage dosis (RA)", desc: "AICAR-accumulatie → adenosine-opstapeling → A2A-receptoractivatie → remming T-celactivatie en pro-inflammatoire cytokineproductie." },
+            { title: "Foliumzuur-interactie", desc: "Foliumzuursuppletie (5 mg/week) verlaagt bijwerkingen (mucositis, myelosuppressie, leverfibrose) zonder verlies van werkzaamheid." },
           ],
           onderscheid: [
-            { label: "TNF-α-blokkers (adalimumab, etanercept)", desc: "sneller effectief, biologicals — tweede lijn na MTX-falen.", type: 'ok' },
-            { label: "IL-6-remmer (tocilizumab)", desc: "ook effectief bij MTX-falen.", type: 'warn' },
-            { label: "Hydroxychloroquine", desc: "milde RA, minder toxisch maar ook minder krachtig.", type: 'danger' },
-            { label: "Optie 4", desc: "MTX is de hoeksteen van RA-behandeling — de meeste biologicals worden eraan toegevoegd, niet als vervanging.", type: 'warn' },
+            { label: "Methotrexaat (MTX)", desc: "Anker-DMARD bij RA. Werking na 6-12 weken. Cave: lever, myelosuppressie, longfibrose, teratogeen. Foliumzuur altijd erbij.", type: 'ok' },
+            { label: "TNF-α-blokkers (adalimumab, etanercept)", desc: "Biologicals — sneller effectief, tweede lijn na MTX-falen of gecombineerd met MTX.", type: 'warn' },
+            { label: "IL-6-remmer (tocilizumab)", desc: "Effectief bij MTX-falen of als MTX niet verdragen wordt. Geen TNF-α-pathway.", type: 'warn' },
+            { label: "Hydroxychloroquine", desc: "Mild DMARD voor vroege of seronegatiefe RA. Minder toxisch maar ook minder krachtig dan MTX.", type: 'danger' },
           ],
         } },
 
@@ -962,10 +957,10 @@ const QUESTIONS = [
     wiki:{
           kern: "Harttamponnade ontstaat wanneer vocht (bloed, exsudaat) in de pericardruimte snel genoeg ophoopt om de diastolische vulling van het hart te belemmeren. Al 200 ml snel ophopend vocht kan fataal zijn; 1 liter chronisch kan goed verdragen worden.",
           mechanisme: [
-            { title: "Stap 1", desc: "Toenemende druk in het pericard comprimeert het RV tijdens diastole." },
-            { title: "Stap 2", desc: "minder vulling." },
-            { title: "Stap 3", desc: "minder cardiac output." },
-            { title: "Stap 4", desc: "compensatoire tachycardie en perifere vasoconstrictie. Kenmerkend: pulsus paradoxus (BD-daling >10 mmHg tijdens inspiratie) door wedijvering LV/RV om vulling." },
+            { title: "Pericard-compressie", desc: "Ophopend vocht in de pericardruimte comprimeert het RV tijdens diastole — het RV kan niet meer uitzetten." },
+            { title: "Verminderde vulling", desc: "Minder RV-filling → minder slagvolume → minder LV-vulling → cardiac output daalt snel." },
+            { title: "Compensatoire reactie", desc: "Sympathicusactivatie → tachycardie + vasoconstrictie. Maar dit houdt de output slechts tijdelijk op peil." },
+            { title: "Pulsus paradoxus", desc: "Bij inspiratie daalt de intrathoracale druk → RV vult beter maar comprimeert het LV → systolische BD daalt >10 mmHg. Kenmerkend voor tamponnade." },
           ],
           onderscheid: [
             { label: 'Harttamponnade', desc: 'Beck\'s triade: hypotensie + gestuwd halsvenen + gedempte harttonen. Pulsus paradoxus >10 mmHg. Echo: vrije vloeistof + RV-collaps diastole.', type: 'ok' },
@@ -976,9 +971,9 @@ const QUESTIONS = [
           therapie: {
             urgent: "Pericardiocentese spoedmatig: naald subxifoidaal, echo-geleide drainage.",
             stappen: [
-              { naam: "Bij hemopericard (trauma)", detail: "chirurgische drainage." },
-              { naam: "Na drainage", detail: "onderzoek oorzaak (maligniteit, TBC, virale pericarditis, uraemie)." },
-              { naam: "Stap 3", detail: "Kleine veilige drainage-hoeveelheid geeft snel klinisch herstel." },
+              { naam: "Bij hemopericard (trauma)", detail: "Chirurgische drainage (pericardiocentese soms onvoldoende bij actieve bloeding)." },
+              { naam: "Oorzaak onderzoeken", detail: "Na stabilisatie: maligniteit, TBC, virale pericarditis, uraemie of auto-immuun als mogelijke etiologie." },
+              { naam: "Klinisch herstel", detail: "Al een kleine drainage-hoeveelheid (50-100 ml) geeft snel hemodynamisch herstel — de effectiviteit is opmerkelijk snel." },
             ],
           },
         } },
@@ -994,9 +989,10 @@ const QUESTIONS = [
     wiki:{
           kern: "Aortaklepstenose is de meest voorkomende klepafwijking bij ouderen. De aortaklep wordt door calcificatie steeds stijver en nauwer → het hart moet steeds harder pompen → LV-hypertrofie → uiteindelijk hartfalen.",
           mechanisme: [
-            { title: "Stap 1", desc: "Calcificerende aortastenose begint als inflammatoire schade aan het klepblad (vergelijkbaar met atherosclerose). Risicofactoren: ouderdom, bicuspide aortaklep (congenitaal), nierinsufficiëntie. Het LV moet de verhoogde afterload overwinnen." },
-            { title: "Stap 2", desc: "concentrische hypertrofie." },
-            { title: "Stap 3", desc: "diastolische dysfunctie." },
+            { title: "Calcificatie van de aortaklep", desc: "Inflammatoire schade aan het klepblad (vergelijkbaar met atherosclerose) → progressieve calcificatie → klepoppervlak daalt <1,0 cm² (ernstig: <0,6 cm²). Risicofactoren: ouderdom, bicuspide aortaklep, nierinsufficiëntie." },
+            { title: "LV-overbelasting", desc: "Verhoogde afterload → LV moet harder persen → drukpiek stijgt → concentrische LV-hypertrofie als compensatie." },
+            { title: "Diastolische dysfunctie", desc: "Hypertrofische LV-wand is stijver → diastolische vulling gestoord → verhoogde vullingsdruk → dyspneu bij inspanning." },
+            { title: "Klassieke triade", desc: "Angina (insufficient coronaire reserve), syncope (reflexbradycardie bij inspanning of lage output), dyspneu (verhoogde vullingsdruk). Gemiddelde overleving na triade: 2-3 jaar zonder klepvervanging." },
           ],
           onderscheid: [
             { label: 'Ernstige aortastenose', desc: 'AV-oppervlak <1,0 cm², klassieke triade syncope + angina + dyspneu, geruis rechts parasternaal, uitstralend naar hals.', type: 'ok' },
@@ -1007,9 +1003,9 @@ const QUESTIONS = [
           therapie: {
             urgent: "Aortaklepvervanging (chirurgisch of TAVI) is de enige curatieve behandeling.",
             stappen: [
-              { naam: "Stap 1", detail: "TAVI (transcatheter) voor ouderen en hoog-risicochirurgische patiënten." },
-              { naam: "Conservatief", detail: "geen bewezen farmacologische therapie." },
-              { naam: "Cave", detail: "nitraten en diuretica kunnen gevaarlijk hypotensie veroorzaken (preload-afhankelijk hart)." },
+              { naam: "TAVI", detail: "Transcatheter aortaklepimplantatie voor ouderen en hoog-risicochirurgische patiënten — minder invasief dan chirurgie, vergelijkbare resultaten." },
+              { naam: "Conservatief", detail: "Geen bewezen farmacologische therapie die de progressie remt — medicatie verlicht symptomen maar cureert niet." },
+              { naam: "Cave nitraten/diuretica", detail: "Kunnen gevaarlijk hypotensie veroorzaken — het gecompenseerde hart is preload-afhankelijk." },
             ],
           },
         } },
@@ -1021,11 +1017,10 @@ const QUESTIONS = [
     wiki:{
           kern: "AV-blokken worden geclassificeerd naar ernst. Eerstegraads: verlengd PR, altijd geleiding.",
           mechanisme: [
-            { title: "Stap 1", desc: "Wenckebach: AV-knoopmoeheid na elke slag." },
-            { title: "Stap 2", desc: "langzamere geleiding." },
-            { title: "Stap 3", desc: "uitval." },
-            { title: "Stap 4", desc: "recuperatie. Mobitz II: structurele schade aan His-bundel of bundeltakken (hieronder AV-knoop)." },
-            { title: "Stap 5", desc: "plotse blokkering. Derdegraads: geen enkele prikkel door." },
+            { title: "Wenckebach: AV-knoop vermoeidheid", desc: "Na elke geleide slag raakt de AV-knoop tijdelijk 'moe' → geleidingstijd verlengt → PR-interval wordt steeds langer per slag." },
+            { title: "Wenckebach: QRS-uitval en reset", desc: "Na een prikkel die niet geleid wordt, herstelt de AV-knoop volledig → PR-interval begint opnieuw kort. Dit herhaalt zich cyclisch." },
+            { title: "Mobitz II: His-bundelschade", desc: "Structurele schade onder de AV-knoop (His-bundel of bundeltakken) → plotse, onverwachte QRS-uitval zonder voorafgaande PR-verlenging — gevaarlijker dan Wenckebach." },
+            { title: "Derdegraads: totaal blok", desc: "Geen enkele prikkel geleid van atria naar ventrikels → AV-dissociatie. Ventrikels slaan op eigen escape-ritme (30-40/min) → hemodynamisch instabiel." },
           ],
           onderscheid: [
             { label: 'Wenckebach (Mobitz I)', desc: 'Progressief verlengend PR → QRS-uitval → reset. Benigne, typisch bij inferieur MI (RCA-ischemie AV-knoop), ook bij verhoogde vagustonus.', type: 'ok' },
@@ -1073,10 +1068,10 @@ const QUESTIONS = [
     wiki:{
           kern: "Perifeer arterieel vaatlijden (PAV) is atherosclerose van de beenarteriën. Claudicatio intermittens (pijn bij lopen, rust geeft verlichting) is het klassieke symptoom.",
           mechanisme: [
-            { title: "Stap 1", desc: "Atherosclerotische plaques vernauwen de A. femoralis superficialis (meest frequent). Bij inspanning stijgt de zuurstofvraag maar aanbod is beperkt." },
-            { title: "Stap 2", desc: "melkzuuraccumulatie." },
-            { title: "Stap 3", desc: "pijn. In rust: vraag daalt." },
-            { title: "Stap 4", desc: "pijn verdwijnt. Bij kritisch ischemie is flow onvoldoende voor het basale weefsel: necrose dreigt." },
+            { title: "Atherosclerose beenarteriën", desc: "Plaques vernauwen de A. femoralis superficialis (meest frequent) → verminderde doorbloeding distaal van de obstructie." },
+            { title: "Inspanning: vraag > aanbod", desc: "Spierarbeid verhoogt de O₂-vraag maar de vernauwde arterie kan de flow niet verhogen → anaerobe verbranding → melkzuurophoping → pijn (claudicatio)." },
+            { title: "Rust: pijn verdwijnt", desc: "In rust daalt de O₂-vraag → melkzuur wordt geklaard → pijn verdwijnt na 2-5 minuten. Kenmerkend voor claudicatio (vs neurogeen: pijn verdwijnt langzamer, houding-afhankelijk)." },
+            { title: "Kritische ischemie", desc: "Bij ABI <0,4 is de flow onvoldoende voor basale weefselperftusie → rustpijn, ulcera, dreigende gangreen. Dit is een vaatspoedsituatie." },
           ],
           onderscheid: [
             { label: 'PAV (claudicatio intermittens)', desc: 'Pijn bij lopen, verdwijnt snel in rust, ABI <0,9. Atherosclerose arteria femoralis superficialis (meest frequent).', type: 'ok' },
@@ -1088,8 +1083,8 @@ const QUESTIONS = [
             urgent: "Leefstijl: stoppen met roken (risico ×4), looptraining (evidence-based, vergelijkbaar met PTA).",
             stappen: [
               { naam: "Farmacologisch", detail: "trombocytenremmer (clopidogrel of aspirine) + hooggedoseerde statine + bloeddrukcontrole." },
-              { naam: "Kritische ischemie", detail: "PTA/stent of bypass-chirurgie." },
-              { naam: "Stap 3", detail: "Amputatie als laatste redmiddel." },
+              { naam: "Kritische ischemie", detail: "PTA (percutane transluminale angioplastiek) of bypass-chirurgie — indicatie bij ABI <0,4 of rustpijn." },
+              { naam: "Amputatie", detail: "Laatste redmiddel bij niet-vasculariseerbare ischemie of levensbedreigende infectie — altijd zo distaal mogelijk." },
             ],
           },
         } },
@@ -2225,10 +2220,10 @@ const QUESTIONS = [
     wiki:{
           kern: "Atriumfibrilleren (AF) is het meest voorkomende hartritmestoornis. Meerdere chaotische re-entry circuits in de atria (400-600/min) maken gecoördineerde contractie onmogelijk.",
           mechanisme: [
-            { title: "Stap 1", desc: "Stilstand van atriale contractie." },
-            { title: "Stap 2", desc: "bloed blijft stilstaan in linker hartoor." },
-            { title: "Stap 3", desc: "trombusvorming." },
-            { title: "Stap 4", desc: "embolisatie naar hersenen of andere organen. Dit verklaard waarom anticoagulatie de hoeksteen is van de behandeling." },
+            { title: "Chaotische atriale activiteit", desc: "Meerdere re-entry circuits in de atria (400-600/min) — gecoördineerde atriale contractie is onmogelijk. Linker hartoor contraheert nauwelijks." },
+            { title: "Trombusvorming", desc: "Stase van bloed in het linker hartoor → trombusvorming → embolisatie naar hersenen of andere organen. Dit is de reden waarom anticoagulatie de hoeksteen is van behandeling." },
+            { title: "Onregelmatig ventrikelritme", desc: "AV-knoop geleidt willekeurig van de chaotische atriale prikkels → absoluut irregulair RR-ritme. Geen P-toppen op het ECG — alleen fibrillatiebasisline." },
+            { title: "CHA₂DS₂-VASc risicostratificatie", desc: "Indicatie anticoagulatie: mannen ≥2 punten, vrouwen ≥3 punten. Punten voor: hartfalen, hypertensie, leeftijd ≥75 (2pt), DM, beroerte/TIA (2pt), vaatlijden, leeftijd 65-74, vrouwelijk geslacht." },
           ],
           onderscheid: [
             { label: 'Atriumfibrilleren', desc: 'Absoluut irregulair RR-ritme, geen P-toppen, chaotische fibrillatiebasisline. Anticoagulatie op basis van CHA₂DS₂-VASc-score.', type: 'ok' },
@@ -2236,6 +2231,15 @@ const QUESTIONS = [
             { label: 'Sinustachycardie', desc: 'Regelmatig, duidelijke P-top vóór elk QRS, frequentie varieert met ademhaling.', type: 'warn' },
             { label: 'AVNRT', desc: 'Paroxysmaal, regelmatig smalcomplex, plotse start/stop, P verborgen in of net achter QRS.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Acuut hemodynamisch instabiel: directe elektrische cardioversie.',
+            stappen: [
+              { naam: 'Rate control', detail: 'Bètablokker (metoprolol) of non-DHP calciumantagonist (diltiazem) — eerstekeus bij permanente AF.' },
+              { naam: 'Rhythm control', detail: 'Flecaïnide (geen structureel hartlijden) of amiodaron — cardioversie na ≥3 weken anticoagulatie of TEE om trombus uit te sluiten.' },
+              { naam: 'Anticoagulatie', detail: 'DOAC (apixaban, rivaroxaban, dabigatran) op basis van CHA₂DS₂-VASc. VKA bij mechanische klep of mitralisstenose.' },
+              { naam: 'Pulmonaalvene-ablatie', detail: 'Curatief bij symptomatische paroxismale AF — isolatie van de ectopische foci in longvenen.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
@@ -2246,11 +2250,11 @@ const QUESTIONS = [
     wiki:{
           kern: "Inferieur STEMI (leads II, III, aVF) wordt veroorzaakt door afsluiting van de rechter coronairarterie (RCA). ST-elevatie toont transmuraal infarct — elke minuut vertraging = meer myocardschade.",
           mechanisme: [
-            { title: "Stap 1", desc: "Plaque ruptuur." },
-            { title: "Stap 2", desc: "trombusvorming." },
-            { title: "Stap 3", desc: "complete afsluiting." },
-            { title: "Stap 4", desc: "transmuraal ischemie." },
-            { title: "Stap 5", desc: "ST-elevatie. Reciproke depressie in de voorwandafleidingen (I, aVL) bevestigt de localiteit. Na occlussie: ischemie (minuten)." },
+            { title: "Plaque ruptuur", desc: "Atherosclerotische plaque in de RCA scheurt open → subendotheliaal collageen blootgesteld → plaatjesaggregatie." },
+            { title: "Trombusvorming", desc: "Volledige afsluiting van de RCA door een trombus → transmuraal inferieur myocard ischemisch." },
+            { title: "ST-elevatie mechanisme", desc: "Ischemische cellen depolariseren abnormaal → stroomlus naar aangrenzend gezond weefsel → ST-elevatie in inferieure afleidingen (II, III, aVF)." },
+            { title: "Reciproke depressie", desc: "Tegenoverlegen afleidingen (I, aVL) tonen spiegelbeeldige ST-depressie — bevestigt de lokalisatie en is typisch voor STEMI (ontbreekt bij pericarditis)." },
+            { title: "RV-infarct risico", desc: "Proximale RCA voedt ook het RV → altijd V4R afnemen. ST-elevatie ≥1 mm in V4R = RV-infarct → geen nitraten of diuretica geven!" },
           ],
           onderscheid: [
             { label: 'Inferieur STEMI (RCA-occlusie)', desc: 'ST-elevatie in II, III en aVF. Reciproke depressie in I en aVL. Altijd rechter-ECG (V4R) afnemen om RV-infarct uit te sluiten.', type: 'ok' },
@@ -2258,6 +2262,15 @@ const QUESTIONS = [
             { label: 'NSTEMI', desc: 'Geen ST-elevatie, wél troponine verhoogd. ST-depressie en T-inversie mogelijk.', type: 'warn' },
             { label: 'Vroege repolarisatie', desc: 'Concave (schaalvormige) ST-elevatie bij jonge patiënten zonder klachten — benigne variant.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Directe PCI binnen 90 minuten — elke minuut vertraging = meer myocardverlies.',
+            stappen: [
+              { naam: 'Dubbele plaatjesremming', detail: 'Aspirine 300 mg + ticagrelor 180 mg direct bij binnenkomst.' },
+              { naam: 'Heparine IV', detail: 'Bridging tot PCI — voorkomt verdere trombosgroei in de RCA.' },
+              { naam: 'V4R altijd', detail: 'Bij inferieur STEMI: rechter ECG-afleidingen om RV-infarct uit te sluiten — dit verandert het beleid (geen nitraten).' },
+              { naam: 'Secundaire preventie', detail: 'Statine + bètablokker + ACE-remmer + SGLT2-remmer na ontslag.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:5, domain:'cardio', dl:'Cardiologie',
@@ -2268,9 +2281,9 @@ const QUESTIONS = [
     wiki:{
           kern: "Wenckebach is een tweedegraads AV-blok waarbij de AV-knoop na elke geleide slag \"vermoeid\" raakt → steeds langere PR → uiteindelijk een prikkel die niet geleid wordt. Daarna recupereert de AV-knoop en begint de cyclus opnieuw.",
           mechanisme: [
-            { title: "Stap 1", desc: "AV-knooppathologie (ischemie inferieure wand, verhoogde vagustonus, digoxine-toxiciteit) vertraagt de geleiding progressief." },
-            { title: "De perioden zijn", desc: "P-PR-QRS (P geleid), P-lang PR-QRS (geleid), P-alleen (niet geleid) = 3:2 blok." },
-            { title: "Stap 3", desc: "Verhouding beschrijft hoeveel P/QRS per periode." },
+            { title: "Oorzaken", desc: "AV-knooppathologie door ischemie inferieure wand (RCA), verhoogde vagustonus (atleten, slaap) of digoxine-toxiciteit." },
+            { title: "Het Wenckebach-patroon", desc: "Cyclische perioden: eerste slag kort PR, elke volgende slag langer PR, tot de prikkel niet door de AV-knoop komt (QRS uitvalt) → dan reset naar kort PR. Voorbeeld: 3:2 blok = 2 QRS op 3 P-golven." },
+            { title: "Benigne karakter", desc: "Wenckebach is AV-knoop-niveau — het escape-ritme bij blokkade is junctionaal (~50/min), voldoende hemodynamisch. Mobitz II (His-bundelniveau) is gevaarlijker (ventriculair escape ~30/min)." },
           ],
           onderscheid: [
             { label: 'Wenckebach (Mobitz I)', desc: 'Progressief langer PR → QRS-uitval → reset. Benigne, AV-knoodfenomeen, typisch bij inferieur MI of digoxine-toxiciteit.', type: 'ok' },
@@ -2278,6 +2291,14 @@ const QUESTIONS = [
             { label: 'Eerstegraads AV-blok', desc: 'PR >200 ms maar elke P geleidt → asymptomatisch, geen behandeling nodig.', type: 'warn' },
             { label: 'Derdegraads AV-blok', desc: 'P en QRS volledig ontkoppeld, ventriculair escape-ritme ~35/min — urgente pacemaker altijd.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Wenckebach bij inferieur MI: observatie, reversibel. Wenckebach bij digoxine: stop digoxine.',
+            stappen: [
+              { naam: 'Symptomatisch', detail: 'Atropine 0,5 mg IV bij symptomatische bradycardie — verhoogt AV-knoopgeleiding.' },
+              { naam: 'Onderliggende oorzaak', detail: 'Behandel inferieur MI (PCI), stop culprit-medicatie (digoxine, bètablokker, calciumantagonist).' },
+              { naam: 'Pacemaker zelden nodig', detail: 'Wenckebach is doorgaans benigne en reversibel — permanent blok is zeldzaam bij Wenckebach.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:5, domain:'cardio', dl:'Cardiologie',
@@ -2288,8 +2309,9 @@ const QUESTIONS = [
     wiki:{
           kern: "Bij een derdegraads (totaal) AV-blok geleidt geen enkele atriale prikkel naar de ventrikels. De atria en ventrikels slaan onafhankelijk van elkaar: atria ~75/min, ventrikels ~35/min via junctionaal of ventriculair escape-ritme.",
           mechanisme: [
-            { title: "Oorzaken", desc: "inferieur MI (tijdelijk, junctionaal escape ~50/min), anterieur MI (His-schade, ventriculair escape ~30/min, slecht teken), degeneratieve fibrose (bij ouderen)." },
-            { title: "Stap 2", desc: "Het escape-ritme is laag en onbetrouwbaar → synkope, hemodynamische collaps." },
+            { title: "Oorzaken", desc: "Inferieur MI (tijdelijk, junctionaal escape ~50/min, reversibel na PCI), anterieur MI (His-bundelschade, ventriculair escape ~30/min, slechte prognose), degeneratieve fibrose (Lenegre, bij ouderen), aortaklepchirurgie, digitalis-toxiciteit." },
+            { title: "Escape-ritme", desc: "Ventrikels slaan op eigen pace via een laag escape-centrum: junctionaal ~50/min (smal QRS, hemodynamisch beter) of ventriculair ~30/min (breed QRS, hemodynamisch instabiel). Onbetrouwbaar → syncope, hemodynamische collaps." },
+            { title: "Hemodynamische gevolgen", desc: "Lage cardiac output door trage ventrikelfrequentie → hypotensie, presyncope/syncope, angina. Atria en ventrikels slaan volledig onafhankelijk — AV-dissociatie is pathognomonisch." },
           ],
           onderscheid: [
             { label: 'Totaal (derdegraads) AV-blok', desc: 'P-toppen (~75/min) en QRS-escape-ritme (~35/min) volledig ontkoppeld — geen enkele atriale prikkel bereikt de ventrikels. Urgente pacemaker.', type: 'ok' },
@@ -2297,6 +2319,13 @@ const QUESTIONS = [
             { label: 'Mobitz II', desc: 'Constant PR tot plotse QRS-uitval — ook ernstig maar P-QRS-relatie bestaat nog.', type: 'warn' },
             { label: 'Sinusbradycardie', desc: 'Traag maar P en QRS altijd gecorreleerd met normaal PR-interval.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Transcutane pacemaker als overbrugging bij hemodynamische instabiliteit — isoprenaline infuus als alternatief.',
+            stappen: [
+              { naam: 'Permanente pacemaker', detail: 'Definitieve behandeling bij symptomatisch of irreversibel totaal AV-blok.' },
+              { naam: 'Reversibele oorzaak', detail: 'Inferieur STEMI: tijdelijk blok, herstel na PCI. Digitalis-toxiciteit: stop medicatie, Fab-antilichamen bij ernstige toxiciteit.' },
+            ],
+          },
         } },
 
   { type:'lab', d:5, domain:'lab', dl:'Laboratorium',
@@ -2312,11 +2341,19 @@ const QUESTIONS = [
             { title: "Stap 3", desc: "air trapping (RV vergroot) + flow-limitatie. De concave curve ontstaat doordat de flow vroeg afneemt omdat de kleine luchtwegen al instorten." },
           ],
           onderscheid: [
-            { label: "Astma", desc: "ook obstructief maar reversibel na bronchodilatator (>12% FEV1-stijging).", type: 'ok' },
-            { label: "COPD", desc: "overwegend irreversibel.", type: 'warn' },
-            { label: "Restrictief (fibrose, obesitas, scoliose)", desc: "FVC laag, FEV1/FVC normaal of hoog.", type: 'danger' },
-            { label: "Gemengd", desc: "kenmerken van beide (bijv. obesitas + COPD).", type: 'warn' },
+            { label: "Obstructief patroon (COPD)", desc: "FEV1/FVC <0,70 na bronchodilatatie, concave expiratoire curve. Bij roker: COPD. FEV1-daling bepaalt ernst (GOLD-stadia I-IV).", type: 'ok' },
+            { label: "Obstructief patroon (Astma)", desc: "Ook FEV1/FVC verlaagd, maar reversibel: FEV1 stijgt ≥12% én ≥200 ml na bronchodilatator — onderscheidt astma van COPD.", type: 'warn' },
+            { label: "Restrictief patroon (fibrose, obesitas)", desc: "FVC laag, FEV1/FVC normaal of verhoogd, curve kleiner maar normaal van vorm. TLC <80% bevestigt restrictie.", type: 'warn' },
+            { label: "Gemengd patroon", desc: "Verlaagd FEV1/FVC én verlaagd TLC — obstructie én restrictie tegelijk (bijv. COPD + obesitas).", type: 'danger' },
           ],
+          therapie: {
+            urgent: 'COPD-exacerbatie: SABA (salbutamol) + ipratropium vernevelaar + prednisolon 30 mg oraal + antibiotica bij infectieus.',
+            stappen: [
+              { naam: 'Stabiele COPD', detail: 'Stoppen met roken (meest effectief), SABA/LABA, LAMA (tiotropium), ICS bij recidiverende exacerbaties.' },
+              { naam: 'Zuurstof', detail: 'Bij SpO₂ <92%: doseer op target 88-92% bij COPD — te veel O₂ kan hypercapnie verergeren.' },
+              { naam: 'Longrevalidatie', detail: 'Bewezen effectief voor kwaliteit van leven en inspanningstolerantie.' },
+            ],
+          },
         } },
 
 
@@ -5072,11 +5109,11 @@ const QUESTIONS = [
     wiki:{
           kern: "AF is de meest voorkomende hartritmestoornis (prevalentie ~1-2%). Pathofysiologie: chaotische elektrische activiteit atria → AV-knoop filtert willekeurig → onregelmatig ventrikelritme.",
           mechanisme: [
-            { title: "Stap 1", desc: "Triggers: ectopische foci in longvenen." },
-            { title: "Stap 2", desc: "re-entry circuits in atria." },
-            { title: "Stap 3", desc: "frequentie 350-600/min. AV-knoop geleidt variabel." },
-            { title: "Stap 4", desc: "ventrikelrespons 100-160/min (ongecontroleerd). Snelle ventrikelrespons." },
-            { title: "Stap 5", desc: "verlaagd HMV." },
+            { title: "Ectopische triggers", desc: "Ectopische foci in de longvenen (pulmonaalvenen) vuren snelle prikkels → initiëren AF. Ablatie van deze foci is de basis van curatieve katheterablatie." },
+            { title: "Chaotische re-entry circuits", desc: "Meerdere gelijktijdige micro re-entry circuits in het atriummyocard → atriale frequentie 350-600/min → geen gecoördineerde contractie mogelijk." },
+            { title: "AV-knoop als filter", desc: "AV-knoop geleidt willekeurig enkele prikkels door → absoluut irregulair ventrikelritme. Ongecontroleerde frequentie: 100-160/min." },
+            { title: "Tachycardie-cardiomyopathie", desc: "Langdurig ongecontroleerde snelle ventrikelrespons → 'tachycardie-geïnduceerde cardiomyopathie' met dalende EF — reversibel na frequentiecontrole." },
+            { title: "Tromboserisico", desc: "Stilstaand bloed in het linker hartoor (geen atriale contractie) → trombus → embolisatie → CVA. CHA₂DS₂-VASc bepaalt anticoagulatie-indicatie." },
           ],
           onderscheid: [
             { label: 'Atriumfibrillatie (AF)', desc: 'Absoluut irregulair smalcomplex ritme, geen P-toppen, chaotische fibrillatiegolven. Frequentie 100-160/min ongecontroleerd.', type: 'ok' },
@@ -5103,11 +5140,11 @@ const QUESTIONS = [
     wiki:{
           kern: "STEMI-diagnose: ST-elevatie ≥1mm (≥2mm in V1-V3) in ≥2 contiguë afleidingen, of nieuw LBTB. Lokalisatie: inferior (II/III/aVF = RCA), anterior (V1-V4 = LAD), lateraal (I/aVL/V5-V6 = LCx).",
           mechanisme: [
-            { title: "Stap 1", desc: "Plaque ruptuur." },
-            { title: "Stap 2", desc: "trombus." },
-            { title: "Stap 3", desc: "totale occlusie coronairarterie." },
-            { title: "Stap 4", desc: "transmuraal infarct. Tijdslijn: ST-elevatie (minuten)." },
-            { title: "Stap 5", desc: "Q-golf (uren)." },
+            { title: "Plaque ruptuur en trombus", desc: "Kwetsbare atherosclerotische plaque in een coronairarterie scheurt → subendotheliaal collageen blootgesteld → plaatjesaggregatie + fibrinetrombus → volledige occlusie." },
+            { title: "Transmuraal infarct", desc: "Volledige dikte van het myocardium wordt ischemisch → cel-ionengradiënten verstoord → ST-elevatie op ECG, troponine lekt na 1-3 uur in het bloed." },
+            { title: "Hyperacute T-toppen", desc: "Allereerste ECG-teken: hyperacute (hoge, brede) T-toppen door hyperkaliëmie in ischemische cellen. Daarna ST-elevatie, dan T-inversie, dan Q-golven." },
+            { title: "ECG-lokalisatie", desc: "Inferieur (II/III/aVF = RCA), anterieur (V1-V4 = LAD), lateraal (I/aVL/V5-V6 = LCx). Reciproke depressies in tegenoverlegen afleidingen bevestigen transmuraal infarct." },
+            { title: "Tijdsverloop", desc: "ST-elevatie (minuten) → Q-golf (uren) → T-inversie (uren-dagen) → Q blijft permanent. 'Time is muscle': elke 30 min vertraging = ~7,5% méér myocardverlies." },
           ],
           onderscheid: [
             { label: 'STEMI', desc: 'ST-elevatie ≥1 mm in ≥2 contiguë afleidingen (≥2 mm in V1-V3), hyperacute T-toppen in vroeg stadium. Directe PCI <90 minuten.', type: 'ok' },
@@ -5118,7 +5155,7 @@ const QUESTIONS = [
           therapie: {
             urgent: "Primaire PCI: gouden standaard <12u na symptomen.",
             stappen: [
-              { naam: "Stap 1", detail: "Lyse als PCI niet beschikbaar binnen 120 min." },
+              { naam: "Trombolyse als alternatief", detail: "Lyse (alteplase) als PCI niet beschikbaar binnen 120 min na eerste medisch contact — deur-tot-naald <30 min." },
               { naam: "Anti-aggregatie", detail: "aspirine + ticagrelor/prasugrel." },
               { naam: "Anticoagulatie", detail: "heparine periprocedureel." },
             ],
@@ -5135,10 +5172,10 @@ const QUESTIONS = [
     wiki:{
           kern: "LBTB-criteria: QRS >120ms, geen Q in I/V5/V6, breed genofd R in I/aVL/V5/V6, rS of QS in V1. Discordante ST-T = ST-T tegengesteld aan QRS-uitslag.",
           mechanisme: [
-            { title: "Stap 1", desc: "Normaal: impuls linker bundeltakbeen." },
-            { title: "Stap 2", desc: "simultane activatie linkerventrikel. Bij LBTB: impuls via rechterbundel en transseptaal (traag)." },
-            { title: "Stap 3", desc: "bredere vertraagde LV-activatie." },
-            { title: "Stap 4", desc: "breed genofd QRS in laterale afleidingen." },
+            { title: "Normale geleiding", desc: "Impuls loopt via His-bundel → linker en rechter bundeltakken → simultane LV- en RV-activatie → smal QRS (<120 ms)." },
+            { title: "LBTB: vertraagde LV-activatie", desc: "Linker bundeltakbeen geblokkeerd → impuls bereikt LV via het rechterbundeltakbeen en transseptaal → trage, asynchrone LV-depolarisatie → QRS breed (>120 ms)." },
+            { title: "Breed genofd QRS-patroon", desc: "Trage transseptale activatie van de LV veroorzaakt het karakteristieke 'M'-genofd QRS in I/aVL/V5-V6. Geen initiële septale Q-golf in I/V6 (verdwenen door reversed septumdepolarisatie)." },
+            { title: "Discordante ST-T-veranderingen", desc: "ST-segment en T-golf zijn altijd tegengesteld aan de QRS-uitslag (discordant). Dit is normaal bij LBTB — maar maakt STEMI-diagnose moeilijk (Sgarbossa-criteria helpen)." },
           ],
           onderscheid: [
             { label: 'LBTB (linker bundeltakblok)', desc: 'QRS >120 ms, breed genofd M-patroon in I/aVL/V5-V6, geen initiële Q in I/V6, rS of QS in V1. Discordante ST-T-veranderingen.', type: 'ok' },
@@ -5149,7 +5186,7 @@ const QUESTIONS = [
           therapie: {
             urgent: "LBTB op zichzelf geen behandeling nodig.",
             stappen: [
-              { naam: "Stap 1", detail: "Nieuw LBTB bij ACS = urgentie." },
+              { naam: "Nieuw LBTB bij ACS", detail: "Nieuw LBTB bij pijn op de borst = STEMI-equivalent → directe PCI, ook al is ST-elevatie niet klassiek zichtbaar (Sgarbossa-criteria)." },
               { naam: "Hartfalen + LBTB + EF <35%", detail: "CRT (cardiale resynchronisatietherapie) overwegen." },
             ],
           },
@@ -5165,10 +5202,10 @@ const QUESTIONS = [
     wiki:{
           kern: "AV-blokken: 1e graads (lang PR, elke P→QRS), 2e graads Mobitz I (progressief langer PR → uitval QRS), 2e graads Mobitz II (constant PR → plotse uitval QRS), 3e graads = complete dissociatie.",
           mechanisme: [
-            { title: "Stap 1", desc: "AV-knoop of His-bundel blok." },
-            { title: "Stap 2", desc: "geen geleiding atria." },
-            { title: "Stap 3", desc: "ventrikels." },
-            { title: "Stap 4", desc: "ventrikels via eigen escape-pacemaker. Junctioneel escape: 40-60/min, smal QRS. Ventriculair escape: 20-40/min, breed QRS. Hemodynamisch instabiel door laag HMV." },
+            { title: "Compleet blok AV-knoop of His-bundel", desc: "Geen enkele atriale prikkel geleidt naar de ventrikels — complete AV-dissociatie. Atria slaan op sinusritme (~75/min), ventrikels via eigen escape-pacemaker." },
+            { title: "Escape-pacemaker", desc: "Junctionaal escape (AV-knoop-niveau): 40-60/min, smal QRS, hemodynamisch beter. Ventriculair escape (His-Purkinje): 20-40/min, breed QRS, instabiel." },
+            { title: "ECG-diagnose", desc: "P-golven en QRS-complexen volledig ontkoppeld: atria sneller dan ventrikels. PR-interval is variabel — een P kan 'voor', 'in' of 'na' een QRS vallen zonder vaste relatie." },
+            { title: "Hemodynamische gevolgen", desc: "Laag slagvolume door trage ventrikelfrequentie + verlies atriale bijdrage aan vulling ('atrial kick') → lage cardiac output → presyncope/syncope/hemodynamische collaps." },
           ],
           onderscheid: [
             { label: 'Totaal (derdegraads) AV-blok', desc: 'P-golven en QRS volledig ontkoppeld. Atria sneller dan ventrikels. Ventriculair escape-ritme 20-40/min (breed QRS) of junctionaal 40-60/min (smal QRS).', type: 'ok' },
@@ -5194,11 +5231,11 @@ const QUESTIONS = [
     c:0,
     ex:'Obstructief patroon: de uitademcurve (rood) is concaaf (hol naar binnen) vergeleken met normaal (blauw gestippeld), met een verlaagde piekflow en vertraagde uitademing. FEV1/FVC <0.70 na bronchodilatatie bevestigt obstructie (GOLD-criteria voor COPD).',
     wiki:{
-          kern: "Spirometrie: FVC (geforceerde vitale capaciteit), FEV1 (volume in eerste seconde), FEV1/FVC-ratio. Obstructief: FEV1/FVC <0.70.",
+          kern: "Spirometrie: FVC (geforceerde vitale capaciteit), FEV1 (volume in eerste seconde), FEV1/FVC-ratio. Obstructief patroon: FEV1/FVC <0.70 ná bronchodilatatie (GOLD-criterium).",
           mechanisme: [
-            { title: "Stap 1", desc: "Obstructie: luchtwegweerstand verhoogd door bronchospasmen, slijm, slijmvliesontsteking of alveolaire collaps (emfyseem). Luchtwegcollaps bij uitademing." },
-            { title: "Stap 2", desc: "flow-beperking." },
-            { title: "Stap 3", desc: "concave curve. TLC normaal of verhoogd (air trapping)." },
+            { title: "Verhoogde luchtwegweerstand", desc: "Bronchospasmen, slijm, slijmvliesontsteking of alveolaire collaps (emfyseem) → moeizame uitademing → FEV1 daalt sterker dan FVC." },
+            { title: "Concave uitademcurve", desc: "FEV1/FVC <0.70 → concave (holle) curve op de flow-volume grafiek door progressieve luchtwegcollaps bij hogere longvolumes." },
+            { title: "Air trapping", desc: "Lucht blijft achter in de longen → TLC normaal of verhoogd, RV verhoogd. Typisch bij emfyseem (barrel chest)." },
           ],
           onderscheid: [
             { label: "COPD", desc: "onomkeerbare obstructie (na bronchodilatator).", type: 'ok' },
@@ -5220,16 +5257,16 @@ const QUESTIONS = [
     c:0,
     ex:'Restrictief patroon: de flow-volume curve (rood) heeft dezelfde normale convexe vorm als normaal maar is kleiner (naar rechts verschoven, minder volume). FEV1/FVC blijft normaal (≥0.70) of zelfs verhoogd, omdat zowel FEV1 als FVC evenredig afnemen. Oorzaken: longfibrose (IPF), sarcoïdose, pleura-aandoening, kyfoscoliose.',
     wiki:{
-          kern: "Restrictieve longaandoening: verlaagde TLC (<80% van voorspeld, gemeten via bodybox of heliumverdunning). FVC verlaagd, maar FEV1/FVC normaal of verhoogd.",
+          kern: "Restrictieve longaandoening: verlaagde TLC (<80% van voorspeld). FVC verlaagd, maar FEV1/FVC normaal of verhoogd — de curve is kleiner maar normaal van vorm. Oorzaken: IPF, sarcoïdose, kyfoscoliose, neuromusculair.",
           mechanisme: [
-            { title: "Stap 1", desc: "Verlaagde compliance." },
-            { title: "Stap 2", desc: "longen stijver." },
-            { title: "Stap 3", desc: "kleiner volume bij zelfde druk. Diffusiecapaciteit (DLCO) vaak ook verlaagd bij parenchymale fibrose. DLCO normaal bij extraparenchymale restrictie (bv. spierzwakte)." },
+            { title: "Verlaagde compliance", desc: "Longweefsel of thoraxwand stijf/beschadigd → longen kunnen niet volledig uitzetten → kleiner volume bij dezelfde ademdruk." },
+            { title: "FVC + TLC verlaagd", desc: "FVC daalt evenredig met FEV1 → FEV1/FVC normaal of zelfs verhoogd. TLC <80% van voorspeld bevestigt restrictie (bodybox of He-verdunning)." },
+            { title: "DLCO", desc: "Verlaagd bij parenchymale fibrose (minder gaswisselend oppervlak). DLCO normaal bij extraparenchymale restrictie (neuromusculair, pleuraal) — onderscheidend kenmerk." },
           ],
           onderscheid: [
-            { label: "Obstructief", desc: "FEV1/FVC <0.70, concave curve.", type: 'ok' },
-            { label: "Restrictief", desc: "FEV1/FVC ≥0.70, verkleinde maar normale vorm.", type: 'warn' },
-            { label: "Gemengd", desc: "verlaagd FEV1/FVC + verlaagd TLC.", type: 'danger' },
+            { label: "Restrictief patroon", desc: "FVC verlaagd, FEV1/FVC normaal/verhoogd, TLC <80%. Curve kleiner maar normaal van vorm. Oorzaken: IPF, sarcoïdose, kyfoscoliose, spierzwakte.", type: 'ok' },
+            { label: "Obstructief patroon", desc: "FEV1/FVC <0.70 na bronchodilatatie. Concave curve. Air trapping (hoog RV/TLC). Oorzaken: COPD, astma.", type: 'warn' },
+            { label: "Gemengd patroon", desc: "Verlaagd FEV1/FVC én verlaagd TLC — combinatie van obstructie en restrictie.", type: 'warn' },
           ],
           therapie: {
             urgent: "IPF: nintedanib of pirfenidon (antifibrotisch).",
@@ -5245,18 +5282,16 @@ const QUESTIONS = [
     c:true,
     ex:'WAAR. Per GOLD-criteria: COPD wordt gedefinieerd als een postbronchodilatator FEV1/FVC <0.70. Als de ratio na bronchodilatatie normaal is (≥0.70), is COPD uitgesloten — ook al zijn er klachten. Een normale ratio kan wel samengaan met andere longziekten (astma, restrictie).',
     wiki:{
-          kern: "GOLD-definitie COPD: persisterende luchtwegobstructie (FEV1/FVC <0.70 na bronchodilatatie) + relevante blootstelling (rook, stof, gassen) + klachten. GOLD-stadia (op basis van FEV1 % voorspeld): I ≥80%, II 50-79%, III 30-49%, IV <30%.",
+          kern: "GOLD-definitie COPD: persisterende luchtwegobstructie (FEV1/FVC <0.70 na bronchodilatatie) + relevante blootstelling (rook, stof, gassen) + klachten. GOLD-stadia I (≥80%), II (50-79%), III (30-49%), IV (<30%) op basis van FEV1%.",
           mechanisme: [
-            { title: "Stap 1", desc: "COPD omvat emfyseem (destructie alveoli." },
-            { title: "Stap 2", desc: "verlies elasticiteit." },
-            { title: "Stap 3", desc: "verhoogde compliance." },
-            { title: "Stap 4", desc: "luchtwegcollaps bij expiratie) en chronische bronchitis (slijmbekercelhyperplasie." },
-            { title: "Stap 5", desc: "overmatig slijm." },
+            { title: "Emfyseem", desc: "Destructie van alveolaire wanden → verlies van elasticiteit → verhoogde compliance → luchtwegcollaps bij expiratie." },
+            { title: "Chronische bronchitis", desc: "Slijmbekercelhyperplasie door chronische irritatie (rook) → overmatig slijm, verkleining luchtwegen, gestoorde mucociliaire klaring." },
+            { title: "Air trapping", desc: "Beide componenten geven expiratorische flow-beperking → lucht blijft achter (hoog RV + TLC) → barrel chest + hyperinflatie op X-thorax." },
           ],
           onderscheid: [
-            { label: "Astma vs COPD", desc: "astma (jong, atopisch, variabel, volledig reversibel), COPD (ouder, roker, irreversibel).", type: 'ok' },
-            { label: "Overlap ACO (Asthma-COPD Overlap)", desc: "kenmerken van beide.", type: 'warn' },
-            { label: "Optie 3", desc: "Spirometrie na bronchodilatator is doorslaggevend.", type: 'danger' },
+            { label: "COPD", desc: "Irreversibele obstructie na bronchodilatatie. Roker, >40j, geleidelijk progressief. GOLD-stadia op basis van FEV1%.", type: 'ok' },
+            { label: "Astma", desc: "(Deels) reversibele obstructie — bronchodilatatortest: FEV1-stijging ≥12% én ≥200 ml. Jong, atopisch, variabel beloop.", type: 'warn' },
+            { label: "ACO (Asthma-COPD Overlap)", desc: "Kenmerken van beide: obstructie met significante reversibiliteit bij een roker >40j. Behandeling: LABA + ICS.", type: 'warn' },
           ],
           therapie: {
             urgent: "Richtlijnen NHG/GOLD: stap 1 SABA (salbutamol), stap 2 LAMA (tiotropium) of LABA, stap 3 combinatie LABA+LAMA, stap 4 LABA+LAMA+ICS bij recidiverende exacerbaties.",
@@ -5303,9 +5338,9 @@ const QUESTIONS = [
     wiki:{
           kern: "Hoog-sensitief troponine (hs-cTnI of hs-cTnT): stijgt na 1-3u, piek 12-24u, normaliseert 5-14 dagen (hs-cTnT langer). Afkapwaarde: 99e percentiel van gezonde referentiepopulatie (URL = upper reference limit).",
           mechanisme: [
-            { title: "Stap 1", desc: "Troponine T en I: regulatoire eiwitten van het contractiele apparaat (troponine-complex: TnT, TnI, TnC). Bij myocardschade." },
-            { title: "Stap 2", desc: "vrijgave in bloed. Hs-assay: detectiegrens 10× lager dan conventioneel." },
-            { title: "Stap 3", desc: "eerder positief." },
+            { title: "Troponine-vrijgave", desc: "Troponine T en I zijn regulatoire eiwitten van het contractiele apparaat. Bij myocardschade lekken ze de bloedbaan in — al na 1-3 uur meetbaar." },
+            { title: "Hs-assay voordeel", desc: "Hoog-sensitieve assay heeft een detectiegrens 10× lager dan conventioneel → eerder positief, betere uitsluiting (NPV >99% na 3u)." },
+            { title: "Serieel meten", desc: "Eén meting is nooit voldoende. Serieel protocol (0+1u of 0+3u): significante stijging of daling (delta-troponine) = rule-in ACS." },
           ],
           onderscheid: [
             { label: 'Tijdsverloop hs-troponine', desc: 'Stijgt na 1-3u, piek bij 12-24u, normaliseert na 5-14 dagen. Seriële meting (0/1h of 0/3h protocol) is essentieel voor de diagnose.', type: 'ok' },
@@ -5331,24 +5366,22 @@ const QUESTIONS = [
     wiki:{
           kern: "ECG-veranderingen bij elektrolytstoornissen. Hypokaliëmie (K+ <3.5 mmol/L): afgeplatte T, prominente U-golf, QT-verlenging (risico torsades de pointes).",
           mechanisme: [
-            { title: "Stap 1", desc: "K+ reguleert rustmembraanpotentiaal. Hypokaliëmie." },
-            { title: "Stap 2", desc: "rustpotentiaal meer negatief." },
-            { title: "Stap 3", desc: "verlengde repolarisatie." },
-            { title: "Stap 4", desc: "U-golf." },
-            { title: "Stap 5", desc: "aritmierisico. Hyperkaliëmie." },
+            { title: "Hyperpolarisatie", desc: "Hypokaliëmie maakt de rustmembraanpotentiaal meer negatief → cel is moeilijker te depolariseren, maar repolarisatie verloopt trager." },
+            { title: "Verlengde repolarisatie → U-golf", desc: "Trager repolariserende M-cellen in het myocard veroorzaken de prominente U-golf (positieve deflectie ná de T-golf, best zichtbaar in V2-V3)." },
+            { title: "Aritmierisico", desc: "QTc-verlenging + disperse repolarisatie → risico op vroege nadepolarisaties → torsades de pointes. Lisdiuretica zijn een klassieke oorzaak van hypokaliëmie." },
           ],
           onderscheid: [
             { label: 'Hypokaliëmie', desc: 'Afgeplatte/geïnverteerde T-golven + prominente U-golven (>T-golf in V2-V3), QTc verlengd → risico torsades de pointes.', type: 'ok' },
-            { label: 'Hyperkaliëmie', desc: 'Hoge piekende T-golven (tent-shaped), breed QRS, verlengd PR, sinusgolf-patroon bij K+ >7 mmol/L.', type: 'danger' },
-            { label: 'Hypocalciëmie', desc: 'QTc verlenging (geen T-golvenverandering), risico ventrikelaritmieën.', type: 'warn' },
-            { label: 'Digoxine-effect', desc: 'Reversed tick ST-depressie, afgeplatte T, U-golf prominent — ook bradycardie en AV-geleidingsverlenging.', type: 'warn' },
+            { label: 'Hyperkaliëmie', desc: 'Hoge piekende T-golven (tent-shaped), breed QRS, verlengd PR, sinusgolf-patroon bij K⁺ >7 mmol/L.', type: 'danger' },
+            { label: 'Hypocalciëmie', desc: 'QTc-verlenging (verlengd ST-segment, geen T-golfverandering) → aritmierisico bij QTc >500 ms.', type: 'warn' },
+            { label: 'Digoxine-effect', desc: '"Reversed tick" ST-depressie, afgeplatte T, prominente U-golf — plus bradycardie en AV-geleidingsverlenging.', type: 'warn' },
           ],
           therapie: {
-            urgent: "Hypokaliëmie: oraal kalium (KC1 retard) bij milde stoornis.",
+            urgent: "Oraal kalium (KCl retard) bij milde hypokaliëmie zonder ECG-afwijkingen.",
             stappen: [
-              { naam: "Stap 1", detail: "IV KCl (max 20 mmol/u perifeer, 40 mmol/u centraal) bij ernstige stoornis of aritmie." },
-              { naam: "Stap 2", detail: "Monitoren ECG." },
-              { naam: "Stap 3", detail: "Magnesium suppleren (Mg-tekort → refractaire K-depletie)." },
+              { naam: "Ernstige stoornis/aritmie", detail: "IV KCl (max 20 mmol/u perifeer, 40 mmol/u centraal) onder continue ECG-bewaking." },
+              { naam: "ECG-monitoring", detail: "Monitor tot K⁺ >3,5 mmol/L en ECG-normalisatie." },
+              { naam: "Magnesium", detail: "Altijd magnesium suppleren bij hypokaliëmie — Mg-tekort veroorzaakt refractaire K-depletie." },
             ],
           },
         } },
@@ -5361,17 +5394,15 @@ const QUESTIONS = [
     wiki:{
           kern: "Visuele baan: retina → nervus opticus → chiasma (nasale vezels kruisen) → tractus opticus → corpus geniculatum laterale → radiatio optica → primaire visuele schors (V1, occipitaalkwab). Laesie NA chiasma → homonieme hemianopsie (zelfde kant uitval in beide ogen).",
           mechanisme: [
-            { title: "Stap 1", desc: "Rechter hemisfeerletsels." },
-            { title: "Stap 2", desc: "linker visuele uitval (contralateraal). Pars superior radiatio optica (parietaal)." },
-            { title: "Stap 3", desc: "inferieure hemianopsie. Pars inferior (temporaal, Meyer-lus)." },
-            { title: "Stap 4", desc: "superieure hemianopsie. Volledig occipitaal letsel." },
-            { title: "Stap 5", desc: "homonieme hemianopsie." },
+            { title: "Kruising in chiasma", desc: "Nasale vezels van beide retinae kruisen in het chiasma opticum → elk hemisphere verwerkt de contralaterale gezichtshelft van beide ogen." },
+            { title: "Occipitaalkwab-lokalisatie", desc: "Rechter occipitale cortex (V1) verwerkt de linker gezichtshelft → letsel rechts → linker homonieme hemianopsie (zelfde kant uitval in beide ogen)." },
+            { title: "Radiatio optica-splits", desc: "Pars superior (parietaal) → inferieure kwadranten. Pars inferior (temporaal, Meyer-lus) → superieure kwadranten. Partieel letsel geeft kwadrant-hemianopsie." },
           ],
           onderscheid: [
-            { label: "Chiasma-letsel", desc: "bitemporaal (nasale vezels die kruisen → temporale velduitval bilateral).", type: 'ok' },
-            { label: "Nervus opticus", desc: "monoculaire blindheid of scotoom.", type: 'warn' },
-            { label: "Tractus opticus", desc: "homonieme hemianopsie (congruent).", type: 'danger' },
-            { label: "Radiatio optica", desc: "homoniem kwadrant.", type: 'warn' },
+            { label: "Occipitaalkwab-letsel", desc: "Homonieme hemianopsie contralateraal. Macular sparing mogelijk (dubbele bloedvoorziening fovea). CVA meest voorkomende oorzaak.", type: 'ok' },
+            { label: "Chiasma-letsel", desc: "Bitemporale hemianopsie — nasale vezels die kruisen → temporale velduitval bilateraal. Klassiek bij hypofysetumor.", type: 'warn' },
+            { label: "Radiatio optica-letsel", desc: "Homonieme kwadrant-hemianopsie (superieur of inferieur). Meyer-lus: superieure hemianopsie ('pie in the sky').", type: 'warn' },
+            { label: "Nervus opticus-letsel", desc: "Monoculaire blindheid of scotoom — ipsilateraal. Oorzaken: ischemie, neuritis optica (MS), tumor.", type: 'danger' },
           ],
           therapie: {
             urgent: "Visuele revalidatie bij homonieme hemianopsie: oogbewegingstraining, prismabril.",
@@ -5442,21 +5473,19 @@ const QUESTIONS = [
     wiki:{
           kern: "Sepsis-3 criteria: vermoede/bewezen infectie + SOFA-score stijging ≥2 punten. SOFA: PaO2/FiO2, GCS, MAP, bilirubine, creatinine, trombocyten. qSOFA (bedside): HF >22/min, veranderd bewustzijn, RR <100 mmHg → 2 van 3 = hoog risico.",
           mechanisme: [
-            { title: "Stap 1", desc: "Dysreguleerde immuunrespons." },
-            { title: "Stap 2", desc: "pro-inflammatoire cascade (IL-1, IL-6, TNF)." },
-            { title: "Stap 3", desc: "endotheelschade." },
-            { title: "Stap 4", desc: "microtromben." },
-            { title: "Stap 5", desc: "orgaandisfunctie. Septische shock: circulatoire, cellulaire en metabole anomalieën (vasodilatie, distributief shock)." },
+            { title: "Ontregelde immuunrespons", desc: "Infectie triggert een dysreguleerde gastheerrespons: massale vrijgave van IL-1, IL-6 en TNF → pro-inflammatoire cascade." },
+            { title: "Endotheelschade", desc: "Cytokinestorm beschadigt het vasculaire endotheel → vaatlekkage, microtromben (DIC), vasodilatie → distributieve shock." },
+            { title: "Orgaandisfunctie", desc: "Mismatch tussen zuurstofaanvoer en -verbruik → SOFA-score stijging ≥2 = sepsis. Meest getroffen: nier, long, lever, coagulatie, brein." },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "Sepsis ≠ SIRS (Systemic Inflammatory Response Syndrome, te sensitief/aspecifiek).", type: 'ok' },
-            { label: "Optie 2", desc: "Sepsis = orgaandisfunctie.", type: 'warn' },
-            { label: "Septische shock", desc: "sepsis + vasopressoren nodig om MAP ≥65 mmHg + lactaat >2 mmol/L ondanks adequate vulling.", type: 'danger' },
+            { label: "Sepsis (Sepsis-3)", desc: "Vermoede/bewezen infectie + SOFA-stijging ≥2. Temperatuur NIET verplicht — ook hypothermie (<36°C) is een sepsisuiting.", type: 'ok' },
+            { label: "SIRS", desc: "Verouderd begrip, te aspecifiek (ook niet-infectieus). Sepsis-3 verving SIRS als definitie in 2016.", type: 'warn' },
+            { label: "Septische shock", desc: "Sepsis + vasopressoren nodig voor MAP ≥65 mmHg én lactaat >2 mmol/L ondanks adequate vulling. Mortaliteit 40-50%.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Sepsis bundle (Hour-1): bloedkweken → antibiotica (breed) → lactaat → vulling (30 mL/kg kristalloïd bij lactaat >4 of hypotensie) → noradrenaline bij MAP <65.",
+            urgent: "Hour-1 bundle: bloedkweken → breed antibioticum → lactaat → vulling (30 mL/kg kristalloïd bij lactaat >4 of hypotensie) → noradrenaline bij MAP <65.",
             stappen: [
-              { naam: "Stap 1", detail: "Antibiotica binnen 1 uur bij sepsis/septische shock." },
+              { naam: "Antibiotica binnen 1 uur", detail: "Elke 30 minuten vertraging bij septische shock verhoogt mortaliteit. Breed-spectrum, later ontsmallen op kweekuitslag." },
             ],
           },
         } },
@@ -5469,20 +5498,21 @@ const QUESTIONS = [
     wiki:{
           kern: "Pancreatitis-diagnose: ≥2 van 3 criteria: (1) typische pijn, (2) amylase/lipase ≥3× normaal, (3) beeldvormend bewijs. Oorzaken: galstenen (40%), alcohol (30%), idiopathisch (20%), overig (geneesmiddelen, hypertriglyceridemie, ERCP, trauma, auto-immuun).",
           mechanisme: [
-            { title: "Stap 1", desc: "Voortijdige activering van pancreasprotheazen (trypsine) in pancreas zelf." },
-            { title: "Stap 2", desc: "auto-digestie." },
-            { title: "Stap 3", desc: "inflammatie. Lokale complicaties: pseudocyst, necrose, abces. Systemische: ARDS, AKI, MOF (bij ernstige pancreatitis)." },
+            { title: "Voortijdige trypsine-activatie", desc: "Pancreatische protheazen (trypsinogeen) worden voortijdig geactiveerd binnen het pancreas zelf → auto-digestie van pancreasweefsel." },
+            { title: "Lokale inflammatie", desc: "Inflammatoire cascade → oedeem, hemorragie, necrose. Complicaties: pseudocyst (>4w), geïnfecteerde necrose, abces." },
+            { title: "Systemische gevolgen", desc: "Bij ernstige pancreatitis: SIRS → ARDS, acute nierinsufficiëntie, MOF. Revised Atlanta: mild/matig/ernstig op basis van orgaanfalen en complicaties." },
           ],
           onderscheid: [
-            { label: "Ernst", desc: "Ranson-criteria, APACHE II, of Revised Atlanta Classification (mild/matig/ernstig).", type: 'ok' },
-            { label: "Optie 2", desc: "CT-scan met contrast (CECT) voor pancreasnecrose >48u na presentatie.", type: 'warn' },
-            { label: "Lipase > amylase", desc: "lipase specifieker en langer verhoogd.", type: 'danger' },
+            { label: "Alcoholische pancreatitis", desc: "Meest waarschijnlijk bij man 48j zonder galstenen op echo. Amylase/lipase ≥3× normaal + typische pijn = diagnose.", type: 'ok' },
+            { label: "Galsteenpancreatitis", desc: "Meest voorkomende oorzaak overall (40%) — galstenen op echo, geelzucht, verhoogd bilirubine. ERCP bij cholangitis.", type: 'warn' },
+            { label: "Geneesmiddelen", desc: "Cave: azathioprine, valproaat, GLP-1-agonisten, thiaziden. Tijdsverband met medicatiestart cruciaal.", type: 'warn' },
+            { label: "Hypertriglyceridemie", desc: "TG >11 mmol/L kan pancreatitis veroorzaken — ook zonder galstenen/alcohol. Check nuchter lipidenprofiel.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Conservatief: agressieve IV-vochtresuscitatie (Ringer-lactaat), pijnstilling (opioïden), vroeg enteraal voeden (>24u).",
+            urgent: "Agressieve IV-vochtresuscitatie (Ringer-lactaat), pijnstilling (opioïden), vroeg enteraal voeden (>24u).",
             stappen: [
-              { naam: "Stap 1", detail: "Antibiotica alleen bij geïnfecteerde necrose." },
-              { naam: "Stap 2", detail: "ERCP bij biliaire pancreatitis met cholestase/cholangitis." },
+              { naam: "Antibiotica", detail: "Alleen bij geïnfecteerde necrose (FNA-bewijs of klinische verslechtering) — niet profylactisch." },
+              { naam: "ERCP", detail: "Bij biliaire pancreatitis met cholestase of cholangitis binnen 24-72u." },
             ],
           },
         } },
@@ -5495,21 +5525,21 @@ const QUESTIONS = [
     wiki:{
           kern: "Graves\\' disease: auto-immuunhyperthyreoïdie door TSH-receptor-stimulerende antilichamen (TRAb). Kenmerken: hyperthyreoïdie + struma + exofthalmus + pretibiale myxoedeem (niet altijd aanwezig).",
           mechanisme: [
-            { title: "Stap 1", desc: "Thiamazol: remt thyroïdperoxidase." },
-            { title: "Stap 2", desc: "geen jodisering van tyrosine." },
-            { title: "Stap 3", desc: "geen T3/T4-synthese. Werkt pas na 2-6 weken (bestaande voorraad T4 moet uitgeput raken). PTU: remt ook perifere conversie T4." },
-            { title: "Stap 4", desc: "T3 (snellere werking bij thyreotoxische crisis)." },
+            { title: "Thyroïdperoxidase-remming", desc: "Thiamazol blokkeert thyroïdperoxidase → geen jodisering van tyrosine → geen T3/T4-synthese." },
+            { title: "Vertraagd effect", desc: "Werkt pas na 2-6 weken — de al bestaande T4-voorraad in de schildklier moet eerst uitgeput raken." },
+            { title: "PTU bij crisis", desc: "Propylthiouracil (PTU) remt ook de perifere conversie van T4 naar T3 → sneller werkzaam bij thyreotoxische crisis. Eerste keuze in zwangerschap (1e trimester)." },
           ],
           onderscheid: [
-            { label: "Behandelopties Graves", desc: "(1) Thionamiden (thiamazol/PTU) — medicamenteus. (2) Radiojodium (I-131) — meest gebruikt in VS, definitief. (3) Chirurgie (totale thyroïdectomie) — bij grote struma, compressie, voorkeur patiënt.", type: 'ok' },
-            { label: "Cave", desc: "hypothyreoïdie na alle definitieve therapieën.", type: 'warn' },
+            { label: "Thiamazol (thionamide)", desc: "Remt T3/T4-synthese. Startdosis 20-40 mg/dag, afbouwen op geleide TSH. Bijwerking: agranulolcytose (zeldzaam maar ernstig).", type: 'ok' },
+            { label: "Radiojodium (I-131)", desc: "Definitieve behandeling — destrueert schildklierweefsel. Cave: hypothyreoïdie nadien (levenslange suppletie). Niet bij zwangerschap.", type: 'warn' },
+            { label: "Chirurgie (totale thyroïdectomie)", desc: "Indicaties: groot struma, compressie, maligniteitsverdenking, patiëntvoorkeur. Cave: hypocalciëmie + nervus recurrens-letsel.", type: 'warn' },
           ],
           therapie: {
-            urgent: "Thiamazol startdosis 20-40 mg/dag, afbouwen na euthyreoïdie.",
+            urgent: "Thiamazol 20-40 mg/dag starten, propranolol voor symptoomcontrole (tremor, tachycardie).",
             stappen: [
-              { naam: "Stap 1", detail: "Streef TSH normalisatie." },
-              { naam: "TRAb-meting na 12-18 maanden", detail: "negatief → kans op remissie." },
-              { naam: "Recidief", detail: "definitieve therapie overwegen." },
+              { naam: "TSH-normalisatie", detail: "Dosis afbouwen op geleide van TSH en FT4 — streef euthyreoïdie na 6-12 weken." },
+              { naam: "TRAb na 12-18 maanden", detail: "Negatief TRAb → kans op remissie hoog → stoppen thiamazol overwegen." },
+              { naam: "Recidief", detail: "Definitieve therapie: radiojodium of chirurgie." },
             ],
           },
         } },
@@ -5536,8 +5566,8 @@ const QUESTIONS = [
           therapie: {
             urgent: "Treat-to-target: streef lage ziekteactiviteit (DAS28 <3.2) of remissie.",
             stappen: [
-              { naam: "Stap 1", detail: "methotrexaat (anker-DMARD)." },
-              { naam: "Stap 2", detail: "combi-DMARDs of biologicals (anti-TNF: adalimumab/etanercept, anti-IL-6: tocilizumab, anti-CD20: rituximab, JAK-inhibitoren: baricitinib)." },
+              { naam: "MTX (anker-DMARD)", detail: "Methotrexaat eerste keus — foliumzuursuppletie altijd erbij. Respons na 6-12 weken." },
+              { naam: "Combi of biological", detail: "Bij onvoldoende respons: combi-DMARDs of biological toevoegen (anti-TNF: adalimumab/etanercept; anti-IL-6: tocilizumab; anti-CD20: rituximab; JAK-i: baricitinib)." },
             ],
           },
         } },
@@ -5550,19 +5580,20 @@ const QUESTIONS = [
     wiki:{
           kern: "DSM-5 criteria schizofrenie: ≥2 van 5 (wanen, hallucinaties, gedesorganiseerd spreken, gedesorganiseerd gedrag, negatieve symptomen) ≥1 maand actief, totale duur ≥6 maanden inclusief prodromaal. Minimaal 1 van de eerste 3 symptomen aanwezig.",
           mechanisme: [
-            { title: "Stap 1", desc: "Dopaminehypothese: overactiviteit mesolimbisch dopaminesysteem (D2)." },
-            { title: "Stap 2", desc: "positieve symptomen. Hypoactiviteit mesocorticaal (D1, prefrontale cortex)." },
-            { title: "Stap 3", desc: "negatieve symptomen. Glutamaat (NMDA-receptor) ook betrokken. Neurobiologisch: verminderd grijze stof frontaal/temporaal." },
+            { title: "Dopamine-overschot (mesolimbisch)", desc: "Overactiviteit mesolimbisch D2-systeem → positieve symptomen (wanen, hallucinaties). Verklaart werking D2-antagonisten." },
+            { title: "Dopamine-tekort (mesocorticaal)", desc: "Hypoactiviteit prefrontale D1-receptoren → negatieve symptomen (afgevlakt affect, motivatieverlies, sociaal terugtrekken). Moeilijker te behandelen." },
+            { title: "Glutamaat & neurobiologie", desc: "NMDA-receptor-hypoactiviteit (glutamaat) versterkt het beeld — ketamine kan psychose nabootsen. Grijzestofverlies frontaal/temporaal bij chronisch beloop." },
           ],
           onderscheid: [
-            { label: "Schizofrenie vs bipolair", desc: "bij schizofrenie domineren psychotische symptomen, stemmingsstoornis secundair of afwezig.", type: 'ok' },
-            { label: "Waanstoornis", desc: "geen hallucinaties, grotendeels intact functioneren.", type: 'warn' },
-            { label: "Schizoaffectief", desc: "zowel psychotische als stemmingsepisoden tegelijkertijd en zelfstandig.", type: 'danger' },
+            { label: "Schizofrenie", desc: "Positieve + negatieve symptomen ≥6 maanden. Psychose domineert. DSM-5: ≥2 van 5 criteria ≥1 maand actief.", type: 'ok' },
+            { label: "Bipolaire stoornis met psychose", desc: "Psychose TIJDENS stemmingsepisode (manie of depressie). Euthymisch: geen psychose.", type: 'warn' },
+            { label: "Schizoaffectief", desc: "Psychotische én stemmingsepisoden tegelijkertijd én zelfstandig — tussendiagnose.", type: 'warn' },
+            { label: "Waanstoornis", desc: "Alleen wanen, geen hallucinaties, functioneren grotendeels intact, duur ≥1 maand.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Antipsychotica (D2-antagonisten): risperidon, olanzapine, quetiapine (atypisch).",
+            urgent: "Atypische antipsychotica (D2-antagonisten): risperidon, olanzapine, quetiapine — minder EPS dan klassieke middelen.",
             stappen: [
-              { naam: "Stap 1", detail: "Clozapine bij behandelresistentie (≥2 antipsychotica gefaald)." },
+              { naam: "Clozapine", detail: "Bij behandelresistentie (≥2 antipsychotica gefaald). Cave: agranulocytose (wekelijks bloedbeeld!), myocarditis." },
               { naam: "Psychosociale interventies", detail: "cognitieve gedragstherapie, familieondersteuning, arbeidsbegeleiding." },
             ],
           },
@@ -5576,13 +5607,14 @@ const QUESTIONS = [
     wiki:{
           kern: "Anemie-classificatie op MCV: microcytair (MCV <80): IJzergebrek, thalassemie, ACD, sideroblastisch. Normocytair (MCV 80-100): ACD, acuut bloedverlies, aplastisch.",
           mechanisme: [
-            { title: "IJzergebrek stadia", desc: "(1) depletie ijzervoorraden (ferritine daalt), (2) transport-iron-gebrek (transferrinesaturatie daalt), (3) anemie (Hb daalt, MCV daalt)." },
-            { title: "Stap 2", desc: "Ferritine <30 = ijzergebrek (ook als Hb nog normaal)." },
-            { title: "Stap 3", desc: "Ferritine kan verhoogd zijn bij inflammatie (acutefasereactant)." },
+            { title: "IJzergebrek stadia", desc: "(1) Depletie ijzervoorraden (ferritine daalt). (2) Transport-ijzergebrek (transferrinesaturatie daalt, TIBC stijgt). (3) Anemie (Hb daalt, MCV daalt)." },
+            { title: "Ferritine als vroege marker", desc: "Ferritine <30 µg/L = ijzergebrek ook als Hb nog normaal. Vroegste laboratoriummarker van ijzerdepletie." },
+            { title: "Inflammatie-effect", desc: "Ferritine is ook een acutefasereactant — bij inflammatie kan ferritine normaal of verhoogd zijn ondanks ijzergebrek. Dan ook transferrinesaturatie meten." },
           ],
           onderscheid: [
-            { label: "ACD (anemie door chronische ziekte)", desc: "ferritine normaal/verhoogd, transferrinesaturatie laag, TIBC laag (vs IJzergebrek: TIBC hoog).", type: 'ok' },
-            { label: "Thalassemie", desc: "familie-anamnese, MCV extreem laag, normaal ferritine, Hb-elektroforese afwijkend.", type: 'warn' },
+            { label: "IJzergebreksanemie", desc: "Ferritine laag (<30), transferrinesaturatie laag (<20%), TIBC hoog. MCV laag. Oorzaak zoeken: menorrhagie, GI-bloeding.", type: 'ok' },
+            { label: "ACD (anemie chronische ziekte)", desc: "Ferritine normaal/verhoogd, transferrinesaturatie laag, TIBC laag — ijzer vastzit in macrofagen.", type: 'warn' },
+            { label: "Thalassemie", desc: "Familiale microcytaire anemie, MCV extreem laag (MCV/RBC <13 = Mentzer-index), normaal ferritine, Hb-elektroforese afwijkend.", type: 'warn' },
           ],
           therapie: {
             urgent: "Oraal ijzer: liefst nuchter, vitamine C verhoogt absorptie, antacida verlagen absorptie.",
@@ -5599,8 +5631,8 @@ const QUESTIONS = [
     wiki:{
           kern: "Wells-score longembolie: ≤4 laag, 4-6 matig, >6 hoog. Strategie: laag risico → D-dimeer (ELISA).",
           mechanisme: [
-            { title: "D-dimeer", desc: "afbraakproduct fibrine, verhoogd bij trombose maar ook bij infectie, trauma, postoperatief, zwangerschap, kanker, leeftijd >50 jaar → veel vals-positieven." },
-            { title: "Stap 2", desc: "Hoge sensitiviteit (>99%) maar lage specificiteit (~40%)." },
+            { title: "D-dimeer: wat het is", desc: "Afbraakproduct van gekruislinkt fibrine. Verhoogd bij trombose maar ook bij infectie, trauma, postoperatief, zwangerschap, kanker, leeftijd >50j → veel vals-positieven." },
+            { title: "Hoge sens, lage spec", desc: "Sensitiviteit >99% — een negatief D-dimeer sluit PE uit bij lage klinische waarschijnlijkheid. Specificiteit slechts ~40% → nutteloos bij hoge pre-testkans." },
             { title: "YEARS-algoritme", desc: "leeftijdsafhankelijke afkap (leeftijd × 10 bij >50j als klinische criteria afwezig)." },
           ],
           onderscheid: [
@@ -5627,16 +5659,15 @@ const QUESTIONS = [
     wiki:{
           kern: "SAB-triade: plotse hevige hoofdpijn + nekstijfheid + verminderd bewustzijn. Oorzaak: ruptuur intracraniale aneurysma (80%), AVM, idiopathisch.",
           mechanisme: [
-            { title: "Stap 1", desc: "Bloed in subarachnoïdale ruimte." },
-            { title: "Stap 2", desc: "irritatie meningen." },
-            { title: "Stap 3", desc: "hoofdpijn/nekstijfheid. Xanthochromie: afbraak hemoglobine." },
-            { title: "Stap 4", desc: "bilirubine in liquor (ontstaat pas na 2-4u, aanwezig tot 2 weken). LP: ophogen naald tot kleurloze vloeistof zien (bloedige tap vs echte SAB)." },
+            { title: "Meningeale prikkeling", desc: "Bloed in de subarachnoïdale ruimte irriteert de hersenvliezen → plotse hevige hoofdpijn (thunderclap) + nekstijfheid + fotofobiefobie." },
+            { title: "Xanthochromie", desc: "Hemoglobine breekt af tot bilirubine in de liquor — dit ontstaat pas na 2-4 uur en is aanwezig tot 2 weken. Spectrofotometrie is goudstandaard, visuele beoordeling onvoldoende." },
+            { title: "CT vs LP", desc: "CT mist 2-5% van SAB (sensitiever in eerste 6u, minder betrouwbaar daarna). Normale CT na thunderclap = altijd LP verplicht na ≥2u." },
           ],
           onderscheid: [
-            { label: "CT + LP algoritme", desc: "CT normaal bij thunderclap headache → altijd LP na ≥2u.", type: 'ok' },
-            { label: "Optie 2", desc: "Xanthochromie positief = SAB.", type: 'warn' },
-            { label: "Optie 3", desc: "Xanthochromie negatief + normaal LP + >2u na hoofdpijn = SAB praktisch uitgesloten.", type: 'danger' },
-            { label: "Meningitis", desc: "koorts + liquorpneumokok + glucose laag.", type: 'warn' },
+            { label: "Subarachnoïdale bloeding (SAB)", desc: "Thunderclap hoofdpijn. CT normaal sluit NIET uit — LP verplicht na ≥2u. Xanthochromie positief = bevestigd.", type: 'ok' },
+            { label: "Bacteriële meningitis", desc: "Koorts prominenter, langzamer begin (uren), PMN-pleocytose, laag glucose — antibiotica direct zonder LP te wachten.", type: 'danger' },
+            { label: "Thunderclap migraine", desc: "Diagnose per exclusionem — SAB en andere secundaire oorzaken moeten eerst uitgesloten zijn via CT + LP.", type: 'warn' },
+            { label: "Cerebraal veneus sinus-trombose", desc: "Subacute headache, hypercoagulabiliteit, papilloedeem, MRV diagnostisch.", type: 'warn' },
           ],
           therapie: {
             urgent: "SAB: neurovasculaire IC, nimodipine (vasospasme), coiling/clipping aneurysma.",
@@ -5655,17 +5686,15 @@ const QUESTIONS = [
     wiki:{
           kern: "Malaria: triade koorts + koude rillingen + zweten (tertiaan = P. vivax/ovale, quartiaan = P. malariae, irregulier = P. falciparum). P. falciparum complicaties: cerebrale malaria, ARDS, acuut nierfalen, hypoglykemie, uitgesproken anemie.",
           mechanisme: [
-            { title: "Stap 1", desc: "Anofeles-mug." },
-            { title: "Stap 2", desc: "sporozoïeten." },
-            { title: "Stap 3", desc: "lever (asymptomatisch)." },
-            { title: "Stap 4", desc: "merozoïeten." },
-            { title: "Stap 5", desc: "erytrocyten." },
+            { title: "Mugbeet → leverfase", desc: "Anopheles-mug injecteert sporozoïeten → replicatie in hepatocyten (1-2 weken, asymptomatisch). P. vivax/ovale: hypnozoïeten blijven slapend in lever." },
+            { title: "Erythrocytaire fase", desc: "Merozieten infecteren rode bloedcellen → gesynchroniseerde ruptuur → koortspiek (tertiaan 48u, quartiaan 72u, P. falciparum irregulier)." },
+            { title: "P. falciparum-specifiek", desc: "Geïnfecteerde erytrocyten kleven aan vaatwand (cytoadherentie) → microtromben → cerebrale malaria, ARDS, acuut nierfalen. Dodelijkste species." },
           ],
           onderscheid: [
-            { label: "RDT (sneltest HRP2/pLDH)", desc: "hoge sensitiviteit P. falciparum, minder voor andere species.", type: 'ok' },
-            { label: "Microscoop", desc: "gouden standaard (parasiemie%, species).", type: 'warn' },
-            { label: "Dengue", desc: "geen parasiet, leukopenie, trombopenie, positief NS1 Ag.", type: 'danger' },
-            { label: "Tyfus", desc: "enterische koorts, relatieve bradycardie, Widal/bloedkweek.", type: 'warn' },
+            { label: "Malaria (P. falciparum)", desc: "Koorts + koude rillingen + zweten na tropenreis. Dik-druppelpreparaat + RDT. Altijd urgentie tot P. falciparum uitgesloten.", type: 'ok' },
+            { label: "Dengue", desc: "Hevige myalgie/artralgie ('breakbone fever'), huiduitslag, trombopenie, geen cyclisch patroon. NS1-antigeen/PCR diagnostisch.", type: 'warn' },
+            { label: "Typhoid (S. typhi)", desc: "Aanhoudende koorts, relatieve bradycardie, buikpijn. Bloedkweek is goudstandaard.", type: 'warn' },
+            { label: "Leptospirose", desc: "Watercontact, conjunctivale hyperemie, icterus + nierinsufficiëntie (Weil) — serologie diagnostisch.", type: 'danger' },
           ],
           therapie: {
             urgent: "P. falciparum niet-gecompliceerd: artemisininecombinatietherapie (ACT: artemether-lumefantrine).",
@@ -5684,14 +5713,14 @@ const QUESTIONS = [
     wiki:{
           kern: "HFrEF = EF <40%. Vier pijlers farmacotherapie (NEJM-trials): (1) ACE-i/ARB of ARNI (PARADIGM-HF: sacubitril-valsartan > enalapril). (2) Bètablokker (carvedilol, bisoprolol, metoprolol-succinate). (3) MRA (RALES-trial: spironolacton). (4) SGLT2-inhibitor (DAPA-HF, EMPEROR-Reduced).",
           mechanisme: [
-            { title: "Stap 1", desc: "Sacubitril-valsartan: sacubitril remt neprilysine (afbraak natriuretische peptiden)." },
-            { title: "Stap 2", desc: "BNP stijgt." },
-            { title: "Stap 3", desc: "vasodilatatie, diurese, antifibrotisch. Valsartan: ARB. Combinatie superieur aan ACE-i alleen." },
+            { title: "Neprilysine-remming (sacubitril)", desc: "Remt de afbraak van natriuretische peptiden (BNP, ANP) → BNP stijgt → vasodilatatie, natriurese, diurese, antifibrotisch." },
+            { title: "AT1-blokkade (valsartan)", desc: "ARB-component blokkeert de AT1-receptor → minder angiotensine-II-effect. Combinatie superieur aan ACE-remmer alleen (PARADIGM-HF)." },
+            { title: "Cave combinatie", desc: "ARNI nooit combineren met ACE-remmer (36u washout vereist) — risico op angioedeem." },
           ],
           onderscheid: [
-            { label: "HFpEF (EF ≥50%)", desc: "SGLT2-inhibitoren (EMPEROR-Preserved) enige bewezen mortaliteitsreductie.", type: 'ok' },
-            { label: "Optie 2", desc: "ARNI/BB/MRA minder bewezen bij HFpEF.", type: 'warn' },
-            { label: "Diltiazem, verapamil", desc: "negatief inotroop → gecontra-indiceerd HFrEF.", type: 'danger' },
+            { label: "HFrEF (EF <40%)", desc: "Vier pijlers: ARNI (of ACE-i/ARB) + bètablokker + MRA + SGLT2-inhibitor. PARADIGM-HF: sacubitril-valsartan > enalapril.", type: 'ok' },
+            { label: "HFpEF (EF ≥50%)", desc: "SGLT2-inhibitoren (EMPEROR-Preserved, DELIVER) zijn de enige middelen met bewezen mortaliteitsvoordeel. ARNI/BB/MRA minder bewezen.", type: 'warn' },
+            { label: "Diltiazem/verapamil bij HFrEF", desc: "Negatief inotroop en chronotroop — absoluut gecontraïndiceerd bij HFrEF (EF <40%).", type: 'danger' },
           ],
           therapie: {
             urgent: "Startdoses en titratie: enalapril 2.5→10 mg bid, bisoprolol 1.25→10 mg/dag, spironolacton 25-50 mg/dag, dapagliflozine 10 mg/dag.",
@@ -5708,13 +5737,14 @@ const QUESTIONS = [
     wiki:{
           kern: "Lithium indicaties: bipolaire stoornis (acute manie + onderhoudstherapie), profylaxe recidiverende depressie, suïcidaliteitsreductie (meta-analyses). Bijwerkingen lange termijn: nierinsufficiëntie (tubulointerstitiële nefritis), hypothyreoïdie, hyperparathyreoïdie.",
           mechanisme: [
-            { title: "Stap 1", desc: "Lithium moleculaire werkingsmechanisme niet volledig begrepen. Hypothesen: remt inositolfosfatase (second messenger signaling), remt GSK-3β (neuroprotectief), moduleert serotonerge transmissie. Klaring via nieren: vergelijkbaar met natrium." },
-            { title: "Stap 2", desc: "renale compensatie bij natriumdepletie = lithiumretentie." },
-            { title: "Stap 3", desc: "toxiciteit." },
+            { title: "Werkingsmechanisme", desc: "Niet volledig begrepen. Hypothesen: remming inositolfosfatase (second messenger-remming), remming GSK-3β (neuroprotectief), modulatie serotonerge transmissie." },
+            { title: "Renale klaring & toxiciteit", desc: "Lithium wordt renaal geklaard in competitie met natrium. Bij natriumdepletie (dehydratie, diuretica, NSAID) → lithiumretentie → snelle spiegeldaling → toxiciteit." },
+            { title: "Toxiciteitssymptomen", desc: "Spiegel 1.5-2.0: grove tremor, diarree, polyurie, cognitie. >2.0: ataxie, verwardheid, convulsies, coma. Behandeling: IV NaCl, bij ernstige toxiciteit hemodialyse." },
           ],
           onderscheid: [
-            { label: "Alternatieve stemmingsstabilisatoren", desc: "valproaat (acute manie, snelle cyclers), lamotrigine (bipolaire depressie, preventie depressieve episodes), carbamazepine (alternatief).", type: 'ok' },
-            { label: "Lithium", desc: "bewezen anti-suïcidaal effect, uniek in die klasse.", type: 'warn' },
+            { label: "Lithium", desc: "Smal therapeutisch venster (0.6-1.0 mmol/L). Uniek bewezen anti-suïcidaal effect. Cave: nierfunctie + TSH halfjaarlijks controleren.", type: 'ok' },
+            { label: "Valproaat", desc: "Acute manie, snelle cyclers. Cave: teratogeen (neurale-buisdefecten) — NOOIT bij vrouwen in reproductieve leeftijd zonder afdoende anticonceptie.", type: 'warn' },
+            { label: "Lamotrigine", desc: "Bipolaire depressie, preventie depressieve episodes. Langzame ophoging verplicht (Stevens-Johnson bij snelle titratie).", type: 'warn' },
           ],
           therapie: {
             urgent: "Controle serumspiegel: stabiele patiënt 3-6 maandelijks.",
@@ -5734,14 +5764,14 @@ const QUESTIONS = [
     wiki:{
           kern: "Colorectaal carcinoom: 3e meest voorkomende maligniteit wereldwijd. Risicofactoren: leeftijd >50, familiaire belasting (FAP, Lynch), inflammatoire darmziekte (CU/CD), obesitas, rood/bewerkt vlees.",
           mechanisme: [
-            { title: "TNM-stagering", desc: "T1 (submucosa), T2 (muscularis propria), T3 (pericolon vetweefsel), T4 (peritoneum/naburig orgaan)." },
-            { title: "Stap 2", desc: "N0 (geen klieren), N1 (1-3 klieren), N2 (≥4 klieren)." },
-            { title: "Stap 3", desc: "M0 (geen metastasen), M1 (lever, long etc)." },
+            { title: "T-stadium (diepte ingroei)", desc: "T1: submucosa. T2: muscularis propria. T3: pericolon vetweefsel. T4: peritoneum of naburig orgaan — bepalend voor resectabiliteit." },
+            { title: "N-stadium (klieren)", desc: "N0: geen lymfekliermetastasen. N1: 1-3 positieve klieren. N2: ≥4 positieve klieren — indicatie voor adjuvante chemotherapie." },
+            { title: "M-stadium (afstand)", desc: "M0: geen afstandsmetastasen. M1: lever (50%), long, peritoneum. Resectabele levermetastasen: potentieel curatief met chirurgie + chemotherapie." },
           ],
           onderscheid: [
-            { label: "Coloncarcinoom vs rectumcarcinoom", desc: "rectum (eerste 15 cm ab ano).", type: 'ok' },
-            { label: "Rectumcarcinoom", desc: "MRI-bekken verplicht voor CRM (circumferentieel resectie-marge) beoordeling.", type: 'warn' },
-            { label: "Optie 3", desc: "Chemoradiatie neoadjuvant bij cT3/T4 of N+ rectumcarcinoom.", type: 'danger' },
+            { label: "Coloncarcinoom", desc: "Stagering via CT-thorax/abdomen/pelvis met contrast. Hemicolectomie + adjuvante CAPOX/FOLFOX bij stadium III.", type: 'ok' },
+            { label: "Rectumcarcinoom (≤15 cm ab ano)", desc: "MRI-bekken verplicht voor CRM-beoordeling. Neoadjuvante chemoradiatie bij cT3/T4 of N+.", type: 'warn' },
+            { label: "Lynch-syndroom (HNPCC)", desc: "MSI-hoog/MMR-deficiëntie — erfelijke belasting, jongere leeftijd, recht colon, betere prognose, indicatie immunotherapie.", type: 'danger' },
           ],
           therapie: {
             urgent: "Stadium I-II: chirurgie (hemicolectomie).",
@@ -5761,15 +5791,14 @@ const QUESTIONS = [
     wiki:{
           kern: "Hyperkaliëmie bij CKD: verlaagde renale kaliumexcretie. ECG-gradatie: K+ 5.5-6.0: peaked T-golven. 6.0-6.5: PR-verlenging, breed QRS. >6.5: sinusoïdaal patroon, VF-risico.",
           mechanisme: [
-            { title: "Stap 1", desc: "K+ ruststoffwisselingsproductie (normaal 100 mmol/dag)." },
-            { title: "Stap 2", desc: "renale excretie. CKD: aldosteron-effect verminderd + minder distale tubuli. Acidose: H+ intracellulaire uitwisseling." },
-            { title: "Stap 3", desc: "K+ shift naar extracellulaire ruimte. ACE-remmers/ARB + K-sparende diuretica." },
-            { title: "Stap 4", desc: "additioneel risico." },
+            { title: "Verminderde renale excretie", desc: "CKD: verlaagd aldosteron-effect + minder functionerende distale tubuli → K⁺-excretie daalt. Risicofactoren: ACE-remmers/ARBs, kaliumsparende diuretica, bijnierinsufficiëntie." },
+            { title: "Acidose-effect", desc: "Metabole acidose (bij CKD) → H⁺ wisselt intracellulair met K⁺ → K⁺ shift naar extracellulaire ruimte. Per 0,1 pH-daling: K⁺ stijgt ~0,5 mmol/L." },
+            { title: "ECG-progressie", desc: "K⁺ 5,5-6,0: piekende T-golven. 6,0-6,5: PR-verlenging, breed QRS. >6,5: sinusoïdaal patroon → VF-risico." },
           ],
           onderscheid: [
-            { label: "Pseudo-hyperkaliëmie", desc: "hemolyse van bloedafname, trombocytose, leukocytose (buiten lab meetbaar).", type: 'ok' },
-            { label: "Optie 2", desc: "Herhaal meting voor behandeling.", type: 'warn' },
-            { label: "Acuut vs chronisch", desc: "chronische hyperkaliëmie beter verdragen (adaptatie).", type: 'danger' },
+            { label: "Hyperkaliëmie bij CKD", desc: "Meest voorkomende oorzaak. K⁺ 5,8 + ECG-afwijkingen = directe behandeling. Calcium gluconaat = eerste stap.", type: 'ok' },
+            { label: "Pseudo-hyperkaliëmie", desc: "Hemolyse bij bloedafname, trombocytose, leukocytose — ECG normaal. Altijd herhalen voor behandeling bij twijfel.", type: 'warn' },
+            { label: "Acuut vs chronisch", desc: "Chronische hyperkaliëmie beter verdragen door renale adaptatie — maar ECG bepaalt urgentie, niet de absolute K⁺-waarde.", type: 'warn' },
           ],
           therapie: {
             urgent: "Acuut K+ >6.0 of ECG-veranderingen: IV calciumgluconaat (10 mL 10% in 2-3 min) → insuline 10 E + 50 mL 50% glucose → salbutamol 10-20 mg neveltherapie → natriumsulfaat/kayexalate/patiromer → HD als refractair.",
@@ -5787,13 +5816,14 @@ const QUESTIONS = [
     wiki:{
           kern: "Feochromocytoom: chromaffiene tumorcellen (bijnier 90%, extra-adrenaal = paraganglioom 10%) die catecholaminen produceren. Prevalentie hypertensie: 0.2-0.6%. 10%-regel: 10% maligne, 10% bilateraal, 10% extra-adrenaal, 10% bij kinderen, 10% familiair (MEN2, VHL, NF1, SDH-mutaties).",
           mechanisme: [
-            { title: "Stap 1", desc: "Episodische of continue catecholamineafgifte (adrenaline, noradrenaline) → α1-receptor (vasoconstrictie, hypertensie) + β1-receptor (tachycardie, verhoogd HMV)." },
-            { title: "Stap 2", desc: "Hypertensieve crisissen door stress, medicatie (tricyclische antidepressiva, metoclopramide), anesthesie." },
+            { title: "Catecholamine-afgifte", desc: "Chromaffiene tumorcellen scheiden episodisch of continu adrenaline + noradrenaline af → α1 (vasoconstrictie, hypertensie) + β1 (tachycardie, hoog HMV)." },
+            { title: "Uitlokkende factoren", desc: "Hypertensieve crisissen bij stress, anesthesie, glucagon, tricyclische antidepressiva, metoclopramide — klassieke 'triggers'." },
           ],
           onderscheid: [
-            { label: "Biochemische test", desc: "plasma-metanefrinen (meest sensitief, 99%) of 24u urine-metanefrinen.", type: 'ok' },
-            { label: "Daarna lokalisatie", desc: "MRI bijnier (eerste keus, geen stralings- of jodiumcontrast).", type: 'warn' },
-            { label: "Optie 3", desc: "I-123-MIBG of Ga68-DOTATATE PET bij extra-adrenaal/metastatisch.", type: 'danger' },
+            { label: "Feochromocytoom", desc: "Triade: hoofdpijn + zweten + hartkloppingen. Biochemisch: plasma-metanefrinen (sensitief 99%) of 24u urine-metanefrinen. Lokalisatie: MRI bijnier.", type: 'ok' },
+            { label: "Primair hyperaldosteronisme (Conn)", desc: "Hypokaliëmie + verhoogde aldosteron/renine-ratio. Hypertensie zonder paroxismaal karakter.", type: 'warn' },
+            { label: "Renovasculaire hypertensie", desc: "Vaatgeruis over de nierarterie, jonge patiënt, renineafhankelijke hypertensie — MR-angiografie diagnostisch.", type: 'warn' },
+            { label: "I-123-MIBG / DOTATATE-PET", desc: "Aanvullende nucleaire beeldvorming bij extra-adrenale lokalisatie (paraganglioom) of metastatische ziekte.", type: 'danger' },
           ],
           therapie: {
             urgent: "Pre-operatief: α-blokkade (fenoxybenzamine of doxazosine) minimaal 10-14 dagen → daarna β-blokkade (nooit β VOOR α!).",
@@ -5812,21 +5842,21 @@ const QUESTIONS = [
     wiki:{
           kern: "Pre-eclampsie epidemiologie: 2-8% van zwangerschappen. Pathofysiologie: abnormale placentatie → onvoldoende trofoblastinvasie → placenta-ischemie → angiogene disbalans (verlaagd PlGF, verhoogd sFlt-1) → endotheeldisfunctie.",
           mechanisme: [
-            { title: "Stap 1", desc: "Endotheeldisfunctie." },
-            { title: "Stap 2", desc: "vasospasme." },
-            { title: "Stap 3", desc: "hypertensie, renale glomerulusbeschadiging (proteïnurie), leverenzymen stijging, trombocytopenie (HELLP). Neurologisch: eclampsie = grand-mal-aanval bij PE. Foetale gevolgen: IUGR, vroeggeboorte." },
+            { title: "Placentaire ischemie", desc: "Onvoldoende trofoblastinvasie → placenta-ischemie → angiogene disbalans (↓ PlGF, ↑ sFlt-1) → systemische endotheeldisfunctie." },
+            { title: "Vasospasme & orgaanschade", desc: "Endotheeldisfunctie → gegeneraliseerde vasospasme → hypertensie, glomerulaire beschadiging (proteïnurie), leverenzymstijging, trombocytopenie." },
+            { title: "Ernstige complicaties", desc: "HELLP (hemolysis, elevated liver enzymes, low platelets). Eclampsie = grand-mal-aanval bij pre-eclampsie. Foetaal: IUGR, vroeggeboorte." },
           ],
           onderscheid: [
-            { label: "HELLP-syndroom", desc: "hemolytische anemie (LDH ↑, bilirubine ↑, haptoglobine ↓), ASAT/ALAT ↑, trombocyten <100.", type: 'ok' },
-            { label: "Optie 2", desc: "Kan met of zonder hypertensie optreden.", type: 'warn' },
-            { label: "Eclampsie", desc: "pre-eclampsie + convulsie.", type: 'danger' },
+            { label: "Pre-eclampsie", desc: "Hypertensie (≥140/90) na 20 weken + proteïnurie (≥300 mg/24u) of orgaandisfunctie. Enige genezing: partus.", type: 'ok' },
+            { label: "HELLP-syndroom", desc: "Ernstige variant: hemolytische anemie (LDH↑, haptoglobine↓), ASAT/ALAT↑, trombocyten <100 × 10⁹/L. Kan ook zonder hypertensie!", type: 'warn' },
+            { label: "Eclampsie", desc: "Pre-eclampsie + gegeneraliseerde convulsie (grand-mal). Magnesiumsulfaat is behandeling én preventie.", type: 'danger' },
           ],
           therapie: {
-            urgent: "Milde PE: opname, antihypertensiva (methyldopa, labetalol, nifedipine).",
+            urgent: "Opname, antihypertensiva (methyldopa, labetalol of nifedipine) bij BD ≥160/110.",
             stappen: [
-              { naam: "Magnesiumsulfaat", detail: "seizoenprofylaxe bij ernstige PE." },
-              { naam: "Partus is enige genezing", detail: "geïndiceerd bij ≥37 weken of eerder bij ernstige PE/HELLP/foetale distress." },
-              { naam: "Stap 3", detail: "Corticosteroïden bij <34 weken voor longrijping." },
+              { naam: "Magnesiumsulfaat", detail: "Seizoenprofylaxe bij ernstige pre-eclampsie — ook antihypertensief effect." },
+              { naam: "Partus = enige genezing", detail: "Geïndiceerd bij ≥37 weken of eerder bij ernstige PE/HELLP/foetale distress." },
+              { naam: "Corticosteroïden <34 weken", detail: "Betamethason of dexamethason voor foetale longrijping bij dreigende vroeggeboorte." },
             ],
           },
         } },
@@ -5839,15 +5869,15 @@ const QUESTIONS = [
     wiki:{
           kern: "HOCM: meest voorkomende erfelijke hartziekte (1:500), autosomaal dominant, sarcomeer-eiwitgenmutaties (MYH7, MYBPC3). Morfologie: asymmetrische septumhypertrofie (ASH), soms apicale hypertrofie.",
           mechanisme: [
-            { title: "Stap 1", desc: "SAM: mitraalblad wordt door Venturi-effect naar het hypertrofe septum getrokken tijdens systole." },
-            { title: "Stap 2", desc: "LVOT-obstructie." },
-            { title: "Stap 3", desc: "drukgradiënt." },
-            { title: "Stap 4", desc: "systolisch geruis dat toeneemt bij opstaan/Valsalva (daalt bij hurken/handdruk-test). Gradiënt ≥30 mmHg = significante obstructie." },
+            { title: "SAM (systolic anterior motion)", desc: "Venturi-effect trekt het mitraalblad naar het hypertrofe septum tijdens systole → dynamische LVOT-obstructie." },
+            { title: "Dynamische gradiënt", desc: "Drukgradiënt over LVOT stijgt bij inspanning, Valsalva, opstaan (lagere preload). Daalt bij hurken, handdruk-test. Gradiënt ≥30 mmHg = significante obstructie." },
+            { title: "Plotse hartdood-risico", desc: "Meest voorkomende oorzaak van plotse hartdood bij jonge atleten. Risicostratificatie: ICD-indicaties (syncope, familiaire PHD, hypertrofie ≥30 mm, NSVT)." },
           ],
           onderscheid: [
-            { label: "DCM", desc: "verwijde LV, EF verlaagd, geen hypertrofie.", type: 'ok' },
-            { label: "Aortastenose", desc: "klep-obstructie, oudere patiënt, klinisch geruis dat afneemt bij Valsalva (vs HOCM toeneemt).", type: 'warn' },
-            { label: "Hypertensief hart", desc: "concentrische hypertrofie, geen SAM, hypertensie voorgeschiedenis.", type: 'danger' },
+            { label: "HOCM", desc: "Asymmetrische septumhypertrofie + SAM. Geruis dat TOENEEMT bij Valsalva/opstaan. Plotse hartdood bij atleten. Sarcomeer-mutaties.", type: 'ok' },
+            { label: "Aortaklepstenose", desc: "Vaste klep-obstructie. Geruis dat AFNEEMT bij Valsalva. Oudere patiënt. Calcificatie op echo.", type: 'warn' },
+            { label: "DCM (dilaterende cardiomyopathie)", desc: "Verwijde LV, EF verlaagd, geen hypertrofie. Geruis door functionele mitralisinsufficiëntie.", type: 'warn' },
+            { label: "Hypertensief hart", desc: "Concentrische hypertrofie, geen SAM, hypertensie als oorzaak — relatief normale EF.", type: 'danger' },
           ],
           therapie: {
             urgent: "Symptomatisch: bètablokkers (eerstekeus), disopyramide, verapamil.",
@@ -5865,12 +5895,12 @@ const QUESTIONS = [
     wiki:{
           kern: "Endocarditis-diagnose: Duke-criteria (major: 2 positieve bloedkweken + echocardiografie (vegetatie/abces/nieuw klepgebrek). Minor: predispositie, koorts, vasculaire fenomenen, immunologische tekenen, microbiologie).",
           mechanisme: [
-            { title: "Stap 1", desc: "Bacteriëmie." },
-            { title: "Stap 2", desc: "hechting aan beschadigde endotheeloppervlakken (fibrine-platelet thrombus)." },
-            { title: "Stap 3", desc: "vegetaties. S. aureus: meest virulent (agressief destructief), ook op intacte kleppen. Streptococcus viridans: subacuut, predispositie nodig (klepgebrek, bicuspide aortaklep)." },
+            { title: "Bacteriëmie & hechting", desc: "Bacteriëmie (tandingreep, IV-katheter, huidinfectie) → hechting aan beschadigd endotheel of klepweefsel via fibrine-platelet thrombus." },
+            { title: "Vegetatievorming", desc: "Bacteriën worden ingekapseld in een fibrine-trombocytenmatrix → vegetaties die emboliseren kunnen (CVA, seplische embolieën)." },
+            { title: "Pathogeen-karakter", desc: "S. aureus: virulent, ook op intacte kleppen, snel destructief. Viridans streptokokken: subacuut, predispositie nodig (klepgebrek, bicuspide aortaklep)." },
           ],
           onderscheid: [
-            { label: "Behandelkeuze antibiotica", desc: "MSSA: flucloxacilline 12g/dag IV.", type: 'ok' },
+            { label: "S. aureus endocarditis", desc: "Virulent, snel klepdestructie. MSSA: flucloxacilline 12g/dag IV 6 weken. MRSA: vancomycine ± rifampicine.", type: 'ok' },
             { label: "MRSA of penicilline-allergie", desc: "vancomycine ± rifampicine.", type: 'warn' },
             { label: "Enterococcus", desc: "ampicilline + gentamicine of ampicilline + ceftriaxon.", type: 'danger' },
             { label: "Chirurgie-indicaties", desc: "hartfalen, ongecontroleerde infectie, embolie-preventie (vegetatie >10mm + hoog-risico pathogeen).", type: 'warn' },
@@ -5891,21 +5921,20 @@ const QUESTIONS = [
     wiki:{
           kern: "Parkinson-diagnose: ≥2 van 3 kardinale tekenen (rusttremor 4-6 Hz, bradykinesie, rigiditeit) + asymmetrische presentatie + goede levodopa-respons. Ondersteunend: anosmie, REM-slaapgedragsstoornis, constipatie (autonome prodromale tekenen).",
           mechanisme: [
-            { title: "Stap 1", desc: "Degeneratie dopaminerge neuronen substantia nigra (pars compacta)." },
-            { title: "Stap 2", desc: "dopaminetekort in striatum." },
-            { title: "Stap 3", desc: "disinhibitie basale ganglia-circuits." },
-            { title: "Stap 4", desc: "overactiviteit globus pallidus internus." },
-            { title: "Stap 5", desc: "remmende invloed op thalamus." },
+            { title: "Dopaminerg neuronenverlies", desc: "Degeneratie dopaminerge neuronen in de substantia nigra pars compacta → dopaminetekort in het striatum. Lewy-lichaampjes (α-synucleïne aggregaten) zijn het neuropathologisch kenmerk." },
+            { title: "Basale ganglia-disregulatie", desc: "Dopaminetekort → disinhibitie indirect ganglia-circuit → overactiviteit globus pallidus internus → excessieve remming van thalamus → armoede van beweging (bradykinesie)." },
+            { title: "80%-drempel", desc: "Symptomen ontstaan pas als >80% van dopaminerge neuronen verloren zijn — de prodromale fase (anosmie, constipatie, REM-slaapstoornis) duurt 5-20 jaar." },
           ],
           onderscheid: [
-            { label: "Atypisch parkinsonisme", desc: "MSA (autonome disfunctie, cerebellaire tekenen), PSP (vertical gaze palsy, vallen achterwaarts, axiale rigiditeit), CBD (corticale tekenen, apraxie, \"alien limb\").", type: 'ok' },
-            { label: "Optie 2", desc: "DaTscan niet onderscheidend (allemaal positief); MRI-parenchymale kenmerken kunnen helpen.", type: 'warn' },
+            { label: "Ziekte van Parkinson", desc: "Asymmetrisch, rusttremor 4-6 Hz, goede levodopa-respons. DaTscan: verlaagd putamen-signaal. Lewy-lichaampjes neuropathologisch.", type: 'ok' },
+            { label: "Atypisch parkinsonisme (MSA, PSP, CBD)", desc: "MSA: autonome disfunctie + cerebellum. PSP: vertical gaze palsy + vallen achterwaarts. CBD: apraxie + 'alien limb'. Slechte levodopa-respons.", type: 'warn' },
+            { label: "Essentiële tremor", desc: "Actietremor (niet in rust), bilateraal, familiale belasting. DaTscan normaal — onderscheidt van PD.", type: 'warn' },
           ],
           therapie: {
-            urgent: "Levodopa (met carbidopa/benserazide): meest effectief.",
+            urgent: "Levodopa (met carbidopa/benserazide): meest effectief, goudstandaard.",
             stappen: [
-              { naam: "Stap 1", detail: "Dopamine-agonisten (pramipexol, ropinirol) bij jonge patiënten (minder dyskinesie)." },
-              { naam: "Stap 2", detail: "MAO-B-remmers (rasagiline, selegiline)." },
+              { naam: "Dopamine-agonisten", detail: "Pramipexol, ropinirol bij jonge patiënten (minder levodopa-geïnduceerde dyskinesie)." },
+              { naam: "MAO-B-remmers", detail: "Rasagiline, selegiline — mild symptomatisch effect en mogelijk neuroprotectief." },
               { naam: "Deep brain stimulation (DBS)", detail: "bij gevorderd PD met motorische fluctuaties." },
             ],
           },
@@ -5919,11 +5948,9 @@ const QUESTIONS = [
     wiki:{
           kern: "Hemolytische anemie kenmerken: Hb ↓ + reticulocytose (beenmerg compensatie) + LDH ↑ (uit erytrocyten) + haptoglobine ↓ (gebonden aan vrijgekomen Hb) + bilirubine ↑ indirect. Intravasculaire hemolysis extra: hemoglobinurie, hemoglobinemie.",
           mechanisme: [
-            { title: "Stap 1", desc: "AIHA warm-type (70%): IgG-antilichamen op 37°C." },
-            { title: "Stap 2", desc: "miltmacrofagen." },
-            { title: "Stap 3", desc: "extravculaire hemolysis. Oorzaken: idiopathisch, SLE, CLL, medicatie (methyldopa, penicilline). AIHA koud-type: IgM + complement." },
-            { title: "Stap 4", desc: "C3b." },
-            { title: "Stap 5", desc: "intravasculaire of extravasculaire hemolysis bij koude temperaturen." },
+            { title: "Warm-type AIHA (70%)", desc: "IgG-antilichamen binden aan erytrocyten op 37°C → herkenning door miltmacrofagen → extravasculaire hemolysis. Oorzaken: idiopathisch, SLE, CLL, medicatie (methyldopa, penicilline)." },
+            { title: "Koud-type AIHA (30%)", desc: "IgM-antilichamen + complement (C3b) bij lage temperaturen → intravasculaire hemolysis. Oorzaken: Mycoplasma-infectie, EBV, lymfoom. Acrocyanose bij kou." },
+            { title: "Directe Coombs test", desc: "Detecteert antilichamen of complement op de erytrocyten. Positief bij AIHA, negatief bij erfelijke sferocytose en G6PD-deficiëntie." },
           ],
           onderscheid: [
             { label: "Directe Coombs (DAT)", desc: "positief = antilichamen/complement op RBC = immuungemedieerde hemolysis.", type: 'ok' },
@@ -6028,15 +6055,15 @@ const QUESTIONS = [
     wiki:{
           kern: "ESC 2021 cardiovasculaire risicocategorie: zeer hoog (bewezen HVZ, DM + orgaanschade, eGFR <30, SCORE2 ≥10%), hoog (SCORE2 5-9%, DM zonder orgaanschade), matig (SCORE2 2.5-4%), laag (<2.5%). Statinebehandeling: alle patiënten met bewezen HVZ (secundaire preventie), bij primaire preventie afhankelijk van risicocategorie + LDL.",
           mechanisme: [
-            { title: "Stap 1", desc: "Statines (HMG-CoA-reductase-inhibitor): remmen cholesterolsynthese lever." },
-            { title: "Stap 2", desc: "upregulatie LDL-receptoren." },
-            { title: "Stap 3", desc: "meer LDL-klaring. Pleiotrope effecten: anti-inflammatoir, plaques stabiliseren, endothelfunctie verbetering. LDL-verlaging: 30-55% afhankelijk van statine en dosis." },
+            { title: "HMG-CoA-reductase remming", desc: "Statines blokkeren het sleutelenzym in de endogene cholesterolsynthese van de lever → minder intracellulair cholesterol → lever maakt meer LDL-receptoren." },
+            { title: "LDL-klaring verhoogd", desc: "Meer LDL-receptoren op hepatocyten → meer LDL-opname uit het bloed → LDL-daling 30-55% afhankelijk van statine en dosis. Atorvastatine/rosuvastatine = hoog-intensief (>50% LDL-daling)." },
+            { title: "Pleiotrope effecten", desc: "Naast LDL-verlaging ook: plaques stabiliseren (minder oxidatief LDL), anti-inflammatoir (CRP ↓), endothelfunctie verbetering. Dit verklaart het cardiovasculaire voordeel ook bij normaal LDL na MI." },
           ],
           onderscheid: [
-            { label: "Bijwerkingen statines", desc: "myopathie (CK-stijging, rhabdomyolyse zeldzaam), levertoxiciteit (zeldzaam).", type: 'ok' },
-            { label: "Cave", desc: "interacties (gemfibrozil, ciclosporine).", type: 'warn' },
-            { label: "Contra-indicaties", desc: "zwangerschap, ernstige leveraandoening.", type: 'danger' },
-            { label: "Optie 4", desc: "Combinatie met ezetimib bij onvoldoende LDL-verlaging.", type: 'warn' },
+            { label: "Risico-gebaseerde indicatie", desc: "Statines worden gegeven op basis van totaal cardiovasculair risico, niet alleen LDL. Secundaire preventie (na MI/CVA): altijd statine. Primaire preventie: afhankelijk van SCORE2-risicoscore + LDL.", type: 'ok' },
+            { label: "Bijwerkingen statines", desc: "Myopathie (spierpijn + CK-stijging), rhabdomyolyse (zeldzaam). Stop bij CK >10× normaal. Levertoxiciteit zeldzaam. Controleer leverenzymen bij symptomen.", type: 'warn' },
+            { label: "Contra-indicaties", desc: "Zwangerschap, ernstige leveraandoening. Interacties: gemfibrozil + statine = myopathie-risico; ciclosporine verhoogt statinespiegel.", type: 'danger' },
+            { label: "LDL-streefwaarden", desc: "Ezetimib toevoegen bij onvoldoende LDL-verlaging met maximale statinedosis. PCSK9-remmers bij zeer hoog risico (LDL-streefwaarde <1,4 mmol/L).", type: 'warn' },
           ],
           therapie: {
             urgent: "Hoog-intensiteit statines (atorvastatine 40-80 mg, rosuvastatine 20-40 mg): LDL-verlaging 50-55%.",
