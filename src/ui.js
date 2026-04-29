@@ -60,9 +60,13 @@ function renderWikiTabs(w) {
 
   const kernHTML = `
     <div class="wiki-panel active" id="wiki-panel-kern">
+      <div class="wiki-kern-header">
+        <span class="wiki-kern-badge">Kernbegrip</span>
+        <div class="wiki-kern-divider"></div>
+      </div>
       <div class="wiki-kern-lede">${w.kern}</div>
       ${bigfactHTML}
-      ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-dot"></div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
+      ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-label">Let op</div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
     </div>`;
 
   const mechArr = Array.isArray(w.mechanisme)
