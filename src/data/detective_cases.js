@@ -9,10 +9,26 @@ const DETECTIVE_CASES = [
     domain: 'infectio',
     patient: 'Man, 38 jaar',
     intro: "Een 38-jarige man wordt door zijn partner naar de Spoedeisende Hulp gebracht. Ze maakt zich zorgen — al zo'n drie dagen is hij 'anders': nauwelijks slaap, onrust, angst voor dingen die hij normaal niet eng vindt. Vanavond weigerde hij plotseling zijn glas water op te pakken. Ze begrijpt er niets van.",
+
+    urgency: 'high',
+
+    vitals_baseline: {
+      hr: 118, bp_sys: 132, bp_dia: 84, temp: 38.9, spo2: 98, gcs: 13, status: 'unstable',
+    },
+
+    vitals_decay: {
+      per_action: { hr: 3, bp_sys: 2, temp: 0.15, gcs: -1 },
+      triggers: [
+        { field: 'hr',  above: true,  threshold: 136, message: '⚠ Verpleegkundige: "Hartslag loopt hard op — patiënt raakt steeds meer geagiteerd."' },
+        { field: 'gcs', above: false, threshold: 10,  message: '🚨 GCS gedaald onder 10 — bewustzijn snel achteruitgaand.' },
+      ],
+      too_late_after: 120,
+    },
+
     investigations: [
       {
         id: 'vitals',
-        phase: 1,
+        phase: 1, time_cost: 5,
         label: 'Vitale functies meten',
         category: 'physical',
         icon: '🩺',
@@ -33,7 +49,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'prodroom',
-        phase: 2,
+        phase: 2, time_cost: 8,
         label: 'Hoe zijn de klachten begonnen?',
         category: 'history',
         icon: '📋',
@@ -49,7 +65,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'familie',
-        phase: 2,
+        phase: 2, time_cost: 8,
         label: 'Heeft iemand anders in de omgeving soortgelijke klachten?',
         category: 'history',
         icon: '👨‍👩‍👦',
@@ -65,7 +81,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'drugs',
-        phase: 2,
+        phase: 2, time_cost: 8,
         label: 'Gebruikt patiënt medicatie of drugs?',
         category: 'history',
         icon: '💊',
@@ -81,7 +97,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'reis',
-        phase: 2,
+        phase: 2, time_cost: 10,
         label: 'Bent u de afgelopen maanden in het buitenland geweest?',
         category: 'history',
         icon: '✈️',
@@ -97,7 +113,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'dieren',
-        phase: 2,
+        phase: 2, time_cost: 10,
         requires: ['reis'],
         label: 'Heeft u contact gehad met dieren tijdens de reis?',
         category: 'history',
@@ -114,7 +130,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'wond',
-        phase: 2,
+        phase: 2, time_cost: 10,
         requires: ['reis'],
         label: 'Heeft u tijdens of na uw verblijf in het buitenland medische hulp gezocht?',
         category: 'history',
@@ -131,7 +147,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'lab',
-        phase: 4,
+        phase: 4, time_cost: 20,
         label: 'Bloed afnemen: bloedbeeld, elektrolyten, CRP',
         category: 'lab',
         icon: '🔬',
@@ -153,7 +169,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'ecg',
-        phase: 4,
+        phase: 4, time_cost: 15,
         label: 'ECG aanvragen',
         category: 'imaging',
         icon: '📈',
@@ -170,7 +186,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'mri',
-        phase: 4,
+        phase: 4, time_cost: 60,
         label: 'MRI hersenen aanvragen',
         category: 'imaging',
         icon: '🧠',
@@ -192,7 +208,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'lp',
-        phase: 4,
+        phase: 4, time_cost: 30,
         label: 'Lumbaalpunctie uitvoeren',
         category: 'lab',
         icon: '💉',
@@ -213,7 +229,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'water',
-        phase: 3,
+        phase: 3, time_cost: 3,
         label: 'Bied patiënt een glas water aan',
         category: 'physical',
         icon: '💧',
@@ -234,7 +250,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'ct',
-        phase: 4,
+        phase: 4, time_cost: 45,
         label: 'CT hoofd aanvragen',
         category: 'imaging',
         icon: '🖥️',
@@ -250,7 +266,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'bloedkweken',
-        phase: 4,
+        phase: 4, time_cost: 15,
         label: 'Bloedkweken afnemen',
         category: 'lab',
         icon: '🧫',
@@ -266,7 +282,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'toxicologie',
-        phase: 4,
+        phase: 4, time_cost: 30,
         label: 'Toxicologisch bloedonderzoek',
         category: 'lab',
         icon: '⚗️',
@@ -289,16 +305,44 @@ const DETECTIVE_CASES = [
       wiki: 'Rabiës (lyssavirus) verspreidt zich via perifere zenuwen retrograad naar de hersenen. Incubatietijd: gemiddeld 1–3 maanden. Prodromaal stadium: koorts, malaise, paresthesieën bij de beet. Encefalitische fase: reactie op water (80%), aerofobia, agitatie, hallucinaties, autonome ontregeling. Terminale fase: coma → overlijden. Post-expositieprofylaxe (wondreiniging + vaccin + immunoglobuline) is effectief vóór symptoomonset. Jaarlijks ~59.000 doden wereldwijd, voornamelijk in Azië en Afrika.'
     },
 
-    management: {
-      question: 'De diagnose is gesteld. Wat is nu de meest passende aanpak?',
+    treatment: {
+      prompt: 'De diagnose is gesteld. Wat is nu de meest passende aanpak?',
       options: [
-        'Palliatieve zorg: symptoombestrijding en isolatie',
-        'Post-expositieprofylaxe starten (vaccin + immunoglobuline)',
-        'Antivirale therapie met ribavirin starten',
-        'Milwaukee protocol: farmacologisch coma induceren',
+        { label: 'Palliatieve zorg: symptoombestrijding en isolatie',         outcome: 'saved' },
+        { label: 'Post-expositieprofylaxe starten (vaccin + immunoglobuline)', outcome: 'wrong_treatment' },
+        { label: 'Antivirale therapie met ribavirin starten',                  outcome: 'wrong_treatment' },
+        { label: 'Milwaukee protocol: farmacologisch coma induceren',          outcome: 'patient_harmed' },
       ],
       correct: 0,
       explanation: 'Na symptoomonset bestaat er geen bewezen curatieve behandeling. Post-expositieprofylaxe (vaccin + immunoglobuline) is levensreddend vóór de symptomen, maar niet meer daarna. Het Milwaukee protocol (geïnduceerd coma) is experimenteel en heeft bij slechts een handvol patiënten ooit resultaat gehad. Palliatieve zorg met strikte isolatie — speeksel is besmettelijk — is de standaard.',
+    },
+
+    outcomes: {
+      saved: {
+        title: 'Correcte beslissing',
+        story: 'U herkende rabiës tijdig en startte palliatieve zorg. Na vijf dagen overlijdt de man omringd door zijn familie. Er was geen remedie — maar u maakte de juiste keuze op het juiste moment. Zijn partner bedankt u persoonlijk.',
+        lesson: 'Palliatieve zorg is de enige ethisch verantwoorde keuze na symptoomonset. Vroegtijdig herkennen voorkomt onnodige en pijnlijke behandelingen.',
+      },
+      wrong_diagnosis: {
+        title: 'Diagnose gemist',
+        story: 'De werkelijke diagnose bleef onopgemerkt. Behandeling gericht op een andere aandoening had geen effect. De toestand van de patiënt verslechterde snel — een preventabele tragedie.',
+        lesson: 'Hydrofobia na diercontact in een endemisch gebied is vrijwel pathognomonisch voor rabiës. Vergeet dit nooit.',
+      },
+      wrong_treatment: {
+        title: 'Verkeerde behandeling',
+        story: 'Post-expositieprofylaxe werd gestart — maar dit werkt alleen vóór symptoomonset. De patiënt onderging pijnlijke injecties zonder enig voordeel. Een dure en pijnlijke vergissing.',
+        lesson: 'Timing is alles bij rabiës. PEP is effectief vóór de symptomen, niet erna.',
+      },
+      patient_harmed: {
+        title: 'Behandelingsfout',
+        story: 'Het Milwaukee protocol werd ingezet: farmacologisch coma, antivirale middelen, intensieve monitoring. Slechts 3 mensen wereldwijd overleefden dit. Uw patiënt niet.',
+        lesson: 'Het Milwaukee protocol is niet standaard en heeft een slagingspercentage van <5%. Palliatieve zorg is de bewezen, humane keuze.',
+      },
+      too_late: {
+        title: 'Te laat',
+        story: 'Terwijl het onderzoek voortduurde, ontwikkelden zich convulsies. Het bewustzijn daalde. Tegen de tijd dat de diagnose gesteld werd, was elke interventie zinloos.',
+        lesson: 'Bij een encefalitisch beeld met snelle verslechtering telt elke minuut. Diagnostische efficiëntie redt levens.',
+      },
     },
 
     memory: [
