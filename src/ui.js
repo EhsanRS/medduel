@@ -65,7 +65,17 @@ function renderWikiTabs(w) {
       ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-dot"></div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
     </div>`;
 
-  const mechSteps = (w.mechanisme || []).map((s, i, arr) => `
+  const mechArr = Array.isArray(w.mechanisme)
+    ? w.mechanisme
+    : (w.mechanisme ? [{ title: 'Mechanisme', desc: w.mechanisme }] : []);
+  const diffArr = Array.isArray(w.onderscheid)
+    ? w.onderscheid
+    : (w.onderscheid ? [{ label: 'Onderscheid', desc: w.onderscheid, type: 'warn' }] : []);
+  const therObj = w.therapie && typeof w.therapie === 'object' && !Array.isArray(w.therapie)
+    ? w.therapie
+    : (w.therapie ? { urgent: String(w.therapie), stappen: [] } : null);
+
+  const mechSteps = mechArr.map((s, i, arr) => `
     <div class="wiki-mech-step">
       <div class="wiki-mech-left">
         <div class="wiki-mech-num">${i + 1}</div>
@@ -95,7 +105,7 @@ function renderWikiTabs(w) {
       ${mnemonicHTML}
     </div>`;
 
-  const diffItems = (w.onderscheid || []).map(d => `
+  const diffItems = diffArr.map(d => `
     <div class="wiki-diff-item">
       <div class="wiki-diff-stripe ${d.type || 'warn'}"></div>
       <div class="wiki-diff-body">
@@ -109,7 +119,7 @@ function renderWikiTabs(w) {
       ${diffItems}
     </div>`;
 
-  const therapieStappen = w.therapie && w.therapie.stappen ? w.therapie.stappen.map(s => `
+  const therapieStappen = therObj && therObj.stappen ? therObj.stappen.map(s => `
     <div class="wiki-treat-row">
       <div class="wiki-treat-dot"></div>
       <div class="wiki-treat-body">
@@ -120,10 +130,10 @@ function renderWikiTabs(w) {
 
   const treatHTML = `
     <div class="wiki-panel" id="wiki-panel-therapie">
-      ${w.therapie && w.therapie.urgent ? `
+      ${therObj && therObj.urgent ? `
         <div class="wiki-treat-urgent">
           <div class="wiki-treat-urgent-label">Prioriteit</div>
-          <div class="wiki-treat-urgent-text">${w.therapie.urgent}</div>
+          <div class="wiki-treat-urgent-text">${therObj.urgent}</div>
         </div>` : ''}
       ${therapieStappen}
     </div>`;
