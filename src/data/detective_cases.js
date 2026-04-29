@@ -12,6 +12,7 @@ const DETECTIVE_CASES = [
     investigations: [
       {
         id: 'vitals',
+        phase: 1,
         label: 'Vitale functies meten',
         category: 'physical',
         icon: '🩺',
@@ -27,6 +28,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'prodroom',
+        phase: 2,
         label: 'Hoe zijn de klachten begonnen?',
         category: 'history',
         icon: '📋',
@@ -42,6 +44,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'familie',
+        phase: 2,
         label: 'Heeft iemand anders in de omgeving soortgelijke klachten?',
         category: 'history',
         icon: '👨‍👩‍👦',
@@ -57,6 +60,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'drugs',
+        phase: 2,
         label: 'Gebruikt patiënt medicatie of drugs?',
         category: 'history',
         icon: '💊',
@@ -72,6 +76,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'reis',
+        phase: 2,
         label: 'Bent u de afgelopen maanden in het buitenland geweest?',
         category: 'history',
         icon: '✈️',
@@ -87,6 +92,8 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'dieren',
+        phase: 2,
+        requires: ['reis'],
         label: 'Heeft u contact gehad met dieren tijdens de reis?',
         category: 'history',
         icon: '🐾',
@@ -102,6 +109,8 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'wond',
+        phase: 2,
+        requires: ['reis'],
         label: 'Heeft u tijdens of na uw verblijf in het buitenland medische hulp gezocht?',
         category: 'history',
         icon: '🩹',
@@ -117,6 +126,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'lab',
+        phase: 4,
         label: 'Bloed afnemen: bloedbeeld, elektrolyten, CRP',
         category: 'lab',
         icon: '🔬',
@@ -138,6 +148,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'ecg',
+        phase: 4,
         label: 'ECG aanvragen',
         category: 'imaging',
         icon: '📈',
@@ -154,6 +165,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'mri',
+        phase: 4,
         label: 'MRI hersenen aanvragen',
         category: 'imaging',
         icon: '🧠',
@@ -170,6 +182,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'lp',
+        phase: 4,
         label: 'Lumbaalpunctie uitvoeren',
         category: 'lab',
         icon: '💉',
@@ -190,6 +203,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'water',
+        phase: 3,
         label: 'Bied patiënt een glas water aan',
         category: 'physical',
         icon: '💧',
@@ -205,6 +219,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'ct',
+        phase: 4,
         label: 'CT hoofd aanvragen',
         category: 'imaging',
         icon: '🖥️',
@@ -220,6 +235,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'bloedkweken',
+        phase: 4,
         label: 'Bloedkweken afnemen',
         category: 'lab',
         icon: '🧫',
@@ -235,6 +251,7 @@ const DETECTIVE_CASES = [
       },
       {
         id: 'toxicologie',
+        phase: 4,
         label: 'Toxicologisch bloedonderzoek',
         category: 'lab',
         icon: '⚗️',
