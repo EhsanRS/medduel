@@ -1,6 +1,7 @@
 // MedDuel — Speurdokter modus
 
 let SD = {};
+let SD_DECAY_IV = null;
 
 function getTodayDetectiveCase() {
   const today = getTodayStr();
@@ -10,12 +11,95 @@ function getTodayDetectiveCase() {
   return DETECTIVE_CASES[(dayNum - 1) % DETECTIVE_CASES.length];
 }
 
-function loadDetectiveRecord() {
-  try { return JSON.parse(localStorage.getItem('md_detective') || 'null'); } catch { return null; }
+function loadDetectiveRecord(caseId) {
+  try { return JSON.parse(localStorage.getItem('md_detective_' + caseId) || 'null'); } catch { return null; }
 }
 
-function saveDetectiveRecord(r) {
-  try { localStorage.setItem('md_detective', JSON.stringify(r)); } catch {}
+function saveDetectiveRecord(caseId, r) {
+  try { localStorage.setItem('md_detective_' + caseId, JSON.stringify(r)); } catch {}
+}
+
+// ── Unlock systeem ───────────────────────────────────────────
+
+function sdGetUnlocked() {
+  try { return JSON.parse(localStorage.getItem('md_sd_unlocked') || '["sd-01"]'); }
+  catch { return ['sd-01']; }
+}
+
+function sdUnlockNext(caseId) {
+  const unlocked = sdGetUnlocked();
+  const idx = DETECTIVE_CASES.findIndex(c => c.id === caseId);
+  if (idx >= 0 && idx + 1 < DETECTIVE_CASES.length) {
+    const nextId = DETECTIVE_CASES[idx + 1].id;
+    if (!unlocked.includes(nextId)) {
+      unlocked.push(nextId);
+      try { localStorage.setItem('md_sd_unlocked', JSON.stringify(unlocked)); } catch {}
+    }
+  }
+}
+
+// ── Real-time vitalen decay ───────────────────────────────────
+
+function sdStartDecay() {
+  sdStopDecay();
+  const intervalSec = SD.case.decay_interval_sec || 20;
+  SD_DECAY_IV = setInterval(() => {
+    if (!SD.currentVitals || !SD.case.vitals_decay) return;
+    const d = SD.case.vitals_decay.per_action;
+    const v = SD.currentVitals;
+    if (d.hr)     v.hr     = Math.round(v.hr     + (d.hr     || 0) * 0.4);
+    if (d.bp_sys) v.bp_sys = Math.round(v.bp_sys + (d.bp_sys || 0) * 0.4);
+    if (d.temp)   v.temp   = Math.round((v.temp  + (d.temp   || 0) * 0.4) * 10) / 10;
+    if (d.gcs)    v.gcs    = Math.max(3, Math.min(15, v.gcs + (d.gcs || 0) * 0.4));
+    SD.timeUsed = Math.min(SD.timeUsed + 3, SD.case.vitals_decay.too_late_after || 999);
+    for (const t of (SD.case.vitals_decay.triggers || [])) {
+      const val = v[t.field];
+      const hit = t.above ? val >= t.threshold : val <= t.threshold;
+      const key = t.field + t.threshold;
+      if (hit && !SD.triggeredAlerts.includes(key)) {
+        SD.triggeredAlerts.push(key);
+        SD.pendingAlert = t.message;
+      }
+    }
+    sdRefreshVitals();
+  }, intervalSec * 1000);
+}
+
+function sdStopDecay() {
+  if (SD_DECAY_IV) { clearInterval(SD_DECAY_IV); SD_DECAY_IV = null; }
+}
+
+function sdRefreshVitals() {
+  const v = SD.currentVitals;
+  if (!v) return;
+  const hrEl   = document.getElementById('sd-val-hr');
+  const tempEl = document.getElementById('sd-val-temp');
+  const gcsEl  = document.getElementById('sd-val-gcs');
+  const timeEl = document.getElementById('sd-val-time');
+  if (hrEl)   hrEl.textContent   = v.hr;
+  if (tempEl) tempEl.textContent = v.temp.toFixed(1);
+  if (gcsEl)  gcsEl.textContent  = v.gcs;
+  if (timeEl) timeEl.textContent = SD.timeUsed;
+  const hrSpan  = document.getElementById('sd-vital-hr');
+  const gcsSpan = document.getElementById('sd-vital-gcs');
+  if (hrSpan)  hrSpan.className  = 'sd-vital' + (v.hr > 130 ? ' warn' : '');
+  if (gcsSpan) gcsSpan.className = 'sd-vital' + (v.gcs < 12 ? ' warn' : '');
+  const bar = document.getElementById('sd-vitals-bar');
+  if (bar) bar.className = 'sd-vitals-bar sd-vitals-' + sdVitalsStatus();
+  const ring = document.getElementById('sd-patient-ring');
+  if (ring) ring.className = 'sd-pulse-ring ' + sdVitalsStatus();
+  if (SD.pendingAlert) {
+    const existing = document.querySelector('.sd-alert-banner');
+    if (!existing) {
+      const alertEl = document.createElement('div');
+      alertEl.className = 'sd-alert-banner';
+      alertEl.textContent = SD.pendingAlert;
+      const wrap = document.querySelector('.sd-wrap');
+      if (wrap) wrap.insertBefore(alertEl, wrap.children[2] || null);
+      setTimeout(() => alertEl.remove(), 6000);
+    }
+    SD.pendingAlert = null;
+  }
 }
 
 // ── Entry point ──────────────────────────────────────────────
@@ -64,6 +148,7 @@ function renderSpeurdokterIntro() {
 
 function sdBeginInvestigation() {
   SD.phase = 'investigate';
+  sdStartDecay();
   renderSpeurdokterGame();
 }
 
@@ -102,7 +187,7 @@ function sdPhaseCompleted(phaseNum) {
 
 function sdPickPhase(num) {
   const pool = sdPhasePool(num);
-  SD.currentOptions = [...pool].sort(() => Math.random() - 0.5).slice(0, 3);
+  SD.currentOptions = [...pool];
   SD.pickedPhase = num;
   renderSpeurdokterGame();
 }
@@ -135,16 +220,34 @@ function sdApplyDecay(inv) {
   }
 }
 
+function sdVitalsStatus() {
+  if (!SD.currentVitals) return 'stable';
+  const v = SD.currentVitals;
+  if (v.gcs <= 9 || v.hr > 145 || (v.bp_sys && v.bp_sys > 220)) return 'critical';
+  if (v.gcs <= 12 || v.hr > 130) return 'warn';
+  return 'stable';
+}
+
+function sdPatientRing() {
+  const s = sdVitalsStatus();
+  return `<div class="sd-pulse-ring ${s}" id="sd-patient-ring">
+    <div class="sd-pulse-core"></div>
+    <div class="sd-pulse-wave"></div>
+  </div>`;
+}
+
 function sdVitalsBar() {
   if (!SD.currentVitals) return '';
-  const v = SD.currentVitals;
+  const v      = SD.currentVitals;
+  const status = sdVitalsStatus();
   const hrWarn  = v.hr > 130;
   const gcsWarn = v.gcs < 12;
-  return `<div class="sd-vitals-bar">
-    <span class="sd-vital${hrWarn  ? ' warn' : ''}">❤ ${v.hr}<small>/min</small></span>
-    <span class="sd-vital">🌡 ${v.temp.toFixed(1)}°</span>
-    <span class="sd-vital${gcsWarn ? ' warn' : ''}">🧠 GCS ${v.gcs}</span>
-    <span class="sd-vital-time">⏱ ${SD.timeUsed}min</span>
+  return `<div class="sd-vitals-bar sd-vitals-${status}" id="sd-vitals-bar">
+    ${sdPatientRing()}
+    <span class="sd-vital${hrWarn  ? ' warn' : ''}" id="sd-vital-hr">❤ <span id="sd-val-hr">${v.hr}</span><small>/min</small></span>
+    <span class="sd-vital" id="sd-vital-temp">🌡 <span id="sd-val-temp">${v.temp.toFixed(1)}</span>°</span>
+    <span class="sd-vital${gcsWarn ? ' warn' : ''}" id="sd-vital-gcs">🧠 GCS <span id="sd-val-gcs">${v.gcs}</span></span>
+    <span class="sd-vital-time">⏱ <span id="sd-val-time">${SD.timeUsed}</span>min</span>
   </div>`;
 }
 
@@ -152,8 +255,9 @@ function sdVitalsBar() {
 
 function renderSpeurdokterGame() {
   const c = SD.case;
-  const canDiagnose = SD.stepsUsed >= 2;
-  const phase1Done = sdPhaseCompleted(1);
+  const canDiagnose  = SD.stepsUsed >= 2;
+  const mustDiagnose = SD.stepsUsed >= SD.maxSteps || SD.remaining.length === 0;
+  const phase1Done   = sdPhaseCompleted(1);
 
   const sdNav = `
     <div class="sd-nav">
@@ -184,10 +288,14 @@ function renderSpeurdokterGame() {
       const count = pool.length;
       const done  = count === 0 && sdPhaseCompleted(ph.num);
       const risky = !phase1Done && SD_OOO_PENALTY[ph.num] && count > 0;
-      const onclick = count > 0 ? `onclick="sdPickPhase(${ph.num})"` : '';
+      const clickable = count > 0 && !mustDiagnose;
+      const onclick   = clickable ? `onclick="sdPickPhase(${ph.num})"` : '';
 
       let badge, desc;
-      if (done) {
+      if (mustDiagnose && count > 0) {
+        badge = `<span class="sd-phase-badge warn">🔒</span>`;
+        desc  = 'Limiet bereikt';
+      } else if (done) {
         badge = `<span class="sd-phase-badge done">✓</span>`;
         desc  = 'Volledig afgerond';
       } else if (risky) {
@@ -201,7 +309,7 @@ function renderSpeurdokterGame() {
         desc  = ph.desc;
       }
 
-      return `<div class="sd-phase-card${done ? ' done' : ''}${risky ? ' risky' : ''}" ${onclick}>
+      return `<div class="sd-phase-card${done ? ' done' : ''}${risky ? ' risky' : ''}${mustDiagnose && count > 0 ? ' done' : ''}" ${onclick}>
         <div class="sd-phase-num">${ph.num}</div>
         <div class="sd-phase-info">
           <div class="sd-phase-name">${ph.icon} ${ph.name}</div>
@@ -216,13 +324,14 @@ function renderSpeurdokterGame() {
         <div class="sd-wrap">
           ${sdNav}
           ${sdClueStrip()}
+          ${mustDiagnose ? `<div class="sd-limit-banner">🎯 ${SD.maxSteps} onderzoeken gedaan — stel nu uw diagnose</div>` : ''}
           <div class="sd-section-label" style="margin-bottom:0.6rem">Klinische aanpak</div>
           <div class="sd-phase-cards fade-in">${cards}</div>
           <div class="sd-diag-wrap">
-            <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
+            <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose || mustDiagnose ? '' : 'disabled'}>
               Diagnose stellen →
             </button>
-            ${!canDiagnose ? '<div class="sd-diag-hint">Doe eerst minimaal 2 onderzoeken</div>' : ''}
+            ${!canDiagnose && !mustDiagnose ? '<div class="sd-diag-hint">Doe eerst minimaal 2 onderzoeken</div>' : ''}
           </div>
         </div>
       </div>`;
@@ -259,6 +368,7 @@ function renderSpeurdokterGame() {
 }
 
 function sdPickInvestigation(id) {
+  if (SD.stepsUsed >= SD.maxSteps) { sdStartDiagnosis(); return; }
   const inv = SD.case.investigations.find(i => i.id === id);
   if (!inv) return;
 
@@ -426,6 +536,7 @@ function sdContinueInvestigation() {
 // ── Diagnosis screen ──────────────────────────────────────────
 
 function sdStartDiagnosis() {
+  sdStopDecay();
   SD.phase = 'diagnose';
   renderSpeurdokterDiagnosis();
 }
@@ -468,17 +579,9 @@ function sdSubmitDiagnosis(idx) {
     if (wrongBtn) wrongBtn.classList.add('wrong');
   }
 
-  // Final score
-  let bonus = 0;
-  if (correct) {
-    bonus += 50;
-    if (SD.stepsUsed <= 2) bonus += 80;
-    else if (SD.stepsUsed <= 3) bonus += 50;
-    else if (SD.stepsUsed <= 4) bonus += 25;
-  } else {
-    bonus = -50;
-  }
-  SD.score = Math.max(0, SD.score + bonus);
+  // Diagnose-score — snelheidsbonus wordt toegekend na de behandelstap
+  const diagBonus = correct ? 50 : -50;
+  SD.score = Math.max(0, SD.score + diagBonus);
   SD.chosenIdx = idx;
   SD.phase = 'done';
 
@@ -492,15 +595,17 @@ function sdSubmitDiagnosis(idx) {
     timeUsed: SD.timeUsed,
     clues: SD.clues,
     outcome: correct ? null : 'wrong_diagnosis',
-    phase: correct && c.treatment ? 'treatment' : 'done',
+    phase: c.treatment ? 'treatment' : 'done',
   };
-  saveDetectiveRecord(rec);
+  saveDetectiveRecord(c.id, rec);
 
-  if (correct && c.treatment) {
+  if (c.treatment) {
+    // Altijd behandelscherm — ook bij foute diagnose (dubbel leermoment)
     setTimeout(() => renderSpeurdokterTreatment(rec), 700);
   } else {
     rec.phase = 'done';
-    saveDetectiveRecord(rec);
+    saveDetectiveRecord(c.id, rec);
+    sdUnlockNext(c.id);
     setTimeout(() => renderSpeurdokterReveal(rec), 700);
   }
 }
@@ -511,8 +616,14 @@ function renderSpeurdokterTreatment(rec) {
   const c = SD.case;
   const t = c.treatment;
   const correctLabel = c.diagnosis.options[c.diagnosis.correct];
+  const chosenLabel  = c.diagnosis.options[rec.chosenIdx] || '?';
 
-  const verdict = `<div class="sd-mgmt-verdict correct">✓ Juiste diagnose: ${escHtml(correctLabel)}</div>`;
+  const verdict = rec.correct
+    ? `<div class="sd-mgmt-verdict correct">✓ Juiste diagnose: ${escHtml(correctLabel)}</div>`
+    : `<div class="sd-mgmt-verdict wrong">
+        ✗ Uw diagnose was onjuist — u koos: ${escHtml(chosenLabel)}
+        <div class="sd-mgmt-correct-reveal">De werkelijke diagnose: <strong>${escHtml(correctLabel)}</strong></div>
+       </div>`;
 
   const options = t.options.map((opt, i) =>
     `<button class="sd-diag-option" onclick="sdSubmitTreatment(${i})" data-i="${i}">${escHtml(opt.label)}</button>`
@@ -523,7 +634,7 @@ function renderSpeurdokterTreatment(rec) {
       <div class="sd-wrap">
         <div class="sd-nav">
           <span></span>
-          <span class="sd-nav-title">Behandeling</span>
+          <span class="sd-nav-title">💊 Behandeling</span>
         </div>
         <div class="sd-diag-card fade-in">
           ${verdict}
@@ -547,22 +658,34 @@ function sdSubmitTreatment(idx) {
     document.querySelector(`.sd-diag-option[data-i="${idx}"]`)?.classList.add('wrong');
   }
 
-  // Determine outcome from option, then check too_late
-  let outcome = t.options[idx].outcome || (correct ? 'saved' : 'wrong_treatment');
-  const tooLateMin = c.vitals_decay?.too_late_after;
-  if (outcome === 'saved' && tooLateMin && SD.timeUsed > tooLateMin) {
-    outcome = 'too_late';
+  // Outcome: bij foute diagnose altijd wrong_diagnosis, ongeacht behandeling
+  const rec = loadDetectiveRecord();
+  let outcome;
+  if (!rec.correct) {
+    outcome = 'wrong_diagnosis';
+  } else {
+    outcome = t.options[idx].outcome || (correct ? 'saved' : 'wrong_treatment');
+    const tooLateMin = c.vitals_decay?.too_late_after;
+    if (outcome === 'saved' && tooLateMin && SD.timeUsed > tooLateMin) {
+      outcome = 'too_late';
+    }
   }
 
-  if (correct) SD.score = Math.max(0, SD.score + 20);
-
-  const rec = loadDetectiveRecord();
+  // Bonus alleen bij correcte diagnose + correcte behandeling
+  if (rec.correct && correct) {
+    let speedBonus = 0;
+    if (SD.stepsUsed <= 2) speedBonus = 80;
+    else if (SD.stepsUsed <= 3) speedBonus = 50;
+    else if (SD.stepsUsed <= 4) speedBonus = 25;
+    SD.score = Math.max(0, SD.score + 20 + speedBonus);
+  }
   rec.score = SD.score;
   rec.treatmentIdx = idx;
   rec.treatmentCorrect = correct;
   rec.outcome = outcome;
   rec.phase = 'done';
-  saveDetectiveRecord(rec);
+  saveDetectiveRecord(c.id, rec);
+  sdUnlockNext(c.id);
 
   setTimeout(() => renderSpeurdokterReveal(rec), 700);
 }
@@ -666,6 +789,8 @@ function renderSpeurdokterReveal(rec) {
           ${oc.lesson ? `<div class="sd-outcome-lesson">💡 ${escHtml(oc.lesson)}</div>` : ''}
         </div>` : ''}
 
+        ${sdClinicalFrameworkHTML(c)}
+
         ${memoryHtml}
 
         ${clueChips ? `<div class="sd-clues-section fade-in-3">
@@ -694,6 +819,57 @@ function renderSpeurdokterReveal(rec) {
   sdStartCountdown();
 }
 
+function sdClinicalFrameworkHTML(c) {
+  const cf = c.clinical_framework;
+  if (!cf) return '';
+
+  const redFlagsHtml = cf.red_flags?.length
+    ? `<div class="sd-cf-section">
+        <div class="sd-cf-subhead">🚩 Herken het direct aan</div>
+        <ul class="sd-cf-list">
+          ${cf.red_flags.map(f => `<li class="sd-cf-flag">${escHtml(f)}</li>`).join('')}
+        </ul>
+      </div>`
+    : '';
+
+  const fastestHtml = cf.fastest_test
+    ? `<div class="sd-cf-section">
+        <div class="sd-cf-subhead">⚡ Snelste bevestiging</div>
+        <div class="sd-cf-fastest">
+          <div class="sd-cf-fastest-name">${escHtml(cf.fastest_test.name)}</div>
+          <div class="sd-cf-fastest-why">${escHtml(cf.fastest_test.why)}</div>
+        </div>
+      </div>`
+    : '';
+
+  const excludeHtml = cf.exclude_by?.length
+    ? `<div class="sd-cf-section">
+        <div class="sd-cf-subhead">❌ Differentiaal uitsluiten</div>
+        ${cf.exclude_by.map(e => `
+          <div class="sd-cf-excl-row">
+            <div class="sd-cf-excl-diag">${escHtml(e.diagnosis)}</div>
+            <div class="sd-cf-excl-how">${escHtml(e.how)}</div>
+          </div>`).join('')}
+      </div>`
+    : '';
+
+  const goldenHtml = cf.golden_rule
+    ? `<div class="sd-cf-golden">
+        <span class="sd-cf-golden-star">⭐</span>
+        <span>${escHtml(cf.golden_rule)}</span>
+      </div>`
+    : '';
+
+  return `<div class="sd-framework-card fade-in-3">
+    <div class="sd-framework-title">🎯 Klinisch Kader</div>
+    <div class="sd-framework-pres">${escHtml(cf.presentation)}</div>
+    ${redFlagsHtml}
+    ${fastestHtml}
+    ${excludeHtml}
+    ${goldenHtml}
+  </div>`;
+}
+
 function sdStartCountdown() {
   const tick = () => {
     const el = document.getElementById('sdCountdown');
@@ -712,6 +888,7 @@ function sdStartCountdown() {
 }
 
 function sdQuit() {
+  sdStopDecay();
   showHome();
 }
 
@@ -741,17 +918,19 @@ function sdStars(n) {
 function startSpeurdokterCase(caseId) {
   const c = DETECTIVE_CASES.find(x => x.id === caseId);
   if (!c) return;
-  const today = getTodayStr();
-  const rec = loadDetectiveRecord();
+  if (!sdGetUnlocked().includes(caseId)) return;
 
-  if (rec && rec.caseId === c.id && rec.phase === 'done') {
+  const today = getTodayStr();
+  const rec = loadDetectiveRecord(caseId);
+
+  if (rec && rec.phase === 'done') {
     SD = { case: c, chosenIdx: rec.chosenIdx };
     renderSpeurdokterReveal(rec);
     return;
   }
 
   SD = {
-    case: c, phase: 'intro', stepsUsed: 0, maxSteps: 5, score: 0,
+    case: c, phase: 'intro', stepsUsed: 0, maxSteps: c.maxActions || 6, score: 0,
     clues: [], remaining: c.investigations.map(i => i.id),
     pickedPhase: null, currentOptions: [], lastResult: null,
     date: today, chosenIdx: -1, timeUsed: 0,
@@ -762,25 +941,39 @@ function startSpeurdokterCase(caseId) {
 }
 
 function renderSpeurdokterTab() {
-  const today = getTodayStr();
-  const rec = loadDetectiveRecord();
+  const today    = getTodayStr();
+  const unlocked = sdGetUnlocked();
 
   const cards = DETECTIVE_CASES.map((c, idx) => {
-    const isToday = c.date === today;
-    const played = rec && rec.caseId === c.id && rec.phase === 'done';
-    const stars = sdStars(c.difficulty);
-    const animClass = `fade-in-${idx + 1}`;
+    const isUnlocked = unlocked.includes(c.id);
+    const rec        = loadDetectiveRecord(c.id);
+    const played     = rec && rec.phase === 'done';
+    const isToday    = c.date === today;
+    const stars      = sdStars(c.difficulty);
+    const animClass  = `fade-in-${Math.min(idx + 1, 5)}`;
 
-    if (played) {
-      return `<div class="sd-home-card played ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
-        <div class="sd-home-solved">✓ OPGELOST</div>
-        <div class="sd-home-title">${escHtml(c.title)}</div>
-        <div class="sd-home-meta">${stars} · ${rec.score} pt · ${rec.stepsUsed} stappen</div>
-        <div class="sd-home-cta">Bekijk uitleg →</div>
+    if (!isUnlocked) {
+      const prevTitle = DETECTIVE_CASES[idx - 1]?.title || 'vorige zaak';
+      return `<div class="sd-home-card sd-home-locked ${animClass}">
+        <div class="sd-home-lock-icon">🔒</div>
+        <div class="sd-home-title sd-home-locked-title">${escHtml(c.title)}</div>
+        <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
+        <div class="sd-home-locked-hint">Voltooi '${escHtml(prevTitle)}' om te ontgrendelen</div>
       </div>`;
     }
+
+    if (played) {
+      const outcomeIcon = { saved: '✅', wrong_diagnosis: '❌', wrong_treatment: '⚠️', patient_harmed: '💀', too_late: '⏰' }[rec.outcome] || '✓';
+      return `<div class="sd-home-card played ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
+        <div class="sd-home-solved">${outcomeIcon} OPGELOST</div>
+        <div class="sd-home-title">${escHtml(c.title)}</div>
+        <div class="sd-home-meta">${stars} · ${rec.score} pt · ${rec.stepsUsed} stappen</div>
+        <div class="sd-home-cta">Bekijk debriefing →</div>
+      </div>`;
+    }
+
     return `<div class="sd-home-card ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
-      <div class="sd-home-eyebrow">${isToday ? 'Vandaag' : escHtml(c.date)}</div>
+      <div class="sd-home-eyebrow">${isToday ? '📅 Vandaag' : escHtml(c.domain?.toUpperCase() || c.date)}</div>
       <div class="sd-home-title">${escHtml(c.title)}</div>
       <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
       <div class="sd-home-cta">Begin onderzoek →</div>
@@ -795,9 +988,9 @@ function renderSpeurdokterTab() {
     ${cards}
     <div class="sd-how-card fade-in">
       <div class="sd-how-title">Hoe werkt het?</div>
-      <div class="sd-how-step"><span class="sd-how-icon">🔬</span><span>Kies welke onderzoeken je wilt doen</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">📋</span><span>Verzamel bewijs en bouw een beeld op</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">🎯</span><span>Stel diagnose zodra je het weet</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">⚡</span><span>Minder stappen = hogere score</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">🔬</span><span>Max 6 onderzoeken — kies verstandig</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">🎯</span><span>Stel diagnose + behandeling</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">📋</span><span>Debriefing: leer hoe je snel uitsluit</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">🔓</span><span>Voltooi een zaak om de volgende te openen</span></div>
     </div>`;
 }

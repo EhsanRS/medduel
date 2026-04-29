@@ -355,7 +355,35 @@ const DETECTIVE_CASES = [
     imagePrompts: {
       'mri_rabies_brainste.png': 'Generate a realistic brain MRI axial slice (T2/FLAIR sequence) showing subtle bilateral T2-hyperintensity in the brainstem and basal ganglia, consistent with viral encephalitis. Medical education quality, standard greyscale MRI appearance, no text labels on the image.',
       'ecg_sinus_tachy.png': 'Generate a realistic 12-lead ECG printout showing sinus tachycardia at 110 bpm with no other abnormalities. Standard ECG paper with light pink grid lines, professional hospital quality.'
-    }
+    },
+
+    clinical_framework: {
+      presentation: 'Gedragsverandering + agitatie + hydrofobia na diercontact in endemisch land',
+      red_flags: [
+        'Hydrofobia of aerofobia — faryngospasme bij zien of aanraken van water',
+        'Tweefasig beloop: griepachtig prodroom (1–2 wk) → acute encefalitis',
+        'Diercontact (beet, lik, krab) in Azië, Afrika of Latijns-Amerika zonder PEP',
+      ],
+      fastest_test: {
+        name: 'Hydrofobia testen — bied een glas water aan',
+        why: 'Kosten: nul. Tijd: 30 seconden. Positief bij >80% van rabiës-encefalitis. Faryngospasme bij het zien of aanraken van water is klinisch vrijwel bewijzend en onderscheidt rabiës van alle andere encefalitiden.',
+      },
+      exclude_by: [
+        {
+          diagnosis: 'Tetanus',
+          how: 'Trismus (kaakklem) en opisthotonus staan centraal. Géén hydrofobia, géén gedragsverandering. Vraag naar wond met ijzer of aarde, vaccinatiestatus.',
+        },
+        {
+          diagnosis: 'HSV-encefalitis',
+          how: 'Geen diercontact nodig. MRI: temporale T2-hyperintensiteit. Acuut begin, hoge koorts. Liquor-PCR voor HSV bevestigt. Start empirisch aciclovir terwijl je wacht.',
+        },
+        {
+          diagnosis: 'Cryptococcen-meningitis',
+          how: 'Subacuut beloop over weken. Vrijwel altijd immunosuppressie (hiv, transplantaat). Liquor: inktpreparaat positief, hoge openingsdruk. Géén hydrofobia.',
+        },
+      ],
+      golden_rule: 'Elk diercontact in een endemisch land — ook een lik of schram — is een PEP-indicatie. Na symptoomonset bestaat géén curatieve behandeling. Rabiës is vrijwel 100% fataal na de prodromale fase.',
+    },
   },
 
   {
@@ -556,5 +584,297 @@ const DETECTIVE_CASES = [
           ] }
       },
     ],
+
+    clinical_framework: {
+      presentation: 'Jonge patiënt met episodische hypertensie + triade hoofdpijn–zweten–hartkloppingen',
+      red_flags: [
+        'Paroxismaal karakter: plotseling begin, snel voorbij — aanval duurt 15–60 min',
+        'De klassieke triade: hoofdpijn + zweten + hartkloppingen tijdens een aanval',
+        'Nachtelijke aanvallen (spontane catecholamine-uitstoot wekt patiënt)',
+        'Jonge leeftijd met ernstige of onverklaarbare hypertensie',
+      ],
+      fastest_test: {
+        name: 'Plasma-metanefrinen (nuchter bloedafname)',
+        why: 'Sensitiviteit >99%. Een normaal resultaat sluit feochromocytoom vrijwel zeker uit. Eén bloedafname volstaat — geen provocatietest. Let op vals-positief bij stress, SSRI, TCA of cafeïne.',
+      },
+      exclude_by: [
+        {
+          diagnosis: 'Paniekstoornis',
+          how: 'Plasma-metanefrinen normaal. Bij paniekstoornis gaat angst vooraf aan de aanval; bij feochromocytoom volgt angst ná de catecholamine-uitstoot. Hypertensie van 178/106 is niet verklaarbaar door primaire angst.',
+        },
+        {
+          diagnosis: 'Hyperthyreoïdie',
+          how: 'TSH verlaagd, vrij T4 verhoogd. Klachten zijn chronisch aanwezig, niet episodisch. Geen paroxismale hypertensie. Bijkomend: gewichtsverlies, hitte-intolerantie, tremor.',
+        },
+        {
+          diagnosis: 'Primaire hypertensie',
+          how: 'Bij jonge patiënt altijd secundaire oorzaken uitsluiten vóór primaire hypertensie te stellen. Plasma-metanefrinen + aldosteron/renine-ratio. Primaire hypertensie is een uitsluitingsdiagnose.',
+        },
+      ],
+      golden_rule: 'ALFA vóór BETA. Een bètablokker zonder voorafgaande alfablokkade bij feochromocytoom veroorzaakt een levensgevaarlijke hypertensieve crisis door onafgeschermde vasoconstrictie. Fenoxybenzamine minimaal 10–14 dagen vóór chirurgie.',
+    },
+  },
+
+  {
+    id: 'sd-03',
+    date: '2026-05-01',
+    title: 'De Jongen Die Neerviel Op Het Veld',
+    difficulty: 4,
+    domain: 'cardio',
+    patient: 'Man, 17 jaar',
+    urgency: 'high',
+    maxActions: 6,
+    decay_interval_sec: 15,
+
+    vitals_baseline: {
+      hr: 44, bp_sys: 86, bp_dia: 52, temp: 37.0, spo2: 96, gcs: 13, status: 'unstable',
+    },
+
+    vitals_decay: {
+      per_action: { hr: -2, bp_sys: -4, temp: 0, gcs: -1 },
+      triggers: [
+        { field: 'bp_sys', above: false, threshold: 70, message: '🚨 Bloeddruk kritisch laag — gevaar voor cardiogene shock.' },
+        { field: 'gcs',    above: false, threshold: 10, message: '⚠ Bewustzijn daalt snel — patiënt reageert nauwelijks meer.' },
+      ],
+      too_late_after: 90,
+    },
+
+    intro: 'Een 17-jarige voetballer wordt van het veld gedragen. Zijn teamgenoten zagen hem tijdens een sprint plotseling bewusteloos neervallen — geen struikelen, geen contact. Vijf seconden buiten bewustzijn, daarna vanzelf bijgekomen. Hij zit nu op de bank: bleek, zwetend, verward. De trainer zegt: "Dit is de derde keer dit seizoen dat hij duizelig werd. Maar zo erg als nu is het nog nooit geweest."',
+
+    investigations: [
+      {
+        id: 'vitals', phase: 1, time_cost: 5,
+        label: 'Vitale functies meten', category: 'physical', icon: '🩺', useful: true, points: 15,
+        result: {
+          type: 'text', badge: 'useful', summary: 'Lage bloeddruk · bradycardie · SpO₂ borderline',
+          text: 'HR 44/min · BD 86/52 mmHg · T 37.0°C · SpO₂ 96% · RR 16/min',
+          note: 'Bradycardie en hypotensie ná inspanning bij een jongere atleet is alarmerend. Dit is geen uitputting.',
+          findings: [
+            'Bleek en klam — niet hyperemisch zoals verwacht na inspanning',
+            'Verwardheid: antwoordt traag, weet niet goed waar hij is',
+            'Geen zichtbaar letsel van de val',
+          ],
+        },
+      },
+      {
+        id: 'bewustzijn', phase: 2, time_cost: 8,
+        label: 'Wat is er precies gebeurd?', category: 'history', icon: '📋', useful: true, points: 15,
+        result: {
+          type: 'quote', badge: 'useful', summary: 'Syncope tijdens inspanning — geen prodroom',
+          text: '"Ik voelde niks aankomen. Ik was aan het sprinten en toen... werd alles zwart. Geen hartkloppingen, geen tintelingen. Ik weet niet hoe ik op de grond terecht ben gekomen."',
+          note: 'Syncope TIJDENS inspanning is een alarmsignaal. Vasovagale syncope treedt typisch ná inspanning op — dit wijst op een hemodynamisch probleem dat bij belasting verergert.',
+        },
+      },
+      {
+        id: 'familie', phase: 2, time_cost: 8,
+        label: 'Familiegeschiedenis navragen', category: 'history', icon: '👨‍👩‍👦', useful: true, points: 30,
+        result: {
+          type: 'quote', badge: 'eureka', summary: 'Oom plotseling gestorven op 33-jarige leeftijd tijdens sport',
+          text: '"Mijn oom — de broer van mijn vader — is op zijn 33e plotseling gestorven. Hij was aan het hardlopen. Ze hebben nooit precies gezegd wat er was. Mijn vader heeft ook soms hartkloppingen, maar die zegt dat het niks is."',
+          note: 'Plotse hartdood bij een eerstegraads familielid tijdens sport is een sterke aanwijzing voor erfelijke cardiomyopathie. Dit verandert de klinische prioriteit volledig.',
+        },
+      },
+      {
+        id: 'klachten_eerder', phase: 2, time_cost: 6,
+        label: 'Eerdere inspanningsklachten?', category: 'history', icon: '🏃', useful: true, points: 15,
+        result: {
+          type: 'quote', badge: 'useful', summary: 'Recidiverende duizeligheid bij sport — al maanden genegeerd',
+          text: '"Ja, eigenlijk al een paar maanden. Als ik hard loop, word ik soms licht in mijn hoofd. Maar dat had ik altijd na twee minuten rust weer over. Ik dacht dat ik gewoon niet fit genoeg was."',
+          note: 'Progressieve inspanningsgerelateerde symptomen die stelselmatig zijn genegeerd — een klassiek patroon bij jonge patiënten met HCM.',
+        },
+      },
+      {
+        id: 'medicatie', phase: 2, time_cost: 3,
+        label: 'Medicatie en middelengebruik?', category: 'history', icon: '💊', useful: false, points: -8,
+        result: {
+          type: 'quote', badge: 'not', summary: 'Geen medicatie, geen doping',
+          text: '"Nee, helemaal niets. Alleen soms eiwitshakes."',
+          note: 'Geen farmacologische verklaring. Tijdsverlies.',
+        },
+      },
+      {
+        id: 'auscultatie', phase: 3, time_cost: 8,
+        label: 'Hart ausculteren', category: 'physical', icon: '🫀', useful: true, points: 25,
+        result: {
+          type: 'text', badge: 'key', summary: 'Geruis graad 3/6 — neemt toe bij opstaan',
+          text: 'Links sternaal: ruw systolisch geruis graad 3/6. Bij opstaan uit liggende positie neemt het geruis duidelijk toe. Bij hurken wordt het zachter. Geen uitstraling naar de hals.',
+          note: 'Een geruis dat TOENEEMT bij opstaan/Valsalva en AFNEEMT bij hurken is pathognomonisch voor dynamische LVOT-obstructie — het kenmerk van hypertrofische cardiomyopathie.',
+          findings: [
+            'Toename bij opstaan: dynamische obstructie door verlaagde preload',
+            'Afname bij hurken: toegenomen preload vermindert obstructie',
+            'Geen uitstraling naar carotiden: geen aortaklep-origine',
+          ],
+        },
+      },
+      {
+        id: 'pols_palpatie', phase: 3, time_cost: 5,
+        label: 'Pols palperen', category: 'physical', icon: '✋', useful: true, points: 10,
+        result: {
+          type: 'text', badge: 'useful', summary: 'Bisferiëns pols palpeerbaar',
+          text: 'Arteria radialis: bisferiëns pols — twee pieken per hartslag voelbaar. Eerste piek normaal, tweede piek na partiële obstructie.',
+          note: 'De bisferiëns pols is een zeldzame maar specifieke bevinding bij hypertrofische obstructieve cardiomyopathie.',
+        },
+      },
+      {
+        id: 'neurologie', phase: 3, time_cost: 6,
+        label: 'Neurologisch onderzoek', category: 'physical', icon: '🔨', useful: false, points: -10,
+        result: {
+          type: 'text', badge: 'not', summary: 'Geen focale uitval — verwardheid is hemodynamisch',
+          text: 'Geen asymmetrie gelaat. Pupillen gelijk en reagerend. Lichte oriëntatiestoornis. Geen pathologische reflexen.',
+          note: 'De verwardheid is hemodynamisch van origine, niet neurologisch. Neurologisch onderzoek levert hier niets op.',
+        },
+      },
+      {
+        id: 'ecg', phase: 4, time_cost: 8,
+        label: 'ECG maken', category: 'imaging', icon: '📈', useful: true, points: 25,
+        result: {
+          type: 'imaging', badge: 'key', summary: 'LVH + diepe septale Q-golven — geen STEMI',
+          text: 'Sinusritme 44/min. LVH-criteria (Sokolow-Lyon >35mm). Diepe smalle Q-golven in II, III, aVF en V5-V6. Diffuse ST-veranderingen zonder lokaliseerbaar infarctpatroon. Geen delta-golven.',
+          note: 'ECG is bij 75-95% van HCM-patiënten abnormaal. De diepe Q-golven lijken op een oud infarct maar zijn te smal en de leeftijd klopt niet.',
+          img: 'ecg_hcm.png',
+          findings: [
+            'LVH: Sokolow-Lyon ruim boven grens',
+            'Diepe smalle Q-golven II/III/aVF/V5-V6: septale hypertrofie',
+            'Geen delta-golven: WPW uitgesloten',
+            'Geen STEMI-patroon: acuut coronair syndroom onwaarschijnlijk',
+          ],
+        },
+      },
+      {
+        id: 'echo', phase: 4, time_cost: 30,
+        label: 'Echocardiografie aanvragen', category: 'imaging', icon: '❤️', useful: true, points: 35,
+        result: {
+          type: 'imaging', badge: 'eureka', summary: 'Septumdikte 22mm + SAM mitralisklep',
+          text: 'Asymmetrische septumhypertrofie: septum 22mm (normaal <12mm), achterwand 11mm. Systolische anterieurbeweging (SAM) van de anterieure mitralisklap. LVOT-gradiënt in rust 52mmHg (significant bij >30mmHg). EF 72%.',
+          note: 'Gouden standaard voor HCM. SAM van de mitralisklap veroorzaakt de dynamische LVOT-obstructie en het kenmerkende geruis.',
+          img: 'echo_hcm.png',
+          findings: [
+            'Septumdikte 22mm: ernstige asymmetrische hypertrofie',
+            'SAM mitralisklap: oorzaak van dynamische LVOT-obstructie',
+            'LVOT-gradiënt 52mmHg: hemodynamisch significant',
+            'EF 72%: hyperdynamische functie — typisch voor HCM',
+          ],
+        },
+      },
+      {
+        id: 'troponine', phase: 4, time_cost: 20,
+        label: 'Troponine + bloedbeeld', category: 'lab', icon: '🔬', useful: true, points: 10,
+        result: {
+          type: 'labs', badge: 'useful', summary: 'Licht verhoogd troponine — myocardiale stress, geen infarct',
+          note: 'Lichte troponine-stijging past bij stress door obstructie, niet bij een acuut coronair syndroom. Bloedbeeld normaal.',
+          labs: [
+            { name: 'Troponine I',  value: 0.08, unit: 'µg/L',  status: 'high', ref: '<0.04'   },
+            { name: 'CK-MB',       value: 18,   unit: 'U/L',    status: 'ok',   ref: '<25'     },
+            { name: 'Hemoglobine', value: 9.1,  unit: 'mmol/L', status: 'ok',   ref: '8.5–11.0'},
+            { name: 'Kalium',      value: 4.1,  unit: 'mmol/L', status: 'ok',   ref: '3.5–5.0' },
+          ],
+        },
+      },
+      {
+        id: 'glucose', phase: 4, time_cost: 5,
+        label: 'Bloedglucose prikken', category: 'lab', icon: '🩸', useful: false, points: -8,
+        result: {
+          type: 'labs', badge: 'not', summary: 'Glucose normaal',
+          note: 'Hypoglykemie als oorzaak van syncope is hier niet het geval. Tijdsverlies.',
+          labs: [
+            { name: 'Glucose', value: 5.2, unit: 'mmol/L', status: 'ok', ref: '4.0–6.0' },
+          ],
+        },
+      },
+    ],
+
+    diagnosis: {
+      prompt: 'Wat is uw diagnose?',
+      options: [
+        'Hypertrofische cardiomyopathie (HCM)',
+        'Aortastenose',
+        'Vasovagale syncope',
+        'Epileptisch insult',
+      ],
+      correct: 0,
+      explanation: 'Hypertrofische cardiomyopathie is de meest voorkomende oorzaak van plotse hartdood bij jonge atleten (<35 jaar) in Europa. Sleutelbevindingen hier: syncope TIJDENS inspanning, positieve familieanamnese voor plotse hartdood bij sport, systolisch geruis dat toeneemt bij Valsalva, ECG met LVH en diepe septale Q-golven, en echo met septumdikte 22mm + SAM + LVOT-gradiënt 52mmHg.',
+      wiki: 'HCM is een autosomaal dominante aandoening (sarcomeer-mutaties: MYBPC3, MYH7). Prevalentie 1:500. Pathofysiologie: diastolische disfunctie + dynamische LVOT-obstructie (verergert bij verlaagde preload, verhoogde contractiliteit, verlaagde afterload). Plotse hartdood door ventrikelfibrilleren, getriggerd door inspanning. Behandeling: bètablokker of verapamil voor symptoomcontrole; ICD bij hoog risico (doorgemaakt VF, familieanamnese plotse hartdood, onverklaarde syncope, LVOT-gradiënt >30mmHg, niet-aanhoudende VT). Competitief sporten gecontra-indiceerd.',
+    },
+
+    treatment: {
+      prompt: 'HCM bevestigd, BD 82/48. Wat geeft u als eerste?',
+      options: [
+        { label: 'NaCl 0,9% 500mL IV bolus + bewaking + cardiologisch consult', outcome: 'saved'          },
+        { label: 'Nitraten sublinguaal voor mogelijke myocardiale ischemie',      outcome: 'patient_harmed' },
+        { label: 'Furosemide IV — longoedeem voorkomen',                          outcome: 'patient_harmed' },
+        { label: 'Adenosine IV voor de bradycardie',                              outcome: 'wrong_treatment'},
+      ],
+      correct: 0,
+      explanation: 'HCM met LVOT-obstructie is preload-afhankelijk: vocht verhoogt preload en vermindert obstructie. Nitraten en diuretica verlagen preload en verergeren de obstructie catastrofaal. Adenosine bij bradycardie zonder SVT kan asystolie uitlokken.',
+    },
+
+    outcomes: {
+      saved: {
+        title: 'Patiënt gered',
+        story: 'Na vochtsuppletie stijgt de bloeddruk naar 102/64. De patiënt klaart op. Cardiologisch consult bevestigt de echo. Competitief sporten gestopt. Drie weken later krijgt hij een ICD. Zijn vader wordt ook doorverwezen — ook bij hem wordt HCM gevonden. U heeft waarschijnlijk twee levens gered.',
+        lesson: 'HCM met LVOT-obstructie is preload-afhankelijk. Vocht geeft — nitraten/diuretica zijn gevaarlijk.',
+      },
+      wrong_diagnosis: {
+        title: 'Diagnose gemist',
+        story: 'U stuurt hem naar huis met "vasovagale syncope door uitputting". Vier weken later overlijdt hij tijdens training aan ventrikelfibrilleren. Sectie toont een septum van 24mm. De diagnose was er al maanden.',
+        lesson: 'Syncope TIJDENS inspanning bij een jongere is een cardiologische noodsituatie. Altijd ECG + echo. Nooit vasovagaal zonder echo uitsluiten.',
+      },
+      wrong_treatment: {
+        title: 'Verkeerde behandeling',
+        story: 'Adenosine IV. De hartslag daalt naar 24/min. Bloeddruk onmeetbaar. Reanimatie gestart. Na 14 minuten terugkeer van circulatie — met ernstige hypoxische hersenschade.',
+        lesson: 'Adenosine bij bradycardie zonder SVT kan asystolie geven. Lees altijd het ritme op het ECG voordat u adenosine overweegt.',
+      },
+      patient_harmed: {
+        title: 'Fatale behandelingsfout',
+        story: 'Nitraten of furosemide gegeven. Binnen 90 seconden bloeddruk 48/30. LVOT-obstructie neemt catastrofaal toe. VF op de monitor. Reanimatie mislukt.',
+        lesson: 'Bij HCM met LVOT-obstructie zijn preload-verlagende middelen absoluut gecontra-indiceerd. Dit is een van de gevaarlijkste vergissingen in de acute cardiologie.',
+      },
+      too_late: {
+        title: 'Te laat ingegrepen',
+        story: 'Terwijl het onderzoek doorging daalde de bloeddruk ongemerkt verder. VF op de monitor — te laat voor gecontroleerde interventie. Reanimatie niet succesvol.',
+        lesson: 'Bij lage bloeddruk + syncope bij een jongere: snel handelen. Elke minuut zonder interventie vergroot het risico op fatale aritmie.',
+      },
+    },
+
+    memory: [
+      'Syncope TIJDENS inspanning (niet erna) = cardiaal alarmsignaal. Altijd ECG + echo, stop sport.',
+      'Geruis dat TOENEEMT bij Valsalva/opstaan en AFNEEMT bij hurken: dynamische LVOT-obstructie → HCM.',
+      'HCM is preload-afhankelijk: geef vocht. Nitraten en diuretica zijn gevaarlijk en potentieel fataal.',
+      'ECG bij HCM: LVH + diepe smalle Q-golven in inferieure afleidingen. Bijna altijd abnormaal.',
+    ],
+
+    clinical_framework: {
+      presentation: 'Syncope tijdens inspanning bij een jongere atleet met systolisch geruis',
+      red_flags: [
+        'Syncope TIJDENS inspanning — niet erna (vasovagaal treedt altijd ná inspanning op)',
+        'Positieve familieanamnese: plotse hartdood bij familielid <50 jaar tijdens sport',
+        'Systolisch geruis dat toeneemt bij Valsalva of opstaan',
+        'Recidiverende inspanningsgerelateerde klachten: duizeligheid, palpitaties',
+      ],
+      fastest_test: {
+        name: 'ECG (12 afleidingen)',
+        why: 'Abnormaal bij 75–95% van HCM-patiënten. LVH-criteria + diepe smalle Q-golven in inferieure afleidingen. Tijd: 3 minuten. Sluit WPW uit (delta-golven) en acuut infarct (STEMI-patroon).',
+      },
+      exclude_by: [
+        {
+          diagnosis: 'Vasovagale syncope',
+          how: 'Treedt op ná inspanning, nooit tijdens. Er is een prodroom (misselijkheid, warmtegevoel, zweten). Geen hartgeruis. ECG normaal. Herstel snel en volledig.',
+        },
+        {
+          diagnosis: 'Aortastenose',
+          how: 'Geruis straalt uit naar carotiden. Neemt AF bij Valsalva (fixed obstructie). Patiënten zijn ouder, met calcificatie van de aortaklep op echo.',
+        },
+        {
+          diagnosis: 'Epileptisch insult',
+          how: 'Tongbeet, incontinentie, postictale verwardheid >5 min. Geen hartgeruis. ECG normaal. Aanleiding: lichtflitsen, slaaptekort, koorts.',
+        },
+      ],
+      golden_rule: 'Syncope tijdens inspanning bij een jongere = cardiologische noodsituatie totdat het tegendeel bewezen is. Stop sport. ECG + echocardiografie zijn verplicht vóór hervatting van competitief sporten. Vasovagaal mag nooit worden gediagnosticeerd zonder echo.',
+    },
+
+    imagePrompts: {
+      'ecg_hcm.png': 'Realistic 12-lead ECG showing hypertrophic cardiomyopathy: sinus bradycardia 44bpm, high LVH voltage (Sokolow-Lyon >35mm, tall R waves V5-V6 and deep S waves V1-V2), deep narrow Q waves in leads II, III, aVF, V5, V6 (septal hypertrophy pattern), diffuse ST-T wave changes. Standard ECG paper with light pink gridlines, no patient data, professional hospital quality.',
+      'echo_hcm.png': 'Realistic parasternal long-axis echocardiogram: interventricular septum 22mm (severely thickened), posterior wall 11mm. Systolic anterior motion (SAM) of anterior mitral leaflet visible touching the septum. Small left ventricular cavity, hyperdynamic function. Greyscale ultrasound, medical education quality, no labels.',
+    },
   },
 ];
