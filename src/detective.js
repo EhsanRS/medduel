@@ -597,6 +597,7 @@ function sdSubmitDiagnosis(idx) {
     outcome: correct ? null : 'wrong_diagnosis',
     phase: c.treatment ? 'treatment' : 'done',
   };
+  SD.diagRec = rec;
   saveDetectiveRecord(c.id, rec);
 
   if (c.treatment) {
@@ -659,7 +660,8 @@ function sdSubmitTreatment(idx) {
   }
 
   // Outcome: bij foute diagnose altijd wrong_diagnosis, ongeacht behandeling
-  const rec = loadDetectiveRecord(SD.case.id);
+  const rec = SD.diagRec || loadDetectiveRecord(SD.case.id);
+  if (!rec) return;
   let outcome;
   if (!rec.correct) {
     outcome = 'wrong_diagnosis';
