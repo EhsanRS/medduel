@@ -63,7 +63,7 @@ function lmLoadQ() {
     return;
   }
 
-  const q = queue[idx];
+  const q = shuffleAnswers(queue[idx]);
   LM.currentQ = q;
   LM.answered = false;
   LM.locked = false;

@@ -141,7 +141,7 @@ function dcUpdateHUD() {
 
 function dcLoadQ() {
   if (!DC.active || DC.answered >= 10) return;
-  const q = DC.queue[DC.answered];
+  const q = shuffleAnswers(DC.queue[DC.answered]);
   DC.currentQ = q;
   DC.locked = false;
 

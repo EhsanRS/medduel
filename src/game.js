@@ -195,7 +195,7 @@ function loadQ() {
   if (!G.active) return;
   if (G.queue.length === 0) { endGame(); return; }
 
-  const q = G.queue.shift();
+  const q = shuffleAnswers(G.queue.shift());
   G.currentQ = q;
   G.locked = false;
 

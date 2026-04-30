@@ -48,7 +48,7 @@ function wkLoadQ() {
   if (WK.idx >= WK.queue.length) { wkEnd(); return; }
 
   WK.locked = false;
-  WK.currentQ = WK.queue[WK.idx];
+  WK.currentQ = shuffleAnswers(WK.queue[WK.idx]);
   const q = WK.currentQ;
 
   document.getElementById('wk-num').textContent = WK.idx + 1;

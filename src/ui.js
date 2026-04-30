@@ -2,6 +2,20 @@
 
 let currentFact = null;
 
+// ── Antwoorden shufflen (werkt op een kopie, muteert niet QUESTIONS) ──
+function shuffleAnswers(q) {
+  if (!q.a || q.type === 'truefalse') return q;
+  const indices = q.a.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return Object.assign({}, q, {
+    a: indices.map(i => q.a[i]),
+    c: indices.indexOf(q.c),
+  });
+}
+
 // ── Toast ──
 function showToast(ok, head, body, fact) {
   currentFact = fact || null;
