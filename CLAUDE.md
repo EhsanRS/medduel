@@ -5,9 +5,10 @@
 > syntaxis checken → SW-versie ophogen in `sw.js` → committen → pushen.
 > Nooit 10 dingen tegelijk. Voor volledig projectoverzicht: lees **BRIEFING.md**.
 
-> **Branch-beleid — ALTIJD direct op `main`.**
-> Geen feature-branches. Commit en push rechtstreeks naar `main`.
-> `git push -u origin main` na elke batch.
+> **Branch-beleid — ALTIJD direct op `main`. GEEN UITZONDERINGEN.**
+> Geen feature-branches. Commit en push rechtstreeks naar `main` na ELKE wijziging of subtaak.
+> `git push -u origin main` na elke batch — ook bij kleine tussentijdse stappen.
+> Dit zorgt dat wijzigingen direct zichtbaar zijn in de webversie.
 
 ## Wat is dit project?
 
