@@ -268,7 +268,29 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Bij een CVA moet altijd een CT-scan gemaakt worden vóór trombolyse om een bloeding uit te sluiten.',
-    c:true, ex:'WAAR. Trombolyse bij hemorrhagisch CVA is fataal. Altijd CT eerst. "Time is brain" — maar veiligheid gaat voor.' },
+    c:true, ex:'WAAR. Trombolyse bij hemorrhagisch CVA is fataal. Altijd CT eerst. "Time is brain" — maar veiligheid gaat voor.',
+    wiki: {
+      kern: 'Trombolyse bij een bloedend CVA is onmiddellijk fataal — het lost stolsels op en verergert de bloeding. CT vóór alteplase is een absolute vereiste, niet optioneel.',
+      redflag: 'Trombolyse bij hemorrhagisch CVA verhoogt de mortaliteit sterk. Nooit beginnen zonder beeldvorming die bloeding uitsluit.',
+      mechanisme: [
+        { title: 'Ischemisch CVA', desc: 'Trombotische of embolische occlusie van een hersenarterie → ischemie → trombolyse lost stolsel op → reperfusie.' },
+        { title: 'Hemorrhagisch CVA', desc: 'Bloedvat is al gebarsten → trombolyse verplaatst stolsel en vergroot bloeding → fatale herniatie.' },
+        { title: 'CT vóór trombolyse', desc: 'Bloed is hyperdensiteit op CT (wit) bij vers hematoom — sluit bloeding uit vóór behandeling.' },
+      ],
+      onderscheid: [
+        { label: 'Ischemisch CVA (85%)', desc: 'CT normaal in eerste 6u. Trombolyse ≤4,5u van start klachten. Embolisch: atriumfibrilleren.', type: 'ok' },
+        { label: 'Hemorrhagisch CVA (15%)', desc: 'CT: hyperdense bloeding. Geen trombolyse. Bloeddrukbehandeling + neurochirurgie overwegen.', type: 'danger' },
+        { label: 'TIA', desc: 'Volledig herstel <24u (meest <1u). Risico op CVA daarna hoog — start DAPT en statine direct.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'CT hersenen direct → bij ischemisch: alteplase 0,9 mg/kg IV ≤4,5u na start klachten.',
+        stappen: [
+          { naam: 'Trombolyse contra-indicaties', detail: 'Recente chirurgie, bloedingsdiathese, BD >185/110, glucose <2.7 of >22, orale anticoagulantia.' },
+          { naam: 'Trombectomie', detail: 'Bij grote vaat-occlusie (M1/ICA): mechanische trombectomie tot 24u bij selecte patiënten.' },
+          { naam: 'Secundaire preventie', detail: 'Aspirine + statine direct na uitsluiting bloeding. Anticoagulantia bij AF.' },
+        ],
+      },
+    } },
 
   // ── NEUROLOGIE — moeilijker ──
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
@@ -302,26 +324,57 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 70j: geheugenverlies, urge-incontinentie, breed-based gang. CT: ventrikelvergroting zonder corticale atrofie. Diagnose?',
     a:['Alzheimer','Normaaldrukhydrocephalus (NPH)','Lewy body dementie','Vasculaire dementie'], c:1,
-    ex:'NPH triade van Hakim: dementie + incontinentie + gangstoornis ("wacky, wet, wobbly"). CT: grote ventrikels, weinig corticale atrofie. Lumbaalpunctie als diagnostische/therapeutische test — verbetering na liquordrainage bevestigt diagnose.' },
+    ex:'NPH triade van Hakim: dementie + incontinentie + gangstoornis ("wacky, wet, wobbly"). CT: grote ventrikels, weinig corticale atrofie. Lumbaalpunctie als diagnostische/therapeutische test — verbetering na liquordrainage bevestigt diagnose.',
+    wiki: {
+      kern: 'Normaaldrukhydrocephalus (NPH) is een behandelbare dementie-oorzaak. De triade van Hakim: loopstoornis (breed-based, "magnetisch") + urge-incontinentie + cognitieve achteruitgang. CT: grote ventrikels zonder corticale atrofie.',
+      redflag: 'NPH is behandelbaar — mis het niet! Verwisseling met Alzheimer is de meest gemaakte fout. Sleutelverschil: CT toont disproportionele ventrikelvergroting zonder corticale atrofie.',
+      mechanisme: [
+        { title: 'Gestoorde liquorresorptie', desc: 'Liquor wordt onvoldoende geresorbeerd (arachnoidale villi) → ventrikeldruk stijgt chronisch → witte stof periventiculair beschadigd.' },
+        { title: 'Triade', desc: 'Frontale witte stof druk → gangstoornis (frontaal gangpatroon). Pericalleuze vezel druk → blaas-incontinentie. Frontale cortex druk → cognitieve traagheid.' },
+        { title: 'Tap-test', desc: 'LP met drainage 30-50 ml liquor → tijdelijke verbetering van gang/cognitie bevestigt diagnose en voorspelt succes van ventrikelshunt.' },
+      ],
+      onderscheid: [
+        { label: 'NPH', desc: 'Triade Hakim + CT grote ventrikels zonder atrofie + tap-test positief. Behandelbaar met ventrikelshunt.', type: 'ok' },
+        { label: 'Alzheimer', desc: 'Geen gangstoornis vroeg, geen incontinentie vroeg. CT: temporopariëtale atrofie. Niet behandelbaar met shunt.', type: 'warn' },
+        { label: 'Vasculaire dementie', desc: 'Trapsgewijs, cardiovasculaire risicofactoren, witte-stofafwijkingen op MRI.', type: 'warn' },
+        { label: 'Parkinson', desc: 'Rusttremor + rigiditeit + bradykinesie. Gang is shufflend maar smal, niet breed-based.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Ventriculoperitoneale (VP) shunt bij tap-test-positieve NPH.',
+        stappen: [
+          { naam: 'Tap-test', detail: 'LP 30-50 ml liquordrainage → meet gangverbetering na 24-48u. Positief = sterk voorspeller shuntsucces.' },
+          { naam: 'Shuntplaatsing', detail: 'VP-shunt draint overschot liquor van ventrikels naar buikholte — verbetert triade bij 70-80% van goede kandidaten.' },
+          { naam: 'Herhaalbare LPs', detail: 'Bij patiënten met shuntrisico: seriële LPs als tijdelijke behandeling.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Bij een epiduraal hematoom is er typisch een lucide interval van uren tussen het initiële trauma en bewustzijnsdaling.',
     c:true, ex:'WAAR. Epiduraal hematoom (arteria meningea media): kort bewustzijnsverlies → lucide interval (arteriële bloeding bouwt langzaam druk op) → snelle deterioratie. Neurochirurgische spoedinterventie levensreddend.',
     wiki:{
-          kern: "Epiduraal hematoom = bloeding tussen schedel en dura, vrijwel altijd arterieel (arteria meningea media bij temporale schedelfractuur). Arteriële druk stuwt het hematoom snel op → tentoriumincarcinatie → ipsilaterale pupildilatatie, contralaterale hemiparese, bewustzijnsdaling.",
-          mechanisme: [
-            { title: "Schedeltrauma", desc: "Temporale fractuur ruptureert de arteria meningea media — arteriële druk pompt bloed in de epidurale ruimte." },
-            { title: "Kort bewustzijnsverlies", desc: "Direct trauma geeft kortdurende hersenschudding met bewustzijnsverlies van seconden tot minuten." },
-            { title: "Lucide interval", desc: "Patiënt herstelt schijnbaar ('gaat goed') terwijl de arteriële bloeding langzaam een comprimerend hematoom vormt." },
-            { title: "Herniatie", desc: "Na uren bereikt het hematoom kritische druk → tentoriumherniatie → ipsilaterale pupildilatatie, contralaterale hemiparese, bewustzijnsdaling. Neurochirurgische spoed!" },
-          ],
-          onderscheid: [
-            { label: "Epiduraal hematoom", desc: "Biconvexe hyperdensiteit op CT, arterieel. Lucide interval kenmerkend. Jongeren na temporaal trauma. Neurochirurgische spoed.", type: 'ok' },
-            { label: "Subduraal hematoom", desc: "Halvemaanvorm op CT, veneus (brugvenen). Ouderen/antistolling. Acuut of chronisch beloop — langzamer dan epiduraal.", type: 'warn' },
-            { label: "Subarachnoïdaal", desc: "Geen trauma nodig, donderslaghoofdpijn, geen lucide interval, xanthochromie in liquor.", type: 'warn' },
-            { label: "Diffuus axonaal letsel", desc: "Coma direct na trauma, geen focale uitval, CT vaak normaal — shear injury witte stof.", type: 'danger' },
-          ],
-        } },
+      kern: 'Epiduraal hematoom is een arteriële bloeding tussen schedel en dura (arteria meningea media bij temporale fractuur). Het lucide interval — patiënt lijkt te herstellen — is het klassieke kenmerk en geeft een vals gevoel van veiligheid.',
+      redflag: 'Ipsilaterale pupildilatatie + contralaterale hemiparese = tentoriumherniatie. Neurochirurgische spoedevacuatie is dan de enige levensreddende interventie.',
+      mechanisme: [
+        { title: 'Schedeltrauma', desc: 'Temporale fractuur ruptureert de arteria meningea media — arteriële druk pompt bloed in de epidurale ruimte.' },
+        { title: 'Lucide interval', desc: 'Patiënt herstelt schijnbaar terwijl de arteriële bloeding langzaam druk opbouwt — kenmerkend voor epiduraal.' },
+        { title: 'Herniatie', desc: 'Na uren bereikt het hematoom kritische druk → tentoriumherniatie → ipsilaterale pupildilatatie, contralaterale hemiparese.' },
+      ],
+      onderscheid: [
+        { label: 'Epiduraal hematoom', desc: 'Biconvex op CT, arterieel, lucide interval, jongeren na temporaal trauma. Neurochirurgische spoed.', type: 'ok' },
+        { label: 'Subduraal hematoom', desc: 'Halvemaanvorm op CT, veneus (brugvenen), ouderen/antistolling, langzamer beloop.', type: 'warn' },
+        { label: 'Subarachnoïdale bloeding', desc: 'Geen trauma vereist, donderslaghoofdpijn, geen lucide interval, xanthochromie in liquor.', type: 'warn' },
+        { label: 'Diffuus axonaal letsel', desc: 'Coma direct na trauma, geen focale uitval, CT vaak normaal.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Neurochirurgische spoedcranioto­mie — evacueer hematoom zodra herniatie dreigt.',
+        stappen: [
+          { naam: 'CT hoofd direct', detail: 'Biconvexe hyperdensiteit temporaal — diagnostisch. Geen LP vereist.' },
+          { naam: 'ICP bewaken', detail: 'Mannitol 20% 1 g/kg IV als overbrugging bij bewustzijnsdaling voor OK.' },
+          { naam: 'Prognose', detail: 'Vroege evacuatie voor herniatie: >90% goed herstel. Na herniatie: mortaliteit 30-50%.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 38j: plotse "donderslag-hoofdpijn", maximale intensiteit bereikt in seconden, nekstijfheid, geen koorts. CT hersenen negatief. Volgende stap?',
@@ -380,7 +433,29 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Carbamazepine is gecontraïndiceerd bij dragers van het HLA-B*1502-allel vanwege een sterk verhoogd risico op Stevens-Johnson syndroom.',
-    c:true, ex:'WAAR. HLA-B*1502 (prevalent in Zuidoost-Aziatische populaties) is sterk geassocieerd met carbamazepine-geïnduceerd SJS/TEN. Genetische screening vóór start wordt aanbevolen. Alternatief: levetiracetam of lamotrigine.' },
+    c:true, ex:'WAAR. HLA-B*1502 (prevalent in Zuidoost-Aziatische populaties) is sterk geassocieerd met carbamazepine-geïnduceerd SJS/TEN. Genetische screening vóór start wordt aanbevolen. Alternatief: levetiracetam of lamotrigine.',
+    wiki: {
+      kern: 'HLA-B*1502 is een genetische variant die sterk verhoogd risico geeft op Stevens-Johnson syndroom (SJS) en toxische epidermale necrolyse (TEN) bij gebruik van aromatische anti-epileptica, vooral carbamazepine. Prevalentie: 5-15% in Zuidoost-Aziatische bevolkingen.',
+      redflag: 'SJS/TEN is levensbedreigend — mortaliteit TEN tot 30%. Bij huiduitslag + mucosale laesies tijdens carbamazepine: direct staken en dermatologisch consult.',
+      mechanisme: [
+        { title: 'HLA-B*1502 en carbamazepine', desc: 'HLA-B*1502 presenteert carbamazepine-metabolieten als "vreemd" aan T-cellen → massale cytotoxische T-celrespons → keratineocytapoptose → huidblaasvorming.' },
+        { title: 'Aromatische anti-epileptica', desc: 'Carbamazepine, fenytoïne, lamotrigine en oxcarbazepine hebben dit risico. Levetiracetam en valproaat zijn HLA-onafhankelijk.' },
+        { title: 'Screening', desc: 'Vóór start carbamazepine bij patiënten van Aziatische origine: HLA-B*1502 genotypering. Bij positief resultaat: alternatief kiezen.' },
+      ],
+      onderscheid: [
+        { label: 'Carbamazepine + HLA-B*1502', desc: 'Hoog SJS/TEN-risico. Screening vereist bij Zuidoost-Aziatische patiënten. Alternatief: levetiracetam.', type: 'danger' },
+        { label: 'Lamotrigine', desc: 'Huiduitslag in 10% (dosisafhankelijk) maar SJS-risico lager. Langzame titratie verplicht.', type: 'warn' },
+        { label: 'Levetiracetam', desc: 'Geen SJS-risico, geen HLA-interactie. Eerste keus bij patiënten met HLA-B*1502.', type: 'ok' },
+      ],
+      therapie: {
+        urgent: 'Stop carbamazepine onmiddellijk bij huidreactie + mucosale laesies.',
+        stappen: [
+          { naam: 'Substituut', detail: 'Schakel over op levetiracetam of valproaat — geen aromatisch anti-epilepticum.' },
+          { naam: 'SJS-behandeling', detail: 'ICU-opname, wondverzorging (brandwondencentrum), IVIG of ciclosporine overwegen.' },
+          { naam: 'Screening', detail: 'HLA-B*1502 genotypering vóór start bij Aziatische patiënten — nu aanbevolen in richtlijn.' },
+        ],
+      },
+    } },
 
   // ── FARMACOLOGIE ──
   { type:'pharma', d:3, domain:'pharma', dl:'Farmacologie',
@@ -1429,16 +1504,84 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 45j: ergste hoofdpijn van haar leven, plotseling ontstaan, nekstijfheid, lichtschuw. CT hoofd normaal. Wat nu?',
     a:['Toedienen paracetamol en afwachten','Lumbaalpunctie uitvoeren','MRI hersenen aanvragen','Direct antibiotica starten zonder verder onderzoek'], c:1,
-    ex:'Thunderclap hoofdpijn + nekenrigiditeit → altijd subarachnoïdale bloeding uitsluiten. CT mist 2-5% SAB in eerste uren. Lumbaalpunctie: xanthochromie (geel vocht) of verhoogde erytrocyten na 12 uur bevestigt SAB. Oorzaak: aneurysmaruptuur.' },
+    ex:'Thunderclap hoofdpijn + nekenrigiditeit → altijd subarachnoïdale bloeding uitsluiten. CT mist 2-5% SAB in eerste uren. Lumbaalpunctie: xanthochromie (geel vocht) of verhoogde erytrocyten na 12 uur bevestigt SAB. Oorzaak: aneurysmaruptuur.',
+    wiki: {
+      kern: 'Donderslaghoofdpijn + nekstijfheid + negatieve CT = subarachnoïdale bloeding tot het tegendeel bewezen is. CT mist 5% van SAB. Lumbaalpunctie na ≥6 uur aantonen xanthochromie is verplichte volgende stap.',
+      redflag: '"Ergste hoofdpijn van mijn leven" is een absoluut alarmsignaal. Mis dit niet als migraine. Een negatieve CT sluit SAB NIET uit — altijd LP.',
+      mechanisme: [
+        { title: 'Aneurysmaruptuur', desc: '80% door ruptuur van een sacculair aneurysma op een bifurcatie van de circulus van Willis → bloed in subarachnoïdale ruimte.' },
+        { title: 'Donderslaghoofdpijn', desc: 'Plotse intracraniële drukverhoging door bloeding irriteert durareceptoren → maximale pijn binnen seconden.' },
+        { title: 'CT sensitiviteit daalt', desc: 'CT is 98% sensitief in eerste 6u, daalt naar 85% na 24u. Na 6-12u: LP voor xanthochromie (afbraakproduct van hemoglobine → gele verkleuring).' },
+      ],
+      onderscheid: [
+        { label: 'SAB', desc: 'Thunderclap + nekstijfheid + CT negatief. LP: xanthochromie na 12u of verhoogde erytrocyten. Aneurysmaruptuur tot bewijs van tegendeel.', type: 'ok' },
+        { label: 'Bacteriële meningitis', desc: 'Koorts prominenter, langzamer begin (uren), PMN-pleocytose in liquor, geen plotse thunderclap.', type: 'warn' },
+        { label: 'Migraine', desc: 'Geleidelijke opbouw, eerder episoden, nooit thunderclap bij eerste aanval. Nooit zomaar als migraine afschrijven zonder SAB-uitsluiting.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'CT direct → bij negatieve CT: LP na ≥6-12u voor xanthochromie. Neurochirurgie/neuroradiologie bellen bij bevestiging.',
+        stappen: [
+          { naam: 'Aneurysmabehandeling', detail: 'Endovasculair coilen (voorkeur) of neurochirurgisch clippen van het aneurysma. Binnen 24-72u om reruptuur te voorkomen.' },
+          { naam: 'Vasospasmen preventie', detail: 'Nimodipine 60 mg oraal 4x/dag 21 dagen — vermindert ischemisch risico door vasospasmen dag 4-14.' },
+          { naam: 'Reruptuur', detail: '30% risico op reruptuur in eerste dagen zonder behandeling — mortaliteit bij reruptuur >70%.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Bij een ischemisch CVA mag trombolyse met alteplase gegeven worden tot 4,5 uur na begin van de klachten.',
-    c:true, ex:'WAAR. Alteplase trombolyse mag tot 4,5 uur na symptoomonset (mits geen contra-indicaties). Eerder = beter: "time is brain". Contra-indicaties: recent chirurgie, bloedingsdiathese, bloeddruk >185/110, bloedglucose <2.7 of >22.' },
+    c:true, ex:'WAAR. Alteplase trombolyse mag tot 4,5 uur na symptoomonset (mits geen contra-indicaties). Eerder = beter: "time is brain". Contra-indicaties: recent chirurgie, bloedingsdiathese, bloeddruk >185/110, bloedglucose <2.7 of >22.',
+    wiki: {
+      kern: 'Alteplase (tPA) lost het stolsel op dat een hersenarterie afsluit. Het tijdvenster is 4,5 uur — maar hoe eerder, hoe beter: elke minuut vertraging = ~1,9 miljoen neuronen minder.',
+      bigfact: { num: '4,5u', label: 'Trombolyse tijdvenster', sub: 'Na 4,5u: benefit daalt, bloedingsrisico stijgt. Vroeger = altijd beter.' },
+      redflag: 'Trombolyse bij bloedend CVA is fataal. Altijd CT eerst. Ongecontroleerde hypertensie (>185/110) moet eerst behandeld worden vóór toediening.',
+      mechanisme: [
+        { title: 'tPA-werking', desc: 'Alteplase activeert plasminogeen → plasmine → fibrinolyse van het stolsel → herstellte doorbloeding.' },
+        { title: 'Tijdsvenster', desc: 'Na 4,5u: ischemisch weefsel deels al infarceren → reperfusieschade + bloedingstransformatie overwegen de benefit.' },
+        { title: 'Contra-indicaties', desc: 'Recente chirurgie, bloedingsdiathese, BD >185/110, glucose <2.7 of >22, orale anticoagulantia actief.' },
+      ],
+      onderscheid: [
+        { label: 'Alteplase ≤4,5u', desc: 'Aangewezen bij ischemisch CVA, mits geen contra-indicaties. Dosis 0,9 mg/kg IV.', type: 'ok' },
+        { label: 'Tenecteplase', desc: 'Alternatief in trials — vergelijkbare effectiviteit, eenmalige bolus. Steeds vaker gebruikt.', type: 'warn' },
+        { label: 'Trombectomie', desc: 'Bij grote vaat-occlusie (M1, ICA): mechanische trombectomie tot 24u — superieur bij proximale occlusie.', type: 'ok' },
+      ],
+      therapie: {
+        urgent: 'CT direct (bloeding uitsluiten) → alteplase 0,9 mg/kg IV (10% bolus, rest over 60 min) ≤4,5u.',
+        stappen: [
+          { naam: 'BD behandelen', detail: 'BD >185/110: labetalol of nicardipine IV. Trombolyse pas veilig na BD-controle.' },
+          { naam: 'Monitoring', detail: 'ICU 24u na trombolyse: neurostatus elk uur, BD controle, aspirine uitstellen 24u.' },
+          { naam: 'Secundaire preventie', detail: 'Aspirine + hoge-dosis statine na 24u bij ischemisch CVA. Anticoagulantia bij AF na 2-14 dagen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 25j: tonisch-clonische aanval 3 minuten, daarna verward en slaperig. Geen koorts. Eerste aanval. Meest waarschijnlijke diagnose?',
     a:['Meningitis','Epilepsie','Hypoglykemie','Psychogene aanval'], c:1,
-    ex:'Epilepsie: tonisch-clonische aanval + postictale fase (verwardheid, vermoeidheid). Eerste aanval: EEG en MRI voor structurele oorzaak. Antiepilepticum bij twee aanvallen of verhoogd recidiefrisico. Rijverbod geldt tot 1 jaar aanvalsvrij.' },
+    ex:'Epilepsie: tonisch-clonische aanval + postictale fase (verwardheid, vermoeidheid). Eerste aanval: EEG en MRI voor structurele oorzaak. Antiepilepticum bij twee aanvallen of verhoogd recidiefrisico. Rijverbod geldt tot 1 jaar aanvalsvrij.',
+    wiki: {
+      kern: 'Een gegeneraliseerde tonisch-clonische aanval met postictale fase (verwardheid, vermoeidheid, slaap) is het klassieke beeld van epilepsie. Na een eerste aanval: EEG + MRI om structurele oorzaak en aanvalstype te bepalen.',
+      redflag: 'Aanhoudende aanval >5 minuten = status epilepticus. Eerste aanval bij volwassene: altijd MRI om tumor, absces, bloeding of dysplasie uit te sluiten.',
+      mechanisme: [
+        { title: 'Hyperexcitabiliteit', desc: 'Ongecontroleerde neuronale ontlading — te veel excitatie (glutamaat) of te weinig inhibitie (GABA) → verspreiding door beide hemisferen.' },
+        { title: 'Tonische fase', desc: 'Massale motorische ontlading → spierstijfheid, apneu, cyanose (seconden tot 1 minuut).' },
+        { title: 'Clonische fase', desc: 'Afwisselende inhibitie → rhythmische spierschokken. Daarna postictale uitputting (minuten tot uren).' },
+      ],
+      onderscheid: [
+        { label: 'Epilepsie', desc: 'Tonisch-clonisch + postictale fase + EEG-afwijking. Oorzaak opsporen: MRI, bloedonderzoek (glucose, elektrolyten, Na).', type: 'ok' },
+        { label: 'Syncope', desc: 'Kortdurend bewustzijnsverlies, enkele spierschokken mogelijk maar geen tong-beet of langdurig postictaal. EEG normaal.', type: 'warn' },
+        { label: 'Hypoglykemie', desc: 'Glucose <2,8 → aanval. Altijd bloedsuiker bepalen bij aanval! Corrigeerbaar.', type: 'danger' },
+        { label: 'Meningitis', desc: 'Koorts + nekstijfheid + fotofobie. Aanvallen mogelijk maar infectieus beeld staat op de voorgrond.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Aanval >5 min: diazepam 10 mg rectaal of midazolam 10 mg buccaal.',
+        stappen: [
+          { naam: 'Eerste aanval', detail: 'Niet altijd direct behandelen — kans op recidief na eerste aanval is 40-50%. Beslissing afhankelijk van EEG, MRI en risicoprofiel.' },
+          { naam: 'Antiepilepticum', detail: 'Bij tweede aanval of hoog recidiefrisico: levetiracetam of lamotrigine (breed spectrum). Valproaat bij gegeneraliseerde epilepsie.' },
+          { naam: 'Rijverbod', detail: 'Minimaal 1 jaar aanvalsvrij voor autorijden. Patiënt moet dit weten — meldingsplicht in NL.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 30j: episodisch dubbelzijdige armen en benen zwak, ooghangend (ptosis), erger aan einde van dag. Verbetering na ijs op oog. Diagnose?',
@@ -1471,7 +1614,28 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Multiple sclerose tast zowel het centraal als het perifeer zenuwstelsel aan.',
-    c:false, ex:'NIET WAAR. MS is een demyeliniserende ziekte van het centraal zenuwstelsel (hersenen + ruggenmerg). Het perifeer zenuwstelsel wordt gespaard. Kenmerk: laesies gescheiden in tijd en plaats. Diagnose: MRI + klinisch beeld + liquoronderzoek.' },
+    c:false, ex:'NIET WAAR. MS is een demyeliniserende ziekte van het centraal zenuwstelsel (hersenen + ruggenmerg). Het perifeer zenuwstelsel wordt gespaard. Kenmerk: laesies gescheiden in tijd en plaats. Diagnose: MRI + klinisch beeld + liquoronderzoek.',
+    wiki: {
+      kern: 'MS is een auto-immuun demyeliniserende ziekte die uitsluitend het centrale zenuwstelsel (hersenen, ruggenmerg, oogzenuw) aantast. Het perifere zenuwstelsel is gespaard — dit is een cruciaal onderscheidend kenmerk.',
+      redflag: 'MS is geen perifere neuropathie! GBS, CIDP en polyneuropathie tasten het PZS aan. MS: laesies in de witte stof van het CZS, gescheiden in tijd én plaats.',
+      mechanisme: [
+        { title: 'Auto-immuun demyelinisatie CZS', desc: 'T-cellen infiltreren CNS, beschadigen myeline van axonen → geleidingsvertraging of blokkade → neurologische uitval.' },
+        { title: 'Gescheiden in tijd en plaats', desc: 'McDonald-criteria vereisen ≥2 aanvallen op ≥2 CZS-locaties. MRI kan "disseminatie in ruimte en tijd" bevestigen zonder tweede aanval.' },
+        { title: 'PZS gespaard', desc: 'Schwann-cellen (PZS-myeline) worden niet aangetast. Reflexen normaal of verhoogd (UMN-kenmerken).' },
+      ],
+      onderscheid: [
+        { label: 'MS (CZS)', desc: 'Demyelinisatie CZS: periventriculaire MRI-laesies, oligoklonale banden, opticus neuritis. PZS intact.', type: 'ok' },
+        { label: 'GBS (PZS)', desc: 'Ascending paralysis + areflexie — PZS-demyelinisatie. Liquor: albuminocytologische dissociatie.', type: 'warn' },
+        { label: 'NMO (Devic)', desc: 'Ook CZS maar specifiek oogzenuw + ruggenmerg, AQP4-antilichamen, ernstiger aanvallen dan MS.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Acute relaps: methylprednisolon 1g IV 3-5 dagen (versnelt herstel, geen effect op langetermijnbeloop).',
+        stappen: [
+          { naam: 'Ziekte-modulerende therapie', detail: 'Interferon-bèta, glatirameracetat (milde MS) of natalizumab/ocrelizumab (actieve MS) — verminderen relapsfrequentie.' },
+          { naam: 'Diagnose', detail: 'McDonald-criteria: MRI (periventriculair, juxtacorticaal, infratentorieel, spinaal) + liquor (oligoklonale banden) + kliniek.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 65j: progressief geheugenverlies, persoonlijkheidsverandering, 3 jaar klachten. MRI: diffuse corticale atrofie temporopariëtaal. Diagnose?',
@@ -1504,21 +1668,114 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 35j: plotse eenzijdige visusdaling, pijn bij oogbewegingen, kleur ziet minder helder. MRI: witte stof afwijking in nervus opticus. Diagnose?',
     a:['Glaucoom','Retina-ablatio','Neuritis optica','Migraine met aura'], c:2,
-    ex:'Neuritis optica: inflammatie van de oogzenuw, vaak eerste uiting van MS. Pijn bij oogbewegingen + unilateraal visusverliess + verminderde kleurwaarneming. Behandeling: IV methylprednisolon versnelt herstel. MRI-hersenen verplicht.' },
+    ex:'Neuritis optica: inflammatie van de oogzenuw, vaak eerste uiting van MS. Pijn bij oogbewegingen + unilateraal visusverliess + verminderde kleurwaarneming. Behandeling: IV methylprednisolon versnelt herstel. MRI-hersenen verplicht.',
+    wiki: {
+      kern: 'Neuritis optica is inflammatie van de nervus opticus, in 50% van de gevallen de eerste manifestatie van MS. De klassieke triade: acuut unilateraal visusverliess + pijn bij oogbewegingen + verminderde kleurwaarneming (rood ziet er grauw uit).',
+      redflag: 'Na neuritis optica: 50% kans op MS-diagnose binnen 15 jaar. MRI-hersenen is verplicht — laesies aanwezig → hoog conversierisico → start ziekte-modulerende therapie overwegen.',
+      mechanisme: [
+        { title: 'Auto-immuun demyelinisatie', desc: 'Inflammatoire cellen beschadigen myeline van de oogzenuw → vertraagde of geblokkeerde prikkelgeleiding → visusverliess en pijn.' },
+        { title: 'Pijnmechanisme', desc: 'De nervus opticus loopt door een beperkte ruimte → zwelling bij inflammatie irriteert de zenuwschede → pijn bij oogbewegingen (tractie).' },
+        { title: 'Kleurzien', desc: 'Papillomaculaire bundel (kleurvisie, centraal zien) is het meest gevoelig voor demyelinisatie.' },
+      ],
+      onderscheid: [
+        { label: 'Neuritis optica (MS)', desc: 'Jong, vrouw, pijn bij oogbewegingen, unilateraal, verlaagde kleurzien. MRI: laesie nervus opticus. VEP vertraagd.', type: 'ok' },
+        { label: 'NMO (Devic)', desc: 'Ernstigere neuritis optica + longitudinale myelitis. AQP4-antilichamen positief. Slechte prognose, andere behandeling.', type: 'danger' },
+        { label: 'Glaucoom', desc: 'Chronisch, pijnloos, verhoogde oogdruk, gezichtsvelduitval perifeer. Geen pijn bij oogbewegingen.', type: 'warn' },
+        { label: 'Retina-ablatio', desc: 'Plotse pijnloze visusuitval + "gordijn" of flashes. Geen pijn bij bewegen. Oogheelkundige spoed.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Methylprednisolon 1g IV 3 dagen — versnelt herstel, geen effect op einduikomst.',
+        stappen: [
+          { naam: 'MRI hersenen', detail: 'Verplicht na elke neuritis optica — laesies aanwezig: verhoogd MS-conversierisico → bespreek preventieve behandeling.' },
+          { naam: 'VEP', detail: 'Visueel evoked potential: vertraagde P100-golf bevestigt optische schade ook na herstel zichtacuïteit.' },
+          { naam: 'Prognose', detail: '90% herstelt visueel na 3-6 maanden. Kleurwaarneming en contrastgevoeligheid kunnen blijvend gestoord zijn.' },
+        ],
+      },
+    } },
 
   { type:'pharma', d:3, domain:'neuro', dl:'Neurologie',
     q:'Welk medicijn is eerstekeus bij gegeneraliseerde tonisch-clonische epilepsie?',
     a:['Carbamazepine','Natriumvalproaat','Fenytoïne','Gabapentine'], c:1,
-    ex:'Valproaat is breed-spectrum antiepilepticum: werkt bij gegeneraliseerde én partiële aanvallen. Remt Na-kanalen en verhoogt GABA. Cave: teratogeen — absoluut vermijden bij vrouwen in vruchtbare leeftijd zonder adequate anticonceptie. Alternatief: levetiracetam.' },
+    ex:'Valproaat is breed-spectrum antiepilepticum: werkt bij gegeneraliseerde én partiële aanvallen. Remt Na-kanalen en verhoogt GABA. Cave: teratogeen — absoluut vermijden bij vrouwen in vruchtbare leeftijd zonder adequate anticonceptie. Alternatief: levetiracetam.',
+    wiki: {
+      kern: 'Natriumvalproaat is het breed-spectrum anti-epilepticum van eerste keus bij gegeneraliseerde epilepsie. Het werkt via meerdere mechanismen (Na-kanaalremming, GABA-verhoging) maar is sterk teratogeen — veroorzaakt spina bifida en cognitieve schade bij het kind.',
+      redflag: 'Valproaat is ABSOLUUT gecontraïndiceerd bij zwangere vrouwen en vrouwen in de vruchtbare leeftijd zonder effectieve anticonceptie. Alternatief: levetiracetam of lamotrigine.',
+      mechanisme: [
+        { title: 'Na-kanaalremming', desc: 'Remt snelle herhaalde ontlading van neuronen → verlaagt aanvalsdrempel.' },
+        { title: 'GABA-verhoging', desc: 'Remt GABA-transaminase → meer remmende GABA-activiteit in CZS.' },
+        { title: 'Teratogeniteit', desc: 'Valproaat remt folaatmetabolisme en epigenetische processen → neurale buisdefecten (spina bifida 2-3%), dysmorfieën, IQ-daling kind.' },
+      ],
+      onderscheid: [
+        { label: 'Valproaat (breed-spectrum)', desc: 'Tonisch-clonisch + absence + myoclonus. Eerste keus bij mannen en vrouwen zonder zwangerschapswens.', type: 'ok' },
+        { label: 'Levetiracetam', desc: 'Breed-spectrum, veiliger profiel, geen teratogeniteitsworry — alternatief bij vrouwen in vruchtbare leeftijd.', type: 'ok' },
+        { label: 'Carbamazepine', desc: 'Smal spectrum — alleen focale epilepsie. Kan gegeneraliseerde epilepsie (absence, myoclonus) verergeren.', type: 'danger' },
+        { label: 'Ethosuximide', desc: 'Alleen bij absence-epilepsie — geen effect op tonisch-clonische aanvallen.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Status epilepticus: benzodiazepine IV/rectaal → fenytoïne of levetiracetam IV.',
+        stappen: [
+          { naam: 'Valproaat start', detail: '500-1000 mg/dag, langzaam ophogen. Therapeutisch: serumspiegels 50-100 mg/L.' },
+          { naam: 'Vrouwen in vruchtbare leeftijd', detail: 'Levetiracetam of lamotrigine als eerste keus — valproaat alleen als alternatieven falen + goede anticonceptie.' },
+          { naam: 'Monitoring', detail: 'Leverenzymen, ammoniak (bij verwardheid), gewicht (valproaat → gewichtstoename).' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 55j: progressieve zwakte benen, later armen, fasciculaties, geen sensibiliteitsstoornissen, hyperreflexie. Diagnose?',
     a:['Guillain-Barré syndroom','Multiple sclerose','Amyotrofische lateraalsclerose (ALS)','Myasthenia gravis'], c:2,
-    ex:'ALS: degeneratie van centrale én perifere motorische neuronen. Combinatie UMN (hyperreflexie, spasticiteit) + LMN (fasciculaties, atrofie) zónder sensibiliteitsverlies. Progressief, fataal gemiddeld 3-5 jaar. Riluzol verlengt overleving licht.' },
+    ex:'ALS: degeneratie van centrale én perifere motorische neuronen. Combinatie UMN (hyperreflexie, spasticiteit) + LMN (fasciculaties, atrofie) zónder sensibiliteitsverlies. Progressief, fataal gemiddeld 3-5 jaar. Riluzol verlengt overleving licht.',
+    wiki: {
+      kern: 'ALS (amyotrofische lateraalsclerose) is een progressieve degeneratie van zowel het bovenste (UMN) als het onderste (LMN) motorische neuron. Kenmerk: spierzwakte + fasciculaties + hyperreflexie — maar nooit sensibiliteitsverlies.',
+      redflag: 'ALS spaart de sensibiliteit volledig. Sensibiliteitsverlies bij vergelijkbaar beeld: denk aan MS, compressie of GBS. Respiratoire insufficiëntie is de meest voorkomende doodsoorzaak.',
+      mechanisme: [
+        { title: 'UMN-degeneratie', desc: 'Motorische cortex → hyperreflexie, spasticiteit, teken van Babinski, pathologische reflexen.' },
+        { title: 'LMN-degeneratie', desc: 'Voorhoorncel in ruggenmerg/hersenstam → spieratrofie, fasciculaties, hypotonie, krachtsverlies.' },
+        { title: 'Sensibiliteit gespaard', desc: 'Sensibele banen in ruggenmerg blijven intact — cruciale onderscheidende eigenschap van ALS.' },
+      ],
+      onderscheid: [
+        { label: 'ALS', desc: 'UMN + LMN tegelijk, geen sensibiliteitsverlies. Progressief fataal. EMG: denervatie + fasci­culaties.', type: 'ok' },
+        { label: 'MS', desc: 'Demyelinisatie CZS, relaps-remitterend, sensibiliteitsstoornissen aanwezig, MRI-laesies.', type: 'warn' },
+        { label: 'GBS', desc: 'Ascending paralysis + areflexie + sensorische uitval. Acuut begin, na infectie.', type: 'warn' },
+        { label: 'Spinale musculaire atrofie (SMA)', desc: 'Alleen LMN, geen UMN-kenmerken. Genetisch (SMN1-mutatie). Langzamer beloop.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Geen curatieve behandeling — supportief en levensverlenging.',
+        stappen: [
+          { naam: 'Riluzol', detail: 'Glutamaatantagonist — verlengt overleving gemiddeld 3-6 maanden. Enige geregistreerde farmacologische therapie.' },
+          { naam: 'Edaravone (Radicava)', detail: 'Vrije-radicalenscavenger — vertraagt functionele achteruitgang in vroege ALS bij selecte patiënten.' },
+          { naam: 'Symptomatisch', detail: 'Sialorrhoea: glycopyrrolaat. Dysfagie: PEG-sonde. Respiratoire insufficiëntie: NIV (non-invasive ventilation).' },
+          { naam: 'Prognose', detail: 'Mediane overleving 3-5 jaar na diagnose. 10% overleeft >10 jaar (o.a. Stephen Hawking als uitzondering).' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Guillain-Barré syndroom begint typisch in de armen en verspreidt zich naar de benen.',
-    c:false, ex:'NIET WAAR. GBS begint typisch in de benen (ascending paralysis) en verspreidt zich omhoog. Oorzaak: auto-immuun demyelinisatie perifere zenuwen, vaak na infectie (Campylobacter, CMV). Behandeling: IVIG of plasmaferese. Let op ademhaling.' },
+    c:false, ex:'NIET WAAR. GBS begint typisch in de benen (ascending paralysis) en verspreidt zich omhoog. Oorzaak: auto-immuun demyelinisatie perifere zenuwen, vaak na infectie (Campylobacter, CMV). Behandeling: IVIG of plasmaferese. Let op ademhaling.',
+    wiki: {
+      kern: 'GBS begint in de benen en stijgt omhoog (ascending paralysis) — het omgekeerde van de bewering in de vraag. Het gevaar zit in ademhalingsspieruitval wanneer de uitval de thorax bereikt.',
+      redflag: '30% van GBS-patiënten heeft beademing nodig. Monitor vitale capaciteit (FVC) elke 4-6u. FVC <20 ml/kg of snel dalend → elektieve intubatie vóór crisis.',
+      mechanisme: [
+        { title: 'Moleculaire mimicry', desc: 'Antilichamen tegen Campylobacter, CMV of EBV kruisreageren met gangliosiden op perifeer myeline → ascending demyelinisatie.' },
+        { title: 'Ascending patroon', desc: 'Distale benen eerst → proximale benen → romp → armen → craniale zenuwen (facialisparese, dysfagie).' },
+        { title: 'Areflexie', desc: 'Verlies van myeline in sensorische bogen → areflexie is een kenmerkend vroeg teken, ook bij nog minimale zwakte.' },
+      ],
+      onderscheid: [
+        { label: 'GBS', desc: 'Ascending paralysis + areflexie + albuminocytologische dissociatie in liquor. Acuut, na infectie.', type: 'ok' },
+        { label: 'ALS', desc: 'Chronisch-progressief, UMN + LMN samen, geen sensibiliteitsverlies, fasciculaties.', type: 'warn' },
+        { label: 'Botulisme', desc: 'Dalende (descending) paralysis van boven naar beneden. Pupilreacties gestoord. Geen koorts.', type: 'danger' },
+        { label: 'Dwarsmyelitis', desc: 'Spinaal niveau, blaas/darm vroeg aangedaan, UMN-kenmerken (hyperreflexie).', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'IVIG 2 g/kg over 5 dagen OF plasmaferese — gelijkwaardig effectief. Geen corticosteroïden.',
+        stappen: [
+          { naam: 'FVC-monitoring', detail: 'Vitale capaciteit elke 4-6u. FVC <20 ml/kg = intubatie-indicatie. De "20-30-40-regel": FVC <20, PaO2 <30 mmHg, PaCO2 >40 → IC.' },
+          { naam: 'Pijnbehandeling', detail: 'Dysesthezie/zenuwpijn: gabapentine of amitriptyline. NSAID\'s weinig effectief.' },
+          { naam: 'Prognose', detail: '80% volledig herstel na 6-12 maanden. 5% blijft ernstig gehandicapt.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 72j: rusttremor rechterhand, stijfheid, traagheid, kleine pasjes. Diagnose?',
@@ -1552,21 +1809,110 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 40j: migraine-aanvallen, nu ook zwakte linkerarm tijdens aanval. Wat is de term hiervoor?',
     a:['Aura zonder hoofdpijn','Hemiplegische migraine','Basilaire migraine','TIA'], c:1,
-    ex:'Hemiplegische migraine: zeldzame vorm waarbij motorische uitval optreedt als aurasymptoom. Belangrijk: eerst TIA/CVA uitsluiten! Familiaire vorm: CACNA1A-genmutatie. Triptanen en ergotaminen gecontra-indiceerd bij hemiplegische migraine.' },
+    ex:'Hemiplegische migraine: zeldzame vorm waarbij motorische uitval optreedt als aurasymptoom. Belangrijk: eerst TIA/CVA uitsluiten! Familiaire vorm: CACNA1A-genmutatie. Triptanen en ergotaminen gecontra-indiceerd bij hemiplegische migraine.',
+    wiki: {
+      kern: 'Hemiplegische migraine is een zeldzame migrainevariant waarbij motorische uitval (hemiparese) optreedt als aurasymptoom — volledig reversibel. Het is geen CVA, maar TIA/CVA MOET altijd worden uitgesloten bij een eerste episode.',
+      redflag: 'Triptanen en ergotaminen zijn GECONTRAÏNDICEERD bij hemiplegische migraine — risico op vasospasmen en ischemisch CVA. Gebruik paracetamol/NSAID voor aanvalsbehandeling.',
+      mechanisme: [
+        { title: 'Cortical spreading depression', desc: 'Golven van neuronale hyperactiviteit gevolgd door depressie verspreiden zich over de cortex → motorische cortex → tijdelijke hemiparese als aura.' },
+        { title: 'Familiaire vorm (FHM)', desc: 'Autosomaal dominant. Mutaties in ionkanalen (CACNA1A, ATP1A2, SCN1A) verstoren de ionhomeostase → verhoogde gevoeligheid voor spreading depression.' },
+        { title: 'Reversibiliteit', desc: 'De uitval trekt volledig terug na minuten tot uren — dit is het kenmerkende verschil met een CVA.' },
+      ],
+      onderscheid: [
+        { label: 'Hemiplegische migraine', desc: 'Motorische aura + hoofdpijn. Volledig reversibel. Eerder migraineepisoden. CACNA1A-mutatie mogelijk.', type: 'ok' },
+        { label: 'TIA', desc: 'Geen hoofdpijn vooraf, leeftijd >50j, cardiovasculaire risicofactoren. Altijd uitsluiten bij eerste episode.', type: 'danger' },
+        { label: 'Basilaire migraine', desc: 'Aura met hersenstamsymptomen (dysartrie, diplopia, ataxie, tintelingen bilateraal) — geen hemiparese.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'GEEN triptanen of ergotaminen. Paracetamol 1000 mg of NSAID voor aanvalsbehandeling.',
+        stappen: [
+          { naam: 'Aanvalsbehandeling', detail: 'Paracetamol, naproxen of ibuprofen. Domperidon bij misselijkheid. Geen triptanen.' },
+          { naam: 'Profylaxe', detail: 'Valproaat of topiramaat — bij frequente of invaliderende aanvallen.' },
+          { naam: 'Genetische counseling', detail: 'Bij familiaire hemiplegische migraine: CACNA1A-gentest overwegen. Familieleden informeren.' },
+        ],
+      },
+    } },
 
   { type:'lab', d:5, domain:'neuro', dl:'Neurologie',
     q:'Liquor: verhoogd eiwit, normaal glucose, lymfocytose, oligoklonale banden aanwezig. Meest waarschijnlijke diagnose?',
     a:['Bacteriële meningitis','Multiple sclerose','Virale meningitis','Subarachnoïdale bloeding'], c:1,
-    ex:'Oligoklonale banden in liquor (niet in serum) zijn kenmerkend voor MS — aanwezig bij >95%. Virale meningitis: lymfocytose + normaal eiwit + normaal/licht verlaagd glucose. Bacterieel: neutrofiele pleiocytose + sterk verhoogd eiwit + laag glucose.' },
+    ex:'Oligoklonale banden in liquor (niet in serum) zijn kenmerkend voor MS — aanwezig bij >95%. Virale meningitis: lymfocytose + normaal eiwit + normaal/licht verlaagd glucose. Bacterieel: neutrofiele pleiocytose + sterk verhoogd eiwit + laag glucose.',
+    wiki: {
+      kern: 'Oligoklonale banden (OCB) in liquor maar niet in serum zijn het meest kenmerkend voor MS — aanwezig bij >95% van MS-patiënten. Ze weerspiegelen lokale immunoglobulineproductie in het CZS.',
+      redflag: 'Oligoklonale banden zijn niet 100% specifiek voor MS — ook bij neuroborreliose, neurosyfilis en NMOSD. Altijd combineren met MRI en kliniek voor diagnose.',
+      mechanisme: [
+        { title: 'IgG-productie in CZS', desc: 'Bij MS produceren geactiveerde B-cellen in het CZS klonale IgG-antilichamen → zichtbaar als scherpe banden op iso-electrofocusing van liquor.' },
+        { title: 'Liquor vs serum', desc: 'OCB alleen in liquor (niet serum) = intrathecale productie. OCB in beide: systemische infectie/inflammatie.' },
+        { title: 'Glucose normaal', desc: 'Bij MS is glucose normaal — laag glucose wijst op bacteriële meningitis (bacteriën consumeren glucose).' },
+      ],
+      onderscheid: [
+        { label: 'MS', desc: 'OCB in liquor (niet serum), lymfocytose mild, eiwit licht verhoogd, normaal glucose. >95% gevoeligheid.', type: 'ok' },
+        { label: 'Bacteriële meningitis', desc: 'Neutrofiele pleiocytose (>1000 cellen), sterk verhoogd eiwit, laag glucose (<60% serumglucose), gram-kleuring positief.', type: 'danger' },
+        { label: 'Virale meningitis', desc: 'Lymfocytose mild-matig, normaal eiwit of licht verhoogd, normaal glucose. Geen OCB.', type: 'warn' },
+        { label: 'SAB', desc: 'Bloederige liquor, xanthochromie na centrifugeren. Geen OCB. Normaal celgetal (erytrocyten).', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Geen spoedindicatie bij MS-liquorprofiel — diagnose stellen en ziekte-modulerende therapie bespreken.',
+        stappen: [
+          { naam: 'McDonald-criteria', detail: 'OCB in liquor kan "disseminatie in tijd" vervangen in McDonald-criteria — versnelt MS-diagnose na eerste aanval.' },
+          { naam: 'Ziekte-modulerende therapie', detail: 'Na MS-diagnose: interferon-bèta, glatirameracetat of natalizumab/ocrelizumab afhankelijk van activiteit.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Bij bacteriële meningitis moet lumbaalpunctie altijd worden uitgesteld tot na CT-scan.',
-    c:false, ex:'NIET WAAR. Antibiotica mogen NIET worden uitgesteld voor CT. Start direct antibiotica als er tekenen van verhoogde hersendruk zijn (papiloedeem, bewustzijnsdaling) en doe dan CT. Anders: LP eerst. Uitstel antibiotica verhoogt mortaliteit significant.' },
+    c:false, ex:'NIET WAAR. Antibiotica mogen NIET worden uitgesteld voor CT. Start direct antibiotica als er tekenen van verhoogde hersendruk zijn (papiloedeem, bewustzijnsdaling) en doe dan CT. Anders: LP eerst. Uitstel antibiotica verhoogt mortaliteit significant.',
+    wiki: {
+      kern: 'Bij bacteriële meningitis gaat antibioticastart altijd vóór CT. Uitstel van antibiotica voor CT verhoogt mortaliteit significant. LP kan wachten; antibiotica niet.',
+      redflag: 'Elk uur uitstel van antibiotica bij bacteriële meningitis verhoogt de kans op dood of blijvende schade. Start ceftriaxon + dexamethason zodra de diagnose wordt overwogen.',
+      mechanisme: [
+        { title: 'Verhoogde hersendruk', desc: 'Meningitis → inflammatie → oedeem → verhoogde ICP. LP bij verhoogde ICP → risico op inklemming (transtentorieel of uncaal).' },
+        { title: 'CT vóór LP indicaties', desc: 'Verhoogde ICP tekenen: papiloedeem, focale uitval, bewustzijnsdaling, immuungecompromitteerd. Dan: CT eerst, antibiotica direct zonder LP te wachten.' },
+        { title: 'Antibiotica vóór LP', desc: 'Antibiotica starten verandert de liquorcultuur maar niet de meningitis-diagnose — klinische beeld en PCR blijven bruikbaar.' },
+      ],
+      onderscheid: [
+        { label: 'Geen verhoogde druk tekenen', desc: 'LP direct → antibiotica na liquorafname. Geen CT vereist eerst.', type: 'ok' },
+        { label: 'Verhoogde druk (papiloedeem/bewusteloosheid)', desc: 'Antibiotica + dexamethason direct → CT → LP als veilig. Geen uitstel antibiotica.', type: 'danger' },
+        { label: 'Petechiën + septische shock', desc: 'Meningokokkensepsis: antibiotica in ambulance al. LP later als stabiel.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Ceftriaxon 2g IV + dexamethason 10mg IV — direct, nog vóór CT of LP als verhoogde druk vermoed.',
+        stappen: [
+          { naam: 'Dexamethason', detail: '10 mg IV 4x/dag 4 dagen — verlaagt mortaliteit bij pneumokokken-meningitis. Starten gelijktijdig met antibiotica.' },
+          { naam: 'LP timing', detail: 'LP direct als geen verhoogde ICP-tekenen. CT eerst bij focale uitval, bewustzijnsdaling, papiloedeem of immuunsuppressie.' },
+          { naam: 'Empirische dekking', detail: 'Ceftriaxon dekt S. pneumoniae + N. meningitidis. Voeg amoxicilline toe bij >50j (Listeria).' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Kind 8j: plotse bewusteloosheid, starende blik 10 seconden, daarna normaal. Geen tonisch-clonische bewegingen. EEG: 3Hz spike-wave. Diagnose?',
     a:['Grote aanval (tonisch-clonisch)','Absence-epilepsie','Focale epilepsie','Syncope'], c:1,
-    ex:'Absence-epilepsie: korte bewustzijnsonderbreking, geen postictale fase, typisch 3Hz generalized spike-wave op EEG. Begint op kinderleeftijd, vaak spontane remissie. Behandeling: ethosuximide of valproaat. Geen rijverbod tot 1 jaar vrij.' },
+    ex:'Absence-epilepsie: korte bewustzijnsonderbreking, geen postictale fase, typisch 3Hz generalized spike-wave op EEG. Begint op kinderleeftijd, vaak spontane remissie. Behandeling: ethosuximide of valproaat. Geen rijverbod tot 1 jaar vrij.',
+    wiki: {
+      kern: 'Absence-epilepsie is een gegeneraliseerde epilepsievariant bij kinderen: korte (5-20 sec) bewustzijnsonderbreking met starende blik, geen postictale fase. EEG: 3Hz gegeneraliseerde spike-wave is pathognomonisch.',
+      redflag: 'Absence-epilepsie kan worden verward met dagdromen of aandachtsproblemen — de diagnose wordt vaak gemist. Tientallen absences per dag = grote leerimpact. Hyperventilatie provoceert absences tijdens EEG.',
+      mechanisme: [
+        { title: '3Hz spike-wave', desc: 'Gegeneraliseerde oscillatie tussen thalamus en cortex op 3 Hz → bilaterale bewustzijnsonderbreking, geen motorische component.' },
+        { title: 'Korte duur', desc: '5-20 seconden, daarna direct normaal — geen postictale fase (onderscheid van tonisch-clonisch!).' },
+        { title: 'Hyperventilatieprovocatie', desc: 'Hyperventileren 3 minuten induceert absences tijdens EEG — diagnostisch nuttig.' },
+      ],
+      onderscheid: [
+        { label: 'Absence-epilepsie', desc: 'Kind, starende blik, <20 sec, geen postictale fase, 3Hz spike-wave EEG. Soms lipsmacking of knipperen.', type: 'ok' },
+        { label: 'Tonisch-clonische aanval', desc: 'Langer (>2 min), motorische componenten, postictale verwardheid/vermoeidheid. Ander EEG-patroon.', type: 'warn' },
+        { label: 'Focale epilepsie', desc: 'Bewustzijn kan verminderd zijn maar met focaal motorisch component of automatismen. EEG: focale ontlading.', type: 'warn' },
+        { label: 'Syncope', desc: 'Kortdurend, uitgelokt door staan/warmte/emotie. EEG normaal. Normale of vertraagde hartfrequentie.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Acute interventie niet nodig — absences zijn kortdurend en zelfbegrenzend.',
+        stappen: [
+          { naam: 'Ethosuximide', detail: 'Eerste keus bij puur absence-epilepsie — 80% effectief, alleen effect op absences (niet tonisch-clonisch).' },
+          { naam: 'Valproaat', detail: 'Alternatief — breed-spectrum, effectief als ook tonisch-clonische aanvallen. Cave: teratogeen bij meisjes.' },
+          { naam: 'Prognose', detail: '70% spontane remissie in adolescentie. Soms evolutie naar andere epilepsievormen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 50j: acuut eenzijdige aangezichtsverlamming, ook voorhoofd aangedaan, geen andere uitval. Diagnose?',
@@ -2205,11 +2551,56 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 68j: draaiduizeligheid die seconden duurt, uitgelokt door omdraaien in bed, geen gehoorverlies. Diagnose?',
     a:['Cerebellair CVA','Ziekte van Ménière','BPPV (goedaardige paroxysmale positieveranderingsduizeligheid)','Vestibulair neuritis'], c:2,
-    ex:'BPPV: kortdurende duizeligheid uitgelokt door hoofdbewegingen, veroorzaakt door losgeraakt otolietje in halfcirkelvormig kanaal. Diagnose: Dix-Hallpike-manoeuvre. Behandeling: Epley-manoeuvre. Geen medicatie nodig.' },
+    ex:'BPPV: kortdurende duizeligheid uitgelokt door hoofdbewegingen, veroorzaakt door losgeraakt otolietje in halfcirkelvormig kanaal. Diagnose: Dix-Hallpike-manoeuvre. Behandeling: Epley-manoeuvre. Geen medicatie nodig.',
+    wiki: {
+      kern: 'BPPV is de meest voorkomende oorzaak van draaiduizeligheid. Een losgeraakt otoliet (calciumcarbonaat-kristal) in het posterieure halfcirkelvormige kanaal verstoort de vloeistofbeweging bij hoofdbewegingen → korte hevige draaiduizeligheid.',
+      redflag: 'Duizeligheid die niet uitgelokt wordt door positieverandering, of gepaard gaat met hoofdpijn, dubbelzien, ataxie of focale uitval → denk aan cerebellair CVA. HINTS-test gebruiken.',
+      mechanisme: [
+        { title: 'Kanaallithiasis', desc: 'Losgeraakt otoliet zit in het posterieure halfcirkelvormige kanaal → bij omdraaien schuift het door → abnormale endolymfbeweging → draaiduizeligheid seconden.' },
+        { title: 'Dix-Hallpike-manoeuvre', desc: 'Hoofd 45° draaien + plotse achterover leggen → uitlokken van torsionele nystagmus + duizeligheid bij BPPV. Nystagmus treedt op na 5-10 sec latentie.' },
+        { title: 'Epley-manoeuvre', desc: 'Serie van hoofdbewegingen die het otoliet uit het kanaal "rollen" → 90% success na 1-2 behandelingen. Geen medicatie nodig.' },
+      ],
+      onderscheid: [
+        { label: 'BPPV', desc: 'Seconden durende duizeligheid, uitgelokt door positie, geen gehoorverlies. Dix-Hallpike positief. Epley genezend.', type: 'ok' },
+        { label: 'Ziekte van Ménière', desc: 'Aanvallen 20 min - uren, gehoorverlies + tinnitus + volheidsgevoel oor. Langer dan BPPV.', type: 'warn' },
+        { label: 'Vestibulair neuritis', desc: 'Aanhoudende (dagen) continue duizeligheid, geen gehoorverlies. Na virale infectie. Niet positie-afhankelijk.', type: 'warn' },
+        { label: 'Cerebellair CVA', desc: 'HINTS-test: nystagmus wisselt richting of geen head-impulse-correctie → alarmerend! CT/MRI direct.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Epley-manoeuvre direct uitvoeren — 90% genezing na 1-2 sessies.',
+        stappen: [
+          { naam: 'Dix-Hallpike eerst', detail: 'Bevestig de diagnose: torsionele nystagmus naar het aangedane oor, latentie 5-10 sec, duurt <60 sec, fatigability.' },
+          { naam: 'Epley-manoeuvre', detail: '4-staps repositie-manoeuvre, elk 30 sec aanhouden. Daarna 48u rechtop slapen (theoretisch maar bewijs beperkt).' },
+          { naam: 'Geen medicatie', detail: 'Meclizine/betahistine hebben geen bewezen voordeel boven Epley bij BPPV. Gebruik ze niet routinematig.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Een epileptische aanval die langer dan 5 minuten duurt, wordt beschouwd als status epilepticus en vereist directe behandeling.',
-    c:true, ex:'WAAR. Status epilepticus: aanval >5 minuten of twee aanvallen zonder bewustzijnsherstel tussendoor. Behandeling: lorazepam of diazepam IV/rectaal direct. Bij uitblijven reactie: levetiracetam of valproaat IV. Na 30 min zonder respons: anesthesie.' },
+    c:true, ex:'WAAR. Status epilepticus: aanval >5 minuten of twee aanvallen zonder bewustzijnsherstel tussendoor. Behandeling: lorazepam of diazepam IV/rectaal direct. Bij uitblijven reactie: levetiracetam of valproaat IV. Na 30 min zonder respons: anesthesie.',
+    wiki: {
+      kern: 'Status epilepticus (SE) = aanval ≥5 minuten of twee aanvallen zonder herstel van bewustzijn. Elke minuut langer = meer neuronschade. Strakke tijdlijn: benzodiazepine direct, daarna anti-epilepticum IV, daarna anesthesie.',
+      redflag: 'Refractaire SE (>30 min zonder respons) vereist anesthesie-inductie en mechanische beademing. Mortaliteit 10-20% — vertraging van behandeling verhoogt risico op blijvende hersenschade.',
+      mechanisme: [
+        { title: 'Zelfperpetuerend mechanisme', desc: 'Langdurige aanval → internalisatie van GABA-receptoren → verminderde remmende activiteit → benzodiazepinen worden minder effectief naarmate de aanval langer duurt.' },
+        { title: 'Neuronschade', desc: 'Excessieve glutamaat-activatie → calciuminstroom → excitotoxiciteit → irreversibele neuronsterfte bij aanhoudende SE.' },
+        { title: 'Tijdslijn', desc: '0-5 min: normale aanval. 5-30 min: early SE → behandel direct. 30-60 min: established SE. >60 min: refractaire SE.' },
+      ],
+      onderscheid: [
+        { label: 'Convulsieve SE', desc: 'Klinisch zichtbaar: tonisch-clonische bewegingen aanhoudend. Behandel direct. Risico rhabdomyolyse, hyperthermie, hypoxie.', type: 'ok' },
+        { label: 'Non-convulsieve SE', desc: 'Geen externe spierbewegingen maar continu EEG-activiteit. Verwardheid/coma. Diagnose alleen met EEG. Even ernstig!', type: 'danger' },
+        { label: 'Psychogene aanval', desc: 'Geen EEG-correlaat. Niet-epileptische aanval. Reageert niet op anti-epileptica. Diagnose met video-EEG.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: '0-5 min: benzodiazepine — lorazepam 4 mg IV of diazepam 10 mg rectaal.',
+        stappen: [
+          { naam: '5-30 min (geen respons)', detail: 'Levetiracetam 60 mg/kg IV OF valproaat 40 mg/kg IV OF fenytoïne 20 mg/kg IV. Kies levetiracetam als eerste keus (minste bijwerkingen).' },
+          { naam: '>30 min (refractair)', detail: 'Anesthesie-inductie: propofol of midazolam IV, intubatie, continue EEG-monitoring op IC.' },
+          { naam: 'Oorzaak zoeken', detail: 'Bloedglucose (hypoglykemie), natrium (hyponatriëmie), koorts (meningitis), anti-epilepticum-spiegels, toxicologie.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 40j: progressieve choreiforme (kronkelende) bewegingen, gedragsverandering, familielid ook aangedaan. Diagnose?',
@@ -2270,11 +2661,55 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 35j: aanvallen van kloppende eenzijdige hoofdpijn met misselijkheid, lichtschuwheid, duren 4-72 uur. Diagnose?',
     a:['Spanningshoofdpijn','Clusterhoofdpijn','Migraine','Sinusitis'], c:2,
-    ex:'Migraine: eenzijdige, kloppende hoofdpijn 4-72u + misselijkheid/braken + licht- en geluidsschuwheid. Aura bij 30%. Acute behandeling: triptan + NSAID. Profylaxe bij ≥4 aanvallen/maand: propranolol, topiramaat of amitriptyline.' },
+    ex:'Migraine: eenzijdige, kloppende hoofdpijn 4-72u + misselijkheid/braken + licht- en geluidsschuwheid. Aura bij 30%. Acute behandeling: triptan + NSAID. Profylaxe bij ≥4 aanvallen/maand: propranolol, topiramaat of amitriptyline.',
+    wiki: {
+      kern: 'Migraine is een neurobiologische aandoening gekenmerkt door terugkerende aanvallen van eenzijdige, kloppende hoofdpijn (4-72u) met misselijkheid en foto-/fonofobie. Aura (visueel/sensorisch) bij 30% van patiënten.',
+      mechanisme: [
+        { title: 'Cortical spreading depression', desc: 'Golf van neuronale depolarisatie verspreidt zich over de cortex → aura. Activeert trigeminuszenuw → pijnmediatoren vrijkomen → vasodilatatie → kloppende hoofdpijn.' },
+        { title: 'Trigeminovasculaire route', desc: 'Trigeminuszenuweindjes rond dura mater en hersenarterieën → neuropeptiden (CGRP) vrijkomen → neurogeneinflammatie → kloppende pijn.' },
+        { title: 'Prodroom', desc: 'Uren voor de aanval: geeuwen, vermoeidheid, concentratieverlies, prikkelbaarheid — neuronale hyperexcitabiliteit in hypothalamus.' },
+      ],
+      onderscheid: [
+        { label: 'Migraine', desc: 'Eenzijdig kloppend, 4-72u, misselijkheid, foto/fonofobie. Verergering bij beweging. Triptan effectief.', type: 'ok' },
+        { label: 'Spanningshoofdpijn', desc: 'Bilateraal drukkend (band om hoofd), milde-matige intensiteit, geen misselijkheid, geen fono/fotofobie.', type: 'warn' },
+        { label: 'Clusterhoofdpijn', desc: 'Extreem hevig, periorbital, 15-180 min, autonome verschijnselen (traanvloed, ptosis). Man, nachtelijk.', type: 'danger' },
+        { label: 'SAB', desc: 'Thunderclap (maximaal in seconden), nekstijfheid. Nooit als migraine afschrijven bij eerste aanval.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Triptan (sumatriptan 50-100 mg) + NSAID (naproxen 500 mg) samen — meer effectief dan apart.',
+        stappen: [
+          { naam: 'Aanvalsbehandeling', detail: 'Triptan effectief bij 60-70%. Domperidon/metoclopramide bij misselijkheid. Vroeg in de aanval innemen.' },
+          { naam: 'Profylaxe', detail: 'Bij ≥4 aanvallen/maand: propranolol 80-160 mg/dag, topiramaat 25-100 mg/dag, of amitriptyline 10-75 mg/nacht.' },
+          { naam: 'CGRP-antilichamen', detail: 'Erenumab, fremanezumab — nieuw, effectief bij refractaire migraine. Maandelijkse subcutane injectie.' },
+        ],
+      },
+    } },
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Een subduraal hematoom ontstaat door ruptuur van de arteria meningea media en presenteert zich met een lucide interval.',
-    c:false, ex:'NIET WAAR. Dat is een epiduraal hematoom (arterieel). Een subduraal hematoom ontstaat door ruptuur van brugvenen (veneus) en heeft een langzamer beloop — soms pas dagen tot weken na trauma. Komt vaker voor bij ouderen en mensen die bloedverdunners gebruiken.' },
+    c:false, ex:'NIET WAAR. Dat is een epiduraal hematoom (arterieel). Een subduraal hematoom ontstaat door ruptuur van brugvenen (veneus) en heeft een langzamer beloop — soms pas dagen tot weken na trauma. Komt vaker voor bij ouderen en mensen die bloedverdunners gebruiken.',
+    wiki: {
+      kern: 'Subduraal hematoom (SDH) ontstaat door ruptuur van brugvenen (veneus) — niet de arteria meningea media (dat is epiduraal). SDH heeft een langzamer beloop: acuut (<24u), subacuut (1-14 dagen) of chronisch (>14 dagen).',
+      redflag: 'Chronisch SDH bij ouderen: kan zich presenteren als dementie of progressieve verwsarring weken na een licht trauma. Bloedverdunners en hersenatrofie verhogen het risico sterk.',
+      mechanisme: [
+        { title: 'Brugveenruptuur', desc: 'Bij (licht) trauma of acceleratie-deceleratie: brugvenen die over de dura lopen worden uitgerekt en scheuren → veneuze bloeding in subdurale ruimte.' },
+        { title: 'Risicogroepen', desc: 'Ouderen (hersenatrofie → meer ruimte → meer spanning op brugvenen), antistolling, alcoholisme, shunts.' },
+        { title: 'Chronisch SDH', desc: 'Oud bloed lost op, trekt osmotisch vocht aan → hematoom groeit → verhoogde ICP met vertraagde symptomen weken later.' },
+      ],
+      onderscheid: [
+        { label: 'Subduraal hematoom', desc: 'Halvemaanvorm op CT (volgt hersencontour), veneus, ouderen/antistolling, geen of langzaam lucide interval.', type: 'ok' },
+        { label: 'Epiduraal hematoom', desc: 'Biconvex op CT, arterieel (a. meningea media), temporale schedelfractuur, jongeren, klassiek lucide interval.', type: 'warn' },
+        { label: 'SAB', desc: 'Bloed in sulci en cisternae, geen trauma nodig, donderslaghoofdpijn, xanthochromie in liquor.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Acuut SDH met neurologische uitval: neurochirurgische evacuatie.',
+        stappen: [
+          { naam: 'Antistolling staken', detail: 'Direct staken en antagoneren: vitamine K + PCC bij VKA. Andexanet bij factor Xa-remmers.' },
+          { naam: 'Chronisch SDH', detail: 'Boorgat-trepanatie (boor-hole drainage) onder lokale anesthesie — minder invasief dan craniotomie, effectief bij chronisch.' },
+          { naam: 'Conservatief', detail: 'Kleine asymptomatische SDH bij stabiele patiënt: CT-controle, antistolling staken, observatie.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Man 60j met prostaatkanker: acute rugpijn, zwakte benen, gestoord gevoel onder de knieën. MRI: massa op hoogte T8. Diagnose?',
@@ -2335,7 +2770,30 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Clusterhoofdpijn komt vaker voor bij vrouwen dan bij mannen.',
-    c:false, ex:'NIET WAAR. Clusterhoofdpijn is juist een van de weinige hoofdpijnsoorten die vaker bij mannen voorkomt (M:V ≈ 3:1). Presentatie: extreem hevige eenzijdige pijn rond het oog, met traan- en neusloop, conjunctivale injectie, duur 15-180 minuten.' },
+    c:false, ex:'NIET WAAR. Clusterhoofdpijn is juist een van de weinige hoofdpijnsoorten die vaker bij mannen voorkomt (M:V ≈ 3:1). Presentatie: extreem hevige eenzijdige pijn rond het oog, met traan- en neusloop, conjunctivale injectie, duur 15-180 minuten.',
+    wiki: {
+      kern: 'Clusterhoofdpijn is de hevigste primaire hoofdpijn — de pijn rond het oog wordt omschreven als "heet pook in het oog". Kenmerkend: autonome verschijnselen ipsilateraal (traanvloed, ptosis, neusloop) + perioden van dagelijkse aanvallen (clusters).',
+      redflag: 'De intensiteit van clusterhoofdpijn kan leiden tot suïcidaliteit ("suicide headache"). Patiënten zijn typisch agiteerd en kunnen niet stilliggen — anders dan bij migraine.',
+      mechanisme: [
+        { title: 'Hypothalamische activatie', desc: 'Hypothalamus activeert trigeminale pijnbanen en parasympathische zenuwen → periorbital pijn + autonome verschijnselen.' },
+        { title: 'Autonome verschijnselen', desc: 'Parasympathische activatie: traanvloed, rhinorrhoea, conjunctivale injectie. Sympathische inhibitie: ptosis, miosis (Horner).' },
+        { title: 'Clusterperiode', desc: 'Aanvallen dagelijks 1-8x per dag gedurende weken tot maanden, gevolgd door maanden remissie (episodisch type).' },
+      ],
+      onderscheid: [
+        { label: 'Clusterhoofdpijn', desc: 'Periorbital, extreem hevig, 15-180 min, autonome verschijnselen ipsilateraal, man, nachtelijk, agitatie.', type: 'ok' },
+        { label: 'Migraine', desc: 'Langer (4-72u), kloppend, misselijkheid, patiënt legt zich stilletjes neer, vrouwen vaker.', type: 'warn' },
+        { label: 'Trigeminus neuralgie', desc: 'Elektrische schok-pijn in aangezicht, seconden, uitgelokt door eten/praten/aanraken. Geen autonome verschijnselen.', type: 'warn' },
+        { label: 'SAB', desc: 'Thunderclap, nekstijfheid. Nooit clusterhoofdpijn diagnostiseren zonder SAB uit te sluiten bij eerste aanval.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Zuurstof 100% 15 L/min via non-rebreather masker 15 min — effectief bij 60-70% van de aanvallen.',
+        stappen: [
+          { naam: 'Sumatriptan SC', detail: '6 mg subcutaan — snelste en meest effectieve aanvalsbehandeling. Werkt binnen 15 minuten.' },
+          { naam: 'Profylaxe tijdens cluster', detail: 'Verapamil 240-960 mg/dag — meest effectief. Lithium bij chronisch type. Corticosteroïden voor snelle overbrugging.' },
+          { naam: 'Preventie', detail: 'Vermijd alcohol en nicotine tijdens clusterperiode — bewezen uitlokkers.' },
+        ],
+      },
+    } },
 
   // ── Cardiologie (nieuw batch 2) ──
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie',
