@@ -61,8 +61,8 @@ In `src/data/questions.js`, voeg toe aan de `QUESTIONS` array:
   q: 'De vraag...',
   a: ['Optie A', 'Optie B', 'Optie C', 'Optie D'],  // niet bij truefalse
   c: 0,                    // correct index, of true/false bij truefalse
-  ex: 'Uitleg na antwoord...',
-  wiki: 'Uitgebreide uitleg voor fact-modal...',  // optioneel maar sterk aanbevolen
+  ex: 'Max 1 zin, max ~90 tekens. De kern — wat onthoud je? Zie regels hieronder.',
+  wiki: { /* zie wiki-formaat hieronder */ },
   // Optioneel:
   fig: {
     type: 'ecg',           // 'ecg' | 'xray' | 'derm' | 'histo' | 'ct' | 'graph'
@@ -74,6 +74,71 @@ In `src/data/questions.js`, voeg toe aan de `QUESTIONS` array:
 ```
 
 **Domeinen:** `cardio · neuro · pharma · infectio · lab · pulmo · gastro · endo · nephro · psych · derm · rheum · repro`
+
+---
+
+## `ex`-veld — regels (uitlegkaart na antwoord)
+
+De `ex` verschijnt als toast direct nadat de speler een antwoord geeft. Hij is kort zichtbaar.
+
+- **Max 1 zin, max ~90 tekens**
+- De ene "aha" — het meest essentiële om te onthouden
+- Geen opsommingen, geen "want", geen uitgebreide uitleg
+- Afkortingen altijd eerst uitschrijven: `"percutane coronaire interventie (PCI)"`, niet `"PCI"`
+
+**Goed:** `"Klassieke STEMI: drukkende pijn + uitstraling + vegetatief. Directe ballondilatatie (PCI) binnen 90 min."`
+**Fout:** `"STEMI wordt veroorzaakt door plaque-ruptuur met trombusvorming waardoor de coronairarterie compleet afgesloten raakt, wat leidt tot transmuraal infarct."`
+
+---
+
+## `wiki`-veld — standaardformaat (tabbladen in fact-modal)
+
+De wiki is de diepere uitleg die je ziet als je op de uitlegkaart tikt. Vier tabbladen: Kern · Mechanisme · Onderscheid · Behandeling.
+
+**Inhoudsprincipes — ALTIJD volgen:**
+- Concreet en kort — elk veld één idee, geen lap tekst
+- Afkortingen: EERST uitschrijven met afkorting erbij, daarna mag je de afkorting herhalen
+  - Goed: `"percutane coronaire interventie (PCI)"` → daarna `"PCI"` mag
+  - Fout: direct `"PCI"` zonder uitleg
+- Mnemonic: GEEN apart veld — als er een is, zet hem als gewone stap in `mechanisme` of `therapie`
+- `bigfact` is optioneel — alleen als er echt een klinisch relevant getal/feit is
+
+```js
+wiki: {
+  // Tab 1 — Kern
+  kern: 'Één zin: de essentie van de aandoening. Geen afkortingen zonder uitleg.',
+  bigfact: {                          // optioneel
+    num: '90\'',
+    label: 'Deur-tot-ballon tijd',
+    sub: 'Aankomst SEH tot opening coronairarterie via ballondilatatie (PCI).',
+  },
+  redflag: 'Atypische presentatie of gevaarlijke valkuil — concreet en kort.',
+
+  // Tab 2 — Mechanisme (2–4 stappen)
+  mechanisme: [
+    { title: 'Stap 1', desc: 'Uitleg. Afkortingen uitgeschreven.' },
+    { title: 'Stap 2', desc: 'Uitleg.' },
+    // Optioneel als laatste stap: geheugensteuntje
+    { title: 'Onthouden: MONA', desc: 'Morfine, Oxygen, Nitraten, Aspirine — volgorde van eerste opvang.' },
+  ],
+
+  // Tab 3 — Onderscheid (2–4 items, type: 'ok' | 'warn' | 'danger')
+  onderscheid: [
+    { label: 'Diagnose A', desc: 'Hoe onderscheid je dit van de hoofddiagnose — concreet.', type: 'ok' },
+    { label: 'Diagnose B', desc: 'Onderscheidend kenmerk.', type: 'warn' },
+    { label: 'Diagnose C', desc: 'Gevaarlijke verwisseling.', type: 'danger' },
+  ],
+
+  // Tab 4 — Behandeling
+  therapie: {
+    urgent: 'Prioriteit in één zin — wat doe je als eerste?',
+    stappen: [
+      { naam: 'Stap 1', detail: 'Concreet. Medicijnnamen uitgeschreven, dosis erbij indien relevant.' },
+      { naam: 'Stap 2', detail: 'Uitleg.' },
+    ],
+  },
+}
+```
 
 **Syntaxis checken na toevoegen:**
 ```bash
@@ -135,8 +200,10 @@ formatQ(txt)                // Lab-tekst → verticale tabel met ↑/↓/✓
 ## Backlog (prioriteit)
 
 ### Openstaand
-- **wiki-veld** toevoegen aan de ~162 vragen die het nog missen
-  (check: `node -e "const s=require('fs').readFileSync('src/data/questions.js','utf8');console.log('zonder wiki:',(s.match(/type:/g)||[]).length - (s.match(/wiki:/g)||[]).length)"`)
+- **ex + wiki completeren** — 387 vragen, prioriteit per domein:
+  - Stap 1: `ex` inkorten naar max 1 zin (~90 tekens)
+  - Stap 2: `wiki` aanvullen (105 hebben nog niets, 282 missen mechanisme/onderscheid/therapie)
+  - Volgorde: cardio (58) → neuro (48) → infectio (48) → lab (46) → pharma (43) → pulmo/gastro/psych (23 elk) → endo/rheum (17 elk) → nephro (16) → derm (13) → repro (12)
 - **Vragenbank uitbreiden** — doel 100 per domein; kleinste nu: repro (12), derm (13)
 - **Spoedkamer-modus** — spelmodus met urgentie-thema, roder/urgenter dan Blitz
 - **GitHub Pages deployen**
