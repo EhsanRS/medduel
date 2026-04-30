@@ -3695,16 +3695,24 @@ const QUESTIONS = [
     a:['Blokkade van de M3-muscarinereceptor in de bronchiaalwand','Beta-2-receptoragonisme in gladde bronchiaalspiercellen','Remming van fosfodiësterase-4 → cAMP-stijging','Remming van leukotrieensynthese via 5-lipoxygenase'], c:0,
     ex:'Tiotropium is een LAMA (Long-Acting Muscarinic Antagonist). Het blokkeert de M3-receptor → relaxatie gladde bronchiaalspiercellen → bronchodilatatie. Eenmalige dosering per dag, werking 24 uur.',
     wiki:{
-          kern: "Acetylcholine via de M3-receptor veroorzaakt bronchoconstrictie en mucusproductie. LAMA\\'s blokkeren dit → bronchodilatatie en minder secretie.",
+          kern: "Acetylcholine via de M3-receptor veroorzaakt bronchoconstrictie en mucusproductie. LAMA's blokkeren dit → bronchodilatatie en minder secretie.",
           mechanisme: [
-            { title: "Stap 1", desc: "LAMA verbetert FEV1, vermindert hyperinflatie, verlaagt exacerbatiefrequentie en verbetert inspanningstolerantie." },
-            { title: "Bijwerkingen", desc: "droge mond, urineretentie (cave: prostaatproblematiek), constipatie, smalle-kamerhoekglaucoom." },
+            { title: 'LAMA-werking', desc: 'Blokkeert M3-receptor in bronchiaalspiercellen → relaxatie → bronchodilatatie. Verbetert FEV1, vermindert hyperinflatie en exacerbatiefrequentie.' },
+            { title: 'Bijwerkingen', desc: 'Droge mond, urineretentie (cave: prostaatproblematiek), constipatie, smalle-kamerhoekglaucoom.' },
           ],
           onderscheid: [
-            { label: "SABA (salbutamol)", desc: "Beta-2 agonist, snel werkend, rescue.", type: 'ok' },
-            { label: "LABA (salmeterol/formoterol)", desc: "Beta-2 agonist, langwerkend, onderhoud.", type: 'warn' },
-            { label: "ICS", desc: "remt luchtwegontsteking, geen directe bronchodilatatie.", type: 'danger' },
+            { label: 'SABA (salbutamol)', desc: 'Beta-2 agonist, snel werkend (5-15 min), rescue-gebruik bij acute dyspneu.', type: 'ok' },
+            { label: 'LABA (salmeterol/formoterol)', desc: 'Beta-2 agonist, langwerkend (12u), onderhoudsmedicatie — combineer met LAMA bij ernstige COPD.', type: 'warn' },
+            { label: 'ICS', desc: 'Remt luchtwegontsteking, geen directe bronchodilatatie. Toevoegen bij frequente exacerbaties.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Acute COPD-exacerbatie: SABA + ipratropium vernevelaars, zuurstof O2-sat 88-92%, corticosteroïden oraal.',
+            stappen: [
+              { naam: 'Onderhoudstherapie COPD', detail: 'LAMA (tiotropium) als eerste keus monotherapie bij stabiele COPD. Bij aanhoudende dyspneu: LAMA + LABA combinatie.' },
+              { naam: 'Ernstige COPD (FEV1<50%)', detail: 'Drievoudige therapie: LAMA + LABA + ICS — vermindert exacerbatiefrequentie significant.' },
+              { naam: 'Stoppen met roken', detail: 'Enige interventie die FEV1-daling vertraagt. Altijd combineren met farmacologische behandeling.' },
+            ],
+          },
         } },
 
   { type:'pharma', d:3, domain:'pulmo', dl:'Pulmonologie',
@@ -3712,17 +3720,25 @@ const QUESTIONS = [
     a:['Amoxicilline oraal','Ciprofloxacine oraal','Azitromycine monotherapie','Ceftriaxon intraveneus'], c:0,
     ex:'Ambulante CAP zonder comorbiditeiten: amoxicilline 500 mg 3×/dag. Streptococcus pneumoniae is de meest frequente verwekker en is goed gevoelig voor amoxicilline. Ciprofloxacine dekt S. pneumoniae slecht en is geen standaard keus voor CAP.',
     wiki:{
-          kern: "S. pneumoniae veroorzaakt 30-40% van alle CAP-gevallen. Amoxicilline heeft uitstekende pneumokokkendekking.",
+          kern: 'S. pneumoniae veroorzaakt 30-40% van alle CAP-gevallen. Amoxicilline heeft uitstekende pneumokokkendekking en is eerste keus bij ambulante CAP zonder comorbiditeiten.',
           mechanisme: [
-            { title: "Stap 1", desc: "CURB-65 bepaalt ernst en opnamebeleid: Confusion, Ureum >7 mmol/L, Respiratory rate ≥30, Blood pressure <90 mmHg systolisch, leeftijd ≥65." },
-            { title: "Score 0-1", desc: "ambulant amoxicilline." },
-            { title: "Score ≥3", desc: "ziekenhuisopname + IV antibiotica." },
+            { title: 'CURB-65', desc: 'Bepaalt ernst en opnamebeleid: Confusion, Ureum >7 mmol/L, Respiratory rate ≥30, Blood pressure <90 mmHg systolisch, leeftijd ≥65.' },
+            { title: 'Score 0-1', desc: 'Ambulant behandelen — amoxicilline 500 mg 3×/dag 5 dagen.' },
+            { title: 'Score ≥3', desc: 'Ziekenhuisopname + IV antibiotica (amoxicilline/clavulaanzuur of ceftriaxon + macrolide).' },
           ],
           onderscheid: [
-            { label: "Ciprofloxacine", desc: "slecht werkzaam tegen S. pneumoniae, niet als monotherapie voor CAP.", type: 'ok' },
-            { label: "Co-amoxiclav", desc: "bredere dekking, niet nodig als eerste keus ambulant.", type: 'warn' },
-            { label: "Levofloxacine", desc: "effectief maar hogere bijwerkingendrempel (peesruptuur, QT-verlenging).", type: 'danger' },
+            { label: 'Amoxicilline (eerste keus)', desc: 'Uitstekende pneumokokkendekking, oraal, goedkoop. Ambulante CAP zonder comorbiditeiten.', type: 'ok' },
+            { label: 'Ciprofloxacine', desc: 'Slecht werkzaam tegen S. pneumoniae — NIET als monotherapie voor CAP.', type: 'danger' },
+            { label: 'Levofloxacine', desc: 'Effectief, maar hogere bijwerkingendrempel (peesruptuur, QT-verlenging). Reserveren voor complicaties.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Start antibiotica binnen 4 uur na diagnose — vertraagde start verhoogt mortaliteit.',
+            stappen: [
+              { naam: 'Ambulant CURB-65 0-1', detail: 'Amoxicilline 500 mg 3×/dag 5 dagen.' },
+              { naam: 'Opname CURB-65 2', detail: 'Amoxicilline 4×/dag IV of co-amoxiclav oraal, overweeg macrolide toevoegen bij verdenking atypische verwekker.' },
+              { naam: 'IC CURB-65 ≥3', detail: 'Piperacilline/tazobactam IV + macrolide of levofloxacine. Laat Legionella-urine-antigeen testen.' },
+            ],
+          },
         } },
 
 
@@ -3810,17 +3826,25 @@ const QUESTIONS = [
     a:['Levofloxacine intraveneus','Amoxicilline intraveneus','Benzylpenicilline intraveneus','Cotrimoxazol intraveneus'], c:0,
     ex:'Legionella pneumophila is een intracellulaire bacterie. Bètalactam-antibiotica (amoxicilline, penicilline) zijn ineffectief omdat zij de cel niet binnendringen. Eerste keus: fluoroquinolon (levofloxacine) of macrolide (azitromycine), bij voorkeur fluoroquinolon bij ernstige presentatie.',
     wiki:{
-          kern: "Legionella overleeft in alveolaire macrofagen → standaard bètalactams bereiken de intracellulaire locatie niet. Bron: besmet water (koeltorens, douchesystemen).",
+          kern: 'Legionella overleeft in alveolaire macrofagen — standaard bètalactams bereiken de intracellulaire locatie niet. Klassieke trias: hoge koorts + relatieve bradycardie + hyponatriëmie. Bron: besmet water (koeltorens, douchesystemen).',
           mechanisme: [
-            { title: "Klassieke trias", desc: "hoge koorts, relatieve bradycardie, hyponatriëmie." },
-            { title: "Stap 2", desc: "Verhoogd LDH, leverenzymafwijkingen en nierinsufficiëntie." },
-            { title: "Stap 3", desc: "Bilateral pneumonie, soms snel progressief." },
+            { title: 'Intracellulaire bacterie', desc: 'Legionella vermenigvuldigt zich in macrofagen → bètalactams (amoxicilline, penicilline) die niet in cellen doordringen zijn ineffectief.' },
+            { title: 'Atypisch beeld', desc: 'Verhoogd LDH, leverenzymafwijkingen, nierinsufficiëntie, hyponatriëmie. Bilaterale pneumonie, soms snel progressief.' },
+            { title: 'Urine-antigeen', desc: 'Serogroep 1 (80% van gevallen) detecteerbaar in urine — snel en gevoelig. Bij negatief antigeen maar sterke verdenking: kweken op BCYE-agar.' },
           ],
           onderscheid: [
-            { label: "Mycoplasma", desc: "jongere patiënt, mildere loop, koude agglutininen, macrolide gevoelig.", type: 'ok' },
-            { label: "S. pneumoniae", desc: "penicillinegevoelig.", type: 'warn' },
-            { label: "Chlamydia psittaci", desc: "vogelcontact.", type: 'danger' },
+            { label: 'Legionella', desc: 'Hoge koorts, hyponatriëmie, verhoogd LDH, bilateraal. Urine-antigeen positief. Levofloxacine/azitromycine.', type: 'ok' },
+            { label: 'Mycoplasma', desc: 'Jongere patiënt, mildere loop, koude agglutininen, macrolide gevoelig. Loopt soms op school/kazerne.', type: 'warn' },
+            { label: 'S. pneumoniae', desc: 'Meest frequent, penicillinegevoelig, geen hyponatriëmie, geen LDH-stijging.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Levofloxacine 500 mg 2×/dag IV — eerste keus bij ernstige Legionella-pneumonie.',
+            stappen: [
+              { naam: 'Duur', detail: '10-14 dagen (langer dan standaard CAP — om recidief te voorkomen).' },
+              { naam: 'Alternatief', detail: 'Azitromycine 500 mg 1×/dag IV bij mildere presentatie.' },
+              { naam: 'Meldingsplicht', detail: 'Legionella is meldingsplichtig — bron-onderzoek verplicht om verspreiding te stoppen.' },
+            ],
+          },
         } },
 
   { type:'lab', d:3, domain:'pulmo', dl:'Pulmonologie',
@@ -3828,18 +3852,25 @@ const QUESTIONS = [
     a:['Respiratoire acidose met metabole compensatie','Respiratoire alkalose met metabole compensatie','Gemengde metabole en respiratoire acidose','Metabole alkalose met respiratoire compensatie'], c:0,
     ex:'pH verlaagd (7.28) + pCO2 verhoogd (72) = respiratoire acidose als primaire stoornis. HCO3- verhoogd (32) = chronische renale compensatie. Dit is het klassieke acuut-op-chronisch CO2-retentiepatroon bij COPD.',
     wiki:{
-          kern: "Stap-voor-stap zuur-base-analyse: (1) pH laag = acidose. (2) pCO2 hoog = respiratoire oorzaak. (3) HCO3- hoog = chronische renale compensatie. Verwacht HCO3 bij chronische respiratoire acidose: stijgt ±3.5 mmol per 10 mmHg pCO2-stijging.",
+          kern: 'Zuur-base stappenplan: (1) pH laag = acidose. (2) pCO2 hoog = respiratoire oorzaak. (3) HCO3- hoog = chronische renale compensatie. Verwacht HCO3 bij chronische respiratoire acidose: +3,5 mmol per 10 mmHg pCO2-stijging.',
           mechanisme: [
-            { title: "Stap 1", desc: "Alveolaire hypoventilatie." },
-            { title: "Stap 2", desc: "CO2 accumuleert." },
-            { title: "Stap 3", desc: "H2CO3." },
-            { title: "Stap 4", desc: "pH daalt. Nieren compenseren chronisch door HCO3-retentie. Acuut: HCO3 stijgt slechts ±1 mmol per 10 mmHg pCO2." },
+            { title: 'Alveolaire hypoventilatie', desc: 'CO2 accumuleert → carboonzuur → pH daalt (respiratoire acidose).' },
+            { title: 'Chronische compensatie', desc: 'Nieren retineren HCO3- om pH te bufferen (dagen). HCO3- +3,5 mmol/10 mmHg pCO2-stijging.' },
+            { title: 'Acuut-op-chronisch', desc: 'Patiënt had al verhoogd HCO3- door chronische CO2-retentie. Acute exacerbatie = pH daalt verder terwijl HCO3- al hoog is.' },
           ],
           onderscheid: [
-            { label: "Metabole acidose", desc: "pH laag, HCO3- laag, pCO2 daalt compensatoir.", type: 'ok' },
-            { label: "Respiratoire alkalose", desc: "pH hoog, pCO2 laag (bijv. hyperventilatie).", type: 'warn' },
-            { label: "Metabole alkalose", desc: "pH hoog, HCO3- hoog (bijv. braken, diuretica).", type: 'danger' },
+            { label: 'Respiratoire acidose', desc: 'pH laag, pCO2 hoog, HCO3- hoog (compensatoir). Oorzaak: hypoventilatie (COPD, sedatie, neuromusculair).', type: 'ok' },
+            { label: 'Metabole acidose', desc: 'pH laag, HCO3- laag, pCO2 laag (compensatoir). Oorzaak: DKA, nierfalen, melkzuuracidose.', type: 'warn' },
+            { label: 'Respiratoire alkalose', desc: 'pH hoog, pCO2 laag. Oorzaak: hyperventilatie, sepsis, leverinsufficiëntie.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'NIV (non-invasieve beademing) bij pH <7.35 en pCO2 >45 — vermindert intubatiebehoefte en mortaliteit bij COPD-exacerbatie.',
+            stappen: [
+              { naam: 'Zuurstof gecontroleerd', detail: 'O2-saturatie doel 88-92% bij COPD met CO2-retentie. Venturi-masker 24-28% FiO2.' },
+              { naam: 'Bronchodilatoren', detail: 'SABA + SAMA vernevelaars. Systemische corticosteroïden (prednisolon 40 mg/dag 5 dagen).' },
+              { naam: 'Antibiotica', detail: 'Bij purulent sputum of koorts: amoxicilline of doxycycline 5 dagen.' },
+            ],
+          },
         } },
 
 
@@ -3873,17 +3904,24 @@ const QUESTIONS = [
     a:['Significante reversibiliteit na bronchodilatator (FEV1-stijging >12% én >200 mL)','Piepende ademhaling bij auscultatie','Leeftijd onder de 40 jaar','Nachtelijke symptomen en hoest'], c:0,
     ex:'Reversibiliteit is het fysiologische sleutelcriterium: bij astma normaliseert of verbetert de FEV1 significant na salbutamol (>12% én >200 mL). Bij COPD is de obstructie per definitie niet volledig reversibel. Piepende ademhaling en nachtelijke klachten kunnen bij beide voorkomen.',
     wiki:{
-          kern: "Astma en COPD overlappen klinisch. Reversibiliteitstesting na bronchodilatator is de objectieve maatstaf.",
+          kern: 'Het centrale onderscheid tussen astma en COPD is reversibiliteit. Astma: FEV1 stijgt >12% én >200 mL na bronchodilatator. COPD: persistente obstructie (FEV1/FVC <0,70 postbronchodilatator).',
           mechanisme: [
-            { title: "Astma", desc: "eosinofiele ontsteking, IgE-gemedieerd of niet-atopisch, intermitterend." },
-            { title: "COPD", desc: "neutrofiele ontsteking, tabaksrook, persistent progressief." },
-            { title: "Stap 3", desc: "ACOS (Asthma-COPD Overlap Syndrome): kenmerken van beide." },
+            { title: 'Astma', desc: 'Eosinofiele ontsteking, IgE-gemedieerd of niet-atopisch, intermitterend. Luchtwegoverreactiviteit. Reversibel.' },
+            { title: 'COPD', desc: 'Neutrofiele ontsteking, tabaksrook, emfyseem + chronische bronchitis. Persistent progressief. Irreversibel.' },
+            { title: 'ACOS', desc: 'Overlap bij rokers met atopie — kenmerken van beide. Behandel beide componenten.' },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "FeNO (fractie exhaleerbaar stikstofoxide) verhoogd bij eosinofiele ontsteking → pleit voor astma.", type: 'ok' },
-            { label: "Optie 2", desc: "Sputumeosinofilie idem.", type: 'warn' },
-            { label: "Optie 3", desc: "Bloedallergiepanel, huidpriktest.", type: 'danger' },
+            { label: 'Astma', desc: 'Jong, atopie, reversibiliteit na salbutamol, FeNO verhoogd, nachtelijke klachten, geen rookgeschiedenis.', type: 'ok' },
+            { label: 'COPD', desc: 'Roker >10 pakjaar, >40j, persistente obstructie, emfyseem op CT, geen significante reversibiliteit.', type: 'warn' },
+            { label: 'ACOS', desc: 'Roker mét atopie, deels reversibel. Beide behandelen: ICS + LABA + LAMA.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Acute astma-aanval: SABA (salbutamol) herhaald + O2 + systemisch prednisolon.',
+            stappen: [
+              { naam: 'Astma stappenschema', detail: 'Stap 1: SABA rescue. Stap 2: laagdosis ICS. Stap 3: ICS + LABA. Stap 4: hoge ICS + LABA ± LAMA. Stap 5: add-on biologicals (omalizumab, mepolizumab).' },
+              { naam: 'COPD GOLD-stadia', detail: 'GOLD A: LAMA of LABA. GOLD B: LAMA + LABA. Frequent exacerbaties: +ICS of macrolide.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'pulmo', dl:'Pulmonologie',
@@ -3891,18 +3929,26 @@ const QUESTIONS = [
     a:['Postnasal drip (upper airway cough syndrome)','COPD','Longcarcinoom','Bronchiëctasieën'], c:0,
     ex:'De "big three" oorzaken van chronisch hoesten: (1) postnasal drip/UACS (~40%), (2) cough-variant astma (~25%), (3) GERD (~20%). Postnasal drip is de meest frequente oorzaak. Altijd ook ACE-remmer als iatrogene oorzaak uitsluiten.',
     wiki:{
-          kern: "ACE-remmers veroorzaken bij 5-20% van de gebruikers een droge hoest door bradykinine-accumulatie → hoestreflex. Stop ACE-remmer → hoest verdwijnt in 4-8 weken.",
+          kern: 'De "big three" oorzaken van chronisch hoesten bij niet-rokers: (1) postnasal drip/UACS (~40%), (2) cough-variant astma (~25%), (3) GERD (~20%). Altijd ACE-remmers uitsluiten als iatrogene oorzaak.',
           mechanisme: [
-            { title: "Postnasal drip", desc: "neussecretie druppelt naar keelholte → prikkeling hoestreflex." },
-            { title: "Stap 2", desc: "Behandel onderliggende rhinitis/sinusitis (antihistaminica, nasale steroïden)." },
-            { title: "Cough-variant astma", desc: "hoest als enige symptoom, bevestig met bronchoprovocatietest." },
+            { title: 'Postnasal drip (UACS)', desc: 'Neussecretie druppelt naar keelholte → prikkeling hoestreflex. Behandel rhinitis/sinusitis.' },
+            { title: 'Cough-variant astma', desc: 'Hoest als enige symptoom, geen dyspneu. Bevestig met bronchoprovocatietest (methacholine).' },
+            { title: 'ACE-remmerhoest', desc: 'Bradykinine-accumulatie → hoestreflex bij 5-20% gebruikers. Stop ACE-remmer → hoest verdwijnt 4-8 weken.' },
           ],
           onderscheid: [
-            { label: "Longcarcinoom", desc: "roker, ouder, haemoptoë, gewichtsverlies.", type: 'ok' },
-            { label: "COPD", desc: "roker, obstructief spirogram.", type: 'warn' },
-            { label: "Bronchiëctasieën", desc: "purulent sputum.", type: 'danger' },
-            { label: "Sarcoidose", desc: "ook droge hoest maar met andere afwijkingen.", type: 'warn' },
+            { label: 'Postnasal drip', desc: 'Gevoel van druppelen achter keel, snuiten, allergiegeschiedenis. Behandel met antihistaminica + nasale steroïden.', type: 'ok' },
+            { label: 'ACE-remmerhoest', desc: 'Droge hoest, begon na start ACE-remmer. Stop medicatie → hoest verdwijnt. Vervang door ARB.', type: 'warn' },
+            { label: 'Longcarcinoom', desc: 'Roker, ouder, haemoptoë, gewichtsverlies — altijd uitsluiten! X-thorax/CT verplicht.', type: 'danger' },
+            { label: 'GERD', desc: 'Hoest erger na maaltijd of liggend. Geen brandend maagzuur noodzakelijk ("silent reflux").', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'ACE-remmer stoppen als medicamenteuze oorzaak — vervanging door ARB (geen bradykinine-effect).',
+            stappen: [
+              { naam: 'Postnasal drip', detail: 'Nasale steroïden (mometason) + non-sederende antihistaminica. Ophogen bij persisterend.' },
+              { naam: 'Cough-variant astma', detail: 'ICS proefbehandeling 4-6 weken. Positief antwoord bevestigt diagnose.' },
+              { naam: 'GERD', detail: 'PPI 2×/dag 8 weken proefbehandeling. Geen maaltijden laat, hoofdeinde bed omhoog.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'pulmo', dl:'Pulmonologie',
@@ -3910,17 +3956,24 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. COPD-patiënten met chronische hypercapnie rijden deels op hypoxische ademhalingsaandrijving. Hoge zuurstofconcentraties kunnen de ademprikkel verminderen → CO2-retentie verergert. Target SpO2: 88-92% (Venturi-masker 24-28%).',
     wiki:{
-          kern: "Bij chronische hypercapnie raken de centrale chemoceptoren gedesensibiliseerd voor CO2. De perifere (carotis) chemoceptoren reageren dan relatief meer op hypoxie.",
+          kern: 'Bij chronische hypercapnie raken centrale chemoceptoren gedesensibiliseerd voor CO2. 100% zuurstof bij COPD met CO2-retentie vermindert hypoxische ademprikkel → hypoventilatie → pCO2 stijgt verder. Doel: SpO2 88-92%.',
           mechanisme: [
-            { title: "Stap 1", desc: "Hoog FiO2." },
-            { title: "Stap 2", desc: "hypoxische drive vermindert." },
-            { title: "Stap 3", desc: "alveolaire hypoventilatie." },
-            { title: "Stap 4", desc: "pCO2 stijgt verder (ook Haldane-effect: zuurstof verdringt CO2 van hemoglobine). Doel: SpO2 88-92%, niet 99-100%." },
+            { title: 'Hypoxische drive', desc: 'Perifere (carotis)chemoceptoren reageren op O2 — bij hoog FiO2 vermindert dit signaal → verminderde ademprikkel → hypoventilatie.' },
+            { title: 'Haldane-effect', desc: 'Zuurstof verdringt CO2 van hemoglobine → vrij CO2 stijgt in bloed. Bijdragend aan CO2-retentie bij hoge FiO2.' },
+            { title: 'Venturi-masker', desc: 'Levert nauwkeurig 24-28% O2 onafhankelijk van ademfrequentie — geschikt voor gecontroleerde zuurstoftherapie.' },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "Bij pneumonie, LE of andere aandoeningen zonder chronische hypercapnie: saturatie normaliseren (>94%).", type: 'ok' },
-            { label: "Optie 2", desc: "Alleen bij verdenking chronische hypercapnie voorzichtig doseren.", type: 'warn' },
+            { label: 'COPD met chronische hypercapnie', desc: 'Doel SpO2 88-92%. Venturi-masker 24-28%. Monitor pCO2 via bloedgas.', type: 'ok' },
+            { label: 'Andere patiënten (geen CO2-retentie)', desc: 'Normaliseer saturatie >94%. Geen gevaar van CO2-retentie bij acuut zuurstofgebruik.', type: 'warn' },
+            { label: 'NIV', detail: 'Bij respiratoire acidose pH <7.35: niet-invasieve beademing bovenop gecontroleerde O2.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Gecontroleerde O2 via Venturi-masker 24-28% — SpO2-doel 88-92%. Bloedgas na 30-60 min herhalen.',
+            stappen: [
+              { naam: 'NIV bij acidose', detail: 'pH <7.35 + pCO2 >45: non-invasieve beademing (BIPAP) — vermindert intubatiebehoefte bij COPD-exacerbatie.' },
+              { naam: 'Vermijd hoge O2', detail: 'Geen non-rebreather masker bij chronische CO2-retentie — risico op hypoventilatiespiraal.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'pulmo', dl:'Pulmonologie',
@@ -3928,18 +3981,24 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. D-dimeer is een uitsluitingstest die alleen bruikbaar is bij lage of intermediaire klinische verdenking. Bij hoge verdenking (Wells ≥7) is de prevalentie van LE hoog — direct CT-pulmonalisangiografie uitvoeren, D-dimeer niet afnemen.',
     wiki:{
-          kern: "D-dimeer: splijtingsproduct van fibrine, verhoogd bij trombose maar ook bij infectie, trauma, kanker en zwangerschap (lage specificiteit). Negatieve predictieve waarde >99% bij lage verdenking → kan LE uitsluiten.",
+          kern: 'D-dimeer heeft een hoge sensitiviteit maar lage specificiteit — bruikbaar alleen bij lage of intermediaire klinische verdenking. Wells ≥7 = directe CT-PA, D-dimeer weglaten. Negatieve D-dimeer bij lage verdenking heeft NPV >99%.',
           mechanisme: [
-            { title: "Bayesiaanse redenering", desc: "bij hoge pre-test kans is een test met matige sensitiviteit onvoldoende om de diagnose uit te sluiten." },
-            { title: "Wells-score <2 + D-dimeer negatief", desc: "LE praktisch uitgesloten (PERC-regel)." },
-            { title: "Wells 2-6", desc: "D-dimeer." },
-            { title: "Wells ≥7", desc: "direct CT-PA." },
+            { title: 'Bayesiaanse redenering', desc: 'Bij hoge pre-test kans (Wells ≥7) is prevalentie van LE hoog. Een matig sensitieve test zoals D-dimeer kan de diagnose dan NIET uitsluiten.' },
+            { title: 'Wells-score algoritme', desc: 'Score <2: PERC-regel toepassen of D-dimeer. Score 2-6: D-dimeer. Score ≥7: direct CT-PA.' },
+            { title: 'D-dimeer verhoogd bij', desc: 'Infectie, trauma, kanker, zwangerschap, hoge leeftijd, postoperatief — lage specificiteit maakt het onbruikbaar als bevestigingstest.' },
           ],
           onderscheid: [
-            { label: "CT-PA", desc: "gouden standaard, toont lokalisatie en uitgebreidheid.", type: 'ok' },
-            { label: "V/Q-scintigrafie", desc: "alternatief bij contrastovergevoeligheid of nierfalen.", type: 'warn' },
-            { label: "Echo onderste extremiteiten", desc: "aanvullend als DVT gezocht wordt.", type: 'danger' },
+            { label: 'CT-PA', desc: 'Gouden standaard bij hoge of intermediaire Wells-score — toont lokalisatie, uitgebreidheid en alternatieven (pneumonie, pericard).', type: 'ok' },
+            { label: 'V/Q-scintigrafie', desc: 'Alternatief bij contrastovergevoeligheid (allergie), nierfalen of zwangerschap (minder straling).', type: 'warn' },
+            { label: 'Echo onderste extremiteiten', desc: 'Aanvullend bij DVT-vermoeden. Positieve DVT + klinische verdenking LE = behandel zonder CT.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Hoge Wells + hemodynamisch instabiel: systemische trombolyse (alteplase) of katheter-embolectomie.',
+            stappen: [
+              { naam: 'Anticoagulantia', detail: 'LMWH (enoxaparine) SC als overbrugging. Start DOAC (apixaban 10 mg 2×/dag 7 dagen, daarna 5 mg 2×/dag) — eenvoudiger dan VKA.' },
+              { naam: 'Duur behandeling', detail: '3 maanden bij uitgelokte LE (chirurgie). 6 maanden bij idiopathisch. Levenslang bij recidief of maligniteit.' },
+            ],
+          },
         } },
 
 
@@ -3948,16 +4007,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Astma is per definitie een reversibele luchtwegobstructie. Een FEV1-stijging >12% én >200 mL na bronchodilatator is kenmerkend. Irreversibele obstructie is het onderscheidende kenmerk van COPD.',
     wiki:{
-          kern: "Astma: chronische eosinofiele luchtwegontsteking → luchtwegoverreactiviteit → episodische reversibele obstructie. Reversibiliteitstesting met salbutamol en dagelijkse PEF-variabiliteit (>20%) zijn diagnostische criteria.",
+          kern: 'Astma is per definitie reversibele luchtwegobstructie. Reversibiliteitstesting: FEV1 stijgt >12% én >200 mL na salbutamol. COPD: persistente obstructie ook na bronchodilatator (FEV1/FVC <0,70).',
           mechanisme: [
-            { title: "Na salbutamol-inhalatie", desc: "FEV1 stijgt >12% én >200 mL bij astma → obstructie reversibel." },
-            { title: "Stap 2", desc: "Langdurig niet-behandeld astma kan door remodelling gedeeltelijk irreversibel worden (cave bij rokers)." },
+            { title: 'Reversibiliteitstest', desc: 'FEV1 meten vóór en 15 min na salbutamol 400 mcg. Stijging >12% én >200 mL = significante reversibiliteit → astma.' },
+            { title: 'Remodelling', desc: 'Langdurig niet-behandeld astma kan door structurele luchtwegverandering gedeeltelijk irreversibel worden. Vroeg behandelen voorkomt dit.' },
+            { title: 'PEF-variabiliteit', desc: 'Dagelijkse PEF-meting >20% variatie over 2 weken bevestigt astma — eenvoudig diagnostisch hulpmiddel.' },
           ],
           onderscheid: [
-            { label: "COPD", desc: "postbronchodilatator FEV1/FVC <0.70 persistent → niet reversibel.", type: 'ok' },
-            { label: "ACOS", desc: "overlap bij rokers met atopie, kenmerken van beide.", type: 'warn' },
-            { label: "Vocal cord dysfunction", desc: "functionele obstructie, variabel, geen spirometrische reversibiliteit.", type: 'danger' },
+            { label: 'Astma', desc: 'Reversibel, FEV1 normaal tussen aanvallen, atopie, jong, FeNO verhoogd.', type: 'ok' },
+            { label: 'COPD', desc: 'FEV1/FVC <0,70 persistent ondanks bronchodilatator. Progressief, roker, ouder.', type: 'warn' },
+            { label: 'Vocal cord dysfunction (VCD)', desc: 'Inspiratoire stridor, variabel, normale spirometrie buiten aanval. Behandeling: spraaktherapie.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Ernstige astma-aanval: salbutamol vernevelaar elke 20 min + ipratropium + prednisolon 40 mg + O2.',
+            stappen: [
+              { naam: 'Intermitterend (stap 1)', detail: 'SABA on demand. Geen onderhoudstherapie nodig.' },
+              { naam: 'Mild persistent (stap 2)', detail: 'Laagdosis ICS dagelijks + SABA rescue.' },
+              { naam: 'Matig-ernstig (stap 3-4)', detail: 'ICS + LABA combinatie. Bij onvoldoende controle: hoge ICS + LAMA toevoegen.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'pulmo', dl:'Pulmonologie',
@@ -3965,18 +4033,26 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Hartfalen geeft een transsudaat: hydrostatische drukverhoging → eiwitarm vocht. Light-criteria voor exsudaat: vocht/serum-eiwit >0.5, of LDH-ratio >0.6, of LDH >2/3 van upper limit normaal. Hartfalen voldoet aan geen van deze criteria.',
     wiki:{
-          kern: "Transsudaat (hydrostatisch/oncotisch): hartfalen, levercirrose, nefrotisch syndroom. Exsudaat (verhoogde permeabiliteit): pneumonie, maligniteit, tuberculose, longembolie.",
+          kern: 'Pleuravocht classificatie met Light-criteria: exsudaat als vocht/serum-eiwit >0,5, LDH-ratio >0,6, of LDH >2/3 bovengrens normaal. Hartfalen geeft een transsudaat — voldoet niet aan Light-criteria.',
           mechanisme: [
-            { title: "Stap 1", desc: "Hartfalen." },
-            { title: "Stap 2", desc: "verhoogde pulmonale capillairdruk." },
-            { title: "Stap 3", desc: "eiwitarm vocht lekt in pleuraholte. Cave: diuretische behandeling van hartfalen kan transsudaat omzetten naar pseudo-exsudaat (Light-criteria positief)." },
-            { title: "Stap 4", desc: "serum albumine-gradient >1.2 g/dL pleit dan toch voor hartfalen." },
+            { title: 'Transsudaat-mechanisme', desc: 'Hartfalen → verhoogde pulmonale capillairdruk → eiwitarm vocht lekt in pleuraholte. Lage eiwitconcentratie → Light-criteria negatief.' },
+            { title: 'Pseudo-exsudaat', desc: 'Na diuretica voor hartfalen: vocht wordt geconcentreerd → Light-criteria kunnen positief worden (pseudo-exsudaat). Gebruik albumine-gradiënt: serum-pleura albumine >1,2 g/dL → toch hartfalen.' },
+            { title: 'Exsudaat-oorzaken', desc: 'Pneumonie, maligniteit, tuberculose, longembolie (verhoogde vasculaire permeabiliteit).' },
           ],
           onderscheid: [
-            { label: "Tuberculeus pleuravocht", desc: "exsudaat met lymfocytose, hoog ADA (adenosine deaminase).", type: 'ok' },
-            { label: "Malignen pleura-effusie", desc: "exsudaat, cytologie positief.", type: 'warn' },
-            { label: "Chylothorax", desc: "triglycerides >1.24 mmol/L.", type: 'danger' },
+            { label: 'Hartfalen (transsudaat)', desc: 'Light-criteria negatief, bilateraal, reageert op diuretica. Cave pseudo-exsudaat.', type: 'ok' },
+            { label: 'Tuberculose (exsudaat)', desc: 'Lymfocytose, hoog ADA (>40 U/L), eenzijdig, jonge patiënt. ADA-test is snel en goedkoop.', type: 'warn' },
+            { label: 'Maligniteit (exsudaat)', desc: 'Bloederig, cytologie positief, hoog LDH. Eenzijdig, gewichtsverlies, roken.', type: 'danger' },
+            { label: 'Chylothorax', desc: 'Triglycerides >1,24 mmol/L in pleuravocht — chijleuze ductus beschadigd (trauma, lymfoom).', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Grote effusie met dyspneu: therapeutische thoracentese (drainage 1-1,5 L max per sessie).',
+            stappen: [
+              { naam: 'Hartfalen', detail: 'Diuretica (furosemide). Hartfalen optimaliseren — effusie verdwijnt als hartfalen herstelt.' },
+              { naam: 'Parapneumonisch', detail: 'Antibiotica voor pneumonie. Bij gelocaliseerd exsudaat met laag pH (<7.20): drainage via thoraxdrain.' },
+              { naam: 'Maligne effusie', detail: 'Herhaalde thoracentese of pleurodese (talcpoeder) voor palliatieve drainage.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'pulmo', dl:'Pulmonologie',
@@ -3984,15 +4060,25 @@ const QUESTIONS = [
     c:true,
     ex:'WAAR. Longcarcinoom is de voornaamste oorzaak van kankersterfte wereldwijd bij mannen én vrouwen. De 5-jaarsoverleving is <20% door laattijdige diagnose: 75% presenteert zich met gevorderd stadium.',
     wiki:{
-          kern: "Twee hoofdgroepen: NSCLC (85%): adenocarcinoom (ook bij niet-rokers, meest frequent), plaveiselcelcarcinoom (sterk gerelateerd aan roken), grootcellig. SCLC (15%): bijna uitsluitend rokers, snel groeiend, vroeg metastaserend.",
+          kern: 'Longcarcinoom: NSCLC (85%) versus SCLC (15%). NSCLC: adenocarcinoom (ook niet-rokers, EGFR-mutaties), plaveiselcel (rokers, centraal). SCLC: bijna uitsluitend rokers, snel groeiend, vroeg metastaserend, paraneoplastische syndromen.',
           mechanisme: [
-            { title: "Adenocarcinoom bij niet-rokers", desc: "EGFR-mutaties (Aziatische vrouwen) → gerichte therapie (gefitinib, erlotinib)." },
-            { title: "Plaveiselcelcarcinoom", desc: "centraal, hemoptoë." },
-            { title: "SCLC", desc: "paraneoplastische syndromen (SIADH, Cushing, Eaton-Lambert)." },
+            { title: 'Adenocarcinoom', desc: 'Perifeer, ook bij niet-rokers (Aziatische vrouwen: EGFR-mutaties bij 40-60%). Gerichte therapie: erlotinib, gefitinib, osimertinib.' },
+            { title: 'Plaveiselcelcarcinoom', desc: 'Centraal, sterk gerelateerd aan roken, hemoptoë. Cavitaties mogelijk. Squamous cell carcinoma marker.' },
+            { title: 'SCLC', desc: 'Snel groeiend, vroeg metastaserend. Paraneoplastische syndromen: SIADH, ectopisch ACTH (Cushing), Eaton-Lambert.' },
           ],
           onderscheid: [
-            { label: "Onderscheid", desc: "Screening: lage-dosis CT bij hoog-risico rokers (>20 pakjaar, leeftijd 50-80j) vermindert longcarcinoommortaliteit met 20% (NLST-studie).", type: 'warn' },
+            { label: 'NSCLC (adenocarcinoom)', desc: 'Perifeer, vroeg stadium chirurgie. EGFR-mutatie: TKI. PD-L1 positief: immunotherapie (pembrolizumab).', type: 'ok' },
+            { label: 'SCLC', desc: 'Chemotherapie + radiotherapie. Chirurgie zelden mogelijk. Snel recidief. Paraneoplastische syndromen.', type: 'danger' },
+            { label: 'Metastasen', desc: 'Longmetastasen van andere primaire tumor (borst, colon, nieren) — CT/PET ter onderscheid.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Hemoptyse bij longcarcinoom: CT-angiografie, eventueel bronchiale arterieëmbolisatie.',
+            stappen: [
+              { naam: 'Stadium I-II NSCLC', detail: 'Chirurgische resectie (lobectomie) — curatief. Adjuvante chemotherapie bij positieve klieren.' },
+              { naam: 'Stadium III-IV NSCLC', detail: 'Mutatie-testen: EGFR, ALK, ROS1, PD-L1. Gerichte therapie of immunotherapie + chemotherapie.' },
+              { naam: 'Screening', detail: 'Lage-dosis CT bij rokers >20 pakjaar en leeftijd 50-80j — vermindert mortaliteit 20% (NLST-studie).' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:5, domain:'pulmo', dl:'Pulmonologie', subtype:'test',
@@ -4000,18 +4086,26 @@ const QUESTIONS = [
     a:['55-jarige roker met progressieve dyspneu bij inspanning en hoest','22-jarige met acute pleuritische pijn en dyspneu','Patiënt met hoge koorts, productieve hoest en lobair infiltraat','Patiënt met hemodynamische instabiliteit en tachycardie 120/min'], c:0,
     ex:'Spirometrie is het diagnostisch instrument voor chronische luchtwegziekten (COPD, astma) bij patiënten met chronische klachten. Bij acute presentaties (pneumothorax, longembolie, pneumonie) zijn andere onderzoeken prioritair. Spirometrie is niet nuttig in de acute setting.',
     wiki:{
-          kern: "Indicaties spirometrie: vermoeden COPD of astma, bepalen ernst obstructie, preoperatieve evaluatie, follow-up. Altijd postbronchodilatator meten voor COPD-diagnose.",
+          kern: 'Spirometrie is het diagnostische instrument voor chronische luchtwegobstructie. COPD-diagnose vereist postbronchodilatator FEV1/FVC <0,70. Astma: reversibiliteitstest >12% én >200 mL. Niet nuttig in acute setting.',
           mechanisme: [
-            { title: "Stap 1", desc: "FEV1/FVC <0.70 postbronchodilatator = obstructie (COPD)." },
-            { title: "Stap 2", desc: "FVC verlaagd met normaal FEV1/FVC = restrictie (fibrosis, obesitas)." },
-            { title: "Stroom-volumecurve", desc: "concave expiratoire limb bij COPD, kleinere loop bij restrictief." },
+            { title: 'Obstructief patroon', desc: 'FEV1/FVC <0,70 postbronchodilatator = COPD. FEV1 verlaagd, FVC normaal of licht verlaagd.' },
+            { title: 'Restrictief patroon', desc: 'FVC verlaagd, FEV1/FVC normaal of verhoogd. Oorzaken: pulmonale fibrose, obesitas, pleuravocht, neuromusculaire aandoening.' },
+            { title: 'COPD GOLD-stadiëring', desc: 'Gebaseerd op FEV1 na bronchodilatator: GOLD 1 FEV1 ≥80%, GOLD 2 50-80%, GOLD 3 30-50%, GOLD 4 <30%.' },
           ],
           onderscheid: [
-            { label: "X-thorax", desc: "acute ziektebeelden, structuurafwijkingen.", type: 'ok' },
-            { label: "CT-thorax", desc: "parenchym, lymfeklieren, emboli (CT-PA).", type: 'warn' },
-            { label: "Bloedgas", desc: "zuur-base, oxygenatie.", type: 'danger' },
-            { label: "Bronchoscopie", desc: "endobronchiale afwijkingen, BAL.", type: 'warn' },
+            { label: 'Spirometrie', desc: 'Chronische klachten, vermoeden COPD/astma, preoperatief. Niet voor acute ziektebeelden.', type: 'ok' },
+            { label: 'X-thorax', desc: 'Acute presentatie, structuurafwijkingen, cardiomegalie. Eerste stap bij acuut.', type: 'warn' },
+            { label: 'CT-PA', desc: 'Verdenking longembolie, emfyseem-evaluatie, maligniteit.', type: 'warn' },
+            { label: 'Bloedgas', desc: 'Acuut zuur-base-probleem, oxygenatie, CO2-retentie. Aanvullend op spirometrie bij ernstige COPD.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Spirometrie is diagnostisch — geen directe therapeutische implicatie anders dan diagnose stellen.',
+            stappen: [
+              { naam: 'Na COPD-diagnose', detail: 'Start LAMA of LABA monotherapie. Stoppen met roken als prioriteit. Longrevalidatie.' },
+              { naam: 'Na astma-diagnose', detail: 'ICS als onderhoudstherapie. Reversibiliteitstest herhalen na 4-6 weken behandeling.' },
+              { naam: 'Preoperatief', detail: 'FEV1 <1L: verhoogd perioperatief risico. FEV1 <0,8L: hoog risico → anesthesiologisch overleg.' },
+            ],
+          },
         } },
 
 
