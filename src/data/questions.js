@@ -4220,16 +4220,25 @@ const QUESTIONS = [
     a:['Irreversibele blokkade van H+/K+-ATPase in parietaalcellen','Blokkade van H2-receptoren op parietaalcellen','Neutralisatie van maagzuur door basische verbindingen','Remming van gastrine-afgifte door G-cellen'], c:0,
     ex:'PPI\'s (omeprazol, pantoprazol) blokkeren irreversibel de H+/K+-ATPase (protonpomp) in de parietaalcellen → meest effectieve remming van maagzuurproductie. H2-blokkers (ranitidine) blokkeren H2-receptoren maar zijn minder effectief.',
     wiki:{
-          kern: "PPI\\'s zijn prodrugs die geactiveerd worden in het zure milieu van de parietaalcel. Na activatie binden ze covalent aan de protonpomp → irreversibele remming tot nieuwe pomp wordt gesynthetiseerd (24-48u).",
+          kern: "PPI's zijn prodrugs die geactiveerd worden in het zure milieu van de parietaalcel. Na activatie binden ze covalent aan de H+/K+-ATPase → irreversibele remming tot nieuwe pomp gesynthetiseerd is (24-48u). Meest effectieve zuurremming.",
           mechanisme: [
-            { title: "Stap 1", desc: "H2-blokkers (cimetidine, ranitidine): remmen histamine-gestimuleerde zuurproductie, minder effectief dan PPI\\'s." },
-            { title: "Stap 2", desc: "Antacida (magnesiumhydroxide, aluminiumhydroxide): neutraliseren maagzuur, snel effect maar kortdurend." },
-            { title: "Sucralfaat", desc: "beschermend laagje op ulcus." },
+            { title: 'H+/K+-ATPase blokkade', desc: 'PPI wordt geactiveerd bij pH <2 → covalente binding aan cysteïne van de protonpomp → irreversibele remming. Dagelijks ingenomen voor maaltijd (pomp is dan actief).' },
+            { title: 'H2-blokkers (cimetidine)', desc: "Remmen histamine-gestimuleerde zuurproductie — minder effectief dan PPI's. Sneller effect maar kortere duur." },
+            { title: 'Langdurig gebruik', desc: 'Hypomagnesiëmie, vitamine B12-tekort, verhoogd Clostridioides difficile-risico, osteoporose. Minimale effectieve dosis gebruiken.' },
           ],
           onderscheid: [
-            { label: "PPI indicaties", desc: "GERD, maagulcus, H. pylori-eradicatie (PPI+AB), NSAID-gastroprotectie bij risicopatiënten, Zollinger-Ellison.", type: 'ok' },
-            { label: "Bijwerkingen langdurig PPI", desc: "hypomagnesiëmie, vitamine B12-tekort, verhoogd Clostridium difficile-risico, osteoporose.", type: 'warn' },
+            { label: 'PPI indicaties', desc: 'GERD, maagulcus, H. pylori-eradicatie (tripeltherapie), NSAID-gastroprotectie bij risicopatiënten, Zollinger-Ellison.', type: 'ok' },
+            { label: 'H2-blokkers', desc: 'Minder effectief dan PPI — bruikbaar bij milde GERD of als aanvulling (nachtelijke zuurbreuk).', type: 'warn' },
+            { label: 'Antacida', desc: 'Symptomatische verlichting snel maar kortdurend (1-2u). Geen healing van ulcera of oesofagitis.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Hoge-risico GI-bloeding: IV PPI (pantoprazol) continue infusie vóór endoscopie — vermindert actief bloedende Forrest Ia laesies.',
+            stappen: [
+              { naam: 'GERD', detail: 'Omeprazol/pantoprazol 20-40 mg 1×/dag, 30 min voor ontbijt. 4-8 weken, daarna probeer af te bouwen.' },
+              { naam: 'Ulcus duodeni', detail: 'PPI + H. pylori-eradicatie (amoxicilline + clarithromycine + PPI 7-14 dagen). Na eradicatie: PPI 4 weken.' },
+              { naam: 'Langdurig gebruik', detail: 'Laagst effectieve dosis. Jaarlijkse herevaluatie of PPI nog nodig.' },
+            ],
+          },
         } },
 
 
@@ -4314,18 +4323,25 @@ const QUESTIONS = [
     a:['Perianale fistels en abcessen','Bloederige diarree','Buikkrampen','Verhoogd CRP bij opvlamming'], c:0,
     ex:'Perianale fistels zijn karakteristiek voor de ziekte van Crohn door de transmurale, discontinue ontsteking die fistels kan veroorzaken. Bij colitis ulcerosa (mucosale ontsteking, alleen colon) komen perianale fistels niet voor. Bloederige diarree, buikkrampen en verhoogd CRP kunnen bij beide voorkomen.',
     wiki:{
-          kern: "Crohn vs. CU onderscheidende kenmerken: Crohn: skip-lesions, transmuraal, perianale ziekte, kan ileum/mondholte treffen, geen bloederige diarree altijd.",
+          kern: 'Crohn vs CU: Crohn is transmuraal (skip-lesions, perianale fistels, kan ileum en mondholte treffen). CU is mucosaal en continu, altijd rectum betrokken, nooit peranale fistels.',
           mechanisme: [
-            { title: "Stap 1", desc: "Transmuraal = alle lagen van de darmwand aangedaan → fistelvorming, stenosen, perforatie." },
-            { title: "Perianale ziekte bij Crohn", desc: "fistels van rectum/anuskanaal naar omgeving (huid, vagina, blaas)." },
-            { title: "Behandeling", desc: "biologicals (infliximab), chirurgie bij resistentie." },
+            { title: 'Transmuraal (Crohn)', desc: 'Alle lagen darmwand aangedaan → fistelvorming (perianaal, enterovesicaal), stenosen, perforatie, abcessen.' },
+            { title: 'Mucosaal (CU)', desc: 'Alleen mucosa en submucosa aangedaan — continu vanaf rectum proximaal. Geen skip-lesions, geen perianale fistels.' },
+            { title: 'Serologie', desc: 'ASCA (anti-Saccharomyces cerevisiae) positief bij Crohn (60%). pANCA positief bij CU (65%). Niet diagnostisch — adjuvant.' },
           ],
           onderscheid: [
-            { label: "Scleroserende cholangitis", desc: "vaker bij CU.", type: 'ok' },
-            { label: "Ileitis terminalis", desc: "Crohn specifiek.", type: 'warn' },
-            { label: "Pyoderma gangrenosum en erythema nodosum", desc: "extraïntestinale manifestaties van beide.", type: 'danger' },
-            { label: "Optie 4", desc: "ASCA positief bij Crohn, pANCA bij CU (niet 100% specifiek).", type: 'warn' },
+            { label: 'Crohn', desc: 'Skip-lesions, transmuraal, perianale fistels, ileumbetrokkenheid, granulomen op biopsie. ASCA positief.', type: 'ok' },
+            { label: 'Colitis ulcerosa', desc: 'Continu rectum → proximaal, alleen colon, mucosaal, geen fistels, PSC als extraïntestinale manifestatie. pANCA positief.', type: 'warn' },
+            { label: 'Infectieuze colitis', desc: 'Acuut begin, koorts, positieve kweek (Campylobacter, Salmonella, C. difficile). Biopsie: geen chronische veranderingen.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Ernstige opvlamming: prednisolon 40 mg/dag oraal of IV methylprednisolon. Biologicals bij steroïdrefractair.',
+            stappen: [
+              { naam: 'Milde Crohn', detail: 'Budesonide (ileocolische Crohn). Azathioprine/6-MP als onderhoud.' },
+              { naam: 'Matig-ernstige Crohn', detail: 'Anti-TNF (infliximab, adalimumab) of vedolizumab/ustekinumab bij falen.' },
+              { naam: 'CU', detail: 'Mesalazine (5-ASA) oraal + rectaal bij milde CU. Sterke opvlamming: IV steroïden → biologicals.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'gastro', dl:'Gastro-enterologie',
@@ -4360,20 +4376,26 @@ const QUESTIONS = [
     c:true,
     ex:'WAAR. H. pylori is aanwezig bij >90% van de duodenumulcera en ~70% van de maagulcera. Het is ook geclassificeerd als IARC groep 1 carcinogeen voor maagcarcinoom. Eradicatie vermindert ulcusrecidief en het carcinoomrisico.',
     wiki:{
-          kern: "H. pylori is een gramnegative spiraalvormige bacterie die de maagmucosa koloniseert en chronische gastritis veroorzaakt. Prevalentie hoger in ontwikkelingslanden (50-80%) dan westerse landen (20-30%).",
+          kern: 'H. pylori koloniseert de maagmucosa en veroorzaakt chronische gastritis. Risicofactor voor duodenumulcus (>90%), maagulcus (~70%), MALT-lymfoom en maagcarcinoom. Eradicatie vermindert ulcusrecidief en carcinoomrisico.',
           mechanisme: [
-            { title: "Stap 1", desc: "H. pylori." },
-            { title: "Stap 2", desc: "CagA en VacA virulentiefactoren." },
-            { title: "Stap 3", desc: "mucosale ontsteking." },
-            { title: "Stap 4", desc: "maagulcus of MALT-lymfoom. Langdurige infectie." },
-            { title: "Stap 5", desc: "atrofische gastritis." },
+            { title: 'Virulentiefactoren', desc: 'CagA (oncoproteïne) en VacA (vacuoliserende cytotoxine) → mucosale inflammatie → atrofische gastritis → intestinale metaplasie → maagcarcinoom.' },
+            { title: 'Ulcusmechanisme', desc: 'H. pylori vermindert mucosale afweer en verhoogt gastrineproductie → zuurhypersecretie → ulcus.' },
+            { title: 'MALT-lymfoom', desc: 'Mucosa-associated lymphoid tissue lymfoom — bij 70-80% genezing na H. pylori-eradicatie alleen.' },
           ],
           onderscheid: [
-            { label: "Ureumademtest", desc: "goud standaard voor non-invasieve diagnose en verificatie eradicatie.", type: 'ok' },
-            { label: "Fecesantigeen", desc: "alternatief.", type: 'warn' },
-            { label: "Optie 3", desc: "Biopsie (CLO-test/histologie) bij gastroscopie.", type: 'danger' },
-            { label: "Serologie", desc: "bewijst blootstelling, niet actieve infectie.", type: 'warn' },
+            { label: 'Ureumademtest (UBT)', desc: 'Gouden standaard voor non-invasieve diagnose én verificatie eradicatie. Stop PPI 2 weken voor test.', type: 'ok' },
+            { label: 'Fecesantigeen', desc: 'Alternatief voor UBT — stop PPI 2 weken. Goedkoop en betrouwbaar.', type: 'warn' },
+            { label: 'Biopsie (CLO-test/histologie)', desc: 'Bij gastroscopie — direct tijdens endoscopie. Nodig bij alarm-symptomen of therapiefalen.', type: 'warn' },
+            { label: 'Serologie', desc: 'Bewijst blootstelling, niet actieve infectie — niet geschikt voor eradicatiecontrole.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Tripeltherapie 7-14 dagen: PPI + amoxicilline + clarithromycine (claritromax). Of quadrupaltherapie bij resistentie.',
+            stappen: [
+              { naam: 'Tripeltherapie', detail: 'PPI 2×/dag + amoxicilline 1g 2×/dag + clarithromycine 500 mg 2×/dag × 7-14 dagen.' },
+              { naam: 'Bij penicillineallergie', detail: 'PPI + metronidazol + clarithromycine (of bismut-quadrupaltherapie).' },
+              { naam: 'Eradicatiecontrole', detail: 'Ureumademtest 4-6 weken na einde antibiotica (PPI 2 weken gestopt). Eradicatie in >95% bij adequate therapie.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'gastro', dl:'Gastro-enterologie',
@@ -4381,18 +4403,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Spoed-endoscopie (gastroscopie) binnen 24 uur is de eerste keus bij een bovenste GI-bloeding. Endoscopie is zowel diagnostisch als therapeutisch (hemostase mogelijk). CT-angiografie wordt pas overwogen als endoscopie mislukt of als bron onduidelijk blijft.',
     wiki:{
-          kern: "Bovenste GI-bloeding (hematemese/melena): directe resuscitatie (IV toegang, kristalloïden, bloedgroepbepaling), daarna endoscopie binnen 24u (of <12u bij hemodynamische instabiliteit). PPI IV geeft voor endoscopie al vermindering van hoog-risico stigmata.",
+          kern: 'Bovenste GI-bloeding: resusciteer eerst, daarna endoscopie binnen 24u (of <12u bij hemodynamische instabiliteit). CT-scan heeft geen diagnostische voorrang boven endoscopie — endoscopie is ook therapeutisch.',
           mechanisme: [
-            { title: "Stap 1", desc: "Endoscopische Forrest-classificatie bepaalt bloedingsrisico: Forrest Ia (actief sproeiend bloeden)." },
-            { title: "Stap 2", desc: "directe hemostase. Forrest IIa/IIb (zichtbaar vat/klonter)." },
-            { title: "Stap 3", desc: "interventie. Forrest IIc/III (vlak haematine/clean base)." },
-            { title: "Stap 4", desc: "conservatief." },
+            { title: 'Forrest-classificatie', desc: 'Ia: actief sproeiend (directe hemostase). IIa/IIb: zichtbaar vat/klonter (interventie). IIc/III: haematine/clean base (conservatief).' },
+            { title: 'Pre-endoscopische PPI', desc: 'IV pantoprazol voor endoscopie → vermindert hoog-risico stigmata → minder interventies nodig.' },
+            { title: 'Hemostase methoden', desc: 'Epinefrine-injectie, hemostaseclips, thermische coagulatie, argonplasmacoagulatie.' },
           ],
           onderscheid: [
-            { label: "Lage GI-bloeding (helder rood bloed per anum)", desc: "kolonoscopie na voorbereiding.", type: 'ok' },
-            { label: "CT-angiografie", desc: "bij massieve bloeding of als bron onduidelijk.", type: 'warn' },
-            { label: "Nuclear scan (technetium-RBC)", desc: "detectie van langzame bloedingen.", type: 'danger' },
+            { label: 'Gastroscopie (eerste keus)', desc: 'Diagnostisch én therapeutisch. Binnen 24u (stabiel) of <12u (instabiel). Forrest-classificatie bepaalt beleid.', type: 'ok' },
+            { label: 'CT-angiografie', desc: 'Bij massieve bloeding of als bron onduidelijk na endoscopie. Kan embolisatie voorbereiden.', type: 'warn' },
+            { label: 'Colonoscopie', desc: 'Bij lage GI-bloeding (helder rood bloed per anum) — na stabilisatie en voorbereiding.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Resuscitatie: IV toegang ×2, kristalloïden, bloedproducten bij Hb <8 g/dL. PPI IV direct.',
+            stappen: [
+              { naam: 'Pre-endoscopie', detail: 'Pantoprazol 80 mg bolus IV → 8 mg/u continu. Overweeg erytromycine IV als prokineticm (leegt maag).' },
+              { naam: 'Endoscopische hemostase', detail: 'Forrest Ia/IIa: clip + injectie. Succes >90%. Recidief: herhaal endoscopie of angiografie.' },
+              { naam: 'Na hemostase', detail: 'Orale PPI 2×/dag 72u, daarna dagelijks. H. pylori testen en eradiceren als aanwezig.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'gastro', dl:'Gastro-enterologie',
@@ -4400,18 +4429,25 @@ const QUESTIONS = [
     c:true,
     ex:'WAAR. Vrij lucht onder het diafragma (pneumoperitoneum) wijst op een geperforeerd hol orgaan (maag, duodenum, colon). Dit is een chirurgische spoedindicatie. De meest frequente oorzaak is een perforatie van een maag- of duodenumulcus.',
     wiki:{
-          kern: "Pneumoperitoneum: best zichtbaar op staande thoraxfoto of linker-decubitus buikoverzicht. CT-abdomen is gevoeliger.",
+          kern: 'Pneumoperitoneum = vrije lucht onder het diafragma op staande thoraxfoto → geperforeerd hol orgaan tot bewijs van het tegendeel. Chirurgische spoed. Meest frequente oorzaak: maag- of duodenumulcusperforatie.',
           mechanisme: [
-            { title: "Stap 1", desc: "Perforatie." },
-            { title: "Stap 2", desc: "lucht en maaginhoud/darminhoud lekken in buikholte." },
-            { title: "Stap 3", desc: "chemische peritonitis." },
-            { title: "Stap 4", desc: "bacteriële peritonitis." },
-            { title: "Stap 5", desc: "sepsis. Rigide buik (\"plankbuik\"), diffuse drukpijn en loslaatpijn." },
+            { title: 'Perforatie-cascade', desc: 'Perforatie → lucht + maaginhoud/darminhoud lekken in buikholte → chemische peritonitis → bacteriële peritonitis → sepsis.' },
+            { title: 'Klinisch beeld', desc: 'Rigide buik ("plankbuik"), diffuse drukpijn, loslaatpijn, tachycardie. Patiënt ligt stil (beweging pijnlijk).' },
+            { title: 'CT-abdomen', desc: 'Gevoeliger dan thoraxfoto voor kleine hoeveelheid vrij gas — altijd bij twijfel. Toont ook de bron.' },
           ],
           onderscheid: [
-            { label: "Pseudopneumoperitoneum", desc: "Chilaiditi-syndroom (colon tussen lever en diafragma), perforatie van een holle vene.", type: 'ok' },
-            { label: "Optie 2", desc: "Altijd klinische correlatie.", type: 'warn' },
+            { label: 'Echte perforatie', desc: 'Plotse buikpijn, plankbuik, koorts, pneumoperitoneum op thoraxfoto/CT. Chirurgische spoed.', type: 'ok' },
+            { label: 'Pseudopneumoperitoneum', desc: 'Chilaiditi-syndroom (colon tussen lever en diafragma) — geen symptomen, geen chirurgie nodig. Klinische correlatie essentieel.', type: 'warn' },
+            { label: 'Ischemische colitis', desc: 'Buikpijn + hematochezie maar geen pneumoperitoneum initieel. CT: colonwandverdikking.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Spoedslaparotomie of -laparoscopie — geen uitstel. Peroraal niets.',
+            stappen: [
+              { naam: 'Preoperatief', detail: 'IV toegang, vloeistofresuscitatie, antibiotica (piperacilline/tazobactam of cefuroxim + metronidazol), maagslang.' },
+              { naam: 'Chirurgie', detail: 'Maagperforatie: primaire sluiting + omentumpatch (Graham-techniek). Colonperforatie: Hartmann-procedure of primaire anastomose.' },
+              { naam: 'Postoperatief', detail: 'IC-bewaking, PPI, H. pylori-eradicatie als ulcus de oorzaak was.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'gastro', dl:'Gastro-enterologie',
@@ -4419,16 +4455,25 @@ const QUESTIONS = [
     c:true,
     ex:'WAAR. Colonoscopie is de gouden standaard voor colorectaal carcinoomscreening: detectie én directe verwijdering van poliepen. In Nederland wordt echter fecaal immunochemisch testen (FIT) gebruikt als populatiescreen, met colonoscopie bij positieve FIT.',
     wiki:{
-          kern: "Colorectaal carcinoom: 3e meest voorkomende kanker en 2e oorzaak van kankersterfte wereldwijd. Adenom-carcinoom sequentie: 10-15 jaar van adenoom naar carcinoom.",
+          kern: 'Colorectaal carcinoom: 3e meest voorkomende kanker, 2e oorzaak van kankersterfte. Adenom-carcinoomsequentie duurt 10-15 jaar — het venster voor succesvolle screening en preventie. Colonoscopie is goudstandaard: diagnostisch én therapeutisch.',
           mechanisme: [
-            { title: "Risicofactoren", desc: "leeftijd >50j, IBD, familiegeschiedenis CRC, familiaire polyposis (FAP), Lynch-syndroom (HNPCC)." },
-            { title: "CEA (carcinoembryonaal antigeen)", desc: "niet geschikt voor screening, wel voor follow-up na resectie." },
+            { title: 'Adenom-carcinoomsequentie', desc: 'Adenoom → APC-mutatie → K-ras mutatie → p53-verlies → invasief carcinoom. 10-15 jaar tijdvenster voor preventieve polypectomie.' },
+            { title: 'Risicofactoren', desc: 'Leeftijd >50j, IBD, familiaire belasting CRC, FAP (APC-mutatie), Lynch-syndroom (HNPCC, MMR-genen).' },
+            { title: 'CEA', desc: 'Niet geschikt voor screening — te weinig specifiek. Wel bruikbaar voor recidief-monitoring na curatieve resectie.' },
           ],
           onderscheid: [
-            { label: "FIT (fecaal immunochemisch testen)", desc: "niet-invasief, jaarlijks of tweejaarlijks, positief bij occulte bloeding → colonoscopie.", type: 'ok' },
-            { label: "Sigmoidoscopie", desc: "ziet distale colon.", type: 'warn' },
-            { label: "CT-colonografie", desc: "niet-invasief alternatief maar geen therapiemogelijkheid.", type: 'danger' },
+            { label: 'Colonoscopie', desc: 'Goudstandaard: diagnostisch + therapeutisch (polypectomie). Eens per 10 jaar bij normaal resultaat.', type: 'ok' },
+            { label: 'FIT (fecaal immunochemisch testen)', desc: 'Nederlands bevolkingsonderzoek: niet-invasief, jaarlijks of tweejaarlijks. Positief → colonoscopie.', type: 'warn' },
+            { label: 'CT-colonografie', desc: 'Niet-invasief alternatief maar geen therapeutische mogelijkheid (polyepen verwijderen onmogelijk).', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Obstructie door CRC: spoed-colonoscopie of CT-colonografie → stentplaatsing of Hartmann-procedure.',
+            stappen: [
+              { naam: 'Stadium I-II', detail: 'Chirurgische resectie curatief. Adjuvante chemotherapie bij stadium III (FOLFOX).' },
+              { naam: 'Stadium IV (metastasen)', detail: 'Chemotherapie (FOLFOX of FOLFIRI) ± bevacizumab/cetuximab afhankelijk van RAS-mutatiestatus.' },
+              { naam: 'Lynch-syndroom', detail: 'Genetisch onderzoek familieleden. Intensievere surveillance. Immunotherapie (pembrolizumab) effectief bij MSI-H CRC.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:5, domain:'gastro', dl:'Gastro-enterologie', subtype:'test',
@@ -4436,17 +4481,25 @@ const QUESTIONS = [
     a:['Gastroscopie binnen 24 uur','CT-abdomen met contrast','Arteriële angiografie','X-abdomen staand'], c:0,
     ex:'Gastroscopie is zowel diagnostisch als therapeutisch (hemostase). Bij stabiele patiënt: binnen 24u. Bij hemodynamisch instabiele patiënt: resusciteer eerst, daarna zo snel mogelijk gastroscopie (<12u). CT heeft geen therapeutisch voordeel in eerste instantie.',
     wiki:{
-          kern: "Risicostratificatie: Glasgow-Blatchford Score bepaalt urgentie (nul: poliklinisch, hoog: spoed-endoscopie). Pre-endoscopische PPI vermindert stigmata van recente bloeding en kan het aantal interventies verminderen.",
+          kern: 'Gastroscopie is de eerste stap bij bovenste GI-bloeding — diagnostisch én therapeutisch. Glasgow-Blatchford Score bepaalt urgentie. Pre-endoscopische IV PPI vermindert hoog-risico stigmata.',
           mechanisme: [
-            { title: "Endoscopische hemostase", desc: "epinefrine-injectie, heater probe, clips (hemostaseclips), argonplasmacoagulatie." },
-            { title: "Stap 2", desc: "Succes >90% bij actieve bloeding." },
-            { title: "Recidiefbloeding", desc: "repeat endoscopie of interventieradiologie." },
+            { title: 'Glasgow-Blatchford Score', desc: 'Score 0: poliklinisch veilig. Score hoog (>6): spoed-endoscopie. Bepaalt op basis van Hb, ureum, systolische BD, hartfrequentie, comorbiditeit.' },
+            { title: 'Endoscopische hemostase', desc: 'Epinefrine-injectie, hemostaseclips, thermische coagulatie, APC. Succes >90% bij actieve bloeding.' },
+            { title: 'Recidiefbloeding', desc: 'Herhaal endoscopie → bij falen: angiografie met embolisatie → chirurgie als laatste redmiddel.' },
           ],
           onderscheid: [
-            { label: "Angiografie/embolisatie", desc: "bij recidief na endoscopie of als endoscopie niet mogelijk.", type: 'ok' },
-            { label: "Chirurgie", desc: "als laatste redmiddel.", type: 'warn' },
-            { label: "X-abdomen", desc: "waardeloos bij GI-bloeding, wél bij verdenking perforatie.", type: 'danger' },
+            { label: 'Gastroscopie (eerste keus)', desc: 'Diagnostisch + therapeutisch. Stabiel: binnen 24u. Instabiel: na resuscitatie <12u.', type: 'ok' },
+            { label: 'Angiografie/embolisatie', desc: 'Bij recidief na endoscopie of als bron endoscopisch onbereikbaar.', type: 'warn' },
+            { label: 'X-abdomen staand', desc: 'Geen rol bij GI-bloeding — wél bij verdenking perforatie (vrij gas onder diafragma).', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'IV pantoprazol 80 mg bolus → 8 mg/u continu. Gastroscopie zo snel mogelijk.',
+            stappen: [
+              { naam: 'Bloedtransfusie', detail: 'Restrictief beleid: transfusie bij Hb <8 g/dL (cirrosepatiënten: <7 g/dL — over-transfusie verhoogt portale druk).' },
+              { naam: 'Varicesbloeding', detail: 'Terlipressine + antibiotica (norfloxacine) + endoscopische ligatie — direct variceuze bloeding behandelen anders dan peptische ulcusbloeding.' },
+              { naam: 'Na hemostase', detail: 'H. pylori testen/eradiceren. NSAID stoppen. Onderhouds-PPI bij risicopatiënten.' },
+            ],
+          },
         } },
 
 
@@ -4530,18 +4583,26 @@ const QUESTIONS = [
     a:['Alcoholisch leverlijden','Virale hepatitis C','NAFLD/NASH','Primaire biliaire cholangitis'], c:0,
     ex:'Alcoholisch leverlijden is de meest voorkomende oorzaak van cirrose in westerse landen, gevolgd door virale hepatitis C en NAFLD/NASH (toenemend door obesitas-epidemie). Wereldwijd is virale hepatitis B de meest frequente oorzaak.',
     wiki:{
-          kern: "Cirrose: eindstadium van chronische leverziekte → fibrose vervangt hepatocyten → verlies van leverfunctie + portale hypertensie. Complicaties: ascites, hepatische encefalopathie, oesofagusvarices, hepatocellulair carcinoom, spontane bacteriële peritonitis.",
+          kern: 'Alcoholisch leverlijden is de meest voorkomende oorzaak van cirrose in westerse landen. Cirrose = eindstadium: fibrose + portale hypertensie → ascites, varices, encefalopathie, SBP, HCC.',
           mechanisme: [
-            { title: "Stap 1", desc: "Alcohol: directe hepatotoxiciteit + acetaldehyde-schade + oxidatieve stress." },
-            { title: "Stap 2", desc: "steatohepatitis." },
-            { title: "Stap 3", desc: "fibrose. Per week: >14 E vrouwen of >21 E mannen = schadelijk. Child-Pugh/MELD-score bepaalt ernst en prognose." },
+            { title: 'Alcoholische hepatitis', desc: 'Directe hepatotoxiciteit + acetaldehyde-schade + oxidatieve stress → steatohepatitis → fibrose → cirrose.' },
+            { title: 'Child-Pugh-score', desc: 'A/B/C op basis van bilirubine, albumine, protrombinetijd, ascites, encefalopathie. Child C = slechte prognose.' },
+            { title: 'MELD-score', desc: 'Bepaalt prioriteit levertransplantatielijst (creatinine, bilirubine, INR). Score >15 = overweeg transplantatie.' },
           ],
           onderscheid: [
-            { label: "HBV-cirrose", desc: "HBsAg positief, tenofovir/entecavir.", type: 'ok' },
-            { label: "HCV-cirrose", desc: "anti-HCV positief, curatieve DAA-therapie (>95% genezing).", type: 'warn' },
-            { label: "PBC", desc: "AMA positief, vrouwen, pruritus, UDCA.", type: 'danger' },
-            { label: "Hemochromatose", desc: "hoog ferritine + transferrinesaturatie, leverbiopsie, aderlating.", type: 'warn' },
+            { label: 'Alcoholische cirrose', desc: 'Alcohol-anamnese, ASAT/ALAT >2:1 bij actief drinken, MCV hoog. Abstinentie vertraagt progressie.', type: 'ok' },
+            { label: 'HCV-cirrose', desc: 'Anti-HCV positief, HCV-PCR positief. Curatieve DAA-therapie (>95% SVR). Cirroseregressie mogelijk.', type: 'warn' },
+            { label: 'NAFLD/NASH', desc: 'Toenemend door obesitas-epidemie. Geen alcohol. Metabool syndroom. Gewichtsreductie als therapie.', type: 'warn' },
+            { label: 'Hemochromatose', desc: 'Hoog ferritine + transferrinesaturatie >45%. Genetisch (HFE-mutatie). Aderlating als therapie.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Hepatische encefalopathie: lactulose 3×/dag, rifaximine. Ascites: spironolacton ± furosemide. Varicesbloeding: terlipressine + endoscopie.',
+            stappen: [
+              { naam: 'Abstinentie alcohol', detail: 'Enige interventie die progressie vertraagt en soms cirroseregressie induceert. Multidisciplinaire ondersteuning.' },
+              { naam: 'SBP-profylaxe', detail: 'Norfloxacine of ciprofloxacine oraal bij ascites-TP <15 g/L of na eerste SBP-episode.' },
+              { naam: 'HCC-screening', detail: 'Echo lever + AFP elke 6 maanden — cirrosepatiënten hebben verhoogd HCC-risico.' },
+            ],
+          },
         } },
 
   { type:'lab', d:3, domain:'gastro', dl:'Gastro-enterologie',
@@ -4549,17 +4610,25 @@ const QUESTIONS = [
     a:['Lipase','Amylase','ASAT','Gamma-GT'], c:0,
     ex:'Lipase is specifieker voor pancreatitis dan amylase. Amylase stijgt ook bij nierinsufficiëntie, speekselklierafwijkingen, darmischemie en andere abdominale aandoeningen. Lipase blijft langer verhoogd (3-5 dagen vs. 1-2 dagen voor amylase).',
     wiki:{
-          kern: "Diagnostiek acute pancreatitis: ≥2 van de 3 criteria: (1) typische epigastrische pijn, (2) amylase of lipase >3× ULN, (3) beeldvorming passend bij pancreatitis. CT-abdomen met contrast: gouden standaard voor necrose-beoordeling (na 48-72u).",
+          kern: 'Lipase is specifieker voor pancreatitis dan amylase — amylase stijgt ook bij nierinsufficiëntie, speekselklierafwijkingen en darmischemie. Lipase blijft langer verhoogd (3-5 dagen vs 1-2 dagen).',
           mechanisme: [
-            { title: "Amylase", desc: "ook in speekselklieren, darm, gonaden, nieren → lage specificiteit." },
-            { title: "Lipase", desc: "vrijwel uitsluitend pancreasspecifiek." },
-            { title: "Bij nierinsufficiëntie", desc: "beide enzymen kunnen verhoogd zijn (verminderde klaring)." },
-            { title: "Norm voor diagnose", desc: ">3× upper limit of normal." },
+            { title: 'Lipase specificiteit', desc: 'Vrijwel uitsluitend pancreassspecifiek. Stijgt 3-6u na aanvang, piek bij 24u, normaal na 3-5 dagen.' },
+            { title: 'Amylase lage specificiteit', desc: 'Aanwezig in speekselklieren, darm, gonaden, nieren → verhoogd bij veel andere oorzaken. Sneller genormaliseerd dan lipase.' },
+            { title: 'Diagnose-criteria', desc: '≥2 van 3: (1) typische epigastrische pijn, (2) lipase/amylase >3×ULN, (3) CT-beelden passend bij pancreatitis.' },
           ],
           onderscheid: [
-            { label: "Optie 1", desc: "Verhoging leverenzymen (ASAT/ALAT/gamma-GT/alkalisch fosfatase) bij galsteenpancreatitis (obstructieve component) of alcoholisch leverlijden.", type: 'ok' },
-            { label: "Optie 2", desc: "CRP >150 na 48u wijst op ernstige pancreatitis (necrosevorming).", type: 'warn' },
+            { label: 'Galsteenpancreatitis', desc: 'ALAT >3×ULN pleit sterk voor galsteenpancreatitis als oorzaak. ERCP + sfincter­otomie bij galwegobstructie.', type: 'ok' },
+            { label: 'Alcoholpancreatitis', desc: 'Recidiverende episodes bij alcoholgebruik. Risico op chronische pancreatitis.', type: 'warn' },
+            { label: 'Ernstige pancreatitis', desc: 'CRP >150 na 48u, APACHE II score, CT-severity index — necrosevorming bij 20%. Mortaliteit 30-40%.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Agressieve IV vochtresuscitatie (Lactated Ringer 250-500 mL/u eerste uren) — pijler van behandeling.',
+            stappen: [
+              { naam: 'Voeding', detail: 'Vroeg enterale voeding (<48u) via neussonde bij ernstige pancreatitis — vermindert complicaties. Geen TPN tenzij enterale voeding onmogelijk.' },
+              { naam: 'Antibiotica', detail: 'Profylactisch niet aanbevolen bij pancreatitis. Wel bij geïnfecteerde necrose (FNA-geleide kweek, carbapenems).' },
+              { naam: 'ERCP', detail: 'Bij galsteenpancreatitis met cholangitis of persistent galwegobstructie: ERCP + sfinsterotomie <24-72u.' },
+            ],
+          },
         } },
 
 
@@ -4727,20 +4796,26 @@ const QUESTIONS = [
     a:['Remming van hepatische gluconeogenese via AMPK-activatie','Stimulatie van insulinesecretie door b-cellen','Remming van intestinale glucoseresorptie via SGLT2','Verhoogde insulinegevoeligheid via PPARγ-activatie'], c:0,
     ex:'Metformine activeert AMPK (AMP-geactiveerd proteinkinase) → remming van hepatische gluconeogenese → glucose-output lever daalt. Metformine stimuleert de insulinesecretie niet en veroorzaakt daardoor geen hypoglykemie als monotherapie.',
     wiki:{
-          kern: "Metformine is eerste keus bij DM type 2 (UKPDS, ADVANCE): verlaagt cardiovasculaire mortaliteit, goedkoop, geen gewichtstoename, geen hypoglykemierisico als monotherapie. Bijwerkingen: GI-klachten (misselijkheid, diarree), zeldzaam: lactaatacidose bij nierinsufficiëntie (eGFR <30 stoppen).",
+          kern: 'Metformine activeert AMPK → remt hepatische gluconeogenese → minder glucose-output lever. Geen hypoglykemierisico als monotherapie. Eerste keus bij DM type 2 (UKPDS: cardiovasculair voordeel aangetoond).',
           mechanisme: [
-            { title: "Stap 1", desc: "Naast AMPK: ook remming van mitochondriaal complex I." },
-            { title: "Stap 2", desc: "minder ATP." },
-            { title: "Stap 3", desc: "AMPK actief." },
-            { title: "Stap 4", desc: "minder malonyl-CoA." },
-            { title: "Stap 5", desc: "minder vetzuursynthese." },
+            { title: 'AMPK-activatie', desc: 'Remming van mitochondriaal complex I → minder ATP → AMPK actief → remt hepatische gluconeogenese. Vermindert insulineresistentie in spier en lever.' },
+            { title: 'Geen insulinesecretie', desc: 'Metformine stimuleert geen insuline — daardoor geen hypoglykemie als monotherapie en geen gewichtstoename.' },
+            { title: 'Lactaatacidose', desc: 'Zeldzame maar ernstige bijwerking bij nierinsufficiëntie (eGFR <30) — metformine accumulatie → lactaatproductie. Stop bij eGFR <30 of contrast-nefropathierisico.' },
           ],
           onderscheid: [
-            { label: "Sulfonylureumderivaten (glibenclamide)", desc: "stimuleren insulinesecretie → hypoglykemierisico + gewichtstoename.", type: 'ok' },
-            { label: "SGLT2-remmers (empagliflozine)", desc: "glucosurie, cardio- en nefroprotectief.", type: 'warn' },
-            { label: "GLP-1 agonisten (semaglutide)", desc: "incretine-effect, gewichtsverlies.", type: 'danger' },
-            { label: "Thiazolidinedionen (pioglitazon)", desc: "PPARγ, insulinegevoeligheid, vochtretentie.", type: 'warn' },
+            { label: 'Metformine (eerste keus)', desc: 'Geen hypoglykemie, gewichtsneutraal, goedkoop, cardiovasculair voordeel. Stop bij eGFR <30.', type: 'ok' },
+            { label: 'SGLT2-remmers', desc: 'Cardioprotectief (HFrEF), nefroprotectief. Toevoegen bij DM2 + hartfalen of nierziekte.', type: 'warn' },
+            { label: 'GLP-1 agonisten (semaglutide)', desc: 'Gewichtsverlies + cardiovasculair voordeel. Toevoegen bij DM2 + obesitas of atherosclerose.', type: 'warn' },
+            { label: 'Sulfonylureumderivaten', desc: 'Stimuleren insulinesecretie → hypoglykemierisico + gewichtstoename. Minder voorkeur.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'DKA bij DM2: IV insuline + vocht + elektrolytcorrectie (K+ bewaken).',
+            stappen: [
+              { naam: 'Start metformine', detail: '500 mg bij de avondmaaltijd, ophogen naar 1000 mg 2×/dag over 4 weken (GI-bijwerkingen verminderen bij langzame titratie).' },
+              { naam: 'Stap 2 (bij HbA1c >53)', detail: 'SGLT2-remmer (empagliflozine/dapagliflozine) bij HVZ/HF/nierziekte, of GLP-1 agonist bij obesitas.' },
+              { naam: 'Insuline', detail: 'Toevoegen bij persisterende hyperglykemie ondanks 2-3 orale middelen. Basale insuline (glargine) 1×/dag 10E als startdosis.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'endo', dl:'Endocrinologie',
@@ -4774,18 +4849,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Bij DM type 1 is er een absoluut insulinetekort door auto-immuun b-celdestructie. Insuline is levensnoodzakelijk — zonder insuline treedt diabetische ketoacidose op. Orale antidiabetica zijn niet effectief bij afwezige b-celfunctie.',
     wiki:{
-          kern: "DM type 1: auto-immuun vernietiging van b-cellen → absoluut insulinetekort → ketogenese → DKA als insuline wegvalt. Insulineregimes: basaal-bolus (lange + korte insuline) of insulinepomp (CSII).",
+          kern: 'Bij DM type 1 is er een absoluut insulinetekort door auto-immuun b-celdestructie. Insuline is levensnoodzakelijk — zonder insuline treedt DKA op. Orale antidiabetica zijn ineffectief zonder functionele b-cellen.',
           mechanisme: [
-            { title: "Stap 1", desc: "DKA (diabetische ketoacidose): insulinetekort." },
-            { title: "Stap 2", desc: "glucagon dominant." },
-            { title: "Stap 3", desc: "lipolyse." },
-            { title: "Stap 4", desc: "ketonvorming." },
-            { title: "Stap 5", desc: "acidose. Behandeling: insuline IV + vocht + elektrolyetcorrectie (K+ bewaken!). HHS (hyperosmolair hyperglykemisch syndroom): bij DM type 2, geen ketose." },
+            { title: 'Auto-immuun b-celdestructie', desc: 'Antilichamen (GAD65, IA-2, ZnT8) + cytotoxische T-cellen vernietigen b-cellen → geen insulineproductie.' },
+            { title: 'DKA-mechanisme', desc: 'Insulinetekort → glucagon dominant → lipolyse → vrije vetzuren naar lever → ketonvorming (beta-hydroxybutyraat, acetoacetaat) → acidose.' },
+            { title: 'HHS bij DM2', desc: 'Hyperosmolair hyperglykemisch syndroom bij DM type 2 — geen ketose (nog enige insuline), maar ernstige hyperglykemie + dehydratie.' },
           ],
           onderscheid: [
-            { label: "DM type 2", desc: "relatieve insulinedeficiëntie, orale middelen effectief (metformine, SGLT2-remmers).", type: 'ok' },
-            { label: "LADA (Latent Autoimmune Diabetes in Adults)", desc: "geleidelijk progressief, GAD-antistoffen, begint lijkend op type 2.", type: 'warn' },
+            { label: 'DM type 1', desc: 'Jong, slank, acuut begin (DKA), GAD-antistoffen positief, C-peptide laag. Levenslange insuline.', type: 'ok' },
+            { label: 'LADA', desc: 'Volwassene, geleidelijk begin, aanvankelijk lijkt op DM2, GAD-antistoffen positief. Insuline-afhankelijk binnen jaren.', type: 'warn' },
+            { label: 'DM type 2', desc: 'Ouder, overgewicht, familiair, auto-antistoffen negatief, C-peptide normaal/hoog. Orale middelen initieel.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'DKA: insuline IV + NaCl 0,9% 1L/u initieel + K+-correctie (K+ >3,5 voor insuline start). Stop insuline NIET.',
+            stappen: [
+              { naam: 'Basaal-bolus schema', detail: 'Lange insuline (glargine/degludec) 1×/dag + korte insuline (aspart/lispro) voor elke maaltijd. Carbohydraat-telling voor bolus-berekening.' },
+              { naam: 'Insulinepomp (CSII)', detail: 'Continue subcutane insuline-infusie + Flash-glukosemonitoring (FGM/CGM). Betere HbA1c bij gemotiveerde patiënten.' },
+              { naam: 'Hypoglykemie', detail: 'Licht: suiker/glucosetabletten. Ernstig: glucagon IM of dextrose 50% IV. Patiënt + familie educatie verplicht.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'endo', dl:'Endocrinologie',
@@ -4793,15 +4875,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Een verhoogd TSH bij een zwangere vrouw kan wijzen op hypothyreoïdie, wat geassocieerd is met miskraam, zwangerschapscomplicaties en verminderde neurocognitieve ontwikkeling van het kind. Behandeling met levothyroxine is geïndiceerd. (NB: TSH-referentiewaarden dalen in het eerste trimester door hCG-effect.).',
     wiki:{
-          kern: "Schildklierhormon is cruciaal voor neuronale migratie en myelinisatie van de foetale hersenen, met name in het eerste trimester (foetus maakt nog geen eigen hormoon). Subklinische hypothyreoïdie (verhoogd TSH + normaal T4) bij zwangerschap: behandeldrempel lager dan buiten zwangerschap.",
+          kern: 'Schildklierhormon is cruciaal voor neuronale migratie van de foetus in het eerste trimester. TSH daalt fysiologisch (hCG-effect), maar een verhoogd TSH is abnormaal en vereist behandeling om foetale hersenschade te voorkomen.',
           mechanisme: [
-            { title: "Stap 1", desc: "HCG stimuleert de TSH-receptor (structurele gelijkenis met TSH)." },
-            { title: "Stap 2", desc: "T4-productie stijgt." },
-            { title: "Stap 3", desc: "TSH daalt fysiologisch in het eerste trimester. Zwangerschapsspecifieke referentiewaarden: TSH normaalgrens <2.5 mIE/L in trimester 1. Verhoogd TSH in trimester 1 = niet normaal." },
+            { title: 'Fysiologische TSH-daling', desc: 'hCG heeft structurele gelijkenis met TSH → stimuleert TSH-receptor → T4-stijging → TSH-daling. Normaal: TSH <2,5 mIE/L in trimester 1.' },
+            { title: 'Foetale afhankelijkheid', desc: 'Foetus maakt pas eigen schildklierhormon na 12 weken — daarvoor volledig afhankelijk van moeder. Hypothyreoïdie → gestaard neurologisch deficit.' },
+            { title: 'Verhoogd TSH in trimester 1', desc: 'Geeft verhoogd risico op miskraam, vroeggeboorte, lagere IQ kind. Behandeling: levothyroxine direct starten.' },
           ],
           onderscheid: [
-            { label: "Onderscheid", desc: "Hyperthyreoïdie in zwangerschap (ziekte van Graves): foetale gevolgen (neonatale thyreotoxicose), thionamiden met voorzichtigheid (propylthiouracil in trimester 1, daarna thiamazol).", type: 'warn' },
+            { label: 'Hypothyreoïdie in zwangerschap', desc: 'TSH verhoogd, vrij T4 laag of normaal. Levothyroxine direct. Dosis-eis stijgt in zwangerschap.', type: 'ok' },
+            { label: 'Hyperthyreoïdie (Graves)', desc: 'TSH laag, T4 hoog, TRAb positief. PTU in trimester 1 (thiamazol teratogeen), daarna switch naar thiamazol.', type: 'warn' },
+            { label: 'Zwangerschapshyperthyreoïdie', desc: 'Door hCG-stimulatie eerste trimester — fysiologisch. TSH iets verlaagd maar T4 normaal. Geen behandeling nodig.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Start levothyroxine direct bij TSH >2,5 mIE/L in trimester 1 — niet wachten.',
+            stappen: [
+              { naam: 'Levothyroxine dosis', detail: 'Start 50-100 mcg/dag. Controleer TSH elke 4 weken in eerste helft zwangerschap. Dosis stijgt gemiddeld 25-50% in zwangerschap.' },
+              { naam: 'Doel', detail: 'TSH <2,5 mIE/L (trimester 1) of <3 mIE/L (trimester 2-3). Vrij T4 normaal.' },
+              { naam: 'Postpartum', detail: 'Na bevalling dosis terugbrengen naar pre-zwangerschapsdosis. TSH controleren na 6 weken.' },
+            ],
+          },
         } },
 
 
@@ -4810,18 +4902,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. Hypercalciëmie bij maligniteit kan ook ontstaan door humorale hypercalciëmie van maligniteit (HHM): tumorproductie van PTHrP (PTH-related protein), dat dezelfde receptor activeert als PTH. HHM is verantwoordelijk voor 80% van de maligne hypercalciëmie, botmetastasen voor ~20%.',
     wiki:{
-          kern: "Oorzaken hypercalciëmie: (1) primaire hyperparathyreoïdie (PTH verhoogd, meest frequent in de polikliniek), (2) maligniteit (PTHrP of metastasen, meest frequent in het ziekenhuis), (3) sarcoidose/vitamineD-toxiciteit (1,25-OHD verhoogd), (4) familiale hypocalciurische hypercalciëmie.",
+          kern: 'Hypercalciëmie bij maligniteit is in 80% te wijten aan PTHrP (humorale hypercalciëmie), niet aan botmetastasen (20%). PTHrP bindt PTH-receptor → botresorptie + renale calciumretentie → hypercalciëmie terwijl PTH zelf laag is.',
           mechanisme: [
-            { title: "Stap 1", desc: "PTHrP bindt PTH-receptor." },
-            { title: "Stap 2", desc: "botresorptie + renale calcistresorptie." },
-            { title: "Stap 3", desc: "hypercalciëmie. PTH zelf is laag (negatieve feedback). Symptomen hypercalciëmie: \"bones, stones, groans, psychic moans\" (botpijn, nierstenen, obstipatie/misselijkheid, psychose/depressie)." },
+            { title: 'PTHrP-mechanisme', desc: 'Tumor produceert PTH-related protein → bindt PTH-receptor → botresorptie via osteoclasten + renale Ca-resorptie → hypercalciëmie. PTH zelf laag (negatieve feedback).' },
+            { title: 'Oorzaken hypercalciëmie', desc: '(1) Primaire HPT: PTH hoog (poliklinisch). (2) Maligniteit: PTHrP of metastasen (ziekenhuis). (3) Sarcoidose/vitD-toxiciteit: 1,25-OHD hoog. (4) FHH: familiaire hypocalciurische hypercalciëmie.' },
+            { title: 'Symptomen', desc: '"Bones, stones, groans, psychic moans": botpijn, nierstenen, obstipatie/misselijkheid, depressie/psychose/verwardheid. Bij Ca >3,5: nierinsufficiëntie, hartaritmieën.' },
           ],
           onderscheid: [
-            { label: "Primaire hyperparathyreoïdie", desc: "PTH hoog, asymptomatisch of nierstenen.", type: 'ok' },
-            { label: "Sarcoidose", desc: "1,25-OHD hoog, verhoogd ACE.", type: 'warn' },
-            { label: "Vitamine D-toxiciteit", desc: "suppletie-anamnese.", type: 'danger' },
-            { label: "Immobilisatie", desc: "ook hypercalciëmie bij jonge patiënten.", type: 'warn' },
+            { label: 'Maligniteit (PTHrP)', desc: 'PTH laag, PTHrP hoog, snelle onset, ernstige hypercalciëmie. Plaveiselcelca, RCC, borstca, myeloom.', type: 'ok' },
+            { label: 'Primaire hyperparathyreoïdie', desc: 'PTH hoog (ondanks hoog calcium), asymptomatisch of nierstenen. Adenoom 80%. Operatie bij symptomen.', type: 'warn' },
+            { label: 'Sarcoidose', desc: '1,25-OHD hoog (macrofagen activeren vitamine D), verhoogd ACE, lymfadenopathie.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Ernstige hypercalciëmie (Ca >3,0): IV NaCl 0,9% 200-300 mL/u + furosemide na vochtresuscitatie.',
+            stappen: [
+              { naam: 'Bisfosfonaten', detail: 'Zoledronaat 4 mg IV eenmalig — remt osteoclasten, effect na 2-4 dagen, werkt 3-4 weken. Eerste keus bij maligne hypercalciëmie.' },
+              { naam: 'Denosumab', detail: 'Anti-RANK-L antilichaam — effectief bij bisfosfonaat-refractaire hypercalciëmie of nierinsufficiëntie.' },
+              { naam: 'Behandeling oorzaak', detail: 'Bij maligniteit: behandel tumor. Bij primaire HPT: parathyroïdectomie curatief.' },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'endo', dl:'Endocrinologie',
@@ -4829,19 +4928,25 @@ const QUESTIONS = [
     c:false,
     ex:'NIET WAAR. SGLT2-remmers (empagliflozine, dapagliflozine) zijn juist nefroprotectief bij DM type 2 + chronische nierziekte: ze verminderen glomerulaire hyperfiltratie en verlagen het risico op progressie van nierziekte. Ze zijn gecontra-indiceerd bij eGFR <20-30 (onvoldoende glucosurie-effect).',
     wiki:{
-          kern: "SGLT2-remmers blokkeren de natriumglucosecotransporter 2 in de proximale tubulus → glucosurie + gewichtsverlies + bloeddrukdaling. Cardioprotecy: vermindering hartfalen-hospitalisaties (EMPA-REG, DECLARE-TIMI).",
+          kern: 'SGLT2-remmers zijn juist nefroprotectief bij DM2 + chronische nierziekte. Ze verminderen glomerulaire hyperfiltratie via tubuloglomerulair feedback. Ze zijn gecontraïndiceerd bij eGFR <20-30 (glucosurie-effect onvoldoende).',
           mechanisme: [
-            { title: "Stap 1", desc: "Mechanisme nefroprotectie: SGLT2-blokkade." },
-            { title: "Stap 2", desc: "minder natriumresorptie proximale tubulus." },
-            { title: "Stap 3", desc: "meer natrium bij macula densa." },
-            { title: "Stap 4", desc: "tubuloglomerulair feedback." },
-            { title: "Stap 5", desc: "afferent arteriol constrictie." },
+            { title: 'SGLT2-blokkade', desc: 'Minder natriumresorptie proximale tubulus → meer natrium bij macula densa → tubuloglomerulair feedback → afferent arteriol constrictie → verlaagde glomerulaire druk → nefroprotectie.' },
+            { title: 'Cardiobescherming', desc: 'EMPA-REG/DECLARE: empagliflozine/dapagliflozine verminderen hartfalen-hospitalisaties bij DM2 + HVZ. Effect deels glucosonafhankelijk (preload-verlaging, ketonen als energiebron).' },
+            { title: 'Bijwerkingen', desc: 'Urogenitale infecties (glucosurie creëert suikerrijke urine). Euglykemische DKA (zeldzaam, cave perioperatief). Stop 3-4 dagen voor ingreep.' },
           ],
           onderscheid: [
-            { label: "Bijwerkingen SGLT2-remmers", desc: "urogenitale infecties (glucosurie), euglykemische DKA (zeldzaam maar ernstig, cave perioperatief).", type: 'ok' },
-            { label: "Optie 2", desc: "Stop 3-4 dagen voor ingrepen.", type: 'warn' },
-            { label: "Optie 3", desc: "Niet bij DM type 1 routinematig.", type: 'danger' },
+            { label: 'SGLT2-remmers (nefroprotectief)', desc: 'Stop bij eGFR <20-30. Cardioprotectief bij HFrEF (ook zonder diabetes). Glucosurie-effect verdwijnt bij lage eGFR.', type: 'ok' },
+            { label: 'GLP-1 agonisten', desc: 'Gewichtsverlies + cardiovasculair voordeel bij atherosclerose. Geen direct niereffect. Subcutane injectie.', type: 'warn' },
+            { label: 'ACE-remmers/ARB', desc: 'Ook nefroprotectief via reductie intraglomerulaire druk — combineer met SGLT2-remmer bij DM2-nefropathie.', type: 'warn' },
           ],
+          therapie: {
+            urgent: 'Perioperatief: stop SGLT2-remmer 3-4 dagen voor ingreep (euglykemische DKA-preventie).',
+            stappen: [
+              { naam: 'DM2 + chronische nierziekte', detail: 'Empagliflozine/dapagliflozine eerste keus (naast metformine) bij eGFR ≥20 — vertragen nierfalen progressie (DAPA-CKD, EMPA-KIDNEY).' },
+              { naam: 'DM2 + hartfalen (HFrEF)', detail: 'Dapagliflozine vermindert hospitalisaties en mortaliteit. Indicatie onafhankelijk van DM-diagnose (DAPA-HF studie).' },
+              { naam: 'Monitoring', detail: 'Controleer eGFR voor start en periodiek. Stop bij eGFR <20. Alert op urogenitale infecties.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:5, domain:'endo', dl:'Endocrinologie', subtype:'diff',
@@ -4849,17 +4954,25 @@ const QUESTIONS = [
     a:['Hyperpigmentatie van huid en slijmvliezen','Hypotensie','Hyponatriëmie','Vermoeidheid en zwakte'], c:0,
     ex:'Hyperpigmentatie is specifiek voor primaire bijnierschorsinsufficiëntie (Addison). Daarbij stijgt ACTH compensatoir → MSH (melanocyte-stimulating hormone) als bijproduct → melaninestimulatie. Bij secundaire insufficiëntie is ACTH laag → geen pigmentatie. Hypotensie, hyponatriëmie en moeheid komen bij beide voor.',
     wiki:{
-          kern: "Primair (bijnier): ACTH hoog (hypofyse compenseert) → pigmentatie. Cortisol + aldosteron tekort → Na-verlies + K-stijging.",
+          kern: 'Hyperpigmentatie is pathognomonisch voor primaire bijnierschorsinsufficiëntie (Addison). Hoge ACTH stimuleert MSH-receptoren op melanocyten. Bij secundaire insufficiëntie is ACTH laag — geen pigmentatie.',
           mechanisme: [
-            { title: "Stap 1", desc: "ACTH-precursor (POMC) wordt gesplitst in ACTH + MSH (melanocort)." },
-            { title: "Stap 2", desc: "MSH bindt MC1R op melanocyten → melanine." },
-            { title: "Locaties hyperpigmentatie", desc: "zon-exposed huid, handpalmen, littekes, tandvlees, wangmucosa." },
+            { title: 'ACTH-MSH-axis', desc: 'POMC (ACTH-precursor) gesplitst in ACTH + MSH. MSH bindt MC1R op melanocyten → melanine. Locaties: zon-exposed huid, handpalmen, littekens, tandvlees, wangmucosa.' },
+            { title: 'Primaire insufficiëntie', desc: 'Bijnier beschadigd (autoimmuun in 70%, tuberculose, bloeding) → cortisol + aldosteron tekort → hyponatriëmie + hyperkaliëmie + hypotensie. ACTH hoog als compensatie.' },
+            { title: 'Secundaire insufficiëntie', desc: 'Hypofyse/hypothalamus probleem → ACTH laag → cortisol tekort maar aldosteron normaal (renine-angiotensine intact). Geen pigmentatie, geen hyperkaliëmie.' },
           ],
           onderscheid: [
-            { label: "Hemochromatose", desc: "ook hyperpigmentatie (bronzed diabetes) maar door ijzer + DM + levercirrose.", type: 'ok' },
-            { label: "ACTH-ectopisch (paraneoplastisch)", desc: "hyperpigmentatie + hoog ACTH + maligne ziekte.", type: 'warn' },
-            { label: "Nelson-syndroom", desc: "na bilaterale adrenalectomie voor Cushing, ACTH-adenoom hypofyse.", type: 'danger' },
+            { label: 'Primair (Addison)', desc: 'ACTH hoog, cortisol laag, aldosteron laag, hyperpigmentatie, hyponatriëmie + hyperkaliëmie. Auto-antistoffen (21-OH-Ab).', type: 'ok' },
+            { label: 'Secundair (hypofyse)', desc: 'ACTH laag, cortisol laag, aldosteron normaal, geen pigmentatie, geen hyperkaliëmie. Oorzaak: tumor, bestraling, Sheehan.', type: 'warn' },
+            { label: 'Iatrogeen (steroïd-onttrekking)', desc: 'Na plotse stop langdurige corticosteroïden — secundair type (HPA-as gesupprimeerd). Nooit abrupt stoppen na >3 weken gebruik.', type: 'danger' },
           ],
+          therapie: {
+            urgent: 'Addisoncrisis: hydrocortison 100 mg IV bolus → 200 mg/24u continu IV + NaCl 0,9% 1L over 30-60 min.',
+            stappen: [
+              { naam: 'Onderhoudstherapie', detail: 'Hydrocortison 15-25 mg/dag (ochtend hogere dosis imiteren circadiaan ritme) + fludrocortison 0,05-0,2 mg/dag (mineraalcorticoïd).' },
+              { naam: 'Ziektedag-regel', detail: 'Bij koorts/infectie: hydrocortison 2-3× verhogen. Bij braken: parenterale toediening. Patiënt krijgt spuitinstructie voor noodgeval.' },
+              { naam: 'ACTH-stimulatietest', detail: 'Cortisol na 250 mcg ACTH <550 nmol/L na 30 min = bijnierschorsinsufficiëntie.' },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'endo', dl:'Endocrinologie',
