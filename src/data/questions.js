@@ -5154,6 +5154,14 @@ const QUESTIONS = [
             { label: "Zonder ECG-veranderingen (K <6.5)", desc: "dieet, medicatieherziening (ACE-remmer, K-sparend diureticum stoppen), kayexalaat.", type: 'ok' },
             { label: "Met ECG-veranderingen", desc: "acute spoed.", type: 'warn' },
           ],
+          therapie: {
+            urgent: "ECG-veranderingen = onmiddellijk calcium gluconaat 10% 10 mL IV over 2-3 min → stabiliseert myocard.",
+            stappen: [
+              { naam: "Stap 2 — K+ intracellulair", detail: "Insuline 10 E + glucose 50% 50 mL IV → K+ daalt 0.5-1 mmol/L binnen 30 min." },
+              { naam: "Stap 3 — K+ verwijderen", detail: "Kayexalaat oraal/rectaal, furosemide IV bij diurese, hemodialyse bij nierinsufficiëntie." },
+              { naam: "Monitoring", detail: "Continu ECG-monitoring tot K+ <5.5 mmol/L." },
+            ],
+          },
         } },
 
 
@@ -5225,8 +5233,16 @@ const QUESTIONS = [
           ],
           onderscheid: [
             { label: "Gecontra-indiceerd bij", desc: "bilaterale nierslagaderstenose (ischemisch nierfalen door bloeddrukdaling efferente arteriole), zwangerschap (teratogeen).", type: 'ok' },
-            { label: "Optie 2", desc: "Voorzichtigheid bij eGFR <30 en hyperkaliëmie.", type: 'warn' },
+            { label: "Voorzichtigheid", desc: "eGFR <30 en hyperkaliëmie: lager risico-batenverhouding maar niet absoluut gecontra-indiceerd.", type: 'warn' },
           ],
+          therapie: {
+            urgent: "Start ACE-remmer bij alle CKD-patiënten met proteïnurie >300 mg/dag tenzij contra-indicatie.",
+            stappen: [
+              { naam: "Monitoring", detail: "Controleer creatinine en K+ na 1-2 weken: stijging creatinine <30% acceptabel." },
+              { naam: "Stop bij", detail: "creatinine-stijging >30%, K+ >5.5 mmol/L, of hypotensie." },
+              { naam: "Doel", detail: "Bloeddruk <130/80 mmHg, proteïnurie maximaal reduceren." },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'nephro', dl:'Nefrologie',
@@ -5241,9 +5257,17 @@ const QUESTIONS = [
           ],
           onderscheid: [
             { label: "Niertransplantatie", desc: "superieur aan dialyse qua overleving en kwaliteit van leven.", type: 'ok' },
-            { label: "Optie 2", desc: "Pre-emptieve transplantatie (voor start dialyse) bij geschikte donor is optimaal.", type: 'warn' },
-            { label: "Peritoneale dialyse", desc: "thuis, continue ambulante variant (CAPD).", type: 'danger' },
+            { label: "Pre-emptieve transplantatie", desc: "voor start dialyse bij geschikte donor: optimaal resultaat.", type: 'warn' },
+            { label: "Peritoneale dialyse", desc: "thuis, continue ambulante variant (CAPD) — geschikt voor zelfstandige patiënten.", type: 'danger' },
           ],
+          therapie: {
+            urgent: "Start RRT bij uremische symptomen of refractaire complicaties — niet puur op eGFR-grenswaarde.",
+            stappen: [
+              { naam: "Voorbereiding (eGFR 10-15)", detail: "Aanleggen AV-fistel (minstens 6 maanden voor HD-start) of evaluatie niertransplantatie." },
+              { naam: "Indicaties acute dialyse", detail: "Hyperkaliëmie therapieresistent, longoedeem, ernstige acidose (pH <7.1), uremische pericarditis/encefalopathie." },
+              { naam: "Keuze modaliteit", detail: "HD 3× per week in centrum, of CAPD thuis. Beslissing samen met patiënt op basis van voorkeur en comorbiditeit." },
+            ],
+          },
         } },
 
   { type:'truefalse', d:2, domain:'nephro', dl:'Nefrologie',
@@ -5261,6 +5285,14 @@ const QUESTIONS = [
             { label: "Te snelle correctie hyponatriëmie", desc: "osmotisch demyelinisatiesyndroom (centrale pontiene myelinolyse) → max. 8-10 mmol/L/24u corrigeren.", type: 'ok' },
             { label: "Pseudohyponatriëmie", desc: "bij hypertriglyceridemie of hyperproteïnemie (artefact).", type: 'warn' },
           ],
+          therapie: {
+            urgent: "Correctie NOOIT sneller dan 8-10 mmol/L per 24u — risico op centrale pontiene myelinolyse.",
+            stappen: [
+              { naam: "Hypovolemisch", detail: "NaCl 0.9% IV — herstel circulatoir volume verlaagt ADH → Na+ corrigeert." },
+              { naam: "SIADH", detail: "vochtrestrictie (500-1000 mL/dag). Bij ernstige symptomen: tolvaptan (V2-antagonist) of hypertoon NaCl 3% langzaam." },
+              { naam: "Hypervolemisch", detail: "vochtrestrictie + diuretica (furosemide). Behandeling onderliggende oorzaak (hartfalen, cirrose)." },
+            ],
+          },
         } },
 
 
@@ -5281,6 +5313,14 @@ const QUESTIONS = [
             { label: "Lupus-nefritis", desc: "kan beide beelden geven.", type: 'danger' },
             { label: "MPGN", desc: "laag C3, gemengd beeld.", type: 'warn' },
           ],
+          therapie: {
+            urgent: "Nefritisch syndroom met AKI of oligurie: directe nefrologie-consult voor biopsie en immunosuppressie.",
+            stappen: [
+              { naam: "Nefrotisch syndroom — MCNS", detail: "Prednisolon 1 mg/kg/dag → remissie in 80% binnen 4 weken." },
+              { naam: "IgA-nefropathie", detail: "ACE-remmer + SGLT2-remmer. Bij progressief: immunosuppressie (methylprednisolon-kuur)." },
+              { naam: "Lupus-nefritis klasse III/IV", detail: "Mycofenolaat mofetil + hoge dosis corticosteroïden." },
+            ],
+          },
         } },
 
   { type:'diagnose', d:3, domain:'nephro', dl:'Nefrologie',
@@ -5325,6 +5365,14 @@ const QUESTIONS = [
             { label: "Renaal abces", desc: "persisterende koorts na antibiotica, CT-diagnose, drainage nodig.", type: 'warn' },
             { label: "Cystitis", desc: "geen flankpijn of koorts.", type: 'danger' },
           ],
+          therapie: {
+            urgent: "Pyelonefritis ambulant: ciprofloxacine 500 mg 2× daags 7 dagen (of co-trimoxazol indien gevoelig).",
+            stappen: [
+              { naam: "Ziekenhuisopname bij", detail: "braken (orale therapie niet mogelijk), sepsis, zwangerschap, obstructie, immuunsuppressie." },
+              { naam: "IV antibiotica", detail: "Ceftriaxon 2 g 1× daags of piperacilline-tazobactam bij ESBL-risico; switch naar oraal na klinische verbetering." },
+              { naam: "Beeldvorming", detail: "Echo/CT bij persisterende koorts na 72u: obstructie of abces uitsluiten." },
+            ],
+          },
         } },
 
 
