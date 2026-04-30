@@ -1944,7 +1944,27 @@ const QUESTIONS = [
 
   { type:'truefalse', d:2, domain:'neuro', dl:'Neurologie',
     q:'Dopamine kan de bloed-hersenbarrière passeren en wordt daarom direct als medicijn gegeven bij Parkinson.',
-    c:false, ex:'NIET WAAR. Dopamine passeert de bloed-hersenbarrière NIET. Daarom geeft men levodopa (precursor), dat wel passeert en in het brein omgezet wordt. Levodopa wordt gecombineerd met carbidopa/benserazide (perifere decarboxylaseremmer) om bijwerkingen te verminderen.' },
+    c:false, ex:'NIET WAAR. Dopamine passeert de bloed-hersenbarrière NIET. Daarom geeft men levodopa (precursor), dat wel passeert en in het brein omgezet wordt. Levodopa wordt gecombineerd met carbidopa/benserazide (perifere decarboxylaseremmer) om bijwerkingen te verminderen.',
+    wiki: {
+      kern: 'Dopamine passeert de bloed-hersenbarrière niet — het is een geladen molecule. Levodopa (L-DOPA) is de precursor die wél de BBB passeert via aminozuurtransporters, en in het brein omgezet wordt naar dopamine.',
+      mechanisme: [
+        { title: 'BBB-selectiviteit', desc: 'De bloed-hersenbarrière laat alleen lipofile of actief getransporteerde moleculen door. Dopamine is te polair/hydrofiel en wordt niet getransporteerd.' },
+        { title: 'Levodopa-transport', desc: 'Levodopa lijkt structureel op aminozuren → transport via LAT1 (large neutral amino acid transporter) door de BBB.' },
+        { title: 'Carbidopa/benserazide', desc: 'Perifere decarboxylaseremmer: voorkomt dat levodopa al in het bloed omgezet wordt naar dopamine (bijwerkingen: misselijkheid, hypotensie). Passeert zelf de BBB niet.' },
+      ],
+      onderscheid: [
+        { label: 'Levodopa', desc: 'Passeert BBB. Omgezet naar dopamine in striatum. Meest effectieve Parkinson-therapie.', type: 'ok' },
+        { label: 'Dopamine IV', desc: 'Passeert BBB niet. Gebruikt voor hartfalen/shock (perifeer effect op hart en vaten), NIET voor Parkinson.', type: 'danger' },
+        { label: 'Dopamine-agonisten', desc: 'Pramipexol, ropinirol — stimuleren dopaminereceptoren direct in striatum, passeren BBB wel. Alternatief voor levodopa.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Geen acute indicatie — chronische Parkinson-behandeling.',
+        stappen: [
+          { naam: 'Levodopa + carbidopa', detail: 'Standaarddosis: 3x/dag. Carbidopa 25 mg + levodopa 100 mg (Sinemet). Titreer naar symptoomcontrole.' },
+          { naam: 'Wearing off', detail: 'Na jaren: levodopa-effect duurt korter → "wearing off" verschijnselen. Oplossing: hogere frequentie, COMT-remmer (entacapone) of MAO-B-remmer toevoegen.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie',
     q:'Vrouw 28j: hoofdpijn, koorts 39°C, petechiën op armen en benen, nekstijfheid. Diagnose?',
@@ -3140,17 +3160,83 @@ const QUESTIONS = [
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie', subtype:'diff',
     q:'Man 68j: tremor van rechterhand in rust, verbetert bij bewegen, kleine handschrift. Parkinson of essentiële tremor — wat past bij Parkinson?',
     a:['Bilaterale houdingstremor, verbetert met alcohol','Rusttremor + bradykinesie + hypomimie + micrografie','Intentietremor + dysartrie + nystagmus','Tremor alleen bij emotionele stress'],
-    c:1, ex:'Parkinson: rusttremor (pill-rolling, 4-6 Hz), bradykinesie, rigiditeit, houdingsinstabiliteit, hypomimie, micrografie. Essentiële tremor: houdingstremor/actietremor, bilateraal, verbetert met alcohol, geen bradykinesie/rigiditeit. Rusttremor die verbetert bij bewegen is kenmerkend voor Parkinson.' },
+    c:1, ex:'Parkinson: rusttremor (pill-rolling, 4-6 Hz), bradykinesie, rigiditeit, houdingsinstabiliteit, hypomimie, micrografie. Essentiële tremor: houdingstremor/actietremor, bilateraal, verbetert met alcohol, geen bradykinesie/rigiditeit. Rusttremor die verbetert bij bewegen is kenmerkend voor Parkinson.',
+    wiki: {
+      kern: 'Het centrale onderscheid: Parkinson heeft rusttremor die verbetert bij beweging. Essentiële tremor is een houdingstremor die juist verschijnt bij beweging/houden. Bradykinesie + rigiditeit zijn exclusief voor Parkinson.',
+      redflag: 'Parkinson-plus (MSA, PSP): symmetrisch begin + vroeg vallen + slechte levodopa-respons = slecht prognostisch teken. Vraag altijd naar autonome klachten en vroeg vallen.',
+      mechanisme: [
+        { title: 'Parkinson: rusttremor', desc: 'Dopaminetekort in basale ganglia → abnormale oscillaties in thalamus → tremor zichtbaar in rust (4-6 Hz, "pill-rolling"), verdwijnt bij intentionele beweging.' },
+        { title: 'Essentiële tremor: actietremor', desc: 'Abnormale oscillaties in olivo-cerebellaire circuits → tremor bij houden (posturaal) en bewegen, niet in rust. Bilateraal, handen en hoofd.' },
+        { title: 'Bradykinesie', desc: 'Kenmerkend voor Parkinson: vertraging van bewegingsinitiatief en -snelheid. Micrografie (klein schrift) is vroeg teken.' },
+      ],
+      onderscheid: [
+        { label: 'Parkinson', desc: 'Rusttremor, asymmetrisch, bradykinesie, rigiditeit, hypomimie, micrografie. Geen intentietremor.', type: 'ok' },
+        { label: 'Essentiële tremor', desc: 'Houdingstremor/actietremor, bilateraal, verbetert met alcohol, geen bradykinesie/rigiditeit. Familiair.', type: 'warn' },
+        { label: 'Cerebellaire tremor', desc: 'Intentietremor (erger bij doel benaderen), dysartrie, nystagmus, ataxie. Hersenstam-/cerebellum-laesie.', type: 'warn' },
+        { label: 'Parkinson-plus (MSA/PSP)', desc: 'Parkinsonisme + autonome uitval (MSA) of vroeg vallen achterover/oogbewegingsstoornissen (PSP). Slechte levodopa-respons.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Geen acute interventie — levodopa als diagnostische/therapeutische test bij verdenking Parkinson.',
+        stappen: [
+          { naam: 'Levodopa-test', detail: 'Goede respons op levodopa bevestigt Parkinson. Parkinson-plus: meestal matige of geen respons.' },
+          { naam: 'Essentiële tremor', detail: 'Propranolol 40-320 mg/dag of primidon 50-750 mg/dag. Alcohol verbetering diagnostisch maar geen behandeling.' },
+          { naam: 'DBS', detail: 'Diepe hersenstimulatie subthalame kern bij invaliderende Parkinson-tremor na medicamenteuze optimalisatie.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie', subtype:'diff',
     q:'Vrouw 34j: 30 min visueel flikkerend scotoom, daarna bonzende hemikranie en misselijkheid. TIA of migraine met aura — wat pleit voor migraine?',
     a:['Plotse maximale pijn gelijktijdig met aura','Geleidelijk uitbreidende aura >5 min, gevolgd door typische hoofdpijn','Motorische uitval, leeftijd >60j, hypertensie','Aura duurt >60 min zonder naderende hoofdpijn'],
-    c:1, ex:'Migraine met aura: aura breidt geleidelijk uit (cortical spreading depression), duurt 20-60 min, gevolgd door ipsilaterale hoofdpijn. TIA: plotse uitval zonder verspreiding, geen nakomende hoofdpijn, risicofactoren voor vaatlijden. Gradual march + volgende hoofdpijn = migraine.' },
+    c:1, ex:'Migraine met aura: aura breidt geleidelijk uit (cortical spreading depression), duurt 20-60 min, gevolgd door ipsilaterale hoofdpijn. TIA: plotse uitval zonder verspreiding, geen nakomende hoofdpijn, risicofactoren voor vaatlijden. Gradual march + volgende hoofdpijn = migraine.',
+    wiki: {
+      kern: 'Migraine-aura breidt geleidelijk uit (de "march") over 20-60 minuten door cortical spreading depression — TIA geeft plotse, maximale uitval zonder progressie. De nakomende hoofdpijn na aura is kenmerkend voor migraine.',
+      redflag: 'TIA uitsluiten is verplicht bij: aura >60 min, motorische uitval, leeftijd >50j, cardiovasculaire risicofactoren, of atypisch patroon. Bij twijfel: behandel als TIA.',
+      mechanisme: [
+        { title: 'Cortical spreading depression (migraine)', desc: 'Golf van depolarisatie verspreidt zich langzaam (3 mm/min) over occipitale cortex → "marcherende" scotomen die zich geleidelijk uitbreiden.' },
+        { title: 'TIA: plotse embolie/trombus', desc: 'Plotse occlusie → maximale uitval direct vanaf het begin, geen graduele march. Resolveert volledig <24u.' },
+        { title: 'Tijdsduur aura', desc: 'Migraine-aura: typisch 20-60 min. Korter (<5 min) of langer (>60 min) = atypisch, TIA overwegen.' },
+      ],
+      onderscheid: [
+        { label: 'Migraine met aura', desc: 'Aura breidt geleidelijk uit, 20-60 min, gevolgd door hoofdpijn. Jong, vrouw, geen vaatrisicofactoren. Eerder identieke episodes.', type: 'ok' },
+        { label: 'TIA', desc: 'Plotse maximale uitval (seconden), geen march, geen nakomende hoofdpijn, ouder, vaatrisicofactoren. Altijd uitsluiten.', type: 'danger' },
+        { label: 'Retinale migraine', desc: 'Monoculaire visusdaling (tijdelijk), niet binocilair. Verhoogd CVA-risico — triptanen gecontraïndiceerd.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Bij TIA-verdenking: direct naar SEH, aspirine 300 mg, beeldvorming.',
+        stappen: [
+          { naam: 'Migraine met aura', detail: 'Aanvalsbehandeling: triptan + NSAID. Profylaxe bij frequent: propranolol of topiramaat.' },
+          { naam: 'Anticonceptiepil + aura', detail: 'Migraine met aura + oestrogeen-anticonceptie = verhoogd CVA-risico. Overstap naar progesteron-only of niet-hormonale methode.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:5, domain:'neuro', dl:'Neurologie', subtype:'diff',
     q:'Vrouw 30j: twee episodes neurologische uitval (1x arm, 1x visus), MRI witte-stof periventriculair. MS of NMO — wat onderscheidt MS van NMO?',
     a:['MS: longitudinaal extensieve myelitis >3 wervels','NMO: AQP4-antilichamen negatief','MS: korte MRI-laesies periventriculair, AQP4-negatief','NMO: hetzelfde patroon als MS maar ernstiger'],
-    c:2, ex:'MS: periventriculaire/juxtacorticale laesies (kort, <3 wervels myelitis), AQP4-antilichamen negatief, relapsing-remitting. NMO: longitudinale myelitis >3 wervels, area postrema-laesies, AQP4-positief (80%), ernstiger dan MS. Onderscheid is cruciaal: NMO reageert slecht op MS-DMTs.' },
+    c:2, ex:'MS: periventriculaire/juxtacorticale laesies (kort, <3 wervels myelitis), AQP4-antilichamen negatief, relapsing-remitting. NMO: longitudinale myelitis >3 wervels, area postrema-laesies, AQP4-positief (80%), ernstiger dan MS. Onderscheid is cruciaal: NMO reageert slecht op MS-DMTs.',
+    wiki: {
+      kern: 'MS en NMO (neuromyelitis optica) lijken klinisch op elkaar maar zijn verschillende ziekten met andere behandeling. Het onderscheid is cruciaal: NMO reageert slecht (of verslechtert) bij MS-medicatie.',
+      redflag: 'MS-specifieke medicatie (natalizumab, interferon-bèta, fingolimod) kan NMO verergeren. Altijd AQP4-antilichamen testen vóór ziekte-modulerende therapie te starten.',
+      mechanisme: [
+        { title: 'MS', desc: 'T-cel gemedieerde demyelinisatie van CZS. Periventriculaire, juxtacorticale en infratentoriële laesies. Myelitis <3 wervellichamen.', },
+        { title: 'NMO', desc: 'AQP4-antilichamen (aquaporin-4) beschadigen astrocyten in oogzenuwen en ruggenmerg. Longitudinale myelitis >3 wervels, area postrema-laesies (hikken/braken = pathognomonisch).' },
+        { title: 'Behandelconsequentie', desc: 'NMO: rituximab, eculizumab of inebilizumab. Sommige MS-medicijnen zijn gecontraïndiceerd bij NMO.' },
+      ],
+      onderscheid: [
+        { label: 'MS', desc: 'Korte myelitislaesies (<3 wervels), periventriculaire MRI-laesies, AQP4-negatief, relapsing-remitting. Goede respons op MS-DMTs.', type: 'ok' },
+        { label: 'NMO (NMOSD)', desc: 'Longitudinale myelitis >3 wervels, AQP4-positief (80%), ernstigere aanvallen, slechte/gevaarlijke respons op MS-DMTs.', type: 'danger' },
+        { label: 'MOG-antilichaam-ziekte', desc: 'MOG-IgG positief, AQP4-negatief. Minder ernstig dan NMO. Onderscheid via serologisch panel.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Acute NMO-relaps: hoge-dosis methylprednisolon → plasma-uitwisseling bij onvoldoende respons.',
+        stappen: [
+          { naam: 'Preventie NMO', detail: 'Rituximab (anti-CD20), eculizumab of inebilizumab — bewezen effectief bij NMO.' },
+          { naam: 'Nooit bij NMO', detail: 'Natalizumab, fingolimod, alemtuzumab — gecontraïndiceerd of kunnen NMO verergeren.' },
+          { naam: 'Serologisch panel', detail: 'AQP4-IgG + MOG-IgG testen bij elke CZS-demyelinisatieziekte vóór start behandeling.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:5, domain:'infectio', dl:'Infectiologie', subtype:'diff',
     q:'LP-uitslag bij man 45j met koorts en nekstijfheid:\nGlucose 1.8 mmol/L (serum 5.2)\nEiwit 3.8 g/L\n1400 cellen/µL — 85% PMN\nBacterieel of viraal meningitis?',
@@ -3188,17 +3274,84 @@ const QUESTIONS = [
   { type:'diagnose', d:5, domain:'neuro', dl:'Neurologie', subtype:'test',
     q:'Vrouw 42j: plotse "donderslag-hoofdpijn", maximale intensiteit in seconden, nekstijfheid, CT hersenen negatief. Welke test is nu essentieel?',
     a:['MRI hersenen met gadolinium','Lumbaalpunctie (LP) — bloedige/xanthochrome liquor bij SAB','EEG bij verdenking epileptische aanval','Doppler a. carotis'],
-    c:1, ex:'CT mist 2-5% van SAB, met name vroeg (<6u) of kleine bloedingen. Bij negatieve CT + sterke verdenking SAB (donderslag-hoofdpijn) is LP verplicht: xanthochromie (geel verkleurd door afbraak hemoglobine) bewijst SAB. MRI is minder sensitief voor acuut bloed dan CT.' },
+    c:1, ex:'CT mist 2-5% van SAB, met name vroeg (<6u) of kleine bloedingen. Bij negatieve CT + sterke verdenking SAB (donderslag-hoofdpijn) is LP verplicht: xanthochromie (geel verkleurd door afbraak hemoglobine) bewijst SAB. MRI is minder sensitief voor acuut bloed dan CT.',
+    wiki: {
+      kern: 'Thunderclap + negatieve CT = LP verplicht. CT heeft 98% sensitiviteit in eerste 6u maar daalt tot 85% na 24u. LP na ≥6-12u detecteert xanthochromie (geel vocht door afbraak hemoglobine) — bewijzend voor SAB.',
+      redflag: 'Negatieve CT sluit SAB NIET uit. 5% van SAB wordt gemist op CT. Geen LP = gemist SAB = kans op fatale reruptuur.',
+      mechanisme: [
+        { title: 'CT-sensitiviteit daalt', desc: 'Bloed wordt progressief afgebroken → na 12-24u neemt CT-signaal af. CT-positief in eerste 6u bij 98%, na 24u slechts 85%.' },
+        { title: 'Xanthochromie', desc: 'Hemoglobine breekt af tot bilirubine in liquor → gele verkleuring zichtbaar na 6-12u, blijft 2 weken aanwezig. Spectrofotometrie is gevoeliger dan visuele inspectie.' },
+        { title: 'LP-timing', desc: 'LP te vroeg (<6u): alleen vers bloed, kan traumatische punctie zijn. Wacht minimaal 6-12u na symptoomonset.' },
+      ],
+      onderscheid: [
+        { label: 'SAB — LP positief', desc: 'Xanthochromie bij spectrofotometrie. Bewijst bloeding. Spoed-neurochirurgie/neuroradiologie.', type: 'ok' },
+        { label: 'SAB — LP negatief', desc: 'Xanthochromie afwezig ≥12u na start klachten = SAB uitgesloten. Overweeg andere thunderclap-oorzaken (RCVS, CVT).', type: 'warn' },
+        { label: 'Traumatische LP', desc: 'Vers bloed in eerste buisje, opklarend in volgende buisjes. Geen xanthochromie. Artefact.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'LP na ≥6-12u → xanthochromie spectrofotometrie → bij positief: angiografie (CTA of DSA) → aneurysmabehandeling.',
+        stappen: [
+          { naam: 'CTA hersenvaten', detail: 'Na bevestiging SAB: CTA voor lokalisatie aneurysma (98% sensitief). DSA bij negatieve CTA bij sterke klinische verdenking.' },
+          { naam: 'Nimodipine', detail: '60 mg oraal 4x/dag 21 dagen — reduceert vasospasmen en ischemisch risico dag 4-14.' },
+          { naam: 'Reruptuur preventie', detail: 'Coiling of clipping binnen 24-72u. 30% reruptuur-risico zonder behandeling, mortaliteit 70%.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie', subtype:'test',
     q:'Man 28j: twee aparte demyeliniserende episodes, klachten >24u, MRI witte-stof periventriculair. Verdenking MS — welke test voegt diagnostisch het meest toe?',
     a:['EEG: slow-wave activiteit bij MS','LP: oligoklonale banden in liquor bevestigen intrathecale immunoglobulineproductie','PET-scan: metabolisme witte stof','EMG: neurogene patronen bij demyelinisatie'],
-    c:1, ex:'MRI is eerste keus bij MS (McDonald-criteria). LP met oligoklonale banden (aanwezig in >95% MS, niet in serum) bevestigt intrathecale ontsteking als MRI niet volledig diagnostisch is. Visueel-evoked potentials (VEP) kunnen ook bijdragen bij opticus-betrokkenheid. EEG heeft geen rol bij MS.' },
+    c:1, ex:'MRI is eerste keus bij MS (McDonald-criteria). LP met oligoklonale banden (aanwezig in >95% MS, niet in serum) bevestigt intrathecale ontsteking als MRI niet volledig diagnostisch is. Visueel-evoked potentials (VEP) kunnen ook bijdragen bij opticus-betrokkenheid. EEG heeft geen rol bij MS.',
+    wiki: {
+      kern: 'Na MRI is LP met oligoklonale banden (OCB) de meest waardevolle aanvullende test bij MS. OCB in liquor (niet serum) zijn aanwezig bij >95% van MS-patiënten en kunnen "disseminatie in tijd" bevestigen — waarmee diagnose eerder gesteld kan worden.',
+      redflag: 'OCB zijn niet MS-specifiek — ook bij neuroborreliose, neurosyfilis, NMO en andere neuroinflammatie. Altijd AQP4-antilichamen bepalen om NMO uit te sluiten.',
+      mechanisme: [
+        { title: 'McDonald-criteria', desc: 'MS-diagnose vereist disseminatie in ruimte (≥2 CZS-locaties) én tijd (≥2 episodes of nieuwe MRI-laesies). LP-OCB kan "disseminatie in tijd" vervangen.' },
+        { title: 'OCB als "disseminatie in tijd"', desc: 'Aanwezigheid van OCB bij eerste klinische aanval + MRI-laesies voldoende voor MS-diagnose (McDonald 2017) — zonder een tweede aanval te hoeven afwachten.' },
+        { title: 'EEG: geen rol', desc: 'EEG heeft geen diagnostische waarde bij MS. Relevant voor epilepsie-diagnostiek, niet voor demyeliniserende ziekten.' },
+      ],
+      onderscheid: [
+        { label: 'LP-OCB bij MS', desc: 'Gevoeligheid >95%. Specificiteit matig — combineer altijd met MRI en kliniek. Geen OCB = MS onwaarschijnlijk.', type: 'ok' },
+        { label: 'VEP (visueel evoked potential)', desc: 'Vertraagde P100-golf bewijst subklinische opticus-betrokkenheid — nuttig bij mono-symptomatisch begin.', type: 'warn' },
+        { label: 'AQP4-antilichamen', desc: 'Negatief bij MS, positief bij NMO (80%). Altijd bepalen bij atypisch beeld of longitudinale myelitis.', type: 'warn' },
+      ],
+      therapie: {
+        urgent: 'Diagnose MS bevestigen → direct bespreken ziekte-modificerende therapie (DMT) om relapsen te verminderen.',
+        stappen: [
+          { naam: 'Eerstelaijn DMT', detail: 'Interferon-bèta, glatirameracetat, dimethylfumaraat — voor milde-matige MS.' },
+          { naam: 'Tweedelijns DMT', detail: 'Natalizumab, ocrelizumab — voor actieve of snel progressieve MS.' },
+          { naam: 'Relaps', detail: 'Methylprednisolon 1g IV 3-5 dagen bij acute relaps met functieverlies.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'neuro', dl:'Neurologie', subtype:'test',
     q:'Jongeman 22j: aanval met bewustzijnsverlies, tongbeet, incontinentie, 2 minuten. Epilepsie of syncope — welke test onderscheidt het best?',
     a:['CT hersenen: altijd eerste stap','EEG na aanval voor interictale afwijkingen + tilttest/Holter voor syncope','Bloedsuiker tijdens aanval','Slaaponderzoek: slaapapneu als oorzaak'],
-    c:1, ex:'Epilepsie vs syncope: EEG (interictale epileptiforme activiteit, sensitief 50-60%) + anamnese (tongbeet/incontinentie wijst naar epilepsie). Syncope: tilttest (orthostatisch/vasovagaal), Holter (cardiaal). Tongbeet + incontinentie + postictale verwardheid = epilepsie waarschijnlijk. MRI daarna voor structurele oorzaak.' },
+    c:1, ex:'Epilepsie vs syncope: EEG (interictale epileptiforme activiteit, sensitief 50-60%) + anamnese (tongbeet/incontinentie wijst naar epilepsie). Syncope: tilttest (orthostatisch/vasovagaal), Holter (cardiaal). Tongbeet + incontinentie + postictale verwardheid = epilepsie waarschijnlijk. MRI daarna voor structurele oorzaak.',
+    wiki: {
+      kern: 'Tongbeet (zijkant!) + incontinentie + postictale verwardheid = epilepsie. EEG detecteert interictale activiteit (sensitiviteit 50-60% bij eerste EEG, hogere bij slaap-EEG). Syncope: Holter + tilttest.',
+      redflag: 'Niet elke "stuip" is epilepsie. Syncope met spierschokken (convulsief syncope) wordt vaak verward met epilepsie. Belangrijkste onderscheid: bij syncope geen postictale verwardheid.',
+      mechanisme: [
+        { title: 'Epilepsie-kenmerken', desc: 'Tongbeet lateraal (zijkant — mediaan wijst op ander trauma), urine-incontinentie, tonisch-clonisch >1-2 min, postictale verwardheid/slaap.' },
+        { title: 'Syncope-kenmerken', desc: 'Kortdurend (<30 sec), uitgelokt (staan, emotie, pijn), korte spierschokken mogelijk maar geen tongbeet, snel herstel zonder verwardheid.' },
+        { title: 'EEG-waarde', desc: 'Interictale epileptiforme activiteit bij eerste EEG: sensitiviteit 50-60%. Slaap-EEG of herhaal-EEG: hogere sensitiviteit. Normaal EEG sluit epilepsie NIET uit.' },
+      ],
+      onderscheid: [
+        { label: 'Epilepsie', desc: 'Tongbeet zijkant + incontinentie + postictale verwardheid/slaap + EEG-afwijking. MRI voor structurele oorzaak.', type: 'ok' },
+        { label: 'Convulsief syncope', desc: 'Spierschokken bij bewustzijnsverlies maar kortdurend, geen tongbeet, snel herstel, ECG/tilttest positief.', type: 'warn' },
+        { label: 'Non-epileptische aanval (PNES)', desc: 'Psychogene aanval. Geen EEG-correlaat. Diagnose via video-EEG. Behandeling: psychotherapie.', type: 'warn' },
+        { label: 'Cardiaal syncope', desc: 'Plotse bewusteloosheid zonder aura, ECG-afwijking, familiaire plotse dood. Holter/ILR verplicht.', type: 'danger' },
+      ],
+      therapie: {
+        urgent: 'Eerste aanval: bloedsuiker meten, EEG + MRI aanvragen. Rijverbod melden.',
+        stappen: [
+          { naam: 'EEG', detail: 'Zo snel mogelijk na de aanval (binnen 24u sensitiever). Slaap-EEG bij negatief wakker-EEG. Video-EEG bij twijfel PNES vs epilepsie.' },
+          { naam: 'MRI', detail: 'MRI hersenen (protocol epilepsie) na eerste aanval bij volwassene — altijd structurele oorzaak uitsluiten.' },
+          { naam: 'Antiepilepticum', detail: 'Bij tweede aanval of hoog recidiefrisico: levetiracetam of lamotrigine. Rijverbod tot 1 jaar aanvalsvrij.' },
+        ],
+      },
+    } },
 
   { type:'diagnose', d:3, domain:'cardio', dl:'Cardiologie', subtype:'test',
     q:'Man 58j: drukkende thoraxpijn 20 min, uitstraling linkerarm, zweten. Verdenking ACS — wat doe je als eerste diagnostische stap?',
