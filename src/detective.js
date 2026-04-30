@@ -659,7 +659,7 @@ function sdSubmitTreatment(idx) {
   }
 
   // Outcome: bij foute diagnose altijd wrong_diagnosis, ongeacht behandeling
-  const rec = loadDetectiveRecord();
+  const rec = loadDetectiveRecord(SD.case.id);
   let outcome;
   if (!rec.correct) {
     outcome = 'wrong_diagnosis';
