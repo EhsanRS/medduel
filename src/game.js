@@ -316,11 +316,15 @@ function processAnswer(ok, q, wrongLabel) {
     if (G.streak === 3)  showCombo('3×',  'Streak!');
     if (G.streak === 5)  showCombo('5×',  'On fire!');
     if (G.streak === 10) showCombo('10×', 'Legendair!');
+    const badge = document.getElementById('heroStreak');
+    if (badge) badge.classList.toggle('on-fire', G.streak >= 3);
     showToast(true, `+${bonus} punten`, q.ex, q);
   } else {
     navigator.vibrate && navigator.vibrate([20, 50, 20]);
     G.wrong++;
     G.streak = 0;
+    const badge = document.getElementById('heroStreak');
+    if (badge) badge.classList.remove('on-fire');
     recordWeak(q);
     if (G.mode === 'classic') {
       updateDot(dotIdx, 'wrong');
@@ -377,6 +381,7 @@ function endGame() {
 
   renderResultsScreen(acc);
   showScreen('results');
+  if (acc >= 80) setTimeout(() => fireConfetti(acc === 100), 400);
 }
 
 function renderResultsScreen(acc) {

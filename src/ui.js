@@ -2,6 +2,55 @@
 
 let currentFact = null;
 
+// ── Confetti burst ──
+function fireConfetti(perfect) {
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;width:100%;height:100%';
+  document.body.appendChild(canvas);
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  const ctx = canvas.getContext('2d');
+  const colors = perfect
+    ? ['#1A7A4A','#E8410A','#D4820A','#1B5FA8','#FFD700']
+    : ['#1A7A4A','#E8410A','#D4820A'];
+  const count = perfect ? 120 : 70;
+  const particles = Array.from({ length: count }, () => ({
+    x: Math.random() * canvas.width,
+    y: -10 - Math.random() * 80,
+    r: 4 + Math.random() * 5,
+    d: 2 + Math.random() * 3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    tilt: Math.random() * 10 - 5,
+    tiltAngle: 0,
+    tiltSpeed: 0.05 + Math.random() * 0.1,
+    angle: Math.random() * Math.PI * 2,
+    spin: (Math.random() - 0.5) * 0.15,
+    opacity: 1,
+  }));
+  let frame = 0;
+  const MAX = 180;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.tiltAngle += p.tiltSpeed;
+      p.angle += p.spin;
+      p.y += p.d;
+      p.x += Math.sin(p.angle) * 1.5;
+      if (frame > MAX * 0.6) p.opacity = Math.max(0, p.opacity - 0.02);
+      ctx.save();
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(p.x, p.y, p.r, p.r * 0.45, p.tiltAngle, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    });
+    if (++frame < MAX) requestAnimationFrame(draw);
+    else canvas.remove();
+  }
+  requestAnimationFrame(draw);
+}
+
 // ── Antwoorden shufflen (werkt op een kopie, muteert niet QUESTIONS) ──
 function shuffleAnswers(q) {
   if (!q.a || q.type === 'truefalse') return q;
