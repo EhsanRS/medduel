@@ -624,7 +624,7 @@ const DETECTIVE_CASES = [
     patient: 'Man, 17 jaar',
     urgency: 'high',
     maxActions: 6,
-    decay_interval_sec: 15,
+    decay_interval_sec: 45,
 
     vitals_baseline: {
       hr: 44, bp_sys: 86, bp_dia: 52, temp: 37.0, spo2: 96, gcs: 13, status: 'unstable',

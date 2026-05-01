@@ -42,16 +42,16 @@ function sdUnlockNext(caseId) {
 
 function sdStartDecay() {
   sdStopDecay();
-  const intervalSec = SD.case.decay_interval_sec || 20;
+  const intervalSec = SD.case.decay_interval_sec || 45;
   SD_DECAY_IV = setInterval(() => {
     if (!SD.currentVitals || !SD.case.vitals_decay) return;
     const d = SD.case.vitals_decay.per_action;
     const v = SD.currentVitals;
-    if (d.hr)     v.hr     = Math.round(v.hr     + (d.hr     || 0) * 0.4);
-    if (d.bp_sys) v.bp_sys = Math.round(v.bp_sys + (d.bp_sys || 0) * 0.4);
-    if (d.temp)   v.temp   = Math.round((v.temp  + (d.temp   || 0) * 0.4) * 10) / 10;
-    if (d.gcs)    v.gcs    = Math.max(3, Math.min(15, v.gcs + (d.gcs || 0) * 0.4));
-    SD.timeUsed = Math.min(SD.timeUsed + 3, SD.case.vitals_decay.too_late_after || 999);
+    if (d.hr)     v.hr     = Math.round(v.hr     + (d.hr     || 0) * 0.2);
+    if (d.bp_sys) v.bp_sys = Math.round(v.bp_sys + (d.bp_sys || 0) * 0.2);
+    if (d.temp)   v.temp   = Math.round((v.temp  + (d.temp   || 0) * 0.2) * 10) / 10;
+    if (d.gcs)    v.gcs    = Math.max(3, Math.min(15, v.gcs + (d.gcs || 0) * 0.2));
+    SD.timeUsed = Math.min(SD.timeUsed + 2, SD.case.vitals_decay.too_late_after || 999);
     for (const t of (SD.case.vitals_decay.triggers || [])) {
       const val = v[t.field];
       const hit = t.above ? val >= t.threshold : val <= t.threshold;
@@ -93,10 +93,11 @@ function sdRefreshVitals() {
     if (!existing) {
       const alertEl = document.createElement('div');
       alertEl.className = 'sd-alert-banner';
-      alertEl.textContent = SD.pendingAlert;
+      alertEl.innerHTML = `⚠️ ${SD.pendingAlert}`;
       const wrap = document.querySelector('.sd-wrap');
       if (wrap) wrap.insertBefore(alertEl, wrap.children[2] || null);
-      setTimeout(() => alertEl.remove(), 6000);
+      typeof SFX !== 'undefined' && SFX.alert();
+      setTimeout(() => alertEl.remove(), 7000);
     }
     SD.pendingAlert = null;
   }

@@ -52,6 +52,10 @@ const SFX = (() => {
     fanfare() {
       tone([[523,0,.1,.20],[659,.13,.1,.20],[784,.26,.1,.20],[1047,.39,.35,.32]]);
     },
+    // Zachte medische monitor-beep: twee pulsen, niet schrikachtig
+    alert() {
+      tone([[660,0,.07,.12],[660,.18,.07,.10]], 'sine');
+    },
     toggle() {
       enabled = !enabled;
       localStorage.setItem('md_sound', enabled ? 'on' : 'off');

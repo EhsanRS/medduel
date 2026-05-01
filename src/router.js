@@ -71,7 +71,6 @@ function renderSpelenTab() {
     <div class="section-label fade-in-2">Vandaag</div>
     ${renderDailyHomeCard()}
     ${renderSRHomeCard()}
-    ${renderOpenPatientCard()}
 
     <div class="section-label fade-in-3">Kies modus</div>
 
