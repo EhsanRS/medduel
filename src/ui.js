@@ -2,6 +2,65 @@
 
 let currentFact = null;
 
+// ── Sound system (Web Audio API, geen bestanden) ──
+const SFX = (() => {
+  let ctx = null;
+  let enabled = localStorage.getItem('md_sound') !== 'off';
+
+  function ac() {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+
+  function tone(notes, wave = 'triangle') {
+    if (!enabled) return;
+    try {
+      const c = ac();
+      notes.forEach(([freq, t, dur, vol = 0.28]) => {
+        const osc  = c.createOscillator();
+        const gain = c.createGain();
+        osc.connect(gain);
+        gain.connect(c.destination);
+        osc.type = wave;
+        osc.frequency.setValueAtTime(freq, c.currentTime + t);
+        gain.gain.setValueAtTime(0, c.currentTime + t);
+        gain.gain.linearRampToValueAtTime(vol, c.currentTime + t + 0.012);
+        gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + t + dur);
+        osc.start(c.currentTime + t);
+        osc.stop(c.currentTime + t + dur + 0.02);
+      });
+    } catch (_) {}
+  }
+
+  return {
+    // Warm marimba-achtig akkoord — C5 + E5 tegelijk, licht en positief
+    correct() {
+      tone([[523, 0, 0.22, 0.26], [659, 0, 0.22, 0.18], [523, 0.18, 0.14, 0.08]]);
+    },
+    // Zachte afdalende "wuh" — barely audible, niet irritant
+    wrong() {
+      tone([[320, 0, 0.06, 0.14], [240, 0.05, 0.2, 0.10]], 'sine');
+    },
+    // Oplopend jingle — langer naarmate de streak hoger is
+    combo(level) {
+      if (level === 3)  tone([[523,0,.09,.22],[659,.09,.09,.22],[784,.18,.18,.28]]);
+      if (level === 5)  tone([[523,0,.08,.22],[659,.08,.08,.22],[784,.16,.08,.22],[1047,.24,.22,.32]]);
+      if (level >= 10)  tone([[523,0,.07,.20],[659,.07,.07,.20],[784,.14,.07,.20],[1047,.21,.07,.25],[1319,.28,.28,.35]]);
+    },
+    // Korte ta-da fanfare bij game-end
+    fanfare() {
+      tone([[523,0,.1,.20],[659,.13,.1,.20],[784,.26,.1,.20],[1047,.39,.35,.32]]);
+    },
+    toggle() {
+      enabled = !enabled;
+      localStorage.setItem('md_sound', enabled ? 'on' : 'off');
+      return enabled;
+    },
+    isOn() { return enabled; },
+  };
+})();
+
 // ── Confetti burst ──
 function fireConfetti(perfect) {
   const canvas = document.createElement('canvas');

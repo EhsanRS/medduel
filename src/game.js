@@ -98,6 +98,7 @@ function renderGameScreen() {
       <div class="game-nav">
         <button class="quit-btn" onclick="quitGame()">✕ Stop</button>
         <div id="livesDisplay" class="lives-wrap"></div>
+        <button class="sound-btn" id="soundBtn" onclick="toggleSound(this)" title="Geluid aan/uit">${SFX.isOn() ? '🔊' : '🔇'}</button>
       </div>
       <div class="hud">
         <div class="hud-item">
@@ -304,6 +305,7 @@ function processAnswer(ok, q, wrongLabel) {
 
   if (ok) {
     navigator.vibrate && navigator.vibrate(40);
+    SFX.correct();
     G.correct++;
     G.streak++;
     G.maxStreak = Math.max(G.maxStreak, G.streak);
@@ -313,14 +315,15 @@ function processAnswer(ok, q, wrongLabel) {
     const bonus = G.streak >= 5 ? 30 : G.streak >= 3 ? 20 : 10;
     G.score += bonus;
     if (G.mode === 'classic') updateDot(dotIdx, 'done');
-    if (G.streak === 3)  showCombo('3×',  'Streak!');
-    if (G.streak === 5)  showCombo('5×',  'On fire!');
-    if (G.streak === 10) showCombo('10×', 'Legendair!');
+    if (G.streak === 3)  { showCombo('3×',  'Streak!');    SFX.combo(3);  }
+    if (G.streak === 5)  { showCombo('5×',  'On fire!');   SFX.combo(5);  }
+    if (G.streak === 10) { showCombo('10×', 'Legendair!'); SFX.combo(10); }
     const badge = document.getElementById('heroStreak');
     if (badge) badge.classList.toggle('on-fire', G.streak >= 3);
     showToast(true, `+${bonus} punten`, q.ex, q);
   } else {
     navigator.vibrate && navigator.vibrate([20, 50, 20]);
+    SFX.wrong();
     G.wrong++;
     G.streak = 0;
     const badge = document.getElementById('heroStreak');
@@ -381,7 +384,9 @@ function endGame() {
 
   renderResultsScreen(acc);
   showScreen('results');
-  if (acc >= 80) setTimeout(() => fireConfetti(acc === 100), 400);
+  if (acc >= 80) {
+    setTimeout(() => { SFX.fanfare(); fireConfetti(acc === 100); }, 400);
+  }
 }
 
 function renderResultsScreen(acc) {
@@ -583,4 +588,10 @@ function quitGame() {
   clearInterval(G.timer);
   hideToast();
   showHome();
+}
+
+function toggleSound(btn) {
+  const on = SFX.toggle();
+  btn.textContent = on ? '🔊' : '🔇';
+  if (on) SFX.correct();
 }
