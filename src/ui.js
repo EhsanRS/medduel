@@ -583,6 +583,7 @@ function recordWeak(q) {
   const key = q.q.slice(0, 80);
   w[key] = (w[key] || 0) + 2;
   saveWeak(w);
+  srAddNew(q);
 }
 function resolveWeak(q) {
   const w = loadWeak();
@@ -646,6 +647,57 @@ function awardXP(amount) {
     }, 600);
   }
   return next;
+}
+
+// ── Spaced Repetition — SM-2 engine ──
+function loadSR() {
+  try { return JSON.parse(localStorage.getItem('md_sr') || '{}'); } catch { return {}; }
+}
+function saveSR(d) {
+  try { localStorage.setItem('md_sr', JSON.stringify(d)); } catch {}
+}
+
+function srAddNew(q) {
+  if (!q || !q.q) return;
+  const d = loadSR();
+  const k = q.q.slice(0, 80);
+  if (d[k]) return; // al ingepland
+  d[k] = { interval: 1, ef: 2.5, reps: 0, due: Date.now() + 86400000 };
+  saveSR(d);
+}
+
+function srUpdate(q, quality) {
+  const d = loadSR();
+  const k = q.q.slice(0, 80);
+  let c = d[k] || { interval: 1, ef: 2.5, reps: 0 };
+  if (quality >= 3) {
+    c.interval = c.reps === 0 ? 1 : c.reps === 1 ? 6 : Math.round(c.interval * c.ef);
+    c.reps++;
+  } else {
+    c.reps = 0;
+    c.interval = 1;
+  }
+  c.ef = Math.max(1.3, c.ef + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+  c.due = Date.now() + c.interval * 86400000;
+  if (c.reps >= 6 && quality >= 5) delete d[k]; // graduated
+  else d[k] = c;
+  saveSR(d);
+}
+
+function srDueCount() {
+  const now = Date.now();
+  return Object.values(loadSR()).filter(c => c.due <= now).length;
+}
+
+function srDueQuestions() {
+  const d = loadSR();
+  const now = Date.now();
+  return Object.entries(d)
+    .filter(([, c]) => c.due <= now)
+    .sort((a, b) => a[1].due - b[1].due)
+    .map(([k]) => QUESTIONS.find(q => q.q.slice(0, 80) === k))
+    .filter(Boolean)
+    .slice(0, 20);
 }
 
 // ── Achievements ──

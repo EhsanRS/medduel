@@ -44,6 +44,20 @@ function renderHomeScreen() {
   renderSpelenTab();
 }
 
+function renderSRHomeCard() {
+  const n = typeof srDueCount === 'function' ? srDueCount() : 0;
+  if (n === 0) return '';
+  return `
+    <div class="sr-home-card fade-in-2" onclick="startSRMode()">
+      <div class="sr-home-icon">📅</div>
+      <div class="sr-home-info">
+        <span class="sr-home-name">Te herhalen</span>
+        <span class="sr-home-sub">${n} vraag${n === 1 ? '' : 'en'} klaar voor herhaling</span>
+      </div>
+      <span class="sr-home-badge">${n}</span>
+    </div>`;
+}
+
 function renderSpelenTab() {
   document.getElementById('htab').innerHTML = `
     <div class="home-hero fade-in">
@@ -56,6 +70,7 @@ function renderSpelenTab() {
 
     <div class="section-label fade-in-2">Vandaag</div>
     ${renderDailyHomeCard()}
+    ${renderSRHomeCard()}
     ${renderOpenPatientCard()}
 
     <div class="section-label fade-in-3">Kies modus</div>
@@ -146,26 +161,55 @@ function renderDomainGrid() {
   </div>`;
 }
 
+const THEORY_PILLS = [
+  { id: 'dementie',    emoji: '🧠', name: 'Dementiesyndromen',      sub: 'Alzheimer Vasculair Lewy-body FTD NPH' },
+  { id: 'ecg',         emoji: '📊', name: 'ECG Basisinterpretatie',  sub: 'PQRST Intervallen ST-patronen Aritmieën' },
+  { id: 'anemie',      emoji: '🩸', name: 'Anemie',                 sub: 'Microcytair Normocytair Macrocytair ijzer B12 foliumzuur' },
+  { id: 'meningitis',  emoji: '🔬', name: 'Meningitis & LP',         sub: 'Bacterieel Viraal TBC liquor lumbaalpunctie' },
+  { id: 'hartfalen',   emoji: '❤️', name: 'Hartfalen',               sub: 'HFrEF HFpEF vierpijlertherapie dyspneu oedeem' },
+  { id: 'antibiotica', emoji: '💊', name: 'Antibiotica-klassen',     sub: 'Penicilline cefalosporine macrolide fluorochinolon resistentie' },
+  { id: 'stolling',    emoji: '🩹', name: 'Stolling & Antistolling',  sub: 'Cascade heparine VKA DOAC trombose' },
+  { id: 'diabetes',    emoji: '🍬', name: 'Diabetes Mellitus',       sub: 'DM1 DM2 DKA insuline metformine complicaties' },
+  { id: 'schildklier', emoji: '🦋', name: 'Schildklierpathologie',   sub: 'Hypothyreoïdie hyperthyreoïdie TSH T4 thyroiditis' },
+  { id: 'sepsis',      emoji: '🚨', name: 'Sepsis & Septische Shock', sub: 'Sepsis-3 qSOFA antibiotica bundels lactaat' },
+  { id: 'copd',        emoji: '🫁', name: 'COPD',                    sub: 'GOLD-stadiëring exacerbatie inhalatoren spirometrie' },
+  { id: 'longembolie', emoji: '🩺', name: 'Longembolie',             sub: 'Wells diagnose behandeling massieve LE anticoagulantia' },
+];
+
 function renderTheorieTab() {
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
       <h2 class="htab-title">Theorieboek</h2>
       <p class="htab-sub">Klinische overzichten per thema</p>
     </div>
-    <div class="th-home-grid fade-in-1">
-      <div class="th-home-pill" onclick="openTheory('dementie')"><span class="th-home-emoji">🧠</span><span class="th-home-name">Dementie­syndromen</span></div>
-      <div class="th-home-pill" onclick="openTheory('ecg')"><span class="th-home-emoji">📊</span><span class="th-home-name">ECG Basis</span></div>
-      <div class="th-home-pill" onclick="openTheory('anemie')"><span class="th-home-emoji">🩸</span><span class="th-home-name">Anemie</span></div>
-      <div class="th-home-pill" onclick="openTheory('meningitis')"><span class="th-home-emoji">🔬</span><span class="th-home-name">Meningitis & LP</span></div>
-      <div class="th-home-pill" onclick="openTheory('hartfalen')"><span class="th-home-emoji">❤️</span><span class="th-home-name">Hartfalen</span></div>
-      <div class="th-home-pill" onclick="openTheory('antibiotica')"><span class="th-home-emoji">💊</span><span class="th-home-name">Antibiotica</span></div>
-      <div class="th-home-pill" onclick="openTheory('stolling')"><span class="th-home-emoji">🩹</span><span class="th-home-name">Stolling & Antistolling</span></div>
-      <div class="th-home-pill" onclick="openTheory('diabetes')"><span class="th-home-emoji">🍬</span><span class="th-home-name">Diabetes Mellitus</span></div>
-      <div class="th-home-pill" onclick="openTheory('schildklier')"><span class="th-home-emoji">🦋</span><span class="th-home-name">Schildklier</span></div>
-      <div class="th-home-pill" onclick="openTheory('sepsis')"><span class="th-home-emoji">🚨</span><span class="th-home-name">Sepsis & Shock</span></div>
-      <div class="th-home-pill" onclick="openTheory('copd')"><span class="th-home-emoji">🫁</span><span class="th-home-name">COPD</span></div>
-      <div class="th-home-pill" onclick="openTheory('longembolie')"><span class="th-home-emoji">🩺</span><span class="th-home-name">Longembolie</span></div>
-    </div>`;
+    <div class="th-search-wrap fade-in-1">
+      <input type="search" class="th-search" id="thSearch"
+        placeholder="🔍 Zoek onderwerp…" oninput="filterTheory(this.value)"
+        autocomplete="off" autocorrect="off" spellcheck="false">
+    </div>
+    <div class="th-home-grid fade-in-2" id="thGrid">${buildTheoryGrid('')}</div>`;
+}
+
+function buildTheoryGrid(query) {
+  const q = query.trim().toLowerCase();
+  const list = q
+    ? THEORY_PILLS.filter(t =>
+        t.name.toLowerCase().includes(q) || t.sub.toLowerCase().includes(q)
+      )
+    : THEORY_PILLS;
+  if (list.length === 0)
+    return `<p style="color:var(--ink-light);text-align:center;padding:1.5rem 0;font-size:14px;">Geen resultaten voor "<em>${escHtml(query)}</em>"</p>`;
+  return list.map(t =>
+    `<div class="th-home-pill" onclick="openTheory('${t.id}')">
+      <span class="th-home-emoji">${t.emoji}</span>
+      <span class="th-home-name">${t.name}</span>
+    </div>`
+  ).join('');
+}
+
+function filterTheory(query) {
+  const grid = document.getElementById('thGrid');
+  if (grid) grid.innerHTML = buildTheoryGrid(query);
 }
 
 function renderProfielTab() {

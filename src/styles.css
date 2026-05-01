@@ -2247,6 +2247,92 @@ h1.logo em {
   margin-bottom: 0.75rem;
 }
 
+/* ── SR badge (blauw, naast wk-badge) ── */
+.sr-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-bottom: 0.75rem;
+}
+
+/* ── SR rating knoppen ── */
+.sr-rating {
+  margin-top: 1rem;
+  text-align: center;
+}
+.sr-rating-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.sr-rating-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6rem;
+}
+.sr-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 0.9rem 0.5rem 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow);
+  line-height: 1.2;
+}
+.sr-btn span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.sr-btn:active { transform: scale(0.94); }
+.sr-btn-miss  { background: var(--pulse-light); color: var(--pulse); }
+.sr-btn-doubt { background: var(--amber-light); color: var(--amber); }
+.sr-btn-got   { background: var(--green-light); color: var(--green); }
+.sr-btn:hover { transform: scale(1.04); box-shadow: var(--shadow-hover); }
+
+/* ── SR home-kaart (Vandaag sectie) ── */
+.sr-home-card {
+  background: var(--blue-light);
+  border: 1.5px solid rgba(27,95,168,0.2);
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow);
+}
+.sr-home-card:active { transform: scale(0.98); }
+.sr-home-icon { font-size: 24px; flex-shrink: 0; }
+.sr-home-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.sr-home-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 700; color: var(--blue); }
+.sr-home-sub  { font-size: 12px; color: rgba(27,95,168,0.7); }
+.sr-home-badge {
+  background: var(--blue);
+  color: white;
+  border-radius: 50px;
+  min-width: 26px;
+  height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  padding: 0 7px;
+}
+
 /* ── Theorie-modal ── */
 .theory-overlay {
   position: fixed;
@@ -2579,6 +2665,31 @@ h1.logo em {
   color: var(--ink);
   line-height: 1.2;
 }
+
+/* ── Theory search ── */
+.th-search-wrap {
+  margin-bottom: 1rem;
+}
+.th-search {
+  width: 100%;
+  background: white;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow);
+  -webkit-appearance: none;
+}
+.th-search:focus {
+  border-color: var(--ink-mid);
+  box-shadow: 0 0 0 3px rgba(26,20,16,0.06);
+}
+.th-search::placeholder { color: var(--ink-light); }
+.th-search::-webkit-search-cancel-button { cursor: pointer; }
 
 /* ── Theory: Key Numbers callout row ── */
 .th-keynums {
