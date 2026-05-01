@@ -170,13 +170,42 @@ function renderTheorieTab() {
 
 function renderProfielTab() {
   const name = (typeof loadName === 'function' && loadName()) || '';
+  const st   = loadStats();
+  const totalQ = (st.totalCorrect || 0) + (st.totalWrong || 0);
+  const avgPct = totalQ > 0 ? Math.round((st.totalCorrect || 0) / totalQ * 100) : 0;
+
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
       <h2 class="htab-title">${name ? `Hey, ${name}` : 'Mijn profiel'}</h2>
       <p class="htab-sub">Jouw voortgang & statistieken</p>
     </div>
     <div id="xpWrap" class="fade-in-1"></div>
-    <div class="fav-home-card fade-in-2" onclick="startFavourites()">
+
+    <div class="stats-summary-card fade-in-2">
+      <div class="ss-cell">
+        <span class="ss-val">${st.played || 0}</span>
+        <span class="ss-lbl">Potjes</span>
+      </div>
+      <div class="ss-div"></div>
+      <div class="ss-cell">
+        <span class="ss-val">${st.totalCorrect || 0}</span>
+        <span class="ss-lbl">Correct</span>
+      </div>
+      <div class="ss-div"></div>
+      <div class="ss-cell">
+        <span class="ss-val" style="color:${avgPct>=80?'var(--green)':avgPct>=60?'var(--amber)':'var(--pulse)'}">${avgPct}%</span>
+        <span class="ss-lbl">Gemiddeld</span>
+      </div>
+      <div class="ss-div"></div>
+      <div class="ss-cell">
+        <span class="ss-val">${st.bestStreak || 0}🔥</span>
+        <span class="ss-lbl">Best streak</span>
+      </div>
+    </div>
+
+    <div id="achievementsWrap" class="fade-in-3"></div>
+
+    <div class="fav-home-card fade-in-3" onclick="startFavourites()">
       <div class="fav-home-icon">★</div>
       <div class="fav-home-info">
         <span class="fav-home-name">Favorieten</span>
@@ -184,7 +213,7 @@ function renderProfielTab() {
       </div>
       <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
     </div>
-    <div id="weakHomeCard" class="weak-home-card fade-in-2" onclick="startWeakMode()" style="display:none;">
+    <div id="weakHomeCard" class="weak-home-card fade-in-3" onclick="startWeakMode()" style="display:none;">
       <div class="weak-home-icon">🎯</div>
       <div class="fav-home-info">
         <span class="fav-home-name">Train je Zwaktes</span>
@@ -192,8 +221,8 @@ function renderProfielTab() {
       </div>
       <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
     </div>
-    <div id="domainStatsWrap" class="fade-in-2" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
-    <div class="adm-home-card fade-in-3" onclick="showAdmin()">
+    <div id="domainStatsWrap" class="fade-in-3" style="display:none;margin-top:1rem;margin-bottom:1rem;"></div>
+    <div class="adm-home-card fade-in-4" onclick="showAdmin()">
       <span style="font-size:20px;">🗂️</span>
       <div class="fav-home-info">
         <span class="fav-home-name">Vragenbank</span>
@@ -202,6 +231,8 @@ function renderProfielTab() {
       <span style="font-size:18px;color:var(--ink-light);opacity:0.5;">→</span>
     </div>`;
   renderXPHome();
+  const achWrap = document.getElementById('achievementsWrap');
+  if (achWrap) achWrap.innerHTML = renderAchievements();
   const sub = document.getElementById('favHomeSub');
   if (sub) {
     const n = loadFavourites().length;

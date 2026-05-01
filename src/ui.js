@@ -648,6 +648,76 @@ function awardXP(amount) {
   return next;
 }
 
+// ── Achievements ──
+const ACHIEVEMENTS = [
+  { id: 'first_correct', icon: '🎯', label: 'Eerste treffer',  desc: 'Eerste juiste antwoord gegeven' },
+  { id: 'streak_3',      icon: '🔥', label: 'Op stoom',        desc: '3 antwoorden op een rij goed' },
+  { id: 'streak_10',     icon: '⚡', label: 'Onstopbaar',      desc: '10 op een rij — indrukwekkend' },
+  { id: 'perfect',       icon: '💯', label: 'Makeloos',        desc: 'Classic: 10 van 10 zonder fout' },
+  { id: 'games_10',      icon: '🎮', label: 'Vaste speler',    desc: '10 potjes gespeeld' },
+  { id: 'games_50',      icon: '🏆', label: 'Veteraan',        desc: '50 potjes gespeeld' },
+  { id: 'blitz_200',     icon: '🚀', label: 'Blitzkoning',     desc: '200+ punten in één Blitz-ronde' },
+  { id: 'survival_20',   icon: '❤️', label: 'Overlever',       desc: '20 vragen overleefd in Survival' },
+  { id: 'all_domains',   icon: '🌍', label: 'Allrounder',      desc: 'Alle 13 domeinen minstens één keer gespeeld' },
+  { id: 'professor',     icon: '🎓', label: 'Professor',       desc: 'Hoogste rang bereikt' },
+];
+
+function loadAchievements() {
+  try { return new Set(JSON.parse(localStorage.getItem('md_ach') || '[]')); } catch { return new Set(); }
+}
+
+function awardAchievement(id) {
+  const set = loadAchievements();
+  if (set.has(id)) return false;
+  set.add(id);
+  try { localStorage.setItem('md_ach', JSON.stringify([...set])); } catch {}
+  const ach = ACHIEVEMENTS.find(a => a.id === id);
+  if (ach) showAchievementBanner(ach);
+  return true;
+}
+
+function showAchievementBanner(ach) {
+  const el = document.getElementById('achBanner');
+  if (!el) return;
+  document.getElementById('achBannerIcon').textContent = ach.icon;
+  document.getElementById('achBannerLabel').textContent = ach.label;
+  el.classList.add('show');
+  clearTimeout(el._hideTimer);
+  el._hideTimer = setTimeout(() => el.classList.remove('show'), 3500);
+}
+
+function checkAchievements(ctx) {
+  const { mode, correct, wrong, maxStreak, score } = ctx;
+  const st = loadStats();
+  const ALL_DOMAINS = ['cardio','neuro','pharma','infectio','lab','pulmo','gastro','endo','nephro','psych','derm','rheum','repro'];
+
+  if (correct >= 1)   awardAchievement('first_correct');
+  if (maxStreak >= 3) awardAchievement('streak_3');
+  if (maxStreak >= 10) awardAchievement('streak_10');
+  if (mode === 'classic' && wrong === 0 && correct >= 10) awardAchievement('perfect');
+  if ((st.played || 0) >= 10) awardAchievement('games_10');
+  if ((st.played || 0) >= 50) awardAchievement('games_50');
+  if (mode === 'blitz' && score >= 200) awardAchievement('blitz_200');
+  if (mode === 'survival' && correct >= 20) awardAchievement('survival_20');
+  if (getRank(loadXP()).label === 'Professor') awardAchievement('professor');
+  const ds = loadDomainStats();
+  if (ALL_DOMAINS.every(k => ds[k] && ds[k].t > 0)) awardAchievement('all_domains');
+}
+
+function renderAchievements() {
+  const set = loadAchievements();
+  const items = ACHIEVEMENTS.map(a => {
+    const on = set.has(a.id);
+    return `<div class="ach-badge ${on ? 'unlocked' : 'locked'}">
+      <div class="ach-icon">${on ? a.icon : '🔒'}</div>
+      <div class="ach-label">${a.label}</div>
+      <div class="ach-desc">${a.desc}</div>
+    </div>`;
+  }).join('');
+  return `<div class="section-label" style="margin-top:1.5rem">Prestaties</div>
+    <div class="ach-grid">${items}</div>`;
+}
+
 function renderXPHome() {
   const wrap = document.getElementById('xpWrap');
   if (!wrap) return;

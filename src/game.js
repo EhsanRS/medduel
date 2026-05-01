@@ -367,12 +367,17 @@ function endGame() {
   const total = G.correct + G.wrong;
   const acc   = total ? Math.round(G.correct / total * 100) : 0;
 
+  const prev = loadStats();
   saveStats({
-    played: (loadStats().played || 0) + 1,
-    best:   Math.max(loadStats().best || 0, G.score),
+    played:       (prev.played       || 0) + 1,
+    best:         Math.max(prev.best || 0, G.score),
+    totalCorrect: (prev.totalCorrect || 0) + G.correct,
+    totalWrong:   (prev.totalWrong   || 0) + G.wrong,
+    bestStreak:   Math.max(prev.bestStreak || 0, G.maxStreak),
   });
   mergeDomainStats(G.domainStatsByKey || {});
   saveSessionToHistory({ mode: G.mode, acc, correct: G.correct, wrong: G.wrong, domainStats: G.domainStatsByKey });
+  checkAchievements({ mode: G.mode, correct: G.correct, wrong: G.wrong, maxStreak: G.maxStreak, score: G.score });
 
   if (!loadOpenPatient()) {
     const wrongOnes = G.sessionLog.filter(i => !i.ok);
