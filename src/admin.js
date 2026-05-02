@@ -3,10 +3,10 @@
 let ADM = { domain: 'all', diff: 'all', subtype: 'all' };
 
 const ADM_DOMAINS = {
-  cardio:   { icon: '🫀', label: 'Cardiologie' },
-  neuro:    { icon: '🧠', label: 'Neurologie' },
-  pharma:   { icon: '💊', label: 'Farmacologie' },
-  infectio: { icon: '🦠', label: 'Infectiologie' },
+  cardio:   { icon: '🫀', label: 'Cardiology' },
+  neuro:    { icon: '🧠', label: 'Neurology' },
+  pharma:   { icon: '💊', label: 'Pharmacology' },
+  infectio: { icon: '🦠', label: 'Infectiology' },
   lab:      { icon: '🧪', label: 'Lab' },
 };
 
@@ -16,27 +16,27 @@ function showAdmin() {
       <div style="max-width:480px;margin:0 auto;padding:0 1.25rem 3rem;">
 
         <div class="game-nav" style="padding-top:1.5rem;">
-          <button class="quit-btn" onclick="showHome()">← Terug</button>
-          <span style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--ink);">Vragenbank</span>
+          <button class="quit-btn" onclick="showHome()">← Back</button>
+          <span style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--ink);">Question bank</span>
         </div>
 
         <div id="adm-stats" style="margin-bottom:1.25rem;"></div>
 
         <div class="adm-filters">
           <div class="adm-fgroup" id="adm-fd">
-            <button class="adm-f active" onclick="admF('domain','all',this)">Alles</button>
+            <button class="adm-f active" onclick="admF('domain','all',this)">All</button>
             ${Object.entries(ADM_DOMAINS).map(([k,v]) =>
               `<button class="adm-f" onclick="admF('domain','${k}',this)">${v.icon}</button>`
             ).join('')}
           </div>
           <div class="adm-fgroup" id="adm-fs">
-            <button class="adm-f active" onclick="admF('subtype','all',this)">Alle typen</button>
-            <button class="adm-f" onclick="admF('subtype','regular',this)">Regulier</button>
-            <button class="adm-f diff" onclick="admF('subtype','diff',this)">Differentiaal</button>
-            <button class="adm-f test" onclick="admF('subtype','test',this)">Test-keuze</button>
+            <button class="adm-f active" onclick="admF('subtype','all',this)">All types</button>
+            <button class="adm-f" onclick="admF('subtype','regular',this)">Regular</button>
+            <button class="adm-f diff" onclick="admF('subtype','diff',this)">Differential</button>
+            <button class="adm-f test" onclick="admF('subtype','test',this)">Test choice</button>
           </div>
           <div class="adm-fgroup" id="adm-ff">
-            <button class="adm-f active" onclick="admF('diff','all',this)">Alle</button>
+            <button class="adm-f active" onclick="admF('diff','all',this)">All</button>
             <button class="adm-f" onclick="admF('diff','1',this)">★</button>
             <button class="adm-f" onclick="admF('diff','2',this)">★★</button>
             <button class="adm-f" onclick="admF('diff','3',this)">★★★</button>
@@ -86,7 +86,7 @@ function admRender() {
     <div class="adm-stats-card">
       <div class="adm-stat-hero">
         <span class="adm-stat-n">${QUESTIONS.length}</span>
-        <span class="adm-stat-lbl">vragen totaal</span>
+        <span class="adm-stat-lbl">questions total</span>
       </div>
       <div class="adm-dom-grid">
         ${Object.entries(ADM_DOMAINS).map(([k, v]) => `
@@ -97,9 +97,9 @@ function admRender() {
           </div>`).join('')}
       </div>
       <div class="adm-sub-row">
-        <span class="adm-sub-chip">📋 ${subtypeCounts.regular} regulier</span>
-        <span class="adm-sub-chip diff">⚡ ${subtypeCounts.diff} differentiaal</span>
-        <span class="adm-sub-chip test">🔬 ${subtypeCounts.test} test-keuze</span>
+        <span class="adm-sub-chip">📋 ${subtypeCounts.regular} regular</span>
+        <span class="adm-sub-chip diff">⚡ ${subtypeCounts.diff} differential</span>
+        <span class="adm-sub-chip test">🔬 ${subtypeCounts.test} test choice</span>
       </div>
       <div class="adm-diff-bar">
         ${[1,2,3,4,5].map(n => {
@@ -121,12 +121,12 @@ function admRender() {
   // Question list
   const listEl = document.getElementById('adm-list');
   if (filtered.length === 0) {
-    listEl.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--ink-light);font-size:14px;">Geen vragen gevonden</div>';
+    listEl.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--ink-light);font-size:14px;">No questions found</div>';
     return;
   }
 
   const domOrder = ['cardio','neuro','pharma','infectio','lab'];
-  let html = `<div style="font-size:12px;color:var(--ink-light);margin-bottom:0.75rem;">${filtered.length} vragen${filtered.length < QUESTIONS.length ? ' (gefilterd)' : ''}</div>`;
+  let html = `<div style="font-size:12px;color:var(--ink-light);margin-bottom:0.75rem;">${filtered.length} questions${filtered.length < QUESTIONS.length ? ' (filtered)' : ''}</div>`;
 
   if (domain === 'all') {
     domOrder.forEach(dom => {
@@ -190,8 +190,8 @@ function admToggle(idx) {
   let answersHtml = '';
   if (q.type === 'truefalse') {
     answersHtml = `
-      <div class="adm-ans ${q.c ? 'correct' : ''}">A. ✓ Waar</div>
-      <div class="adm-ans ${!q.c ? 'correct' : ''}">B. ✗ Niet waar</div>`;
+      <div class="adm-ans ${q.c ? 'correct' : ''}">A. ✓ True</div>
+      <div class="adm-ans ${!q.c ? 'correct' : ''}">B. ✗ False</div>`;
   } else if (q.a) {
     answersHtml = q.a.map((a, i) =>
       `<div class="adm-ans ${i === q.c ? 'correct' : ''}">${letters[i]}. ${escHtml(a)}</div>`
@@ -201,7 +201,7 @@ function admToggle(idx) {
   detail.innerHTML = `
     <div class="adm-q-full">${escHtml(q.q).replace(/\n/g, '<br>')}</div>
     <div class="adm-ans-list">${answersHtml}</div>
-    <div class="adm-expl"><strong>Uitleg:</strong> ${escHtml(q.ex)}</div>
+    <div class="adm-expl"><strong>Explanation:</strong> ${escHtml(q.ex)}</div>
     <div class="adm-meta">#${idx} · ${q.domain} · d:${q.d || 3}${q.subtype ? ' · ' + q.subtype : ''}</div>`;
   detail.style.display = 'block';
   row.classList.add('open');

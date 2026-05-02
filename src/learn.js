@@ -1,4 +1,4 @@
-// MedDuel — Leer-modus (studiekaarten, geen tijdsdruk)
+// MedDuel — Learn mode (flashcards, no time pressure)
 
 let LM = {};
 
@@ -26,9 +26,9 @@ function startLearn(domain) {
 }
 
 function renderLearnScreen() {
-  const domainLabel = LM.domain === 'all' ? 'Alle domeinen' : {
-    cardio: '🫀 Cardiologie', neuro: '🧠 Neurologie',
-    pharma: '💊 Farmacologie', infectio: '🦠 Infectiologie', lab: '🧪 Lab',
+  const domainLabel = LM.domain === 'all' ? 'All domains' : {
+    cardio: '🫀 Cardiology', neuro: '🧠 Neurology',
+    pharma: '💊 Pharmacology', infectio: '🦠 Infectiology', lab: '🧪 Lab',
   }[LM.domain] || LM.domain;
 
   document.getElementById('app').innerHTML = `
@@ -36,7 +36,7 @@ function renderLearnScreen() {
       <div style="max-width:480px;margin:0 auto;padding:0 1.25rem 3rem;">
         <div class="game-nav">
           <button class="quit-btn" onclick="quitLearn()">✕ Stop</button>
-          <div class="lm-mode-tag">📖 Leermodus · ${domainLabel}</div>
+          <div class="lm-mode-tag">📖 Learn mode · ${domainLabel}</div>
         </div>
         <div class="lm-progress-wrap">
           <div class="lm-progress-bar" id="lm-bar" style="width:0%"></div>
@@ -72,19 +72,19 @@ function lmLoadQ() {
   const bar = document.getElementById('lm-bar');
   const counter = document.getElementById('lm-counter');
   if (bar) bar.style.width = pct + '%';
-  if (counter) counter.textContent = `${idx + 1} / ${total}${LM.phase === 'repeat' ? ' · Herhaling' : ''}`;
+  if (counter) counter.textContent = `${idx + 1} / ${total}${LM.phase === 'repeat' ? ' · Repeat' : ''}`;
 
-  const typeMap = { diagnose:'Diagnose', truefalse:'Waar of Niet?', pharma:'Welk Medicijn?', lab:'Lab' };
-  const subtypeMap = { diff:'Differentiaal', test:'Test-keuze' };
-  const typeLabel = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || 'Vraag';
+  const typeMap = { diagnose:'Diagnosis', truefalse:'True or False?', pharma:'Which medication?', lab:'Lab' };
+  const subtypeMap = { diff:'Differential', test:'Test choice' };
+  const typeLabel = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || 'Question';
   const typeCls = (q.subtype && subtypeMap[q.subtype] ? q.subtype : q.type) || 'diagnose';
 
   let answersHTML;
   if (q.type === 'truefalse') {
     answersHTML = `
       <div class="tf-wrap">
-        <button class="tf-btn true-btn"  onclick="lmAnswerTF(true,this)">✓ Waar</button>
-        <button class="tf-btn false-btn" onclick="lmAnswerTF(false,this)">✗ Niet Waar</button>
+        <button class="tf-btn true-btn"  onclick="lmAnswerTF(true,this)">✓ True</button>
+        <button class="tf-btn false-btn" onclick="lmAnswerTF(false,this)">✗ False</button>
       </div>`;
   } else {
     const letters = ['A','B','C','D'];
@@ -108,7 +108,7 @@ function lmLoadQ() {
     <div class="answers-wrap" id="lm-answers">${answersHTML}</div>
     <div class="lm-explanation-box" id="lm-expl" style="display:none;"></div>
     <button class="lm-next-btn" id="lm-next" style="display:none;" onclick="lmNext()">
-      Volgende vraag →
+      Next question →
     </button>`;
 }
 
@@ -152,7 +152,7 @@ function lmReveal(ok, q) {
   const next = document.getElementById('lm-next');
   if (expl) {
     expl.innerHTML = `
-      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Correct!' : '✗ Niet correct'}</div>
+      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Correct!' : '✗ Incorrect'}</div>
       <div class="lm-expl-text">${q.ex}</div>`;
     expl.style.display = 'block';
     setTimeout(() => expl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
@@ -169,11 +169,11 @@ function lmShowRepeatIntro() {
   document.getElementById('lm-card-area').innerHTML = `
     <div class="lm-repeat-card fade-in">
       <div class="lm-repeat-icon">🔁</div>
-      <div class="lm-repeat-title">Herhaling</div>
-      <div class="lm-repeat-sub">Je had <strong>${LM.wrongQueue.length}</strong> vragen fout.
-        Laten we die nog een keer oefenen.</div>
+      <div class="lm-repeat-title">Round 2</div>
+      <div class="lm-repeat-sub">You got <strong>${LM.wrongQueue.length}</strong> questions wrong.
+        Let's practise those again.</div>
       <button class="btn-primary" onclick="lmLoadQ()" style="margin-top:1.5rem;width:100%;">
-        Beginnen →
+        Start →
       </button>
     </div>`;
 }
@@ -187,18 +187,18 @@ function lmEnd() {
   document.getElementById('app').innerHTML = `
     <div id="learn-done" class="screen active">
       <div style="max-width:480px;margin:0 auto;padding:2rem 1.25rem 3rem;text-align:center;">
-        <div class="results-eyebrow fade-in">Sessie voltooid</div>
+        <div class="results-eyebrow fade-in">Session complete</div>
         <div class="score-big fade-in-1" style="font-size:56px;">📖</div>
         <div class="grade-tag fade-in-2" style="background:${gc};">${acc}% · ${gl}</div>
 
         <div class="stats-row fade-in-3" style="margin-top:1rem;">
           <div class="stat-card"><span class="stat-big green">${LM.correct}</span><span class="stat-small">Correct</span></div>
-          <div class="stat-card"><span class="stat-big red">${LM.wrong}</span><span class="stat-small">Fout</span></div>
-          <div class="stat-card"><span class="stat-big">${LM.queue.length + (LM.wrongQueue.length > 0 ? LM.wrongQueue.length : 0)}</span><span class="stat-small">Kaarten</span></div>
+          <div class="stat-card"><span class="stat-big red">${LM.wrong}</span><span class="stat-small">Wrong</span></div>
+          <div class="stat-card"><span class="stat-big">${LM.queue.length + (LM.wrongQueue.length > 0 ? LM.wrongQueue.length : 0)}</span><span class="stat-small">Cards</span></div>
         </div>
 
         <div class="action-row fade-in-4" style="margin-top:1.5rem;">
-          <button class="btn-primary" onclick="showLearnSetup()">🔁 Opnieuw</button>
+          <button class="btn-primary" onclick="showLearnSetup()">🔁 Again</button>
           <button class="btn-secondary" onclick="showHome()">← Home</button>
         </div>
       </div>
@@ -210,41 +210,41 @@ function quitLearn() {
   showHome();
 }
 
-// ── Setup scherm ──
+// ── Setup screen ──
 function showLearnSetup() {
   document.getElementById('app').innerHTML = `
     <div id="learn-setup" class="screen active">
       <div style="max-width:480px;margin:0 auto;padding:2rem 1.25rem 3rem;">
         <div class="game-nav">
-          <button class="quit-btn" onclick="showHome()">← Terug</button>
+          <button class="quit-btn" onclick="showHome()">← Back</button>
         </div>
         <div class="home-top" style="margin-bottom:1.5rem;">
-          <div class="logo-eyebrow">Studeer</div>
-          <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--ink);margin:0.25rem 0;">Leer-modus</h2>
-          <p style="font-size:14px;color:var(--ink-mid);line-height:1.5;">Geen tijdsdruk. Volledige uitleg na elk antwoord. Foute vragen worden herhaald.</p>
+          <div class="logo-eyebrow">Study</div>
+          <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--ink);margin:0.25rem 0;">Learn mode</h2>
+          <p style="font-size:14px;color:var(--ink-mid);line-height:1.5;">No time pressure. Full explanation after each answer. Wrong questions are repeated.</p>
         </div>
 
-        <div class="section-label">Kies domein</div>
+        <div class="section-label">Choose domain</div>
         <div class="lm-domain-grid">
           <div class="lm-domain-btn active" data-dom="all" onclick="lmSelectDomain('all',this)">
             <span class="lm-domain-icon">📚</span>
-            <span>Alles</span>
+            <span>All</span>
           </div>
           <div class="lm-domain-btn" data-dom="cardio" onclick="lmSelectDomain('cardio',this)">
             <span class="lm-domain-icon">🫀</span>
-            <span>Cardiologie</span>
+            <span>Cardiology</span>
           </div>
           <div class="lm-domain-btn" data-dom="neuro" onclick="lmSelectDomain('neuro',this)">
             <span class="lm-domain-icon">🧠</span>
-            <span>Neurologie</span>
+            <span>Neurology</span>
           </div>
           <div class="lm-domain-btn" data-dom="pharma" onclick="lmSelectDomain('pharma',this)">
             <span class="lm-domain-icon">💊</span>
-            <span>Farmacologie</span>
+            <span>Pharmacology</span>
           </div>
           <div class="lm-domain-btn" data-dom="infectio" onclick="lmSelectDomain('infectio',this)">
             <span class="lm-domain-icon">🦠</span>
-            <span>Infectiologie</span>
+            <span>Infectiology</span>
           </div>
           <div class="lm-domain-btn" data-dom="lab" onclick="lmSelectDomain('lab',this)">
             <span class="lm-domain-icon">🧪</span>
@@ -254,7 +254,7 @@ function showLearnSetup() {
 
         <button id="lm-start-btn" class="btn-primary" style="width:100%;margin-top:2rem;"
           onclick="startLearn(document.querySelector('.lm-domain-btn.active').dataset.dom)">
-          Beginnen →
+          Start →
         </button>
       </div>
     </div>`;
@@ -266,5 +266,5 @@ function lmSelectDomain(dom, el) {
   el.classList.add('active');
   const pool = dom === 'all' ? QUESTIONS : QUESTIONS.filter(q => q.domain === dom);
   const btn = document.getElementById('lm-start-btn');
-  if (btn) btn.textContent = `Beginnen · ${pool.length} kaarten →`;
+  if (btn) btn.textContent = `Start · ${pool.length} cards →`;
 }

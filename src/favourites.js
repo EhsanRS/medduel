@@ -1,15 +1,15 @@
-// MedDuel — Favorieten scherm
+// MedDuel — Favourites screen
 
 let favFilter = 'all';
 
 const FAV_CATS = [
-  { key: 'all',      label: 'Alles',         icon: '' },
-  { key: 'cardio',   label: 'Cardiologie',   icon: '🫀' },
-  { key: 'neuro',    label: 'Neurologie',    icon: '🧠' },
-  { key: 'pharma',   label: 'Farmacologie',  icon: '💊' },
-  { key: 'infectio', label: 'Infectiologie', icon: '🦠' },
-  { key: 'lab',      label: 'Lab',           icon: '🧪' },
-  { key: 'dossier',  label: 'Dossier',       icon: '🗂️' },
+  { key: 'all',      label: 'All',            icon: '' },
+  { key: 'cardio',   label: 'Cardiology',     icon: '🫀' },
+  { key: 'neuro',    label: 'Neurology',      icon: '🧠' },
+  { key: 'pharma',   label: 'Pharmacology',   icon: '💊' },
+  { key: 'infectio', label: 'Infectiology',   icon: '🦠' },
+  { key: 'lab',      label: 'Lab',            icon: '🧪' },
+  { key: 'dossier',  label: 'Dossier',        icon: '🗂️' },
 ];
 
 function startFavourites() {
@@ -39,14 +39,14 @@ function renderFavouritesScreen() {
   const cardsHTML = filtered.length === 0
     ? `<div class="fav-empty fade-in">
          <div class="fav-empty-icon">☆</div>
-         <div class="fav-empty-title">${favFilter === 'all' ? 'Nog niets opgeslagen' : 'Niets in dit domein'}</div>
-         <div class="fav-empty-sub">Tik op ★ in de uitlegkaart om feiten te bewaren.</div>
+         <div class="fav-empty-title">${favFilter === 'all' ? 'Nothing saved yet' : 'Nothing in this domain'}</div>
+         <div class="fav-empty-sub">Tap ★ on the explanation card to save facts.</div>
        </div>`
     : filtered.map((f, i) => `
         <div class="fav-card fade-in" style="animation-delay:${Math.min(i * 0.06, 0.4)}s">
           <div class="fav-card-top">
-            <span class="fav-domain-tag">${(f.dl || '').replace(' — Waar of Niet?', '')}</span>
-            <button class="fav-unstar" onclick="removeFavourite(${f.saved})" title="Verwijderen">★</button>
+            <span class="fav-domain-tag">${(f.dl || '').replace(' — True or False?', '')}</span>
+            <button class="fav-unstar" onclick="removeFavourite(${f.saved})" title="Remove">★</button>
           </div>
           <div class="fav-question">${f.q}</div>
           <div class="fav-explanation">${f.ex}</div>
@@ -56,8 +56,8 @@ function renderFavouritesScreen() {
     <div id="favourites" class="screen active">
       <div class="fav-screen">
         <div class="fav-nav">
-          <button class="quit-btn" onclick="showHome()">← Terug</button>
-          <span class="fav-title">Favorieten</span>
+          <button class="quit-btn" onclick="showHome()">← Back</button>
+          <span class="fav-title">Favourites</span>
           <span class="fav-badge">${all.length}</span>
         </div>
         <div class="cat-wrap fav-filter">${pillsHTML}</div>

@@ -1,7 +1,7 @@
 {
-  "name": "MedDuel — Medische Trivia",
+  "name": "MedDuel — Medical Trivia",
   "short_name": "MedDuel",
-  "description": "Test je medische kennis. Versla anderen. Word beter.",
+  "description": "Test your medical knowledge. Beat others. Get better.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

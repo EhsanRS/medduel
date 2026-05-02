@@ -1,4 +1,4 @@
-// MedDuel — Gedeelde UI utilities
+// MedDuel — Shared UI utilities
 
 let currentFact = null;
 
@@ -173,7 +173,7 @@ function updateStarBtn() {
 
 // ── Wiki Tabs ──
 function renderWikiTabs(w) {
-  const tabs = ['Kern', 'Mechanisme', 'Onderscheid', 'Behandeling'];
+  const tabs = ['Core', 'Mechanism', 'Differential', 'Treatment'];
 
   const bigfactHTML = w.bigfact ? `
     <div class="wiki-bigfact">
@@ -187,20 +187,20 @@ function renderWikiTabs(w) {
   const kernHTML = `
     <div class="wiki-panel active" id="wiki-panel-kern">
       <div class="wiki-kern-header">
-        <span class="wiki-kern-badge">Kernbegrip</span>
+        <span class="wiki-kern-badge">Core concept</span>
         <div class="wiki-kern-divider"></div>
       </div>
       <div class="wiki-kern-lede">${w.kern}</div>
       ${bigfactHTML}
-      ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-label">Let op</div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
+      ${w.redflag ? `<div class="wiki-redflag"><div class="wiki-redflag-label">Watch out</div><div class="wiki-redflag-text">${w.redflag}</div></div>` : ''}
     </div>`;
 
   const mechArr = Array.isArray(w.mechanisme)
     ? w.mechanisme
-    : (w.mechanisme ? [{ title: 'Mechanisme', desc: w.mechanisme }] : []);
+    : (w.mechanisme ? [{ title: 'Mechanism', desc: w.mechanisme }] : []);
   const diffArr = Array.isArray(w.onderscheid)
     ? w.onderscheid
-    : (w.onderscheid ? [{ label: 'Onderscheid', desc: w.onderscheid, type: 'warn' }] : []);
+    : (w.onderscheid ? [{ label: 'Differential', desc: w.onderscheid, type: 'warn' }] : []);
   const therObj = w.therapie && typeof w.therapie === 'object' && !Array.isArray(w.therapie)
     ? w.therapie
     : (w.therapie ? { urgent: String(w.therapie), stappen: [] } : null);
@@ -219,7 +219,7 @@ function renderWikiTabs(w) {
 
   const mnemonicHTML = w.mnemonic ? `
     <div class="wiki-mnemonic">
-      <div class="wiki-mnemonic-label">Geheugensteuntje</div>
+      <div class="wiki-mnemonic-label">Mnemonic</div>
       <div class="wiki-mnemonic-grid">
         ${w.mnemonic.items.map(item => `
           <div class="wiki-mnemonic-item">
@@ -262,7 +262,7 @@ function renderWikiTabs(w) {
     <div class="wiki-panel" id="wiki-panel-therapie">
       ${therObj && therObj.urgent ? `
         <div class="wiki-treat-urgent">
-          <div class="wiki-treat-urgent-label">Prioriteit</div>
+          <div class="wiki-treat-urgent-label">Priority</div>
           <div class="wiki-treat-urgent-text">${therObj.urgent}</div>
         </div>` : ''}
       ${therapieStappen}
@@ -359,7 +359,7 @@ function openFactModal() {
   const theoryId = typeof getRelatedTheory === 'function' ? getRelatedTheory(currentFact) : null;
   if (theoryId && THEORY_TOPICS[theoryId]) {
     const t = THEORY_TOPICS[theoryId];
-    exEl.innerHTML += `<button class="fact-theory-btn" onclick="openTheory('${theoryId}')">📖 Bekijk theorie: ${t.title} →</button>`;
+    exEl.innerHTML += `<button class="fact-theory-btn" onclick="openTheory('${theoryId}')">📖 View theory: ${t.title} →</button>`;
   }
   updateStarBtn();
   document.getElementById('factModal').classList.add('open');
@@ -415,7 +415,7 @@ function showNextButton(fn) {
   if (!wrap) { fn(); return; }
   const btn = document.createElement('button');
   btn.className = 'btn-next-q fade-in';
-  btn.textContent = 'Volgende vraag →';
+  btn.textContent = 'Next question →';
   btn.onclick = fn;
   wrap.appendChild(btn);
 }
@@ -568,7 +568,7 @@ function loadHomeStats() {
   const sub = document.getElementById('favHomeSub');
   if (sub) {
     const n = loadFavourites().length;
-    sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
+    sub.textContent = n === 0 ? 'Nothing saved yet' : `${n} fact${n === 1 ? '' : 's'} saved`;
   }
   renderXPHome();
   renderDomainStatsHome();
@@ -615,17 +615,17 @@ function renderWeakHome() {
   if (n === 0) { card.style.display = 'none'; return; }
   card.style.display = 'flex';
   const sub = document.getElementById('weakHomeSub');
-  if (sub) sub.textContent = `${n} vraag${n === 1 ? '' : 'en'} om te oefenen`;
+  if (sub) sub.textContent = `${n} question${n === 1 ? '' : 's'} to practise`;
 }
 
 // ── XP & Rangen ──
 const RANKS = [
-  { min: 0,    label: 'Pre-med',      icon: '📚', color: '#8B7355' },
-  { min: 100,  label: 'Co-assistent', icon: '🩺', color: '#1B5FA8' },
-  { min: 350,  label: 'ANIOS',        icon: '⚕️', color: '#1A7A4A' },
-  { min: 800,  label: 'AIOS',         icon: '🔬', color: '#D4820A' },
-  { min: 1800, label: 'Specialist',   icon: '🏥', color: '#E8410A' },
-  { min: 4000, label: 'Professor',    icon: '🎓', color: '#6B21A8' },
+  { min: 0,    label: 'Pre-med',        icon: '📚', color: '#8B7355' },
+  { min: 100,  label: 'Medical Student', icon: '🩺', color: '#1B5FA8' },
+  { min: 350,  label: 'Junior Doctor',   icon: '⚕️', color: '#1A7A4A' },
+  { min: 800,  label: 'Resident',        icon: '🔬', color: '#D4820A' },
+  { min: 1800, label: 'Specialist',      icon: '🏥', color: '#E8410A' },
+  { min: 4000, label: 'Professor',       icon: '🎓', color: '#6B21A8' },
 ];
 
 function loadXP() { try { return parseInt(localStorage.getItem('md_xp') || '0', 10); } catch { return 0; } }
@@ -706,16 +706,16 @@ function srDueQuestions() {
 
 // ── Achievements ──
 const ACHIEVEMENTS = [
-  { id: 'first_correct', icon: '🎯', label: 'Eerste treffer',  desc: 'Eerste juiste antwoord gegeven' },
-  { id: 'streak_3',      icon: '🔥', label: 'Op stoom',        desc: '3 antwoorden op een rij goed' },
-  { id: 'streak_10',     icon: '⚡', label: 'Onstopbaar',      desc: '10 op een rij — indrukwekkend' },
-  { id: 'perfect',       icon: '💯', label: 'Makeloos',        desc: 'Classic: 10 van 10 zonder fout' },
-  { id: 'games_10',      icon: '🎮', label: 'Vaste speler',    desc: '10 potjes gespeeld' },
-  { id: 'games_50',      icon: '🏆', label: 'Veteraan',        desc: '50 potjes gespeeld' },
-  { id: 'blitz_200',     icon: '🚀', label: 'Blitzkoning',     desc: '200+ punten in één Blitz-ronde' },
-  { id: 'survival_20',   icon: '❤️', label: 'Overlever',       desc: '20 vragen overleefd in Survival' },
-  { id: 'all_domains',   icon: '🌍', label: 'Allrounder',      desc: 'Alle 13 domeinen minstens één keer gespeeld' },
-  { id: 'professor',     icon: '🎓', label: 'Professor',       desc: 'Hoogste rang bereikt' },
+  { id: 'first_correct', icon: '🎯', label: 'First hit',       desc: 'Gave your first correct answer' },
+  { id: 'streak_3',      icon: '🔥', label: 'On a roll',       desc: '3 correct answers in a row' },
+  { id: 'streak_10',     icon: '⚡', label: 'Unstoppable',     desc: '10 in a row — impressive' },
+  { id: 'perfect',       icon: '💯', label: 'Flawless',        desc: 'Classic: 10 out of 10 without a mistake' },
+  { id: 'games_10',      icon: '🎮', label: 'Regular',         desc: '10 games played' },
+  { id: 'games_50',      icon: '🏆', label: 'Veteran',         desc: '50 games played' },
+  { id: 'blitz_200',     icon: '🚀', label: 'Blitz king',      desc: '200+ points in one Blitz round' },
+  { id: 'survival_20',   icon: '❤️', label: 'Survivor',        desc: '20 questions survived in Survival' },
+  { id: 'all_domains',   icon: '🌍', label: 'All-rounder',     desc: 'All 13 domains played at least once' },
+  { id: 'professor',     icon: '🎓', label: 'Professor',       desc: 'Reached the highest rank' },
 ];
 
 function loadAchievements() {
@@ -770,7 +770,7 @@ function renderAchievements() {
       <div class="ach-desc">${a.desc}</div>
     </div>`;
   }).join('');
-  return `<div class="section-label" style="margin-top:1.5rem">Prestaties</div>
+  return `<div class="section-label" style="margin-top:1.5rem">Achievements</div>
     <div class="ach-grid">${items}</div>`;
 }
 
@@ -793,7 +793,7 @@ function renderXPHome() {
           <div class="xp-bar-bg">
             <div class="xp-bar-fill" style="width:${pct}%;background:${rank.color}"></div>
           </div>
-          <div class="xp-next-label">${next ? `${next.min - xp} XP naar ${next.icon} ${next.label}` : 'Maximale rang bereikt! 🎓'}</div>
+          <div class="xp-next-label">${next ? `${next.min - xp} XP to ${next.icon} ${next.label}` : 'Maximum rank reached! 🎓'}</div>
         </div>
       </div>
     </div>`;
@@ -801,13 +801,13 @@ function renderXPHome() {
 
 // ── Domein statistieken ──
 const DOMAIN_META = [
-  { key: 'cardio',   label: 'Cardiologie',   icon: '🫀' },
-  { key: 'neuro',    label: 'Neurologie',     icon: '🧠' },
-  { key: 'pharma',   label: 'Farmacologie',   icon: '💊' },
-  { key: 'infectio', label: 'Infectiologie',  icon: '🦠' },
-  { key: 'lab',      label: 'Laboratorium',   icon: '🧪' },
-  { key: 'rheum',    label: 'Reumatologie',   icon: '🦴' },
-  { key: 'psych',    label: 'Psychiatrie',    icon: '🧩' },
+  { key: 'cardio',   label: 'Cardiology',     icon: '🫀' },
+  { key: 'neuro',    label: 'Neurology',      icon: '🧠' },
+  { key: 'pharma',   label: 'Pharmacology',   icon: '💊' },
+  { key: 'infectio', label: 'Infectiology',   icon: '🦠' },
+  { key: 'lab',      label: 'Laboratory',     icon: '🧪' },
+  { key: 'rheum',    label: 'Rheumatology',   icon: '🦴' },
+  { key: 'psych',    label: 'Psychiatry',     icon: '🧩' },
 ];
 
 const DOMAIN_TO_THEORY = {
@@ -892,7 +892,7 @@ function renderDomainStatsHome() {
           </div>
         </div>`;
     });
-  wrap.innerHTML = `<div class="section-label">Jouw score per domein</div>` + rows.join('');
+  wrap.innerHTML = `<div class="section-label">Your score by domain</div>` + rows.join('');
 }
 
 // ── Helpers ──
@@ -1014,7 +1014,7 @@ function formatQ(str) {
 
 function tryFormatClinical(str) {
   // Must start with a patient descriptor including age
-  if (!/^(?:Man|Vrouw|Kind|Jongen|Meisje|Patiënt(?:e?)|Jonge man|Jonge vrouw|Jongeman|Soldaat)\b.{0,30}?\d+\s*(?:jaar|j)\b/i.test(str)) return null;
+  if (!/^(?:Man|Woman|Child|Boy|Girl|Patient|Young man|Young woman|A man|A woman|Male|Female|Patiënt(?:e?)|Jonge man|Jonge vrouw|Man|Vrouw|Kind)\b.{0,30}?\d+\s*(?:year|yr|y|jaar|j)\b/i.test(str)) return null;
 
   // Separate the last sentence (= the actual question) from the clinical description
   const lastDotIdx = str.lastIndexOf('. ');
@@ -1024,7 +1024,7 @@ function tryFormatClinical(str) {
   if (!question.endsWith('?')) return null;
 
   // Patient header = everything up to first comma after the age
-  const headerMatch = body.match(/^.*?\d+\s*(?:jaar|j)\b[^,]*/i);
+  const headerMatch = body.match(/^.*?\d+\s*(?:year|yr|y|jaar|j)\b[^,]*/i);
   const header = headerMatch ? headerMatch[0].trim() : body.split(',')[0].trim();
   const rest   = body.slice(header.length).replace(/^[,.\s]+/, '');
 
@@ -1045,11 +1045,11 @@ function tryFormatClinical(str) {
 
 function gradeFromPct(pct) {
   const grades = [
-    [90, '🏆 Expert niveau',       '#1A7A4A'],
-    [70, '⭐ Uitstekend',          '#1B5FA8'],
-    [50, '👍 Goed gedaan',         '#D4820A'],
-    [30, '📚 Bijna!',              '#E8410A'],
-    [0,  '💪 Volgende keer beter', '#4A3F35'],
+    [90, '🏆 Expert level',        '#1A7A4A'],
+    [70, '⭐ Excellent',           '#1B5FA8'],
+    [50, '👍 Well done',           '#D4820A'],
+    [30, '📚 Almost!',             '#E8410A'],
+    [0,  '💪 Better next time',    '#4A3F35'],
   ];
   return grades.find(([min]) => pct >= min);
 }

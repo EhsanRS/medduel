@@ -1,4 +1,4 @@
-// MedDuel — Spoedkamer modus
+// MedDuel — Emergency Room mode
 
 let SK = {};
 
@@ -30,13 +30,13 @@ function renderSpoedkamerScreen() {
     <div id="spoedkamer" class="screen active">
       <div class="game-nav sk-nav">
         <button class="quit-btn" onclick="quitSpoedkamer()">✕ Stop</button>
-        <span class="sk-nav-badge">🚨 Spoedkamer</span>
+        <span class="sk-nav-badge">🚨 Emergency Room</span>
         <div class="sk-lives" id="skLives"></div>
       </div>
       <div class="hud sk-hud">
         <div class="hud-item">
           <span class="hud-val" id="skScore">0</span>
-          <span class="hud-lbl">Punten</span>
+          <span class="hud-lbl">Points</span>
         </div>
         <div class="timer-wrap">
           <svg width="56" height="56" viewBox="0 0 56 56">
@@ -55,7 +55,7 @@ function renderSpoedkamerScreen() {
       </div>
       <div class="q-card sk-q-card" id="skQCard">
         <div class="q-card-header">
-          <div id="skTypeTag" class="q-type-tag diagnose">Diagnose</div>
+          <div id="skTypeTag" class="q-type-tag diagnose">Diagnosis</div>
           <div id="skDifficulty" class="q-difficulty"></div>
         </div>
         <div class="q-domain" id="skDomain"></div>
@@ -122,10 +122,10 @@ function loadSKQuestion() {
   SK.domainStatsByKey[q.domain].t++;
 
   const typeMap = {
-    diagnose: ['Diagnose', 'diagnose'], truefalse: ['Waar of Niet?', 'truefalse'],
-    pharma: ['Welk Medicijn?', 'pharma'], lab: ['Lab', 'lab'],
+    diagnose: ['Diagnosis', 'diagnose'], truefalse: ['True or False?', 'truefalse'],
+    pharma: ['Which medication?', 'pharma'], lab: ['Lab', 'lab'],
   };
-  const subtypeMap = { diff: ['Differentiaal', 'diff'], test: ['Test-keuze', 'test'] };
+  const subtypeMap = { diff: ['Differential', 'diff'], test: ['Test choice', 'test'] };
   const [label, cls] = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || typeMap.diagnose;
   const tag = document.getElementById('skTypeTag');
   if (tag) { tag.textContent = label; tag.className = 'q-type-tag ' + cls; }
@@ -153,8 +153,8 @@ function loadSKQuestion() {
   if (q.type === 'truefalse') {
     wrap.innerHTML = `
       <div class="tf-wrap">
-        <button class="tf-btn true-btn"  onclick="answerSKTF(true, this)">✓ Waar</button>
-        <button class="tf-btn false-btn" onclick="answerSKTF(false, this)">✗ Niet Waar</button>
+        <button class="tf-btn true-btn"  onclick="answerSKTF(true, this)">✓ True</button>
+        <button class="tf-btn false-btn" onclick="answerSKTF(false, this)">✗ False</button>
       </div>`;
   } else {
     const letters = ['A', 'B', 'C', 'D'];
@@ -197,12 +197,12 @@ function answerSKTF(val, btn) {
         b.classList.add('correct');
     });
   }
-  processSKAnswer(ok, q, ok ? null : (val ? 'Waar' : 'Niet waar'));
+  processSKAnswer(ok, q, ok ? null : (val ? 'True' : 'False'));
 }
 
 function timeoutSK() {
   SK.locked = true;
-  processSKAnswer(false, SK.currentQ, 'Geen antwoord');
+  processSKAnswer(false, SK.currentQ, 'No answer');
 }
 
 function processSKAnswer(ok, q, wrongLabel) {
@@ -221,7 +221,7 @@ function processSKAnswer(ok, q, wrongLabel) {
     const pts = SK.timeLeft > 10 ? 30 : SK.timeLeft > 5 ? 20 : 10;
     SK.score += pts;
     navigator.vibrate && navigator.vibrate(40);
-    showToast(true, `+${pts} punten`, q.ex, q);
+    showToast(true, `+${pts} points`, q.ex, q);
   } else {
     SK.wrong++;
     SK.streak = 0;
@@ -229,12 +229,12 @@ function processSKAnswer(ok, q, wrongLabel) {
     recordWeak(q);
     SK.wrongAnswers.push({
       q: q.q,
-      correct: q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c],
+      correct: q.type === 'truefalse' ? (q.c ? 'True' : 'False') : q.a[q.c],
       ex: q.ex, dl: q.dl,
     });
     renderSKLives();
     navigator.vibrate && navigator.vibrate([20, 50, 20]);
-    const head = wrongLabel === 'Geen antwoord' ? '⏱ Tijd verstreken!' : 'Niet correct';
+    const head = wrongLabel === 'No answer' ? '⏱ Time up!' : 'Incorrect';
     showToast(false, head, q.ex, q);
     if (SK.lives <= 0) {
       SK.active = false;
@@ -269,7 +269,7 @@ function endSpoedkamer() {
   });
 
   if (!loadOpenPatient()) {
-    const wrongOnes = SK.sessionLog.filter(i => !i.ok && i.wrongLabel !== 'Geen antwoord');
+    const wrongOnes = SK.sessionLog.filter(i => !i.ok && i.wrongLabel !== 'No answer');
     if (wrongOnes.length > 0) {
       const pick = wrongOnes.find(i => i.q.wiki) || wrongOnes[0];
       saveOpenPatient({ q: pick.q, wrongLabel: pick.wrongLabel, savedAt: Date.now() });
@@ -285,26 +285,26 @@ function renderSKResults(acc) {
   document.getElementById('app').innerHTML = `
     <div id="sk-results" class="screen active">
       <div class="results-top">
-        <div class="results-eyebrow fade-in">${survived ? 'Dienst afgerond 🚨' : 'Code blauw — dienst gestopt'}</div>
+        <div class="results-eyebrow fade-in">${survived ? 'Shift complete 🚨' : 'Code blue — shift ended'}</div>
         <div class="score-big fade-in-1"><span style="color:var(--pulse)">${SK.score}</span></div>
         <div class="grade-tag fade-in-2" style="background:${gc}">${acc}% · ${gl}</div>
       </div>
       <div class="stats-row fade-in-3">
         <div class="stat-card"><span class="stat-big green">${SK.correct}</span><span class="stat-small">Correct</span></div>
-        <div class="stat-card"><span class="stat-big red">${SK.wrong}</span><span class="stat-small">Fout/Timeout</span></div>
+        <div class="stat-card"><span class="stat-big red">${SK.wrong}</span><span class="stat-small">Wrong/Timeout</span></div>
         <div class="stat-card">
           <span class="stat-big">${'❤️'.repeat(SK.lives) || '—'}</span>
-          <span class="stat-small">Levens over</span>
+          <span class="stat-small">Lives left</span>
         </div>
       </div>
       <div class="results-replay-card fade-in-4" onclick="startSpoedkamer()">
-        <div class="rrc-label">Nog een dienst?</div>
-        <div class="rrc-mode">🚨 Spoedkamer</div>
+        <div class="rrc-label">Another shift?</div>
+        <div class="rrc-mode">🚨 Emergency Room</div>
         <div class="rrc-arrow">→</div>
       </div>
       <div class="action-row fade-in-5" style="margin-top:1rem">
         <button class="btn-secondary" onclick="showHome()">← Home</button>
-        <button class="btn-share" onclick="showHome()">🎯 Andere modus</button>
+        <button class="btn-share" onclick="showHome()">🎯 Other mode</button>
       </div>
     </div>`;
 }

@@ -82,22 +82,22 @@ function startDaily() {
 }
 
 function renderDailyGame() {
-  const dateStr = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long' });
+  const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
   document.getElementById('app').innerHTML = `
     <div id="daily" class="screen active">
       <div style="max-width:480px;margin:0 auto;padding:0 1.25rem 3rem;">
         <div class="game-nav">
           <button class="quit-btn" onclick="quitDaily()">✕ Stop</button>
-          <div class="daily-badge">📅 Dag #${getDailyNum()} · ${dateStr}</div>
+          <div class="daily-badge">📅 Day #${getDailyNum()} · ${dateStr}</div>
         </div>
         <div class="hud">
           <div class="hud-item">
             <span class="hud-val" id="dc-score">0</span>
-            <span class="hud-lbl">Punten</span>
+            <span class="hud-lbl">Points</span>
           </div>
           <div class="hud-item" style="text-align:center;">
             <span class="hud-val" id="dc-qnum">1/10</span>
-            <span class="hud-lbl">Vraag</span>
+            <span class="hud-lbl">Question</span>
           </div>
           <div class="hud-item" style="text-align:right;">
             <span class="hud-val" id="dc-streak">×0</span>
@@ -106,7 +106,7 @@ function renderDailyGame() {
         </div>
         <div class="progress-dots" id="dc-dots"></div>
         <div class="q-card">
-          <div id="dc-type-tag" class="q-type-tag diagnose">Diagnose</div>
+          <div id="dc-type-tag" class="q-type-tag diagnose">Diagnosis</div>
           <div class="q-domain" id="dc-domain"></div>
           <div class="q-text" id="dc-text"></div>
         </div>
@@ -147,7 +147,7 @@ function dcLoadQ() {
 
   dcUpdateDot(DC.answered, 'current');
 
-  const typeMap = { diagnose:['Diagnose','diagnose'], truefalse:['Waar of Niet?','truefalse'], pharma:['Welk Medicijn?','pharma'], lab:['Lab','lab'] };
+  const typeMap = { diagnose:['Diagnosis','diagnose'], truefalse:['True or False?','truefalse'], pharma:['Which medication?','pharma'], lab:['Lab','lab'] };
   const [label, cls] = typeMap[q.type] || typeMap.diagnose;
   const tag = document.getElementById('dc-type-tag');
   if (tag) { tag.textContent = label; tag.className = 'q-type-tag ' + cls; }
@@ -163,8 +163,8 @@ function dcLoadQ() {
   if (q.type === 'truefalse') {
     wrap.innerHTML = `
       <div class="tf-wrap">
-        <button class="tf-btn true-btn"  onclick="dcAnswerTF(true,this)">✓ Waar</button>
-        <button class="tf-btn false-btn" onclick="dcAnswerTF(false,this)">✗ Niet Waar</button>
+        <button class="tf-btn true-btn"  onclick="dcAnswerTF(true,this)">✓ True</button>
+        <button class="tf-btn false-btn" onclick="dcAnswerTF(false,this)">✗ False</button>
       </div>`;
   } else {
     const letters = ['A','B','C','D'];
@@ -225,14 +225,14 @@ function dcProcess(ok, q) {
     dcUpdateDot(dotIdx, 'done');
     if (DC.streak === 3)  showCombo('3×',  'Streak!');
     if (DC.streak === 5)  showCombo('5×',  'On fire!');
-    if (DC.streak === 10) showCombo('10×', 'Legendair!');
-    showToast(true, `+${bonus} punten`, q.ex, q);
+    if (DC.streak === 10) showCombo('10×', 'Legendary!');
+    showToast(true, `+${bonus} points`, q.ex, q);
   } else {
     DC.wrong++;
     DC.streak = 0;
     recordWeak(q);
     dcUpdateDot(dotIdx, 'wrong');
-    showToast(false, 'Niet correct', q.ex, q);
+    showToast(false, 'Incorrect', q.ex, q);
   }
 
   dcUpdateHUD();
@@ -270,7 +270,7 @@ function renderDailyDone(rec) {
   const [, gl, gc] = gradeFromPct(acc);
   const grid = rec.answers.map(a => a ? '🟢' : '🔴').join('');
   const isToday = rec.date === getTodayStr();
-  const dateStr = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
   document.getElementById('app').innerHTML = `
     <div id="daily-done" class="screen active">
@@ -283,18 +283,18 @@ function renderDailyDone(rec) {
 
         <div class="stats-row fade-in-3" style="margin-top:0;">
           <div class="stat-card"><span class="stat-big green">${rec.correct}</span><span class="stat-small">Correct</span></div>
-          <div class="stat-card"><span class="stat-big red">${rec.wrong}</span><span class="stat-small">Fout</span></div>
-          <div class="stat-card"><span class="stat-big">${rec.dayStreak}🔥</span><span class="stat-small">Dag streak</span></div>
+          <div class="stat-card"><span class="stat-big red">${rec.wrong}</span><span class="stat-small">Wrong</span></div>
+          <div class="stat-card"><span class="stat-big">${rec.dayStreak}🔥</span><span class="stat-small">Day streak</span></div>
         </div>
 
         ${isToday ? `
         <div class="daily-countdown-card fade-in-4">
-          <div class="daily-countdown-label">Volgende challenge over</div>
+          <div class="daily-countdown-label">Next challenge in</div>
           <div class="daily-countdown" id="dc-countdown">--:--:--</div>
         </div>` : ''}
 
         <button id="dc-share-btn" onclick="dcShare()" class="btn-share fade-in-4">
-          📤 Deel resultaat
+          📤 Share result
         </button>
 
         <div class="action-row fade-in-5" style="margin-top:0.75rem;">
@@ -313,7 +313,7 @@ function dcStartCountdown() {
     const now = new Date();
     const midnight = new Date(now); midnight.setHours(24,0,0,0);
     const diff = midnight - now;
-    if (diff <= 0) { el.textContent = 'Nu beschikbaar! 🎉'; return; }
+    if (diff <= 0) { el.textContent = 'Available now! 🎉'; return; }
     const hh = String(Math.floor(diff / 3600000)).padStart(2,'0');
     const mm = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
     const ss = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
@@ -327,15 +327,15 @@ function dcShare() {
   const rec = loadDailyRecord();
   if (!rec) return;
   const grid = rec.answers.map(a => a ? '🟢' : '🔴').join('');
-  const dateStr = new Date(rec.date).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
-  const text = `MedDuel Daily #${getDailyNum()} — ${dateStr}\n${grid}\n${rec.correct}/10 vragen · ${rec.score} punten · ${rec.dayStreak}🔥 streak`;
+  const dateStr = new Date(rec.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  const text = `MedDuel Daily #${getDailyNum()} — ${dateStr}\n${grid}\n${rec.correct}/10 questions · ${rec.score} pts · ${rec.dayStreak}🔥 streak`;
 
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById('dc-share-btn');
     if (btn) {
-      btn.textContent = '✓ Gekopieerd!';
+      btn.textContent = '✓ Copied!';
       btn.style.background = 'var(--green)';
-      setTimeout(() => { btn.textContent = '📤 Deel resultaat'; btn.style.background = ''; }, 2500);
+      setTimeout(() => { btn.textContent = '📤 Share result'; btn.style.background = ''; }, 2500);
     }
   }).catch(() => alert(text));
 }
@@ -353,24 +353,24 @@ function renderDailyHomeCard() {
   const today = getTodayStr();
   const played = rec && rec.date === today;
   const num = getDailyNum();
-  const dateStr = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long' });
+  const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
 
   if (played) {
     const grid = rec.answers.map(a => a ? '🟢' : '🔴').join('');
     return `
       <div class="daily-home-card played" onclick="startDaily()">
-        <div class="daily-home-meta">📅 DAG #${num} · GESPEELD</div>
+        <div class="daily-home-meta">📅 DAY #${num} · PLAYED</div>
         <div class="daily-home-grid-small">${grid}</div>
-        <div class="daily-home-score">${rec.correct}/10 vragen · ${rec.score} pts · ${rec.dayStreak}🔥</div>
+        <div class="daily-home-score">${rec.correct}/10 questions · ${rec.score} pts · ${rec.dayStreak}🔥</div>
       </div>`;
   }
 
   return `
     <div class="daily-home-card" onclick="startDaily()">
       <div class="daily-home-left">
-        <div class="daily-home-meta">📅 DAG #${num} · ${dateStr}</div>
+        <div class="daily-home-meta">📅 DAY #${num} · ${dateStr}</div>
         <div class="daily-home-title">Daily Challenge</div>
-        <div class="daily-home-sub">10 vragen · Iedereen dezelfde</div>
+        <div class="daily-home-sub">10 questions · Same for everyone</div>
       </div>
       <span class="daily-home-arrow">→</span>
     </div>`;

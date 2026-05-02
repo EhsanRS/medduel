@@ -1,10 +1,10 @@
-// MedDuel — Train je Zwaktes modus
+// MedDuel — Train Your Weaknesses mode
 
 let WK = {};
 
 function startWeakMode() {
   const queue = getWeakQuestions();
-  if (queue.length === 0) { alert('Geen zwakke vragen gevonden!'); return; }
+  if (queue.length === 0) { alert('No weak questions found!'); return; }
 
   WK = {
     queue: [...queue],
@@ -27,7 +27,7 @@ function renderWeakScreen() {
         <div class="game-nav">
           <button class="quit-btn" onclick="quitWeak()">✕ Stop</button>
           <div style="font-family:'Fraunces',serif;font-size:13px;color:var(--ink-mid);">
-            🎯 Vraag <span id="wk-num">1</span> / <span id="wk-total">${WK.queue.length}</span>
+            🎯 Question <span id="wk-num">1</span> / <span id="wk-total">${WK.queue.length}</span>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ function renderWeakScreen() {
         <div id="wk-card-area"></div>
         <div class="lm-explanation-box" id="wk-expl" style="display:none;"></div>
         <button class="lm-next-btn" id="wk-next" style="display:none;" onclick="wkNext()">
-          Volgende vraag →
+          Next question →
         </button>
       </div>
     </div>`;
@@ -61,13 +61,13 @@ function wkLoadQ() {
   if (next) next.style.display = 'none';
 
   const typeCls   = q.type === 'truefalse' ? 'tf' : q.type === 'pharma' ? 'pharma' : q.type === 'lab' ? 'lab' : 'diagnose';
-  const typeLabel = q.type === 'truefalse' ? '✓/✗ Waar of Niet?' : q.type === 'pharma' ? '💊 Farmacologie' : q.type === 'lab' ? '🧪 Lab' : '🔍 Diagnose';
+  const typeLabel = q.type === 'truefalse' ? '✓/✗ True or False?' : q.type === 'pharma' ? '💊 Pharmacology' : q.type === 'lab' ? '🧪 Lab' : '🔍 Diagnosis';
 
   let answersHTML;
   if (q.type === 'truefalse') {
     answersHTML = `<div class="tf-wrap">
-      <button class="tf-btn true-btn"  onclick="wkAnswerTF(true,this)">✓ Waar</button>
-      <button class="tf-btn false-btn" onclick="wkAnswerTF(false,this)">✗ Niet Waar</button>
+      <button class="tf-btn true-btn"  onclick="wkAnswerTF(true,this)">✓ True</button>
+      <button class="tf-btn false-btn" onclick="wkAnswerTF(false,this)">✗ False</button>
     </div>`;
   } else {
     answersHTML = q.a.map((ans, i) =>
@@ -79,7 +79,7 @@ function wkLoadQ() {
 
   document.getElementById('wk-card-area').innerHTML = `
     <div class="q-card lm-q-card">
-      <div class="wk-badge">🎯 Zwakke vraag</div>
+      <div class="wk-badge">🎯 Weak question</div>
       <div class="q-type-tag ${typeCls}" style="margin-bottom:0.75rem;">${typeLabel}</div>
       <div class="q-domain">${q.dl}</div>
       <div class="q-text lm-q-text">${q.q}</div>
@@ -130,7 +130,7 @@ function wkReveal(ok, q) {
   const next = document.getElementById('wk-next');
   if (expl) {
     expl.innerHTML = `
-      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Verbeterd! +12 XP' : '✗ Nog even oefenen'}</div>
+      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Improved! +12 XP' : '✗ Keep practising'}</div>
       <div class="lm-expl-text">${q.ex}</div>`;
     expl.style.display = 'block';
   }
@@ -147,36 +147,36 @@ function wkEnd() {
   document.getElementById('app').innerHTML = `
     <div id="weak-done" class="screen active">
       <div style="max-width:480px;margin:0 auto;padding:2rem 1.25rem 3rem;text-align:center;">
-        <div class="results-eyebrow fade-in">Sessie voltooid</div>
+        <div class="results-eyebrow fade-in">Session complete</div>
         <div class="score-big fade-in-1" style="font-size:56px;">🎯</div>
-        <div class="grade-tag fade-in-2" style="background:var(--green);">${WK.cleared} verbeterd · ${WK.wrong} nog fout</div>
+        <div class="grade-tag fade-in-2" style="background:var(--green);">${WK.cleared} improved · ${WK.wrong} still wrong</div>
 
         <div class="stats-row fade-in-3" style="margin-top:1rem;">
           <div class="stat-card">
             <span class="stat-big green">${WK.cleared}</span>
-            <span class="stat-small">Verbeterd</span>
+            <span class="stat-small">Improved</span>
           </div>
           <div class="stat-card">
             <span class="stat-big" style="color:var(--pulse)">${WK.wrong}</span>
-            <span class="stat-small">Nog fout</span>
+            <span class="stat-small">Still wrong</span>
           </div>
           <div class="stat-card">
             <span class="stat-big">${remaining}</span>
-            <span class="stat-small">Resterend</span>
+            <span class="stat-small">Remaining</span>
           </div>
         </div>
 
         ${remaining > 0
           ? `<p style="font-size:14px;color:var(--ink-mid);margin-top:1rem;line-height:1.6;">
-              Je hebt nog <strong>${remaining}</strong> zwakke vragen. Blijf oefenen!
+              You still have <strong>${remaining}</strong> weak questions. Keep practising!
              </p>`
           : `<p style="font-size:14px;color:var(--green);margin-top:1rem;font-weight:600;">
-              🏆 Alle zwakke vragen gecleard!
+              🏆 All weak questions cleared!
              </p>`
         }
 
         <div class="action-row fade-in-4" style="margin-top:1.5rem;">
-          ${remaining > 0 ? `<button class="btn-primary" onclick="startWeakMode()">🔁 Nog een ronde</button>` : ''}
+          ${remaining > 0 ? `<button class="btn-primary" onclick="startWeakMode()">🔁 One more round</button>` : ''}
           <button class="btn-secondary" onclick="showHome()">← Home</button>
         </div>
       </div>

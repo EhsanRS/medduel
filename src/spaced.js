@@ -5,7 +5,7 @@ let SR = {};
 function startSRMode() {
   const queue = srDueQuestions();
   if (queue.length === 0) {
-    showToast(true, 'Niets te herhalen', 'Alle herhalingen zijn gedaan voor vandaag.');
+    showToast(true, 'Nothing to review', 'All reviews are done for today.');
     setTimeout(hideToast, 3000);
     return;
   }
@@ -27,7 +27,7 @@ function renderSRScreen() {
         <div class="game-nav">
           <button class="quit-btn" onclick="quitSR()">✕ Stop</button>
           <div style="font-family:'Fraunces',serif;font-size:13px;color:var(--ink-mid);">
-            📅 Herhaling <span id="sr-num">1</span> / <span id="sr-total">${SR.queue.length}</span>
+            📅 Review <span id="sr-num">1</span> / <span id="sr-total">${SR.queue.length}</span>
           </div>
         </div>
         <div class="wk-progress-bar-bg">
@@ -36,11 +36,11 @@ function renderSRScreen() {
         <div id="sr-card-area"></div>
         <div class="lm-explanation-box" id="sr-expl" style="display:none;"></div>
         <div class="sr-rating" id="sr-rating" style="display:none;">
-          <div class="sr-rating-label">Hoe ging dat?</div>
+          <div class="sr-rating-label">How did it go?</div>
           <div class="sr-rating-btns">
-            <button class="sr-btn sr-btn-miss"  onclick="srRate(1)">😰<br><span>Mis</span></button>
-            <button class="sr-btn sr-btn-doubt" onclick="srRate(3)">🤔<br><span>Twijfel</span></button>
-            <button class="sr-btn sr-btn-got"   onclick="srRate(5)">✓<br><span>Wist het</span></button>
+            <button class="sr-btn sr-btn-miss"  onclick="srRate(1)">😰<br><span>Missed</span></button>
+            <button class="sr-btn sr-btn-doubt" onclick="srRate(3)">🤔<br><span>Unsure</span></button>
+            <button class="sr-btn sr-btn-got"   onclick="srRate(5)">✓<br><span>Got it</span></button>
           </div>
         </div>
       </div>
@@ -61,8 +61,8 @@ function srLoadQ() {
   let answersHTML;
   if (q.type === 'truefalse') {
     answersHTML = `<div class="tf-wrap">
-      <button class="tf-btn true-btn"  onclick="srAnswerTF(true,this)">✓ Waar</button>
-      <button class="tf-btn false-btn" onclick="srAnswerTF(false,this)">✗ Niet Waar</button>
+      <button class="tf-btn true-btn"  onclick="srAnswerTF(true,this)">✓ True</button>
+      <button class="tf-btn false-btn" onclick="srAnswerTF(false,this)">✗ False</button>
     </div>`;
   } else {
     answersHTML = q.a.map((ans, i) =>
@@ -74,7 +74,7 @@ function srLoadQ() {
 
   document.getElementById('sr-card-area').innerHTML = `
     <div class="q-card lm-q-card">
-      <div class="sr-badge">📅 Herhaling</div>
+      <div class="sr-badge">📅 Review</div>
       <div class="q-domain">${q.dl}</div>
       <div class="q-text lm-q-text">${q.q}</div>
     </div>
@@ -116,7 +116,7 @@ function srReveal(ok, q) {
   const expl = document.getElementById('sr-expl');
   if (expl) {
     expl.innerHTML = `
-      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Goed!' : '✗ Fout'}</div>
+      <div class="lm-expl-result ${ok ? 'ok' : 'fail'}">${ok ? '✓ Correct!' : '✗ Wrong'}</div>
       <div class="lm-expl-text">${q.ex || ''}</div>`;
     expl.style.display = 'block';
   }
@@ -141,32 +141,32 @@ function srEnd() {
   document.getElementById('app').innerHTML = `
     <div id="sr-done" class="screen active">
       <div style="max-width:480px;margin:0 auto;padding:2rem 1.25rem 3rem;text-align:center;">
-        <div class="results-eyebrow fade-in">Herhaling voltooid</div>
+        <div class="results-eyebrow fade-in">Review complete</div>
         <div class="score-big fade-in-1" style="font-size:56px;">📅</div>
         <div class="grade-tag fade-in-2" style="background:var(--blue);">
-          ${SR.correct} onthouden · ${SR.wrong} nog oefenen
+          ${SR.correct} remembered · ${SR.wrong} still practising
         </div>
         <div class="stats-row fade-in-3" style="margin-top:1rem;">
           <div class="stat-card">
             <span class="stat-big green">${SR.correct}</span>
-            <span class="stat-small">Onthouden</span>
+            <span class="stat-small">Remembered</span>
           </div>
           <div class="stat-card">
             <span class="stat-big" style="color:var(--pulse)">${SR.wrong}</span>
-            <span class="stat-small">Nog oefenen</span>
+            <span class="stat-small">Keep practising</span>
           </div>
           <div class="stat-card">
             <span class="stat-big" style="color:var(--blue)">${n}</span>
-            <span class="stat-small">Resterend vandaag</span>
+            <span class="stat-small">Remaining today</span>
           </div>
         </div>
         <p style="font-size:14px;color:var(--ink-mid);margin-top:1.25rem;line-height:1.6;">
           ${n > 0
-            ? `Nog <strong>${n}</strong> herhalingen klaar voor vandaag.`
-            : 'Alle herhalingen voor vandaag gedaan. Goed bezig! 🎉'}
+            ? `Still <strong>${n}</strong> reviews ready for today.`
+            : 'All reviews for today done. Well done! 🎉'}
         </p>
         <div class="action-row fade-in-4" style="margin-top:1.5rem;">
-          ${n > 0 ? `<button class="btn-primary" onclick="startSRMode()">🔁 Nog een ronde</button>` : ''}
+          ${n > 0 ? `<button class="btn-primary" onclick="startSRMode()">🔁 Another round</button>` : ''}
           <button class="btn-secondary" onclick="showHome()">← Home</button>
         </div>
       </div>

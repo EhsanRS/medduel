@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>MedDuel — Medische Trivia</title>
-  <meta name="description" content="Test je medische kennis. Versla anderen. Word beter.">
+  <title>MedDuel — Medical Trivia</title>
+  <meta name="description" content="Test your medical knowledge. Beat others. Get better.">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#E8410A">
   <link rel="stylesheet" href="src/styles.css">
@@ -34,7 +34,7 @@
       </svg>
     </div>
     <div class="toast-body" id="toastBody"></div>
-    <div class="toast-hint">Tik voor uitleg →</div>
+    <div class="toast-hint">Tap for explanation →</div>
   </div>
 
   <!-- Fact sheet (bottom sheet, always present) -->
@@ -45,13 +45,13 @@
       <div class="fact-sheet-top">
         <div>
           <div class="fact-domain" id="factModalDomain"></div>
-          <div class="fact-heading">Uitleg</div>
+          <div class="fact-heading">Explanation</div>
         </div>
         <button class="fact-star-btn" id="factStarBtn" onclick="toggleFavourite(event)">☆</button>
       </div>
       <div class="fact-question" id="factModalQ"></div>
       <div id="factModalEx"></div>
-      <button class="fact-close-btn" onclick="closeFactModal()">← Terug naar spel</button>
+      <button class="fact-close-btn" onclick="closeFactModal()">← Back to game</button>
     </div>
   </div>
 
@@ -64,8 +64,8 @@
         <div class="theory-header-left">
           <span class="theory-icon-wrap" id="theoryIcon">📖</span>
           <div>
-            <div class="theory-eyebrow">Theorieboek</div>
-            <div class="theory-title" id="theoryTitle">Titel</div>
+            <div class="theory-eyebrow">Theory book</div>
+            <div class="theory-title" id="theoryTitle">Title</div>
             <div class="theory-subtitle" id="theorySubtitle"></div>
           </div>
         </div>
@@ -75,10 +75,10 @@
     </div>
   </div>
 
-  <!-- Rank-up viering -->
+  <!-- Rank-up celebration -->
   <div class="rankup-overlay" id="rankupOverlay">
     <div class="rankup-icon" id="rankupIcon">⭐</div>
-    <div class="rankup-sub">Nieuwe rang bereikt!</div>
+    <div class="rankup-sub">New rank reached!</div>
     <div class="rankup-label" id="rankupLabel">Resident</div>
   </div>
 
@@ -86,7 +86,7 @@
   <div class="ach-banner" id="achBanner">
     <span class="ach-banner-trophy">🏆</span>
     <div class="ach-banner-body">
-      <div class="ach-banner-top">Prestatie ontgrendeld!</div>
+      <div class="ach-banner-top">Achievement unlocked!</div>
       <div class="ach-banner-row">
         <span id="achBannerIcon">🎯</span>
         <span id="achBannerLabel"></span>

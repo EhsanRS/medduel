@@ -1,10 +1,10 @@
-// MedDuel — Trivia spelmodi (Blitz, Classic, Survival)
+// MedDuel — Game modes (Blitz, Classic, Survival)
 
 let G = {};
 let currentMode = 'classic';
 let activeCats = 'all';
 
-// ── Categorie filter ──
+// ── Category filter ──
 function toggleCat(cat, el) {
   const pills = document.querySelectorAll('.cat-pill');
   if (cat === 'all') {
@@ -38,9 +38,7 @@ function getStratifiedPool(n) {
     if (!byDomain[q.domain]) byDomain[q.domain] = [];
     byDomain[q.domain].push(q);
   });
-  // Shuffle within each domain
   Object.keys(byDomain).forEach(k => { byDomain[k] = shuffleArr(byDomain[k]); });
-  // Round-robin pick from domains until we have n questions
   const domains = shuffleArr(Object.keys(byDomain));
   const result = [];
   const idx = {};
@@ -59,7 +57,7 @@ function getStratifiedPool(n) {
   return shuffleArr(result);
 }
 
-// ── Game starten ──
+// ── Start game ──
 function startGame(mode) {
   currentMode = mode;
   let pool;
@@ -98,12 +96,12 @@ function renderGameScreen() {
       <div class="game-nav">
         <button class="quit-btn" onclick="quitGame()">✕ Stop</button>
         <div id="livesDisplay" class="lives-wrap"></div>
-        <button class="sound-btn" id="soundBtn" onclick="toggleSound(this)" title="Geluid aan/uit">${SFX.isOn() ? '🔊' : '🔇'}</button>
+        <button class="sound-btn" id="soundBtn" onclick="toggleSound(this)" title="Sound on/off">${SFX.isOn() ? '🔊' : '🔇'}</button>
       </div>
       <div class="hud">
         <div class="hud-item">
           <span class="hud-val" id="scoreVal">0</span>
-          <span class="hud-lbl">Punten</span>
+          <span class="hud-lbl">Points</span>
         </div>
         <div class="timer-wrap">
           <svg width="56" height="56" viewBox="0 0 56 56">
@@ -122,7 +120,7 @@ function renderGameScreen() {
       <div class="progress-dots" id="progressDots"></div>
       <div class="q-card">
         <div class="q-card-header">
-          <div id="qTypeTag" class="q-type-tag diagnose">Diagnose</div>
+          <div id="qTypeTag" class="q-type-tag diagnose">Diagnosis</div>
           <div id="qDifficulty" class="q-difficulty"></div>
         </div>
         <div class="q-domain" id="qDomain"></div>
@@ -191,7 +189,7 @@ function updateHUD() {
   if (stv) stv.textContent = '×' + G.streak;
 }
 
-// ── Vraag laden ──
+// ── Load question ──
 function loadQ() {
   if (!G.active) return;
   if (G.queue.length === 0) { endGame(); return; }
@@ -207,17 +205,16 @@ function loadQ() {
 
   if (G.mode === 'classic') updateDot(G.answered, 'current');
 
-  // Type badge
   const tag = document.getElementById('qTypeTag');
   const typeMap = {
-    diagnose:  ['Diagnose', 'diagnose'],
-    truefalse: ['Waar of Niet?', 'truefalse'],
-    pharma:    ['Welk Medicijn?', 'pharma'],
+    diagnose:  ['Diagnosis', 'diagnose'],
+    truefalse: ['True or False?', 'truefalse'],
+    pharma:    ['Which medication?', 'pharma'],
     lab:       ['Lab', 'lab'],
   };
   const subtypeMap = {
-    diff: ['Differentiaal', 'diff'],
-    test: ['Test-keuze', 'test'],
+    diff: ['Differential', 'diff'],
+    test: ['Test choice', 'test'],
   };
   const [label, cls] = (q.subtype && subtypeMap[q.subtype]) || typeMap[q.type] || typeMap.diagnose;
   if (tag) { tag.textContent = label; tag.className = 'q-type-tag ' + cls; }
@@ -241,7 +238,7 @@ function loadQ() {
           : `<img src="${q.fig.src}" alt="${q.fig.alt || ''}" class="q-fig-img">${credit}`;
         figEl.style.display = '';
       } else {
-        figEl.innerHTML = `<div class="fig-placeholder">📷 Afbeelding volgt</div>`;
+        figEl.innerHTML = `<div class="fig-placeholder">📷 Image coming soon</div>`;
         figEl.style.display = '';
       }
     } else { figEl.innerHTML = ''; figEl.style.display = 'none'; }
@@ -255,8 +252,8 @@ function loadQ() {
   if (q.type === 'truefalse') {
     wrap.innerHTML = `
       <div class="tf-wrap">
-        <button class="tf-btn true-btn"  onclick="answerTF(true, this)">✓ Waar</button>
-        <button class="tf-btn false-btn" onclick="answerTF(false, this)">✗ Niet Waar</button>
+        <button class="tf-btn true-btn"  onclick="answerTF(true, this)">✓ True</button>
+        <button class="tf-btn false-btn" onclick="answerTF(false, this)">✗ False</button>
       </div>`;
   } else {
     const letters = ['A', 'B', 'C', 'D'];
@@ -268,7 +265,7 @@ function loadQ() {
   }
 }
 
-// ── Antwoorden ──
+// ── Answer handling ──
 function answerMC(idx, btn) {
   if (G.locked) return;
   G.locked = true;
@@ -295,7 +292,7 @@ function answerTF(val, btn) {
         b.classList.add('correct');
     });
   }
-  processAnswer(ok, q, ok ? null : (val ? 'Waar' : 'Niet waar'));
+  processAnswer(ok, q, ok ? null : (val ? 'True' : 'False'));
 }
 
 function processAnswer(ok, q, wrongLabel) {
@@ -317,10 +314,10 @@ function processAnswer(ok, q, wrongLabel) {
     if (G.mode === 'classic') updateDot(dotIdx, 'done');
     if (G.streak === 3)  { showCombo('3×',  'Streak!');    SFX.combo(3);  }
     if (G.streak === 5)  { showCombo('5×',  'On fire!');   SFX.combo(5);  }
-    if (G.streak === 10) { showCombo('10×', 'Legendair!'); SFX.combo(10); }
+    if (G.streak === 10) { showCombo('10×', 'Legendary!'); SFX.combo(10); }
     const badge = document.getElementById('heroStreak');
     if (badge) badge.classList.toggle('on-fire', G.streak >= 3);
-    showToast(true, `+${bonus} punten`, q.ex, q);
+    showToast(true, `+${bonus} points`, q.ex, q);
   } else {
     navigator.vibrate && navigator.vibrate([20, 50, 20]);
     SFX.wrong();
@@ -331,7 +328,7 @@ function processAnswer(ok, q, wrongLabel) {
     recordWeak(q);
     if (G.mode === 'classic') {
       updateDot(dotIdx, 'wrong');
-      G.wrongAnswers.push({ q: q.q, correct: q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c], ex: q.ex, dl: q.dl });
+      G.wrongAnswers.push({ q: q.q, correct: q.type === 'truefalse' ? (q.c ? 'True' : 'False') : q.a[q.c], ex: q.ex, dl: q.dl });
     }
     if (G.mode === 'survival') {
       G.lives--;
@@ -344,7 +341,7 @@ function processAnswer(ok, q, wrongLabel) {
         return;
       }
     }
-    showToast(false, 'Niet correct', q.ex, q);
+    showToast(false, 'Incorrect', q.ex, q);
   }
 
   updateHUD();
@@ -358,7 +355,7 @@ function processAnswer(ok, q, wrongLabel) {
   }, 5000);
 }
 
-// ── Einde ──
+// ── End game ──
 function endGame() {
   G.active = false;
   clearInterval(G.timer);
@@ -400,7 +397,7 @@ function renderResultsScreen(acc) {
     { n: 'DrVanDijk', s: 340 }, { n: 'MedStudent_K', s: 290 },
     { n: 'Coassistent92', s: 210 }, { n: 'NurseVanBeek', s: 180 },
   ];
-  const lbAll = [...fakes, { n: 'Jij 👈', s: G.score, you: true }]
+  const lbAll = [...fakes, { n: 'You 👈', s: G.score, you: true }]
     .sort((a, b) => b.s - a.s).slice(0, 5);
   const rankCls = ['r1', 'r2', 'r3', '', ''];
 
@@ -408,7 +405,7 @@ function renderResultsScreen(acc) {
     const pct   = s.t ? Math.round(s.c / s.t * 100) : 0;
     const color = pct >= 80 ? 'var(--green)' : pct >= 60 ? 'var(--amber)' : 'var(--pulse)';
     return `<div class="breakdown-row">
-      <span class="breakdown-name">${name.replace(' — Waar of Niet?', '')}</span>
+      <span class="breakdown-name">${name.replace(' — True or False?', '')}</span>
       <div class="breakdown-bar-wrap">
         <div class="breakdown-bar-fill" style="width:${pct}%;background:${color}"></div>
       </div>
@@ -423,7 +420,6 @@ function renderResultsScreen(acc) {
       <span class="lb-pts-col">${e.s}</span>
     </div>`).join('');
 
-  // Smart post-game CTA: stuur naar theorie als zwak domein gevonden
   const sessionDomains = Object.entries(G.domainStatsByKey)
     .filter(([, s]) => s.t >= 3)
     .map(([key, s]) => ({ key, pct: Math.round(s.c / s.t * 100) }))
@@ -442,7 +438,7 @@ function renderResultsScreen(acc) {
     ? `<div class="smart-cta fade-in-6" onclick="openTheory('${theoryId}')">
         <span class="smart-cta-icon">${domainMeta.icon}</span>
         <div class="smart-cta-text">
-          <span class="smart-cta-title">${domainMeta.label}: ${worstDomain.pct}% — lees de theorie</span>
+          <span class="smart-cta-title">${domainMeta.label}: ${worstDomain.pct}% — read the theory</span>
           <span class="smart-cta-sub">${theoryTopic.title} →</span>
         </div>
        </div>`
@@ -453,8 +449,8 @@ function renderResultsScreen(acc) {
     ? `<div class="weak-results-banner fade-in-6" onclick="startWeakMode()">
         <span class="wrb-icon">🎯</span>
         <div class="wrb-text">
-          <span class="wrb-title">Train je Zwaktes</span>
-          <span class="wrb-sub">Je hebt ${totalWeak} vraag${totalWeak === 1 ? '' : 'en'} die aandacht nodig</span>
+          <span class="wrb-title">Train Your Weaknesses</span>
+          <span class="wrb-sub">You have ${totalWeak} question${totalWeak === 1 ? '' : 's'} that need attention</span>
         </div>
         <span class="wrb-arrow">→</span>
        </div>`
@@ -462,10 +458,10 @@ function renderResultsScreen(acc) {
 
   const wrongHTML = G.mode === 'classic' && G.wrongAnswers.length > 0
     ? `<div class="breakdown-card fade-in-6" style="margin-top:1rem;">
-        <div class="breakdown-title">❌ Fout beantwoord (${G.wrongAnswers.length})</div>
+        <div class="breakdown-title">❌ Answered incorrectly (${G.wrongAnswers.length})</div>
         ${G.wrongAnswers.map(w => `
           <div class="wrong-review-item">
-            <div class="wrong-review-domain">${(w.dl || '').replace(' — Waar of Niet?', '')}</div>
+            <div class="wrong-review-domain">${(w.dl || '').replace(' — True or False?', '')}</div>
             <div class="wrong-review-q">${w.q}</div>
             <div class="wrong-review-correct">✓ ${w.correct}</div>
             <div class="wrong-review-ex">${w.ex}</div>
@@ -473,7 +469,6 @@ function renderResultsScreen(acc) {
       </div>`
     : '';
 
-  // XP progress to next rank
   const xpNow   = loadXP();
   const curRank = getRank(xpNow);
   const nxtRank = getNextRank(xpNow);
@@ -487,7 +482,7 @@ function renderResultsScreen(acc) {
         <div class="xp-progress-card fade-in-3">
           <div class="xp-prog-row">
             <span class="xp-prog-rank">${curRank.icon} ${curRank.label}</span>
-            <span class="xp-prog-next">Nog <strong>${left} XP</strong> → ${nxtRank.icon} ${nxtRank.label}</span>
+            <span class="xp-prog-next">${left} XP to go → ${nxtRank.icon} ${nxtRank.label}</span>
           </div>
           <div class="xp-prog-bar-bg">
             <div class="xp-prog-bar-fill" style="width:${pct}%;background:${nxtRank.color}"></div>
@@ -495,29 +490,29 @@ function renderResultsScreen(acc) {
         </div>`;
       })()
     : `<div class="xp-progress-card fade-in-3" style="text-align:center">
-        ${curRank.icon} <strong>${curRank.label}</strong> — maximaal rank bereikt!
+        ${curRank.icon} <strong>${curRank.label}</strong> — maximum rank reached!
        </div>`;
 
   document.getElementById('app').innerHTML = `
     <div id="results" class="screen active">
         <div class="results-top">
-          <div class="results-eyebrow fade-in">Ronde afgelopen</div>
+          <div class="results-eyebrow fade-in">Round over</div>
           <div class="score-big fade-in-1"><span style="color:var(--pulse)">${G.score}</span></div>
           <div class="grade-tag fade-in-2" style="background:${gc}">${acc}% · ${gl}</div>
         </div>
         <div class="stats-row fade-in-3">
           <div class="stat-card"><span class="stat-big green">${G.correct}</span><span class="stat-small">Correct</span></div>
-          <div class="stat-card"><span class="stat-big red">${G.wrong}</span><span class="stat-small">Fout</span></div>
-          <div class="stat-card"><span class="stat-big">${acc}%</span><span class="stat-small">Accuraat</span></div>
+          <div class="stat-card"><span class="stat-big red">${G.wrong}</span><span class="stat-small">Wrong</span></div>
+          <div class="stat-card"><span class="stat-big">${acc}%</span><span class="stat-small">Accuracy</span></div>
         </div>
         ${xpProgressHTML}
         <div class="results-replay-card fade-in-4" onclick="startGame('${currentMode}')">
-          <div class="rrc-label">Nog één ronde?</div>
-          <div class="rrc-mode">${{ blitz:'⚡ Blitz', classic:'🎯 Classic', survival:'❤️ Survival' }[currentMode] || '🎮 Spelen'}</div>
+          <div class="rrc-label">One more round?</div>
+          <div class="rrc-mode">${{ blitz:'⚡ Blitz', classic:'🎯 Classic', survival:'❤️ Survival' }[currentMode] || '🎮 Play'}</div>
           <div class="rrc-arrow">→</div>
         </div>
         <div class="breakdown-card fade-in-5">
-          <div class="breakdown-title">📊 Per domein</div>
+          <div class="breakdown-title">📊 By domain</div>
           ${breakdownHTML}
         </div>
         <div class="lb-card fade-in-5">
@@ -527,10 +522,10 @@ function renderResultsScreen(acc) {
         ${wrongHTML}
         ${smartCTAHTML}
         ${weakCTAHTML}
-        <button class="btn-review-session fade-in-6" onclick="renderReviewScreen()">📋 Bespreek deze sessie</button>
+        <button class="btn-review-session fade-in-6" onclick="renderReviewScreen()">📋 Review this session</button>
         <div class="action-row fade-in-6" style="margin-top:0.75rem;">
           <button class="btn-secondary" onclick="showHome()">← Home</button>
-          <button class="btn-share" onclick="shareScore()">📤 Deel score</button>
+          <button class="btn-share" onclick="shareScore()">📤 Share score</button>
         </div>
     </div>`;
 }
@@ -538,12 +533,12 @@ function renderResultsScreen(acc) {
 function shareScore() {
   const rank = getRank(loadXP());
   const mode = { blitz: 'Blitz', classic: 'Classic', survival: 'Survival' }[currentMode] || 'MedDuel';
-  const txt = `🏥 ${mode}: ${G.score} punten als ${rank.icon} ${rank.label} in MedDuel!\nKan jij mij verslaan? → ${window.location.origin}`;
+  const txt = `🏥 ${mode}: ${G.score} points as ${rank.icon} ${rank.label} on MedDuel!\nCan you beat me? → ${window.location.origin}`;
   if (navigator.share) {
     navigator.share({ title: 'MedDuel', text: txt });
   } else {
     navigator.clipboard?.writeText(txt).then(() => {
-      showToast(true, 'Gekopieerd!', 'Plak de link in je favoriete app.');
+      showToast(true, 'Copied!', 'Paste the link in your favourite app.');
       setTimeout(hideToast, 2500);
     });
   }
@@ -556,17 +551,17 @@ function renderReviewScreen() {
   const items = G.sessionLog.map((item, i) => {
     const q = item.q;
     const correctLabel = q.type === 'truefalse'
-      ? (q.c ? 'Waar' : 'Niet waar')
+      ? (q.c ? 'True' : 'False')
       : (q.a ? q.a[q.c] : '—');
     return `
       <div class="rv-card ${item.ok ? 'rv-ok' : 'rv-wrong'}" onclick="reviewOpenFact(${i})">
         <div class="rv-top">
-          <span class="rv-domain">${(q.dl || '').replace(' — Waar of Niet?', '')}</span>
+          <span class="rv-domain">${(q.dl || '').replace(' — True or False?', '')}</span>
           <span class="rv-badge ${item.ok ? 'rv-badge-ok' : 'rv-badge-wrong'}">${item.ok ? '✓' : '✗'}</span>
         </div>
         <div class="rv-q">${q.q}</div>
         ${!item.ok ? `<div class="rv-answer">✓ ${correctLabel}</div>` : ''}
-        ${q.wiki || q.ex ? '<div class="rv-tap-hint">Tik voor uitleg →</div>' : ''}
+        ${q.wiki || q.ex ? '<div class="rv-tap-hint">Tap for explanation →</div>' : ''}
       </div>`;
   }).join('');
 
@@ -575,8 +570,8 @@ function renderReviewScreen() {
       <div class="rv-header">
         <button class="quit-btn" onclick="showHome()">← Home</button>
         <div class="rv-header-info">
-          <span class="rv-title">Nabespreken</span>
-          <span class="rv-subtitle">${nWrong} fout &nbsp;·&nbsp; ${nOk} goed</span>
+          <span class="rv-title">Review</span>
+          <span class="rv-subtitle">${nWrong} wrong &nbsp;·&nbsp; ${nOk} correct</span>
         </div>
       </div>
       <div class="rv-list">${items}</div>

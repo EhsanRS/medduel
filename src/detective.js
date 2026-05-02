@@ -1,4 +1,4 @@
-// MedDuel — Speurdokter modus
+// MedDuel — Detective mode
 
 let SD = {};
 let SD_DECAY_IV = null;
@@ -120,12 +120,12 @@ function renderSpeurdokterIntro() {
     <div id="speurdokter" class="screen active">
       <div class="sd-wrap">
         <div class="sd-nav">
-          <button class="quit-btn" onclick="showHome()">✕ Sluiten</button>
-          <span class="sd-nav-title">🔍 Speurdokter</span>
+          <button class="quit-btn" onclick="showHome()">✕ Close</button>
+          <span class="sd-nav-title">🔍 Detective</span>
         </div>
 
         <div class="sd-intro-card fade-in">
-          <div class="sd-intro-stamp">DIAGNOSE ONBEKEND</div>
+          <div class="sd-intro-stamp">DIAGNOSIS UNKNOWN</div>
           <div class="sd-patient-line">
             <span class="sd-patient-icon">🏥</span>
             <span class="sd-patient-label">${escHtml(c.patient)}</span>
@@ -134,14 +134,14 @@ function renderSpeurdokterIntro() {
           <div class="sd-difficulty">${stars}</div>
           <p class="sd-intro-text">${escHtml(c.intro)}</p>
           <button class="btn-primary sd-start-btn" onclick="sdBeginInvestigation()">
-            Begin onderzoek →
+            Start investigation →
           </button>
         </div>
 
         <div class="sd-rules fade-in-2">
-          <div class="sd-rule">🔬 Kies wat je wilt onderzoeken</div>
-          <div class="sd-rule">⚡ Minder stappen = hogere score</div>
-          <div class="sd-rule">🎯 Stel diagnose zodra je het weet</div>
+          <div class="sd-rule">🔬 Choose what to investigate</div>
+          <div class="sd-rule">⚡ Fewer steps = higher score</div>
+          <div class="sd-rule">🎯 Diagnose as soon as you know</div>
         </div>
       </div>
     </div>`;
@@ -158,10 +158,10 @@ function sdBeginInvestigation() {
 // ── Phase system ──────────────────────────────────────────────
 
 const SD_PHASES = [
-  { num: 1, icon: '🩺', name: 'Eerste indruk',        desc: 'Vitalen en eerste observatie' },
-  { num: 2, icon: '💬', name: 'Anamnese',              desc: 'De patiënt uithoren' },
-  { num: 3, icon: '🔍', name: 'Lichamelijk onderzoek', desc: 'Gericht onderzoek van de patiënt' },
-  { num: 4, icon: '🔬', name: 'Aanvullend onderzoek',  desc: 'Lab, beeldvorming, puncties...' },
+  { num: 1, icon: '🩺', name: 'First impression',      desc: 'Vitals and initial observation' },
+  { num: 2, icon: '💬', name: 'History',               desc: 'Interview the patient' },
+  { num: 3, icon: '🔍', name: 'Physical examination',  desc: 'Targeted examination of the patient' },
+  { num: 4, icon: '🔬', name: 'Additional workup',     desc: 'Labs, imaging, punctures...' },
 ];
 
 // Penalty for using Phase 3/4 before Phase 1 is done
@@ -266,17 +266,17 @@ function renderSpeurdokterGame() {
       <div class="sd-hud">
         <span class="sd-hud-item">
           <span class="sd-hud-val">${SD.score}</span>
-          <span class="sd-hud-lbl">Punten</span>
+          <span class="sd-hud-lbl">Points</span>
         </span>
         <span class="sd-hud-sep">·</span>
         <span class="sd-hud-item">
           <span class="sd-hud-val">${SD.stepsUsed}/${SD.maxSteps}</span>
-          <span class="sd-hud-lbl">Stappen</span>
+          <span class="sd-hud-lbl">Steps</span>
         </span>
         ${SD.timeUsed > 0 ? `<span class="sd-hud-sep">·</span>
         <span class="sd-hud-item">
           <span class="sd-hud-val">${SD.timeUsed}m</span>
-          <span class="sd-hud-lbl">Tijd</span>
+          <span class="sd-hud-lbl">Time</span>
         </span>` : ''}
       </div>
     </div>
@@ -295,16 +295,16 @@ function renderSpeurdokterGame() {
       let badge, desc;
       if (mustDiagnose && count > 0) {
         badge = `<span class="sd-phase-badge warn">🔒</span>`;
-        desc  = 'Limiet bereikt';
+        desc  = 'Limit reached';
       } else if (done) {
         badge = `<span class="sd-phase-badge done">✓</span>`;
-        desc  = 'Volledig afgerond';
+        desc  = 'Fully completed';
       } else if (risky) {
         badge = `<span class="sd-phase-badge warn">⚠ −${SD_OOO_PENALTY[ph.num]}</span>`;
-        desc  = 'Eerste indruk nog niet gedaan';
+        desc  = 'First impression not yet done';
       } else if (count === 0) {
         badge = `<span class="sd-phase-badge done">✓</span>`;
-        desc  = 'Niets meer beschikbaar';
+        desc  = 'Nothing more available';
       } else {
         badge = `<span class="sd-phase-badge">${count}</span>`;
         desc  = ph.desc;
@@ -325,14 +325,14 @@ function renderSpeurdokterGame() {
         <div class="sd-wrap">
           ${sdNav}
           ${sdClueStrip()}
-          ${mustDiagnose ? `<div class="sd-limit-banner">🎯 ${SD.maxSteps} onderzoeken gedaan — stel nu uw diagnose</div>` : ''}
-          <div class="sd-section-label" style="margin-bottom:0.6rem">Klinische aanpak</div>
+          ${mustDiagnose ? `<div class="sd-limit-banner">🎯 ${SD.maxSteps} investigations done — make your diagnosis now</div>` : ''}
+          <div class="sd-section-label" style="margin-bottom:0.6rem">Clinical approach</div>
           <div class="sd-phase-cards fade-in">${cards}</div>
           <div class="sd-diag-wrap">
             <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose || mustDiagnose ? '' : 'disabled'}>
-              Diagnose stellen →
+              Make diagnosis →
             </button>
-            ${!canDiagnose && !mustDiagnose ? '<div class="sd-diag-hint">Doe eerst minimaal 2 onderzoeken</div>' : ''}
+            ${!canDiagnose && !mustDiagnose ? '<div class="sd-diag-hint">Do at least 2 investigations first</div>' : ''}
           </div>
         </div>
       </div>`;
@@ -356,11 +356,11 @@ function renderSpeurdokterGame() {
           ${sdNav}
           ${sdClueStrip()}
           <button class="sd-back-cat" onclick="sdBackToPhases()">← ${ph.icon} ${ph.name}</button>
-          ${risky ? `<div class="sd-oo-banner">⚠ Zonder eerste indruk: extra −${SD_OOO_PENALTY[ph.num]} straf per onderzoek</div>` : ''}
+          ${risky ? `<div class="sd-oo-banner">⚠ Without first impression: extra −${SD_OOO_PENALTY[ph.num]} penalty per investigation</div>` : ''}
           <div class="sd-inv-list fade-in">${rows}</div>
           <div class="sd-diag-wrap">
             <button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()" ${canDiagnose ? '' : 'disabled'}>
-              Diagnose stellen →
+              Make diagnosis →
             </button>
           </div>
         </div>
@@ -412,14 +412,14 @@ function renderSpeurdokterResult(inv, oooPenalty) {
   const lastClue = SD.clues[SD.clues.length - 1];
   const effectivePts = lastClue ? lastClue.points : inv.points;
   const badgeCfg = {
-    eureka: { cls: 'sd-badge-eureka', text: '⚡ Cruciale bevinding!', pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
-    key:    { cls: 'sd-badge-key',    text: '🔑 Sleutelbevinding',   pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
-    useful: { cls: 'sd-badge-useful', text: '✓ Nuttige bevinding',   pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
-    not:    { cls: 'sd-badge-not',    text: '— Niet relevant',       pts: `${effectivePts}` },
+    eureka: { cls: 'sd-badge-eureka', text: '⚡ Crucial finding!', pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    key:    { cls: 'sd-badge-key',    text: '🔑 Key finding',       pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    useful: { cls: 'sd-badge-useful', text: '✓ Useful finding',     pts: effectivePts > 0 ? `+${effectivePts}` : `${effectivePts}` },
+    not:    { cls: 'sd-badge-not',    text: '— Not relevant',       pts: `${effectivePts}` },
   };
   const bc = badgeCfg[inv.result.badge] || badgeCfg.useful;
   const oooWarning = oooPenalty > 0
-    ? `<div class="sd-oo-warning">⚠ Eerste indruk overgeslagen: −${oooPenalty} extra straf</div>` : '';
+    ? `<div class="sd-oo-warning">⚠ First impression skipped: −${oooPenalty} extra penalty</div>` : '';
 
   const contentHtml = sdResultContent(inv);
   const canDiagnose = SD.stepsUsed >= 2;
@@ -427,15 +427,15 @@ function renderSpeurdokterResult(inv, oooPenalty) {
 
   let actionHtml;
   if (forceDiagnose) {
-    actionHtml = `<button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()">Diagnose stellen →</button>`;
+    actionHtml = `<button class="btn-primary sd-diag-btn" onclick="sdStartDiagnosis()">Make diagnosis →</button>`;
   } else if (canDiagnose) {
     actionHtml = `
       <div class="sd-action-row">
-        <button class="btn-secondary" onclick="sdContinueInvestigation()">← Terug naar overzicht</button>
-        <button class="btn-primary"   onclick="sdStartDiagnosis()">Diagnose stellen →</button>
+        <button class="btn-secondary" onclick="sdContinueInvestigation()">← Back to overview</button>
+        <button class="btn-primary"   onclick="sdStartDiagnosis()">Make diagnosis →</button>
       </div>`;
   } else {
-    actionHtml = `<button class="btn-secondary" style="width:100%;" onclick="sdContinueInvestigation()">← Terug naar overzicht</button>`;
+    actionHtml = `<button class="btn-secondary" style="width:100%;" onclick="sdContinueInvestigation()">← Back to overview</button>`;
   }
 
   document.getElementById('app').innerHTML = `
@@ -446,17 +446,17 @@ function renderSpeurdokterResult(inv, oooPenalty) {
           <div class="sd-hud">
             <span class="sd-hud-item">
               <span class="sd-hud-val">${SD.score}</span>
-              <span class="sd-hud-lbl">Punten</span>
+              <span class="sd-hud-lbl">Points</span>
             </span>
             <span class="sd-hud-sep">·</span>
             <span class="sd-hud-item">
               <span class="sd-hud-val">${SD.stepsUsed}/${SD.maxSteps}</span>
-              <span class="sd-hud-lbl">Stappen</span>
+              <span class="sd-hud-lbl">Steps</span>
             </span>
             ${SD.timeUsed > 0 ? `<span class="sd-hud-sep">·</span>
             <span class="sd-hud-item">
               <span class="sd-hud-val">${SD.timeUsed}m</span>
-              <span class="sd-hud-lbl">Tijd</span>
+              <span class="sd-hud-lbl">Time</span>
             </span>` : ''}
           </div>
         </div>
@@ -474,7 +474,7 @@ function renderSpeurdokterResult(inv, oooPenalty) {
           ${contentHtml}
           ${inv.result.findings && inv.result.findings.length ? `
             <div class="sd-findings">
-              <div class="sd-findings-label">Ook opgemerkt</div>
+              <div class="sd-findings-label">Also noted</div>
               ${inv.result.findings.map(f => `<span class="sd-finding-chip">${escHtml(f)}</span>`).join('')}
             </div>` : ''}
           <div class="${bc.cls}">${bc.text} <strong>${bc.pts} pt</strong></div>
@@ -504,7 +504,7 @@ function sdResultContent(inv) {
       </tr>`;
     }).join('');
     return `<table class="sd-lab-table">
-      <thead><tr><th>Parameter</th><th>Waarde</th><th>Referentie</th></tr></thead>
+      <thead><tr><th>Parameter</th><th>Value</th><th>Reference</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
   }
@@ -512,8 +512,8 @@ function sdResultContent(inv) {
   if (r.type === 'imaging') {
     const imgHtml = r.img
       ? `<img src="img/detective/${r.img}" alt="${escHtml(inv.label)}" class="sd-result-img"
-           onerror="this.outerHTML='<div class=\\'sd-img-placeholder\\'>${inv.icon}<small>Afbeelding volgt</small></div>'">`
-      : `<div class="sd-img-placeholder">${inv.icon}<small>Afbeelding volgt</small></div>`;
+           onerror="this.outerHTML='<div class=\\'sd-img-placeholder\\'>${inv.icon}<small>Image coming soon</small></div>'">`
+      : `<div class="sd-img-placeholder">${inv.icon}<small>Image coming soon</small></div>`;
     return `<div class="sd-img-wrap">${imgHtml}</div>
             <p class="sd-result-text">${escHtml(r.text)}</p>`;
   }
@@ -553,7 +553,7 @@ function renderSpeurdokterDiagnosis() {
       <div class="sd-wrap">
         <div class="sd-nav">
           <button class="quit-btn" onclick="sdQuit()">✕ Stop</button>
-          <span class="sd-nav-title">Stel uw diagnose</span>
+          <span class="sd-nav-title">Make your diagnosis</span>
         </div>
 
         ${sdClueStrip()}
@@ -561,7 +561,7 @@ function renderSpeurdokterDiagnosis() {
         <div class="sd-diag-card fade-in">
           <div class="sd-diag-prompt">${escHtml(c.diagnosis.prompt)}</div>
           <div class="sd-diag-options">${options}</div>
-          <button class="btn-ghost sd-back-btn" onclick="sdContinueInvestigation()">← Terug naar onderzoek</button>
+          <button class="btn-ghost sd-back-btn" onclick="sdContinueInvestigation()">← Back to investigation</button>
         </div>
       </div>
     </div>`;
@@ -621,10 +621,10 @@ function renderSpeurdokterTreatment(rec) {
   const chosenLabel  = c.diagnosis.options[rec.chosenIdx] || '?';
 
   const verdict = rec.correct
-    ? `<div class="sd-mgmt-verdict correct">✓ Juiste diagnose: ${escHtml(correctLabel)}</div>`
+    ? `<div class="sd-mgmt-verdict correct">✓ Correct diagnosis: ${escHtml(correctLabel)}</div>`
     : `<div class="sd-mgmt-verdict wrong">
-        ✗ Uw diagnose was onjuist — u koos: ${escHtml(chosenLabel)}
-        <div class="sd-mgmt-correct-reveal">De werkelijke diagnose: <strong>${escHtml(correctLabel)}</strong></div>
+        ✗ Your diagnosis was incorrect — you chose: ${escHtml(chosenLabel)}
+        <div class="sd-mgmt-correct-reveal">The actual diagnosis: <strong>${escHtml(correctLabel)}</strong></div>
        </div>`;
 
   const options = t.options.map((opt, i) =>
@@ -636,7 +636,7 @@ function renderSpeurdokterTreatment(rec) {
       <div class="sd-wrap">
         <div class="sd-nav">
           <span></span>
-          <span class="sd-nav-title">💊 Behandeling</span>
+          <span class="sd-nav-title">💊 Treatment</span>
         </div>
         <div class="sd-diag-card fade-in">
           ${verdict}
@@ -717,7 +717,7 @@ function renderSpeurdokterReveal(rec) {
   const maxScore = invMax + 50 + 80;
   const pct = Math.min(100, Math.round(rec.score / maxScore * 100));
   const barColor = pct >= 70 ? 'var(--green)' : pct >= 45 ? 'var(--amber)' : 'var(--pulse)';
-  const barLabel = pct >= 70 ? 'Uitstekend' : pct >= 45 ? 'Goed' : 'Kan beter';
+  const barLabel = pct >= 70 ? 'Excellent' : pct >= 45 ? 'Good' : 'Can do better';
 
   // Score breakdown
   const clueLines = (rec.clues || []).map(cl => {
@@ -735,20 +735,20 @@ function renderSpeurdokterReveal(rec) {
   }
   const breakdownHtml = `
     <details class="sd-score-breakdown">
-      <summary>Hoe is deze score opgebouwd?</summary>
+      <summary>How is this score calculated?</summary>
       ${clueLines}
       <div class="sd-score-line divider"></div>
       <div class="sd-score-line ${rec.correct ? 'pos' : 'neg'}">
-        <span>${rec.correct ? 'Juiste diagnose' : 'Foute diagnose'}</span>
+        <span>${rec.correct ? 'Correct diagnosis' : 'Wrong diagnosis'}</span>
         <span>${rec.correct ? '+50' : '−50'}</span>
       </div>
-      ${stepBonus > 0 ? `<div class="sd-score-line pos"><span>Snelheidsbonus</span><span>+${stepBonus}</span></div>` : ''}
-      <div class="sd-score-line total"><span>Totaal</span><span>${rec.score}</span></div>
+      ${stepBonus > 0 ? `<div class="sd-score-line pos"><span>Speed bonus</span><span>+${stepBonus}</span></div>` : ''}
+      <div class="sd-score-line total"><span>Total</span><span>${rec.score}</span></div>
     </details>`;
 
   const memoryHtml = (c.memory && c.memory.length)
     ? `<div class="sd-memory-card fade-in-2">
-        <div class="sd-memory-head">🔑 Onthoud dit</div>
+        <div class="sd-memory-head">🔑 Remember this</div>
         <ul class="sd-memory-list">
           ${c.memory.map(m => `<li class="sd-memory-item">${escHtml(m)}</li>`).join('')}
         </ul>
@@ -757,7 +757,7 @@ function renderSpeurdokterReveal(rec) {
 
   const wikiHtml = c.diagnosis.wiki
     ? `<details class="sd-wiki">
-        <summary>Meer over ${escHtml(correctLabel)}</summary>
+        <summary>Learn more about ${escHtml(correctLabel)}</summary>
         <p>${escHtml(c.diagnosis.wiki)}</p>
        </details>`
     : '';
@@ -766,10 +766,10 @@ function renderSpeurdokterReveal(rec) {
     <div id="speurdokter-result" class="screen active">
 
       <div class="sd-reveal-hero ${heroClass} fade-in">
-        <div class="sd-reveal-stamp">${oc?.title || (isCorrect ? 'DIAGNOSE VASTGESTELD' : 'DIAGNOSE GEMIST')}</div>
+        <div class="sd-reveal-stamp">${oc?.title || (isCorrect ? 'DIAGNOSIS CONFIRMED' : 'DIAGNOSIS MISSED')}</div>
         <div class="sd-reveal-name">${escHtml(correctLabel)}</div>
         ${!isCorrect
-          ? `<div class="sd-reveal-chosen">Uw keuze: ${escHtml(c.diagnosis.options[rec.chosenIdx] || '?')}</div>`
+          ? `<div class="sd-reveal-chosen">Your choice: ${escHtml(c.diagnosis.options[rec.chosenIdx] || '?')}</div>`
           : ''}
       </div>
 
@@ -783,7 +783,7 @@ function renderSpeurdokterReveal(rec) {
           <div class="sd-reveal-barwrap">
             <div class="sd-reveal-bar" style="width:${pct}%;background:${barColor}"></div>
           </div>
-          <div class="sd-reveal-meta">${rec.stepsUsed} onderzoek${rec.stepsUsed === 1 ? '' : 'en'} · ${pct}% efficiency</div>
+          <div class="sd-reveal-meta">${rec.stepsUsed} investigation${rec.stepsUsed === 1 ? '' : 's'} · ${pct}% efficiency</div>
           ${breakdownHtml}
         </div>
 
@@ -797,23 +797,23 @@ function renderSpeurdokterReveal(rec) {
         ${memoryHtml}
 
         ${clueChips ? `<div class="sd-clues-section fade-in-3">
-          <div class="sd-section-label">Uw spoor</div>
+          <div class="sd-section-label">Your trail</div>
           <div class="sd-chips">${clueChips}</div>
         </div>` : ''}
 
         <div class="sd-explain-card fade-in-4">
-          <div class="sd-explain-head">Uitleg</div>
+          <div class="sd-explain-head">Explanation</div>
           <p class="sd-explain-text">${escHtml(c.diagnosis.explanation)}</p>
           ${wikiHtml}
         </div>
 
         <div class="sd-countdown-card fade-in-5">
-          <div class="sd-countdown-label">Volgende zaak over</div>
+          <div class="sd-countdown-label">Next case in</div>
           <div class="sd-countdown" id="sdCountdown">--:--:--</div>
         </div>
 
         <div class="action-row fade-in-5">
-          <button class="btn-secondary" style="width:100%;" onclick="showHome()">← Terug naar home</button>
+          <button class="btn-secondary" style="width:100%;" onclick="showHome()">← Back to home</button>
         </div>
 
       </div>
@@ -828,7 +828,7 @@ function sdClinicalFrameworkHTML(c) {
 
   const redFlagsHtml = cf.red_flags?.length
     ? `<div class="sd-cf-section">
-        <div class="sd-cf-subhead">🚩 Herken het direct aan</div>
+        <div class="sd-cf-subhead">🚩 Recognize it by</div>
         <ul class="sd-cf-list">
           ${cf.red_flags.map(f => `<li class="sd-cf-flag">${escHtml(f)}</li>`).join('')}
         </ul>
@@ -837,7 +837,7 @@ function sdClinicalFrameworkHTML(c) {
 
   const fastestHtml = cf.fastest_test
     ? `<div class="sd-cf-section">
-        <div class="sd-cf-subhead">⚡ Snelste bevestiging</div>
+        <div class="sd-cf-subhead">⚡ Fastest confirmation</div>
         <div class="sd-cf-fastest">
           <div class="sd-cf-fastest-name">${escHtml(cf.fastest_test.name)}</div>
           <div class="sd-cf-fastest-why">${escHtml(cf.fastest_test.why)}</div>
@@ -847,7 +847,7 @@ function sdClinicalFrameworkHTML(c) {
 
   const excludeHtml = cf.exclude_by?.length
     ? `<div class="sd-cf-section">
-        <div class="sd-cf-subhead">❌ Differentiaal uitsluiten</div>
+        <div class="sd-cf-subhead">❌ Rule out differentials</div>
         ${cf.exclude_by.map(e => `
           <div class="sd-cf-excl-row">
             <div class="sd-cf-excl-diag">${escHtml(e.diagnosis)}</div>
@@ -864,7 +864,7 @@ function sdClinicalFrameworkHTML(c) {
     : '';
 
   return `<div class="sd-framework-card fade-in-3">
-    <div class="sd-framework-title">🎯 Klinisch Kader</div>
+    <div class="sd-framework-title">🎯 Clinical Framework</div>
     <div class="sd-framework-pres">${escHtml(cf.presentation)}</div>
     ${redFlagsHtml}
     ${fastestHtml}
@@ -907,7 +907,7 @@ function sdClueStrip() {
     return `<span class="${cls}">${escHtml(cl.summary)}</span>`;
   }).join('');
   return `<div class="sd-clues-section">
-    <div class="sd-section-label">Bewijs</div>
+    <div class="sd-section-label">Evidence</div>
     <div class="sd-chips">${chips}</div>
   </div>`;
 }
@@ -956,44 +956,44 @@ function renderSpeurdokterTab() {
     const animClass  = `fade-in-${Math.min(idx + 1, 5)}`;
 
     if (!isUnlocked) {
-      const prevTitle = DETECTIVE_CASES[idx - 1]?.title || 'vorige zaak';
+      const prevTitle = DETECTIVE_CASES[idx - 1]?.title || 'previous case';
       return `<div class="sd-home-card sd-home-locked ${animClass}">
         <div class="sd-home-lock-icon">🔒</div>
         <div class="sd-home-title sd-home-locked-title">${escHtml(c.title)}</div>
         <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
-        <div class="sd-home-locked-hint">Voltooi '${escHtml(prevTitle)}' om te ontgrendelen</div>
+        <div class="sd-home-locked-hint">Complete '${escHtml(prevTitle)}' to unlock</div>
       </div>`;
     }
 
     if (played) {
       const outcomeIcon = { saved: '✅', wrong_diagnosis: '❌', wrong_treatment: '⚠️', patient_harmed: '💀', too_late: '⏰' }[rec.outcome] || '✓';
       return `<div class="sd-home-card played ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
-        <div class="sd-home-solved">${outcomeIcon} OPGELOST</div>
+        <div class="sd-home-solved">${outcomeIcon} SOLVED</div>
         <div class="sd-home-title">${escHtml(c.title)}</div>
-        <div class="sd-home-meta">${stars} · ${rec.score} pt · ${rec.stepsUsed} stappen</div>
-        <div class="sd-home-cta">Bekijk debriefing →</div>
+        <div class="sd-home-meta">${stars} · ${rec.score} pt · ${rec.stepsUsed} steps</div>
+        <div class="sd-home-cta">View debriefing →</div>
       </div>`;
     }
 
     return `<div class="sd-home-card ${animClass}" onclick="startSpeurdokterCase('${c.id}')">
-      <div class="sd-home-eyebrow">${isToday ? '📅 Vandaag' : escHtml(c.domain?.toUpperCase() || c.date)}</div>
+      <div class="sd-home-eyebrow">${isToday ? '📅 Today' : escHtml(c.domain?.toUpperCase() || c.date)}</div>
       <div class="sd-home-title">${escHtml(c.title)}</div>
       <div class="sd-home-meta">${stars} · ${escHtml(c.patient)}</div>
-      <div class="sd-home-cta">Begin onderzoek →</div>
+      <div class="sd-home-cta">Start investigation →</div>
     </div>`;
   }).join('');
 
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
-      <h2 class="htab-title">🔍 Speurdokter</h2>
-      <p class="htab-sub">Mysterieuze patiënten. Jij stelt de diagnose.</p>
+      <h2 class="htab-title">🔍 Detective</h2>
+      <p class="htab-sub">Mysterious patients. You make the diagnosis.</p>
     </div>
     ${cards}
     <div class="sd-how-card fade-in">
-      <div class="sd-how-title">Hoe werkt het?</div>
-      <div class="sd-how-step"><span class="sd-how-icon">🔬</span><span>Max 6 onderzoeken — kies verstandig</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">🎯</span><span>Stel diagnose + behandeling</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">📋</span><span>Debriefing: leer hoe je snel uitsluit</span></div>
-      <div class="sd-how-step"><span class="sd-how-icon">🔓</span><span>Voltooi een zaak om de volgende te openen</span></div>
+      <div class="sd-how-title">How does it work?</div>
+      <div class="sd-how-step"><span class="sd-how-icon">🔬</span><span>Max 6 investigations — choose wisely</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">🎯</span><span>Make diagnosis + treatment</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">📋</span><span>Debriefing: learn how to quickly rule out</span></div>
+      <div class="sd-how-step"><span class="sd-how-icon">🔓</span><span>Complete a case to unlock the next one</span></div>
     </div>`;
 }

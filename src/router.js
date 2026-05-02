@@ -5,13 +5,12 @@ function showHome() {
   showScreen('home');
   loadHomeStats();
 
-  // Check voor challenge-banner
   const p = new URLSearchParams(window.location.search);
   if (p.get('challenge') && p.get('score')) {
     setTimeout(() => {
       showToast(true,
-        `Je bent uitgedaagd! 🏆`,
-        `Versla ${p.get('score')} punten — gebruik zo min mogelijk hints.`
+        `You've been challenged! 🏆`,
+        `Beat ${p.get('score')} points — use as few hints as possible.`
       );
       setTimeout(hideToast, 4500);
     }, 400);
@@ -25,19 +24,19 @@ function renderHomeScreen() {
       <nav class="bottom-nav" id="bottomNav">
         <button class="bn-tab active" onclick="switchHomeTab('spelen',this)">
           <span class="bn-icon">🎮</span>
-          <span class="bn-label">Spelen</span>
+          <span class="bn-label">Play</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('speurdokter',this)">
           <span class="bn-icon">🔍</span>
-          <span class="bn-label">Speurder</span>
+          <span class="bn-label">Detective</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('theorie',this)">
           <span class="bn-icon">📖</span>
-          <span class="bn-label">Theorie</span>
+          <span class="bn-label">Theory</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('profiel',this)">
           <span class="bn-icon">👤</span>
-          <span class="bn-label">Profiel</span>
+          <span class="bn-label">Profile</span>
         </button>
       </nav>
     </div>`;
@@ -51,8 +50,8 @@ function renderSRHomeCard() {
     <div class="sr-home-card fade-in-2" onclick="startSRMode()">
       <div class="sr-home-icon">📅</div>
       <div class="sr-home-info">
-        <span class="sr-home-name">Te herhalen</span>
-        <span class="sr-home-sub">${n} vraag${n === 1 ? '' : 'en'} klaar voor herhaling</span>
+        <span class="sr-home-name">Due for review</span>
+        <span class="sr-home-sub">${n} question${n === 1 ? '' : 's'} ready for review</span>
       </div>
       <span class="sr-home-badge">${n}</span>
     </div>`;
@@ -62,23 +61,23 @@ function renderSpelenTab() {
   document.getElementById('htab').innerHTML = `
     <div class="home-hero fade-in">
       <div class="hero-left">
-        <div class="hero-eyebrow">${getGreeting() || 'medische trivia'}</div>
+        <div class="hero-eyebrow">${getGreeting() || 'medical trivia'}</div>
         <h1 class="logo">Med<em>Duel</em></h1>
       </div>
       <div class="hero-streak-badge" id="heroStreak">0🔥</div>
     </div>
 
-    <div class="section-label fade-in-2">Vandaag</div>
+    <div class="section-label fade-in-2">Today</div>
     ${renderDailyHomeCard()}
     ${renderSRHomeCard()}
 
-    <div class="section-label fade-in-3">Kies modus</div>
+    <div class="section-label fade-in-3">Choose mode</div>
 
     <div class="mode-hero-card fade-in-3" onclick="startGame('blitz')">
-      <div class="mhc-tag">⚡ Populairste modus</div>
+      <div class="mhc-tag">⚡ Most popular mode</div>
       <div class="mhc-name">Blitz</div>
-      <div class="mhc-sub">60 seconden · Zo snel mogelijk</div>
-      <div class="mhc-cta">Start nu →</div>
+      <div class="mhc-sub">60 seconds · As fast as possible</div>
+      <div class="mhc-cta">Start now →</div>
     </div>
 
     <div class="mode-grid fade-in-3">
@@ -86,40 +85,40 @@ function renderSpelenTab() {
         <div class="mode-icon-wrap">🎯</div>
         <div class="mode-info">
           <span class="mode-name">Classic</span>
-          <span class="mode-sub">10 vragen</span>
+          <span class="mode-sub">10 questions</span>
         </div>
       </div>
       <div class="mode-card survival" onclick="startGame('survival')">
         <div class="mode-icon-wrap">❤️</div>
         <div class="mode-info">
           <span class="mode-name">Survival</span>
-          <span class="mode-sub">3 levens</span>
+          <span class="mode-sub">3 lives</span>
         </div>
       </div>
       <div class="mode-card dossier" onclick="startDossier()">
         <div class="mode-icon-wrap">🗂️</div>
         <div class="mode-info">
           <span class="mode-name">Dossier</span>
-          <span class="mode-sub">Daag anderen uit</span>
+          <span class="mode-sub">Challenge others</span>
         </div>
       </div>
       <div class="mode-card learn" onclick="showLearnSetup()">
         <div class="mode-icon-wrap">📖</div>
         <div class="mode-info">
-          <span class="mode-name">Leer-modus</span>
-          <span class="mode-sub">Geen tijdsdruk</span>
+          <span class="mode-name">Learn mode</span>
+          <span class="mode-sub">No time pressure</span>
         </div>
       </div>
       <div class="mode-card spoedkamer" onclick="startSpoedkamer()">
         <div class="mode-icon-wrap">🚨</div>
         <div class="mode-info">
-          <span class="mode-name">Spoedkamer</span>
-          <span class="mode-sub">10 patiënten · 15s per vraag</span>
+          <span class="mode-name">Emergency Room</span>
+          <span class="mode-sub">10 patients · 15s per question</span>
         </div>
       </div>
     </div>
 
-    <div class="section-label fade-in-4">Domein</div>
+    <div class="section-label fade-in-4">Domain</div>
     ${renderDomainGrid()}`;
 }
 
@@ -133,10 +132,10 @@ function renderDomainGrid() {
     { key: 'pulmo',    icon: '🫁', name: 'Pulmo',    color: '#E0F6FF' },
     { key: 'gastro',   icon: '🫃', name: 'Gastro',   color: '#FEF3C7' },
     { key: 'endo',     icon: '🔬', name: 'Endo',     color: '#CCFBF1' },
-    { key: 'nephro',   icon: '🫘', name: 'Nefro',    color: '#DBEAFE' },
+    { key: 'nephro',   icon: '🫘', name: 'Nephro',   color: '#DBEAFE' },
     { key: 'psych',    icon: '🧩', name: 'Psych',    color: '#FDF4FF' },
     { key: 'derm',     icon: '🩹', name: 'Derm',     color: '#FCE7F3' },
-    { key: 'rheum',    icon: '🦴', name: 'Reuma',    color: '#FEF9C3' },
+    { key: 'rheum',    icon: '🦴', name: 'Rheum',    color: '#FEF9C3' },
     { key: 'repro',    icon: '🤰', name: 'Repro',    color: '#FFE4E6' },
   ];
 
@@ -148,42 +147,42 @@ function renderDomainGrid() {
         onclick="toggleCat('${d.key}',this)">
       <span class="dt-icon">${d.icon}</span>
       <span class="dt-name">${d.name}</span>
-      ${n ? `<span class="dt-count">${n}v</span>` : ''}
+      ${n ? `<span class="dt-count">${n}q</span>` : ''}
     </div>`;
   }).join('');
 
   return `<div class="cat-wrap fade-in-4" id="catPills">
     <div class="cat-pill cat-all active" data-cat="all" onclick="toggleCat('all',this)">
-      Alle domeinen
+      All domains
     </div>
     <div class="domain-grid">${tiles}</div>
   </div>`;
 }
 
 const THEORY_PILLS = [
-  { id: 'dementie',    emoji: '🧠', name: 'Dementiesyndromen',      sub: 'Alzheimer Vasculair Lewy-body FTD NPH' },
-  { id: 'ecg',         emoji: '📊', name: 'ECG Basisinterpretatie',  sub: 'PQRST Intervallen ST-patronen Aritmieën' },
-  { id: 'anemie',      emoji: '🩸', name: 'Anemie',                 sub: 'Microcytair Normocytair Macrocytair ijzer B12 foliumzuur' },
-  { id: 'meningitis',  emoji: '🔬', name: 'Meningitis & LP',         sub: 'Bacterieel Viraal TBC liquor lumbaalpunctie' },
-  { id: 'hartfalen',   emoji: '❤️', name: 'Hartfalen',               sub: 'HFrEF HFpEF vierpijlertherapie dyspneu oedeem' },
-  { id: 'antibiotica', emoji: '💊', name: 'Antibiotica-klassen',     sub: 'Penicilline cefalosporine macrolide fluorochinolon resistentie' },
-  { id: 'stolling',    emoji: '🩹', name: 'Stolling & Antistolling',  sub: 'Cascade heparine VKA DOAC trombose' },
-  { id: 'diabetes',    emoji: '🍬', name: 'Diabetes Mellitus',       sub: 'DM1 DM2 DKA insuline metformine complicaties' },
-  { id: 'schildklier', emoji: '🦋', name: 'Schildklierpathologie',   sub: 'Hypothyreoïdie hyperthyreoïdie TSH T4 thyroiditis' },
-  { id: 'sepsis',      emoji: '🚨', name: 'Sepsis & Septische Shock', sub: 'Sepsis-3 qSOFA antibiotica bundels lactaat' },
-  { id: 'copd',        emoji: '🫁', name: 'COPD',                    sub: 'GOLD-stadiëring exacerbatie inhalatoren spirometrie' },
-  { id: 'longembolie', emoji: '🩺', name: 'Longembolie',             sub: 'Wells diagnose behandeling massieve LE anticoagulantia' },
+  { id: 'dementie',    emoji: '🧠', name: 'Dementia syndromes',        sub: 'Alzheimer Vascular Lewy-body FTD NPH' },
+  { id: 'ecg',         emoji: '📊', name: 'ECG Basic interpretation',   sub: 'PQRST Intervals ST-patterns Arrhythmias' },
+  { id: 'anemie',      emoji: '🩸', name: 'Anaemia',                    sub: 'Microcytic Normocytic Macrocytic iron B12 folate' },
+  { id: 'meningitis',  emoji: '🔬', name: 'Meningitis & LP',            sub: 'Bacterial Viral TB CSF lumbar puncture' },
+  { id: 'hartfalen',   emoji: '❤️', name: 'Heart failure',              sub: 'HFrEF HFpEF four-pillar therapy dyspnoea oedema' },
+  { id: 'antibiotica', emoji: '💊', name: 'Antibiotic classes',         sub: 'Penicillin cephalosporin macrolide fluoroquinolone resistance' },
+  { id: 'stolling',    emoji: '🩹', name: 'Coagulation & Anticoagulation', sub: 'Cascade heparin VKA DOAC thrombosis' },
+  { id: 'diabetes',    emoji: '🍬', name: 'Diabetes Mellitus',          sub: 'DM1 DM2 DKA insulin metformin complications' },
+  { id: 'schildklier', emoji: '🦋', name: 'Thyroid pathology',          sub: 'Hypothyroidism hyperthyroidism TSH T4 thyroiditis' },
+  { id: 'sepsis',      emoji: '🚨', name: 'Sepsis & Septic Shock',      sub: 'Sepsis-3 qSOFA antibiotic bundles lactate' },
+  { id: 'copd',        emoji: '🫁', name: 'COPD',                       sub: 'GOLD staging exacerbation inhalers spirometry' },
+  { id: 'longembolie', emoji: '🩺', name: 'Pulmonary embolism',         sub: 'Wells diagnosis treatment massive PE anticoagulants' },
 ];
 
 function renderTheorieTab() {
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
-      <h2 class="htab-title">Theorieboek</h2>
-      <p class="htab-sub">Klinische overzichten per thema</p>
+      <h2 class="htab-title">Theory book</h2>
+      <p class="htab-sub">Clinical overviews by topic</p>
     </div>
     <div class="th-search-wrap fade-in-1">
       <input type="search" class="th-search" id="thSearch"
-        placeholder="🔍 Zoek onderwerp…" oninput="filterTheory(this.value)"
+        placeholder="🔍 Search topic…" oninput="filterTheory(this.value)"
         autocomplete="off" autocorrect="off" spellcheck="false">
     </div>
     <div class="th-home-grid fade-in-2" id="thGrid">${buildTheoryGrid('')}</div>`;
@@ -197,7 +196,7 @@ function buildTheoryGrid(query) {
       )
     : THEORY_PILLS;
   if (list.length === 0)
-    return `<p style="color:var(--ink-light);text-align:center;padding:1.5rem 0;font-size:14px;">Geen resultaten voor "<em>${escHtml(query)}</em>"</p>`;
+    return `<p style="color:var(--ink-light);text-align:center;padding:1.5rem 0;font-size:14px;">No results for "<em>${escHtml(query)}</em>"</p>`;
   return list.map(t =>
     `<div class="th-home-pill" onclick="openTheory('${t.id}')">
       <span class="th-home-emoji">${t.emoji}</span>
@@ -219,15 +218,15 @@ function renderProfielTab() {
 
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
-      <h2 class="htab-title">${name ? `Hey, ${name}` : 'Mijn profiel'}</h2>
-      <p class="htab-sub">Jouw voortgang & statistieken</p>
+      <h2 class="htab-title">${name ? `Hey, ${name}` : 'My profile'}</h2>
+      <p class="htab-sub">Your progress & statistics</p>
     </div>
     <div id="xpWrap" class="fade-in-1"></div>
 
     <div class="stats-summary-card fade-in-2">
       <div class="ss-cell">
         <span class="ss-val">${st.played || 0}</span>
-        <span class="ss-lbl">Potjes</span>
+        <span class="ss-lbl">Games</span>
       </div>
       <div class="ss-div"></div>
       <div class="ss-cell">
@@ -237,7 +236,7 @@ function renderProfielTab() {
       <div class="ss-div"></div>
       <div class="ss-cell">
         <span class="ss-val" style="color:${avgPct>=80?'var(--green)':avgPct>=60?'var(--amber)':'var(--pulse)'}">${avgPct}%</span>
-        <span class="ss-lbl">Gemiddeld</span>
+        <span class="ss-lbl">Average</span>
       </div>
       <div class="ss-div"></div>
       <div class="ss-cell">
@@ -251,16 +250,16 @@ function renderProfielTab() {
     <div class="fav-home-card fade-in-3" onclick="startFavourites()">
       <div class="fav-home-icon">★</div>
       <div class="fav-home-info">
-        <span class="fav-home-name">Favorieten</span>
-        <span class="fav-home-sub" id="favHomeSub">Nog niets opgeslagen</span>
+        <span class="fav-home-name">Favourites</span>
+        <span class="fav-home-sub" id="favHomeSub">Nothing saved yet</span>
       </div>
       <span style="font-size:18px;color:var(--amber);opacity:0.5;">→</span>
     </div>
     <div id="weakHomeCard" class="weak-home-card fade-in-3" onclick="startWeakMode()" style="display:none;">
       <div class="weak-home-icon">🎯</div>
       <div class="fav-home-info">
-        <span class="fav-home-name">Train je Zwaktes</span>
-        <span class="fav-home-sub" id="weakHomeSub">Laden...</span>
+        <span class="fav-home-name">Train Your Weaknesses</span>
+        <span class="fav-home-sub" id="weakHomeSub">Loading...</span>
       </div>
       <span style="font-size:18px;color:var(--pulse);opacity:0.7;">→</span>
     </div>
@@ -268,8 +267,8 @@ function renderProfielTab() {
     <div class="adm-home-card fade-in-4" onclick="showAdmin()">
       <span style="font-size:20px;">🗂️</span>
       <div class="fav-home-info">
-        <span class="fav-home-name">Vragenbank</span>
-        <span class="fav-home-sub">${QUESTIONS.length} vragen · beheer &amp; overzicht</span>
+        <span class="fav-home-name">Question bank</span>
+        <span class="fav-home-sub">${QUESTIONS.length} questions · manage &amp; overview</span>
       </div>
       <span style="font-size:18px;color:var(--ink-light);opacity:0.5;">→</span>
     </div>`;
@@ -279,7 +278,7 @@ function renderProfielTab() {
   const sub = document.getElementById('favHomeSub');
   if (sub) {
     const n = loadFavourites().length;
-    sub.textContent = n === 0 ? 'Nog niets opgeslagen' : `${n} feit${n === 1 ? '' : 'en'} opgeslagen`;
+    sub.textContent = n === 0 ? 'Nothing saved yet' : `${n} fact${n === 1 ? '' : 's'} saved`;
   }
   renderDomainStatsHome();
   const histHTML = renderSessionHistory();
@@ -296,23 +295,23 @@ function renderOpenPatientCard() {
   const days = Math.floor((Date.now() - p.savedAt) / 86400000);
   const meta = DOMAIN_META.find(m => m.key === p.q.domain);
   const icon = meta ? meta.icon : '🏥';
-  const urgency = days === 0 ? 'Wacht op de IC...'
-    : days === 1 ? 'Dag 1. Nog steeds geen diagnose.'
-    : `Dag ${days}. De familie vraagt om nieuws.`;
+  const urgency = days === 0 ? 'Waiting in the ICU...'
+    : days === 1 ? 'Day 1. Still no diagnosis.'
+    : `Day ${days}. The family is asking for news.`;
   const qShort = p.q.q.length > 85 ? p.q.q.slice(0, 85) + '…' : p.q.q;
   return `
     <div class="open-patient-card fade-in-2" onclick="startPatientReplay()">
       <div class="opc-top">
         <span class="opc-icon">${icon}</span>
         <div class="opc-meta">
-          <span class="opc-label">Jouw patiënt</span>
+          <span class="opc-label">Your patient</span>
           <span class="opc-urgency">${urgency}</span>
         </div>
-        <span class="opc-days${days >= 2 ? ' urgent' : ''}">${days === 0 ? 'vandaag' : days + 'd'}</span>
+        <span class="opc-days${days >= 2 ? ' urgent' : ''}">${days === 0 ? 'today' : days + 'd'}</span>
       </div>
       <div class="opc-q">${qShort}</div>
-      ${p.wrongLabel ? `<div class="opc-wrong">Jij stelde: <strong>${p.wrongLabel}</strong></div>` : ''}
-      <div class="opc-cta">Herstel de diagnose →</div>
+      ${p.wrongLabel ? `<div class="opc-wrong">You diagnosed: <strong>${p.wrongLabel}</strong></div>` : ''}
+      <div class="opc-cta">Restore the diagnosis →</div>
     </div>`;
 }
 
@@ -323,8 +322,8 @@ function startPatientReplay() {
   const letters = ['A', 'B', 'C', 'D'];
   const answersHTML = q.type === 'truefalse'
     ? `<div class="tf-wrap">
-        <button class="tf-btn true-btn"  onclick="answerPatient(true)">✓ Waar</button>
-        <button class="tf-btn false-btn" onclick="answerPatient(false)">✗ Niet Waar</button>
+        <button class="tf-btn true-btn"  onclick="answerPatient(true)">✓ True</button>
+        <button class="tf-btn false-btn" onclick="answerPatient(false)">✗ False</button>
        </div>`
     : q.a.map((ans, i) =>
         `<button class="ans-btn" onclick="answerPatient(${i})" data-i="${i}">
@@ -335,10 +334,10 @@ function startPatientReplay() {
   document.getElementById('app').innerHTML = `
     <div id="patient-replay" class="screen active">
       <div class="pr-header">
-        <button class="quit-btn" onclick="showHome()">✕ Sluiten</button>
-        <span class="pr-title">🏥 Herstel je patiënt</span>
+        <button class="quit-btn" onclick="showHome()">✕ Close</button>
+        <span class="pr-title">🏥 Restore your patient</span>
       </div>
-      ${p.wrongLabel ? `<div class="pr-context fade-in"><div class="pr-wrong-badge">Jij stelde eerder: <strong>${p.wrongLabel}</strong></div></div>` : ''}
+      ${p.wrongLabel ? `<div class="pr-context fade-in"><div class="pr-wrong-badge">You previously diagnosed: <strong>${p.wrongLabel}</strong></div></div>` : ''}
       <div class="q-card fade-in-1">
         <div class="q-domain">${q.dl || ''}</div>
         <div class="q-text">${formatQ(q.q)}</div>
@@ -374,7 +373,7 @@ function answerPatient(choice) {
     }
   }
 
-  const correctLabel = q.type === 'truefalse' ? (q.c ? 'Waar' : 'Niet waar') : q.a[q.c];
+  const correctLabel = q.type === 'truefalse' ? (q.c ? 'True' : 'False') : q.a[q.c];
   const screen = document.getElementById('patient-replay');
   if (!screen) return;
 
@@ -385,15 +384,15 @@ function answerPatient(choice) {
   if (ok) {
     clearOpenPatient();
     div.innerHTML = `
-      <div class="pr-saved">✓ Patiënt gered! Diagnose correct.</div>
-      <button class="btn-primary" style="margin-top:1rem;width:100%" onclick="showHome()">Terug naar huis →</button>`;
+      <div class="pr-saved">✓ Patient saved! Correct diagnosis.</div>
+      <button class="btn-primary" style="margin-top:1rem;width:100%" onclick="showHome()">Back home →</button>`;
   } else {
     div.innerHTML = `
       <div class="pr-fail">
-        <div class="pr-fail-head">Helaas. Correct: <strong>${correctLabel}</strong></div>
+        <div class="pr-fail-head">Incorrect. Correct answer: <strong>${correctLabel}</strong></div>
         ${q.ex ? `<div class="pr-fail-ex">${q.ex}</div>` : ''}
       </div>
-      <button class="btn-secondary" style="margin-top:1rem;width:100%" onclick="showHome()">Terug →</button>`;
+      <button class="btn-secondary" style="margin-top:1rem;width:100%" onclick="showHome()">Back →</button>`;
   }
   screen.appendChild(div);
 }
@@ -450,9 +449,9 @@ function renderSessionHistory() {
 
   return `
     <div class="sh-card fade-in-3">
-      <div class="section-label">Recente sessies</div>
+      <div class="section-label">Recent sessions</div>
       <div class="sh-bars">${bars}</div>
-      ${trendRows ? `<div class="section-label" style="margin-top:1rem;">Trend per domein</div>${trendRows}` : ''}
+      ${trendRows ? `<div class="section-label" style="margin-top:1rem;">Trend by domain</div>${trendRows}` : ''}
     </div>`;
 }
 
