@@ -4814,3 +4814,45 @@ details[open].sd-wiki summary::before { content: '− '; }
   text-align: center;
   margin-bottom: 0.75rem;
 }
+
+/* ── Language picker ─────────────────────────────────────────── */
+.lang-card {
+  background: white;
+  border-radius: var(--r);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow);
+}
+.lang-card-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.6rem;
+}
+.lang-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.lang-btn {
+  background: var(--cream);
+  border: 1.5px solid transparent;
+  border-radius: 20px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--ink-mid);
+  transition: all 0.15s;
+}
+.lang-btn.active {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+.lang-btn:not(.active):hover {
+  border-color: var(--ink-mid);
+  color: var(--ink);
+}

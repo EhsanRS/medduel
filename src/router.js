@@ -24,19 +24,19 @@ function renderHomeScreen() {
       <nav class="bottom-nav" id="bottomNav">
         <button class="bn-tab active" onclick="switchHomeTab('spelen',this)">
           <span class="bn-icon">🎮</span>
-          <span class="bn-label">Play</span>
+          <span class="bn-label">${t('nav_play')}</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('speurdokter',this)">
           <span class="bn-icon">🔍</span>
-          <span class="bn-label">Detective</span>
+          <span class="bn-label">${t('nav_detective')}</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('theorie',this)">
           <span class="bn-icon">📖</span>
-          <span class="bn-label">Theory</span>
+          <span class="bn-label">${t('nav_theory')}</span>
         </button>
         <button class="bn-tab" onclick="switchHomeTab('profiel',this)">
           <span class="bn-icon">👤</span>
-          <span class="bn-label">Profile</span>
+          <span class="bn-label">${t('nav_profile')}</span>
         </button>
       </nav>
     </div>`;
@@ -67,16 +67,16 @@ function renderSpelenTab() {
       <div class="hero-streak-badge" id="heroStreak">0🔥</div>
     </div>
 
-    <div class="section-label fade-in-2">Today</div>
+    <div class="section-label fade-in-2">${t('home_today')}</div>
     ${renderDailyHomeCard()}
     ${renderSRHomeCard()}
 
-    <div class="section-label fade-in-3">Choose mode</div>
+    <div class="section-label fade-in-3">${t('home_choose')}</div>
 
     <div class="mode-hero-card fade-in-3" onclick="startGame('blitz')">
-      <div class="mhc-tag">⚡ Most popular mode</div>
-      <div class="mhc-name">Blitz</div>
-      <div class="mhc-sub">60 seconds · As fast as possible</div>
+      <div class="mhc-tag">${t('mode_popular')}</div>
+      <div class="mhc-name">${t('mode_blitz')}</div>
+      <div class="mhc-sub">${t('mode_blitz_sub')}</div>
       <div class="mhc-cta">Start now →</div>
     </div>
 
@@ -112,13 +112,13 @@ function renderSpelenTab() {
       <div class="mode-card spoedkamer" onclick="startSpoedkamer()">
         <div class="mode-icon-wrap">🚨</div>
         <div class="mode-info">
-          <span class="mode-name">Emergency Room</span>
-          <span class="mode-sub">10 patients · 15s per question</span>
+          <span class="mode-name">${t('mode_er')}</span>
+          <span class="mode-sub">${t('mode_er_sub')}</span>
         </div>
       </div>
     </div>
 
-    <div class="section-label fade-in-4">Domain</div>
+    <div class="section-label fade-in-4">${t('mode_learn_sub')}</div>
     ${renderDomainGrid()}`;
 }
 
@@ -153,7 +153,7 @@ function renderDomainGrid() {
 
   return `<div class="cat-wrap fade-in-4" id="catPills">
     <div class="cat-pill cat-all active" data-cat="all" onclick="toggleCat('all',this)">
-      All domains
+      ${t('mode_all_domains')}
     </div>
     <div class="domain-grid">${tiles}</div>
   </div>`;
@@ -177,12 +177,12 @@ const THEORY_PILLS = [
 function renderTheorieTab() {
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
-      <h2 class="htab-title">Theory book</h2>
-      <p class="htab-sub">Clinical overviews by topic</p>
+      <h2 class="htab-title">${t('home_theory')}</h2>
+      <p class="htab-sub">${t('home_theory_sub')}</p>
     </div>
     <div class="th-search-wrap fade-in-1">
       <input type="search" class="th-search" id="thSearch"
-        placeholder="🔍 Search topic…" oninput="filterTheory(this.value)"
+        placeholder="🔍 ${t('home_search')}" oninput="filterTheory(this.value)"
         autocomplete="off" autocorrect="off" spellcheck="false">
     </div>
     <div class="th-home-grid fade-in-2" id="thGrid">${buildTheoryGrid('')}</div>`;
@@ -196,7 +196,7 @@ function buildTheoryGrid(query) {
       )
     : THEORY_PILLS;
   if (list.length === 0)
-    return `<p style="color:var(--ink-light);text-align:center;padding:1.5rem 0;font-size:14px;">No results for "<em>${escHtml(query)}</em>"</p>`;
+    return `<p style="color:var(--ink-light);text-align:center;padding:1.5rem 0;font-size:14px;">${t('home_no_results')} "<em>${escHtml(query)}</em>"</p>`;
   return list.map(t =>
     `<div class="th-home-pill" onclick="openTheory('${t.id}')">
       <span class="th-home-emoji">${t.emoji}</span>
@@ -218,7 +218,7 @@ function renderProfielTab() {
 
   document.getElementById('htab').innerHTML = `
     <div class="htab-header fade-in">
-      <h2 class="htab-title">${name ? `Hey, ${name}` : 'My profile'}</h2>
+      <h2 class="htab-title">${name ? `Hey, ${name}` : t('profile_title')}</h2>
       <p class="htab-sub">Your progress & statistics</p>
     </div>
     <div id="xpWrap" class="fade-in-1"></div>
@@ -267,10 +267,21 @@ function renderProfielTab() {
     <div class="adm-home-card fade-in-4" onclick="showAdmin()">
       <span style="font-size:20px;">🗂️</span>
       <div class="fav-home-info">
-        <span class="fav-home-name">Question bank</span>
+        <span class="fav-home-name">${t('profile_bank')}</span>
         <span class="fav-home-sub">${QUESTIONS.length} questions · manage &amp; overview</span>
       </div>
       <span style="font-size:18px;color:var(--ink-light);opacity:0.5;">→</span>
+    </div>
+
+    <div class="lang-card fade-in-4">
+      <div class="lang-card-label">${t('profile_lang')}</div>
+      <div class="lang-btns">
+        ${LANGS.map(l => `
+          <button class="lang-btn${getLang() === l.code ? ' active' : ''}"
+            onclick="setLang('${l.code}')">
+            ${l.flag} ${l.label}
+          </button>`).join('')}
+      </div>
     </div>`;
   renderXPHome();
   const achWrap = document.getElementById('achievementsWrap');

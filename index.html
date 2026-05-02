@@ -34,7 +34,7 @@
       </svg>
     </div>
     <div class="toast-body" id="toastBody"></div>
-    <div class="toast-hint">Tap for explanation →</div>
+    <div class="toast-hint" id="toastHint">Tap for explanation →</div>
   </div>
 
   <!-- Fact sheet (bottom sheet, always present) -->
@@ -99,6 +99,9 @@
     <div class="combo-label" id="comboLabel"></div>
   </div>
 
+  <!-- i18n — must load first -->
+  <script src="src/i18n.js"></script>
+
   <!-- Data -->
   <script src="src/data/questions.js"></script>
   <script src="src/data/cases.js"></script>
@@ -123,6 +126,21 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
+    // Apply i18n to static HTML elements
+    document.addEventListener('DOMContentLoaded', () => {
+      const th = document.getElementById('toastHint');
+      if (th) th.textContent = t('tap_explain');
+      const fh = document.querySelector('.fact-heading');
+      if (fh) fh.textContent = t('explanation');
+      const fb = document.querySelector('.fact-close-btn');
+      if (fb) fb.textContent = t('back_game');
+      const te = document.querySelector('.theory-eyebrow');
+      if (te) te.textContent = t('theory_book');
+      const ru = document.querySelector('.rankup-sub');
+      if (ru) ru.textContent = getLang() === 'nl' ? 'Nieuwe rang bereikt!' : 'New rank reached!';
+      const ab = document.querySelector('.ach-banner-top');
+      if (ab) ab.textContent = getLang() === 'nl' ? 'Prestatie ontgrendeld!' : 'Achievement unlocked!';
+    });
   </script>
 
 </body>
