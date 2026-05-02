@@ -2,6 +2,7 @@
 
 let SD = {};
 let SD_DECAY_IV = null;
+let SD_COUNTDOWN_TO = null;
 
 function getTodayDetectiveCase() {
   const today = getTodayStr();
@@ -115,6 +116,13 @@ function startSpeurdokter() {
 function renderSpeurdokterIntro() {
   const c = SD.case;
   const stars = sdStars(c.difficulty);
+  const domainLabel = c.domain ? c.domain.charAt(0).toUpperCase() + c.domain.slice(1) : '';
+  const urgencyBadge = c.urgency === 'high'
+    ? `<span class="sd-urgency-badge high">🚨 High urgency</span>`
+    : c.urgency === 'medium'
+      ? `<span class="sd-urgency-badge medium">⚠ Medium urgency</span>`
+      : '';
+  const patientIcon = /vrouw|woman|female|f,/i.test(c.patient) ? '👩' : '👨';
 
   document.getElementById('app').innerHTML = `
     <div id="speurdokter" class="screen active">
@@ -125,9 +133,13 @@ function renderSpeurdokterIntro() {
         </div>
 
         <div class="sd-intro-card fade-in">
+          <div class="sd-intro-top-row">
+            ${urgencyBadge}
+            ${domainLabel ? `<span class="sd-intro-domain">${escHtml(domainLabel)}</span>` : ''}
+          </div>
           <div class="sd-intro-stamp">DIAGNOSIS UNKNOWN</div>
           <div class="sd-patient-line">
-            <span class="sd-patient-icon">🏥</span>
+            <span class="sd-patient-icon">${patientIcon}</span>
             <span class="sd-patient-label">${escHtml(c.patient)}</span>
           </div>
           <h2 class="sd-case-title">${escHtml(c.title)}</h2>
@@ -325,7 +337,11 @@ function renderSpeurdokterGame() {
         <div class="sd-wrap">
           ${sdNav}
           ${sdClueStrip()}
-          ${mustDiagnose ? `<div class="sd-limit-banner">🎯 ${SD.maxSteps} investigations done — make your diagnosis now</div>` : ''}
+          ${mustDiagnose
+            ? SD.remaining.length === 0
+              ? `<div class="sd-limit-banner">🔬 No more investigations available — make your diagnosis now</div>`
+              : `<div class="sd-limit-banner">🎯 Limit reached (${SD.maxSteps} steps) — make your diagnosis now</div>`
+            : ''}
           <div class="sd-section-label" style="margin-bottom:0.6rem">Clinical approach</div>
           <div class="sd-phase-cards fade-in">${cards}</div>
           <div class="sd-diag-wrap">
@@ -728,7 +744,7 @@ function renderSpeurdokterReveal(rec) {
   }).join('');
   let diagBonus = rec.correct ? 50 : -50;
   let stepBonus = 0;
-  if (rec.correct) {
+  if (rec.correct && rec.treatmentCorrect) {
     if (rec.stepsUsed <= 2) stepBonus = 80;
     else if (rec.stepsUsed <= 3) stepBonus = 50;
     else if (rec.stepsUsed <= 4) stepBonus = 25;
@@ -742,6 +758,8 @@ function renderSpeurdokterReveal(rec) {
         <span>${rec.correct ? 'Correct diagnosis' : 'Wrong diagnosis'}</span>
         <span>${rec.correct ? '+50' : '−50'}</span>
       </div>
+      ${rec.treatmentCorrect === true ? `<div class="sd-score-line pos"><span>Correct treatment</span><span>+20</span></div>` : ''}
+      ${rec.treatmentCorrect === false ? `<div class="sd-score-line neg"><span>Wrong treatment</span><span>+0</span></div>` : ''}
       ${stepBonus > 0 ? `<div class="sd-score-line pos"><span>Speed bonus</span><span>+${stepBonus}</span></div>` : ''}
       <div class="sd-score-line total"><span>Total</span><span>${rec.score}</span></div>
     </details>`;
@@ -802,10 +820,29 @@ function renderSpeurdokterReveal(rec) {
         </div>` : ''}
 
         <div class="sd-explain-card fade-in-4">
-          <div class="sd-explain-head">Explanation</div>
+          <div class="sd-explain-head">Diagnosis: Explanation</div>
           <p class="sd-explain-text">${escHtml(c.diagnosis.explanation)}</p>
           ${wikiHtml}
         </div>
+
+        ${c.treatment ? (() => {
+          const chosenTreatmentLabel = c.treatment.options[rec.treatmentIdx]?.label;
+          const correctTreatmentLabel = c.treatment.options[c.treatment.correct]?.label;
+          const treatmentEx = c.treatment.explanation;
+          return `<div class="sd-explain-card sd-treatment-explain fade-in-4">
+            <div class="sd-explain-head">Treatment: Explanation</div>
+            ${chosenTreatmentLabel != null ? `
+              <div class="sd-treatment-chosen ${rec.treatmentCorrect ? 'correct' : 'wrong'}">
+                <span class="sd-treatment-chosen-label">${rec.treatmentCorrect ? '✓' : '✗'} You chose:</span>
+                <span>${escHtml(chosenTreatmentLabel)}</span>
+              </div>
+              ${!rec.treatmentCorrect ? `<div class="sd-treatment-correct-reveal">
+                <span class="sd-treatment-chosen-label">✓ Correct answer:</span>
+                <span>${escHtml(correctTreatmentLabel)}</span>
+              </div>` : ''}` : ''}
+            ${treatmentEx ? `<p class="sd-explain-text" style="margin-top:0.75rem">${escHtml(treatmentEx)}</p>` : ''}
+          </div>`;
+        })() : ''}
 
         <div class="sd-countdown-card fade-in-5">
           <div class="sd-countdown-label">Next case in</div>
@@ -873,25 +910,31 @@ function sdClinicalFrameworkHTML(c) {
   </div>`;
 }
 
+function sdStopCountdown() {
+  if (SD_COUNTDOWN_TO) { clearTimeout(SD_COUNTDOWN_TO); SD_COUNTDOWN_TO = null; }
+}
+
 function sdStartCountdown() {
+  sdStopCountdown();
   const tick = () => {
     const el = document.getElementById('sdCountdown');
     if (!el) return;
     const now = new Date();
     const midnight = new Date(now); midnight.setHours(24, 0, 0, 0);
     const diff = midnight - now;
-    if (diff <= 0) { el.textContent = 'Nu beschikbaar! 🎉'; return; }
+    if (diff <= 0) { el.textContent = 'Available now! 🎉'; return; }
     const hh = String(Math.floor(diff / 3600000)).padStart(2, '0');
     const mm = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
     const ss = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
     el.textContent = `${hh}:${mm}:${ss}`;
-    setTimeout(tick, 1000);
+    SD_COUNTDOWN_TO = setTimeout(tick, 1000);
   };
   tick();
 }
 
 function sdQuit() {
   sdStopDecay();
+  sdStopCountdown();
   showHome();
 }
 

@@ -3669,6 +3669,35 @@ h1.logo em {
   position: relative;
   overflow: hidden;
 }
+.sd-intro-top-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.sd-urgency-badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  padding: 3px 9px;
+}
+.sd-urgency-badge.high { background: rgba(232,65,10,0.25); color: #ff8060; }
+.sd-urgency-badge.medium { background: rgba(255,190,50,0.2); color: #ffc84a; }
+.sd-intro-domain {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 3px 9px;
+}
 .sd-intro-card::before {
   content: '';
   position: absolute;
@@ -4526,6 +4555,28 @@ details[open].sd-score-breakdown summary::before { content: '− '; }
   color: var(--ink-mid);
   line-height: 1.65;
   margin: 0 0 0.75rem;
+}
+.sd-treatment-explain { border-left: 3px solid var(--pulse); }
+.sd-treatment-chosen {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+.sd-treatment-chosen.correct { background: rgba(34,197,94,0.12); color: var(--green, #22c55e); }
+.sd-treatment-chosen.wrong   { background: rgba(232,65,10,0.1);  color: var(--pulse); }
+.sd-treatment-chosen-label   { font-weight: 700; margin-right: 0.4rem; }
+.sd-treatment-correct-reveal {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  background: rgba(34,197,94,0.1);
+  color: var(--green, #22c55e);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.5;
 }
 .sd-wiki {
   border-top: 1px solid rgba(26,20,16,0.07);
