@@ -1,0 +1,4068 @@
+{
+"questions": [
+{
+"_i": 325,
+"q": "Osteoarthritis is a purely degenerative wear-and-tear disease without an inflammatory component.",
+"a": null,
+"ex": "FALSE. Osteoarthritis does indeed have an inflammatory component: synovitis, activation of cartilage cells (chondrocytes), and subchondral bone changes occur. However, the disease is not autoimmune in nature like RA. Low-grade inflammation plays an important role in progression.",
+"dl": "Rheumatology",
+"wiki_kern": "Osteoarthritis: the most common joint disorder. Prevalence rises sharply with age.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Cartilage has no blood vessels."
+},
+{
+"title": "Step 2",
+"desc": "limited repair capacity. Chondrocytes produce MMPs (matrix metalloproteinases)."
+},
+{
+"title": "Step 3",
+"desc": "extracellular matrix breakdown. Subchondral bone sclerosis: increased stiffness."
+},
+{
+"title": "Step 4",
+"desc": "shock absorption is reduced."
+},
+{
+"title": "Step 5",
+"desc": "further cartilage loading."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "RA",
+"desc": "symmetric, MCP/PIP, inflammatory markers high, RF/CCP positive."
+},
+{
+"label": "Osteoarthritis",
+"desc": "asymmetric, weight-bearing joints (knee, hip, DIP-Heberden), ESR/CRP normal or mildly elevated."
+},
+{
+"label": "Gout",
+"desc": "acute attacks, urate crystals."
+},
+{
+"label": "Pseudogout",
+"desc": "CPPD crystals, knee."
+}
+],
+"wiki_therapie_urgent": "Conservative: weight loss, physiotherapy, analgesics (paracetamol, NSAIDs).",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "Intra-articular corticosteroid injections in moderate/severe disease."
+},
+{
+"naam": "Step 2",
+"detail": "Joint replacement (prosthesis) in end-stage disease (knee and hip replacement effective)."
+},
+{
+"naam": "Step 3",
+"detail": "No DMARDs are effective."
+}
+]
+},
+{
+"_i": 326,
+"q": "Which laboratory finding distinguishes polymyositis from polymyalgia rheumatica (PMR)?",
+"a": [
+"Elevated creatine kinase (CK) in polymyositis, normal in PMR",
+"Elevated ESR in polymyositis, normal in PMR",
+"Positive ANA in polymyositis, negative in PMR",
+"Anti-CCP positive in polymyositis"
+],
+"ex": "CK is the key criterion: polymyositis = autoimmune muscle inflammation → high CK (sometimes >10× ULN). PMR = synovitis/tenosynovitis without myositis → CK normal. Both have high ESR/CRP, but muscle weakness plus high CK = polymyositis.",
+"dl": "Rheumatology",
+"wiki_kern": "Inflammatory myopathies: polymyositis (PM), dermatomyositis (DM), necrotizing myopathy, antisynthetase syndrome. PM: proximal muscle weakness (climbing stairs, lifting arms), normal CK.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Mechanism",
+"desc": "Myositis-specific antibodies: anti-Jo-1 (antisynthetase syndrome, associated with interstitial lung disease), anti-Mi-2 (DM, favorable prognosis), anti-MDA5 (DM without myositis, rapidly progressive ILD), anti-SRP (necrotizing myopathy)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "PMR",
+"desc": "no muscle weakness (only stiffness and pain), normal CK, age >50 years, rapid response to 15-20 mg prednisolone."
+},
+{
+"label": "Hypothyroidism",
+"desc": "also muscle weakness and elevated CK, but TSH is high."
+},
+{
+"label": "Statin-induced myopathy",
+"desc": "CK high, history of statin use."
+}
+],
+"wiki_therapie_urgent": "PM/DM: prednisolone 1 mg/kg/day → taper + MTX or azathioprine as steroid-sparing therapy.",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "IVIg in severe or treatment-resistant disease."
+},
+{
+"naam": "Step 2",
+"detail": "Rituximab in anti-Jo-1 or anti-MDA5."
+},
+{
+"naam": "Step 3",
+"detail": "Malignancy screening (DM association with cancer)."
+}
+]
+},
+{
+"_i": 327,
+"q": "Woman aged 27 years, 8 weeks amenorrhea, positive pregnancy test, sudden severe right-sided abdominal pain and vaginal bleeding. Hemodynamically unstable. Diagnosis?",
+"a": [
+"Ruptured ectopic pregnancy",
+"Miscarriage (incomplete abortion)",
+"Appendicitis",
+"Ruptured ovarian cyst"
+],
+"ex": "Ectopic pregnancy: positive pregnancy test + sudden abdominal pain + shock = emergency surgery. Most commonly occurs in the fallopian tube.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Ectopic pregnancy: implantation outside the uterus, in 97% in the fallopian tube. Risk factors: previous pelvic inflammatory disease, previous ectopic pregnancy, tubal surgery.",
+"wiki_redflag": "Rupture can occur before the woman knows she is pregnant — abdominal pain + shock in a woman of reproductive age: always do a pregnancy test first.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Abnormal implantation",
+"desc": "Damaged fallopian tube (due to infection or surgery) prevents the fertilized egg from reaching the uterus → implantation in the tubal wall."
+},
+{
+"title": "Beta-hCG (pregnancy hormone) pattern",
+"desc": "In a normal pregnancy, beta-hCG doubles every 48 hours. In ectopic pregnancy: suboptimal rise or plateau."
+},
+{
+"title": "Transvaginal ultrasound",
+"desc": "At beta-hCG >1500 IU/L, a gestational sac is expected in the uterus. No visible sac = strong suspicion of ectopic pregnancy."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Miscarriage",
+"desc": "Also bleeding and cramping, but hemodynamically stable and gestational sac visible in uterus on ultrasound."
+},
+{
+"label": "Ovarian cyst rupture",
+"desc": "Severe abdominal pain, but pregnancy test negative."
+},
+{
+"label": "Appendicitis",
+"desc": "Right lower quadrant pain, fever, pregnancy test negative — both can occur at the same time."
+}
+],
+"wiki_therapie_urgent": "Rupture + unstable: emergency surgery (laparoscopy or laparotomy) + removal of fallopian tube.",
+"wiki_therapie_stappen": [
+{
+"naam": "Unruptured + stable",
+"detail": "Methotrexate (injection that inhibits cell growth) as an alternative to surgery when beta-hCG <5000 IU/L and no fetal cardiac activity."
+},
+{
+"naam": "Follow-up",
+"detail": "Measure beta-hCG weekly until negative."
+}
+]
+},
+{
+"_i": 328,
+"q": "Woman aged 32 years, 30 weeks pregnant, blood pressure 162/105 mmHg, proteinuria 2+ on dipstick, headache, visual disturbances. Diagnosis?",
+"a": [
+"Pre-eclampsia",
+"Chronic hypertension",
+"Gestational hypertension",
+"HELLP syndrome"
+],
+"ex": "Pre-eclampsia: blood pressure ≥140/90 after 20 weeks + proteinuria. Delivery is the only cure.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Pre-eclampsia affects 2-8% of pregnancies. Cause: insufficient placental invasion → oxygen deficiency → vasoconstriction throughout the body.",
+"wiki_redflag": "HELLP syndrome (hemolytic anemia + elevated liver enzymes + low platelets) and eclampsia (seizure) are life-threatening complications.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Insufficient placental invasion",
+"desc": "Insufficient invasion of placental cells into the uterine wall → placental ischemia → release of vasoconstrictive substances."
+},
+{
+"title": "Systemic vascular damage",
+"desc": "Vasoconstriction throughout the body → hypertension, renal protein loss (proteinuria), fluid accumulation (edema), elevated liver enzymes."
+},
+{
+"title": "Complications: HELLP and eclampsia",
+"desc": "HELLP = hemolytic anemia + elevated liver enzymes + low platelets. Eclampsia = seizure. Magnesium sulfate prevents convulsions."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Chronic hypertension",
+"desc": "Already present before 20 weeks of pregnancy or persists longer than 12 weeks postpartum."
+},
+{
+"label": "Gestational hypertension",
+"desc": "High blood pressure after 20 weeks but no proteinuria — less severe."
+},
+{
+"label": "HELLP syndrome",
+"desc": "Severe variant: thrombocytopenia + high liver enzymes + hemolysis — can also occur without severe hypertension."
+}
+],
+"wiki_therapie_urgent": "Blood pressure ≥160/110: intravenous labetalol or nifedipine. Magnesium sulfate in severe pre-eclampsia (seizure prophylaxis).",
+"wiki_therapie_stappen": [
+{
+"naam": "Delivery <34 weeks",
+"detail": "Weigh up: prematurity risk vs. danger to mother and child. Fetal lung maturation with corticosteroids."
+},
+{
+"naam": "Delivery ≥37 weeks",
+"detail": "Active induction — delivery is the only cure."
+},
+{
+"naam": "Magnesium sulfate",
+"detail": "Continue for 24 hours after delivery to prevent eclampsia."
+}
+]
+},
+{
+"_i": 329,
+"q": "Woman aged 24 years, worsening dysmenorrhea (menstrual pain that persists outside menstruation), dyspareunia, infertility. Laparoscopy: blue-black lesions on the peritoneum. Diagnosis?",
+"a": [
+"Endometriosis",
+"Primary dysmenorrhea",
+"PID (pelvic inflammatory disease)",
+"Uterine fibroid"
+],
+"ex": "Endometriosis: endometrial tissue outside the uterus → worsening menstrual pain + pain during intercourse + infertility.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Endometriosis affects 10% of women of reproductive age and 30-50% of women with infertility. Endometrium grows outside the uterus on the peritoneum, ovaries, or intestines.",
+"wiki_redflag": "Endometriomas (chocolate cysts in the ovaries) can rupture and cause an acute abdomen. Diagnosis is delayed by an average of 7-10 years.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Retrograde menstruation",
+"desc": "Menstrual blood flows back through the fallopian tubes into the abdominal cavity — endometrial cells implant on the peritoneum, ovaries, or intestines."
+},
+{
+"title": "Local estrogen production + inflammation",
+"desc": "Ectopic endometrium produces its own estrogen → grows outside the cycle → chronic inflammation → scarring and adhesions."
+},
+{
+"title": "Consequences for fertility",
+"desc": "Adhesions block the fallopian tubes, chocolate cysts damage the ovaries. Endometriosis is the cause in 30-50% of women with infertility."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Primary dysmenorrhea",
+"desc": "Menstrual pain without an organic cause — responds well to analgesics (NSAIDs) and the contraceptive pill, no pain outside menstruation."
+},
+{
+"label": "Pelvic inflammatory disease (PID)",
+"desc": "Acute fever, purulent discharge, elevated inflammatory markers — no chronic pattern."
+},
+{
+"label": "Fibroid (myoma)",
+"desc": "Heavy bleeding and pressure sensation — no specific menstrual pain or dyspareunia."
+}
+],
+"wiki_therapie_urgent": "Pain treatment: anti-inflammatory drugs (NSAIDs) or continuous combined oral contraceptive pill (without pill-free week).",
+"wiki_therapie_stappen": [
+{
+"naam": "Hormonal suppression",
+"detail": "GnRH agonists (leuprorelin), progestogens (norethisterone), hormonal IUD (levonorgestrel-IUD)."
+},
+{
+"naam": "Laparoscopy",
+"detail": "Removal of endometriotic lesions and adhesions — both diagnostic and therapeutic."
+},
+{
+"naam": "Infertility",
+"detail": "In vitro fertilization (IVF) is first choice in severe endometriosis with infertility."
+}
+]
+},
+{
+"_i": 330,
+"q": "Man aged 40 years, painless right testicular swelling. Ultrasound: solid heterogeneous mass. AFP and beta-hCG elevated. Diagnosis?",
+"a": [
+"Testicular cancer (germ cell tumor)",
+"Epididymo-orchitis",
+"Hydrocele",
+"Varicocele"
+],
+"ex": "Painless testicular swelling in a man aged 15-40 years = germ cell tumor until proven otherwise. Ultrasound + AFP + beta-hCG.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Testicular cancer is the most common solid tumor in men aged 15-40 years. Two main types: seminoma (50%, slow-growing, radiosensitive) and non-seminoma (AFP and/or beta-hCG elevated, faster-growing).",
+"wiki_redflag": "Every painless testicular swelling in a young adult is a germ cell tumor until proven otherwise — never wait and see.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Tumor markers",
+"desc": "Alpha-fetoprotein (AFP): elevated in non-seminomas. Beta-hCG (pregnancy hormone): elevated with a choriocarcinoma component or seminoma. LDH (lactate dehydrogenase): measure of tumor burden."
+},
+{
+"title": "Marker decline after surgery",
+"desc": "Half-life AFP 5-7 days, beta-hCG 1-3 days. Slow decline = residual tumor or metastases."
+},
+{
+"title": "Always operate via the groin",
+"desc": "Orchiectomy via an inguinal incision, never via the scrotum — scrotal incision disrupts lymphatic drainage and can cause spread."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Epididymitis/epididymo-orchitis",
+"desc": "Painfully swollen testes, fever, elevated white blood cells — responds to antibiotics."
+},
+{
+"label": "Hydrocele (fluid sac)",
+"desc": "Fluid around the testicle, transilluminates, ultrasound shows no solid mass."
+},
+{
+"label": "Varicocele (varicose veins)",
+"desc": "Bag-of-worms sensation in the scrotum, disappears when lying flat — no solid mass on ultrasound."
+}
+],
+"wiki_therapie_urgent": "Always start with inguinal orchiectomy (removal of testis via groin) for diagnosis and treatment.",
+"wiki_therapie_stappen": [
+{
+"naam": "Seminoma stage I",
+"detail": "Radiation of retroperitoneal lymph nodes or carboplatin course — cure >99%."
+},
+{
+"naam": "Non-seminoma / advanced stage",
+"detail": "BEP chemotherapy (bleomycin + etoposide + cisplatin) — cure >95% in localized disease."
+},
+{
+"naam": "Sperm preservation",
+"detail": "Offer sperm cryopreservation before chemotherapy or radiotherapy."
+}
+]
+},
+{
+"_i": 331,
+"q": "Woman aged 52 years, irregular menstruation over the last 2 years, hot flashes, night sweats, sleep problems, vaginal dryness. FSH 45 IU/L, LH elevated, estradiol low. Diagnosis?",
+"a": [
+"Menopause/climacteric",
+"PCOS",
+"Hyperprolactinemia",
+"Premature ovarian insufficiency"
+],
+"ex": "Menopause: 12 months without menstruation at age ≥45 years. FSH rises, estradiol falls. Average age 51 years.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Menopause = the final menstrual period, confirmed after 12 months of amenorrhea. Cause: the ovaries become depleted, estrogen production stops. Average age is 51 years.",
+"wiki_redflag": "Menopause before age 40 is called premature ovarian insufficiency (POI) — extra risk of osteoporosis and cardiovascular disease. Hormone therapy is then strongly recommended.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Ovarian depletion",
+"desc": "Declining number of oocytes → estrogen production falls → hypothalamus and pituitary respond with more follicle-stimulating hormone (FSH) and luteinizing hormone (LH)."
+},
+{
+"title": "Hot flashes and night sweats",
+"desc": "Sudden estrogen decline disrupts hypothalamic thermoregulation → sudden feeling of heat + sweating. Affects 75% of women."
+},
+{
+"title": "Urogenital atrophy",
+"desc": "Less estrogen → mucosa of vagina and urethra becomes thinner and drier → pain during intercourse, more frequent urinary tract infection."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Polycystic ovary syndrome (PCOS)",
+"desc": "Younger woman, irregular menstruation, but FSH normal or low — not elevated."
+},
+{
+"label": "Elevated prolactin levels (hyperprolactinemia)",
+"desc": "Also amenorrhea + sometimes galactorrhea — prolactin elevated, FSH actually low."
+},
+{
+"label": "Premature ovarian insufficiency (POI)",
+"desc": "Same picture as menopause but before age 40 — rule out autoimmune or chromosomal cause."
+}
+],
+"wiki_therapie_urgent": "Severe symptoms: menopausal hormone therapy (MHT) — estrogen + progestogen (in women with a uterus).",
+"wiki_therapie_stappen": [
+{
+"naam": "Indications for MHT",
+"detail": "Severe hot flashes, sleep symptoms, urogenital atrophy, and bone protection in early menopause."
+},
+{
+"naam": "Risks of MHT",
+"detail": "Slightly increased risk of breast cancer with use longer than 5 years, increased thrombosis risk (with oral administration)."
+},
+{
+"naam": "Alternatives",
+"detail": "SSRIs or SNRIs (antidepressants) reduce hot flashes in women who cannot use hormones."
+}
+]
+},
+{
+"_i": 332,
+"q": "Woman aged 19 years, purulent cervical discharge, abdominal pain, fever, adnexal tenderness, pain with cervical motion. Diagnosis?",
+"a": [
+"Pelvic inflammatory disease (PID)",
+"Ectopic pregnancy",
+"Appendicitis",
+"Endometriosis"
+],
+"ex": "Pelvic inflammatory disease (PID): Chlamydia or gonorrhea ascends to the fallopian tubes. Cervical motion tenderness is the key feature.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Pelvic inflammatory disease (PID): ascending sexually transmitted infection in sexually active women. Pathogens: Chlamydia trachomatis and Neisseria gonorrhoeae.",
+"wiki_redflag": "Untreated PID leads to scarring in the fallopian tubes → infertility and increased risk of ectopic pregnancy.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Ascending infection",
+"desc": "Bacteria ascend from cervix → uterus (endometritis) → fallopian tubes (salpingitis) → ovaries (oophoritis) → peritoneum (peritonitis)."
+},
+{
+"title": "Tubo-ovarian abscess (TOA)",
+"desc": "Severe complication: pus collection in fallopian tubes and ovaries. Diagnosis by ultrasound or CT scan. Treatment: intravenous antibiotics + possible drainage."
+},
+{
+"title": "Fitz-Hugh-Curtis syndrome",
+"desc": "Inflammation of the liver capsule due to PID → right upper quadrant pain, adhesions (violin strings) visible at laparoscopy."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Ectopic pregnancy",
+"desc": "Also adnexal pain, but pregnancy test positive."
+},
+{
+"label": "Appendicitis",
+"desc": "Right lower quadrant pain, fever, elevated white blood cells — no cervical discharge."
+},
+{
+"label": "Endometriosis",
+"desc": "Chronic, cyclic pattern, no fever or purulent discharge."
+}
+],
+"wiki_therapie_urgent": "Outpatient (mild PID): ceftriaxone 500 mg intramuscularly once + doxycycline 100 mg twice daily for 14 days + metronidazole.",
+"wiki_therapie_stappen": [
+{
+"naam": "Admission for severe course or tubo-ovarian abscess",
+"detail": "Intravenous antibiotics: cefotaxime + metronidazole + doxycycline."
+},
+{
+"naam": "Sexual partners",
+"detail": "Always test and treat partner(s) as well."
+}
+]
+},
+{
+"_i": 333,
+"q": "The combined oral contraceptive pill (estrogen + progestogen) is the most effective form of contraception available.",
+"a": null,
+"ex": "FALSE. The IUD (copper or hormonal) is more effective than the combined pill — less than 0.1% chance of pregnancy per year.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Pearl index: pregnancies per 100 woman-years of use. IUD (copper or hormonal), implant, and sterilization score below 0.5 — more effective than the pill.",
+"wiki_redflag": "The combined pill is relatively contraindicated in migraine with aura, smoking over age 35, history of thrombosis, and severe hypertension.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "How does the combined pill work?",
+"desc": "Estrogen + progestogen inhibit the FSH and LH surge (pituitary hormones) → no ovulation. Additionally: thickening of cervical mucus and endometrial changes."
+},
+{
+"title": "Typical use vs. perfect use",
+"desc": "With perfect use (same time every day): 0.3% chance per year. With typical use (as most people use it): 7-9% chance per year."
+},
+{
+"title": "Emergency contraception",
+"desc": "Levonorgestrel (hormonal pill) within 72 hours, ulipristal acetate within 120 hours, or copper IUD within 5 days — copper IUD is the most effective."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Progestogen-only pill",
+"desc": "Suitable with thrombosis risk, breastfeeding, or contraindication to estrogen."
+},
+{
+"label": "Subcutaneous implant (etonogestrel)",
+"desc": "Effective for 3 years, most effective reversible method — Pearl index 0.05."
+},
+{
+"label": "Copper IUD",
+"desc": "Non-hormonal, effective for 10 years, also emergency contraception within 5 days — Pearl index 0.6."
+}
+],
+"wiki_therapie_urgent": "Starting contraception: combined pill on first day of menstruation (immediately effective) or QuickStart (immediate but condom for first 7 days).",
+"wiki_therapie_stappen": [
+{
+"naam": "IUD insertion",
+"detail": "By physician or midwife — during or shortly after menstruation for easier insertion."
+},
+{
+"naam": "Implant",
+"detail": "Subcutaneous in upper arm — 3 years, immediately effective."
+}
+]
+},
+{
+"_i": 334,
+"q": "Folic acid supplementation is only necessary in women with a history of a neural tube defect.",
+"a": null,
+"ex": "FALSE. Folic acid 0.4 mg/day is for all women wishing to become pregnant — neural tube closure already occurs on day 28.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Folic acid (vitamin B11) is essential for the development of the embryonic nervous system. Deficiency in the first weeks of pregnancy → neural tube defects (spina bifida or anencephaly).",
+"wiki_redflag": "The neural tube closes on days 22-28 after fertilization — most women do not yet know they are pregnant then. Starting after the positive test is too late.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Neural tube closure on day 28",
+"desc": "The neural tube (precursor of brain and spinal cord) closes 22-28 days after fertilization, corresponding to weeks 4-6 of pregnancy."
+},
+{
+"title": "Diet is insufficient",
+"desc": "Green vegetables, legumes, and whole grains contain folic acid, but the amount is insufficient for protection — supplementation is necessary."
+},
+{
+"title": "High risk: 5 mg/day",
+"desc": "Women with epilepsy (using valproate or carbamazepine), diabetes, obesity, or previous neural-tube-defect pregnancy: 5 mg/day (ten times the standard dose)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Standard advice",
+"desc": "0.4 mg/day for all women wishing to become pregnant, starting at least 4 weeks before intended conception."
+},
+{
+"label": "High risk",
+"desc": "History of neural tube defect, antiepileptic drugs, diabetes, obesity (BMI >35): 5 mg/day."
+},
+{
+"label": "Antiepileptic drugs and pregnancy",
+"desc": "Valproate is the most teratogenic — if pregnancy is desired, always consult neurologist about medication switch."
+}
+],
+"wiki_therapie_urgent": "Start folic acid 0.4 mg/day as soon as a woman wants to become pregnant — do not wait for the positive test.",
+"wiki_therapie_stappen": [
+{
+"naam": "Continue until week 10",
+"detail": "Folic acid supplementation through 10 weeks of pregnancy."
+},
+{
+"naam": "High risk",
+"detail": "5 mg/day during the same period."
+}
+]
+},
+{
+"_i": 335,
+"q": "Cervical cancer is almost always caused by an HPV infection.",
+"a": null,
+"ex": "TRUE. More than 99% of cervical cancer is caused by human papillomavirus (HPV) types 16 and 18.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Cervical cancer: almost always caused by human papillomavirus (HPV). High-risk types 16 and 18 are together responsible for more than 70% of all cases.",
+"wiki_redflag": "HPV infection itself causes no symptoms — without population screening (Pap smear), precancerous lesions (CIN) are systematically missed until the cancer causes symptoms.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "HPV disables tumor suppressors",
+"desc": "HPV protein E6 inhibits p53 (normally protects against cancer cells) → damaged cells survive. HPV protein E7 inhibits pRb → cell divisions become uncontrolled."
+},
+{
+"title": "From infection to cancer (years)",
+"desc": "HPV infection → precancerous lesion (CIN 1-3, cervical intraepithelial neoplasia) → carcinoma in situ → invasive carcinoma. This process takes 10-15 years."
+},
+{
+"title": "Vaccination stops the chain",
+"desc": "Nonavalent vaccine (Gardasil 9) protects against HPV types 6, 11, 16, 18, 31, 33, 45, 52 and 58 — recommended for girls and boys aged 12-13 years."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Population screening",
+"desc": "Pap smear + HPV DNA test at ages 30, 35, 40, 45, 50, 55 and 60 years. If abnormal: colposcopy + biopsy."
+},
+{
+"label": "CIN I-II (mild precancerous lesion)",
+"desc": "Observe and recheck — most cases resolve spontaneously."
+},
+{
+"label": "CIN III (severe precancerous lesion)",
+"desc": "Removal by LEEP or conization — prevents invasive carcinoma."
+}
+],
+"wiki_therapie_urgent": "CIN I-II: observe and recheck — spontaneous regression is common.",
+"wiki_therapie_stappen": [
+{
+"naam": "CIN III",
+"detail": "Removal by large loop excision of the transformation zone (LEEP) or conization."
+},
+{
+"naam": "Invasive carcinoma stage I",
+"detail": "Conization (fertility-sparing in young women) or radical hysterectomy + lymph node removal."
+},
+{
+"naam": "Stage II-IV",
+"detail": "Concurrent chemoradiotherapy (cisplatin + radiation)."
+}
+]
+},
+{
+"_i": 336,
+"q": "Which feature distinguishes a miscarriage (incomplete abortion) from an ectopic pregnancy in an 8-week pregnant woman with vaginal bleeding?",
+"a": [
+"Intrauterine gestational sac on ultrasound in miscarriage, no intrauterine pregnancy in EP",
+"Heavier bleeding in EP than in miscarriage",
+"Stronger abdominal pain in miscarriage than in EP",
+"Higher beta-hCG in EP than in miscarriage"
+],
+"ex": "Transvaginal ultrasound decides: miscarriage has a gestational sac in the uterus, ectopic pregnancy does not.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Early pregnancy bleeding: always answer two questions — (1) pregnancy test positive? (2) Is the gestational sac in the uterus on ultrasound? If not: rule out ectopic pregnancy.",
+"wiki_redflag": "Bleeding and pain severity are NOT reliable distinguishing features — always ultrasound + beta-hCG (pregnancy hormone) in early pregnancy bleeding.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Beta-hCG as a guide",
+"desc": "At beta-hCG >1500-2000 IU/L, a gestational sac is expected in the uterus on transvaginal ultrasound. No visible sac = suspicion of ectopic pregnancy."
+},
+{
+"title": "Serial measurements",
+"desc": "Normal intrauterine pregnancy: beta-hCG doubles every 48 hours. Suboptimal rise or plateau: suspicion of miscarriage or ectopic pregnancy."
+},
+{
+"title": "Types of miscarriage",
+"desc": "Threatened (viable fetus + bleeding), incomplete (partial expulsion), complete (complete expulsion), missed miscarriage (fetus died without bleeding)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Threatened miscarriage",
+"desc": "Viable fetus on ultrasound + bleeding — expectant management, 50-80% favorable outcome."
+},
+{
+"label": "Missed miscarriage",
+"desc": "Fetus without cardiac activity on ultrasound, asymptomatic — medical (misoprostol) or curettage."
+},
+{
+"label": "Ectopic pregnancy",
+"desc": "No gestational sac in uterus, possible adnexal mass — can be life-threatening if ruptured."
+}
+],
+"wiki_therapie_urgent": "Rule out ectopic pregnancy in every early pregnancy bleed — ultrasound + beta-hCG.",
+"wiki_therapie_stappen": [
+{
+"naam": "Expectant management of miscarriage",
+"detail": "Expectant policy: wait for spontaneous expulsion (most successful when complete)."
+},
+{
+"naam": "Medical",
+"detail": "Misoprostol (prostaglandin) stimulates the uterus to complete the miscarriage."
+},
+{
+"naam": "Surgical",
+"detail": "Curettage (evacuation of uterus) in incomplete miscarriage or infection."
+}
+]
+},
+{
+"_i": 337,
+"q": "Woman aged 38 years, postcoital bleeding, irregular bleeding outside menstruation, cervix appears abnormal on speculum examination. Diagnosis to rule out?",
+"a": [
+"Cervical cancer",
+"Cervicitis",
+"Cervical polyp",
+"Cervical ectropion"
+],
+"ex": "Postcoital bleeding = alarm symptom for cervical cancer. Always colposcopy + biopsy.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Alarm symptoms for cervical cancer: bleeding after sex, bleeding outside menstruation, foul discharge. Early stage is asymptomatic — screening is essential.",
+"wiki_redflag": "An abnormal cervix on speculum examination (irregular, cauliflower-like structure, bleeds easily) is highly suspicious for carcinoma — refer immediately.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Growth pattern",
+"desc": "Cervical cancer starts in the transformation zone (transition between two types of epithelium) and grows from inside outward."
+},
+{
+"title": "Early stage: no symptoms",
+"desc": "Early cervical cancer usually causes no symptoms — population screening is designed to detect this stage."
+},
+{
+"title": "Locally advanced",
+"desc": "Bleeding after sex or outside menstruation, foul discharge, pain during intercourse. Spread to bladder, intestines, or lymph nodes in advanced stages."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Cervicitis",
+"desc": "Purulent discharge, gonorrhea or Chlamydia positive — no macroscopic lesion on the cervix."
+},
+{
+"label": "Cervical polyp",
+"desc": "Benign pedunculated protrusion — can also cause bleeding but looks different."
+},
+{
+"label": "Ectropion",
+"desc": "Columnar epithelium visible on the outside of the cervix — benign, bleeds easily but no cancer risk."
+}
+],
+"wiki_therapie_urgent": "Suspicious lesion: refer immediately for colposcopy + biopsy.",
+"wiki_therapie_stappen": [
+{
+"naam": "Stage I (confined to cervix)",
+"detail": "Surgery: conization (fertility-sparing) or radical hysterectomy + lymph node removal."
+},
+{
+"naam": "Stage II-IV",
+"detail": "Concurrent chemoradiotherapy (cisplatin + radiation)."
+}
+]
+},
+{
+"_i": 338,
+"q": "Man aged 68 years, palpitations and mild lightheadedness. His ECG is shown.\n\nWhat is the most likely diagnosis?",
+"a": [
+"Atrial fibrillation",
+"Sinus tachycardia",
+"Supraventricular tachycardia",
+"Atrial flutter"
+],
+"ex": "Atrial fibrillation: no clear P waves, chaotic fine baseline (fibrillation waves), and completely irregular RR intervals ("irregularly irregular"). SVT has a regular rhythm; atrial flutter shows sawtooth F waves (~300/min) with regular conduction.",
+"dl": "Cardiology",
+"wiki_kern": "AF is the most common cardiac arrhythmia (prevalence ~1-2%). Pathophysiology: chaotic electrical activity in the atria → AV node filters randomly → irregular ventricular rhythm.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Ectopic triggers",
+"desc": "Ectopic foci in the pulmonary veins fire rapid impulses → initiate AF. Ablation of these foci is the basis of curative catheter ablation."
+},
+{
+"title": "Chaotic re-entry circuits",
+"desc": "Multiple simultaneous micro re-entry circuits in the atrial myocardium → atrial rate 350-600/min → no coordinated contraction possible."
+},
+{
+"title": "AV node as filter",
+"desc": "AV node randomly conducts some impulses → absolutely irregular ventricular rhythm. Uncontrolled rate: 100-160/min."
+},
+{
+"title": "Tachycardia cardiomyopathy",
+"desc": "Prolonged uncontrolled rapid ventricular response → tachycardia-induced cardiomyopathy with falling EF — reversible after rate control."
+},
+{
+"title": "Thrombosis risk",
+"desc": "Stagnant blood in the left atrial appendage (no atrial contraction) → thrombus → embolization → stroke. CHA₂DS₂-VASc determines anticoagulation indication."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Atrial fibrillation (AF)",
+"desc": "Absolutely irregular narrow-complex rhythm, no P waves, chaotic fibrillation waves. Rate 100-160/min when uncontrolled."
+},
+{
+"label": "Atrial flutter",
+"desc": "Regular ~150/min, sawtooth F waves in II/III/aVF — carotid massage reveals the flutter waves."
+},
+{
+"label": "AVNRT / SVT",
+"desc": "Regular narrow-complex, sudden start/stop — P hidden in QRS."
+},
+{
+"label": "AF with bundle branch block",
+"desc": "Irregular but wide QRS — can resemble VT. Polymorphic VT with QTc prolongation."
+}
+],
+"wiki_therapie_urgent": "Acutely hemodynamically unstable: electrical cardioversion.",
+"wiki_therapie_stappen": [
+{
+"naam": "Stable",
+"detail": "rate control (metoprolol, diltiazem, digoxin) or rhythm control (flecainide, amiodarone)."
+},
+{
+"naam": "Anticoagulation",
+"detail": "DOAC based on CHA₂DS₂-VASc ≥2 (men) or ≥3 (women)."
+}
+]
+},
+{
+"_i": 339,
+"q": "Woman aged 62 years, acute severe pressure-like chest pain radiating to the left arm. Ambulance ECG shown.\n\nWhat is the most urgent diagnosis?",
+"a": [
+"ST-elevation myocardial infarction (STEMI)",
+"Unstable angina pectoris",
+"Pulmonary embolism",
+"Pericarditis"
+],
+"ex": "STEMI: ST elevation ≥1 mm in ≥2 contiguous leads. This ECG shows persistent ST elevation with hyperacute T waves — the classic picture. Immediate PCI within 90 min is the treatment of choice. Pericarditis gives saddle-shaped elevation in all leads; pulmonary embolism gives an S1Q3T3 pattern.",
+"dl": "Cardiology",
+"wiki_kern": "STEMI diagnosis: ST elevation ≥1 mm (≥2 mm in V1-V3) in ≥2 contiguous leads, or new LBBB. Localization: inferior (II/III/aVF = RCA), anterior (V1-V4 = LAD), lateral (I/aVL/V5-V6 = LCx).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Plaque rupture and thrombus",
+"desc": "Vulnerable atherosclerotic plaque in a coronary artery ruptures → subendothelial collagen exposed → platelet aggregation + fibrin thrombus → complete occlusion."
+},
+{
+"title": "Transmural infarct",
+"desc": "Full thickness of the myocardium becomes ischemic → cellular ion gradients disrupted → ST elevation on ECG, troponin leaks into blood after 1-3 hours."
+},
+{
+"title": "Hyperacute T waves",
+"desc": "Earliest ECG sign: hyperacute (tall, broad) T waves due to hyperkalemia in ischemic cells. Then ST elevation, then T inversion, then Q waves."
+},
+{
+"title": "ECG localization",
+"desc": "Inferior (II/III/aVF = RCA), anterior (V1-V4 = LAD), lateral (I/aVL/V5-V6 = LCx). Reciprocal depressions in opposite leads confirm transmural infarct."
+},
+{
+"title": "Time course",
+"desc": "ST elevation (minutes) → Q wave (hours) → T inversion (hours-days) → Q remains permanently. 'Time is muscle': every 30 min delay = ~7.5% more myocardial loss."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "STEMI",
+"desc": "ST elevation ≥1 mm in ≥2 contiguous leads (≥2 mm in V1-V3), hyperacute T waves in early stage. Immediate PCI <90 minutes."
+},
+{
+"label": "Pericarditis",
+"desc": "Diffuse saddle-shaped ST elevation + PR depression in all leads — no regional distribution, no reciprocal depressions."
+},
+{
+"label": "NSTEMI",
+"desc": "No ST elevation but troponin does rise. ST depression and T inversion as ECG signs."
+},
+{
+"label": "Early repolarization",
+"desc": "Concave ST elevation in young patients without symptoms — benign finding."
+}
+],
+"wiki_therapie_urgent": "Primary PCI: gold standard <12h after symptom onset.",
+"wiki_therapie_stappen": [
+{
+"naam": "Thrombolysis as alternative",
+"detail": "Lysis (alteplase) if PCI is not available within 120 min of first medical contact — door-to-needle <30 min."
+},
+{
+"naam": "Antiplatelet therapy",
+"detail": "aspirin + ticagrelor/prasugrel."
+},
+{
+"naam": "Anticoagulation",
+"detail": "heparin periprocedurally."
+}
+]
+},
+{
+"_i": 340,
+"q": "Man aged 72 years, exertional dyspnea and presyncope. ECG pattern shown.\n\nWhich conduction pattern is visible?",
+"a": [
+"Left bundle branch block (LBBB)",
+"Right bundle branch block (RBBB)",
+"WPW syndrome",
+"Ventricular tachycardia"
+],
+"ex": "Left bundle branch block: wide QRS (>120 ms), no initial Q wave in I/V6, notched (M-shaped) R complex in lateral leads, discordant ST-T changes. RBBB gives an rSR' pattern in V1 (rabbit ears). WPW has a delta wave and short PR interval.",
+"dl": "Cardiology",
+"wiki_kern": "LBBB criteria: QRS >120 ms, no Q in I/V5/V6, broad notched R in I/aVL/V5/V6, rS or QS in V1. Discordant ST-T = ST-T opposite to QRS deflection.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Normal conduction",
+"desc": "Impulse travels via His bundle → left and right bundle branches → simultaneous LV and RV activation → narrow QRS (<120 ms)."
+},
+{
+"title": "LBBB: delayed LV activation",
+"desc": "Left bundle branch is blocked → impulse reaches LV via the right bundle branch and transseptally → slow, asynchronous LV depolarization → wide QRS (>120 ms)."
+},
+{
+"title": "Broad notched QRS pattern",
+"desc": "Slow transseptal activation of the LV causes the characteristic M-notched QRS in I/aVL/V5-V6. No initial septal Q wave in I/V6 (disappears due to reversed septal depolarization)."
+},
+{
+"title": "Discordant ST-T changes",
+"desc": "ST segment and T wave are always opposite to the QRS deflection (discordant). This is normal in LBBB — but makes STEMI diagnosis difficult (Sgarbossa criteria help)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "LBBB (left bundle branch block)",
+"desc": "QRS >120 ms, broad notched M pattern in I/aVL/V5-V6, no initial Q in I/V6, rS or QS in V1. Discordant ST-T changes."
+},
+{
+"label": "RBBB (right bundle branch block)",
+"desc": "rSR' pattern in V1 ("rabbit ears"), broad S in I/V6. Incomplete RBBB: QRS 110-120 ms."
+},
+{
+"label": "WPW",
+"desc": "Delta wave (pre-excitation at start of QRS), short PR <120 ms — dangerous in AF (very rapid conduction)."
+},
+{
+"label": "Ventricular hypertrophy",
+"desc": "Wide QRS not present — amplitude criteria and repolarization abnormalities."
+}
+],
+"wiki_therapie_urgent": "LBBB by itself requires no treatment.",
+"wiki_therapie_stappen": [
+{
+"naam": "New LBBB in ACS",
+"detail": "New LBBB with chest pain = STEMI equivalent → immediate PCI, even if ST elevation is not classically visible (Sgarbossa criteria)."
+},
+{
+"naam": "Heart failure + LBBB + EF <35%",
+"detail": "Consider CRT (cardiac resynchronization therapy)."
+}
+]
+},
+{
+"_i": 341,
+"q": "Man aged 78 years, syncope, pulse rate 36/min. ECG: P waves (blue) and QRS complexes (red) completely independent of each other.\n\nWhat is the rhythm?",
+"a": [
+"Complete AV block (third-degree)",
+"Second-degree AV block Mobitz II",
+"Sinus bradycardia",
+"Junctional rhythm"
+],
+"ex": "Complete AV block: P waves (~75/min) and QRS escape rhythm (~36/min) are completely independent — atrioventricular dissociation. Treatment: urgent pacemaker. Causes: inferior STEMI, digitalis, myocarditis, idiopathic (Lenegre). Junctional rhythm has a fixed PR interval; sinus bradycardia has a normal P-QRS relationship.",
+"dl": "Cardiology",
+"wiki_kern": "AV blocks: first-degree (long PR, every P→QRS), second-degree Mobitz I (progressively longer PR → dropped QRS), second-degree Mobitz II (constant PR → sudden dropped QRS), third-degree = complete dissociation.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Complete block of AV node or His bundle",
+"desc": "No atrial impulse conducts to the ventricles — complete AV dissociation. Atria beat in sinus rhythm (~75/min), ventricles via their own escape pacemaker."
+},
+{
+"title": "Escape pacemaker",
+"desc": "Junctional escape (AV nodal level): 40-60/min, narrow QRS, hemodynamically better. Ventricular escape (His-Purkinje): 20-40/min, wide QRS, unstable."
+},
+{
+"title": "ECG diagnosis",
+"desc": "P waves and QRS complexes are completely uncoupled: atria faster than ventricles. PR interval is variable — a P can fall before, in, or after a QRS without a fixed relationship."
+},
+{
+"title": "Hemodynamic consequences",
+"desc": "Low stroke volume due to slow ventricular rate + loss of atrial contribution to filling ('atrial kick') → low cardiac output → presyncope/syncope/hemodynamic collapse."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Complete (third-degree) AV block",
+"desc": "P waves and QRS completely uncoupled. Atria faster than ventricles. Ventricular escape rhythm 20-40/min (wide QRS) or junctional 40-60/min (narrow QRS)."
+},
+{
+"label": "Sinus bradycardia",
+"desc": "Slow but P and QRS always coupled with constant PR interval."
+},
+{
+"label": "Wenckebach (Mobitz I)",
+"desc": "Some P waves blocked but conducted P waves have a fixed P-QRS relationship (progressively prolonging PR)."
+},
+{
+"label": "Junctional escape rhythm",
+"desc": "Ventricular rhythm 40-60/min with narrow QRS — in complete block at AV nodal level. Ventricular escape (wide QRS) in lower block."
+}
+],
+"wiki_therapie_urgent": "Acute: transcutaneous pacemaker or isoprenaline infusion as bridge.",
+"wiki_therapie_stappen": [
+{
+"naam": "Definitive",
+"detail": "permanent pacemaker (PPM)."
+},
+{
+"naam": "If related to inferior STEMI",
+"detail": "sometimes reversible."
+}
+]
+},
+{
+"_i": 342,
+"q": "Man aged 64 years, smoker, cough and dyspnea. Flow-volume curve of his spirometry is shown.\n\nWhich pattern is this?",
+"a": [
+"Obstructive pattern (e.g., COPD)",
+"Restrictive pattern (e.g., pulmonary fibrosis)",
+"Mixed obstructive-restrictive pattern",
+"Normal pattern"
+],
+"ex": "Obstructive pattern: the expiratory curve (red) is concave (scooped inward) compared with normal (blue dotted), with reduced peak flow and delayed expiration. FEV1/FVC <0.70 after bronchodilation confirms obstruction (GOLD criteria for COPD).",
+"dl": "Pulmonology",
+"wiki_kern": "Spirometry: FVC (forced vital capacity), FEV1 (volume in first second), FEV1/FVC ratio. Obstructive pattern: FEV1/FVC <0.70 after bronchodilation (GOLD criterion).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Increased airway resistance",
+"desc": "Bronchospasm, mucus, mucosal inflammation, or alveolar collapse (emphysema) → difficult expiration → FEV1 falls more than FVC."
+},
+{
+"title": "Concave expiratory curve",
+"desc": "FEV1/FVC <0.70 → concave (scooped) curve on the flow-volume loop due to progressive airway collapse at higher lung volumes."
+},
+{
+"title": "Air trapping",
+"desc": "Air remains in the lungs → TLC normal or increased, RV increased. Typical in emphysema (barrel chest)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "COPD",
+"desc": "irreversible obstruction (after bronchodilator)."
+},
+{
+"label": "Asthma",
+"desc": "(partly) reversible obstruction → bronchodilator test: FEV1 increase ≥12% + ≥200 ml = significant reversibility."
+}
+],
+"wiki_therapie_urgent": "COPD: smoking cessation (most effective), SABA/LABA, LAMA, ICS with frequent exacerbations, pulmonary rehabilitation, O2 when pO2 <7.3 kPa.",
+"wiki_therapie_stappen": [
+{
+"naam": "Treatment",
+"detail": ""
+}
+]
+},
+{
+"_i": 343,
+"q": "Woman aged 58 years, progressive dyspnea, nonsmoker. Spirometry: FEV1/FVC 0.82 (normal), FVC 62% predicted. Flow-volume curve shown.\n\nWhich pattern is this?",
+"a": [
+"Restrictive pattern (e.g., pulmonary fibrosis, pleural thickening)",
+"Obstructive pattern (e.g., COPD)",
+"Mixed pattern",
+"Normal pattern"
+],
+"ex": "Restrictive pattern: the flow-volume curve (red) has the same normal convex shape as normal but is smaller (shifted to the right, less volume). FEV1/FVC remains normal (≥0.70) or even increased, because both FEV1 and FVC decrease proportionally. Causes: pulmonary fibrosis (IPF), sarcoidosis, pleural disease, kyphoscoliosis.",
+"dl": "Pulmonology",
+"wiki_kern": "Restrictive lung disease: reduced TLC (<80% predicted). FVC reduced, but FEV1/FVC normal or increased — the curve is smaller but normal in shape. Causes: IPF, sarcoidosis, kyphoscoliosis, neuromuscular.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Reduced compliance",
+"desc": "Lung tissue or chest wall is stiff/damaged → lungs cannot fully expand → smaller volume at the same breathing pressure."
+},
+{
+"title": "FVC + TLC reduced",
+"desc": "FVC decreases proportionally with FEV1 → FEV1/FVC normal or even increased. TLC <80% predicted confirms restriction (body plethysmography or helium dilution)."
+},
+{
+"title": "DLCO",
+"desc": "Reduced in parenchymal fibrosis (less gas exchange surface). DLCO normal in extraparenchymal restriction (neuromuscular, pleural) — distinguishing feature."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Restrictive pattern",
+"desc": "FVC reduced, FEV1/FVC normal/increased, TLC <80%. Curve smaller but normal in shape. Causes: IPF, sarcoidosis, kyphoscoliosis, muscle weakness."
+},
+{
+"label": "Obstructive pattern",
+"desc": "FEV1/FVC <0.70 after bronchodilation. Concave curve. Air trapping (high RV/TLC). Causes: COPD, asthma."
+},
+{
+"label": "Mixed pattern",
+"desc": "Reduced FEV1/FVC and reduced TLC — combination of obstruction and restriction."
+}
+],
+"wiki_therapie_urgent": "IPF: nintedanib or pirfenidone (antifibrotic).",
+"wiki_therapie_stappen": [
+{
+"naam": "Sarcoidosis",
+"detail": "corticosteroids if organ-threatening."
+},
+{
+"naam": "Neuromuscular",
+"detail": "NIV (non-invasive ventilation)."
+}
+]
+},
+{
+"_i": 344,
+"q": "A normal FEV1/FVC ratio after bronchodilation rules out COPD.",
+"a": null,
+"ex": "TRUE. According to GOLD criteria: COPD is defined as a post-bronchodilator FEV1/FVC <0.70. If the ratio after bronchodilation is normal (≥0.70), COPD is ruled out — even if symptoms are present. A normal ratio can, however, coexist with other lung diseases (asthma, restriction).",
+"dl": "Pulmonology",
+"wiki_kern": "GOLD definition of COPD: persistent airflow obstruction (FEV1/FVC <0.70 after bronchodilation) + relevant exposure (smoke, dust, gases) + symptoms. GOLD stages I (≥80%), II (50-79%), III (30-49%), IV (<30%) based on FEV1%.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Emphysema",
+"desc": "Destruction of alveolar walls → loss of elasticity → increased compliance → airway collapse during expiration."
+},
+{
+"title": "Chronic bronchitis",
+"desc": "Goblet cell hyperplasia due to chronic irritation (smoke) → excessive mucus, airway narrowing, impaired mucociliary clearance."
+},
+{
+"title": "Air trapping",
+"desc": "Both components cause expiratory flow limitation → air remains trapped (high RV + TLC) → barrel chest + hyperinflation on chest X-ray."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "COPD",
+"desc": "Irreversible obstruction after bronchodilation. Smoker, >40 years, gradually progressive. GOLD stages based on FEV1%."
+},
+{
+"label": "Asthma",
+"desc": "(Partly) reversible obstruction — bronchodilator test: FEV1 increase ≥12% and ≥200 ml. Young, atopic, variable course."
+},
+{
+"label": "ACO (Asthma-COPD Overlap)",
+"desc": "Features of both: obstruction with significant reversibility in a smoker >40 years. Treatment: LABA + ICS."
+}
+],
+"wiki_therapie_urgent": "NHG/GOLD guidelines: step 1 SABA (salbutamol), step 2 LAMA (tiotropium) or LABA, step 3 LABA+LAMA combination, step 4 LABA+LAMA+ICS with recurrent exacerbations.",
+"wiki_therapie_stappen": [
+{
+"naam": "Treatment",
+"detail": ""
+}
+]
+},
+{
+"_i": 345,
+"q": "Man aged 55 years, cough with hemoptysis, 5 kg weight loss in 3 months, smoker (30 pack-years). Which investigation provides the most diagnostic information?",
+"a": [
+"Contrast-enhanced CT chest",
+"Standard chest X-ray",
+"Bronchoscopy with BAL",
+"Sputum culture"
+],
+"ex": "When lung cancer is suspected, contrast-enhanced CT chest is the first step: it shows location, size, relationship to the mediastinum, and possible metastases better than a chest X-ray. Bronchoscopy follows for histology in central tumors; CT-guided biopsy for peripheral tumors. Chest X-ray misses up to 25% of lung tumors.",
+"dl": "Pulmonology",
+"wiki_kern": "Alarm symptoms of lung cancer: hemoptysis, weight loss, persistent cough, hoarseness, dysphagia, Claude Bernard-Horner syndrome, Pancoast tumor. Incidental lung nodule: Fleischner criteria for follow-up/biopsy based on size and risk.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Lung cancer",
+"desc": "NSCLC (80%: adenocarcinoma most common, squamous cell, large cell) and SCLC (20%, aggressive, central location, paraneoplastic)."
+},
+{
+"title": "NSCLC",
+"desc": "driver mutations (EGFR, ALK, ROS1, KRAS) → targeted therapy."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "PET-CT",
+"desc": "staging (mediastinal nodes, metastases)."
+},
+{
+"label": "EBUS",
+"desc": "endobronchial ultrasound + lymph node biopsy."
+},
+{
+"label": "Mediastinoscopy",
+"desc": "surgical staging."
+},
+{
+"label": "Brain MRI",
+"desc": "brain metastases in NSCLC stage III-IV."
+}
+],
+"wiki_therapie_urgent": "NSCLC I-II: surgery (lobectomy).",
+"wiki_therapie_stappen": [
+{
+"naam": "III",
+"detail": "chemoradiation ± immunotherapy."
+},
+{
+"naam": "IV",
+"detail": "mutation-guided therapy (TKI) or immunotherapy (pembrolizumab if PD-L1 ≥50%)."
+}
+]
+},
+{
+"_i": 346,
+"q": "Man aged 60 years, chest pain for 6 hours. Troponin curve shown.\n\nWhich statement is correct?",
+"a": [
+"A normal troponin after 1 hour of symptoms does NOT yet rule out NSTEMI",
+"Troponin is already elevated immediately at infarct onset",
+"The troponin peak occurs within 2 hours after infarction",
+"CK-MB is more sensitive than hs-troponin for early detection"
+],
+"ex": "Hs-troponin rises only 1-3 hours after infarct onset. An early (0-hour) negative troponin does not yet rule out MI — serial measurements at 0 and 1-2 hours are needed. The peak is at 12-24 hours. CK-MB is less sensitive than hs-troponin and is used less.",
+"dl": "Cardiology",
+"wiki_kern": "High-sensitivity troponin (hs-cTnI or hs-cTnT): rises after 1-3 h, peaks 12-24 h, normalizes in 5-14 days (hs-cTnT longer). Cutoff: 99th percentile of healthy reference population (URL = upper reference limit).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Troponin release",
+"desc": "Troponin T and I are regulatory proteins of the contractile apparatus. In myocardial injury they leak into the bloodstream — measurable after as early as 1-3 hours."
+},
+{
+"title": "Hs-assay advantage",
+"desc": "High-sensitivity assay has a detection limit 10× lower than conventional → earlier positive, better rule-out (NPV >99% after 3 h)."
+},
+{
+"title": "Serial measurement",
+"desc": "One measurement is never sufficient. Serial protocol (0+1 h or 0+3 h): significant rise or fall (delta-troponin) = rule-in ACS."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Time course of hs-troponin",
+"desc": "Rises after 1-3 h, peaks at 12-24 h, normalizes after 5-14 days. Serial measurement (0/1 h or 0/3 h protocol) is essential for diagnosis."
+},
+{
+"label": "Other causes of elevated troponin",
+"desc": "PE, myocarditis, heart failure, sepsis, renal failure, cardioversion — troponin is cardiac-specific but not ACS-specific."
+},
+{
+"label": "HEART score",
+"desc": "History + ECG + Age + Risk factors + Troponin — ED risk stratification: score ≤3 low risk, ≥7 high risk."
+},
+{
+"label": "CK-MB",
+"desc": "Less sensitive and specific than hs-troponin — no longer standard in ACS diagnostics."
+}
+],
+"wiki_therapie_urgent": "Positive hs-troponin + symptoms: rule-in ACS.",
+"wiki_therapie_stappen": [
+{
+"naam": "Strategy",
+"detail": "invasive (coronary angiography) in high risk (GRACE score >140), conservative in low risk."
+}
+]
+},
+{
+"_i": 347,
+"q": "Man aged 45 years, chronic use of loop diuretics. ECG findings shown.\n\nWhat is the most likely electrolyte disorder?",
+"a": [
+"Hypokalemia",
+"Hyperkalemia",
+"Hypocalcemia",
+"Hyponatremia"
+],
+"ex": "Hypokalemia on ECG: flattened/inverted T waves + prominent U waves (positive deflection after the T wave, best visible in V2-V3). Hyperkalemia instead gives tall peaked T waves ("tent-shaped"), wide QRS and prolonged PR. Loop diuretics → potassium loss → hypokalemia.",
+"dl": "Cardiology",
+"wiki_kern": "ECG changes in electrolyte disorders. Hypokalemia (K+ <3.5 mmol/L): flattened T, prominent U wave, QT prolongation (risk of torsades de pointes).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Hyperpolarization",
+"desc": "Hypokalemia makes the resting membrane potential more negative → cell is harder to depolarize, but repolarization is slower."
+},
+{
+"title": "Prolonged repolarization → U wave",
+"desc": "Slower repolarizing M cells in the myocardium cause the prominent U wave (positive deflection after the T wave, best visible in V2-V3)."
+},
+{
+"title": "Arrhythmia risk",
+"desc": "QTc prolongation + dispersed repolarization → risk of early afterdepolarizations → torsades de pointes. Loop diuretics are a classic cause of hypokalemia."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Hypokalemia",
+"desc": "Flattened/inverted T waves + prominent U waves (>T wave in V2-V3), QTc prolonged → risk of torsades de pointes."
+},
+{
+"label": "Hyperkalemia",
+"desc": "Tall peaked T waves (tent-shaped), wide QRS, prolonged PR, sine-wave pattern with K⁺ >7 mmol/L."
+},
+{
+"label": "Hypocalcemia",
+"desc": "QTc prolongation (prolonged ST segment, no T-wave change) → arrhythmia risk when QTc >500 ms."
+},
+{
+"label": "Digoxin effect",
+"desc": ""Reversed tick" ST depression, flattened T, prominent U wave — plus bradycardia and AV conduction prolongation."
+}
+],
+"wiki_therapie_urgent": "Oral potassium (KCl sustained release) in mild hypokalemia without ECG abnormalities.",
+"wiki_therapie_stappen": [
+{
+"naam": "Severe disorder/arrhythmia",
+"detail": "IV KCl (max 20 mmol/h peripheral, 40 mmol/h central) under continuous ECG monitoring."
+},
+{
+"naam": "ECG monitoring",
+"detail": "Monitor until K⁺ >3.5 mmol/L and ECG normalization."
+},
+{
+"naam": "Magnesium",
+"detail": "Always supplement magnesium in hypokalemia — Mg deficiency causes refractory K depletion."
+}
+]
+},
+{
+"_i": 348,
+"q": "Man aged 52 years, recent cerebral infarction in the right occipital lobe. Which visual field defect is expected?",
+"a": [
+"Left homonymous hemianopia",
+"Right homonymous hemianopia",
+"Bitemporal hemianopia",
+"Left monocular blindness"
+],
+"ex": "The right occipital lobe processes visual information from the LEFT visual field (both eyes). Damage → left homonymous hemianopia (both eyes miss the left visual field). Bitemporal hemianopia = chiasmal lesion (pituitary tumor). Monocular blindness = ipsilateral optic nerve lesion.",
+"dl": "Neurology",
+"wiki_kern": "Visual pathway: retina → optic nerve → chiasm (nasal fibers cross) → optic tract → lateral geniculate nucleus → optic radiation → primary visual cortex (V1, occipital lobe). Lesion AFTER chiasm → homonymous hemianopia (same-side field loss in both eyes).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Crossing in chiasm",
+"desc": "Nasal fibers from both retinae cross in the optic chiasm → each hemisphere processes the contralateral visual field of both eyes."
+},
+{
+"title": "Occipital lobe localization",
+"desc": "Right occipital cortex (V1) processes the left visual field → right-sided lesion → left homonymous hemianopia (same-side field loss in both eyes)."
+},
+{
+"title": "Optic radiation split",
+"desc": "Superior part (parietal) → inferior quadrants. Inferior part (temporal, Meyer's loop) → superior quadrants. Partial lesion causes quadrantanopia."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Occipital lobe lesion",
+"desc": "Contralateral homonymous hemianopia. Macular sparing possible (dual blood supply to fovea). Stroke is the most common cause."
+},
+{
+"label": "Chiasmal lesion",
+"desc": "Bitemporal hemianopia — nasal fibers crossing → bilateral temporal field loss. Classic with pituitary tumor."
+},
+{
+"label": "Optic radiation lesion",
+"desc": "Homonymous quadrantanopia (superior or inferior). Meyer's loop: superior quadrantanopia ('pie in the sky')."
+},
+{
+"label": "Optic nerve lesion",
+"desc": "Monocular blindness or scotoma — ipsilateral. Causes: ischemia, optic neuritis (MS), tumor."
+}
+],
+"wiki_therapie_urgent": "Visual rehabilitation for homonymous hemianopia: eye movement training, prism glasses.",
+"wiki_therapie_stappen": [
+{
+"naam": "Driving eligibility",
+"detail": "excluded in homonymous hemianopia (even after recovery)."
+}
+]
+},
+{
+"_i": 349,
+"q": "Man aged 50 years, type 1 diabetes, ill and vomiting. Arterial blood gas: pH 7.18, pCO2 2.8 kPa, HCO3 10 mmol/L, anion gap 28 mmol/L.\n\nWhat is the most likely diagnosis?",
+"a": [
+"High anion gap metabolic acidosis (diabetic ketoacidosis)",
+"Respiratory acidosis with compensation",
+"Metabolic alkalosis",
+"Normal anion gap metabolic acidosis (hyperchloremic)"
+],
+"ex": "Metabolic acidosis + elevated anion gap in DM1 + vomiting = diabetic ketoacidosis (DKA). MUDPILES = differential diagnoses for high-AG acidosis.",
+"dl": "Nephrology",
+"wiki_kern": "Anion gap (AG) = Na+ − (Cl− + HCO3−). Normal 8-12 mmol/L. High AG acidosis (MUDPILES): Methanol, Uremia, DKA, Propylene glycol, INH (isoniazid), Lactic acidosis, Ethylene glycol, Salicylates.",
+"wiki_redflag": "Hypokalemia before insulin in DKA: insulin drives K+ intracellularly → life-threatening hypokalemia. Correct K+ to >3.5 mmol/L before starting insulin.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "DKA cascade",
+"desc": "Insulin deficiency → increased lipolysis → free fatty acids → ketogenesis (β-hydroxybutyrate + acetoacetate + acetone) → anion gap rises."
+},
+{
+"title": "Compensation",
+"desc": "Kussmaul breathing: deep regular hyperventilation as respiratory compensation for metabolic acidosis."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "DKA",
+"desc": "pH <7.3, HCO3 <18, elevated anion gap, ketones positive, glucose moderately elevated. Mainly type 1 DM."
+},
+{
+"label": "Hyperosmolar hyperglycemic state (HHS)",
+"desc": "Normal pH, glucose >33 mmol/L, osmolality >320 mOsm/kg, no or minimal ketosis. Mainly type 2 DM, elderly."
+}
+],
+"wiki_therapie_urgent": "DKA: rehydration (NaCl 0.9%), IV insulin (after K+ correction), potassium supplementation, bicarbonate rarely (pH <6.9).",
+"wiki_therapie_stappen": [
+{
+"naam": "Monitor",
+"detail": "glucose, K+, pH, ketones."
+}
+]
+},
+{
+"_i": 350,
+"q": "Man aged 28 years, sharply demarcated, scaly, erythematous plaques on the elbows, knees, and scalp. Nail changes present.\n\nMost likely diagnosis?",
+"a": [
+"Psoriasis vulgaris",
+"Eczema (atopic dermatitis)",
+"Pityriasis rosea",
+"Tinea corporis"
+],
+"ex": "Psoriasis: sharply demarcated silvery scaly plaques on extensor surfaces (knees/elbows/scalp). Nail abnormalities (pitting, onycholysis) in 50%.",
+"dl": "Dermatology",
+"wiki_kern": "Psoriasis: chronic inflammatory skin disease (prevalence 2-3%). Pathophysiology: Th17-mediated inflammation (IL-17, IL-23, TNF-α) → accelerated keratinocyte proliferation (turnover 3-4 days, normal 28).",
+"wiki_redflag": "Psoriatic arthritis in 20-30% of psoriasis patients — joint erosions possible. Early recognition and treatment prevents permanent damage.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Koebner phenomenon",
+"desc": "New lesions arise at sites of skin trauma — explains psoriasis at typical trauma locations (elbows, knees)."
+},
+{
+"title": "Triggers",
+"desc": "Infection (streptococci), stress, alcohol, medication (lithium, beta blockers, NSAIDs)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Eczema",
+"desc": "Pruritus predominant, flexural location (antecubital fossa, popliteal fossa), moist lesions, less sharply demarcated."
+},
+{
+"label": "Pityriasis rosea",
+"desc": "Herald patch + Christmas-tree pattern along ribs, spontaneous remission after 6-8 weeks."
+},
+{
+"label": "Tinea corporis",
+"desc": "Central clearing (ring-shaped), positive potassium hydroxide preparation (KOH), responds to antifungal."
+}
+],
+"wiki_therapie_urgent": "Mild: emollients, topical corticosteroids + calcipotriol, narrowband UVB phototherapy.",
+"wiki_therapie_stappen": [
+{
+"naam": "Moderate-severe",
+"detail": "Methotrexate (MTX), cyclosporine, acitretin."
+},
+{
+"naam": "Severe/arthritis",
+"detail": "Biologics: anti-TNF (adalimumab, etanercept), anti-IL-17 (secukinumab), anti-IL-23 (guselkumab)."
+}
+]
+},
+{
+"_i": 351,
+"q": "Sepsis can be present in a patient with a normal temperature.",
+"a": null,
+"ex": "TRUE. Sepsis-3 definition (2016): life-threatening organ dysfunction caused by a dysregulated host response to infection. Temperature is NO longer required in the definition. Elderly, immunocompromised patients, and patients with sepsis caused by gram-negative rods may be hypothermic (<36°C). SOFA score ≥2 = sepsis.",
+"dl": "Infectious Diseases",
+"wiki_kern": "Sepsis-3 criteria: suspected/proven infection + SOFA score increase ≥2 points. SOFA: PaO2/FiO2, GCS, MAP, bilirubin, creatinine, platelets. qSOFA (bedside): RR >22/min, altered mental status, SBP <100 mmHg → 2 of 3 = high risk.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Dysregulated immune response",
+"desc": "Infection triggers a dysregulated host response: massive release of IL-1, IL-6 and TNF → pro-inflammatory cascade."
+},
+{
+"title": "Endothelial damage",
+"desc": "Cytokine storm damages the vascular endothelium → capillary leak, microthrombi (DIC), vasodilation → distributive shock."
+},
+{
+"title": "Organ dysfunction",
+"desc": "Mismatch between oxygen delivery and consumption → SOFA score increase ≥2 = sepsis. Most affected: kidney, lung, liver, coagulation, brain."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Sepsis (Sepsis-3)",
+"desc": "Suspected/proven infection + SOFA increase ≥2. Temperature NOT required — hypothermia (<36°C) is also a manifestation of sepsis."
+},
+{
+"label": "SIRS",
+"desc": "Outdated concept, too nonspecific (also noninfectious). Sepsis-3 replaced SIRS as definition in 2016."
+},
+{
+"label": "Septic shock",
+"desc": "Sepsis + vasopressors needed for MAP ≥65 mmHg and lactate >2 mmol/L despite adequate fluid resuscitation. Mortality 40-50%."
+}
+],
+"wiki_therapie_urgent": "Hour-1 bundle: blood cultures → broad-spectrum antibiotic → lactate → fluids (30 mL/kg crystalloid if lactate >4 or hypotension) → noradrenaline if MAP <65.",
+"wiki_therapie_stappen": [
+{
+"naam": "Antibiotics within 1 hour",
+"detail": "Every 30-minute delay in septic shock increases mortality. Broad-spectrum, later narrow based on culture results."
+}
+]
+},
+{
+"_i": 352,
+"q": "Man aged 48 years, epigastric pain radiating to the back, nausea, vomiting. Amylase 1200 U/L, lipase 3400 U/L. No gallstones on ultrasound.\n\nMost likely cause?",
+"a": [
+"Alcoholic pancreatitis",
+"Gallstone pancreatitis",
+"Drug-induced pancreatitis",
+"Autoimmune pancreatitis"
+],
+"ex": "Alcoholic pancreatitis and gallstone pancreatitis together account for ~80% of all cases. Without gallstones on ultrasound in a 48-year-old man, excessive alcohol use is the most likely cause. Amylase >3× normal + lipase >3× normal confirms pancreatitis.",
+"dl": "Gastroenterology",
+"wiki_kern": "Pancreatitis diagnosis: ≥2 of 3 criteria: (1) typical pain, (2) amylase/lipase ≥3× normal, (3) imaging evidence. Causes: gallstones (40%), alcohol (30%), idiopathic (20%), other (drugs, hypertriglyceridemia, ERCP, trauma, autoimmune).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Premature trypsin activation",
+"desc": "Pancreatic proteases (trypsinogen) are prematurely activated within the pancreas itself → autodigestion of pancreatic tissue."
+},
+{
+"title": "Local inflammation",
+"desc": "Inflammatory cascade → edema, hemorrhage, necrosis. Complications: pseudocyst (>4 weeks), infected necrosis, abscess."
+},
+{
+"title": "Systemic consequences",
+"desc": "In severe pancreatitis: SIRS → ARDS, acute kidney injury, MOF. Revised Atlanta: mild/moderate/severe based on organ failure and complications."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Alcoholic pancreatitis",
+"desc": "Most likely in 48-year-old man without gallstones on ultrasound. Amylase/lipase ≥3× normal + typical pain = diagnosis."
+},
+{
+"label": "Gallstone pancreatitis",
+"desc": "Most common cause overall (40%) — gallstones on ultrasound, jaundice, elevated bilirubin. ERCP in cholangitis."
+},
+{
+"label": "Drugs",
+"desc": "Beware: azathioprine, valproate, GLP-1 agonists, thiazides. Temporal relationship with medication start is crucial."
+},
+{
+"label": "Hypertriglyceridemia",
+"desc": "TG >11 mmol/L can cause pancreatitis — even without gallstones/alcohol. Check fasting lipid profile."
+}
+],
+"wiki_therapie_urgent": "Aggressive IV fluid resuscitation (Ringer's lactate), analgesia (opioids), early enteral feeding (>24 h).",
+"wiki_therapie_stappen": [
+{
+"naam": "Antibiotics",
+"detail": "Only in infected necrosis (FNA evidence or clinical deterioration) — not prophylactically."
+},
+{
+"naam": "ERCP",
+"detail": "In biliary pancreatitis with cholestasis or cholangitis within 24-72 h."
+}
+]
+},
+{
+"_i": 353,
+"q": "Woman aged 34 years, Graves' disease, hyperthyroidism. Which medication blocks the synthesis of thyroid hormone?",
+"a": [
+"Thiamazole (methimazole)",
+"Propranolol",
+"Lugol's solution (potassium iodide)",
+"Levothyroxine"
+],
+"ex": "Thiamazole (and propylthiouracil) blocks thyroid peroxidase → inhibits T3/T4 synthesis. Propranolol relieves symptoms (tremor, tachycardia) but does not affect production. Lugol's solution temporarily blocks release (Wolff-Chaikoff effect), used preoperatively. Levothyroxine is thyroid hormone replacement.",
+"dl": "Endocrinology",
+"wiki_kern": "Graves' disease: autoimmune hyperthyroidism due to TSH receptor-stimulating antibodies (TRAb). Features: hyperthyroidism + goiter + exophthalmos + pretibial myxedema (not always present).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Thyroid peroxidase inhibition",
+"desc": "Thiamazole blocks thyroid peroxidase → no iodination of tyrosine → no T3/T4 synthesis."
+},
+{
+"title": "Delayed effect",
+"desc": "Works only after 2-6 weeks — the pre-existing T4 store in the thyroid must first be depleted."
+},
+{
+"title": "PTU in crisis",
+"desc": "Propylthiouracil (PTU) also inhibits peripheral conversion of T4 to T3 → faster action in thyroid storm. First choice in pregnancy (1st trimester)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Thiamazole (thionamide)",
+"desc": "Inhibits T3/T4 synthesis. Starting dose 20-40 mg/day, taper according to TSH. Adverse effect: agranulocytosis (rare but severe)."
+},
+{
+"label": "Radioiodine (I-131)",
+"desc": "Definitive treatment — destroys thyroid tissue. Beware: hypothyroidism afterward (lifelong replacement). Not in pregnancy."
+},
+{
+"label": "Surgery (total thyroidectomy)",
+"desc": "Indications: large goiter, compression, suspicion of malignancy, patient preference. Beware: hypocalcemia + recurrent laryngeal nerve injury."
+}
+],
+"wiki_therapie_urgent": "Start thiamazole 20-40 mg/day, propranolol for symptom control (tremor, tachycardia).",
+"wiki_therapie_stappen": [
+{
+"naam": "TSH normalization",
+"detail": "Taper dose according to TSH and FT4 — aim for euthyroidism after 6-12 weeks."
+},
+{
+"naam": "TRAb after 12-18 months",
+"detail": "Negative TRAb → high chance of remission → consider stopping thiamazole."
+},
+{
+"naam": "Relapse",
+"detail": "Definitive therapy: radioiodine or surgery."
+}
+]
+},
+{
+"_i": 354,
+"q": "Woman aged 42 years, morning stiffness >1 hour, symmetric swelling of MCP and PIP joints of the hands, positive rheumatoid factor and anti-CCP antibodies.\n\nMost likely diagnosis?",
+"a": [
+"Rheumatoid arthritis",
+"Osteoarthritis",
+"Systemic lupus erythematosus (SLE)",
+"Reactive arthritis"
+],
+"ex": "Rheumatoid arthritis: symmetric polyarthritis of small joints (MCP, PIP), morning stiffness >1 hour, positive RF and anti-CCP (anti-CCP specificity ~95%). Osteoarthritis: DIP joints, no morning stiffness >30 min, RF negative. SLE: multiorgan, ANA positive. Reactive arthritis: asymmetric, after infection.",
+"dl": "Rheumatology",
+"wiki_kern": "ACR/EULAR 2010 criteria for RA: score ≥6: joints (0-5), serology RF/anti-CCP (0-3), acute-phase reactants CRP/ESR (0-1), duration >6 weeks (0-1). Anti-CCP: sensitivity 70%, specificity 95% — more valuable than RF in early diagnosis.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Autoimmune synovitis: Th17 + macrophages."
+},
+{
+"title": "Step 2",
+"desc": "IL-6, TNF-α, IL-1."
+},
+{
+"title": "Step 3",
+"desc": "synovial pannus."
+},
+{
+"title": "Step 4",
+"desc": "cartilage and bone destruction. Systemic manifestations: rheumatoid nodules, vasculitis, lungs (ILD), heart (pericarditis), eyes (scleritis)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "RA",
+"desc": "MCP/PIP symmetric, RF/anti-CCP positive."
+},
+{
+"label": "Osteoarthritis",
+"desc": "DIP/CMC, Heberden/Bouchard nodes, RF negative."
+},
+{
+"label": "Psoriatic arthritis",
+"desc": "DIP, skin/nails, RF negative."
+},
+{
+"label": "Gout",
+"desc": "MTP-1, acute attacks, uric acid elevated."
+}
+],
+"wiki_therapie_urgent": "Treat-to-target: aim for low disease activity (DAS28 <3.2) or remission.",
+"wiki_therapie_stappen": [
+{
+"naam": "MTX (anchor DMARD)",
+"detail": "Methotrexate first choice — always add folic acid supplementation. Response after 6-12 weeks."
+},
+{
+"naam": "Combination or biologic",
+"detail": "If insufficient response: add combination DMARDs or biologic (anti-TNF: adalimumab/etanercept; anti-IL-6: tocilizumab; anti-CD20: rituximab; JAK-i: baricitinib)."
+}
+]
+},
+{
+"_i": 355,
+"q": "Man aged 26 years, flattened affect for 6 months, social withdrawal, bizarre beliefs that neighbors are spying on him through the TV. No substance use. No depression.\n\nMost likely diagnosis?",
+"a": [
+"Schizophrenia",
+"Bipolar disorder with psychotic features",
+"Delusional disorder",
+"Brief psychotic disorder"
+],
+"ex": "Schizophrenia: positive symptoms (delusions, hallucinations) + negative symptoms (flattened affect, social withdrawal) ≥6 months. Bipolar: mood episodes + psychosis. Delusional disorder: only delusions without other psychotic symptoms, functioning largely intact. Brief psychotic disorder: <1 month.",
+"dl": "Psychiatry",
+"wiki_kern": "DSM-5 criteria for schizophrenia: ≥2 of 5 (delusions, hallucinations, disorganized speech, disorganized behavior, negative symptoms) for ≥1 month active, total duration ≥6 months including prodromal period. At least 1 of the first 3 symptoms present.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Dopamine excess (mesolimbic)",
+"desc": "Overactivity of mesolimbic D2 system → positive symptoms (delusions, hallucinations). Explains effect of D2 antagonists."
+},
+{
+"title": "Dopamine deficit (mesocortical)",
+"desc": "Hypoactivity of prefrontal D1 receptors → negative symptoms (flattened affect, loss of motivation, social withdrawal). Harder to treat."
+},
+{
+"title": "Glutamate & neurobiology",
+"desc": "NMDA receptor hypoactivity (glutamate) reinforces the picture — ketamine can mimic psychosis. Frontal/temporal gray matter loss in chronic course."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Schizophrenia",
+"desc": "Positive + negative symptoms ≥6 months. Psychosis dominates. DSM-5: ≥2 of 5 criteria ≥1 month active."
+},
+{
+"label": "Bipolar disorder with psychosis",
+"desc": "Psychosis DURING a mood episode (mania or depression). Euthymic: no psychosis."
+},
+{
+"label": "Schizoaffective",
+"desc": "Psychotic and mood episodes simultaneously and independently — intermediate diagnosis."
+},
+{
+"label": "Delusional disorder",
+"desc": "Only delusions, no hallucinations, functioning largely intact, duration ≥1 month."
+}
+],
+"wiki_therapie_urgent": "Atypical antipsychotics (D2 antagonists): risperidone, olanzapine, quetiapine — fewer EPS than typical agents.",
+"wiki_therapie_stappen": [
+{
+"naam": "Clozapine",
+"detail": "In treatment resistance (≥2 antipsychotics failed). Beware: agranulocytosis (weekly CBC!), myocarditis."
+},
+{
+"naam": "Psychosocial interventions",
+"detail": "cognitive behavioral therapy, family support, vocational support."
+}
+]
+},
+{
+"_i": 356,
+"q": "Woman aged 35 years, tired, pale mucous membranes. Lab: Hb 6.2 g/dL, MCV 70 fL, ferritin 5 µg/L, transferrin saturation 8%.\n\nWhat is the diagnosis and first-choice treatment?",
+"a": [
+"Iron deficiency anemia — oral iron supplementation",
+"Iron deficiency anemia — blood transfusion",
+"Thalassemia — no treatment needed",
+"Anemia of chronic disease — treat underlying cause"
+],
+"ex": "Microcytic anemia (low MCV) + low ferritin + low transferrin saturation = iron deficiency anemia. First-choice treatment: oral iron supplementation (ferrous fumarate/ferrous sulfate 200 mg/day, 3-6 months). Blood transfusion only in hemodynamic instability or Hb <5 g/dL with symptoms. Always look for the cause (blood loss: GI tract, menorrhagia).",
+"dl": "Laboratory Medicine",
+"wiki_kern": "Anemia classification by MCV: microcytic (MCV <80): iron deficiency, thalassemia, ACD, sideroblastic. Normocytic (MCV 80-100): ACD, acute blood loss, aplastic.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Stages of iron deficiency",
+"desc": "(1) Depletion of iron stores (ferritin falls). (2) Transport iron deficiency (transferrin saturation falls, TIBC rises). (3) Anemia (Hb falls, MCV falls)."
+},
+{
+"title": "Ferritin as early marker",
+"desc": "Ferritin <30 µg/L = iron deficiency even if Hb is still normal. Earliest laboratory marker of iron depletion."
+},
+{
+"title": "Inflammation effect",
+"desc": "Ferritin is also an acute-phase reactant — in inflammation, ferritin may be normal or elevated despite iron deficiency. Then also measure transferrin saturation."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Iron deficiency anemia",
+"desc": "Ferritin low (<30), transferrin saturation low (<20%), TIBC high. MCV low. Find cause: menorrhagia, GI bleeding."
+},
+{
+"label": "ACD (anemia of chronic disease)",
+"desc": "Ferritin normal/elevated, transferrin saturation low, TIBC low — iron trapped in macrophages."
+},
+{
+"label": "Thalassemia",
+"desc": "Familial microcytic anemia, MCV extremely low (MCV/RBC <13 = Mentzer index), normal ferritin, abnormal Hb electrophoresis."
+}
+],
+"wiki_therapie_urgent": "Oral iron: preferably fasting, vitamin C increases absorption, antacids reduce absorption.",
+"wiki_therapie_stappen": [
+{
+"naam": "IV iron (ferric carboxymaltose)",
+"detail": "in oral intolerance, malabsorption, severe anemia, chronic kidney disease."
+}
+]
+},
+{
+"_i": 357,
+"q": "A normal D-dimer rules out pulmonary embolism in patients with high clinical probability (Wells score >6).",
+"a": null,
+"ex": "FALSE. D-dimer is only useful with LOW clinical probability (Wells ≤4). With high clinical probability (Wells >6), proceed directly to imaging (CT pulmonary angiography) without D-dimer testing — the negative predictive value of D-dimer in high risk is insufficient to exclude PE.",
+"dl": "Cardiology",
+"wiki_kern": "Wells score for pulmonary embolism: ≤4 low, 4-6 moderate, >6 high. Strategy: low risk → D-dimer (ELISA).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "D-dimer: what it is",
+"desc": "Degradation product of cross-linked fibrin. Elevated in thrombosis but also infection, trauma, postoperative state, pregnancy, cancer, age >50 years → many false positives."
+},
+{
+"title": "High sensitivity, low specificity",
+"desc": "Sensitivity >99% — a negative D-dimer excludes PE with low clinical probability. Specificity only ~40% → useless with high pretest probability."
+},
+{
+"title": "YEARS algorithm",
+"desc": "age-adjusted cutoff (age × 10 when >50 years if clinical criteria absent)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "CT-PA",
+"desc": "gold standard for PE diagnosis."
+},
+{
+"label": "V/Q scan",
+"desc": "alternative in contrast allergy/renal impairment."
+},
+{
+"label": "Echocardiography",
+"desc": "right ventricular strain in large PE, but not diagnostic."
+},
+{
+"label": "D-dimer",
+"desc": "rule-out test, not a confirmation test."
+}
+],
+"wiki_therapie_urgent": "PE confirmed: DOAC (rivaroxaban, apixaban) first choice.",
+"wiki_therapie_stappen": [
+{
+"naam": "Massive PE",
+"detail": "Hemodynamic instability: thrombolysis (alteplase) or surgical thrombectomy."
+},
+{
+"naam": "Treatment duration",
+"detail": "provoked 3 months, unprovoked 6 months-lifelong (based on recurrence risk)."
+}
+]
+},
+{
+"_i": 358,
+"q": "Man aged 55 years, sudden severe headache ("worst pain of his life"), neck stiffness, photophobia. CT brain normal.\n\nWhat is the next step?",
+"a": [
+"Lumbar puncture for xanthochromia",
+"Brain MRI with gadolinium",
+"Start antibiotics for bacterial meningitis",
+"Blood cultures and wait for result"
+],
+"ex": "Thunderclap headache + normal CT = subarachnoid hemorrhage (SAH) NOT excluded. LP is mandatory: xanthochromia (yellow discoloration) or elevated bilirubin in CSF = SAH confirmed, even if CT is normal. CT misses 2-5% of SAH (especially after 6-12 h). MRI is less sensitive than LP for early SAH.",
+"dl": "Neurology",
+"wiki_kern": "SAH triad: sudden severe headache + neck stiffness + reduced consciousness. Cause: ruptured intracranial aneurysm (80%), AVM, idiopathic.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Meningeal irritation",
+"desc": "Blood in the subarachnoid space irritates the meninges → sudden severe headache (thunderclap) + neck stiffness + photophobia."
+},
+{
+"title": "Xanthochromia",
+"desc": "Hemoglobin breaks down to bilirubin in CSF — this occurs only after 2-4 hours and is present for up to 2 weeks. Spectrophotometry is gold standard, visual assessment insufficient."
+},
+{
+"title": "CT vs LP",
+"desc": "CT misses 2-5% of SAH (more sensitive in the first 6 h, less reliable afterward). Normal CT after thunderclap = always mandatory LP after ≥2 h."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Subarachnoid hemorrhage (SAH)",
+"desc": "Thunderclap headache. Normal CT does NOT exclude — LP mandatory after ≥2 h. Positive xanthochromia = confirmed."
+},
+{
+"label": "Bacterial meningitis",
+"desc": "Fever more prominent, slower onset (hours), PMN pleocytosis, low glucose — antibiotics immediately without waiting for LP."
+},
+{
+"label": "Thunderclap migraine",
+"desc": "Diagnosis by exclusion — SAH and other secondary causes must first be excluded via CT + LP."
+},
+{
+"label": "Cerebral venous sinus thrombosis",
+"desc": "Subacute headache, hypercoagulability, papilledema, MRV diagnostic."
+}
+],
+"wiki_therapie_urgent": "SAH: neurovascular ICU, nimodipine (vasospasm), aneurysm coiling/clipping.",
+"wiki_therapie_stappen": [
+{
+"naam": "Rebleeding prevention",
+"detail": "clip (open) or coil (endovascular) based on location and anatomy."
+}
+]
+},
+{
+"_i": 359,
+"q": "Woman aged 28 years, returned from Sub-Saharan Africa, fever for 4 days, chills, headache, splenomegaly. Blood smear shown.\n\nMost urgent diagnosis?",
+"a": [
+"Malaria (Plasmodium falciparum)",
+"Dengue",
+"Typhoid fever (Salmonella typhi)",
+"Leptospirosis"
+],
+"ex": "Malaria is always the first diagnosis in fever after travel to a malaria-endemic area until proven otherwise — it is a life-threatening emergency. Thick drop + thin smear for parasite identification. P. falciparum = most dangerous (cerebral malaria, fatal without treatment).",
+"dl": "Infectious Diseases",
+"wiki_kern": "Malaria: triad fever + chills + sweating (tertian = P. vivax/ovale, quartan = P. malariae, irregular = P. falciparum). P. falciparum complications: cerebral malaria, ARDS, acute kidney injury, hypoglycemia, severe anemia.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Mosquito bite → liver stage",
+"desc": "Anopheles mosquito injects sporozoites → replication in hepatocytes (1-2 weeks, asymptomatic). P. vivax/ovale: hypnozoites remain dormant in liver."
+},
+{
+"title": "Erythrocytic stage",
+"desc": "Merozoites infect red blood cells → synchronized rupture → fever spike (tertian 48 h, quartan 72 h, P. falciparum irregular)."
+},
+{
+"title": "P. falciparum-specific",
+"desc": "Infected erythrocytes adhere to vessel wall (cytoadherence) → microthrombi → cerebral malaria, ARDS, acute kidney injury. Deadliest species."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Malaria (P. falciparum)",
+"desc": "Fever + chills + sweating after tropical travel. Thick blood smear + RDT. Always urgent until P. falciparum excluded."
+},
+{
+"label": "Dengue",
+"desc": "Severe myalgia/arthralgia ('breakbone fever'), rash, thrombocytopenia, no cyclic pattern. NS1 antigen/PCR diagnostic."
+},
+{
+"label": "Typhoid (S. typhi)",
+"desc": "Persistent fever, relative bradycardia, abdominal pain. Blood culture is gold standard."
+},
+{
+"label": "Leptospirosis",
+"desc": "Water exposure, conjunctival suffusion, jaundice + renal insufficiency (Weil) — serology diagnostic."
+}
+],
+"wiki_therapie_urgent": "Uncomplicated P. falciparum: artemisinin-based combination therapy (ACT: artemether-lumefantrine).",
+"wiki_therapie_stappen": [
+{
+"naam": "Complicated",
+"detail": "IV artesunate."
+},
+{
+"naam": "P. vivax/ovale",
+"detail": "chloroquine + primaquine (liver hypnozoites)."
+}
+]
+},
+{
+"_i": 360,
+"q": "Man aged 72 years, heart failure, EF 30%, rhythm AF. Which medication has proven mortality reduction in heart failure with reduced ejection fraction (HFrEF)?",
+"a": [
+"Sacubitril/valsartan (ARNI)",
+"Digoxin",
+"Amiodarone",
+"Diltiazem"
+],
+"ex": "HFrEF mortality-reducing drugs (SGLT2i/ARNI/BB/MRA = "fantastic four"): ACE-i/ARB or sacubitril-valsartan (ARNI), beta blocker, mineralocorticoid receptor antagonist (spironolactone/eplerenone), SGLT2 inhibitor (dapagliflozin/empagliflozin). Digoxin reduces hospitalizations but NOT mortality. Diltiazem is contraindicated in HFrEF.",
+"dl": "Pharmacology",
+"wiki_kern": "HFrEF = EF <40%. Four pillars of pharmacotherapy (NEJM trials): (1) ACE-i/ARB or ARNI (PARADIGM-HF: sacubitril-valsartan > enalapril). (2) Beta blocker (carvedilol, bisoprolol, metoprolol succinate). (3) MRA (RALES trial: spironolactone). (4) SGLT2 inhibitor (DAPA-HF, EMPEROR-Reduced).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Neprilysin inhibition (sacubitril)",
+"desc": "Inhibits breakdown of natriuretic peptides (BNP, ANP) → BNP rises → vasodilation, natriuresis, diuresis, antifibrotic."
+},
+{
+"title": "AT1 blockade (valsartan)",
+"desc": "ARB component blocks the AT1 receptor → less angiotensin II effect. Combination superior to ACE inhibitor alone (PARADIGM-HF)."
+},
+{
+"title": "Beware combination",
+"desc": "Never combine ARNI with ACE inhibitor (36 h washout required) — risk of angioedema."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "HFrEF (EF <40%)",
+"desc": "Four pillars: ARNI (or ACE-i/ARB) + beta blocker + MRA + SGLT2 inhibitor. PARADIGM-HF: sacubitril-valsartan > enalapril."
+},
+{
+"label": "HFpEF (EF ≥50%)",
+"desc": "SGLT2 inhibitors (EMPEROR-Preserved, DELIVER) are the only drugs with proven mortality benefit. ARNI/BB/MRA less proven."
+},
+{
+"label": "Diltiazem/verapamil in HFrEF",
+"desc": "Negative inotropic and chronotropic — absolutely contraindicated in HFrEF (EF <40%)."
+}
+],
+"wiki_therapie_urgent": "Starting doses and titration: enalapril 2.5→10 mg bid, bisoprolol 1.25→10 mg/day, spironolactone 25-50 mg/day, dapagliflozin 10 mg/day.",
+"wiki_therapie_stappen": [
+{
+"naam": "Diuretics",
+"detail": "symptom relief, no mortality reduction."
+}
+]
+},
+{
+"_i": 361,
+"q": "Lithium has a narrow therapeutic index and requires regular serum level monitoring.",
+"a": null,
+"ex": "TRUE. Lithium therapeutic level: 0.6-1.0 mmol/L (maintenance), 0.8-1.2 mmol/L (acute mania). Toxicity starts around 1.5 mmol/L: tremor, diarrhea, polyuria/polydipsia, cognitive impairment. Severe toxicity (>2.0): ataxia, confusion, seizures, coma. Triggers of toxicity: dehydration, NSAIDs, ACE inhibitors, diuretics.",
+"dl": "Psychiatry",
+"wiki_kern": "Lithium indications: bipolar disorder (acute mania + maintenance therapy), prophylaxis of recurrent depression, suicide reduction (meta-analyses). Long-term adverse effects: renal insufficiency (tubulointerstitial nephritis), hypothyroidism, hyperparathyroidism.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Mechanism of action",
+"desc": "Not fully understood. Hypotheses: inhibition of inositol phosphatase (second messenger inhibition), inhibition of GSK-3β (neuroprotective), modulation of serotonergic transmission."
+},
+{
+"title": "Renal clearance & toxicity",
+"desc": "Lithium is renally cleared in competition with sodium. With sodium depletion (dehydration, diuretics, NSAID) → lithium retention → rapid level increase → toxicity."
+},
+{
+"title": "Toxicity symptoms",
+"desc": "Level 1.5-2.0: coarse tremor, diarrhea, polyuria, cognition. >2.0: ataxia, confusion, seizures, coma. Treatment: IV NaCl, hemodialysis in severe toxicity."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Lithium",
+"desc": "Narrow therapeutic window (0.6-1.0 mmol/L). Unique proven anti-suicidal effect. Beware: renal function + TSH every six months."
+},
+{
+"label": "Valproate",
+"desc": "Acute mania, rapid cyclers. Beware: teratogenic (neural tube defects) — NEVER in women of reproductive age without adequate contraception."
+},
+{
+"label": "Lamotrigine",
+"desc": "Bipolar depression, prevention of depressive episodes. Slow titration mandatory (Stevens-Johnson with rapid titration)."
+}
+],
+"wiki_therapie_urgent": "Serum level monitoring: stable patient every 3-6 months.",
+"wiki_therapie_stappen": [
+{
+"naam": "Renal function + TSH",
+"detail": "every six months."
+},
+{
+"naam": "Pregnancy",
+"detail": "Ebstein anomaly risk low but increased; consider alternatives."
+},
+{
+"naam": "Overdose",
+"detail": "IV NaCl, severe: hemodialysis."
+}
+]
+},
+{
+"_i": 362,
+"q": "Woman aged 55 years, rectal bleeding, change in bowel habits, 4 kg weight loss. Colonoscopy shows a mass in the sigmoid.\n\nWhich investigation is the next step for staging?",
+"a": [
+"Contrast-enhanced CT chest/abdomen/pelvis",
+"PET scan",
+"MRI colon",
+"Repeat colonoscopy"
+],
+"ex": "Colon cancer staging: contrast-enhanced CT chest/abdomen/pelvis = standard for detection of distant metastases (liver, lung). Pelvic MRI additionally for rectal cancer (mesorectal fascia, T stage). PET-CT if uncertainty about metastases or recurrence. TNM staging determines treatment.",
+"dl": "Gastroenterology",
+"wiki_kern": "Colorectal cancer: 3rd most common malignancy worldwide. Risk factors: age >50, family history (FAP, Lynch), inflammatory bowel disease (UC/CD), obesity, red/processed meat.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "T stage (depth of invasion)",
+"desc": "T1: submucosa. T2: muscularis propria. T3: pericolic fat. T4: peritoneum or adjacent organ — determines resectability."
+},
+{
+"title": "N stage (nodes)",
+"desc": "N0: no lymph node metastases. N1: 1-3 positive nodes. N2: ≥4 positive nodes — indication for adjuvant chemotherapy."
+},
+{
+"title": "M stage (distant)",
+"desc": "M0: no distant metastases. M1: liver (50%), lung, peritoneum. Resectable liver metastases: potentially curative with surgery + chemotherapy."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Colon cancer",
+"desc": "Staging by contrast-enhanced CT chest/abdomen/pelvis. Hemicolectomy + adjuvant CAPOX/FOLFOX in stage III."
+},
+{
+"label": "Rectal cancer (≤15 cm from anal verge)",
+"desc": "Pelvic MRI mandatory for CRM assessment. Neoadjuvant chemoradiation in cT3/T4 or N+."
+},
+{
+"label": "Lynch syndrome (HNPCC)",
+"desc": "MSI-high/MMR deficiency — family history, younger age, right colon, better prognosis, indication for immunotherapy."
+}
+],
+"wiki_therapie_urgent": "Stage I-II: surgery (hemicolectomy).",
+"wiki_therapie_stappen": [
+{
+"naam": "Stage III",
+"detail": "surgery + adjuvant chemotherapy (CAPOX or FOLFOX)."
+},
+{
+"naam": "Stage IV resectable liver metastases",
+"detail": "liver surgery + chemo."
+},
+{
+"naam": "Stage IV unresectable",
+"detail": "palliative chemo ± targeted therapy (bevacizumab, cetuximab depending on RAS mutation status)."
+}
+]
+},
+{
+"_i": 363,
+"q": "Man aged 65 years, hypertension, DM2. Lab: creatinine 185 µmol/L (eGFR 32 mL/min/1.73m²), potassium 5.8 mmol/L, sodium 138 mmol/L, pH 7.31, HCO3 18 mmol/L.\n\nWhich finding is the most acutely life-threatening?",
+"a": [
+"Hyperkalemia (K+ 5.8 mmol/L)",
+"Metabolic acidosis (pH 7.31)",
+"Elevated creatinine (eGFR 32)",
+"High blood pressure"
+],
+"ex": "Hyperkalemia with ECG changes (peaked T waves) = immediate IV calcium gluconate — the most acute threat in this patient.",
+"dl": "Nephrology",
+"wiki_kern": "Hyperkalemia in chronic kidney disease (CKD): reduced renal potassium excretion. ECG grading: K+ 5.5-6.0: peaked T waves. 6.0-6.5: PR prolongation, wide QRS. >6.5: sine-wave pattern → VF risk.",
+"wiki_redflag": "K+ >6.5 mmol/L or sine-wave ECG = imminent ventricular fibrillation. Calcium gluconate IV immediately — prepare dialysis in refractory hyperkalemia.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Reduced renal excretion",
+"desc": "CKD: reduced aldosterone effect + fewer functioning distal tubules → K⁺ excretion falls. Risk factors: ACE inhibitors/ARBs, potassium-sparing diuretics, adrenal insufficiency."
+},
+{
+"title": "Acidosis effect",
+"desc": "Metabolic acidosis (in CKD) → H⁺ exchanges intracellularly with K⁺ → K⁺ shift to extracellular space. Per 0.1 pH drop: K⁺ rises ~0.5 mmol/L."
+},
+{
+"title": "ECG progression",
+"desc": "K⁺ 5.5-6.0: peaked T waves. 6.0-6.5: PR prolongation, wide QRS. >6.5: sine-wave pattern → VF risk."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Hyperkalemia in CKD",
+"desc": "Most common cause. K⁺ 5.8 + ECG abnormalities = immediate treatment. Calcium gluconate = first step."
+},
+{
+"label": "Pseudohyperkalemia",
+"desc": "Hemolysis during blood draw, thrombocytosis, leukocytosis — ECG normal. Always repeat before treatment if in doubt."
+},
+{
+"label": "Acute vs chronic",
+"desc": "Chronic hyperkalemia is better tolerated due to renal adaptation — but ECG determines urgency, not the absolute K⁺ value."
+}
+],
+"wiki_therapie_urgent": "K+ >6.0 or ECG changes: calcium gluconate 10% 10 mL IV over 2-3 min → insulin 10 U + glucose 50% 50 mL → salbutamol 10-20 mg nebulized → kayexalate/patiromer → hemodialysis if refractory.",
+"wiki_therapie_stappen": [
+{
+"naam": "Chronic management",
+"detail": "Low-potassium diet, medication review (stop ACE inhibitor/potassium-sparing diuretic), patiromer as long-term supplementation."
+}
+]
+},
+{
+"_i": 364,
+"q": "Man aged 40 years, headache, sweating, palpitations, hypertension that is difficult to control medically. 24-hour urine: elevated metanephrines.\n\nMost likely diagnosis?",
+"a": [
+"Pheochromocytoma",
+"Primary hyperaldosteronism (Conn)",
+"Renovascular hypertension",
+"Essential hypertension"
+],
+"ex": "Triad: headache + sweating + palpitations + difficult-to-treat hypertension = pheochromocytoma until proven otherwise. Elevated urinary metanephrines (catecholamine metabolites) confirms biochemically. Conn: hypokalemia, elevated aldosterone/renin. Renovascular: vascular bruit, young patient.",
+"dl": "Endocrinology",
+"wiki_kern": "Pheochromocytoma: chromaffin tumor cells (adrenal 90%, extra-adrenal = paraganglioma 10%) producing catecholamines. Prevalence among hypertension: 0.2-0.6%. Rule of 10%: 10% malignant, 10% bilateral, 10% extra-adrenal, 10% in children, 10% familial (MEN2, VHL, NF1, SDH mutations).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Catecholamine release",
+"desc": "Chromaffin tumor cells episodically or continuously secrete adrenaline + noradrenaline → α1 (vasoconstriction, hypertension) + β1 (tachycardia, high cardiac output)."
+},
+{
+"title": "Triggers",
+"desc": "Hypertensive crises with stress, anesthesia, glucagon, tricyclic antidepressants, metoclopramide — classic triggers."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Pheochromocytoma",
+"desc": "Triad: headache + sweating + palpitations. Biochemical: plasma metanephrines (sensitive 99%) or 24 h urinary metanephrines. Localization: adrenal MRI."
+},
+{
+"label": "Primary hyperaldosteronism (Conn)",
+"desc": "Hypokalemia + elevated aldosterone/renin ratio. Hypertension without paroxysmal character."
+},
+{
+"label": "Renovascular hypertension",
+"desc": "Vascular bruit over renal artery, young patient, renin-dependent hypertension — MR angiography diagnostic."
+},
+{
+"label": "I-123-MIBG / DOTATATE-PET",
+"desc": "Additional nuclear imaging for extra-adrenal localization (paraganglioma) or metastatic disease."
+}
+],
+"wiki_therapie_urgent": "Preoperative: α-blockade (phenoxybenzamine or doxazosin) for at least 10-14 days → then β-blockade (never β BEFORE α!).",
+"wiki_therapie_stappen": [
+{
+"naam": "Surgery",
+"detail": "laparoscopic adrenalectomy."
+},
+{
+"naam": "Unresectable",
+"detail": "MIBG therapy, sunitinib."
+}
+]
+},
+{
+"_i": 365,
+"q": "Woman aged 30 years, 34 weeks pregnant, blood pressure 158/105 mmHg, proteinuria 3+ on dipstick, edema. No history of hypertension.\n\nDiagnosis?",
+"a": [
+"Pre-eclampsia",
+"Chronic hypertension with superimposed pre-eclampsia",
+"Gestational hypertension without proteinuria",
+"HELLP syndrome"
+],
+"ex": "Pre-eclampsia: blood pressure ≥140/90 after 20 weeks + proteinuria or organ damage. HELLP is the most dangerous complication.",
+"dl": "Reproductive Medicine",
+"wiki_kern": "Pre-eclampsia affects 2-8% of pregnancies. Cause: insufficient placental invasion → oxygen deficiency → vasoconstriction throughout the body → organ damage.",
+"wiki_redflag": "HELLP syndrome can also occur without clear hypertension or proteinuria — think of it with nausea, right upper quadrant pain, and malaise in the second half of pregnancy.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Insufficient placental invasion",
+"desc": "Placental cells (trophoblasts) insufficiently invade the uterine wall → placental ischemia → release of vasoconstrictive substances into the circulation."
+},
+{
+"title": "Systemic vascular damage",
+"desc": "Vasoconstriction → hypertension, renal protein loss (proteinuria), fluid accumulation (edema), elevated liver enzymes, thrombocytopenia."
+},
+{
+"title": "HELLP and eclampsia",
+"desc": "HELLP = hemolytic anemia + elevated liver enzymes + low platelets. Eclampsia = seizure in pre-eclampsia — magnesium sulfate is prevention and treatment."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Pre-eclampsia",
+"desc": "Blood pressure ≥140/90 after 20 weeks + proteinuria ≥300 mg/24 h or organ damage. Only cure: delivery."
+},
+{
+"label": "HELLP syndrome",
+"desc": "Severe variant: hemolytic anemia + elevated liver enzymes + platelets <100 × 10⁹/L. Can also occur without severe hypertension."
+},
+{
+"label": "Eclampsia",
+"desc": "Pre-eclampsia + seizure. Magnesium sulfate is the treatment and prevention."
+}
+],
+"wiki_therapie_urgent": "Admission. Blood pressure ≥160/110: labetalol or nifedipine intravenously. Magnesium sulfate in severe pre-eclampsia.",
+"wiki_therapie_stappen": [
+{
+"naam": "Lung maturation",
+"detail": "Betamethasone or dexamethasone (adrenal corticosteroids) for fetal lung maturation if threatened preterm birth before 34 weeks."
+},
+{
+"naam": "Delivery = only cure",
+"detail": "Indicated at ≥37 weeks, or earlier with severe pre-eclampsia, HELLP, or fetal distress."
+},
+{
+"naam": "Magnesium sulfate",
+"detail": "Continue for 24 hours after delivery to prevent eclampsia."
+}
+]
+},
+{
+"_i": 366,
+"q": "Man aged 35 years, sudden cardiac arrest during sports, resuscitated. Echocardiography: asymmetric septal hypertrophy >15 mm, systolic anterior motion of the mitral valve (SAM).\n\nDiagnosis?",
+"a": [
+"Hypertrophic obstructive cardiomyopathy (HOCM)",
+"Dilated cardiomyopathy (DCM)",
+"Aortic valve stenosis",
+"Hypertensive heart disease"
+],
+"ex": "HOCM: asymmetric septal hypertrophy + SAM of the mitral valve (mitral leaflet moves toward septum during systole → dynamic LVOT obstruction). Classic: sudden cardiac death in young athletes. LVOT gradient is dynamic: increases with exertion/Valsalva, decreases in supine position.",
+"dl": "Cardiology",
+"wiki_kern": "HOCM: most common inherited heart disease (1:500), autosomal dominant, sarcomere protein gene mutations (MYH7, MYBPC3). Morphology: asymmetric septal hypertrophy (ASH), sometimes apical hypertrophy.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "SAM (systolic anterior motion)",
+"desc": "Venturi effect pulls the mitral leaflet toward the hypertrophied septum during systole → dynamic LVOT obstruction."
+},
+{
+"title": "Dynamic gradient",
+"desc": "Pressure gradient across LVOT increases with exertion, Valsalva, standing (lower preload). Decreases with squatting, handgrip test. Gradient ≥30 mmHg = significant obstruction."
+},
+{
+"title": "Sudden cardiac death risk",
+"desc": "Most common cause of sudden cardiac death in young athletes. Risk stratification: ICD indications (syncope, family history of SCD, hypertrophy ≥30 mm, NSVT)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "HOCM",
+"desc": "Asymmetric septal hypertrophy + SAM. Murmur that INCREASES with Valsalva/standing. Sudden cardiac death in athletes. Sarcomere mutations."
+},
+{
+"label": "Aortic valve stenosis",
+"desc": "Fixed valve obstruction. Murmur that DECREASES with Valsalva. Older patient. Calcification on echo."
+},
+{
+"label": "DCM (dilated cardiomyopathy)",
+"desc": "Dilated LV, reduced EF, no hypertrophy. Murmur due to functional mitral regurgitation."
+},
+{
+"label": "Hypertensive heart",
+"desc": "Concentric hypertrophy, no SAM, hypertension as cause — relatively normal EF."
+}
+],
+"wiki_therapie_urgent": "Symptomatic: beta blockers (first choice), disopyramide, verapamil.",
+"wiki_therapie_stappen": [
+{
+"naam": "Refractory obstruction",
+"detail": "septal alcohol ablation or surgical myectomy."
+},
+{
+"naam": "Sudden cardiac death prevention",
+"detail": "ICD (indications: history of VF/VT, syncope, family history of sudden cardiac death, hypertrophy ≥30 mm)."
+}
+]
+},
+{
+"_i": 367,
+"q": "In native-valve endocarditis caused by Staphylococcus aureus, the treatment duration is at least 6 weeks.",
+"a": null,
+"ex": "TRUE. Staphylococcus aureus endocarditis on a native valve: at least 6 weeks of bactericidal antibiotics (IV flucloxacillin for MSSA, vancomycin for MRSA). Streptococcal endocarditis: 4 weeks (simple case 2 weeks with aminoglycoside combination). Prosthetic valve: always ≥6 weeks, surgery almost always indicated.",
+"dl": "Infectious Diseases",
+"wiki_kern": "Endocarditis diagnosis: Duke criteria (major: 2 positive blood cultures + echocardiography (vegetation/abscess/new valvular regurgitation). Minor: predisposition, fever, vascular phenomena, immunological signs, microbiology).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Bacteremia & adhesion",
+"desc": "Bacteremia (dental procedure, IV catheter, skin infection) → adhesion to damaged endothelium or valve tissue via fibrin-platelet thrombus."
+},
+{
+"title": "Vegetation formation",
+"desc": "Bacteria become encased in a fibrin-platelet matrix → vegetations that can embolize (stroke, septic emboli)."
+},
+{
+"title": "Pathogen character",
+"desc": "S. aureus: virulent, also on intact valves, rapidly destructive. Viridans streptococci: subacute, predisposition needed (valvular defect, bicuspid aortic valve)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "S. aureus endocarditis",
+"desc": "Virulent, rapid valve destruction. MSSA: flucloxacillin 12 g/day IV for 6 weeks. MRSA: vancomycin ± rifampicin."
+},
+{
+"label": "MRSA or penicillin allergy",
+"desc": "vancomycin ± rifampicin."
+},
+{
+"label": "Enterococcus",
+"desc": "ampicillin + gentamicin or ampicillin + ceftriaxone."
+},
+{
+"label": "Surgical indications",
+"desc": "heart failure, uncontrolled infection, embolism prevention (vegetation >10 mm + high-risk pathogen)."
+}
+],
+"wiki_therapie_urgent": "European Society of Cardiology (ESC) endocarditis guideline 2023: multidisciplinary endocarditis team.",
+"wiki_therapie_stappen": [
+{
+"naam": "Prophylaxis for dental procedure",
+"detail": "amoxicillin 2 g PO only in high-risk patients (prosthetic valve, previous endocarditis, congenital heart disease)."
+}
+]
+},
+{
+"_i": 368,
+"q": "Man aged 60 years, progressive asymmetric resting tremor of right hand, bradykinesia, rigidity (cogwheel rigidity). No dementia.\n\nWhat is the most informative additional investigation?",
+"a": [
+"Dopamine transporter scan (DaTscan)",
+"Brain MRI with contrast",
+"EEG",
+"Thyroid SPECT scan"
+],
+"ex": "Parkinson's disease is a clinical diagnosis. DaTscan (dopamine transporter SPECT) visualizes presynaptic dopaminergic neurons in the striatum — reduced in idiopathic PD and other parkinsonisms but normal in essential tremor and drug-induced parkinsonism. Brain MRI can support atypical parkinsonisms.",
+"dl": "Neurology",
+"wiki_kern": "Parkinson diagnosis: ≥2 of 3 cardinal signs (resting tremor 4-6 Hz, bradykinesia, rigidity) + asymmetric presentation + good levodopa response. Supportive: anosmia, REM sleep behavior disorder, constipation (autonomic prodromal signs).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Loss of dopaminergic neurons",
+"desc": "Degeneration of dopaminergic neurons in substantia nigra pars compacta → dopamine deficiency in striatum. Lewy bodies (α-synuclein aggregates) are the neuropathological hallmark."
+},
+{
+"title": "Basal ganglia dysregulation",
+"desc": "Dopamine deficiency → disinhibition of indirect basal ganglia circuit → overactivity of globus pallidus internus → excessive inhibition of thalamus → poverty of movement (bradykinesia)."
+},
+{
+"title": "80% threshold",
+"desc": "Symptoms only appear when >80% of dopaminergic neurons are lost — the prodromal phase (anosmia, constipation, REM sleep disorder) lasts 5-20 years."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Parkinson's disease",
+"desc": "Asymmetric, resting tremor 4-6 Hz, good levodopa response. DaTscan: reduced putamen signal. Lewy bodies neuropathologically."
+},
+{
+"label": "Atypical parkinsonism (MSA, PSP, CBD)",
+"desc": "MSA: autonomic dysfunction + cerebellum. PSP: vertical gaze palsy + backward falls. CBD: apraxia + 'alien limb'. Poor levodopa response."
+},
+{
+"label": "Essential tremor",
+"desc": "Action tremor (not at rest), bilateral, family history. DaTscan normal — distinguishes from PD."
+}
+],
+"wiki_therapie_urgent": "Levodopa (with carbidopa/benserazide): most effective, gold standard.",
+"wiki_therapie_stappen": [
+{
+"naam": "Dopamine agonists",
+"detail": "Pramipexole, ropinirole in young patients (less levodopa-induced dyskinesia)."
+},
+{
+"naam": "MAO-B inhibitors",
+"detail": "Rasagiline, selegiline — mild symptomatic effect and possibly neuroprotective."
+},
+{
+"naam": "Deep brain stimulation (DBS)",
+"detail": "in advanced PD with motor fluctuations."
+}
+]
+},
+{
+"_i": 369,
+"q": "Woman aged 25 years, tired, pale, jaundiced. Lab: Hb 7.8 g/dL, reticulocytes 12%, LDH 680 U/L, haptoglobin <0.1 g/L, direct Coombs positive.\n\nWhat is the diagnosis?",
+"a": [
+"Autoimmune hemolytic anemia (AIHA)",
+"Iron deficiency anemia",
+"Megaloblastic anemia (B12 deficiency)",
+"Hereditary spherocytosis"
+],
+"ex": "Autoimmune hemolytic anemia: hemolytic anemia (low Hb + high LDH + low haptoglobin + reticulocytosis) + direct Coombs test positive (antibodies on erythrocytes). Hereditary spherocytosis: Coombs negative. Iron deficiency: reticulocytes low. B12 deficiency: macrocytic, no hemolysis parameters.",
+"dl": "Laboratory Medicine",
+"wiki_kern": "Hemolytic anemia features: Hb ↓ + reticulocytosis (bone marrow compensation) + LDH ↑ (from erythrocytes) + haptoglobin ↓ (bound to released Hb) + indirect bilirubin ↑. Intravascular hemolysis extra: hemoglobinuria, hemoglobinemia.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Warm-type AIHA (70%)",
+"desc": "IgG antibodies bind erythrocytes at 37°C → recognition by splenic macrophages → extravascular hemolysis. Causes: idiopathic, SLE, CLL, drugs (methyldopa, penicillin)."
+},
+{
+"title": "Cold-type AIHA (30%)",
+"desc": "IgM antibodies + complement (C3b) at low temperatures → intravascular hemolysis. Causes: Mycoplasma infection, EBV, lymphoma. Acrocyanosis in cold."
+},
+{
+"title": "Direct Coombs test",
+"desc": "Detects antibodies or complement on erythrocytes. Positive in AIHA, negative in hereditary spherocytosis and G6PD deficiency."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Direct Coombs (DAT)",
+"desc": "positive = antibodies/complement on RBC = immune-mediated hemolysis."
+},
+{
+"label": "Indirect Coombs",
+"desc": "crossmatch in blood group testing."
+},
+{
+"label": "Hereditary spherocytosis",
+"desc": "osmotic fragility test, EMA binding, spectrin mutations."
+}
+],
+"wiki_therapie_urgent": "Warm AIHA: prednisolone 1 mg/kg/day → tapering.",
+"wiki_therapie_stappen": [
+{
+"naam": "Refractory",
+"detail": "rituximab (anti-CD20), splenectomy."
+},
+{
+"naam": "Cold AIHA",
+"detail": "warmth (avoid cold), rituximab."
+},
+{
+"naam": "Step 3",
+"detail": "Blood transfusion in life-threatening anemia (cross-matching complex)."
+}
+]
+},
+{
+"_i": 370,
+"q": "Which antibiotic is NOT suitable as first choice for an uncomplicated urinary tract infection (cystitis) in a woman without risk factors?",
+"a": [
+"Amoxicillin 500 mg tid",
+"Nitrofurantoin 100 mg bid",
+"Fosfomycin 3 g single dose",
+"Trimethoprim 200 mg bid"
+],
+"ex": "Amoxicillin is NOT first choice for UTI because of high E. coli resistance rates (>30-40%). NHG cystitis guideline: nitrofurantoin 100 mg bid for 5 days (first choice), fosfomycin 3 g single dose (alternative), trimethoprim 200 mg bid for 5 days (second choice if nitrofurantoin resistance). Amoxicillin/ampicillin: poor E. coli coverage.",
+"dl": "Pharmacology",
+"wiki_kern": "Pathogens in uncomplicated UTI: E. coli 80%, Staphylococcus saprophyticus (young women), Klebsiella, Proteus. Local resistance patterns determine empiric choice.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Nitrofurantoin",
+"desc": "bactericidal, works via DNA damage in bacteria, concentrates in urine."
+},
+{
+"title": "Step 2",
+"desc": "Not for pyelonephritis (insufficient tissue concentrations)."
+},
+{
+"title": "Fosfomycin",
+"desc": "inhibits first step of peptidoglycan synthesis, single high urinary levels."
+},
+{
+"title": "Trimethoprim",
+"desc": "dihydrofolate reductase inhibitor."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Option 1",
+"desc": "Complicated UTI (man, pregnancy, immunocompromised, catheter, obstruction, pyelonephritis): broader spectrum needed, ciprofloxacin or co-amoxiclav."
+},
+{
+"label": "Pyelonephritis",
+"desc": "ciprofloxacin 500 mg bid for 7 days (uncomplicated) or hospital admission + IV if severe."
+}
+],
+"wiki_therapie_urgent": "NHG 2022: nitrofurantoin first choice.",
+"wiki_therapie_stappen": [
+{
+"naam": "Pregnancy",
+"detail": "nitrofurantoin (avoid >36 weeks), cephalexin."
+},
+{
+"naam": "Recurrent UTI (≥3/year)",
+"detail": "low-dose prophylaxis or self-treatment, cranberry preparations limited effect."
+}
+]
+},
+{
+"_i": 371,
+"q": "Man aged 60 years, longstanding dermatitis problems. New lesion: keratotic plaque with ulceration on the lower lip, not healing in 6 weeks, firm palpable preauricular lymph node.\n\nMost urgent diagnosis?",
+"a": [
+"Squamous cell carcinoma of the lip",
+"Basal cell carcinoma",
+"Keratoacanthoma",
+"Actinic keratosis"
+],
+"ex": "Ulcerating lip lesion + palpable lymph node = squamous cell carcinoma (SCC) until proven otherwise. SCC of the lip: metastatic risk 15-20%.",
+"dl": "Dermatology",
+"wiki_kern": "Squamous cell carcinoma (SCC) of the lip: high-risk location (metastatic risk 15-20% vs. 2-5% elsewhere). Risk factors: chronic UV exposure, smoking, immunosuppression, human papillomavirus (HPV).",
+"wiki_redflag": "Palpable regional lymph node in SCC of the lip or ear indicates metastasis — immediate imaging (CT neck) and sentinel node biopsy or lymph node dissection.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Progression",
+"desc": "Actinic keratosis (precursor) → carcinoma in situ (Bowen disease) → invasive SCC → lymph node metastases through regional nodes."
+},
+{
+"title": "High-risk factors",
+"desc": "Location lip/ear/hand/penis, thickness >2 mm, perineural growth, poorly differentiated — increase risk of metastasis."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Actinic keratosis",
+"desc": "Rough scaly flat lesion, <1% chance of SCC per lesion — treatment: cryotherapy, 5-FU or imiquimod."
+},
+{
+"label": "Keratoacanthoma",
+"desc": "Rapidly growing (weeks), crater-like with keratin plug — spontaneous regression possible but histologically difficult to distinguish from SCC."
+},
+{
+"label": "Basal cell carcinoma",
+"desc": "Pearly borders, telangiectasias — rarely metastatic, but must be ruled out."
+}
+],
+"wiki_therapie_urgent": "Excision with clear margins (≥4-6 mm for high-risk SCC). Check lymph node stations.",
+"wiki_therapie_stappen": [
+{
+"naam": "Mohs micrographic surgery",
+"detail": "For H-zone, recurrence, or poorly demarcated tumor — lowest recurrence rate, tissue-sparing."
+},
+{
+"naam": "Adjuvant radiotherapy",
+"detail": "In perineural invasion, positive margins, or unresectability."
+},
+{
+"naam": "Metastatic/unresectable",
+"detail": "Cemiplimab (anti-PD-1 immunotherapy)."
+}
+]
+},
+{
+"_i": 372,
+"q": "Man aged 45 years, rectal pain, blood per rectum, sensation of incomplete defecation. Proctoscopy: mucosal hyperemia, granular pattern, continuous from rectum to splenic flexure. Biopsy: cryptitis, no granulomas.\n\nDiagnosis?",
+"a": [
+"Ulcerative colitis",
+"Crohn's disease",
+"Infectious colitis",
+"Microscopic colitis"
+],
+"ex": "Ulcerative colitis: continuous mucosal pattern from rectum, no skip lesions, no granulomas on biopsy, cryptitis + crypt abscesses. Crohn's disease: segmental/skip lesions, granulomas (40%), can be transmural, ileal involvement. Infectious colitis: acute, culture-positive, self-limiting.",
+"dl": "Gastroenterology",
+"wiki_kern": "IBD prevalence: rising worldwide. UC: colitis limited to mucosa/submucosa, always rectal involvement (proctitis in 30%, left-sided in 40%, pancolitis in 30%).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "IBD pathophysiology",
+"desc": "dysregulated immune response to intestinal microbiota in genetic predisposition (NOD2 in Crohn, HLA in UC)."
+},
+{
+"title": "Step 2",
+"desc": "Th1/Th17 mediation in Crohn, Th2 in UC."
+},
+{
+"title": "Step 3",
+"desc": "Mucosal barrier dysfunction."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Endoscopy + biopsy",
+"desc": "gold standard."
+},
+{
+"label": "UC",
+"desc": "continuous, mucosal, pseudopolyps."
+},
+{
+"label": "Crohn",
+"desc": "skip lesions, deeper ulcers (cobblestoning), fistulas, granulomas."
+},
+{
+"label": "Fecal calprotectin",
+"desc": "screening for active inflammation IBD vs IBS."
+}
+],
+"wiki_therapie_urgent": "Mild-moderate UC: 5-ASA (mesalazine, rectal or oral).",
+"wiki_therapie_stappen": [
+{
+"naam": "Moderate-severe",
+"detail": "systemic corticosteroids → budesonide."
+},
+{
+"naam": "Refractory",
+"detail": "immunosuppressants (azathioprine/6-MP), biologics (infliximab, vedolizumab)."
+},
+{
+"naam": "Step 3",
+"detail": "Colectomy in refractory disease/dysplasia/carcinoma."
+}
+]
+},
+{
+"_i": 373,
+"q": "Statins are primarily recommended for patients with high LDL cholesterol, regardless of their cardiovascular risk category.",
+"a": null,
+"ex": "FALSE. Statins are recommended based on total cardiovascular risk, not LDL values alone. Guidelines (ESC/ACC): risk category determines LDL target (very high risk: <1.4 mmol/L, high: <1.8 mmol/L). Low absolute risk with low LDL? Possibly no statin indicated. NNT depends on absolute risk.",
+"dl": "Cardiology",
+"wiki_kern": "ESC 2021 cardiovascular risk category: very high (established CVD, DM + organ damage, eGFR <30, SCORE2 ≥10%), high (SCORE2 5-9%, DM without organ damage), moderate (SCORE2 2.5-4%), low (<2.5%). Statin treatment: all patients with established CVD (secondary prevention), in primary prevention depending on risk category + LDL.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "HMG-CoA reductase inhibition",
+"desc": "Statins block the key enzyme in endogenous hepatic cholesterol synthesis → less intracellular cholesterol → liver produces more LDL receptors."
+},
+{
+"title": "Increased LDL clearance",
+"desc": "More LDL receptors on hepatocytes → more LDL uptake from blood → LDL reduction 30-55% depending on statin and dose. Atorvastatin/rosuvastatin = high-intensity (>50% LDL reduction)."
+},
+{
+"title": "Pleiotropic effects",
+"desc": "Besides LDL lowering also: plaque stabilization (less oxidized LDL), anti-inflammatory (CRP ↓), improved endothelial function. This explains cardiovascular benefit even with normal LDL after MI."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Risk-based indication",
+"desc": "Statins are given based on total cardiovascular risk, not LDL alone. Secondary prevention (after MI/stroke): always statin. Primary prevention: depending on SCORE2 risk score + LDL."
+},
+{
+"label": "Statin adverse effects",
+"desc": "Myopathy (muscle pain + CK elevation), rhabdomyolysis (rare). Stop if CK >10× normal. Liver toxicity rare. Check liver enzymes if symptomatic."
+},
+{
+"label": "Contraindications",
+"desc": "Pregnancy, severe liver disease. Interactions: gemfibrozil + statin = myopathy risk; cyclosporine increases statin level."
+},
+{
+"label": "LDL targets",
+"desc": "Add ezetimibe if insufficient LDL reduction with maximal statin dose. PCSK9 inhibitors in very high risk (LDL target <1.4 mmol/L)."
+}
+],
+"wiki_therapie_urgent": "High-intensity statins (atorvastatin 40-80 mg, rosuvastatin 20-40 mg): LDL reduction 50-55%.",
+"wiki_therapie_stappen": [
+{
+"naam": "Add ezetimibe",
+"detail": "additional 15-20% LDL reduction."
+},
+{
+"naam": "Add PCSK9 inhibitors",
+"detail": "PCSK9 inhibitors (alirocumab, evolocumab): 50-60% additional reduction, very high risk or statin intolerance."
+}
+]
+},
+{
+"_i": 374,
+"q": "Woman aged 22 years, hematuria, proteinuria 3 g/24 h, edema, hypertension. Kidney biopsy finding: "diffuse mesangial IgA deposits" on immunofluorescence.\n\nDiagnosis?",
+"a": [
+"IgA nephropathy (Berger's disease)",
+"Henoch-Schönlein purpura nephritis",
+"Lupus nephritis class III",
+"Membranoproliferative GN"
+],
+"ex": "IgA nephropathy: mesangial IgA deposits on immunofluorescence + hematuria during (synpharyngitic) or shortly after infection.",
+"dl": "Nephrology",
+"wiki_kern": "IgA nephropathy: most common primary glomerulonephritis (GN) worldwide. Presentation: macroscopic/microscopic hematuria, proteinuria, hypertension. 30-40% progress to end-stage kidney disease after 20 years.",
+"wiki_redflag": "IgA nephropathy with proteinuria >1 g/24 h + hypertension: high risk of progression to end-stage kidney disease. Early ACE inhibitor + SGLT2 inhibitor demonstrably slows progression.",
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Pathogenesis (four-hit hypothesis)",
+"desc": "Galactose-deficient IgA1 (Gd-IgA1) → autoantibodies (IgG/IgA against Gd-IgA1) → immune complexes → mesangial deposition → mesangial proliferation and inflammation."
+},
+{
+"title": "Synpharyngitic hematuria",
+"desc": "Macroscopic hematuria occurs during (not 1-3 weeks after) infection — distinguishes from post-streptococcal GN."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "IgA vasculitis (Henoch-Schönlein purpura)",
+"desc": "IgA deposits + palpable purpura on legs + arthritis + abdominal pain — extrarenal manifestations."
+},
+{
+"label": "SLE nephritis",
+"desc": "ANA/anti-dsDNA positive, low complement (C3/C4), 'full house' immunofluorescence."
+},
+{
+"label": "Membranoproliferative GN",
+"desc": "Persistently low C3, hypocomplementemia — biopsy needed for distinction."
+}
+],
+"wiki_therapie_urgent": "RAS blockade (ACE inhibitor or ARB) with proteinuria >0.5 g/24 h + blood pressure control.",
+"wiki_therapie_stappen": [
+{
+"naam": "SGLT2 inhibitor",
+"detail": "Nephroprotective in IgA nephropathy regardless of diabetes (DAPA-CKD, EMPA-KIDNEY)."
+},
+{
+"naam": "Corticosteroids",
+"detail": "For moderate proteinuria + progression despite optimal supportive therapy (TESTING study)."
+},
+{
+"naam": "Sparsentan",
+"detail": "Endothelin-1 and angiotensin receptor antagonist — FDA approved 2023 for IgA nephropathy."
+}
+]
+},
+{
+"_i": 375,
+"q": "Man aged 35 years, epilepsy, recent diagnosis of pregnancy in his partner. His current medication has a high teratogenic risk. Which antiepileptic drug has the HIGHEST risk of neural tube defects with first-trimester exposure?",
+"a": [
+"Valproate (sodium valproate)",
+"Lamotrigine",
+"Levetiracetam",
+"Oxcarbazepine"
+],
+"ex": "Valproate has the highest teratogenic risk of all antiepileptic drugs: neural tube defects (1-2%, 10-20× increased vs population), cardiac defects, cleft palate, cognitive impairment (lower child IQ). Lamotrigine and levetiracetam: relatively safer but not risk-free. Valproate is contraindicated in pregnancy unless there is no alternative.",
+"dl": "Neurology",
+"wiki_kern": "Teratogenicity of antiepileptic drugs (high to low risk): valproate > carbamazepine/phenytoin/phenobarbital > lamotrigine ≈ levetiracetam. Valproate: EURAP registry shows major congenital malformations 10.3% with monotherapy.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Valproate: sodium channel blocker + increases GABA + NMDA blockade. Teratogenicity: histone deacetylase inhibition (epigenetic)."
+},
+{
+"title": "Step 2",
+"desc": "disrupted embryonic gene expression."
+},
+{
+"title": "Step 3",
+"desc": "NTD (folic acid-dependent but not fully protected by high-dose folic acid with valproate)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "EMA/MHRA restrictions 2018",
+"desc": "valproate in women of reproductive age: ONLY if no alternatives, with pregnancy prevention programme, informed consent."
+},
+{
+"label": "Switch to lamotrigine/levetiracetam",
+"desc": "monitor doses (clearance changes in pregnancy)."
+}
+],
+"wiki_therapie_urgent": "Preconception: switch to safer alternative if possible.",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "High-dose folic acid (5 mg/day) preconceptionally in all women using AEDs."
+},
+{
+"naam": "Step 2",
+"detail": "Lamotrigine clearance rises strongly in pregnancy: monitor dose (levels)."
+},
+{
+"naam": "Step 3",
+"detail": "Seizure freedom = highest priority (SUDEP risk)."
+}
+]
+},
+{
+"_i": 376,
+"q": "Man aged 38 years, HIV positive (untreated, CD4+ 45 cells/µL). Fever, cough, dyspnea. Sputum: PCP pneumonia (Pneumocystis jirovecii). Saturation 88%.\n\nFirst-choice treatment?",
+"a": [
+"Trimethoprim-sulfamethoxazole (TMP-SMX) + prednisone",
+"Inhaled pentamidine",
+"Atovaquone + azithromycin",
+"Fluconazole + amphotericin B"
+],
+"ex": "PCP pneumonia: first choice TMP-SMX (high dose, 15-20 mg/kg TMP per day, 21 days). In moderate-severe PCP (PaO2 <70 mmHg or A-a gradient >35): adjunctive prednisone 40 mg bid for 5 days → taper (reduces inflammatory response during treatment). Start HAART as soon as possible (not simultaneously in severely ill patient).",
+"dl": "Infectious Diseases",
+"wiki_kern": "PCP (Pneumocystis jirovecii pneumonia): most common AIDS-defining infection at CD4 <200. Presentation: subacute dyspnea, dry cough, fever.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Pneumocystis jirovecii: atypical fungus, infects alveolar epithelial cells in immunodeficiency."
+},
+{
+"title": "Step 2",
+"desc": "alveolar exudate."
+},
+{
+"title": "Step 3",
+"desc": "impaired gas exchange. Cell-mediated immunity (CD4 T cells) essential for defense."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Other opportunistic infections at CD4 <200",
+"desc": "toxoplasmosis (brain, CD4 <100), CMV (retinitis, esophagitis, CD4 <50), MAC (Mycobacterium avium complex, CD4 <50), cryptococcal meningitis (CD4 <100)."
+},
+{
+"label": "PCP",
+"desc": "pulmonary features dominate."
+}
+],
+"wiki_therapie_urgent": "PCP prophylaxis: TMP-SMX 480 mg/day (1 ds tablet) when CD4 <200.",
+"wiki_therapie_stappen": [
+{
+"naam": "Alternative",
+"detail": "dapsone 100 mg/day or atovaquone."
+},
+{
+"naam": "Step 2",
+"detail": "Stop prophylaxis if CD4 >200 for ≥3 months on HAART."
+}
+]
+},
+{
+"_i": 377,
+"q": "In an acute gout attack, it is safe to start allopurinol (urate-lowering therapy) during the attack.",
+"a": null,
+"ex": "FALSE. Starting allopurinol DURING an acute gout attack prolongs and worsens the attack by mobilizing urate crystals. Treat the attack first (NSAIDs, colchicine or corticosteroids), wait 2-4 weeks after complete remission, and only then start allopurinol. If the patient was already taking allopurinol: do NOT stop it during the attack.",
+"dl": "Rheumatology",
+"wiki_kern": "Gout pathophysiology: hyperuricemia → monosodium urate crystals (MSU) in joints → phagocytosis by macrophages/neutrophils → IL-1β, IL-6, TNF → acute inflammation. MTP-1 joint (great toe) most affected.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Allopurinol: xanthine oxidase inhibitor."
+},
+{
+"title": "Step 2",
+"desc": "less uric acid production."
+},
+{
+"title": "Step 3",
+"desc": "drop in serum uric acid. When started acutely: rapid uric acid drop."
+},
+{
+"title": "Step 4",
+"desc": "mobilization of MSU crystals from joints."
+},
+{
+"title": "Step 5",
+"desc": "attack worsens (mobilization attack). Febuxostat: alternative xanthine oxidase inhibitor."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Acute gout",
+"desc": "NSAIDs (indomethacin, naproxen) or colchicine 0.5 mg 2-3 times daily or corticosteroids (if contraindications)."
+},
+{
+"label": "Option 2",
+"desc": "IL-1 antagonists (anakinra, canakinumab) in refractory gout."
+}
+],
+"wiki_therapie_urgent": "Chronic gout: allopurinol (100 mg titrate up to 200-300 mg/day), target serum uric acid <360 µmol/L (<360 for patients with tophi).",
+"wiki_therapie_stappen": [
+{
+"naam": "Lifestyle",
+"detail": "diet (less meat/alcohol/fructose), adequate hydration."
+},
+{
+"naam": "Step 2",
+"detail": "Attack prophylaxis when starting allopurinol: colchicine 0.5 mg/day for 6 months."
+}
+]
+},
+{
+"_i": 378,
+"q": "Man aged 42 with psoriatic plaques: sudden swelling of the entire right 3rd finger ("sausage digit"), pain in the Achilles tendon, asymmetric arthritis. RF and anti-CCP negative. Diagnosis?",
+"a": [
+"Rheumatoid arthritis",
+"Gout",
+"Psoriatic arthritis",
+"Reactive arthritis"
+],
+"ex": "Psoriatic arthritis: dactylitis (sausage digit = swelling of entire finger/toe) + enthesitis (tendon insertions) + psoriasis. RF/anti-CCP negative = seronegative arthropathy. Distinction from RA: asymmetric, DIP joints involved, dactylitis. Treatment: NSAID → MTX → biologics (TNF-i or IL-17-i).",
+"dl": "Rheumatology",
+"wiki_kern": "Psoriatic arthritis (PsA) occurs in 20-30% of patients with psoriasis. Five patterns: (1) asymmetric oligoarticular (most common), (2) RA-like symmetric, (3) DIP arthritis, (4) spondylitis/sacroiliitis, (5) arthritis mutilans.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "IL-17A and IL-23 are central mediators — explains efficacy of IL-17 inhibitors (secukinumab, ixekizumab)."
+},
+{
+"title": "Enthesitis",
+"desc": "inflammation at tendon-bone junction (Achilles tendon, plantar fascia)."
+},
+{
+"title": "Step 3",
+"desc": "Skin disease activity does not always correlate with joint activity — treat both separately if needed."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "RA",
+"desc": "symmetric, RF/anti-CCP positive, no dactylitis, MCP/PIP > DIP."
+},
+{
+"label": "Gout",
+"desc": "acute monoarticular, hyperuricemia, MSU crystals in aspirate."
+},
+{
+"label": "Reactive arthritis",
+"desc": "after infection (Chlamydia, intestinal infection), urethritis + conjunctivitis + arthritis."
+},
+{
+"label": "AS",
+"desc": "axial involvement dominant, no psoriasis."
+}
+],
+"wiki_therapie_urgent": "Mild skin + joints: NSAID + local psoriasis therapy.",
+"wiki_therapie_stappen": [
+{
+"naam": "Moderate-severe joint disease",
+"detail": "methotrexate."
+},
+{
+"naam": "Biologics after MTX failure",
+"detail": "TNF inhibitors (adalimumab), IL-17 inhibitor (secukinumab), IL-12/23 inhibitor (ustekinumab), JAK inhibitor (tofacitinib)."
+},
+{
+"naam": "Step 3",
+"detail": "No hydroxychloroquine (can worsen psoriasis)."
+}
+]
+},
+{
+"_i": 379,
+"q": "When giant cell arteritis (GCA) is suspected with acute visual loss, one should wait for the temporal artery biopsy before starting corticosteroids.",
+"a": null,
+"ex": "FALSE. Acute visual loss in GCA is irreversible — do not wait a minute! Start prednisolone 60 mg/day immediately. Temporal artery biopsy remains reliably positive for up to 2 weeks after starting prednisolone. Saving vision = absolute priority. Jaw claudication and headache are clues to GCA.",
+"dl": "Rheumatology",
+"wiki_kern": "Giant cell arteritis (GCA) is a granulomatous vasculitis of medium and large vessels in people >50 years (peak 70-80 years). Most serious complication: ischemic optic neuropathy → permanent blindness (10-20% untreated).",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "CD4+ T-cell and macrophage-mediated granulomatous inflammation of the vessel wall."
+},
+{
+"title": "Step 2",
+"desc": "giant cells."
+},
+{
+"title": "Step 3",
+"desc": "intimal hyperplasia."
+},
+{
+"title": "Step 4",
+"desc": "vascular occlusion."
+},
+{
+"title": "Step 5",
+"desc": "distal ischemia. Affected vessels: temporal artery, ophthalmic artery, aorta and branches. ESR and CRP strongly elevated (ESR >50, often >100 mm/h)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "PMR without GCA",
+"desc": "no cranial symptoms, no jaw claudication, ESR elevated but also seen in PMR."
+},
+{
+"label": "Migraine",
+"desc": "ESR normal, younger age, pulsating pain."
+},
+{
+"label": "Hypertensive headache",
+"desc": "bilateral, BP elevated."
+},
+{
+"label": "Trigeminal neuralgia",
+"desc": "electric pain attacks, brief."
+}
+],
+"wiki_therapie_urgent": "High-dose prednisolone immediately: 40-60 mg/day (60 mg with threatened visual loss).",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "Schedule biopsy but do NOT wait for it."
+},
+{
+"naam": "With florid visual loss",
+"detail": "IV methylprednisolone 1 g/day for 3 days."
+},
+{
+"naam": "Tocilizumab (anti-IL-6R)",
+"detail": "recommended in recurrent/refractory GCA → less prednisolone needed."
+},
+{
+"naam": "Step 4",
+"detail": "Taper over 18-24 months."
+}
+]
+},
+{
+"_i": 380,
+"q": "Anti-CCP antibodies are more specific for rheumatoid arthritis than rheumatoid factor (RF).",
+"a": null,
+"ex": "TRUE. Anti-CCP has ~98% specificity for RA vs ~80% for RF. RF is also positive in Sjögren (75%), SLE, hepatitis C, and in 5-10% of healthy elderly people. Anti-CCP is also detectable years before clinical disease — useful as an early marker.",
+"dl": "Rheumatology",
+"wiki_kern": "Anti-CCP (anti-citrullinated peptide antibodies) recognizes citrulline-containing proteins. Specificity for RA: ~98%.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Rheumatoid factor (RF) = IgM autoantibody directed against the Fc portion of IgG."
+},
+{
+"title": "Specificity only ~80%",
+"desc": "also positive in Sjögren (75-90%), SLE, bacterial endocarditis, hepatitis C, and in 5-10% of healthy elderly people (peak >70 years)."
+},
+{
+"title": "Combination RF + anti-CCP",
+"desc": "specificity >99%."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Seronegative RA",
+"desc": "RF and anti-CCP negative, diagnosis based on clinical criteria (2010 ACR/EULAR)."
+},
+{
+"label": "Option 2",
+"desc": "Can still have erosive course."
+},
+{
+"label": "Other causes of positive RF",
+"desc": "subacute bacterial endocarditis, primary Sjögren, cryoglobulinemia, sarcoidosis."
+}
+],
+"wiki_therapie_urgent": "Anti-CCP titer is not routinely repeated for treatment response — DAS28, CDAI or SDAI (clinical activity scores) are used for that.",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "High anti-CCP at diagnosis → consider more aggressive treatment strategy (direct combination therapy)."
+}
+]
+},
+{
+"_i": 381,
+"q": "Woman aged 29 years, polyarthritis + butterfly rash + proteinuria 1.8 g/day:\nANA 1:640 positive\nAnti-dsDNA strongly positive\nC3 0.45 g/L (↓)\nC4 0.07 g/L (↓)\nAnti-CCP negative\n\nWhich mechanism explains the low complement?",
+"a": [
+"Reduced production in the liver due to inflammation",
+"Loss through the kidney due to proteinuria",
+"Consumption by immune complex deposition",
+"Genetic complement deficiency"
+],
+"ex": "SLE: complement (C3/C4) falls due to CONSUMPTION — immune complexes activate the classical complement system → C3/C4 are used up. Rising anti-dsDNA + falling C3/C4 = impending flare or active lupus nephritis. This is the most useful combined biomarker for disease activity in SLE.",
+"dl": "Rheumatology",
+"wiki_kern": "In SLE, anti-dsDNA antibodies are formed → bind dsDNA → immune complexes → deposit in glomeruli, skin, joints → classical complement activation (C1q → C4 → C3 → MAC) → tissue damage. C3 and C4 are consumed → serum levels fall.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Classical pathway: C1q recognizes immune complexes."
+},
+{
+"title": "Step 2",
+"desc": "C4 and C2 cleavage."
+},
+{
+"title": "Step 3",
+"desc": "C3 convertase."
+},
+{
+"title": "Step 4",
+"desc": "C3a + C3b."
+},
+{
+"title": "Step 5",
+"desc": "C5 convertase."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Reduced production",
+"desc": "liver disease (cirrhosis) → all factors low, but acute-phase reactants (CRP, fibrinogen) also low."
+},
+{
+"label": "Genetic deficiency",
+"desc": "rare, present from birth."
+},
+{
+"label": "Loss through kidney",
+"desc": "nephrotic syndrome loses larger proteins (albumin, IgG), but complement is smaller and loss is less prominent."
+}
+],
+"wiki_therapie_urgent": "Rising anti-dsDNA + falling C3/C4 → anticipate flare.",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "In active lupus nephritis (class III/IV): mycophenolate mofetil + prednisolone."
+},
+{
+"naam": "Belimumab (anti-BLyS)",
+"detail": "reduces flares."
+},
+{
+"naam": "Voclosporin or obinutuzumab",
+"detail": "newer in nephritis."
+},
+{
+"naam": "Hydroxychloroquine",
+"detail": "always as baseline treatment."
+}
+]
+},
+{
+"_i": 382,
+"q": "Man aged 77 years: dementia + detailed visual hallucinations (children he clearly sees) + mild parkinsonism + consciousness fluctuates strongly day to day. Diagnosis?",
+"a": [
+"Alzheimer's disease",
+"Vascular dementia",
+"Lewy body dementia",
+"Frontotemporal dementia"
+],
+"ex": "Lewy body dementia: dementia + ≥2 of: detailed visual hallucinations, parkinsonism, fluctuating consciousness, REM sleep behavior disorder. CRITICAL: antipsychotics are life-threatening in DLB — "neuroleptic sensitivity" → severe rigidity and reduced consciousness. Cholinesterase inhibitors (rivastigmine) do help.",
+"dl": "Psychiatry",
+"wiki_kern": "Lewy body dementia (DLB) is the second most common dementia. Characterized by α-synuclein aggregates in cortex and brainstem.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Distinguish DLB vs Parkinson dementia: in DLB, dementia occurs before or simultaneously with motor features; in Parkinson dementia, motor features precede by ≥1 year. α-Synuclein damages cholinergic and dopaminergic neurons → cortical + subcortical dysfunction."
+},
+{
+"title": "DaT scan",
+"desc": "reduced dopamine transporter uptake (also in Parkinson's, not in Alzheimer's)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Alzheimer's disease",
+"desc": "memory loss dominant, no early hallucinations, no parkinsonism, MRI: bitemporal/hippocampal atrophy."
+},
+{
+"label": "Vascular dementia",
+"desc": "stepwise decline, vascular disease on MRI."
+},
+{
+"label": "FTD",
+"desc": "behavioral change + language dominant, age <65."
+},
+{
+"label": "Delirium",
+"desc": "acute reversible, underlying somatic cause."
+}
+],
+"wiki_therapie_urgent": "Rivastigmine (cholinesterase inhibitor): improves cognition and hallucinations in DLB.",
+"wiki_therapie_stappen": [
+{
+"naam": "BEWARE antipsychotics",
+"detail": "50% chance of severe neuroleptic sensitivity reaction."
+},
+{
+"naam": "If still necessary",
+"detail": "quetiapine or clozapine at minimal dose."
+},
+{
+"naam": "L-dopa for parkinsonism (cautiously",
+"detail": "can worsen hallucinations)."
+},
+{
+"naam": "Step 4",
+"detail": "Clonazepam for REM sleep behavior disorder."
+}
+]
+},
+{
+"_i": 383,
+"q": "Patient 36 h after starting haloperidol: fever 39.8°C, generalized "lead pipe" muscle rigidity, fluctuating consciousness, CK 14,000 IU/L. Diagnosis?",
+"a": [
+"Serotonin syndrome",
+"Malignant hyperthermia",
+"Neuroleptic Malignant Syndrome",
+"Thyrotoxic crisis"
+],
+"ex": "NMS: tetrad fever + lead pipe rigidity + fluctuating consciousness + autonomic instability after antipsychotic. CK markedly elevated due to muscle ischemia. Stop antipsychotic immediately. Dantrolene + bromocriptine + ICU. Distinguish from serotonin syndrome: myoclonus/tremor instead of rigidity, faster onset (hours), after serotonergic drug.",
+"dl": "Psychiatry",
+"wiki_kern": "Neuroleptic Malignant Syndrome (NMS): life-threatening reaction to dopamine-blocking drugs (antipsychotics, metoclopramide). Mortality untreated up to 20%.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Abrupt D2 blockade in striatum."
+},
+{
+"title": "Step 2",
+"desc": "rigidity + hyperthermia. High CK due to ischemic muscle necrosis from rigidity. Myoglobinuria."
+},
+{
+"title": "Step 3",
+"desc": "acute kidney injury. Not genetically determined — distinguishes from malignant hyperthermia (RYR1 mutation with inhaled anesthetics)."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Serotonin syndrome",
+"desc": "tremor/myoclonus (not lead pipe), agitation, pupil dilation, diarrhea, faster onset (hours after serotonergic drug such as SSRI+MAOI, tramadol)."
+},
+{
+"label": "Malignant hyperthermia",
+"desc": "with inhaled anesthetics (halothane, succinylcholine)."
+},
+{
+"label": "Thyrotoxic crisis",
+"desc": "no rigidity, high FT4/low TSH, thyroid history."
+}
+],
+"wiki_therapie_urgent": "Stop antipsychotic immediately.",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "Dantrolene IV (inhibits Ca²⁺ release from sarcoplasmic reticulum → reduces rigidity + hyperthermia)."
+},
+{
+"naam": "Step 2",
+"detail": "Bromocriptine (dopamine agonist)."
+},
+{
+"naam": "Step 3",
+"detail": "Active cooling."
+},
+{
+"naam": "Step 4",
+"detail": "IV fluids to prevent renal failure."
+},
+{
+"naam": "Step 5",
+"detail": "Restart antipsychotic only after ≥2 weeks, different agent, lowest effective dose."
+}
+]
+},
+{
+"_i": 384,
+"q": "Man aged 48 with bipolar disorder on lithium maintenance: tremor, ataxia, dysarthria, vomiting. Lithium level 2.6 mmol/L (therapeutic: 0.6-1.0). First step?",
+"a": [
+"Halve lithium dose and monitor",
+"Stop lithium immediately + aggressive IV hydration",
+"Administer dantrolene",
+"Administer naloxone"
+],
+"ex": "Lithium toxicity (level >2 mmol/L = severe): stop lithium + aggressive IV NaCl 0.9% (restores Na excretion → increases renal lithium clearance). Hemodialysis if level >3.5 mmol/L or renal failure. Pitfall: NSAIDs, diuretics and ACE inhibitors increase lithium level — always check medication list.",
+"dl": "Psychiatry",
+"wiki_kern": "Lithium has a narrow therapeutic window: 0.6-1.0 mmol/L (maintenance), 0.8-1.2 (acute mania). Toxicity: mild >1.5, moderate-severe >2.0, life-threatening >2.5 mmol/L.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Lithium is renally excreted in competition with sodium. With sodium depletion (dehydration, diuretics, NSAID, ACE inhibitor)."
+},
+{
+"title": "Step 2",
+"desc": "more lithium reabsorption."
+},
+{
+"title": "Step 3",
+"desc": "accumulation. NSAID: lower GFR."
+},
+{
+"title": "Step 4",
+"desc": "less lithium clearance. Thiazides: proximal tubule retention paradox."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "NMS",
+"desc": "after antipsychotic, lead pipe rigidity, high CK, fever."
+},
+{
+"label": "Serotonin syndrome",
+"desc": "myoclonus, agitation, diarrhea with serotonergic drug."
+},
+{
+"label": "Cerebellar infarct",
+"desc": "acute onset, MRI."
+},
+{
+"label": "Wernicke encephalopathy",
+"desc": "thiamine deficiency, ophthalmoplegia, ataxia, confusion."
+}
+],
+"wiki_therapie_urgent": "Mild (<1.5): oral fluids + dose adjustment.",
+"wiki_therapie_stappen": [
+{
+"naam": "Moderate (1.5-3.0)",
+"detail": "stop lithium + aggressive IV NaCl 0.9%."
+},
+{
+"naam": "Severe (>3.0 or renal failure)",
+"detail": "hemodialysis."
+},
+{
+"naam": "Prevention",
+"detail": "avoid NSAIDs, adequate hydration, regular level monitoring (every 3-6 months), renal function annually."
+}
+]
+},
+{
+"_i": 385,
+"q": "A direct question about suicidal thoughts ("Are you thinking about killing yourself?") increases the risk of a suicide attempt in depressed patients.",
+"a": null,
+"ex": "FALSE. Persistent myth. Research consistently shows that asking about suicidal thoughts does NOT increase the risk — and can provide relief in vulnerable patients ("finally someone asks"). Not discussing it = missed opportunity. Always ask directly when depression or a high-risk situation is suspected.",
+"dl": "Psychiatry",
+"wiki_kern": null,
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": null,
+"wiki_onderscheid": null,
+"wiki_therapie_urgent": null,
+"wiki_therapie_stappen": null
+},
+{
+"_i": 386,
+"q": "SSRI monotherapy (without a mood stabilizer) is a safe treatment for a depressive episode in bipolar I disorder.",
+"a": null,
+"ex": "FALSE. SSRI monotherapy in bipolar disorder can trigger a manic switch — risk 20-40% in type I. First choice for bipolar depression: quetiapine, lithium or lamotrigine. If an SSRI is added: always combined with a mood stabilizer.",
+"dl": "Psychiatry",
+"wiki_kern": "Bipolar depression is the most common phase and the hardest to treat. Error: treating like unipolar depression → antidepressant-induced switch to mania.",
+"wiki_redflag": null,
+"wiki_bigfact_label": null,
+"wiki_bigfact_sub": null,
+"wiki_mechanisme": [
+{
+"title": "Step 1",
+"desc": "Antidepressants increase monoaminergic transmission → lower threshold for mania (via dopamine/noradrenaline)."
+},
+{
+"title": "Step 2",
+"desc": "Lamotrigine (glutamate inhibitor via Na-channel stabilization)."
+},
+{
+"title": "Step 3",
+"desc": "Valproate and lithium effective for all phases."
+},
+{
+"title": "Switch risk",
+"desc": "higher in type I than type II, higher with tricyclic antidepressants than SSRI."
+}
+],
+"wiki_onderscheid": [
+{
+"label": "Unipolar depression",
+"desc": "SSRI is first choice, no manic switch."
+},
+{
+"label": "Bipolar type II",
+"desc": "lower switch risk than type I but still use caution."
+},
+{
+"label": "Cyclothymia",
+"desc": "SSRI can destabilize."
+},
+{
+"label": "Psychotic depression",
+"desc": "antidepressant + antipsychotic or ECT."
+}
+],
+"wiki_therapie_urgent": "Bipolar depression preference: quetiapine 50-300 mg/night, lithium (suicide-protective!), lamotrigine (slow titration, SJS risk if increased too quickly).",
+"wiki_therapie_stappen": [
+{
+"naam": "Step 1",
+"detail": "Always combine SSRI with mood stabilizer."
+},
+{
+"naam": "Step 2",
+"detail": "CBT as adjunct."
+},
+{
+"naam": "Step 3",
+"detail": "Psychoeducation about switch signs."
+}
+]
+}
+],
+"cases": [
+{
+"_i": 0,
+"id": "c1",
+"patient": "Patient A — Man, 67 years",
+"diagnosis": "Pulmonary embolism",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Acute shortness of breath and chest pain, started 2 hours ago."
+},
+{
+"label": "Past medical history",
+"text": "Knee surgery 10 days ago, bed rest since then. Smoked for 20 years."
+},
+{
+"label": "Vital signs",
+"text": "SpO₂ 88%, HR 118/min, BP 105/70 mmHg, RR 26/min, T 37.8°C."
+},
+{
+"label": "Physical examination",
+"text": "Right lower leg swollen and warm. Homan sign positive."
+},
+{
+"label": "Lab & ECG",
+"text": "D-dimer strongly elevated. ECG: S1Q3T3 pattern, sinus tachycardia."
+},
+{
+"label": "Imaging",
+"text": "CT pulmonary angiography: bilateral filling defects in the pulmonary arteries."
+}
+],
+"options": [
+"STEMI",
+"Pulmonary embolism",
+"Pneumonia",
+"Aortic dissection"
+]
+},
+{
+"_i": 1,
+"id": "c2",
+"patient": "Patient B — Woman, 34 years",
+"diagnosis": "DKA in type 1 DM",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Nausea, vomiting and confusion, progressive over 2 days."
+},
+{
+"label": "Past medical history",
+"text": "Known type 1 DM. Forgot insulin over the past 3 days."
+},
+{
+"label": "Vital signs",
+"text": "BP 95/60 mmHg, HR 128/min, RR 28/min (deep and rapid), T 37.1°C."
+},
+{
+"label": "Physical examination",
+"text": "Dry mucous membranes, reduced skin turgor. Fruity breath. Confused."
+},
+{
+"label": "Lab",
+"text": "Glucose 32 mmol/L. pH 7.12, bicarbonate 8. Ketonuria +++. K⁺ 5.8."
+},
+{
+"label": "Conclusion",
+"text": "Anion gap elevated (24). Insulin deficiency with lipolysis and ketone formation."
+}
+],
+"options": [
+"HHS (hyperosmolar)",
+"Alcoholic ketoacidosis",
+"DKA in type 1 DM",
+"Lactic acidosis"
+]
+},
+{
+"_i": 2,
+"id": "c3",
+"patient": "Patient C — Man, 55 years",
+"diagnosis": "Bacterial endocarditis",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Fever and general malaise for 3 weeks, now also joint pain."
+},
+{
+"label": "Past medical history",
+"text": "IV drug user. Dental procedure 6 weeks ago."
+},
+{
+"label": "Vital signs",
+"text": "T 38.9°C, HR 104/min, BP 130/80 mmHg."
+},
+{
+"label": "Physical examination",
+"text": "New holosystolic murmur. Splinter hemorrhages under nails. Janeway lesions."
+},
+{
+"label": "Lab & Echo",
+"text": "CRP 180, leukocytes 16. Blood cultures: S. aureus 3/3. Echo: mitral valve vegetation."
+},
+{
+"label": "Criteria",
+"text": "Meets 2 major Duke criteria: positive cultures + echocardiographic evidence."
+}
+],
+"options": [
+"Rheumatoid arthritis",
+"Bacterial endocarditis",
+"Sepsis without focus",
+"Systemic lupus"
+]
+},
+{
+"_i": 3,
+"id": "c4",
+"patient": "Patient D — Woman, 28 years",
+"diagnosis": "Ectopic pregnancy",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Acute severe left lower abdominal pain, started 1 hour ago."
+},
+{
+"label": "Past medical history",
+"text": "LMP 7 weeks ago. Previous chlamydia infection."
+},
+{
+"label": "Vital signs",
+"text": "BP 88/55 mmHg, HR 135/min, pale and clammy. Pain 9/10."
+},
+{
+"label": "Physical examination",
+"text": "Left-sided peritoneal irritation. Cervical motion tenderness on vaginal examination. Adnexal mass palpable."
+},
+{
+"label": "Lab",
+"text": "β-HCG 4500 IU/L (positive). Hb dropped to 6.2. Blood group O-negative."
+},
+{
+"label": "Ultrasound",
+"text": "No intrauterine pregnancy. Free fluid in abdomen. Mass in left adnexa."
+}
+],
+"options": [
+"Appendicitis",
+"Ruptured ovarian cyst",
+"Ectopic pregnancy",
+"PID"
+]
+},
+{
+"_i": 4,
+"id": "c5",
+"patient": "Patient E — Man, 72 years",
+"diagnosis": "Subdural hematoma",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Progressive confusion and headache over 2 weeks, now also right arm weakness."
+},
+{
+"label": "Past medical history",
+"text": "Acenocoumarol (INR 3.8). Fall 3 weeks ago, "small bump on head"."
+},
+{
+"label": "Vital signs",
+"text": "BP 162/94 mmHg, HR 68/min, GCS 13/15."
+},
+{
+"label": "Physical examination",
+"text": "Confused, dysarthria. Reduced strength right arm 3/5. Hyperreflexia right."
+},
+{
+"label": "Lab",
+"text": "INR 3.8. Platelets normal."
+},
+{
+"label": "Imaging",
+"text": "CT: crescent-shaped hypodense mass left parietal with midline shift 6 mm."
+}
+],
+"options": [
+"Ischemic stroke",
+"Subdural hematoma",
+"Brain tumor",
+"Epidural hematoma"
+]
+},
+{
+"_i": 5,
+"id": "c6",
+"patient": "Patient F — Man, 58 years",
+"diagnosis": "Inferior STEMI (RCA occlusion)",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Severe pressure-like retrosternal pain radiating to jaw and left arm, started 40 minutes ago. Sweating and nausea."
+},
+{
+"label": "Past medical history",
+"text": "Hypertension, smoking 25 pack-years, total cholesterol 6.8 mmol/L. No previous cardiac history."
+},
+{
+"label": "Vital signs",
+"text": "BP 92/58 mmHg, HR 98/min, SpO₂ 96%, RR 20/min, T 37.0°C. Pale and clammy."
+},
+{
+"label": "Physical examination",
+"text": "S4 gallop audible. Mild jugular venous distension. Lungs clear. No edema."
+},
+{
+"label": "Lab",
+"text": "Troponin I 2.8 µg/L (strongly elevated). CK-MB 68 U/L. Creat 105 µmol/L. Hb 9.1 mmol/L."
+},
+{
+"label": "ECG",
+"text": "ST elevation in II, III and aVF (2-3 mm). Reciprocal ST depression in I and aVL. No bundle branch block."
+}
+],
+"options": [
+"Type A aortic dissection",
+"Acute pericarditis",
+"Inferior STEMI (RCA occlusion)",
+"Lateral wall NSTEMI"
+]
+},
+{
+"_i": 6,
+"id": "c7",
+"patient": "Patient G — Woman, 72 years",
+"diagnosis": "Septic shock due to community-acquired pneumonia",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "3 days of productive cough with green sputum, fever and dyspnea. Fell at home this morning, now confused."
+},
+{
+"label": "Past medical history",
+"text": "Type 2 DM, chronic heart failure (EF 45%), smokes 30 pack-years. Lives alone."
+},
+{
+"label": "Vital signs",
+"text": "BP 78/48 mmHg, HR 124/min, RR 32/min, SpO₂ 84% on room air, T 39.6°C. GCS 12."
+},
+{
+"label": "Physical examination",
+"text": "Right basal dullness to percussion and bronchial breath sounds. No JVD. No crackles left."
+},
+{
+"label": "Lab",
+"text": "Leukocytes 19.4 × 10⁹/L, CRP 312 mg/L, creat 198 µmol/L (normal 85), lactate 3.8 mmol/L. Blood gas: pH 7.28, pO₂ 54 mmHg (room air)."
+},
+{
+"label": "Imaging",
+"text": "Chest X-ray: consolidation of entire right lower lobe. No cardiomegaly, no congestion."
+}
+],
+"options": [
+"Decompensated heart failure",
+"Pulmonary embolism with shock",
+"Septic shock due to CAP",
+"COPD exacerbation"
+]
+},
+{
+"_i": 7,
+"id": "c8",
+"patient": "Patient H — Man, 66 years",
+"diagnosis": "Ischemic stroke — thrombolysis candidate",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Sudden weakness of right arm and leg, speech difficult. Started 1 hour 45 minutes ago."
+},
+{
+"label": "Past medical history",
+"text": "Atrial fibrillation (not treated with anticoagulants), hypertension, hypercholesterolemia."
+},
+{
+"label": "Vital signs",
+"text": "BP 185/105 mmHg, HR 82/min irregular, SpO₂ 97%, T 37.1°C."
+},
+{
+"label": "Physical examination",
+"text": "Dysarthria, right-sided hemiparesis arm > leg, right central facial palsy, gaze deviation to the left. NIHSS 14."
+},
+{
+"label": "Lab & ECG",
+"text": "Glucose 7.2 mmol/L, INR 1.1, platelets 224. ECG: atrial fibrillation with adequate ventricular rhythm (82/min)."
+},
+{
+"label": "Imaging",
+"text": "CT brain: no hemorrhage, no early ischemic signs. CT angiography: occlusion of left MCA M1 segment."
+}
+],
+"options": [
+"Intracranial hemorrhage",
+"Ischemic stroke — candidate for thrombolysis and thrombectomy",
+"TIA (fully recovered)",
+"Hypertensive encephalopathy"
+]
+},
+{
+"_i": 8,
+"id": "c9",
+"patient": "Patient I — Woman, 76 years",
+"diagnosis": "Acute decompensated heart failure",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Increasing shortness of breath over the past week, now also at rest. Can no longer lie flat (3 pillows). Ankles more swollen."
+},
+{
+"label": "Past medical history",
+"text": "Heart failure (HFrEF, EF 32%), coronary artery disease, hypertension. Medication: furosemide 40 mg, lisinopril, carvedilol. Ate a lot of sweets this weekend and "a bit too much salt"."
+},
+{
+"label": "Vital signs",
+"text": "BP 158/96 mmHg, HR 104/min, RR 26/min, SpO₂ 88% sitting, T 37.2°C."
+},
+{
+"label": "Physical examination",
+"text": "Jugular venous pressure +++ (>4 cm above angle of Louis). S3 gallop. Bilateral basal crackles up to scapula. Pitting ankle edema 3+."
+},
+{
+"label": "Lab",
+"text": "NT-proBNP 11,800 pg/mL (strongly elevated, normal <125). Creat 132 µmol/L (was 98). Na 131 mmol/L. Hb 7.1 mmol/L."
+},
+{
+"label": "Imaging",
+"text": "Chest X-ray: cardiomegaly (CI >0.5), bilateral hilar congestion, Kerley B lines, peribronchial cuffing."
+}
+],
+"options": [
+"Bilateral pneumonia",
+"Acute decompensated heart failure",
+"Nephrotic syndrome",
+"COPD exacerbation"
+]
+},
+{
+"_i": 9,
+"id": "c10",
+"patient": "Patient J — Man, 21 years",
+"diagnosis": "Bacterial meningitis (N. meningitidis)",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Severe headache, neck stiffness and fever. Started 6 hours ago, rapidly deteriorating."
+},
+{
+"label": "Past medical history",
+"text": "Healthy. Student house, recent flu. Not vaccinated against meningococcus."
+},
+{
+"label": "Vital signs",
+"text": "T 40.2°C, HR 118/min, BP 105/70 mmHg, RR 22/min, GCS 14 (slightly confused)."
+},
+{
+"label": "Physical examination",
+"text": "Marked meningism. Positive Kernig and Brudzinski signs. Photophobia. Non-blanching petechiae spread over trunk and legs."
+},
+{
+"label": "Lab",
+"text": "Leukocytes 19.8 × 10⁹/L, CRP 345 mg/L, ESR 82. Glucose 5.4 mmol/L."
+},
+{
+"label": "LP result",
+"text": "Cloudy fluid. PMN pleocytosis 1850 cells/µL. Glucose 1.7 mmol/L (plasma 5.4). Protein 4.6 g/L. Gram stain: gram-negative diplococci."
+}
+],
+"options": [
+"Viral meningitis (enterovirus)",
+"Subarachnoid hemorrhage",
+"Bacterial meningitis (N. meningitidis)",
+"HSV encephalitis"
+]
+},
+{
+"_i": 10,
+"id": "c11",
+"patient": "Patient K — Man, 70 years",
+"diagnosis": "Prerenal acute kidney injury",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Reduced urine output, fatigue and mild shortness of breath. Has drunk little for 2 days."
+},
+{
+"label": "Past medical history",
+"text": "Type 2 DM, hypertension. Medication: diclofenac (knee pain), lisinopril, hydrochlorothiazide."
+},
+{
+"label": "Vital signs",
+"text": "BP 102/65 mmHg, HR 96/min, SpO2 97%, T 37.0 degrees. Weight 2 kg less than 2 weeks ago."
+},
+{
+"label": "Physical examination",
+"text": "Dry mucous membranes, reduced skin turgor. No JVD. No edema."
+},
+{
+"label": "Lab",
+"text": "Creatinine 468 umol/L (was 96 three weeks ago). Urea 22. K+ 5.9. HCO3- 17. Urine Na 6 mmol/L, urine osmolality 710 mosm/kg, FeNa 0.4%."
+},
+{
+"label": "Renal ultrasound",
+"text": "Normal kidney size. No hydronephrosis, no obstruction."
+}
+],
+"options": [
+"Renal AKI (acute tubular necrosis)",
+"Prerenal AKI due to dehydration + nephrotoxins",
+"Postrenal AKI (urinary tract obstruction)",
+"Chronic kidney disease exacerbation"
+]
+},
+{
+"_i": 11,
+"id": "c12",
+"patient": "Patient L — Man, 64 years",
+"diagnosis": "Infective COPD exacerbation",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Increasing dyspnea, more sputum than usual (now yellow/green), cough. Symptoms for 3 days."
+},
+{
+"label": "Past medical history",
+"text": "COPD GOLD III (FEV1 42% predicted), 40 pack-years smoking. Two exacerbations in the past year requiring prednisolone."
+},
+{
+"label": "Vital signs",
+"text": "BP 138/84 mmHg, HR 104/min, RR 28/min, SpO2 84% on room air, T 38.1 degrees. Speaks in short sentences."
+},
+{
+"label": "Physical examination",
+"text": "Barrel chest. Prolonged expiration. Diffuse expiratory wheezing. Use of accessory respiratory muscles. No peripheral edema, no JVD."
+},
+{
+"label": "Blood gas (on 2L O2)",
+"text": "pH 7.31, pCO2 68 mmHg, pO2 62 mmHg, HCO3- 33 mmol/L. Lactate 1.4 mmol/L."
+},
+{
+"label": "Lab & Chest X-ray",
+"text": "Leukocytes 11.8, CRP 62 mg/L. Chest X-ray: hyperinflation, flattened diaphragms. No consolidation, no pneumothorax."
+}
+],
+"options": [
+"Acute asthma exacerbation",
+"Decompensated heart failure",
+"Infective COPD exacerbation",
+"Pulmonary embolism"
+]
+},
+{
+"_i": 12,
+"id": "c13",
+"patient": "Patient M — Woman, 54 years",
+"diagnosis": "Hypertensive emergency (malignant hypertension)",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Severe occipital headache, blurred vision and nausea. Stopped medication 3 months ago."
+},
+{
+"label": "Past medical history",
+"text": "Hypertension known for 10 years, but poor medication adherence. Smokes 15 pack-years."
+},
+{
+"label": "Vital signs",
+"text": "BP 218/134 mmHg right, 214/130 mmHg left, HR 92/min, SpO2 98%, T 37.0 degrees."
+},
+{
+"label": "Physical examination",
+"text": "Fundoscopy: bilateral papilledema, flame-shaped hemorrhages, hard exudates. No focal neurological deficit. GCS 15."
+},
+{
+"label": "Lab",
+"text": "Creatinine 168 umol/L (normal 90). Proteinuria +++. Hb 6.2 mmol/L, schistocytes on blood smear. LDH 520 U/L. Platelets 88."
+},
+{
+"label": "ECG & additional",
+"text": "ECG: LVH features with strain pattern. Urine dipstick: protein +++, blood +."
+}
+],
+"options": [
+"Hypertensive urgency (no end-organ damage)",
+"Hypertensive emergency (malignant hypertension)",
+"Hypertensive encephalopathy",
+"Pre-eclampsia"
+]
+},
+{
+"_i": 13,
+"id": "c14",
+"patient": "Patient N — Man, 62 years",
+"diagnosis": "Atrial fibrillation with rapid ventricular response (holiday heart)",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Palpitations and pounding heartbeat. Mild exertional dyspnea. Started yesterday after festive weekend."
+},
+{
+"label": "Past medical history",
+"text": "No known cardiac abnormalities. Drinks socially but this weekend more than usual (alcohol). No medication."
+},
+{
+"label": "Vital signs",
+"text": "BP 128/82 mmHg, HR 152/min irregular, SpO2 97%, T 37.1 degrees. No signs of shock."
+},
+{
+"label": "Physical examination",
+"text": "Irregular heart rhythm, no murmurs. Lungs clear. No JVD, no peripheral edema. No focal neurology."
+},
+{
+"label": "ECG",
+"text": "No P waves, completely irregular rhythm, narrow QRS complexes. Ventricular rate 148-158/min. No ST abnormalities."
+},
+{
+"label": "Lab & echo",
+"text": "TSH normal. Electrolytes normal. Hb normal. Echo: EF 58%, no wall motion abnormalities, left atrium mildly dilated."
+}
+],
+"options": [
+"Atrial flutter with 2:1 conduction",
+"Supraventricular tachycardia (AVNRT)",
+"Atrial fibrillation (holiday heart)",
+"Ventricular tachycardia"
+]
+},
+{
+"_i": 14,
+"id": "c15",
+"patient": "Patient O — Man, 23 years",
+"diagnosis": "Acute appendicitis",
+"clues": [
+{
+"label": "Reason for presentation",
+"text": "Abdominal pain started around the umbilicus, now migrated to right lower abdomen. Nausea, anorexia, low-grade fever."
+},
+{
+"label": "Past medical history",
+"text": "Unremarkable. No medication. Never had surgery."
+},
+{
+"label": "Vital signs",
+"text": "BP 125/78 mmHg, HR 98/min, T 38.3 degrees, SpO2 99%. Pain score 7/10."
+},
+{
+"label": "Physical examination",
+"text": "Maximal tenderness at McBurney's point. Rebound tenderness (Blumberg positive). Rovsing sign positive. Guarding in right lower abdomen."
+},
+{
+"label": "Lab",
+"text": "Leukocytes 14.2 x 10^9/L, CRP 78 mg/L. Urinalysis normal. Pregnancy test negative."
+},
+{
+"label": "Ultrasound & CT",
+"text": "Ultrasound: appendix 11 mm diameter, non-compressible, periappendiceal fluid visible. CT abdomen: appendix with surrounding fat inflammation, no perforation."
+}
+],
+"options": [
+"Mesenteric lymphadenitis",
+"Terminal ileitis (Crohn's disease)",
+"Acute appendicitis",
+"Renal/ureteric stone colic"
+]
+}
+]
+}
