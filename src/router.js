@@ -477,10 +477,39 @@ function switchHomeTab(tab, btn) {
 }
 
 // ── Init ──
-if (new URLSearchParams(window.location.search).get('admin') === '1') {
-  showAdmin();
-} else if (isOnboarded()) {
-  showHome();
-} else {
-  startOnboarding();
+//
+// Boot order:
+//   1. Kick MDQuestions.load() to warm the IndexedDB cache. When the
+//      backend is configured (window.MD_ENV.SUPABASE_URL set), this
+//      fetches from /functions/v1/questions and mirrors into
+//      window.QUESTIONS so the legacy gameplay code sees fresh content.
+//      When offline / unconfigured the bundled QUESTIONS array (already
+//      loaded by src/data/questions.js) is kept as-is.
+//   2. Render the appropriate first screen.
+//
+// The UI never waits on the network — load() reads the IDB cache first
+// and revalidates in the background, so first paint is instant.
+
+function bootApp() {
+  // Kick the question-bank load asynchronously. Right now the legacy
+  // gameplay code (game.js, dossier.js, daily.js, …) still reads from
+  // window.QUESTIONS, which the bundled src/data/questions.js has
+  // already populated synchronously. We DO NOT swap window.QUESTIONS
+  // to the server rows yet because the server strips the `correct`
+  // field — local grading would break. The cache warmup makes the next
+  // refactor batch (which will plumb grading through gradeAttempt())
+  // a one-line swap.
+  if (window.MDQuestions && typeof window.MDQuestions.load === 'function') {
+    window.MDQuestions.load().catch(() => {});
+  }
+
+  if (new URLSearchParams(window.location.search).get('admin') === '1') {
+    showAdmin();
+  } else if (isOnboarded()) {
+    showHome();
+  } else {
+    startOnboarding();
+  }
 }
+
+bootApp();

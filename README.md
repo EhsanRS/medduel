@@ -22,10 +22,20 @@ medduel/
 
 ## Lokaal draaien
 
+Twee paden:
+
+**Snelste — geen build:**
 ```bash
-# Geen build nodig voor de bestaande app:
-open index.html
 npx serve .                  # of: python3 -m http.server 8080
+```
+De app draait dan zonder backend (offline modus, gebundelde vragenbank).
+
+**Met Vite (vereist voor backend / mobile build):**
+```bash
+npm install
+npm run dev                  # http://localhost:5173, hot reload
+npm run build                # → dist/  (Capacitor pakt deze map op)
+npm run preview              # serveert dist/ op :4173 ter verificatie
 ```
 
 ## Backend (in ontwikkeling)
@@ -50,9 +60,12 @@ npm run supabase:seed                   # genereert seed.sql opnieuw uit src/dat
 - ✅ Seed-script: 387 vragen, 15 dossier casussen, 3 detective casussen
 - ✅ Edge Functions: `GET /questions`, `POST /attempt`
 - ✅ Frontend storage-adapter laag (`MDStorage`, `MDState`, `MDIdb`, `MDApi`, `MDQuestions`)
-- 🚧 Auth UI (Apple / Google / e-mail) — volgende batch
-- 🚧 LocalStorage → cloud-sync importer — volgende batch
-- 🚧 Capacitor scaffold + native auth — daarna
+- ✅ Vite build → `dist/`
+- ✅ Capacitor config + native `PreferencesAdapter`
+- 🚧 Refactor `game.js` / `dossier.js` om via `MDQuestions.gradeAttempt()` te scoren
+- 🚧 Auth UI (Apple / Google / e-mail magic link)
+- 🚧 LocalStorage → cloud-sync importer (one-shot import bij eerste sign-in)
+- 🚧 `npx cap add ios/android` op een Mac met Xcode
 
 ## Spelmodi
 
