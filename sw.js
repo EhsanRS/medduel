@@ -1,9 +1,11 @@
-const CACHE = 'medduel-v89';
+const CACHE = 'medduel-v90';
 const ASSETS = [
   '/',
   '/index.html',
   '/history.html',
   '/src/styles.css',
+  '/src/api/storage.js',
+  '/src/api/state.js',
   '/src/ui.js',
   '/src/game.js',
   '/src/dossier.js',

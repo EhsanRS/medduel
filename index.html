@@ -99,6 +99,12 @@
     <div class="combo-label" id="comboLabel"></div>
   </div>
 
+  <!-- Storage adapter + state helpers — load before i18n so any future
+       state read goes through MDStorage / MDState. Pure additions; existing
+       localStorage callers continue to work unchanged. -->
+  <script src="src/api/storage.js"></script>
+  <script src="src/api/state.js"></script>
+
   <!-- i18n — must load first -->
   <script src="src/i18n.js"></script>
 
