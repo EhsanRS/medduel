@@ -1,0 +1,3646 @@
+{
+  "questions": [
+    {
+      "_i": 260,
+      "q": "Patiënt met vermoeden acute pancreatitis. Welk enzym heeft de HOOGSTE specificiteit voor pancreatitis?",
+      "a": [
+        "Lipase",
+        "Amylase",
+        "ASAT",
+        "Gamma-GT"
+      ],
+      "ex": "Lipase is specifieker voor pancreatitis dan amylase. Amylase stijgt ook bij nierinsufficiëntie, speekselklierafwijkingen, darmischemie en andere abdominale aandoeningen. Lipase blijft langer verhoogd (3-5 dagen vs. 1-2 dagen voor amylase).",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Lipase is specifieker voor pancreatitis dan amylase — amylase stijgt ook bij nierinsufficiëntie, speekselklierafwijkingen en darmischemie. Lipase blijft langer verhoogd (3-5 dagen vs 1-2 dagen).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Lipase specificiteit",
+          "desc": "Vrijwel uitsluitend pancreassspecifiek. Stijgt 3-6u na aanvang, piek bij 24u, normaal na 3-5 dagen."
+        },
+        {
+          "title": "Amylase lage specificiteit",
+          "desc": "Aanwezig in speekselklieren, darm, gonaden, nieren → verhoogd bij veel andere oorzaken. Sneller genormaliseerd dan lipase."
+        },
+        {
+          "title": "Diagnose-criteria",
+          "desc": "≥2 van 3: (1) typische epigastrische pijn, (2) lipase/amylase >3×ULN, (3) CT-beelden passend bij pancreatitis."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Galsteenpancreatitis",
+          "desc": "ALAT >3×ULN pleit sterk voor galsteenpancreatitis als oorzaak. ERCP + sfincter­otomie bij galwegobstructie."
+        },
+        {
+          "label": "Alcoholpancreatitis",
+          "desc": "Recidiverende episodes bij alcoholgebruik. Risico op chronische pancreatitis."
+        },
+        {
+          "label": "Ernstige pancreatitis",
+          "desc": "CRP >150 na 48u, APACHE II score, CT-severity index — necrosevorming bij 20%. Mortaliteit 30-40%."
+        }
+      ],
+      "wiki_therapie_urgent": "Agressieve IV vochtresuscitatie (Lactated Ringer 250-500 mL/u eerste uren) — pijler van behandeling.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Voeding",
+          "detail": "Vroeg enterale voeding (<48u) via neussonde bij ernstige pancreatitis — vermindert complicaties. Geen TPN tenzij enterale voeding onmogelijk."
+        },
+        {
+          "naam": "Antibiotica",
+          "detail": "Profylactisch niet aanbevolen bij pancreatitis. Wel bij geïnfecteerde necrose (FNA-geleide kweek, carbapenems)."
+        },
+        {
+          "naam": "ERCP",
+          "detail": "Bij galsteenpancreatitis met cholangitis of persistent galwegobstructie: ERCP + sfinsterotomie <24-72u."
+        }
+      ]
+    },
+    {
+      "_i": 261,
+      "q": "Man van 48 jaar, toegenomen dorst en urineproductie, vermoeid, nuchtere bloedglucose 8.4 mmol/L en 9.1 mmol/L bij herhaling. HbA1c 62 mmol/mol. Diagnose?",
+      "a": [
+        "Diabetes mellitus type 2",
+        "Diabetes mellitus type 1",
+        "Nefrogeen diabetes insipidus",
+        "Primaire hyperaldosteronisme"
+      ],
+      "ex": "DM type 2 diagnose: ≥2 nuchtere glucosewaarden ≥7.0 mmol/L, of HbA1c ≥53 mmol/mol, of random glucose ≥11.1 mmol/L + symptomen. Type 2 treedt op bij volwassenen met risicofactoren (overgewicht, familiaire belasting).",
+      "dl": "Endocrinologie",
+      "wiki_kern": "DM type 2: relatieve insulinedeficiëntie door insulineresistentie + progressief b-celverlies. Prevalentie 400 miljoen wereldwijd.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "HbA1c",
+          "desc": "geglyceerd hemoglobine, weerspiegelt gemiddeld bloedglucose over 2-3 maanden."
+        },
+        {
+          "title": "Diagnostisch",
+          "desc": "≥53 mmol/mol (7%)."
+        },
+        {
+          "title": "OGTT (orale glucosetolerantietest)",
+          "desc": "2u waarde ≥11.1 mmol/L bij 75 g glucose = DM."
+        },
+        {
+          "title": "Prediabetes",
+          "desc": "nuchter 6.1-6.9 of HbA1c 42-52."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "DM type 1",
+          "desc": "jongere leeftijd, slank, auto-antistoffen (GAD65, IA-2, ZnT8), C-peptide laag."
+        },
+        {
+          "label": "LADA",
+          "desc": "langzaam progressief auto-immuun, volwassenen."
+        },
+        {
+          "label": "DI",
+          "desc": "polydipsie maar normaal glucose; diagnostisch met wateronthoudingstest."
+        }
+      ],
+      "wiki_therapie_urgent": "DM2 stap 1: metformine + leefstijl.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 2",
+          "detail": "toevoegen SGLT2-remmer (bij HVZ/nierziekte) of GLP-1 agonist (bij obesitas)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Insuline bij HbA1c persistend hoog."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Behandeldoel HbA1c <53 mmol/mol (individualiseren)."
+        }
+      ]
+    },
+    {
+      "_i": 262,
+      "q": "Vrouw van 35 jaar, hartkloppingen, gewichtsverlies, warmte-intolerantie, tremor, ooguitpuiling (exophthalmus). TSH <0.01 mIE/L, vrij T4 verhoogd. Diagnose?",
+      "a": [
+        "Ziekte van Graves",
+        "Toxisch multinodulair struma",
+        "Hashimoto-thyroïditis",
+        "Subacute thyroïditis"
+      ],
+      "ex": "Ziekte van Graves: de meest voorkomende oorzaak van hyperthyreoïdie bij jongere vrouwen. Kenmerkend: hyperthyreoïdie + exophthalmus (Graves-ophthalmopathie) + soms pretibiale myxoedeem. TSI (thyrotropine-stimulerende immunoglobulinen) zijn pathognomonisch.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Hyperthyreoïdie: overproductie van schildklierhormoon. Graves is auto-immuun (TSI stimuleren TSH-receptor).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Symptomen",
+          "desc": "tachycardie, atriumfibrilleren, gewichtsverlies, warmte-intolerantie, zweten, tremor, diarree, menstruatiestoornissen."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "TSH is de meest gevoelige screeningstest."
+        },
+        {
+          "title": "Behandeling",
+          "desc": "thionamiden (thiamazol, propylthiouracil), radioactief jodium, chirurgie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hashimoto",
+          "desc": "auto-immuun hypothyreoïdie (TPO-Ab+), aanvankelijk tijdelijke hyperthyreoïdie (hashitoxicose)."
+        },
+        {
+          "label": "Subacute (De Quervain)",
+          "desc": "pijnlijke schildklier, zelflimiterend."
+        },
+        {
+          "label": "Toxisch adenom",
+          "desc": "solitair heet noduul op scintigrafie."
+        }
+      ],
+      "wiki_therapie_urgent": "Graves: thiamazol 1-2 jaar → 50% recidief → dan radioactief jodium of thyroïdectomie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Propranolol voor symptoomcontrole."
+        },
+        {
+          "naam": "Graves-ophthalmopathie",
+          "detail": "snel remitterende hyperthyreoïdie, selenium, corticosteroïden bij ernstige exophthalmus."
+        }
+      ]
+    },
+    {
+      "_i": 263,
+      "q": "Man van 55 jaar, moe, koud, traag, obstipatie, bradycardie, droge huid, verhoogd TSH (28 mIE/L), laag vrij T4. Diagnose?",
+      "a": [
+        "Primaire hypothyreoïdie",
+        "Secundaire hypothyreoïdie",
+        "Ziekte van Cushing",
+        "Primaire hyperaldosteronisme"
+      ],
+      "ex": "Primaire hypothyreoïdie: hoog TSH (hypofyse compenseert) + laag vrij T4. De meest voorkomende oorzaak in westerse landen is Hashimoto-thyroïditis (auto-immuun, TPO-antistoffen positief). Secundaire hypothyreoïdie: laag TSH + laag T4 (hypofysair probleem).",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Hypothyreoïdie: onvoldoende schildklierhormoonsynthese. Symptomen: moeheid, koude-intolerantie, gewichtstoename, obstipatie, bradycardie, trage reflexen, droge huid, haarverlies, cognitieve vertraging.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "TSH",
+          "desc": "negatieve feedback met T4."
+        },
+        {
+          "title": "Bij primaire hypothyreoïdie",
+          "desc": "T4 laag → TSH stijgt (compensatoir)."
+        },
+        {
+          "title": "Hashimoto",
+          "desc": "TPO-antistoffen vernietigen folliculaire cellen."
+        },
+        {
+          "title": "Behandeling",
+          "desc": "levothyroxine (L-T4) oraal, doseertitrage op basis van TSH."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Secundaire hypothyreoïdie (hypofysair)",
+          "desc": "TSH laag/normaal + T4 laag → MRI hypofyse."
+        },
+        {
+          "label": "Derde-orde",
+          "desc": "TRH-deficiëntie (hypothalamisch)."
+        },
+        {
+          "label": "Sick euthyroid syndrome",
+          "desc": "T3 laag bij ernstige ziekte maar TSH normaal."
+        }
+      ],
+      "wiki_therapie_urgent": "Levothyroxine (L-T4): starten laag en opbouwen, doel TSH 0.5-2.5 mIE/L.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bij cardiale comorbiditeit",
+          "detail": "traag opbouwen."
+        },
+        {
+          "naam": "Myxoedeem-coma",
+          "detail": "IV L-T4 + hydrocortison + intensieve zorg."
+        }
+      ]
+    },
+    {
+      "_i": 264,
+      "q": "Vrouw van 42 jaar, maandlange vermoeidheid, huidpigmentatie (inclusief slijmvliezen), gewichtsverlies, hypotensie, hyponatriëmie, hyperkaliëmie. Diagnose?",
+      "a": [
+        "Primaire bijnierschorsinsufficiëntie (ziekte van Addison)",
+        "Secundaire bijnierschorsinsufficiëntie",
+        "Hypothyreoïdie",
+        "SIADH"
+      ],
+      "ex": "Ziekte van Addison: auto-immuun destructie van de bijnierschors → tekort aan cortisol én aldosteron. Hyperpigmentatie (door ACTH-stijging) is kenmerkend voor primaire bijnierschorsinsufficiëntie en ontbreekt bij secundaire. Hyponatriëmie + hyperkaliëmie = aldosterontekort.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Primaire bijnierschorsinsufficiëntie (Addison): tekort aan glucocorticoid (cortisol) + mineralocorticoid (aldosteron). Oorzaak: auto-immuun (70%), tuberculose, adrenale bloeding (Waterhouse-Friderichsen bij meningokokkensepsis).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Cortisoltekort."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "ACTH-stijging (negatieve feedback weggevallen)."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "MSH-bijproduct."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "hyperpigmentatie. Aldosterontekort."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "natrium verlies + kalium retentie + volume depletie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Optie 1",
+          "desc": "Secundaire bijnierschorsinsufficiëntie (hypofysair ACTH-tekort): geen hyperpigmentatie (ACTH laag), geen aldosterontekort (RAAS intact)."
+        },
+        {
+          "label": "SIADH",
+          "desc": "hyponatriëmie maar geen kaliumbedieningsafwijking of hypotensie."
+        },
+        {
+          "label": "Hypothyreoïdie",
+          "desc": "ook vermoeidheid maar geen hyperpigmentatie."
+        }
+      ],
+      "wiki_therapie_urgent": "Hydrocortison 2-3× daags (mimiceert fysiologisch patroon).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Fludrocortison voor mineralocorticoïdvervanging."
+        },
+        {
+          "naam": "Addison-crisis",
+          "detail": "IV hydrocortison 100 mg bolus + 200 mg/24u + NaCl 0.9% resuscitatie."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Altijd SOS-injectie meegeven."
+        }
+      ]
+    },
+    {
+      "_i": 265,
+      "q": "Man van 38 jaar, ernstige hypertensie, hypokaliëmie, metabole alkalose. Aldosteron hoog, renine laag. Diagnose?",
+      "a": [
+        "Primaire hyperaldosteronisme (syndroom van Conn)",
+        "Renovasculaire hypertensie",
+        "Cushing-syndroom",
+        "Feochromocytoom"
+      ],
+      "ex": "Primaire hyperaldosteronisme: autonome aldosteronproductie onafhankelijk van renine-angiotensine systeem. Klassiek: hypertensie + hypokaliëmie + metabole alkalose + hoog aldosteron + laag renine. Oorzaak: aldosteron-producerend adenoom (Conn) of bilaterale bijnierhyperplasie.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Primaire hyperaldosteronisme is de meest voorkomende oorzaak van secundaire hypertensie (5-10% van hypertensieve patiënten). Aldosteron → Na-retentie + K-verlies → hypertensie + hypokaliëmie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Aldosteron stimuleert ENaC (epitheliaal natriumkanaal) in distale nier."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Na resorptie + K/H uitscheiding."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "hypokaliëmie + metabole alkalose. Hypokaliëmie: spierzwakte, polyurie (nefrogeen DI door hypokaliëmie)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Renovasculaire hypertensie",
+          "desc": "ook secundaire hypertensie maar hoog renine + hoog aldosteron."
+        },
+        {
+          "label": "Cushing",
+          "desc": "hoge cortisol, buffalo hump, striae."
+        },
+        {
+          "label": "Feochromocytoom",
+          "desc": "episodisch, catecholaminen verhoogd."
+        }
+      ],
+      "wiki_therapie_urgent": "Aldosteron-producerend adenoom: laparoscopische adrenalectomie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bilaterale hyperplasie",
+          "detail": "mineralocorticoïd-antagonist (spironolacton of eplerenon)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Kaliumsuppletie tijdelijk."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Bloeddrukcontrole."
+        }
+      ]
+    },
+    {
+      "_i": 266,
+      "q": "Vrouw van 30 jaar, obese, hoge bloeddruk, paarse striae op de buik, buffalo hump, maanvormig gelaat, spieratrofie. 24-uurs urinevrij cortisol verhoogd. Diagnose?",
+      "a": [
+        "Cushing-syndroom",
+        "Primaire hyperaldosteronisme",
+        "Hypothyreoïdie",
+        "Polycysteus ovariumsyndroom"
+      ],
+      "ex": "Cushing-syndroom: chronische blootstelling aan glucocorticoïden (endogeen of exogeen). Kenmerkend: centrale obesitas, paarse striae, buffalo hump, maanvormig gelaat, hypertensie, spieratrofie. Meest voorkomende oorzaak: exogeen corticosteroïdgebruik.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Endogeen Cushing: (1) Cushing-ziekte (ACTH-producerend hypofyse-adenoom, 70%), (2) ectopische ACTH-productie (longcarcinoom), (3) primair bijnierschorsadenoom/-carcinoom. Diagnose-algoritme: screeningen (24u UFC, late-night speekselcortisol, overnight dexamethason-suppressietest) → oorzaakbepaling (ACTH, MRI/CT, CRH-test).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Cortisol",
+          "desc": "proteïnekatabolisme (spieratrofie, striae), vetredistributie (centraal), gluconeogenese (hyperglykemie), immunosuppressie, mineralocorticoïd-effect (hypertensie, hypokaliëmie)."
+        },
+        {
+          "title": "Paarse striae",
+          "desc": "gespannen huid + catabolisme."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Metabool syndroom",
+          "desc": "obesitas maar geen striae/spieratrofie, normaal cortisol."
+        },
+        {
+          "label": "Pseudo-Cushing",
+          "desc": "depressie/alcoholisme verhoogt cortisol maar dexamethason suppressietest normaal."
+        },
+        {
+          "label": "PCOS",
+          "desc": "ook androgene verschijnselen en cyclusstoornissen maar geen echte Cushing-kenmerken."
+        }
+      ],
+      "wiki_therapie_urgent": "Cushing-ziekte: transsfenoïdale hypofyse-adenoomresectie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bijnieradenoom",
+          "detail": "adrenalectomie."
+        },
+        {
+          "naam": "Ectopisch",
+          "detail": "behandel primaire tumor."
+        },
+        {
+          "naam": "Medicamenteus overbrugging",
+          "detail": "metyrapone, ketoconazol."
+        }
+      ]
+    },
+    {
+      "_i": 267,
+      "q": "Via welk mechanisme verlaagt metformine de bloedglucose bij diabetes type 2?",
+      "a": [
+        "Remming van hepatische gluconeogenese via AMPK-activatie",
+        "Stimulatie van insulinesecretie door b-cellen",
+        "Remming van intestinale glucoseresorptie via SGLT2",
+        "Verhoogde insulinegevoeligheid via PPARγ-activatie"
+      ],
+      "ex": "Metformine activeert AMPK (AMP-geactiveerd proteinkinase) → remming van hepatische gluconeogenese → glucose-output lever daalt. Metformine stimuleert de insulinesecretie niet en veroorzaakt daardoor geen hypoglykemie als monotherapie.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Metformine activeert AMPK → remt hepatische gluconeogenese → minder glucose-output lever. Geen hypoglykemierisico als monotherapie. Eerste keus bij DM type 2 (UKPDS: cardiovasculair voordeel aangetoond).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "AMPK-activatie",
+          "desc": "Remming van mitochondriaal complex I → minder ATP → AMPK actief → remt hepatische gluconeogenese. Vermindert insulineresistentie in spier en lever."
+        },
+        {
+          "title": "Geen insulinesecretie",
+          "desc": "Metformine stimuleert geen insuline — daardoor geen hypoglykemie als monotherapie en geen gewichtstoename."
+        },
+        {
+          "title": "Lactaatacidose",
+          "desc": "Zeldzame maar ernstige bijwerking bij nierinsufficiëntie (eGFR <30) — metformine accumulatie → lactaatproductie. Stop bij eGFR <30 of contrast-nefropathierisico."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Metformine (eerste keus)",
+          "desc": "Geen hypoglykemie, gewichtsneutraal, goedkoop, cardiovasculair voordeel. Stop bij eGFR <30."
+        },
+        {
+          "label": "SGLT2-remmers",
+          "desc": "Cardioprotectief (HFrEF), nefroprotectief. Toevoegen bij DM2 + hartfalen of nierziekte."
+        },
+        {
+          "label": "GLP-1 agonisten (semaglutide)",
+          "desc": "Gewichtsverlies + cardiovasculair voordeel. Toevoegen bij DM2 + obesitas of atherosclerose."
+        },
+        {
+          "label": "Sulfonylureumderivaten",
+          "desc": "Stimuleren insulinesecretie → hypoglykemierisico + gewichtstoename. Minder voorkeur."
+        }
+      ],
+      "wiki_therapie_urgent": "DKA bij DM2: IV insuline + vocht + elektrolytcorrectie (K+ bewaken).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Start metformine",
+          "detail": "500 mg bij de avondmaaltijd, ophogen naar 1000 mg 2×/dag over 4 weken (GI-bijwerkingen verminderen bij langzame titratie)."
+        },
+        {
+          "naam": "Stap 2 (bij HbA1c >53)",
+          "detail": "SGLT2-remmer (empagliflozine/dapagliflozine) bij HVZ/HF/nierziekte, of GLP-1 agonist bij obesitas."
+        },
+        {
+          "naam": "Insuline",
+          "detail": "Toevoegen bij persisterende hyperglykemie ondanks 2-3 orale middelen. Basale insuline (glargine) 1×/dag 10E als startdosis."
+        }
+      ]
+    },
+    {
+      "_i": 268,
+      "q": "Man van 52 jaar, brede handen en voeten, vergroot hoofd, ruimere pasvorm schoenen. Hoge IGF-1 spiegel. Diagnose?",
+      "a": [
+        "Acromegalie",
+        "Gigantisme",
+        "Hyperthyreoïdie",
+        "Primaire hyperparathyreoïdie"
+      ],
+      "ex": "Acromegalie: overproductie van groeihormoon (GH) door een hypofyse-adenoom na de groeischijfsluiting → vergoring van handen, voeten en schedel (niet de lengte). Verhoogd IGF-1 is de beste screeningstest. Gigantisme treedt op vóór sluiting van de groeischijven.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Acromegalie: insidieuse onset, diagnose vaak 10+ jaar na begin. Symptomen: vergoring handen/voeten, prognathisme, diastema, carpaaltunnelsyndroom, slaapapneu, DM, colonpoliepen, cardiomegalie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "GH-adenoom."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "GH stimuleert levercellen om IGF-1 te produceren."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "IGF-1 stimuleert weefsels. Bevestiging: GH suppressie na OGTT (normaal <1 μg/L; bij acromegalie: geen suppressie). MRI hypofyse: macroadenoom of microadenoom."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Gigantisme",
+          "desc": "acromegalie vóór puberteit → excessieve lengtegroei."
+        },
+        {
+          "label": "Hyperthyreoïdie",
+          "desc": "hypermetabolisme maar geen skeletveranderingen."
+        },
+        {
+          "label": "Hemimegalie",
+          "desc": "unilateraal."
+        },
+        {
+          "label": "Pachydermoperiostose",
+          "desc": "benigne."
+        }
+      ],
+      "wiki_therapie_urgent": "Transsfenoïdale adenoomresectie (eerstekeus).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Medicamenteus bij residuele ziekte",
+          "detail": "somatostatine-analogen (octreotide, lanreotide), pegvisomant (GH-receptorantagonist)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Radiochirurgie als aanvulling."
+        }
+      ]
+    },
+    {
+      "_i": 269,
+      "q": "Bij diabetes mellitus type 1 is insulinetherapie optioneel; met dieet en orale antidiabetica kan de bloedsuiker ook goed worden geregeld.",
+      "a": null,
+      "ex": "NIET WAAR. Bij DM type 1 is er een absoluut insulinetekort door auto-immuun b-celdestructie. Insuline is levensnoodzakelijk — zonder insuline treedt diabetische ketoacidose op. Orale antidiabetica zijn niet effectief bij afwezige b-celfunctie.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Bij DM type 1 is er een absoluut insulinetekort door auto-immuun b-celdestructie. Insuline is levensnoodzakelijk — zonder insuline treedt DKA op. Orale antidiabetica zijn ineffectief zonder functionele b-cellen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Auto-immuun b-celdestructie",
+          "desc": "Antilichamen (GAD65, IA-2, ZnT8) + cytotoxische T-cellen vernietigen b-cellen → geen insulineproductie."
+        },
+        {
+          "title": "DKA-mechanisme",
+          "desc": "Insulinetekort → glucagon dominant → lipolyse → vrije vetzuren naar lever → ketonvorming (beta-hydroxybutyraat, acetoacetaat) → acidose."
+        },
+        {
+          "title": "HHS bij DM2",
+          "desc": "Hyperosmolair hyperglykemisch syndroom bij DM type 2 — geen ketose (nog enige insuline), maar ernstige hyperglykemie + dehydratie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "DM type 1",
+          "desc": "Jong, slank, acuut begin (DKA), GAD-antistoffen positief, C-peptide laag. Levenslange insuline."
+        },
+        {
+          "label": "LADA",
+          "desc": "Volwassene, geleidelijk begin, aanvankelijk lijkt op DM2, GAD-antistoffen positief. Insuline-afhankelijk binnen jaren."
+        },
+        {
+          "label": "DM type 2",
+          "desc": "Ouder, overgewicht, familiair, auto-antistoffen negatief, C-peptide normaal/hoog. Orale middelen initieel."
+        }
+      ],
+      "wiki_therapie_urgent": "DKA: insuline IV + NaCl 0,9% 1L/u initieel + K+-correctie (K+ >3,5 voor insuline start). Stop insuline NIET.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Basaal-bolus schema",
+          "detail": "Lange insuline (glargine/degludec) 1×/dag + korte insuline (aspart/lispro) voor elke maaltijd. Carbohydraat-telling voor bolus-berekening."
+        },
+        {
+          "naam": "Insulinepomp (CSII)",
+          "detail": "Continue subcutane insuline-infusie + Flash-glukosemonitoring (FGM/CGM). Betere HbA1c bij gemotiveerde patiënten."
+        },
+        {
+          "naam": "Hypoglykemie",
+          "detail": "Licht: suiker/glucosetabletten. Ernstig: glucagon IM of dextrose 50% IV. Patiënt + familie educatie verplicht."
+        }
+      ]
+    },
+    {
+      "_i": 270,
+      "q": "Een verhoogd TSH bij een zwangere vrouw in het eerste trimester is normaal en vereist geen behandeling.",
+      "a": null,
+      "ex": "NIET WAAR. Een verhoogd TSH bij een zwangere vrouw kan wijzen op hypothyreoïdie, wat geassocieerd is met miskraam, zwangerschapscomplicaties en verminderde neurocognitieve ontwikkeling van het kind. Behandeling met levothyroxine is geïndiceerd. (NB: TSH-referentiewaarden dalen in het eerste trimester door hCG-effect.).",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Schildklierhormon is cruciaal voor neuronale migratie van de foetus in het eerste trimester. TSH daalt fysiologisch (hCG-effect), maar een verhoogd TSH is abnormaal en vereist behandeling om foetale hersenschade te voorkomen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Fysiologische TSH-daling",
+          "desc": "hCG heeft structurele gelijkenis met TSH → stimuleert TSH-receptor → T4-stijging → TSH-daling. Normaal: TSH <2,5 mIE/L in trimester 1."
+        },
+        {
+          "title": "Foetale afhankelijkheid",
+          "desc": "Foetus maakt pas eigen schildklierhormon na 12 weken — daarvoor volledig afhankelijk van moeder. Hypothyreoïdie → gestaard neurologisch deficit."
+        },
+        {
+          "title": "Verhoogd TSH in trimester 1",
+          "desc": "Geeft verhoogd risico op miskraam, vroeggeboorte, lagere IQ kind. Behandeling: levothyroxine direct starten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hypothyreoïdie in zwangerschap",
+          "desc": "TSH verhoogd, vrij T4 laag of normaal. Levothyroxine direct. Dosis-eis stijgt in zwangerschap."
+        },
+        {
+          "label": "Hyperthyreoïdie (Graves)",
+          "desc": "TSH laag, T4 hoog, TRAb positief. PTU in trimester 1 (thiamazol teratogeen), daarna switch naar thiamazol."
+        },
+        {
+          "label": "Zwangerschapshyperthyreoïdie",
+          "desc": "Door hCG-stimulatie eerste trimester — fysiologisch. TSH iets verlaagd maar T4 normaal. Geen behandeling nodig."
+        }
+      ],
+      "wiki_therapie_urgent": "Start levothyroxine direct bij TSH >2,5 mIE/L in trimester 1 — niet wachten.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Levothyroxine dosis",
+          "detail": "Start 50-100 mcg/dag. Controleer TSH elke 4 weken in eerste helft zwangerschap. Dosis stijgt gemiddeld 25-50% in zwangerschap."
+        },
+        {
+          "naam": "Doel",
+          "detail": "TSH <2,5 mIE/L (trimester 1) of <3 mIE/L (trimester 2-3). Vrij T4 normaal."
+        },
+        {
+          "naam": "Postpartum",
+          "detail": "Na bevalling dosis terugbrengen naar pre-zwangerschapsdosis. TSH controleren na 6 weken."
+        }
+      ]
+    },
+    {
+      "_i": 271,
+      "q": "Hypercalciëmie bij een patiënt met maligniteit berust vrijwel altijd op botmetastasen.",
+      "a": null,
+      "ex": "NIET WAAR. Hypercalciëmie bij maligniteit kan ook ontstaan door humorale hypercalciëmie van maligniteit (HHM): tumorproductie van PTHrP (PTH-related protein), dat dezelfde receptor activeert als PTH. HHM is verantwoordelijk voor 80% van de maligne hypercalciëmie, botmetastasen voor ~20%.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Hypercalciëmie bij maligniteit is in 80% te wijten aan PTHrP (humorale hypercalciëmie), niet aan botmetastasen (20%). PTHrP bindt PTH-receptor → botresorptie + renale calciumretentie → hypercalciëmie terwijl PTH zelf laag is.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "PTHrP-mechanisme",
+          "desc": "Tumor produceert PTH-related protein → bindt PTH-receptor → botresorptie via osteoclasten + renale Ca-resorptie → hypercalciëmie. PTH zelf laag (negatieve feedback)."
+        },
+        {
+          "title": "Oorzaken hypercalciëmie",
+          "desc": "(1) Primaire HPT: PTH hoog (poliklinisch). (2) Maligniteit: PTHrP of metastasen (ziekenhuis). (3) Sarcoidose/vitD-toxiciteit: 1,25-OHD hoog. (4) FHH: familiaire hypocalciurische hypercalciëmie."
+        },
+        {
+          "title": "Symptomen",
+          "desc": "\"Bones, stones, groans, psychic moans\": botpijn, nierstenen, obstipatie/misselijkheid, depressie/psychose/verwardheid. Bij Ca >3,5: nierinsufficiëntie, hartaritmieën."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Maligniteit (PTHrP)",
+          "desc": "PTH laag, PTHrP hoog, snelle onset, ernstige hypercalciëmie. Plaveiselcelca, RCC, borstca, myeloom."
+        },
+        {
+          "label": "Primaire hyperparathyreoïdie",
+          "desc": "PTH hoog (ondanks hoog calcium), asymptomatisch of nierstenen. Adenoom 80%. Operatie bij symptomen."
+        },
+        {
+          "label": "Sarcoidose",
+          "desc": "1,25-OHD hoog (macrofagen activeren vitamine D), verhoogd ACE, lymfadenopathie."
+        }
+      ],
+      "wiki_therapie_urgent": "Ernstige hypercalciëmie (Ca >3,0): IV NaCl 0,9% 200-300 mL/u + furosemide na vochtresuscitatie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bisfosfonaten",
+          "detail": "Zoledronaat 4 mg IV eenmalig — remt osteoclasten, effect na 2-4 dagen, werkt 3-4 weken. Eerste keus bij maligne hypercalciëmie."
+        },
+        {
+          "naam": "Denosumab",
+          "detail": "Anti-RANK-L antilichaam — effectief bij bisfosfonaat-refractaire hypercalciëmie of nierinsufficiëntie."
+        },
+        {
+          "naam": "Behandeling oorzaak",
+          "detail": "Bij maligniteit: behandel tumor. Bij primaire HPT: parathyroïdectomie curatief."
+        }
+      ]
+    },
+    {
+      "_i": 272,
+      "q": "SGLT2-remmers (gliflozines) zijn gecontra-indiceerd bij patiënten met diabetes type 2 en chronische nierziekte omdat ze de nierfunctie verslechteren.",
+      "a": null,
+      "ex": "NIET WAAR. SGLT2-remmers (empagliflozine, dapagliflozine) zijn juist nefroprotectief bij DM type 2 + chronische nierziekte: ze verminderen glomerulaire hyperfiltratie en verlagen het risico op progressie van nierziekte. Ze zijn gecontra-indiceerd bij eGFR <20-30 (onvoldoende glucosurie-effect).",
+      "dl": "Endocrinologie",
+      "wiki_kern": "SGLT2-remmers zijn juist nefroprotectief bij DM2 + chronische nierziekte. Ze verminderen glomerulaire hyperfiltratie via tubuloglomerulair feedback. Ze zijn gecontraïndiceerd bij eGFR <20-30 (glucosurie-effect onvoldoende).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "SGLT2-blokkade",
+          "desc": "Minder natriumresorptie proximale tubulus → meer natrium bij macula densa → tubuloglomerulair feedback → afferent arteriol constrictie → verlaagde glomerulaire druk → nefroprotectie."
+        },
+        {
+          "title": "Cardiobescherming",
+          "desc": "EMPA-REG/DECLARE: empagliflozine/dapagliflozine verminderen hartfalen-hospitalisaties bij DM2 + HVZ. Effect deels glucosonafhankelijk (preload-verlaging, ketonen als energiebron)."
+        },
+        {
+          "title": "Bijwerkingen",
+          "desc": "Urogenitale infecties (glucosurie creëert suikerrijke urine). Euglykemische DKA (zeldzaam, cave perioperatief). Stop 3-4 dagen voor ingreep."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "SGLT2-remmers (nefroprotectief)",
+          "desc": "Stop bij eGFR <20-30. Cardioprotectief bij HFrEF (ook zonder diabetes). Glucosurie-effect verdwijnt bij lage eGFR."
+        },
+        {
+          "label": "GLP-1 agonisten",
+          "desc": "Gewichtsverlies + cardiovasculair voordeel bij atherosclerose. Geen direct niereffect. Subcutane injectie."
+        },
+        {
+          "label": "ACE-remmers/ARB",
+          "desc": "Ook nefroprotectief via reductie intraglomerulaire druk — combineer met SGLT2-remmer bij DM2-nefropathie."
+        }
+      ],
+      "wiki_therapie_urgent": "Perioperatief: stop SGLT2-remmer 3-4 dagen voor ingreep (euglykemische DKA-preventie).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "DM2 + chronische nierziekte",
+          "detail": "Empagliflozine/dapagliflozine eerste keus (naast metformine) bij eGFR ≥20 — vertragen nierfalen progressie (DAPA-CKD, EMPA-KIDNEY)."
+        },
+        {
+          "naam": "DM2 + hartfalen (HFrEF)",
+          "detail": "Dapagliflozine vermindert hospitalisaties en mortaliteit. Indicatie onafhankelijk van DM-diagnose (DAPA-HF studie)."
+        },
+        {
+          "naam": "Monitoring",
+          "detail": "Controleer eGFR voor start en periodiek. Stop bij eGFR <20. Alert op urogenitale infecties."
+        }
+      ]
+    },
+    {
+      "_i": 273,
+      "q": "Welk kenmerk onderscheidt primaire van secundaire bijnierschorsinsufficiëntie?",
+      "a": [
+        "Hyperpigmentatie van huid en slijmvliezen",
+        "Hypotensie",
+        "Hyponatriëmie",
+        "Vermoeidheid en zwakte"
+      ],
+      "ex": "Hyperpigmentatie is specifiek voor primaire bijnierschorsinsufficiëntie (Addison). Daarbij stijgt ACTH compensatoir → MSH (melanocyte-stimulating hormone) als bijproduct → melaninestimulatie. Bij secundaire insufficiëntie is ACTH laag → geen pigmentatie. Hypotensie, hyponatriëmie en moeheid komen bij beide voor.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Hyperpigmentatie is pathognomonisch voor primaire bijnierschorsinsufficiëntie (Addison). Hoge ACTH stimuleert MSH-receptoren op melanocyten. Bij secundaire insufficiëntie is ACTH laag — geen pigmentatie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "ACTH-MSH-axis",
+          "desc": "POMC (ACTH-precursor) gesplitst in ACTH + MSH. MSH bindt MC1R op melanocyten → melanine. Locaties: zon-exposed huid, handpalmen, littekens, tandvlees, wangmucosa."
+        },
+        {
+          "title": "Primaire insufficiëntie",
+          "desc": "Bijnier beschadigd (autoimmuun in 70%, tuberculose, bloeding) → cortisol + aldosteron tekort → hyponatriëmie + hyperkaliëmie + hypotensie. ACTH hoog als compensatie."
+        },
+        {
+          "title": "Secundaire insufficiëntie",
+          "desc": "Hypofyse/hypothalamus probleem → ACTH laag → cortisol tekort maar aldosteron normaal (renine-angiotensine intact). Geen pigmentatie, geen hyperkaliëmie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Primair (Addison)",
+          "desc": "ACTH hoog, cortisol laag, aldosteron laag, hyperpigmentatie, hyponatriëmie + hyperkaliëmie. Auto-antistoffen (21-OH-Ab)."
+        },
+        {
+          "label": "Secundair (hypofyse)",
+          "desc": "ACTH laag, cortisol laag, aldosteron normaal, geen pigmentatie, geen hyperkaliëmie. Oorzaak: tumor, bestraling, Sheehan."
+        },
+        {
+          "label": "Iatrogeen (steroïd-onttrekking)",
+          "desc": "Na plotse stop langdurige corticosteroïden — secundair type (HPA-as gesupprimeerd). Nooit abrupt stoppen na >3 weken gebruik."
+        }
+      ],
+      "wiki_therapie_urgent": "Addisoncrisis: hydrocortison 100 mg IV bolus → 200 mg/24u continu IV + NaCl 0,9% 1L over 30-60 min.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Onderhoudstherapie",
+          "detail": "Hydrocortison 15-25 mg/dag (ochtend hogere dosis imiteren circadiaan ritme) + fludrocortison 0,05-0,2 mg/dag (mineraalcorticoïd)."
+        },
+        {
+          "naam": "Ziektedag-regel",
+          "detail": "Bij koorts/infectie: hydrocortison 2-3× verhogen. Bij braken: parenterale toediening. Patiënt krijgt spuitinstructie voor noodgeval."
+        },
+        {
+          "naam": "ACTH-stimulatietest",
+          "detail": "Cortisol na 250 mcg ACTH <550 nmol/L na 30 min = bijnierschorsinsufficiëntie."
+        }
+      ]
+    },
+    {
+      "_i": 274,
+      "q": "Patiënte van 28 jaar, oligomenorroe, acne, hirsutisme, overgewicht, polycysteuze ovaria op echo. LH/FSH-ratio verhoogd. Diagnose?",
+      "a": [
+        "Polycysteus ovariumsyndroom (PCOS)",
+        "Congenitale bijnierhyperplasie",
+        "Hyperprolactinemie",
+        "Primaire ovariuminsufficiëntie"
+      ],
+      "ex": "PCOS is de meest voorkomende endocriene aandoening bij vrouwen in de vruchtbare leeftijd (5-10%). Rotterdam-criteria (≥2 van 3): oligo-/anovulatie, hyperandrogenisme (klinisch of biochemisch), polycysteuze ovaria op echo.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "PCOS: chronische anovulatie + hyperandrogenisme. Insulineresistentie speelt een centrale rol (ook bij slanke PCOS-patiënten).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "LH/FSH-ratio >2.5 bij PCOS: verhoogde LH-pulsatie."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "meer androgeenstimulatie van theca-cellen."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "testosteron/DHEAS stijgt."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "perifere aromatisering naar oestrogeen. Overgewicht verergert insulineresistentie."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "hyperandrogenisme."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Congenitale bijnierhyperplasie (laat-onset)",
+          "desc": "17-OHP verhoogd na ACTH-stimulatie."
+        },
+        {
+          "label": "Hyperprolactinemie",
+          "desc": "galactorroe, prolactine hoog, MRI hypofyse."
+        },
+        {
+          "label": "POI (premature ovarian insufficiency)",
+          "desc": "FSH hoog, oestradiol laag, <40 jaar."
+        }
+      ],
+      "wiki_therapie_urgent": "Infertiliteitswens: ovulatie-inductie (clomifen, letrozol), metformine.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Geen zwangerschapswens",
+          "detail": "combinatiepil (androgeen-antagonistisch: cyproteronacetaat)."
+        },
+        {
+          "naam": "Leefstijl",
+          "detail": "gewichtsreductie verbetert cyclus en insulinegevoeligheid."
+        }
+      ]
+    },
+    {
+      "_i": 275,
+      "q": "Man van 60 jaar, nierstenen, osteoporose, mild hypercalciëmie. PTH verhoogd. Calcium en PTH verhoogd bij herhaalde bepaling. Diagnose?",
+      "a": [
+        "Primaire hyperparathyreoïdie",
+        "Maligne hypercalciëmie",
+        "Sarcoidose",
+        "Vitamine D-toxiciteit"
+      ],
+      "ex": "Primaire hyperparathyreoïdie: autonome overproductie van PTH door een bijschildklieradenoom (85%) of hyperplasie. Kenmerkend: hoog PTH + hoog calcium (normaal: negatieve feedback onderdrukt PTH bij hypercalciëmie). Meest voorkomende oorzaak van hypercalciëmie in de polikliniek.",
+      "dl": "Endocrinologie",
+      "wiki_kern": "Primaire hyperparathyreoïdie: PTH stimuleert botresorptie + renale calciumresorptie + 1-α-hydroxylase (meer actief vitamine D) → hypercalciëmie + hyperfosfaturie (laag fosfaat). Nierstenen (calciumoxalaat/-fosfaat), fibrocystische botafwijkingen, osteoporose.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Sestamibi-scintigrafie of echo hals: lokalisatie bijschildklieradenoom."
+        },
+        {
+          "title": "Laboratorium",
+          "desc": "hoog PTH, hoog calcium, laag fosfaat, hoog urine-calcium."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Differentiatie van maligne hypercalciëmie: PTH laag bij maligniteit (PTHrP niet detecteerbaar in PTH-assay, maar separate assay beschikbaar)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Familiale hypocalciurische hypercalciëmie (FHH)",
+          "desc": "hoog calcium, hoog PTH, maar laag urine-calcium (calcium/creatinine-ratio <0.01) → geen chirurgie nodig."
+        },
+        {
+          "label": "Secundaire HPT",
+          "desc": "bij nierinsufficiëntie of vit."
+        },
+        {
+          "label": "Optie 3",
+          "desc": "D-tekort → hoog PTH maar laag/normaal calcium."
+        }
+      ],
+      "wiki_therapie_urgent": "Asymptomatisch mild: follow-up (calcium, eGFR, botdichtheid).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Operatie-indicaties",
+          "detail": "calcium >2.85 mmol/L, eGFR <60, osteoporose (T-score <-2.5), leeftijd <50j."
+        },
+        {
+          "naam": "Chirurgie",
+          "detail": "parathyreoïdectomie (curatief bij adenoom >95%)."
+        }
+      ]
+    },
+    {
+      "_i": 276,
+      "q": "Man van 70 jaar, oligurie 2 dagen na hartoperatie. Creatinine gestegen van 90 naar 310 μmol/L. Urine-natriumconcentratie 12 mmol/L, urine-osmolaliteit 580 mOsm/kg. Meest waarschijnlijke oorzaak?",
+      "a": [
+        "Prerenaal acuut nierfalen",
+        "Renaal acuut nierfalen (ATN)",
+        "Postrenaal acuut nierfalen",
+        "Contrastnefropathie"
+      ],
+      "ex": "Prerenaal nierfalen: lage urine-Na (<20) + hoge osmolaliteit (>500) = intact tubulussysteem dat reageert op volumedepletie. ATN: urine-Na >40 + lage osmolaliteit.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Acute nierinsufficiëntie (AKI): prerenaal (60%, verminderde perfusie), renaal (35%, acute tubulusnecrose (ATN) meest frequent), postrenaal (5%, obstructie). KDIGO: creatinine stijging ≥1,5× binnen 7 dagen of oligurie <0,5 mL/kg/u >6 uur.",
+      "wiki_redflag": "NSAID's + ACE-remmers bij volumedepletie → snelle progressie naar oligurie en dialyseplichtig nierfalen. Stop beide direct bij acuut nierfalen.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Fractionele natriumexcretie (FENa)",
+          "desc": "FENa = (urine-Na × serum-Cr) / (serum-Na × urine-Cr) × 100%. FENa <1% = prerenaal; FENa >2% = renaal (ATN)."
+        },
+        {
+          "title": "Beperking FENa",
+          "desc": "Onbetrouwbaar bij gebruik van diuretica, contrastnefropathie of rhabdomyolyse."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Prerenaal AKI",
+          "desc": "Herstelt snel na volumecorrectie — geen tubulaire schade. Urine-Na laag, osmolaliteit hoog."
+        },
+        {
+          "label": "ATN (renaal)",
+          "desc": "Tubuli beschadigd → granulaire ('muddy brown') casts in urinesediment. Herstel in 1-3 weken."
+        },
+        {
+          "label": "Interstitiële nefritis",
+          "desc": "Na medicatie (NSAID's, antibiotica): eosinofilie, huiduitslag, eosinofilurie — stop causalagent."
+        }
+      ],
+      "wiki_therapie_urgent": "Prerenaal: vloeistofsuppletie + staken nefrotoxica (NSAID's, ACE-remmers, contrast).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "ATN",
+          "detail": "Ondersteunend — handhaven diurese, elektrolytcontrole, voeding."
+        },
+        {
+          "naam": "Dialyse-indicaties",
+          "detail": "Refractaire hyperkaliëmie, uremische encefalopathie/pericarditis, acidose (pH <7,1), vochtoverbelasting."
+        }
+      ]
+    },
+    {
+      "_i": 277,
+      "q": "Vrouw van 25 jaar, oedeem gehele lichaam, proteïnurie 6 g/24u, hypoalbuminemie (20 g/L), hypercholesterolemie. Bloeddruk normaal. Diagnose?",
+      "a": [
+        "Nefrotisch syndroom",
+        "Nefritisch syndroom",
+        "Hartfalen",
+        "Levercirrose"
+      ],
+      "ex": "Nefrotisch syndroom: proteïnurie >3,5 g/24u + hypoalbuminemie + oedeem + hypercholesterolemie — zonder hematurie.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Nefrotisch syndroom: podocytschade → verlies van glomerulaire barrière → massale eiwitexcretie. Oorzaken: minimale veranderingsziekte (kinderen, 90%), membraneuze nefropathie (volwassenen), diabetische nefropathie.",
+      "wiki_redflag": "Nierveentrombose bij nefrotisch syndroom: verlies van antitrombine III via urine → hypercoagulabel. Denk aan flankpijn + acute GFR-daling — direct beeldvorming.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Cascade",
+          "desc": "Podocytbeschadiging → basaalmembraan permeabel → massale proteïnurie → hypoalbuminemie → oncotische druk daalt → oedeem. Lever compenseert met lipoproteïneproductie → hypercholesterolemie."
+        },
+        {
+          "title": "Tromboserisico",
+          "desc": "Verlies van antitrombine III, proteïne C en S → verhoogd risico op diep veneuze trombose, longembolie en nierveentrombose."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hartfalen",
+          "desc": "Oedeem + verhoogde centraalveneuze druk + dyspneu — proteïnurie mild."
+        },
+        {
+          "label": "Levercirrose",
+          "desc": "Ascites dominant, splenomegalie, leverenzymen afwijkend — albumine daalt door leverfalen."
+        },
+        {
+          "label": "Nefritisch syndroom",
+          "desc": "Hematurie + RBC-casts + hypertensie — proteïnurie minder extreem."
+        }
+      ],
+      "wiki_therapie_urgent": "Minimale veranderingsziekte: prednisolon 1 mg/kg/dag — remissie in 90%.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Membraneuze nefropathie",
+          "detail": "Afwachtend of immunosuppressie (cyclofosfamide of rituximab) — afhankelijk van PLA2R-antilichamen en progressie."
+        },
+        {
+          "naam": "ACE-remmer",
+          "detail": "Antiproteinurisch effect + bloeddrukcontrole."
+        },
+        {
+          "naam": "Anticoagulatie",
+          "detail": "Overwegen bij serumalbumine <20 g/L of nierveentrombose."
+        }
+      ]
+    },
+    {
+      "_i": 278,
+      "q": "Man van 65 jaar, nierfalen, diabetes 15 jaar, retinopathie. Urineanalyse: microalbuminurie (280 mg/g creatinine). eGFR 35 mL/min/1.73m². Meest waarschijnlijke diagnose?",
+      "a": [
+        "Diabetische nefropathie",
+        "IgA-nefropathie",
+        "Hypertensieve nefrosclerose",
+        "FSGS"
+      ],
+      "ex": "Diabetische nefropathie: microalbuminurie → macroalbuminurie → GFR-daling. Gelijktijdige retinopathie bevestigt microvasculaire betrokkenheid.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Diabetische nefropathie: meest voorkomende oorzaak van eindstadium nierziekte (ESRD) wereldwijd. Stadia: normoalbuminurie → microalbuminurie (30-300 mg/g) → macroalbuminurie (>300 mg/g) → GFR-daling.",
+      "wiki_redflag": "Proteïnurie bij diabetes zónder retinopathie: overweeg alternatieve diagnose (IgA, hypertensieve nefrosclerose) — biopsie indien twijfel.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Hyperglykemie-cascade",
+          "desc": "Chronische hyperglykemie → advanced glycation end-products (AGE), PKC-activatie, TGF-β-upregulatie → mesangiumexpansie → Kimmelstiel-Wilson noduli (pathognomonisch op biopsie) → glomerulosclerose."
+        },
+        {
+          "title": "RAAS-overactivatie",
+          "desc": "Verhoogde intraglomerulaire druk via efferente arteriole constrictie → versnelt progressie. ACE-remmer/ARB verlaagt deze druk en proteïnurie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "IgA-nefropathie",
+          "desc": "Hematurie + proteïnurie, vaak na infectie, IgA-deposities op immunofluorescentie."
+        },
+        {
+          "label": "Hypertensieve nefrosclerose",
+          "desc": "Lang bestaande hypertensie, milde proteïnurie, geen retinopathie."
+        },
+        {
+          "label": "Focaal segmentale glomerulosclerose (FSGS)",
+          "desc": "Ernstige proteïnurie, biopsie nodig voor diagnose — kan veroorzaakt worden door obesitas of HIV."
+        }
+      ],
+      "wiki_therapie_urgent": "ACE-remmer of angiotensinereceptorblokker (ARB): antiproteinurisch + nefroprotectief — eerste keus.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Glucosecontrole",
+          "detail": "HbA1c <53 mmol/mol (7%)."
+        },
+        {
+          "naam": "SGLT2-remmer",
+          "detail": "Nefroprotectief ongeacht bloedglucose (CREDENCE, DAPA-CKD) — tweede keus naast ACE-remmer."
+        },
+        {
+          "naam": "Finerenon",
+          "detail": "Niet-steroid mineralocorticoïdreceptorantagonist (MRA) — additionele nefroprotectie bij DM2 + CKD."
+        }
+      ]
+    },
+    {
+      "_i": 279,
+      "q": "Man van 45 jaar, hypertensie, hematurie, nierpijn. Echo: bilateraal vergrote nieren met multipele cysten. Vader had hetzelfde. Diagnose?",
+      "a": [
+        "Autosomaal dominante polycysteuze nierziekte (ADPKD)",
+        "Multipele niercarcinomen",
+        "Medulaire sponsnieren",
+        "Von Hippel-Lindau syndroom"
+      ],
+      "ex": "ADPKD: bilateraal vergrote cysteuze nieren + familieanamnese. PKD1 (85%) of PKD2 (15%) — meest voorkomende erfelijke nierziekte.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Autosomaal dominante polycysteuze nierziekte (ADPKD): progressieve cystengroei → compressie nierparenchym → nierfalen bij 50% voor 60e jaar. Extrarenaal: levercysten (90%), intracraniale aneurysma's (10%), mitralisklepinsufficiëntie.",
+      "wiki_redflag": "Intracraniale aneurysma's bij 10% van ADPKD-patiënten — ruptur = subarachnoïdale bloeding. Screening met MRA-cerebrum bij positieve familieanamnese voor hersenbloeding.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Pathogenese",
+          "desc": "PKD1/PKD2-mutaties verstoren ciliaire signaaloverdracht in tubulusepitheel → mTOR-overactivatie → abnormale celproliferatie en cystevorming."
+        },
+        {
+          "title": "Progressie",
+          "desc": "Totaal niervolume (TKV) op MRI is biomarker voor progressiesnelheid — basis voor indicatiestelling tolvaptan."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "ARPKD (autosomaal recessief)",
+          "desc": "Presentatie bij kinderen, leverfibrose + portale hypertensie."
+        },
+        {
+          "label": "Verworven cysteuze nieraandoening",
+          "desc": "Na langdurige dialyse — geen familieanamnese."
+        },
+        {
+          "label": "Von Hippel-Lindau (VHL)",
+          "desc": "Cysten + hemangioblastomen + niercelcarcinoom — VHL-genmutatie."
+        }
+      ],
+      "wiki_therapie_urgent": "Bloeddrukcontrole: ACE-remmer (streefwaarde <110/75 mmHg bij jongere patiënten).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Tolvaptan",
+          "detail": "Vasopressine-2-receptorantagonist — vertraagt cystengroei bij snelgroeiend ADPKD (TKV >750 mL). Let op levertoxiciteit."
+        },
+        {
+          "naam": "Aneurysma-screening",
+          "detail": "MRA-cerebrum bij familieanamnese subarachnoïdale bloeding of symptomen (hoofdpijn)."
+        }
+      ]
+    },
+    {
+      "_i": 280,
+      "q": "Patiënt met chronische nierinsufficiëntie (eGFR 18 mL/min). Lab: K+ 6.2 mmol/L, pH 7.28, HCO3- 14 mmol/L, ECG: piekende T-toppen. Welke behandeling heeft de hoogste prioriteit?",
+      "a": [
+        "Calcium gluconaat intraveneus",
+        "Kaliumbeperkt dieet",
+        "Natriumwaterstofcarbonaat oraal",
+        "Furosemide intraveneus"
+      ],
+      "ex": "Hyperkaliëmie + ECG-veranderingen (piekende T-toppen) = levensbedreiging. Eerste stap: calcium gluconaat IV voor myocardstabilisatie.",
+      "dl": "Nefrologie",
+      "wiki_kern": "ECG-progressie bij hyperkaliëmie: piekende T-toppen → PR-verlenging, breed QRS → sinusoïdaal patroon → ventrikelfibrilleren. Behandeling in drie stappen: (1) myocardstabilisatie, (2) K+ intracellulair, (3) K+ verwijderen.",
+      "wiki_redflag": "K+ >6,5 mmol/L of sinusoïdaal ECG-patroon = imminent ventrikelfibrilleren. Direct calcium gluconaat IV — wacht niet op laboratoriumbevestiging als ECG-veranderingen aanwezig zijn.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Myocardstabilisatie",
+          "desc": "Calcium gluconaat 10% 10 mL IV over 2-3 min — verhoogt actiepotentiaal-drempel. Werkt binnen 5 min maar effect duurt slechts 30-60 min."
+        },
+        {
+          "title": "K+ intracellulair",
+          "desc": "Insuline 10 E + glucose 50 mL 50% IV → Na/K-ATPase-activatie → K+ daalt 0,5-1 mmol/L binnen 30 min. Duur 4-6 uur."
+        },
+        {
+          "title": "K+ verwijderen",
+          "desc": "Kayexalaat of patiromer (oraal), furosemide IV bij resterende diurese, hemodialyse bij dialyseplichtige nierinsufficiëntie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "K+ 5.5-6.0 zonder ECG-veranderingen",
+          "desc": "Dieet (kaliumbeperking), medicatieherziening (stop ACE-remmer, kaliumsparend diureticum), kayexalaat."
+        },
+        {
+          "label": "Pseudo-hyperkaliëmie",
+          "desc": "Hemolyse bij bloedafname — controleer met nieuw monster voor behandeling."
+        }
+      ],
+      "wiki_therapie_urgent": "ECG-veranderingen: calcium gluconaat 10% 10 mL IV over 2-3 min → herhaal na 5 min indien nodig.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "K+ intracellulair drijven",
+          "detail": "Insuline 10 E + glucose 50% 50 mL IV. Salbutamol 10-20 mg vernevelend als aanvulling."
+        },
+        {
+          "naam": "K+ verwijderen",
+          "detail": "Kayexalaat of patiromer, furosemide IV bij diurese, hemodialyse bij refractaire hyperkaliëmie."
+        },
+        {
+          "naam": "Monitoring",
+          "detail": "Continu ECG + K+-controle elk uur tot K+ <5,5 mmol/L."
+        }
+      ]
+    },
+    {
+      "_i": 281,
+      "q": "Vrouw van 22 jaar, pijn bij het plassen, frequente aandrang, troebele urine, koorts 37.8°C. Urineanalyse: leukocyturie, nitriet positief. Geen flankpijn. Diagnose?",
+      "a": [
+        "Ongecompliceerde urineweginfectie (cystitis)",
+        "Pyelonefritis",
+        "Urethritis door Chlamydia",
+        "Interstitiële cystitis"
+      ],
+      "ex": "Cystitis: dysurie + pollakisurie + nitriet positief — zonder koorts of flankpijn. Verwekker: E. coli (85%). Behandeling: nitrofurantoïne of trimethoprim.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Urineweginfectie (UWI): ongecompliceerd (vrouwen, geen anatomische afwijking) vs. gecompliceerd (mannen, zwangerschap, obstructie, katheter, diabetes). Verwekkers: E. coli, Staphylococcus saprophyticus (jonge vrouwen).",
+      "wiki_redflag": "UWI bij mannen of kinderen altijd aanleiding voor uitgebreider onderzoek — anatomische afwijkingen (hydronefrose, vesico-ureterale reflux) moeten worden uitgesloten.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Ascensie",
+          "desc": "Bacteriën koloniseren de periurethrale regio → ascenderen via de urethra naar de blaas → cystitis. Bij verdere ascensie naar nierparenchym → pyelonefritis."
+        },
+        {
+          "title": "Nitriettest",
+          "desc": "Gram-negatieve bacteriën reduceren nitraat → nitriet. Combinatie nitriet + leukocyten-esterase = hoge voorspellende waarde."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Pyelonefritis",
+          "desc": "Flankpijn + koorts >38°C + misselijkheid — nierparenchym aangedaan, IV antibiotica overwegen."
+        },
+        {
+          "label": "Urethritis (Chlamydia/gonorroe)",
+          "desc": "Geen nitriet, atypisch sediment, seksueel actief, cave meldingsplicht."
+        },
+        {
+          "label": "Interstitiële cystitis",
+          "desc": "Chronisch, steriel urinesediment — blaas-biopsiediagnose."
+        }
+      ],
+      "wiki_therapie_urgent": "Ongecompliceerde cystitis: nitrofurantoïne 100 mg 2×/dag 5 dagen of trimethoprim 200 mg 2×/dag 7 dagen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Resistentie",
+          "detail": "Fluoroquinolonen (ciprofloxacine) niet als eerste keus — bewaar voor pyelonefritis en gecompliceerde UWI."
+        },
+        {
+          "naam": "Recidief (≥3/jaar)",
+          "detail": "Lage-dosisprofylaxe of post-coïtale profylaxe. Cranberry beperkt bewijs."
+        }
+      ]
+    },
+    {
+      "_i": 282,
+      "q": "Jongen van 8 jaar, 2 weken na keelinfectie: hematurie, oedeem, hypertensie, oligurie. Complement C3 verlaagd. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Post-streptokokken glomerulonefritis",
+        "IgA-nefropathie",
+        "Minimale veranderingsziekte",
+        "HUS (hemolytisch-uremisch syndroom)"
+      ],
+      "ex": "Post-streptokokken GN: 1-3 weken na keelinfectie (S. pyogenes) + hematurie + hypertensie + laag C3. Zelflimiterend bij kinderen.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Post-streptokokken glomerulonefritis: immuuncomplexdepositie (IgG + C3) → complementactivatie → diffuse proliferatieve GN. Biopsie: subepitheliale deposits ('humps'). ASLO-titer bevestigt recente streptokokkeninfectie.",
+      "wiki_redflag": "Snel progressieve glomerulonefritis (RPGN): acuut nierfalen + hematurie + >50% crescents op biopsie → spoed immunosuppressie (methylprednisolon-pulsen ± cyclofosfamide). Uren tellen — irreversibel nierfalen bij vertraging.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Immuuncomplex-cascade",
+          "desc": "Anti-streptokokken-antistoffen reageren kruisreactief met glomerulaire antigenen → immuuncomplexen → complementactivatie → ROS en prostaglandinen → GFR-daling."
+        },
+        {
+          "title": "Onderscheid met IgA-nefropathie",
+          "desc": "IgA-nefropathie geeft hematurie binnen 24-48 uur tijdens de infectie (synfaryngitisch); post-streptokokken GN na 1-3 weken. C3 is laag bij post-strep GN, normaal bij IgA."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "IgA-nefropathie",
+          "desc": "Hematurie tijdens (niet ná) infectie, C3 normaal, IgA-deposities op immunofluorescentie."
+        },
+        {
+          "label": "HUS",
+          "desc": "Microangiopathische hemolytische anemie + trombocytopenie + AKI na E. coli O157:H7-infectie."
+        },
+        {
+          "label": "Membranoproliferatieve GN",
+          "desc": "Aanhoudend laag C3 — onderscheid met post-streptokokken GN (C3 herstelt binnen 6-8 weken)."
+        }
+      ],
+      "wiki_therapie_urgent": "Ondersteunend: vochtrestrictie, antihypertensiva, diureticum. Antibiotica voor actieve streptokokkeninfectie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Prognose kinderen",
+          "detail": "Volledig herstel in >95% — C3 normaliseert binnen 6-8 weken."
+        },
+        {
+          "naam": "Volwassenen",
+          "detail": "Hogere kans op chronische nierziekte — follow-up nierfunctie en bloeddruk aanbevolen."
+        }
+      ]
+    },
+    {
+      "_i": 283,
+      "q": "ACE-remmers zijn gecontra-indiceerd bij alle patiënten met chronische nierziekte vanwege het risico op verdere nierschade.",
+      "a": null,
+      "ex": "NIET WAAR: ACE-remmers zijn juist nefroprotectief bij chronische nierziekte — verlagen intraglomerulaire druk en proteïnurie.",
+      "dl": "Nefrologie",
+      "wiki_kern": "ACE-remmers (en angiotensinereceptorblokkers, ARBs): verlagen efferente arteriole tonus → intraglomerulaire druk daalt → minder podocytstress → minder proteïnurie → vertraagde progressie nierziekte.",
+      "wiki_redflag": "Bilaterale nierslagaderstenose: ACE-remmer blokkeert efferente arteriole vaatverwijding → perfusiedruk nieren daalt → acuut ischemisch nierfalen. Absoluut gecontra-indiceerd.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Hemodynamisch effect bij start",
+          "desc": "Creatinine stijging <30% na start ACE-remmer is acceptabel — hemodynamische aanpassing, geen echte nierschade."
+        },
+        {
+          "title": "Stop-criteria",
+          "desc": "Creatinine-stijging >30%, K+ >5,5 mmol/L of bilaterale nierslagaderstenose — stop direct."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Absoluut gecontra-indiceerd",
+          "desc": "Bilaterale nierslagaderstenose (ischemisch nierfalen), zwangerschap (teratogeen — ACE-remmer-embryopathie)."
+        },
+        {
+          "label": "Voorzichtigheid bij eGFR <30",
+          "desc": "Lagere baten-risicoverhouding, maar niet absoluut gecontra-indiceerd — intensieve monitoring vereist."
+        }
+      ],
+      "wiki_therapie_urgent": "Start ACE-remmer bij CKD met proteïnurie >300 mg/dag — tenzij contra-indicatie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Monitoring",
+          "detail": "Creatinine en K+ na 1-2 weken — stijging creatinine <30% acceptabel, K+ <5,5 mmol/L."
+        },
+        {
+          "naam": "Streefwaarden",
+          "detail": "Bloeddruk <130/80 mmHg, proteïnurie zo laag mogelijk (<300 mg/24u indien haalbaar)."
+        }
+      ]
+    },
+    {
+      "_i": 284,
+      "q": "Een patiënt met een eGFR van 15 mL/min heeft per definitie hemodialyse nodig.",
+      "a": null,
+      "ex": "NIET WAAR: dialyse-beslissing op basis van uremische symptomen — niet alleen op eGFR. Sommige patiënten met eGFR <15 zijn symptoomarm.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Nierfunctievervangende therapie (RRT): hemodialyse (HD), peritoneale dialyse (PD) of niertransplantatie. ESRD = eGFR <15 per definitie — maar dit is niet de drempel voor dialyse.",
+      "wiki_redflag": "Uremische pericarditis en uremische encefalopathie zijn absolute indicaties voor acute dialyse — uitstel verhoogt risico op pericardtamponade en coma.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Voorbereiding bij eGFR 10-15",
+          "desc": "AV-fistel aanleggen (minstens 6 maanden voor HD-start) of evaluatie voor niertransplantatie — plan vroeg."
+        },
+        {
+          "title": "Dialyse-indicaties",
+          "desc": "Uremische symptomen (pruritus, pericarditis, encefalopathie), vochtoverbelasting refractair voor diuretica, refractaire hyperkaliëmie, metabole acidose (pH <7,1)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Niertransplantatie",
+          "desc": "Superieur aan dialyse qua overleving en kwaliteit van leven — altijd eerste keus bij geschikte kandidaat."
+        },
+        {
+          "label": "Pre-emptieve transplantatie",
+          "desc": "Vóór start dialyse bij geschikte levende donor — optimaal resultaat."
+        },
+        {
+          "label": "Peritoneale dialyse (CAPD)",
+          "desc": "Thuis, continue behandeling — geschikt voor zelfstandige patiënten, minder cardiovasculaire belasting dan HD."
+        }
+      ],
+      "wiki_therapie_urgent": "Start RRT bij uremische symptomen of refractaire complicaties — niet puur op eGFR-drempel.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Voorbereiding (eGFR 10-15)",
+          "detail": "AV-fistel (minimaal 6 maanden voor HD) of transplantatie-evaluatie opstarten."
+        },
+        {
+          "naam": "Modaliteitskeuze",
+          "detail": "HD 3× per week in centrum of CAPD thuis — beslissing met patiënt op basis van voorkeur, comorbiditeit en resterende nierfunctie."
+        }
+      ]
+    },
+    {
+      "_i": 285,
+      "q": "Hyponatriëmie (Na+ <135 mmol/L) is altijd een teken van een tekort aan natrium in het lichaam.",
+      "a": null,
+      "ex": "NIET WAAR: hyponatriëmie is een spiegel-stoornis — zegt niets over totale natriumhoeveelheid. Oorzaak bepaalt behandeling (SIADH, hartfalen, volumetekort).",
+      "dl": "Nefrologie",
+      "wiki_kern": "Hyponatriëmie (Na+ <135): (1) Hypervolemisch — hartfalen, levercirrose, nefrotisch. (2) Euvolemisch — SIADH, hypothyreoïdie, bijnierschorsinsufficiëntie. (3) Hypovolemisch — braken, diarree, diuretica.",
+      "wiki_redflag": "Te snelle correctie van hyponatriëmie (>10-12 mmol/L per 24u): osmotisch demyelinisatiesyndroom (centrale pontiene myelinolyse) → dysarthrie, dysfagie, paraplegié — onomkeerbaar.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "SIADH",
+          "desc": "Syndrome of Inappropriate ADH: ADH verhoogd ondanks lage osmolaliteit → waterretentie → hyponatriëmie. Oorzaken: longcarcinoom (paraneoplastisch), meningitis, medicatie (carbamazepine, thiaziden, SSRI)."
+        },
+        {
+          "title": "Diagnose SIADH",
+          "desc": "Urine-osmolaliteit >100 mOsm/kg + urine-natrium >30 mmol/L bij hyponatriëmie met euvolemie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Pseudohyponatriëmie",
+          "desc": "Bij hypertriglyceridemie of hyperproteïnemie — laboratoriumartefact, geen echte hyponatriëmie."
+        },
+        {
+          "label": "SIADH",
+          "desc": "Euvolemisch, urine-Na hoog, osmolaliteit hoog — behandeling: vochtrestrictie."
+        },
+        {
+          "label": "Hartfalen/cirrose",
+          "desc": "Hypervolemisch, oedeem aanwezig — behandeling: vochtrestrictie + diuretica, onderliggende oorzaak."
+        }
+      ],
+      "wiki_therapie_urgent": "Correctie NOOIT sneller dan 8-10 mmol/L per 24 uur — gebruik hypertoon NaCl 3% alleen bij ernstige symptomen (aanval, coma).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Hypovolemisch",
+          "detail": "NaCl 0,9% IV — herstel volume verlaagt ADH → Na+ corrigeert spontaan."
+        },
+        {
+          "naam": "SIADH",
+          "detail": "Vochtrestrictie 500-1000 mL/dag. Tolvaptan (V2-antagonist) bij refractair SIADH."
+        },
+        {
+          "naam": "Hypervolemisch",
+          "detail": "Vochtrestrictie + furosemide. Behandeling onderliggende hartfalen of cirrose."
+        }
+      ]
+    },
+    {
+      "_i": 286,
+      "q": "Welk urineanalyse-kenmerk onderscheidt nefritisch van nefrotisch syndroom?",
+      "a": [
+        "Erytrocytencasten in het urinesediment",
+        "Proteïnurie >3.5 g/24u",
+        "Oedeem en hypoalbuminemie",
+        "Hypercholesterolemie"
+      ],
+      "ex": "RBC-casts in urinesediment = pathognomonisch voor nefritisch syndroom (glomerulaire hematurie).",
+      "dl": "Nefrologie",
+      "wiki_kern": "Urinesediment: RBC-casts = glomerulonefritis (nefritisch). Granulaire casts ('muddy brown') = acute tubulusnecrose (ATN). Vette casts + ovaal vetvlichamen = nefrotisch syndroom.",
+      "wiki_redflag": "Crescentaire glomerulonefritis (RPGN): acuut nierfalen + hematurie + RBC-casts + >50% crescents op biopsie → spoed immunosuppressie (methylprednisolon-pulsen). Uren tellen — irreversibel nierfalen bij vertraging.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Nefritisch syndroom",
+          "desc": "Glomerulaire hematurie → dysmorfische erytrocyten (acanthocyten) + RBC-casts + matige proteïnurie + hypertensie + oligurie + AKI."
+        },
+        {
+          "title": "Nefrotisch syndroom",
+          "desc": "Podocytdysfunctie → selectief eiwitverlies → hypoalbuminemie → oedeem, hyperlipidemie, trombosegevoeligheid. Sediment normaal of vette casts."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "IgA-nefropathie",
+          "desc": "Nefritisch + RBC-casts, recidiverende episoden na bovenstevoortractusinfectie."
+        },
+        {
+          "label": "Minimale veranderingsziekte (MCNS)",
+          "desc": "Nefrotisch — urinesediment normaal (geen casts)."
+        },
+        {
+          "label": "Lupus-nefritis",
+          "desc": "Kan zowel nefritisch als nefrotisch beeld geven — 'full house' immunofluorescentie."
+        }
+      ],
+      "wiki_therapie_urgent": "Nefritisch syndroom met AKI of oligurie: direct nefrologie-consult voor biopsie en immunosuppressie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Minimale veranderingsziekte",
+          "detail": "Prednisolon 1 mg/kg/dag — remissie in >80% binnen 4 weken."
+        },
+        {
+          "naam": "IgA-nefropathie",
+          "detail": "ACE-remmer + SGLT2-remmer. Bij progressie: methylprednisolon-kuur."
+        },
+        {
+          "naam": "Lupus-nefritis klasse III/IV",
+          "detail": "Mycofenolaat mofetil + hoge dosis corticosteroïden."
+        }
+      ]
+    },
+    {
+      "_i": 287,
+      "q": "Man van 55 jaar, recidiverende nierstenen. CT toont röntgendichte stenen (calciumoxalaat). 24-uurs urineonderzoek: hypercalciurie. Welke aandoening moet als onderliggende oorzaak worden uitgesloten?",
+      "a": [
+        "Primaire hyperparathyreoïdie",
+        "Gicht (hyperurikemie)",
+        "Cystinurie",
+        "Struviet-infectiestenen"
+      ],
+      "ex": "Hypercalciurie + calciumoxalaatstenen: altijd primaire hyperparathyreoïdie (verhoogd parathyroïdhormoon) uitsluiten via PTH-bepaling — behandelbaar en niet te missen.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Nierstenentypen: calciumoxalaat/fosfaat (70%, röntgendicht), urinezuurstenen (15%, röntgennegatief), struviet/infectiestenen (10%, röntgendicht, herthoornvormig), cystine (1%, erfelijk). CT-abdomen zonder contrast: gouden standaard.",
+      "wiki_redflag": "Koorts + obstructieve ureter/niersteen = geïnfecteerde obstructie met urosepsis-risico → spoedoperatie (drainage via dubbel-J-stent of nefrostomie) + IV antibiotica.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Calciumoxalaatstenen",
+          "desc": "Hypercalciurie (idiopathisch, primaire hyperparathyreoïdie (HPT), immobilisatie), hyperoxalurie (Crohn, malabsorptie), lage citraatuitscheiding (metabole acidose)."
+        },
+        {
+          "title": "Urinezuurstenen",
+          "desc": "Hyperurikemie + zure urine (pH <5,5) — behandelbaar met urinealkalisatie en allopurinol."
+        },
+        {
+          "title": "Struviet-infectiestenen",
+          "desc": "Urease-producerende bacteriën (Proteus mirabilis, Klebsiella) — herthoornvormig, vult nierbekken."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Urinezuurstenen",
+          "desc": "behandelbaar met urinealkalisatie (natriumbicarbonaat, allopurinol)."
+        },
+        {
+          "label": "Struviet",
+          "desc": "antibiotica + chirurgische verwijdering."
+        },
+        {
+          "label": "Cystine",
+          "desc": "D-penicillamine, ruime vochtintake."
+        }
+      ],
+      "wiki_therapie_urgent": "Acuut: pijnstilling (NSAID of morfine), hydratatie, alphablokker (tamsulosine) voor passage-bevordering.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Electief",
+          "detail": "extracorporele schokgolflitotripsie (ESWL) of ureteroscopie."
+        },
+        {
+          "naam": "Preventie",
+          "detail": ">2 L diurese/dag."
+        }
+      ]
+    },
+    {
+      "_i": 288,
+      "q": "Vrouw van 35 jaar, recidiverende urineweginfecties na de menopauze, nu tevens flankpijn en koorts 39°C. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Acute pyelonefritis",
+        "Ongecompliceerde cystitis",
+        "Nefrolithiasis",
+        "Renaal abces"
+      ],
+      "ex": "Pyelonefritis = cystitis-klachten + flankpijn (slagpijn nierloges) + koorts ≥38°C. Behandeling: ciprofloxacine 7 dagen of IV bij ernstig beloop.",
+      "dl": "Nefrologie",
+      "wiki_kern": "Pyelonefritis: ascensie van E. coli (80%), Klebsiella of andere gramnegatieve bacteriën naar het nierparenchym. Diagnose: kliniek + leukocyturie + nitriet + urinekweek.",
+      "wiki_redflag": "Obstructie + pyelonefritis = urosepsis — spoedbeeldvorming (echo/CT), drainage (dubbel-J-stent of nefrostomie) en IV antibiotica zijn urgent. Urosepsis mortaliteit 20-40%.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Urosepsis-mechanisme",
+          "desc": "Obstructie belemmert drainageweg → bacteriën en lipopolysacharide (LPS) komen in de bloedbaan → cytokinestorm → SIRS → orgaandisfunctie."
+        },
+        {
+          "title": "ESBL-problematiek",
+          "desc": "ESBL-producerende E. coli toenemend — bij risicofactoren (reizen, ziekenhuisopname) meropenem of fosfomycine IV overwegen."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Nefrolithiasis",
+          "desc": "koliekpijn (niet perkussiegevoelig of juist wel), geen koorts initieel."
+        },
+        {
+          "label": "Renaal abces",
+          "desc": "persisterende koorts na antibiotica, CT-diagnose, drainage nodig."
+        },
+        {
+          "label": "Cystitis",
+          "desc": "geen flankpijn of koorts."
+        }
+      ],
+      "wiki_therapie_urgent": "Pyelonefritis ambulant: ciprofloxacine 500 mg 2× daags 7 dagen (of co-trimoxazol indien gevoelig).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Ziekenhuisopname bij",
+          "detail": "braken (orale therapie niet mogelijk), sepsis, zwangerschap, obstructie, immuunsuppressie."
+        },
+        {
+          "naam": "IV antibiotica",
+          "detail": "Ceftriaxon 2 g 1× daags of piperacilline-tazobactam bij ESBL-risico; switch naar oraal na klinische verbetering."
+        },
+        {
+          "naam": "Beeldvorming",
+          "detail": "Echo/CT bij persisterende koorts na 72u: obstructie of abces uitsluiten."
+        }
+      ]
+    },
+    {
+      "_i": 289,
+      "q": "Vrouw van 32 jaar, al 3 weken depressief, slaapproblemen, gewichtsverlies, concentratieproblemen, schuldgevoelens, geen suïcidale gedachten. DSM-5 diagnose?",
+      "a": [
+        "Depressieve stoornis (major depressive disorder)",
+        "Dysthymie (persisterende depressieve stoornis)",
+        "Bipolaire stoornis type II",
+        "Rouwreactie"
+      ],
+      "ex": "MDD: ≥5 van de 9 DSM-5 criteria gedurende minimaal 2 weken, inclusief depressieve stemming of anhedonie. Dysthymie: mildere maar chronische depressie (≥2 jaar). Bipolair type II: depressieve episodes + hypomane (niet manische) episodes.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "DSM-5 criteria MDD (≥5 aanwezig ≥2 weken): depressieve stemming, anhedonie, gewichtsverandering, slaapstoornis, psychomotore agitatie/remming, vermoeidheid, waardeloosheidsgevoel/schuld, concentratieproblemen, suïcidale gedachten. Minimaal depressieve stemming OF anhedonie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Monoamine-deficiëntiehypothese",
+          "desc": "verminderde serotonine, noradrenaline en dopamine."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "SSRI\\'s (selectieve serotonine-heropnameremmers) zijn eerste keus: fluoxetine, sertraline, paroxetine."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Effect na 4-6 weken."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "Combinatie met cognitieve gedragstherapie (CGT) is superieur."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Bipolair",
+          "desc": "manische of hypomane episode ≥1× eerder."
+        },
+        {
+          "label": "Rouwreactie",
+          "desc": "normaal na verlies, minder ernstig, geen schuldgevoelens over zichzelf."
+        },
+        {
+          "label": "Hypothyreoïdie",
+          "desc": "ook depressieve kenmerken, TSH bepalen bij elke nieuwe depressie."
+        }
+      ],
+      "wiki_therapie_urgent": "Licht-matig: CGT of SSRI (gelijkwaardig).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Ernstig",
+          "detail": "SSRI + CGT of farmaco + psychiatrisch consult."
+        },
+        {
+          "naam": "Behandelingsduur",
+          "detail": "≥6 maanden na remissie (recidiefpreventie)."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "ECT bij therapieresistente of ernstige depressie."
+        }
+      ]
+    },
+    {
+      "_i": 290,
+      "q": "Man van 25 jaar, afgelopen week grandioos zelfgevoel, nauwelijks slapen maar vol energie, overmatig praten, vluchtige ideeën, impulsief geld uitgespen. Geen drugs. Diagnose?",
+      "a": [
+        "Manische episode (bipolaire stoornis type I)",
+        "Hypomane episode (bipolaire stoornis type II)",
+        "Schizofrenie",
+        "Borderline persoonlijkheidsstoornis"
+      ],
+      "ex": "Manische episode: verhoogde stemming + ≥3 B-criteria (grandiositeit, slaapbehoefte laag, vluchtige ideeën, drukke spraak, doelgericht gedrag, impulsiviteit) ≥7 dagen of ziekenhuisopname vereist. Hypomaan: zelfde maar ≤4 dagen en geen opname/ernstige gevolgen.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Bipolaire stoornis type I: minimaal één manische episode (met of zonder depressie). Type II: hypomane episodes + depressieve episodes (nooit manisch).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Lithium is hoeksteen van onderhoudsbehandeling: stemmingsstabilisator."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Werkt via remming inositolmonofosfa­tase en GSK-3β."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Smal therapeutisch venster (0.6-1.2 mEq/L)."
+        },
+        {
+          "title": "Alternatieven",
+          "desc": "valproaat, lamotrigine (depressie-preventie), quetiapine."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Borderline",
+          "desc": "instabiele stemmingen maar kortdurend (uren), gerelated aan interpersonele stress."
+        },
+        {
+          "label": "Schizofrenie",
+          "desc": "wanen/hallucinaties op voorgrond, geen manische stemmingsverhoging."
+        },
+        {
+          "label": "Drugsintoxicatie (cocaïne, amfetamine)",
+          "desc": "anamnese."
+        }
+      ],
+      "wiki_therapie_urgent": "Acute manie: antipsychoticum (olanzapine, risperidon, quetiapine) + stemmingsstabilisator.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Lithium",
+          "detail": "onderhoud."
+        },
+        {
+          "naam": "Valproaat",
+          "detail": "snelle keuze bij acute manie."
+        },
+        {
+          "naam": "ECT",
+          "detail": "bij ernstige therapieresistente manie."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Psychoeducatie over medicatieontrouw (groot risico)."
+        }
+      ]
+    },
+    {
+      "_i": 291,
+      "q": "Vrouw van 28 jaar, terugkerende, onverwachte paniekaanvallen met hartkloppingen, transpiratie, benauwdheid, angst om dood te gaan. Ze vermijdt nu publieke plekken. Diagnose?",
+      "a": [
+        "Paniekstoornis met agorafobie",
+        "Sociale angststoornis",
+        "Gegeneraliseerde angststoornis",
+        "Specifieke fobie"
+      ],
+      "ex": "Paniekstoornis: recidiverende onverwachte paniekaanvallen + aanhoudende bezorgdheid over nieuwe aanvallen of gedragsverandering. Agorafobie: vermijden van situaties waaruit ontsnapping moeilijk zou zijn. De combinatie is frequent.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Paniekaanval: plotse intensieve angst met ≥4 lichamelijke/cognitieve symptomen (palpitaties, transpireren, trillen, dyspneu, thoraxpijn, misselijkheid, duizeligheid, derealisatie, angst de controle te verliezen/dood te gaan). Piek binnen 10 minuten.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Neurobiologie: hypersensitiviteit amygdala, locus coeruleus hyperactiviteit (noradrenaline), overreactie van het fight-or-flight systeem. Hyperventilatie."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "CO2-daling."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "respiratoire alkalose."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "paraesthesieën."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Gegeneraliseerde angststoornis (GAS)",
+          "desc": "chronische, diffuse, moeilijk beheersbare bezorgdheid (niet episodisch)."
+        },
+        {
+          "label": "Sociale angst",
+          "desc": "angst voor sociale beoordeling."
+        },
+        {
+          "label": "PTSS",
+          "desc": "angst na trauma."
+        },
+        {
+          "label": "Somatische aandoeningen uitsluiten",
+          "desc": "feochromocytoom, hyperthyreoïdie, aritmie."
+        }
+      ],
+      "wiki_therapie_urgent": "CGT (exposuretechnieken): bewezen meest effectief.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "SSRI (sertraline, paroxetine)",
+          "detail": "farmacologisch eerste keus."
+        },
+        {
+          "naam": "Benzodiazepinen",
+          "detail": "kortdurend voor acute aanvallen, niet als onderhoudsbehandeling (afhankelijkheidsrisico)."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Combinatie CGT + SSRI superieur."
+        }
+      ]
+    },
+    {
+      "_i": 292,
+      "q": "Man van 70 jaar, snel ontstaan over enkele dagen: desoriëntatie in tijd en plaats, wisselend bewustzijn, hallucinaties (ziet spinnen), agitatie 's nachts. Vorige week nog helder. Diagnose?",
+      "a": [
+        "Delier",
+        "Dementie",
+        "Psychose",
+        "Alcoholonttrekking"
+      ],
+      "ex": "Delier: acuut (<48u) ontstane bewustzijnsstoornis met aandachtsproblemen, desoriëntatie en wisselend beloop. Kenmerkend: acuut begin + fluctuerend beloop + aandachtsstoornis + organische oorzaak. Dementie: chronisch, progressief, geen acuut begin.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Delier (CAM-criteria): acuut begin + wisselend beloop + aandachtsstoornis + desorganiseerd denken of bewustzijnsstoornis. Meest voorkomende psychiatrische stoornis in het ziekenhuis (15-30% van opnames).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Neurobiologie",
+          "desc": "cholinerg deficit (acetylcholinesteraseremmers kunnen helpen), dopamineoverschot, GABA-dysbalans bij alcoholonttrekking."
+        },
+        {
+          "title": "Predisponerende factoren",
+          "desc": "leeftijd, dementie, polyfarmacie."
+        },
+        {
+          "title": "Uitlokkende factoren",
+          "desc": "infectie (UWI, pneumonie), medicatie (anticholinergica, opiaten, benzodiazepinen), dehydratie, pijn, retentie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Dementie",
+          "desc": "chronisch, geen acuut begin, bewustzijn normaal initieel."
+        },
+        {
+          "label": "Delier op dementie",
+          "desc": "gemengd en frequent."
+        },
+        {
+          "label": "Psychose (schizofrenie)",
+          "desc": "chronisch, bewustzijn niet gestoord."
+        },
+        {
+          "label": "Alcoholonttrekking",
+          "desc": "anamnese, tremor, delirium tremens na 48-72u abstinentie."
+        }
+      ],
+      "wiki_therapie_urgent": "Behandel onderliggende oorzaak.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Niet-farmacologisch",
+          "detail": "oriëntatie, slaapcyclus normaliseren, mobilisatie, geen onnodige katheters."
+        },
+        {
+          "naam": "Farmacologisch bij ernstige agitatie",
+          "detail": "lage dosis haloperidol."
+        },
+        {
+          "naam": "Alcoholonttrekking",
+          "detail": "benzodiazepinen."
+        }
+      ]
+    },
+    {
+      "_i": 293,
+      "q": "Man van 22 jaar, sociale terugtrekking, bizarre overtuiging dat de buren hem bespieden via de tv, stemmen horen die commentaar geven, vlak affect. Klachten >6 maanden. Diagnose?",
+      "a": [
+        "Schizofrenie",
+        "Schizoaffectieve stoornis",
+        "Bipolaire stoornis met psychotische kenmerken",
+        "Waanstoornis"
+      ],
+      "ex": "Schizofrenie DSM-5: ≥2 kernsymptomen ≥1 maand (wanen, hallucinaties, desorganisatie, negatieve symptomen, catatonie) + sociaal/beroepsmatig disfunctioneren + duur ≥6 maanden. Schizoaffectieve stoornis: psychose + prominente stemmingsepisodes gelijktijdig.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Positieve symptomen (wanen, hallucinaties): overactiviteit dopaminerg systeem (mesolimbisch pad). Negatieve symptomen (vlak affect, alogie, avolontie, anhedonie): hypoactiviteit prefrontale cortex.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Antipsychotica",
+          "desc": "blokkade D2-receptoren (mesolimbisch/mesocorticaal)."
+        },
+        {
+          "title": "Typisch (haloperidol)",
+          "desc": "effectief maar extrapiramidale bijwerkingen (parkinsonisme, tardieve dyskinesie)."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Atypisch (clozapine, quetiapine, risperidon): minder EPM, meer metabole bijwerkingen."
+        },
+        {
+          "title": "Clozapine",
+          "desc": "meest effectief bij therapieresistentie maar agranulocytose-risico."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Schizoaffectieve stoornis",
+          "desc": "psychotische symptomen óók buiten stemmingsepisodes."
+        },
+        {
+          "label": "Bipolair met psychose",
+          "desc": "psychose alleen tijdens stemming."
+        },
+        {
+          "label": "Waanstoornis",
+          "desc": "geïsoleerde niet-bizarre waan, geen hallucinaties of desorganisatie."
+        }
+      ],
+      "wiki_therapie_urgent": "Antipsychoticum (atypisch eerste keus).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Psychosociale begeleiding",
+          "detail": "psychoeducatie, arbeidsintegratie, familieinterventie."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Behandeling ≥2 jaar na eerste episode."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Clozapine bij therapieresistentie (2 antipsychotica onvoldoende)."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Psychosociale rehabilitatie."
+        }
+      ]
+    },
+    {
+      "_i": 294,
+      "q": "Vrouw van 45 jaar, terugkerende opdringerige gedachten over besmetting, die ze niet kan stoppen. Ze wast haar handen >50× per dag om angst te verminderen, wat tijdelijk helpt. Diagnose?",
+      "a": [
+        "Obsessief-compulsieve stoornis (OCS)",
+        "Gegeneraliseerde angststoornis",
+        "Somatische symptoomstoornis",
+        "Specifieke fobie"
+      ],
+      "ex": "OCS: obsessies (opdringerige, egodystone gedachten → angst) + compulsies (rituelen om angst te verminderen). De compulsies geven tijdelijk verlichting maar versterken op termijn de obsessies. Egodystoon = de patiënt ervaart de gedachten als vreemd/ongewenst.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "OCS prevalentie: 2-3%. Neurobiologie: hyperactiviteit orbito-frontale cortex + caudate nucleus.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Serotonine-deficiëntiehypothese",
+          "desc": "SSRI in hogere dosis dan depressie (bijv. fluoxetine 60-80 mg)."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "CGT met exposure en respons­preventie (ERP): eerste keus behandeling."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Neurochirurgie (DBS) bij ernstige therapieresistentie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "GAS",
+          "desc": "bezorgdheid over reële problemen (werk, gezondheid), niet egodystoon."
+        },
+        {
+          "label": "Prikkelbare-darmsyndroom-OCS overlap",
+          "desc": "somatische focus."
+        },
+        {
+          "label": "ADHD",
+          "desc": "impulsief gedrag maar geen rituelen."
+        },
+        {
+          "label": "Psychose",
+          "desc": "wanen maar niet als egodystoon ervaren."
+        }
+      ],
+      "wiki_therapie_urgent": "Eerste keus: CGT-ERP (hoogste remissie).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Farmacologisch",
+          "detail": "SSRI (hogere dosering dan depressie, 12+ weken)."
+        },
+        {
+          "naam": "Clomipramine (TCA)",
+          "detail": "effectief maar meer bijwerkingen."
+        },
+        {
+          "naam": "Combinatie CGT + SSRI",
+          "detail": "superieur bij matige/ernstige OCS."
+        }
+      ]
+    },
+    {
+      "_i": 295,
+      "q": "Soldaat van 28 jaar, 6 maanden geleden teruggekeerd uit oorlogsgebied. Herbelevingen, nachtmerries, vermijdt prikkels die herinneren aan het trauma, hyperwaakzaamheid, emotionele gevoelloosheid. Diagnose?",
+      "a": [
+        "Posttraumatische stressstoornis (PTSS)",
+        "Acute stressstoornis",
+        "Aanpassingsstoornis",
+        "Depressieve stoornis"
+      ],
+      "ex": "PTSS: na blootstelling aan traumatische gebeurtenis → ≥1 maand: herbelevingssymptomen (flashbacks, nachtmerries) + vermijding + negatieve cognitieve/stemmingssymptomen + hyperarousal. Acute stressstoornis: <1 maand na trauma.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "PTSS: prevalentie levenslang 8% in de algemene bevolking, 20-30% bij oorlogsveteranen. Neurobiologie: amygdala-hyperactiviteit, prefrontale cortex-hypoactiviteit (extinctielearning verstoord), hippocampus-atrofie (negatief geheugen).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Traumatisch geheugen wordt niet geïntegreerd → intrusieven."
+        },
+        {
+          "title": "Behandeling",
+          "desc": "trauma-focused CGT (EMDR, prolonged exposure)."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "EMDR (eye movement desensitization and reprocessing): bewezen effectief."
+        },
+        {
+          "title": "SSRI (paroxetine, sertraline)",
+          "desc": "farmacologische eerste keus."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Aanpassingsstoornis",
+          "desc": "minder ernstig trauma, kortdurend (<6 maanden), geen herbelevingen."
+        },
+        {
+          "label": "Depressie",
+          "desc": "kan comorbide zijn."
+        },
+        {
+          "label": "Borderline",
+          "desc": "chronische instabiliteit, interpersoneel patroon."
+        },
+        {
+          "label": "Acute stressstoornis",
+          "desc": "<1 maand, soms dissociatief."
+        }
+      ],
+      "wiki_therapie_urgent": "Trauma-focused CGT of EMDR: eerste keus.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "SSRI",
+          "detail": "paroxetine of sertraline."
+        },
+        {
+          "naam": "Prazosin (alfablokker)",
+          "detail": "bij nachtmerries effectief."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Geen benzodiazepinen (verhogen vermijding)."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Groepstherapie en lotgenotencontact als aanvulling."
+        }
+      ]
+    },
+    {
+      "_i": 296,
+      "q": "Bij een acute psychose is het altijd veilig te starten met een hoge dosis antipsychotica om de symptomen sneller onder controle te krijgen.",
+      "a": null,
+      "ex": "NIET WAAR. Hoge doses antipsychotica geven meer bijwerkingen (extrapiramidale symptomen, sedatie, orthostatische hypotensie) zonder snellere werkzaamheid. Startdosis laag, opbouwen op geleide van effect en tolerantie. De antipsychotische werking treedt pas na 2-6 weken volledig op.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Antipsychotica: D2-receptorblokkade in het mesolimbisch systeem. Parkinsonsymptomen: D2-blokkade in het nigrostriatale systeem.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Neuroleptica equivalenten",
+          "desc": "alle middelen worden uitgedrukt als chlorpromazine-equivalent."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Atypische antipsychotica (quetiapine, olanzapine, clozapine): ook serotonine-antagonisme → minder EPM, meer metabole bijwerkingen (gewichtstoename, diabetes)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Optie 1",
+          "desc": "Serotoninesyndroom vs. neuroleptica maligne syndroom (NMS): NMS = dopamineantagonist → hoge koorts + rigiditeit + autonome instabiliteit + bewustzijns­daling."
+        },
+        {
+          "label": "Behandeling NMS",
+          "desc": "stop antipsychoticum, dantroleen, bromocriptine."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 297,
+      "q": "Lithium is veilig te gebruiken bij patiënten met verminderde nierfunctie zonder dosisaanpassing.",
+      "a": null,
+      "ex": "NIET WAAR. Lithium wordt uitsluitend renaal uitgescheiden en heeft een smal therapeutisch venster (0.6-1.2 mEq/L). Bij nierfunctiestoornissen accumuleert lithium → toxiciteit (tremor, cognitieve stoornissen, convulsies, renale schade). Altijd dosisaanpassing en nauwgezette spiegelbewaking.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Lithiumtoxiciteit: spiegels >1.5 mEq/L → nausea, diarree, grove tremor. >2.0: lethargie, verwardheid, ataxie. >3.0: convulsies, coma, irreversibele renale/neurologische schade. Dehydratie (ook door NSAID, thiazide) verhoogt lithiumspiegel → altijd waarschuwen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Lithium en natrium worden competitief gereabsorbeerd in de proximale tubulus. Bij natriumtekort (dehydratie, lage zoutinname)."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "meer lithiumreabsorptie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "spiegel stijgt. Kwartaals controleren: lithiumspiegel, nierfunctie, TSH (lithium veroorzaakt hypothyreoïdie bij langdurig gebruik)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Valproaat",
+          "desc": "renale klaring minder afhankelijk, maar leverfunctie bewaken."
+        },
+        {
+          "label": "Lamotrigine",
+          "desc": "bijzonder veilig bij nieraandoeningen, geen spiegelbewaking nodig."
+        },
+        {
+          "label": "Carbamazepine",
+          "desc": "ook renale uitscheiding, maar minder smal venster."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 298,
+      "q": "Suïcidaliteit bij een depressieve patiënt is een absolute contra-indicatie voor SSRI-behandeling.",
+      "a": null,
+      "ex": "NIET WAAR. SSRI's zijn eerste keus bij depressie, ook bij suïcidaliteit. In de eerste weken kan activering optreden (meer energie terwijl stemming nog laag is) → korte termijn iets verhoogd risico in eerste 2 weken → nauwe follow-up. Het niet behandelen van depressie is een groter risico.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "FDA black box warning: verhoogd suïciderisico bij jongeren <25j in de eerste weken van SSRI-behandeling. Bij volwassenen en ouderen: SSRI verlaagt op lange termijn suïciderisico.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Activeringseffect",
+          "desc": "energieniveau herstelt sneller dan stemming → \"dangerous window\"."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Benzodiazepinen kortdurend overbruggen bij ernstige agitatie/angst."
+        },
+        {
+          "title": "Altijd veiligheidsevaluatie",
+          "desc": "intentie, plan, middelen, beschermende factoren."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Risicofactoren suïcide",
+          "desc": "eerder poging, mannelijk geslacht, alleenstaand, toegang tot middelen, middelenmisbruik, chronische pijn."
+        },
+        {
+          "label": "Beschermende factoren",
+          "desc": "sociaal netwerk, kinderen, geloofsgemeenschap, behandelingsbereidheid."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 299,
+      "q": "Welk kenmerk onderscheidt een depressieve episode bij bipolaire stoornis van een unipolaire depressie bij de behandelkeuze?",
+      "a": [
+        "SSRI-monotherapie kan een manische episode uitlokken bij bipolaire depressie",
+        "Bipolaire depressie reageert sneller op CGT",
+        "Bipolaire depressie heeft altijd suïcidaliteit",
+        "Bij unipolaire depressie zijn lithium contra-indicaties hoger"
+      ],
+      "ex": "SSRI-monotherapie bij bipolaire depressie kan een manische switch of cyclische versnelling uitlokken. Daarom wordt bij bipolaire depressie een stemmingsstabilisator (lithium, quetiapine, lamotrigine) als basis gegeven, en SSRI's slechts voorzichtig en altijd in combinatie met een stabilisator.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Bipolaire depressie behandeling verschilt fundamenteel van unipolaire: (1) Altijd stemmingsstabilisator als basis. (2) SSRI alleen in combinatie, niet als monotherapie. (3) Quetiapine is aangetoond effectief voor bipolaire depressie en heeft FDA-goedkeuring.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Manische switch",
+          "desc": "bipolaire patiënt wordt door antidepressivum acuut manisch."
+        },
+        {
+          "title": "Risico",
+          "desc": "hoger bij TCA (tricyclisch) dan bij SSRI, laagst bij lamotrigine."
+        },
+        {
+          "title": "Lamotrigine",
+          "desc": "bewezen voor bipolaire depressie-preventie, niet voor acute manie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Unipolaire depressie",
+          "desc": "SSRI-monotherapie of CGT-monotherapie zijn eerste keus."
+        },
+        {
+          "label": "Optie 2",
+          "desc": "Bipolair I vs."
+        },
+        {
+          "label": "II",
+          "desc": "beide riskant bij SSRI-monotherapie."
+        },
+        {
+          "label": "Postpartum psychose",
+          "desc": "vaker geassocieerd met bipolaire stoornis."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 300,
+      "q": "Jongeman van 16 jaar, extreem weinig eten (BMI 15.5), gestoord lichaamsbeeld (\"ik ben te dik\"), amenorroe, ontkenning van ziekte. Diagnose?",
+      "a": [
+        "Anorexia nervosa (restrictief type)",
+        "Boulimia nervosa",
+        "Binge-eating stoornis",
+        "Vermijdend-restrictieve voedselinnamestoornis (ARFID)"
+      ],
+      "ex": "Anorexia nervosa: BMI <17.5 + intense angst voor gewichtstoename + gestoord lichaamsschema + ontkenning van ernst. Meest voorkomend bij adolescente vrouwen. Hoogste mortaliteit van alle psychiatrische stoornissen (sterfte door medische complicaties + suïcide).",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Medische complicaties anorexia: bradycardie, hypotensie, hyponatriëmie, hypokaliëmie, metabole alkalose (bij purgeergedrag), osteoporose, lanugo, oedeem bij hervoeding. Refeeding syndroom: gevaar bij snelle hervoeding (fosfaat, K+, Mg daalt).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Restrictief type",
+          "desc": "alleen calorierestrictie."
+        },
+        {
+          "title": "Binge-purge type",
+          "desc": "ook eetbuien + compensatiegedrag (braken, laxantia)."
+        },
+        {
+          "title": "Behandeling",
+          "desc": "multidisciplinair (psychiatrie, diëtistiek, somatiek)."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "FBT (family-based treatment) meest effectief bij adolescenten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Boulimia",
+          "desc": "normaal gewicht, eetbuien + compensatie, geen gestoord lichaamsschema als bij AN."
+        },
+        {
+          "label": "Binge-eating",
+          "desc": "eetbuien zonder compensatie, overgewicht."
+        },
+        {
+          "label": "ARFID",
+          "desc": "geen gewichtsfobíe, selectief eten door sensorische aversie."
+        }
+      ],
+      "wiki_therapie_urgent": "Ambulant als mogelijk.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Opname bij BMI <13 of medische complicaties."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Hervoeding langzaam (refeeding syndroom)."
+        },
+        {
+          "naam": "Psychotherapie",
+          "detail": "CGT (bulimie effectief), FBT (adolescenten)."
+        },
+        {
+          "naam": "Farmacologisch",
+          "detail": "geen bewezen middel voor AN; fluoxetine voor boulimia (FDA-goedgekeurd)."
+        }
+      ]
+    },
+    {
+      "_i": 301,
+      "q": "Man van 40 jaar, al jarenlang diep wantrouwen tegenover anderen, interpreteert neutrale opmerkingen als bedreigend, houdt vast aan rancune, dicht anderen slechte intenties toe. Geen psychose. Diagnose?",
+      "a": [
+        "Paranoïde persoonlijkheidsstoornis",
+        "Schizofrenie paranoïde type",
+        "Schizoïde persoonlijkheidsstoornis",
+        "Waanstoornis"
+      ],
+      "ex": "Paranoïde persoonlijkheidsstoornis (cluster A): pervasief wantrouwen en achterdocht, veronderstelt dat anderen hem schade willen berokkenen, maar geen psychose (wanen, hallucinaties). Chronisch, ego-syntoon (de patiënt ervaart zijn denken als normaal).",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Persoonlijkheidsstoornissen: cluster A (schizoïd, schizotypisch, paranoïde), cluster B (antisociaal, borderline, theatraal, narcistisch), cluster C (vermijdend, afhankelijk, obsessief-compulsief). Kenmerken: pervasief, inflexibel, egosyntoon, vroeg begin.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Persoonlijkheidsstoornissen zijn moeilijk te behandelen: ego-syntoon → beperkte behandelmotivatie."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Psychotherapie (dialectische gedragstherapie bij borderline) is effectiever dan farmacotherapie."
+        },
+        {
+          "title": "Medicatie",
+          "desc": "symptomatisch (antipsychotica bij paranoïdie, SSRI bij impulsiviteit)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Schizofrenie",
+          "desc": "psychotische symptomen (echte wanen, hallucinaties)."
+        },
+        {
+          "label": "Waanstoornis",
+          "desc": "geïsoleerde waan, functioneren overigens intact."
+        },
+        {
+          "label": "Schizoïd",
+          "desc": "sociaal teruggetrokken maar geen achterdocht."
+        },
+        {
+          "label": "Schizotypisch",
+          "desc": "magisch denken, vreemd gedrag."
+        }
+      ],
+      "wiki_therapie_urgent": "Psychotherapie: cognitieve therapie helpt bij paranoïde denken.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Therapeutische relatie is moeilijk door wantrouwen."
+        },
+        {
+          "naam": "Farmacotherapie",
+          "detail": "geen bewezen effect, soms lage dosis antipsychoticum bij ernstige symptomen."
+        }
+      ]
+    },
+    {
+      "_i": 302,
+      "q": "Vrouw van 38 jaar, instabiele relaties, chronische leegte, impulsiviteit (automutilatie, risicovol gedrag), intense stemmingswisselingen gerelateerd aan interpersoonlijke stressoren. Diagnose?",
+      "a": [
+        "Borderline persoonlijkheidsstoornis",
+        "Bipolaire stoornis type II",
+        "Cyclothymie",
+        "Depressieve stoornis met impulsiviteit"
+      ],
+      "ex": "Borderline PS (cluster B): instabiele relaties + zelfbeeld + affecten + impulsiviteit. Stemmingswisselingen duren uren (niet dagen zoals bij bipolair) en zijn interpersoonlijk getriggerd. Automutilatie en suïcidepogingen zijn frequent maar meest para-suïcidaal.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "BPS neurobiologie: verhoogde amygdala-reactiviteit + prefrontale hypoactiviteit → emotiedysregulatie. Hoge comorbiditeit met depressie, PTSS, verslavingsproblematiek.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "DBT (dialectische gedragstherapie, Linehan): gold standard behandeling BPS."
+        },
+        {
+          "title": "Modules",
+          "desc": "mindfulness, emotieregulatie, interpersoonlijke effectiviteit, distress-tolerantie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "MBT (mentalization-based treatment): alternatief."
+        },
+        {
+          "title": "Farmacotherapie",
+          "desc": "symptomatisch."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Bipolaire stoornis",
+          "desc": "stemmingswisselingen duren dagen tot weken, autonoom (niet interpersoonlijk getriggerd), slaapbehoefte veranderd."
+        },
+        {
+          "label": "BPS",
+          "desc": "uren, interpersoonlijk, slaapcyclus relatief intact."
+        }
+      ],
+      "wiki_therapie_urgent": "DBT ambulant (2 jaar).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Systeemtherapie als aanvulling."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Hospitalisatie vermijden tenzij acute veiligheid."
+        },
+        {
+          "naam": "Farmacologisch",
+          "detail": "lage dosis antipsychoticum bij dissociatie/paranoia, SSRI bij depressie/impulsiviteit."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Stemmingsstabilisator bij affectieve instabiliteit."
+        }
+      ]
+    },
+    {
+      "_i": 303,
+      "q": "Man van 60 jaar, progressief geheugenverval over 3 jaar, vergeet afspraken, raakt thuis de weg kwijt, apraxie, verminderd oordeel. MRI: bitemporaal/parietaal atrofie. Diagnose?",
+      "a": [
+        "Ziekte van Alzheimer",
+        "Vasculaire dementie",
+        "Lewy-body dementie",
+        "Frontotemporale dementie"
+      ],
+      "ex": "Alzheimer: meest voorkomende dementie (60-70%). Insidieuse onset, progressief, anterograad geheugenverlies dominant, bitemporaal/parietaal atrofie op MRI. Lewy-body: ook parkinsonisme + fluctuerende cognitie + visuele hallucinaties.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Dementie classificatie: Alzheimer (60%), vasculair (15%), Lewy-body (15%), FTD (5-10%), gemengd. Alzheimer-biomarkers: amyloïd-β (verlaagd in CSF, positief op PET), tau en phospho-tau (verhoogd in CSF).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Amyloïd cascade hypothese: APP."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "amyloïd-β aggregatie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "seniele plaques."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "tau-tangle vorming."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "neuronaal verlies. Cholinerg deficit."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Vasculaire dementie",
+          "desc": "stapsgewijs beloop, cerebrovasculaire pathologie op MRI (lacunaire infarcten), executieve disfunctie."
+        },
+        {
+          "label": "FTD",
+          "desc": "persoonlijkheids- en gedragsverandering, taalstoornis, frontale atrofie."
+        },
+        {
+          "label": "Lewy-body",
+          "desc": "REM-slaapgedragsstoornis, parkinsonisme, DLB-triade."
+        }
+      ],
+      "wiki_therapie_urgent": "Acetylcholinesteraseremmers: donepezil, rivastigmine, galantamine.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Memantine (NMDA-antagonist)",
+          "detail": "bij matige/ernstige Alzheimer."
+        },
+        {
+          "naam": "Nieuwe middelen",
+          "detail": "lecanemab (anti-amyloïd mAb) vertraagt progressie (FDA 2023)."
+        },
+        {
+          "naam": "Non-farmacologisch",
+          "detail": "dagstructuur, omgevingsaanpassing."
+        }
+      ]
+    },
+    {
+      "_i": 304,
+      "q": "Welk laboratoriumonderzoek is bij een nieuwe depressieve episode altijd geïndiceerd om een somatische oorzaak uit te sluiten?",
+      "a": [
+        "TSH (thyroïdstimulerend hormoon)",
+        "Cortisol ochtend",
+        "Prolactine",
+        "Lithiumspiegel"
+      ],
+      "ex": "TSH is standaard bij elke nieuwe depressie: hypothyreoïdie presenteert zich vaak met depressieve symptomen en is eenvoudig behandelbaar. Overige basis: bloedbeeld, elektrolyten, glucose, nierfunctie, leverenzymen. Cortisol bij verdenking Cushing/Addison, prolactine bij galactorroe.",
+      "dl": "Psychiatrie",
+      "wiki_kern": "Somatische screening bij psychiatrische presentaties: TSH (hypothyreoïdie/hyperthyreoïdie), bloedglucose (hypoglykemie → angst/delirium), Ca2+ (hypercalciëmie → psychose/depressie), vitamine B12/foliumzuur (deficiëntie → depressie/dementie), CRP/BSE (ontsteking), alcohol/drugsscreen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Hypothyreoïdie nabootsen",
+          "desc": "moeheid, gewichtstoename, depressie, cognitieve verlangzaming, koude-intolerantie."
+        },
+        {
+          "title": "Hyperthyreoïdie",
+          "desc": "angst, agitatie, slapeloosheid."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Beide kunnen psychiatrische diagnose nabootsen."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "TSH heeft de hoogste sensitiviteit."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Bij psychose of delirium",
+          "desc": "ook bloedgas (CO2-retentie), ammonia (hepatische encefalopathie), MRI hersenen (structureel), LP (meningitis/encefalitis)."
+        },
+        {
+          "label": "Bij eerste psychose <25j",
+          "desc": "uitgebreide somatische screening verplicht."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 305,
+      "q": "Kind van 7 jaar, jeukende rode vlekken met blaasjes, eerst hoofd dan romp en extremiteiten, koorts 38°C. Gezinscontact vorige week ziek. Diagnose?",
+      "a": [
+        "Varicella (waterpokken)",
+        "Hand-mond-voetziekte",
+        "Mazelen",
+        "Roodvonk"
+      ],
+      "ex": "Polymorf exantheem in alle stadia tegelijk = kenmerk van waterpokken (varicella-zostervirus (VZV) primo-infectie).",
+      "dl": "Dermatologie",
+      "wiki_kern": "Varicella-zostervirus (VZV): primo-infectie = waterpokken. Reactivatie later in het leven = gordelroos (herpes zoster).",
+      "wiki_redflag": "Immuungecompromitteerde patiënten, zwangeren en neonaten: ernstig beloop mogelijk — start aciclovir direct.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Polymorf exantheem",
+          "desc": "Lesies in alle stadia (macule → papel → vesikel → korst) gelijktijdig aanwezig — onderscheidend kenmerk."
+        },
+        {
+          "title": "Mucosale betrokkenheid",
+          "desc": "Blaasjes ook in mondholte mogelijk."
+        },
+        {
+          "title": "Besmettelijkheid",
+          "desc": "Luchtweg- en contactoverdracht. Besmettelijk vanaf 1-2 dagen vóór uitslag tot alle laesies gekorst zijn."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hand-mond-voetziekte (Coxsackievirus)",
+          "desc": "Blaasjes handpalmen + voetzolen + mond, mildere koorts."
+        },
+        {
+          "label": "Mazelen",
+          "desc": "Hoge koorts, Koplik-vlekken, morbiliforme rash — geen blaasjes."
+        },
+        {
+          "label": "Roodvonk",
+          "desc": "Streptokokkentoxine, fijne puntjes-exantheem, 'aardbeitong'."
+        }
+      ],
+      "wiki_therapie_urgent": "Gezond kind: symptomatisch (antihistaminica, paracetamol). Vermijd aspirine (Reye-syndroom).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Aciclovir",
+          "detail": "Immuungesupprimeerden, zwangeren, neonaten, volwassenen — start zo vroeg mogelijk."
+        },
+        {
+          "naam": "Vaccinatie",
+          "detail": "Levend verzwakt vaccin (Varivax) — 2 doses."
+        }
+      ]
+    },
+    {
+      "_i": 306,
+      "q": "Man van 55 jaar, jarenlang zilverschilferige plaques op knieën, ellebogen en scalp, duidelijk begrensd. Nagelafwijkingen (pitting). Diagnose?",
+      "a": [
+        "Psoriasis vulgaris",
+        "Seborroïsche dermatitis",
+        "Lichen planus",
+        "Nummulair eczeem"
+      ],
+      "ex": "Psoriasis: scherp begrensde zilverschilferige plaques op extensorzijden (knieën/ellebogen/scalp). Nagelafwijkingen (pitting, onycholyse) in 50%.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Psoriasis: T-cel-gemedieerde auto-immuunziekte met versnelde keratinocytproliferatie (turnover 3-4 dagen vs. normaal 28). Prevalentie 2-3%, genetische component (HLA-Cw6).",
+      "wiki_redflag": "Erythrodermische psoriasis (>90% huidoppervlak): risico op hypothermie, hartfalen en infectie — spoedopname.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Ontsteking via Th17",
+          "desc": "IL-17, IL-23 en TNF-α activeren keratinocyten → versnelde celdeling → zilverwitte schilfers."
+        },
+        {
+          "title": "Koebner-fenomeen",
+          "desc": "Nieuwe laesies ontstaan op plaatsen van huidtrauma (kras, operatielitteken)."
+        },
+        {
+          "title": "Triggers",
+          "desc": "Infectie (streptokokken), stress, alcohol, medicatie (lithium, bètablokkers, NSAID's)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Seborroïsche dermatitis",
+          "desc": "Ook scalp, maar vette gele schilfering, minder scherp begrensd, niet op extensoren."
+        },
+        {
+          "label": "Eczeem",
+          "desc": "Jeuk op voorgrond, flexuurlokalisatie, minder scherpe begrenzing."
+        },
+        {
+          "label": "Lichen planus",
+          "desc": "Paarse polygonale papels, Wickham-striae, voorkeur polsen — kan lijken op psoriasis."
+        }
+      ],
+      "wiki_therapie_urgent": "Lokaal: corticosteroïden + vitamine D-analogen (calcipotriol).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Matig",
+          "detail": "UVB-fototherapie, teerpreparaten (scalp)."
+        },
+        {
+          "naam": "Ernstig",
+          "detail": "Methotrexaat (MTX), ciclosporine, acitretine."
+        },
+        {
+          "naam": "Biologicals",
+          "detail": "Anti-TNF (adalimumab), anti-IL-17 (secukinumab), anti-IL-23 (guselkumab) bij onvoldoende respons."
+        }
+      ]
+    },
+    {
+      "_i": 307,
+      "q": "Kind van 4 jaar, jeukend eczeem in knieholten en elleboogplooien, droge huid, seizoensgebonden verergering. Moeder heeft hooikoorts. Diagnose?",
+      "a": [
+        "Atopische dermatitis",
+        "Contactallergisch eczeem",
+        "Psoriasis inversus",
+        "Seborroïsche dermatitis"
+      ],
+      "ex": "Atopisch eczeem: jeuk + flexuurlokalisatie (knieholten/elleboogplooien) + droge huid. Familiaire atopie (eczeem + astma + rinitis = atopische triade).",
+      "dl": "Dermatologie",
+      "wiki_kern": "Atopische dermatitis: filaggrine-mutaties → defect in de huidbarrière → droge huid en allergene penetratie → Th2-gemedieerde ontsteking (IL-4, IL-13) met IgE-overproductie.",
+      "wiki_redflag": "Eczema herpeticum: herpes simplex superinfectie op geïnfecteerd eczeem — gegeneraliseerde pijnlijke vesikels, koorts, ernstig ziek → direct aciclovir IV.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Huidbarrièredefect",
+          "desc": "Filaggrine-mutaties verminderen transepidermaal waterretentie → droge, kwetsbare huid die allergenen doorlaat."
+        },
+        {
+          "title": "Th2-inflammatie",
+          "desc": "IL-4 en IL-13 activeren IgE-productie en verergeren de barrièrestoornis — basis voor dupilumab (IL-4Rα-antagonist)."
+        },
+        {
+          "title": "Prurigo nodularis",
+          "desc": "Chronisch krabben leidt tot gehyperpigmenteerde, verheven noduli — uiterste vorm van chronisch eczeem."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Contactallergisch eczeem",
+          "desc": "Patroon volgt blootstelling (riem, horloge), patch-test positief."
+        },
+        {
+          "label": "Psoriasis inversus",
+          "desc": "In lichaamsplooien, scherp begrensd, nauwelijks jeukend."
+        },
+        {
+          "label": "Scabiës",
+          "desc": "Intense nachtjeuk, interdigitaal + polsen, groepsuitbraken — sluit uit bij verergering eczeem."
+        }
+      ],
+      "wiki_therapie_urgent": "Emolliënten intensief (meerdere keren per dag) + topicale corticosteroïden.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Matig",
+          "detail": "Tacrolimus of pimecrolimus (calcineurine-remmers) — vooral gezicht/plooien."
+        },
+        {
+          "naam": "Ernstig",
+          "detail": "Dupilumab (IL-4/IL-13-blokker) of tralokinumab; cyclosporine als overbrugging."
+        },
+        {
+          "naam": "Fototherapie",
+          "detail": "UVB-smalspectrum bij uitgebreide eczeem."
+        }
+      ]
+    },
+    {
+      "_i": 308,
+      "q": "Vrouw van 65 jaar, asymmetrisch gepigmenteerde laesie op de rug, onregelmatige randen, meerdere kleuren (bruin, zwart, rood). Groeit de afgelopen maanden. Diagnose uitsluiten?",
+      "a": [
+        "Melanoom",
+        "Seborroïsche keratose",
+        "Blauwe naevus",
+        "Dermatofibroom"
+      ],
+      "ex": "ABCDE bij pigmentlaesie: Asymmetrie, onregelmatige Begrenzing, meerdere kleuren (Color), Diameter >6 mm, Evolutie. Altijd excisiebiopsie — nooit shave-biopsie.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Melanoom: agressief huidcarcinoom van melanocyten. Prognose bepaald door Breslow-dikte (invasiediepte in mm) en aanwezigheid van lymfekliermetastasen.",
+      "wiki_redflag": "Amelanotisch melanoom (niet-gepigmenteerd) mist alle ABCDE-kenmerken — wordt vaak gemist als 'gewoon pukkeltje'. Hoog sterftecijfer door late diagnose.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "BRAF-V600E-mutatie",
+          "desc": "Aanwezig in ~50% van melanomen → gerichte therapie met BRAF-remmers (vemurafenib) + MEK-remmers (trametinib)."
+        },
+        {
+          "title": "Immunotherapie",
+          "desc": "Anti-PD-1 (nivolumab, pembrolizumab) en anti-CTLA-4 (ipilimumab) hebben de overleving bij gemetastaseerd melanoom revolutionair verbeterd."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Seborroïsche keratose",
+          "desc": "'Vastgeplakt' uiterlijk, mat oppervlak, geen melanocyten — benigne."
+        },
+        {
+          "label": "Blauwe naevus",
+          "desc": "Uniform blauwgrijs, benigne."
+        },
+        {
+          "label": "Spitz-naevus",
+          "desc": "Bij kinderen, rood of roze — histologisch moeilijk te onderscheiden van melanoom → excisie."
+        }
+      ],
+      "wiki_therapie_urgent": "Excisie met vrije marge (0,5-2 cm afhankelijk van Breslow-dikte) — zo snel mogelijk.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Schildwachtklierbiopsie",
+          "detail": "Bij Breslow-dikte ≥0,8 mm om lymfekliermetastasen op te sporen."
+        },
+        {
+          "naam": "Stadium III/IV",
+          "detail": "Immunotherapie (anti-PD-1 ± anti-CTLA-4) en/of BRAF/MEK-remmers bij BRAF-mutatie."
+        },
+        {
+          "naam": "Adjuvante therapie",
+          "detail": "Nivolumab of pembrolizumab bij hoog-risico gereseceerd melanoom."
+        }
+      ]
+    },
+    {
+      "_i": 309,
+      "q": "Vrouw van 30 jaar, ernstige acné op gelaat en borst, niet reagerend op topicale behandeling en antibiotica. Ze wil graag zwanger worden. Welke behandeling is nu NIET geïndiceerd?",
+      "a": [
+        "Isotretinoïne (Roaccutane)",
+        "Azelaïnezuur topisch",
+        "Clindamycine topisch",
+        "Doxycycline oraal"
+      ],
+      "ex": "Isotretinoïne is sterk teratogeen — absoluut gecontra-indiceerd bij zwangerschap of zwangerschapswens zonder streng anticonceptieprotocol.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Isotretinoïne (13-cis-retinoïnezuur): meest effectieve acnébehandeling — werkt op alle vier pathomechanismen (talgklierhypertrofie, comedonen, Cutibacterium acnes, ontsteking).",
+      "wiki_redflag": "Isotretinoïne + zwangerschap = ernstige aangeboren afwijkingen (schedel, hart, centraal zenuwstelsel). Altijd twee vormen anticonceptie verplicht — ook bij twijfel.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Bijwerkingen",
+          "desc": "Droge lippen, huid en slijmvliezen (vrijwel iedereen), hypertriglyceridemie, leverfunctiestoornissen."
+        },
+        {
+          "title": "Combinatiegevaar",
+          "desc": "Isotretinoïne + tetracycline → verhoogd risico op pseudotumor cerebri (verhoogde hersendruk) — combinatie verboden."
+        },
+        {
+          "title": "Psychiatrie",
+          "desc": "FDA black box voor suïcidaliteit, maar causale relatie niet bewezen — wel monitoren."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Doxycycline oraal",
+          "desc": "Matig-ernstige acné, maximaal 3 maanden (resistentierisico)."
+        },
+        {
+          "label": "Hormonale anticonceptiva",
+          "desc": "Cyproteronacetaat/ethinylestradiol: anti-androgeen effect, effectief bij vrouwen."
+        },
+        {
+          "label": "Benzoylperoxide",
+          "desc": "Bactericid, resistentievrij — veilig tijdens zwangerschap."
+        }
+      ],
+      "wiki_therapie_urgent": "Mild: topische retinoïden + benzoylperoxide.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Matig",
+          "detail": "Toevoegen topisch of oraal antibioticum (max 3 maanden)."
+        },
+        {
+          "naam": "Ernstig/refractair",
+          "detail": "Isotretinoïne — verplicht met anticonceptie en maandelijkse monitoring (lever, lipiden, zwangerschapstest)."
+        }
+      ]
+    },
+    {
+      "_i": 310,
+      "q": "Man van 72 jaar, sinistere huidlaesie op de onderlip, verheven ulcererende rand, langzaam groeiend over maanden. Roker, veel buiten gewerkt. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Plaveiselcelcarcinoom (SCC)",
+        "Basaalcelcarcinoom",
+        "Melanoom",
+        "Keratoacanthoom"
+      ],
+      "ex": "Plaveiselcelcarcinoom (PCC): ulcererende laesie met verheven rand bij ouderen met zonschade. Metastatisch risico 2-5% — hoger op lip en oor.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Niet-melanoom huidcarcinomen: basaalcelcarcinoom (BCC, 75%) en plaveiselcelcarcinoom (PCC, 20%). BCC metastaseert zelden maar is lokaal destructief; PCC kan regionale lymfekliermetastasen geven.",
+      "wiki_redflag": "PCC op lip, oor of bij immuungecompromitteerde patiënten: metastatisch risico tot 15-20% — altijd lymfeklieren palperen en laagdrempelig beeldvormend onderzoek.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "BCC-kenmerken",
+          "desc": "Parelranden, teleangiëctasieën, centrale ulceratie ('rodent ulcer') — voorkeur neus, wangen, oogleden."
+        },
+        {
+          "title": "PCC-kenmerken",
+          "desc": "Keratotisch ulcus met ondermijnde rand, op achtergrond van actinische keratose (voorstadium)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Keratoacanthoom",
+          "desc": "Snel groeiend (weken), crateervormig met hoornprop — histologisch moeilijk van PCC te onderscheiden → altijd excisie."
+        },
+        {
+          "label": "Melanoom",
+          "desc": "Gepigmenteerd, ABCDE-criteria."
+        },
+        {
+          "label": "Merkelcelcarcinoom",
+          "desc": "Zeldzaam, agressief neuro-endocrien carcinoom — hoog metastatisch risico, snel groeiend."
+        }
+      ],
+      "wiki_therapie_urgent": "PCC: excisie met vrije marge (>5 mm). Controleer lymfeklierstations.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Mohs-chirurgie",
+          "detail": "Bij PCC hoofd-hals of recidief — weefselbesparend, laagste recidiefkans."
+        },
+        {
+          "naam": "Actinische keratosen (voorstadium)",
+          "detail": "Topicaal 5-fluorouracil (5-FU), imiquimod of cryotherapie."
+        },
+        {
+          "naam": "Gemetastaseerd PCC",
+          "detail": "Cemiplimab (anti-PD-1 immunotherapie)."
+        }
+      ]
+    },
+    {
+      "_i": 311,
+      "q": "Man van 35 jaar, vesiculeuze laesies langs de flank links, pijn die al 3 dagen bestond vóór de huiduitslag, branderig gevoel. Recent stress. Diagnose?",
+      "a": [
+        "Herpes zoster (gordelroos)",
+        "Herpes simplex",
+        "Varicella (primo-infectie)",
+        "Contactallergisch eczeem"
+      ],
+      "ex": "Herpes zoster: VZV-reactivatie met prodromale pijn 2-3 dagen vóór huiduitslag. Unilateraal, dermatomaal, nooit over de middellijn.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Gordelroos = reactivatie van varicella-zostervirus (VZV) bij verminderde cellulaire immuniteit (ouderdom, stress, immuunsuppressie, hiv). VZV blijft latent in dorsale ganglia.",
+      "wiki_redflag": "Zoster ophthalmicus (V1-tak nervus trigeminus, neuspuntblaasjes = Hutchinson-teken): kans op cornea-ulceratie en visusschade — direct oogheelkunde consult.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Postherpetische neuralgie (PHN)",
+          "desc": "Brandende, aanhoudende pijn ≥3 maanden na huidgenezing — vaker bij ouderen en bij ernstige initiële pijn."
+        },
+        {
+          "title": "Risicofactoren PHN",
+          "desc": "Leeftijd >60 jaar, ernstige prodromale pijn, immuunsuppressie."
+        },
+        {
+          "title": "Behandeling PHN",
+          "desc": "Gabapentine of pregabaline, tricyclisch antidepressivum (amitriptyline), capsaïcine-patch of opioïden."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Herpes simplex",
+          "desc": "Labialis of genitalis, kleinere vesikels, recidief op dezelfde plek, niet dermatomaal."
+        },
+        {
+          "label": "Varicella primo-infectie",
+          "desc": "Verspreide blaasjes over heel lichaam, niet dermatomaal, vooral kinderen."
+        },
+        {
+          "label": "Contactallergisch eczeem",
+          "desc": "Ook unilateraal mogelijk maar jeuk op voorgrond, geen prodromale pijn."
+        }
+      ],
+      "wiki_therapie_urgent": "Aciclovir 800 mg 5×/dag 7 dagen, of valaciclovir 1000 mg 3×/dag — start binnen 72 uur na uitslag.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Pijnstilling",
+          "detail": "NSAID + paracetamol; bij ernstige pijn opiaten toevoegen."
+        },
+        {
+          "naam": "Vaccinatie preventie",
+          "detail": "Shingrix (niet-levend, 2 doses, effectiever) — ook bij immuungecompromitteerden."
+        }
+      ]
+    },
+    {
+      "_i": 312,
+      "q": "Basaalcelcarcinoom is het meest voorkomende huidcarcinoom en heeft een hoog risico op metastasen.",
+      "a": null,
+      "ex": "NIET WAAR: BCC is het meest voorkomende huidcarcinoom (75%), maar metastaseert uiterst zelden (<0,1%). Wél lokaal destructief.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Huidcarcinoomfrequentie: basaalcelcarcinoom (BCC) > plaveiselcelcarcinoom (PCC) > melanoom. BCC-subtypen: nodulair (meest frequent), oppervlakkig, pigmented en morfeeform (infiltratief).",
+      "wiki_redflag": "Morfeeform BCC: vlak, hard, slecht begrensd — kans op onvolledige excisie hoog. Bij botinvasie of perineurale groei: Mohs-chirurgie en eventueel radiotherapie.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "PTCH1-mutatie",
+          "desc": "Sonic Hedgehog-signaalweg verstoord → ongeremde basaalcelproliferatie. UV-straling is de voornaamste mutagene factor."
+        },
+        {
+          "title": "Gorlin-syndroom",
+          "desc": "Erfelijke PTCH1-mutatie → multipele BCC's al op jonge leeftijd + skeletafwijkingen + medulloblastoom."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Nodulair BCC",
+          "desc": "Paarlmoerkleur, teleangiëctasieën, centraal ulcus — meest voorkomende subtype."
+        },
+        {
+          "label": "Morfeeform BCC",
+          "desc": "Vlak, hard, slecht afgrensbaar — hogere kans op recidief na excisie."
+        },
+        {
+          "label": "PCC",
+          "desc": "Keratotisch ulcus, verheven rand — heeft wél metastatisch risico."
+        }
+      ],
+      "wiki_therapie_urgent": "Excisie met vrije marge (3-5 mm). Mohs-chirurgie bij hoog-risico lokalisatie (gelaat, H-zone).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Oppervlakkig BCC",
+          "detail": "Imiquimod crème, 5-fluorouracil (5-FU) of fotodynamische therapie (PDT) als alternatief voor excisie."
+        },
+        {
+          "naam": "Irresectabel BCC",
+          "detail": "Vismodegib (Sonic Hedgehog-remmer) of radiotherapie."
+        }
+      ]
+    },
+    {
+      "_i": 313,
+      "q": "Een positieve VDRL/RPR-test is bewijzend voor actieve syfilis.",
+      "a": null,
+      "ex": "NIET WAAR: VDRL/RPR is een screentest met lage specificiteit — bevestig altijd met treptonemale test (TPHA of FTA-ABS).",
+      "dl": "Dermatologie",
+      "wiki_kern": "Syfilis-diagnostiek: (1) Screentest: VDRL of RPR (niet-treptonemaal, wordt negatief na behandeling, titer = activiteitsgraadmeter). (2) Bevestigingstest: TPHA of FTA-ABS (treptonemaal, blijft levenslang positief).",
+      "wiki_redflag": "Neurosyfilis kan optreden in elk stadium — denk aan veranderd gedrag, psychiatrische symptomen of meningismus bij syfilis. Vereist lumbaalpunctie en penicilline IV (niet IM).",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Syfilis-stadia",
+          "desc": "Primair: pijnloos ulcus durum. Secundair: roos handpalmen/voetzolen, condylomata lata, gegeneraliseerde lymfadenopathie. Latent: geen symptomen. Tertiair: gumma, cardiovasculaire syfilis, neurosyfilis."
+        },
+        {
+          "title": "Transmissie",
+          "desc": "Seksueel contact of verticaal (moeder-kind → congenitale syfilis)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Chancroid (Haemophilus ducreyi)",
+          "desc": "Pijnlijk genitaal ulcus — in tegenstelling tot syfilis (pijnloos)."
+        },
+        {
+          "label": "Herpes genitalis",
+          "desc": "Pijnlijke vesikels, recidiverend."
+        },
+        {
+          "label": "Lymphogranuloma venereum (LGV)",
+          "desc": "Chlamydia trachomatis L1-3, inguinale klieren, proctitis."
+        }
+      ],
+      "wiki_therapie_urgent": "Primair/secundair/latent <1 jaar: benzylpenicilline 2,4 miljoen IE IM eenmalig.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Tertiair/neurosyfilis/latent >1 jaar",
+          "detail": "Benzylpenicilline IV gedurende 10-14 dagen."
+        },
+        {
+          "naam": "Penicillineallergie",
+          "detail": "Doxycycline (niet bij neurosyfilis — slechte penetratie liquor)."
+        },
+        {
+          "naam": "Congenitale syfilis",
+          "detail": "Benzylpenicilline neonataal."
+        }
+      ]
+    },
+    {
+      "_i": 314,
+      "q": "Scabiës wordt veroorzaakt door een schimmel en is behandelbaar met een topisch antischimmelcrème.",
+      "a": null,
+      "ex": "NIET WAAR: Scabiës = mijt (Sarcoptes scabiei), geen schimmel. Behandeling: permetrine 5% crème of ivermectine oraal — antischimmelcrème heeft geen effect.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Scabiës: intense nachtjeuk door hypersensitiviteit voor de mijt Sarcoptes scabiei en haar uitwerpselen. Voorkeurslokalisaties: interdigitale ruimten, polsen, tepelareola, geslachtsorganen.",
+      "wiki_redflag": "Noors (gekortst) scabiës bij immuungecompromitteerden: miljoenen mijten, hyperkeratotische plaques, extreem besmettelijk — isolatie en ivermectine verplicht.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Pathogenese",
+          "desc": "Sarcoptes scabiei graaft gangetjes in de oppervlakkige huid om eitjes te leggen → hypersensitiviteitsreactie op mijt en uitwerpselen → intense nachtjeuk."
+        },
+        {
+          "title": "Overdracht",
+          "desc": "Direct langdurig huidcontact (seksueel, huishoudelijk). Alle huisgenoten en nauwe contacten tegelijk behandelen."
+        },
+        {
+          "title": "Beddengoed",
+          "desc": "Wassen op ≥60°C of 72 uur in plastic zak (mijten overleven max. 2-3 dagen zonder gastheer)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Eczeem",
+          "desc": "Ook jeuk, maar geen gangetjes en niet typisch interdigitaal of nachtgebonden."
+        },
+        {
+          "label": "Urticaria",
+          "desc": "Vluchtige wheals, niet dermatomaal."
+        },
+        {
+          "label": "Tinea pedis",
+          "desc": "Schimmel interdigitaal — witte maceratie, geen nachtjeuk."
+        }
+      ],
+      "wiki_therapie_urgent": "Permetrine 5% crème: eerste keus — gehele lichaam (hals t/m voeten), 8-12 uur, herhalen na 1 week.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Ivermectine 200 μg/kg oraal",
+          "detail": "Alternatief of bij noors scabiës — twee doses met 2 weken interval."
+        },
+        {
+          "naam": "Jeuk",
+          "detail": "Antihistaminica — jeuk kan weken aanhouden door dode mijtresten (geen teken van falen behandeling)."
+        }
+      ]
+    },
+    {
+      "_i": 315,
+      "q": "Welk kenmerk onderscheidt urticaria (netelroos) van angio-oedeem bij een allergische reactie?",
+      "a": [
+        "Urticaria: oppervlakkige jeukende wheals in de dermis; angio-oedeem: diepe zwelling in de subcutis zonder jeuk",
+        "Urticaria geeft altijd benauwdheid, angio-oedeem nooit",
+        "Urticaria is IgE-gemedieerd, angio-oedeem is altijd C1q-remmertekort",
+        "Angio-oedeem geeft rode laesies, urticaria geeft bleke laesies"
+      ],
+      "ex": "Urticaria = jeukende dermale wheals (<24u per laesie). Angio-oedeem = diepere subcutane zwelling, minder jeukend — gevaarlijk bij larynxbetrokkenheid.",
+      "dl": "Dermatologie",
+      "wiki_kern": "Anafylaxie = systemische IgE-gemedieerde reactie: urticaria + angio-oedeem + bronchospasme + hypotensie. Behandeling: adrenaline 0,3-0,5 mg IM (buitenzijde dij) + O2 + liggen met benen omhoog.",
+      "wiki_redflag": "Angio-oedeem van de larynx: stridor, heesheid, kwijlen → levensbedreigende luchtwegobstructie. Direct adrenaline IM — wacht niet op antihistaminica.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "IgE-gemedieerd (type I)",
+          "desc": "Allergeen → IgE op mestcellen → histamine-vrijstelling → vasodilatatie en verhoogde permeabiliteit → wheals (dermis) of zwelling (subcutis)."
+        },
+        {
+          "title": "Hereditair angio-oedeem (HAE)",
+          "desc": "C1-remmerdeficiëntie → bradykinine-overschot → zwelling zonder jeuk en zonder urticaria. Reageert NIET op antihistaminica of adrenaline."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hereditair angio-oedeem (HAE)",
+          "desc": "Geen jeuk, geen urticaria, recidiverend, familiegeschiedenis, niet reagerend op antihistaminica."
+        },
+        {
+          "label": "Chronische spontane urticaria",
+          "desc": ">6 weken, oorzaak onduidelijk — dagelijks antihistaminicum, bij onvoldoende respons omalizumab."
+        },
+        {
+          "label": "ACE-remmer-angio-oedeem",
+          "desc": "Bradykinine-gemedieerd (niet IgE) — ook niet reagerend op antihistaminica. Stop ACE-remmer direct."
+        }
+      ],
+      "wiki_therapie_urgent": "Anafylaxie: adrenaline 0,3-0,5 mg IM buitenzijde dij — herhaal na 5 min indien nodig.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Antihistaminica + corticosteroïden",
+          "detail": "Aanvullend na adrenaline — vertragen late-fase reactie maar zijn géén primaire behandeling bij anafylaxie."
+        },
+        {
+          "naam": "HAE-behandeling",
+          "detail": "Icatibant (bradykinine B2-antagonist), C1-remmerconcentraat; profylaxe: lanadelumab."
+        }
+      ]
+    },
+    {
+      "_i": 316,
+      "q": "Vrouw van 45 jaar, symmetrische pijn en zwelling van de MCP- en PIP-gewrichten, ochtendstijfheid >1 uur, vermoeidheid, RF en anti-CCP positief. Diagnose?",
+      "a": [
+        "Reumatoïde artritis",
+        "Artrose",
+        "Systemische lupus erythematosus",
+        "Reactieve artritis"
+      ],
+      "ex": "RA: symmetrische gewrichtsontsteking MCP/PIP/polsen, ochtendstijfheid >1u, RF en anti-CCP positief. DIP-gewrichten worden bij RA gespaard (in tegenstelling tot artrose). Anti-CCP is specifieker (95%) dan RF (70-80%) voor RA.",
+      "dl": "Reumatologie",
+      "wiki_kern": "RA: auto-immuun synovitis door T- en B-cel-activatie → TNF-α/IL-6/IL-1 productie → synoviaal pannus → kraakbeenerosie → botdestructie. Prevalentie 1%, vrouwen 3×.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Anti-CCP (anti-citrullineerde proteïne-antistoffen): pathologisch → aanwezig jaren vóór symptomen, voorspelt erosief beloop."
+        },
+        {
+          "title": "RF",
+          "desc": "niet-specifiek (ook bij SjS, SLE, hepatitis C)."
+        },
+        {
+          "title": "Erosies op röntgen",
+          "desc": "marginal erosions bij de \"bare area\" van het gewricht."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Artrose",
+          "desc": "niet-inflammatoir, DIP>PIP, ochtendstijfheid <30 min, geen RF/CCP, Heberden-knobbels."
+        },
+        {
+          "label": "SLE",
+          "desc": "vlindervlekken, lichtgevoeligheid, ANA+, multipele orgaanbetrokkenheid."
+        },
+        {
+          "label": "Reactieve artritis",
+          "desc": "na infectie (STD of darminfectie), asymmetrisch, HLA-B27+."
+        }
+      ],
+      "wiki_therapie_urgent": "Treat-to-target: remissie als doel.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Methotrexaat (MTX)",
+          "detail": "hoeksteen (wekelijks + foliumzuur)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "MTX + biologicals (anti-TNF: etanercept, adalimumab; IL-6-remmer: tocilizumab)."
+        },
+        {
+          "naam": "JAK-remmers",
+          "detail": "baricitinib, tofacitinib."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "NSAIDs + corticosteroïden overbruggen."
+        }
+      ]
+    },
+    {
+      "_i": 317,
+      "q": "Man van 35 jaar, plotse, hevige pijn en roodheid van de grote teen (MTP-1 gewricht), nacht. Serum urinezuur 0.58 mmol/L, leukocytose. Diagnose?",
+      "a": [
+        "Jicht (gout)",
+        "Septische artritis",
+        "Pseudojicht (CPPD)",
+        "Reactieve artritis"
+      ],
+      "ex": "Jicht: kristalarthropathie door monosodium uraat-kristallen. Klassiek: plotse artritis MTP-1 (podagra) 's nachts, rood, warm, heftig pijnlijk. Hyperurikemie is predisponerend maar de aanval zelf kan optreden bij normale urinezuurspiegels.",
+      "dl": "Reumatologie",
+      "wiki_kern": "Jichtaanval: uraatkristallen → activatie NLRP3 inflammasome → IL-1β-productie → acute ontsteking. Risicofactoren: hyperurikemie (purine-rijke voeding, alcohol, diuretica, nierinsufficiëntie).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Diagnose jichtaanval",
+          "desc": "synoviaalvochtkristalanalyse (naaldscintiging, negatief birefringent onder polarisatielicht)."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Serum urinezuur kan normaal zijn tijdens aanval."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Colchicine (vroeg starten), NSAID of corticosteroïd voor aanvalbehandeling."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Septische artritis",
+          "desc": "ook monoartritis met rood/warm gewricht maar koorts + ziek + leuko hoog → direct aspiratie! Pseudojicht (CPPD): calcium pyrofosfaat kristallen, positief birefringent, ouder, knie/pols."
+        },
+        {
+          "label": "Reactieve artritis",
+          "desc": "na infectie, HLA-B27, Reiter\\'s triade (artritis+urethritis+conjunctivitis)."
+        }
+      ],
+      "wiki_therapie_urgent": "Aanval: colchicine 0.5 mg 3×/dag of NSAID of pred 30 mg.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Preventie recidief",
+          "detail": "allopurinol (XO-remmer) of febuxostat."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Doelwaarde urinezuur <0.36 mmol/L."
+        },
+        {
+          "naam": "Leefstijl",
+          "detail": "minder purine (rood vlees, orgaanvlees), geen alcohol (bier+sterke drank), ruim drinken."
+        }
+      ]
+    },
+    {
+      "_i": 318,
+      "q": "Vrouw van 28 jaar, vlindervormig exantheem op wangen, fotosensitviteit, gewrichtspijn, proteïnurie, ANA positief (titer 1:640), anti-dsDNA positief. Diagnose?",
+      "a": [
+        "Systemische lupus erythematosus (SLE)",
+        "Reumatoïde artritis",
+        "Dermatomyositis",
+        "Sjögren-syndroom"
+      ],
+      "ex": "SLE: auto-immuunziekte met multipele orgaanbetrokkenheid. ACR/EULAR-criteria: vlindervlekken, lichtgevoeligheid, serositis, nierziekte, neurologisch, hematoloog, immunologisch (anti-dsDNA, anti-Sm, complementverlaag). ANA positief in >95% van SLE.",
+      "dl": "Reumatologie",
+      "wiki_kern": "SLE: vnl. vrouwen in de vruchtbare leeftijd (9:1 vrouw:man), hoger bij Afrikaans-Amerikaanse en Aziatische bevolking. Antinucleaire antistoffen (ANA): zeer gevoelig (>95%) maar niet specifiek.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Lupus nefritis: immuuncomplexdepositie in glomeruli."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "complementactivatie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "ontsteking. Klasse III/IV: ernstigste vorm, behandeling: hydroxychloroquine + MMF (mycofenolzuur) of cyclofosfamide + steroïden. Biopsie voor classificatie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "RA",
+          "desc": "gewrichten dominant, anti-CCP+, geen vlindervlekken."
+        },
+        {
+          "label": "Dermatomyositis",
+          "desc": "huiduitslag + spierzwakte, heliotrope rash, CK verhoogd."
+        },
+        {
+          "label": "SjS",
+          "desc": "droge ogen/mond, anti-SSA/SSB+, mildere systemische betrokkenheid."
+        }
+      ],
+      "wiki_therapie_urgent": "Hydroxychloroquine: basis voor alle SLE-patiënten (vermindert schubs, cardiovasculair beschermend).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Schubs",
+          "detail": "corticosteroïden."
+        },
+        {
+          "naam": "Orgaanbedreigende ziekte",
+          "detail": "MMF, cyclofos­famide, belimumab (anti-BAFF)."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Zon-vermijding."
+        }
+      ]
+    },
+    {
+      "_i": 319,
+      "q": "Man van 30 jaar, rugpijn >3 maanden, verbetert bij bewegen en niet bij rust, ochtendstijfheid >1 uur, HLA-B27 positief. MRI sacroïliaca-gewrichten: oedeem. Diagnose?",
+      "a": [
+        "Axiale spondylartritis (ankyloserende spondylitis)",
+        "Lumbale hernia nuclei pulposi",
+        "Reumatoïde artritis",
+        "Fibromyalgie"
+      ],
+      "ex": "Axiale spondylartritis: inflammatoire rugpijn (beter bij beweging, niet bij rust), ochtendstijfheid >1u, onset <45j, HLA-B27+ (90%), sacroiliitis op MRI (oedeem = actieve ontsteking). Ankyloserende spondylitis is de radiografische variant (HNP geeft mechanische pijn, erger bij bewegen).",
+      "dl": "Reumatologie",
+      "wiki_kern": "SpA-groep: axiale SpA (AS), perifere SpA, PsA (psoriasisartritis), reactieve artritis, artritis bij IBD. Kenmerkend: HLA-B27-associatie, enthesitis (bij aanhechting pees/ligament), asymmetrische perifere artritis, oogbetrokkenheid (uveïtis anterior).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Enthesitis",
+          "desc": "ontsteking op osseo-tendineuze juncties (hielpezen, zit-been)."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "IL-17 dominant in spondylartritis."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "IL-17-remmers (secukinumab, ixekizumab) effectief bij axiale SpA."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "Anti-TNF (etanercept, adalimumab) ook eerste biologische keus."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "HNP",
+          "desc": "mechanische pijn, erger bij bewegen en buigen, betert bij rust, uitstralende pijn dermatomaal."
+        },
+        {
+          "label": "Fibromyalgie",
+          "desc": "diffuse pijn, geen inflammatoire markers, MRI normaal, normaal HLA."
+        },
+        {
+          "label": "RA",
+          "desc": "symmetrisch perifeer, anti-CCP+, sacroilitis niet typisch."
+        }
+      ],
+      "wiki_therapie_urgent": "Stap 1: NSAID maximale dosis (diagnostisch en therapeutisch).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 2",
+          "detail": "biologic (anti-TNF of anti-IL-17)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Geen DMARDs (MTX) bij puur axiale ziekte (niet bewezen effectief)."
+        },
+        {
+          "naam": "Fysiotherapie",
+          "detail": "essentieel (houdingsverbetering)."
+        }
+      ]
+    },
+    {
+      "_i": 320,
+      "q": "Man van 70 jaar, pijn en stijfheid in schouders en heupen, BSE 85 mm/u, CRP verhoogd. Geen spierkrachtverlies. Snelle respons op lage dosis prednisolon. Diagnose?",
+      "a": [
+        "Polymyalgia rheumatica (PMR)",
+        "Reumatoïde artritis",
+        "Fibromyalgie",
+        "Polymyositis"
+      ],
+      "ex": "PMR: ouder dan 50 jaar (gemiddeld 70), pijn en stijfheid schouders/heupen bilateraal, hoge BSE/CRP, geen spierzwakte (onderscheid van polymyositis), dramatische respons op lage dosis prednisolon (15-20 mg). Geassocieerd met temporalis-arteriitis (GCA).",
+      "dl": "Reumatologie",
+      "wiki_kern": "PMR is geassocieerd met GCA (reuscelarteriitis) bij 10-15% van de patiënten. Altijd temporalis-arteriitis uitsluiten: hoofdpijn, kaakclaudicatie, gezichtsveranderingen, blindheid (AION).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "PMR-pathologie",
+          "desc": "synovitis van schouderbursae en tenosynovitis van de heuppeesstructuren."
+        },
+        {
+          "title": "PET-CT",
+          "desc": "toegenomen opname in bursae en tenosynoviaal weefsel bij PMR."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "IL-6 verhoogd (tocilizumab effectief bij GCA)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Polymyositis",
+          "desc": "proximale spierzwakte (op trap lopen, armen omhoogbrengen), verhoogd CK, myopathische EMG."
+        },
+        {
+          "label": "RA",
+          "desc": "distale gewrichten, RF/CCP positief."
+        },
+        {
+          "label": "Fibromyalgie",
+          "desc": "normale laboratoriumwaarden."
+        },
+        {
+          "label": "Hypothyreoïdie",
+          "desc": "ook stijfheid maar normaal BSE, verhoogd TSH."
+        }
+      ],
+      "wiki_therapie_urgent": "Prednisolon 15-20 mg/dag → snelle symptoomverlichting (diagnostisch).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Afbouwen over 1-2 jaar."
+        },
+        {
+          "naam": "GCA",
+          "detail": "prednisolon 60 mg."
+        },
+        {
+          "naam": "Recidief bij afbouwen",
+          "detail": "terug naar vorige dosis."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Methotrexaat als steroïdsparend bij recidief."
+        },
+        {
+          "naam": "Tocilizumab",
+          "detail": "bij GCA (IL-6 remmer)."
+        }
+      ]
+    },
+    {
+      "_i": 321,
+      "q": "Vrouw van 50 jaar, droge ogen en mond al jaren, pijnlijke gewrichten, anti-SSA (Ro) en anti-SSB (La) antistoffen positief. Diagnose?",
+      "a": [
+        "Primair Sjögren-syndroom",
+        "SLE",
+        "Reumatoïde artritis",
+        "Sarcoidose"
+      ],
+      "ex": "Primair Sjögren: droge ogen (xeroftalmie, Schirmer-test <5 mm/5 min) + droge mond (xerostomie) + anti-SSA/SSB positief. Secundair Sjögren: geassocieerd met RA of SLE. Complicaties: lymfoom (B-cel, 5× verhoogd risico), interstitiële longziekte, perifere neuropathie.",
+      "dl": "Reumatologie",
+      "wiki_kern": "Sjögren: auto-immuun exocrine klierontsteking → droge ogen, mond, huid, vaginale mucosa. ANA positief (>90%), anti-SSA/SSB (specifiek).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Lymfoomrisico",
+          "desc": "parotiszwelling, lage C4, cryoglobulinemia, huid vasculitis verhogen risico."
+        },
+        {
+          "title": "Monitoring",
+          "desc": "jaarlijks parotiszwelling, lymfadenopathie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "B-cel lymfomen, met name MALT-type."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "SLE",
+          "desc": "multipele orgaanbetrokkenheid, anti-dsDNA+, vlindervlekken."
+        },
+        {
+          "label": "RA",
+          "desc": "erosieve artritis, anti-CCP+, maar SjS-overlap frequent."
+        },
+        {
+          "label": "Sarcoidose",
+          "desc": "ook droge ogen/mond maar ACE verhoogd, bilaterale hilaire lymfadenopathie."
+        }
+      ],
+      "wiki_therapie_urgent": "Ogen: kunsttranen, cyclosporine oogdruppels, punctaocclusie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Mond",
+          "detail": "stimulatie speekselvloed (kauwgom, pilocarpine), goede mondverzorging (cariesprofylaxe)."
+        },
+        {
+          "naam": "Systemisch",
+          "detail": "hydroxychloroquine, NSAID."
+        },
+        {
+          "naam": "Ernstige orgaanziekte",
+          "detail": "steroïden, rituximab."
+        }
+      ]
+    },
+    {
+      "_i": 322,
+      "q": "Man van 25 jaar, artritis knie, urethrale afscheiding 2 weken eerder, conjunctivitis, huidlaesies op handpalmen en voetzolen. HLA-B27 positief. Diagnose?",
+      "a": [
+        "Reactieve artritis (Reiter-syndroom)",
+        "Septische artritis",
+        "Jicht",
+        "Reumatoïde artritis"
+      ],
+      "ex": "Reactieve artritis (Reiter-syndroom): artritis + urethritis + conjunctivitis na seksuele infectie (Chlamydia) of gastro-intestinale infectie (Salmonella, Yersinia). HLA-B27 sterk geassocieerd. Keratoderma blennorrhagicum = huidlaesies op handpalmen/voetzolen.",
+      "dl": "Reumatologie",
+      "wiki_kern": "Reactieve artritis: perifere asymmetrische oligo-artritis na infectie 1-4 weken eerder. Infectie zelf al voorbij.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "HLA-B27",
+          "desc": "risico-allel voor SpA-groep."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Moleculaire mimicry of foutieve antigeen­presentatie door HLA-B27 als pathomechanisme."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Artritis is auto-immuun, geen directe infectie van het gewricht."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Septische artritis",
+          "desc": "altijd bacterieel, direct gewrichtsinfectie, koorts + leuko hoog."
+        },
+        {
+          "label": "Jicht",
+          "desc": "MTP-1, nacht, serum urinezuur hoog."
+        },
+        {
+          "label": "Gonokokkenartritis",
+          "desc": "STD, septisch, gramkleuring gewrichtsaspiraat."
+        }
+      ],
+      "wiki_therapie_urgent": "NSAID voor artritis (symptomatisch).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Antibiotica als nog actieve infectie."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Meeste episodes zelflimiterend (3-6 maanden)."
+        },
+        {
+          "naam": "HLA-B27+",
+          "detail": "20-30% kans op chronisch beloop of axiale SpA."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Sulfasalazine bij chronisch recidiverende gevallen."
+        }
+      ]
+    },
+    {
+      "_i": 323,
+      "q": "Methotrexaat bij reumatoïde artritis moet altijd worden gecombineerd met foliumzuur-suppletie.",
+      "a": null,
+      "ex": "WAAR. Methotrexaat remt dihydrofolaatreductase → foliumzuurdeficiëntie als bijwerking (stomatitis, misselijkheid, hepatotoxiciteit, macrocytose). Foliumzuur 5 mg 1×/week (dag na MTX) of dagelijks 1 mg vermindert bijwerkingen significant zonder de werkzaamheid te verminderen.",
+      "dl": "Reumatologie",
+      "wiki_kern": "MTX mechanisme bij RA: polyglutaminaten remmen ATIC (AICAR-transformylase) → adenosine-accumulatie → anti-inflammatoir effect. Tevens foliumzuurantagonist → bijwerkingen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Absolute contra-indicaties MTX",
+          "desc": "zwangerschap (teratogeen, abortief), nierinsufficiëntie eGFR <30, leverziekte (levercirrose), alcoholisme, uitgebreide longziekte."
+        },
+        {
+          "title": "Relatieve contra-indicaties",
+          "desc": "COPD, obesitas, diabetes."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Leflunomide",
+          "desc": "ook DMARD, foliumzuurantagonist maar via een ander enzym (DHODH)."
+        },
+        {
+          "label": "Sulfasalazine",
+          "desc": "minder bijwerkingen, minder effectief dan MTX."
+        },
+        {
+          "label": "Hydroxychloroquine",
+          "desc": "mildste DMARD, geen levermonitoring nodig, veilig in zwangerschap."
+        }
+      ],
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 324,
+      "q": "Bij verdenking op septische artritis moet eerst röntgenfoto van het gewricht worden gemaakt voordat een gewrichtspunctie plaatsvindt.",
+      "a": null,
+      "ex": "NIET WAAR. Bij verdenking septische artritis is directe gewrichtspunctie (arthrocentesis) de prioriteit: voor diagnose (gramkleuring en kweek) én therapeutisch (drukvermindering). Röntgenfoto toont geen septische artritis in vroeg stadium en mag de punctie niet vertragen.",
+      "dl": "Reumatologie",
+      "wiki_kern": "Septische artritis: medische noodsituatie. Bacteriën vernietigen kraakbeen binnen 24-48u door bacteriële enzymen en inflammatoire respons.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Meest frequente verwekkers",
+          "desc": "S. aureus (50%), streptokokken, gonokokken (jongere seksueel actieve patiënten)."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Hematogeen (vanuit bloedstroom) of direct inoculatie (na punctie, chirurgie)."
+        },
+        {
+          "title": "Laboratorium gewrichtsvocht",
+          "desc": "leuko\\'s >50.000/μL, PMN >90%, glucose laag."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Jicht",
+          "desc": "kristalarthropathie, ook rood/heet maar geen bacteriën in gewrichtsvocht."
+        },
+        {
+          "label": "Reactieve artritis",
+          "desc": "steriel gewrichtsvocht, trigger-infectie elders."
+        },
+        {
+          "label": "Hemartros",
+          "desc": "bloed in gewricht na trauma."
+        }
+      ],
+      "wiki_therapie_urgent": "IV antibiotica (S. aureus: flucloxacilline; MRSA: vancomycine).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Drainage",
+          "detail": "herhaalde aspiraties of chirurgische arthrotomie bij heup/schouder."
+        },
+        {
+          "naam": "Duur AB",
+          "detail": "4-6 weken."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Fysiotherapie na infectie behandeld."
+        }
+      ]
+    }
+  ]
+}

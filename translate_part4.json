@@ -1,0 +1,3349 @@
+{
+  "questions": [
+    {
+      "_i": 195,
+      "q": "Jongeman 25j: pleuritische precordiale pijn, erger bij liggen, beter bij vooroverbuigen. ECG: diffuse concave ST-elevatie, PR-depressie. Pericarditis of ACS?",
+      "a": [
+        "ACS: focale ST-elevatie in twee afleidingen, troponine sterk verhoogd",
+        "Pericarditis: diffuse concave ST-elevatie + PR-depressie + houdingsafhankelijke pijn",
+        "Myocarditis: diffuus + jonge patient",
+        "Aortadissectie: scheurende pijn naar rug"
+      ],
+      "ex": "Pericarditis: diffuse concave ST-elevatie, PR-depressie (pathognomonisch), pijn beter bij vooroverbuigen/erger bij liggen, vaak na virale infectie. ACS: focale ST-elevatie (twee aangrenzende afleidingen), geen PR-depressie, troponine verhoogd, geen houdingseffect op pijn.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Pericarditis vs ACS: het ECG-onderscheid is cruciaal. Pericarditis: diffuse concave (\"saddle-shape\") ST-elevatie in alle afleidingen + PR-depressie (meest specifieke teken). ACS: focale ST-elevatie (regionale verdeling, aangrenzende afleidingen) + reciproke depressie.",
+      "wiki_redflag": "Tamponade als complicatie: als pericarditis vocht accumuleert — Beck's triade (hypotensie + gestuwd halsvenen + gedempte harttonen). Pericardiocentese noodzakelijk. Constrictieve pericarditis = late complicatie (Kussmaul-teken, pericardknop op echo).",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "PR-depressie: pathognomonisch",
+          "desc": "Ontsteking van het pericard treft ook de atriale wand → abnormale atriale repolarisatie → PR-depressie (vrijwel alleen bij pericarditis gezien). Beter zichtbaar in II en aVF."
+        },
+        {
+          "title": "Diffuse ST-elevatie",
+          "desc": "In tegenstelling tot ACS (regionale verdeling): pericardontsteking is diffuus → ST-elevatie in vrijwel alle afleidingen behalve aVR (ST-depressie in aVR). Concaaf (spelvormig) vs convex (koepelvormig) bij STEMI."
+        },
+        {
+          "title": "Houdingsafhankelijke pijn",
+          "desc": "Ontsteking maakt pericard ruw → wrijfgeruis. Vooroverbuigen: hart beweegt van het pericard af → minder wrijving → minder pijn. Platliggen: meer druk pericard → meer pijn."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Pericarditis",
+          "desc": "Diffuse concave ST-elevatie + PR-depressie + houdingsafhankelijke pijn (beter voorovergebogen) + pericardiaal wrijfgeruis. Troponine licht verhoogd (myopericarditis) mogelijk."
+        },
+        {
+          "label": "STEMI",
+          "desc": "Focale ST-elevatie (regionale afleidingen) + reciproke depressies + troponine sterk verhoogd. Pijn drukkend, uitstraling arm, niet houdingsafhankelijk."
+        },
+        {
+          "label": "Myocarditis",
+          "desc": "Diffuus + jonge patiënt + post-viraal. Troponine significant verhoogd. ST-elevaties mogelijk maar irregulairder patroon. MRI hart = gouden standaard."
+        }
+      ],
+      "wiki_therapie_urgent": "Ibuprofen 600 mg 3dd + colchicine 0,5 mg 2dd — 3 maanden voor recidiefpreventie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Rust",
+          "detail": "Geen sport tot klachtenvrij + normalisatie CRP + troponine — bij myopericarditis minimaal 3-6 maanden."
+        },
+        {
+          "naam": "Corticosteroïden",
+          "detail": "Alleen bij recidiverende pericarditis of specifieke oorzaken (auto-immuun) — niet bij eerste episode (verhoogt recidiefrisico)."
+        }
+      ]
+    },
+    {
+      "_i": 196,
+      "q": "Man 68j: tremor van rechterhand in rust, verbetert bij bewegen, kleine handschrift. Parkinson of essentiële tremor — wat past bij Parkinson?",
+      "a": [
+        "Bilaterale houdingstremor, verbetert met alcohol",
+        "Rusttremor + bradykinesie + hypomimie + micrografie",
+        "Intentietremor + dysartrie + nystagmus",
+        "Tremor alleen bij emotionele stress"
+      ],
+      "ex": "Parkinson: rusttremor (pill-rolling, 4-6 Hz), bradykinesie, rigiditeit, houdingsinstabiliteit, hypomimie, micrografie. Essentiële tremor: houdingstremor/actietremor, bilateraal, verbetert met alcohol, geen bradykinesie/rigiditeit. Rusttremor die verbetert bij bewegen is kenmerkend voor Parkinson.",
+      "dl": "Neurologie",
+      "wiki_kern": "Het centrale onderscheid: Parkinson heeft rusttremor die verbetert bij beweging. Essentiële tremor is een houdingstremor die juist verschijnt bij beweging/houden. Bradykinesie + rigiditeit zijn exclusief voor Parkinson.",
+      "wiki_redflag": "Parkinson-plus (MSA, PSP): symmetrisch begin + vroeg vallen + slechte levodopa-respons = slecht prognostisch teken. Vraag altijd naar autonome klachten en vroeg vallen.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Parkinson: rusttremor",
+          "desc": "Dopaminetekort in basale ganglia → abnormale oscillaties in thalamus → tremor zichtbaar in rust (4-6 Hz, \"pill-rolling\"), verdwijnt bij intentionele beweging."
+        },
+        {
+          "title": "Essentiële tremor: actietremor",
+          "desc": "Abnormale oscillaties in olivo-cerebellaire circuits → tremor bij houden (posturaal) en bewegen, niet in rust. Bilateraal, handen en hoofd."
+        },
+        {
+          "title": "Bradykinesie",
+          "desc": "Kenmerkend voor Parkinson: vertraging van bewegingsinitiatief en -snelheid. Micrografie (klein schrift) is vroeg teken."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Parkinson",
+          "desc": "Rusttremor, asymmetrisch, bradykinesie, rigiditeit, hypomimie, micrografie. Geen intentietremor."
+        },
+        {
+          "label": "Essentiële tremor",
+          "desc": "Houdingstremor/actietremor, bilateraal, verbetert met alcohol, geen bradykinesie/rigiditeit. Familiair."
+        },
+        {
+          "label": "Cerebellaire tremor",
+          "desc": "Intentietremor (erger bij doel benaderen), dysartrie, nystagmus, ataxie. Hersenstam-/cerebellum-laesie."
+        },
+        {
+          "label": "Parkinson-plus (MSA/PSP)",
+          "desc": "Parkinsonisme + autonome uitval (MSA) of vroeg vallen achterover/oogbewegingsstoornissen (PSP). Slechte levodopa-respons."
+        }
+      ],
+      "wiki_therapie_urgent": "Geen acute interventie — levodopa als diagnostische/therapeutische test bij verdenking Parkinson.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Levodopa-test",
+          "detail": "Goede respons op levodopa bevestigt Parkinson. Parkinson-plus: meestal matige of geen respons."
+        },
+        {
+          "naam": "Essentiële tremor",
+          "detail": "Propranolol 40-320 mg/dag of primidon 50-750 mg/dag. Alcohol verbetering diagnostisch maar geen behandeling."
+        },
+        {
+          "naam": "DBS",
+          "detail": "Diepe hersenstimulatie subthalame kern bij invaliderende Parkinson-tremor na medicamenteuze optimalisatie."
+        }
+      ]
+    },
+    {
+      "_i": 197,
+      "q": "Vrouw 34j: 30 min visueel flikkerend scotoom, daarna bonzende hemikranie en misselijkheid. TIA of migraine met aura — wat pleit voor migraine?",
+      "a": [
+        "Plotse maximale pijn gelijktijdig met aura",
+        "Geleidelijk uitbreidende aura >5 min, gevolgd door typische hoofdpijn",
+        "Motorische uitval, leeftijd >60j, hypertensie",
+        "Aura duurt >60 min zonder naderende hoofdpijn"
+      ],
+      "ex": "Migraine met aura: aura breidt geleidelijk uit (cortical spreading depression), duurt 20-60 min, gevolgd door ipsilaterale hoofdpijn. TIA: plotse uitval zonder verspreiding, geen nakomende hoofdpijn, risicofactoren voor vaatlijden. Gradual march + volgende hoofdpijn = migraine.",
+      "dl": "Neurologie",
+      "wiki_kern": "Migraine-aura breidt geleidelijk uit (de \"march\") over 20-60 minuten door cortical spreading depression — TIA geeft plotse, maximale uitval zonder progressie. De nakomende hoofdpijn na aura is kenmerkend voor migraine.",
+      "wiki_redflag": "TIA uitsluiten is verplicht bij: aura >60 min, motorische uitval, leeftijd >50j, cardiovasculaire risicofactoren, of atypisch patroon. Bij twijfel: behandel als TIA.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Cortical spreading depression (migraine)",
+          "desc": "Golf van depolarisatie verspreidt zich langzaam (3 mm/min) over occipitale cortex → \"marcherende\" scotomen die zich geleidelijk uitbreiden."
+        },
+        {
+          "title": "TIA: plotse embolie/trombus",
+          "desc": "Plotse occlusie → maximale uitval direct vanaf het begin, geen graduele march. Resolveert volledig <24u."
+        },
+        {
+          "title": "Tijdsduur aura",
+          "desc": "Migraine-aura: typisch 20-60 min. Korter (<5 min) of langer (>60 min) = atypisch, TIA overwegen."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Migraine met aura",
+          "desc": "Aura breidt geleidelijk uit, 20-60 min, gevolgd door hoofdpijn. Jong, vrouw, geen vaatrisicofactoren. Eerder identieke episodes."
+        },
+        {
+          "label": "TIA",
+          "desc": "Plotse maximale uitval (seconden), geen march, geen nakomende hoofdpijn, ouder, vaatrisicofactoren. Altijd uitsluiten."
+        },
+        {
+          "label": "Retinale migraine",
+          "desc": "Monoculaire visusdaling (tijdelijk), niet binocilair. Verhoogd CVA-risico — triptanen gecontraïndiceerd."
+        }
+      ],
+      "wiki_therapie_urgent": "Bij TIA-verdenking: direct naar SEH, aspirine 300 mg, beeldvorming.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Migraine met aura",
+          "detail": "Aanvalsbehandeling: triptan + NSAID. Profylaxe bij frequent: propranolol of topiramaat."
+        },
+        {
+          "naam": "Anticonceptiepil + aura",
+          "detail": "Migraine met aura + oestrogeen-anticonceptie = verhoogd CVA-risico. Overstap naar progesteron-only of niet-hormonale methode."
+        }
+      ]
+    },
+    {
+      "_i": 198,
+      "q": "Vrouw 30j: twee episodes neurologische uitval (1x arm, 1x visus), MRI witte-stof periventriculair. MS of NMO — wat onderscheidt MS van NMO?",
+      "a": [
+        "MS: longitudinaal extensieve myelitis >3 wervels",
+        "NMO: AQP4-antilichamen negatief",
+        "MS: korte MRI-laesies periventriculair, AQP4-negatief",
+        "NMO: hetzelfde patroon als MS maar ernstiger"
+      ],
+      "ex": "MS: periventriculaire/juxtacorticale laesies (kort, <3 wervels myelitis), AQP4-antilichamen negatief, relapsing-remitting. NMO: longitudinale myelitis >3 wervels, area postrema-laesies, AQP4-positief (80%), ernstiger dan MS. Onderscheid is cruciaal: NMO reageert slecht op MS-DMTs.",
+      "dl": "Neurologie",
+      "wiki_kern": "MS en NMO (neuromyelitis optica) lijken klinisch op elkaar maar zijn verschillende ziekten met andere behandeling. Het onderscheid is cruciaal: NMO reageert slecht (of verslechtert) bij MS-medicatie.",
+      "wiki_redflag": "MS-specifieke medicatie (natalizumab, interferon-bèta, fingolimod) kan NMO verergeren. Altijd AQP4-antilichamen testen vóór ziekte-modulerende therapie te starten.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "MS",
+          "desc": "T-cel gemedieerde demyelinisatie van CZS. Periventriculaire, juxtacorticale en infratentoriële laesies. Myelitis <3 wervellichamen."
+        },
+        {
+          "title": "NMO",
+          "desc": "AQP4-antilichamen (aquaporin-4) beschadigen astrocyten in oogzenuwen en ruggenmerg. Longitudinale myelitis >3 wervels, area postrema-laesies (hikken/braken = pathognomonisch)."
+        },
+        {
+          "title": "Behandelconsequentie",
+          "desc": "NMO: rituximab, eculizumab of inebilizumab. Sommige MS-medicijnen zijn gecontraïndiceerd bij NMO."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "MS",
+          "desc": "Korte myelitislaesies (<3 wervels), periventriculaire MRI-laesies, AQP4-negatief, relapsing-remitting. Goede respons op MS-DMTs."
+        },
+        {
+          "label": "NMO (NMOSD)",
+          "desc": "Longitudinale myelitis >3 wervels, AQP4-positief (80%), ernstigere aanvallen, slechte/gevaarlijke respons op MS-DMTs."
+        },
+        {
+          "label": "MOG-antilichaam-ziekte",
+          "desc": "MOG-IgG positief, AQP4-negatief. Minder ernstig dan NMO. Onderscheid via serologisch panel."
+        }
+      ],
+      "wiki_therapie_urgent": "Acute NMO-relaps: hoge-dosis methylprednisolon → plasma-uitwisseling bij onvoldoende respons.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Preventie NMO",
+          "detail": "Rituximab (anti-CD20), eculizumab of inebilizumab — bewezen effectief bij NMO."
+        },
+        {
+          "naam": "Nooit bij NMO",
+          "detail": "Natalizumab, fingolimod, alemtuzumab — gecontraïndiceerd of kunnen NMO verergeren."
+        },
+        {
+          "naam": "Serologisch panel",
+          "detail": "AQP4-IgG + MOG-IgG testen bij elke CZS-demyelinisatieziekte vóór start behandeling."
+        }
+      ]
+    },
+    {
+      "_i": 199,
+      "q": "LP-uitslag bij man 45j met koorts en nekstijfheid:\nGlucose 1.8 mmol/L (serum 5.2)\nEiwit 3.8 g/L\n1400 cellen/µL — 85% PMN\nBacterieel of viraal meningitis?",
+      "a": [
+        "Viraal: lymfocytose, glucose normaal, eiwit laag",
+        "Bacterieel: PMN-pleocytose + glucose <40% serum + hoog eiwit",
+        "TBC: identiek beeld maar chronischer",
+        "Schimmel: glucose laag maar lymfocytose"
+      ],
+      "ex": "Bacterieel: PMN-pleocytose, glucose <40% serum (hier 1.8/5.2=35%), eiwit >1 g/L, troebel vocht. Viraal: lymfocytose, glucose normaal, eiwit licht verhoogd (<1 g/L), helder. TBC: lymfocytose, laag glucose, maar langzamer. Deze uitslag = bacterieel → direct empirische antibiotica (ceftriaxon + dexamethason).",
+      "dl": "Infectiologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 200,
+      "q": "Man 52j: acuut dyspneu + pleuritische pijn, geen koorts, geen sputum. D-dimeer 4.1, HR 118/min. Pneumonie of longembolie — wat wijst op longembolie?",
+      "a": [
+        "Koorts >38.5°C + purulent sputum + unilateraal infiltraat",
+        "Pleuritische pijn + tachycardie + hoog D-dimeer + geen infectietekens",
+        "Progressieve klachten over 3-5 dagen",
+        "Bilaterale infiltraten + verhoogd CRP"
+      ],
+      "ex": "Longembolie: plotse dyspneu, pleuritische pijn, tachycardie, verhoogd D-dimeer, afwezigheid infectietekens (koorts/sputum). Pneumonie: koorts, productieve hoest, infiltraat, CRP hoog, meer geleidelijk. Geen infectietekens + hoog D-dimeer = hoge Wells-score → CT-PA aangewezen.",
+      "dl": "Infectiologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 201,
+      "q": "T2DM-patient, BMI 31, GFR 72, geen hartfalen. Metformine of sulfonylureum als eerste keus — wat pleit voor metformine?",
+      "a": [
+        "Stimuleert insulinesecretie, snellere glucosedaling",
+        "Geen hypoglykemierisico, gewichtsneutraal, aangetoond cardiovasculair voordeel",
+        "Werkzaam ook bij GFR <15",
+        "Geen gastro-intestinale bijwerkingen"
+      ],
+      "ex": "Metformine: vermindert hepatische glucoseproductie, geen hypoglykemierisico, gewichtsneutraal/verlagend, UKPDS-cardiovasculair voordeel. Sulfonylureum: insulinesecretiebevorderend → hypoglykemierisico + gewichtstoename. Cave metformine bij GFR <30 (lactaatacidoserisico). NHG: metformine = eerste keus T2DM.",
+      "dl": "Farmacologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 202,
+      "q": "HFrEF-patient krijgt droge hoest van lisinopril (ACE-remmer). Staken en vervangen — ARB of ARNI als eerste stap?",
+      "a": [
+        "ARNI (sacubitril/valsartan) direct als vervanging",
+        "ARB (bijv. valsartan) als ACE-remmervervanger — geen hoest, bewezen effectiviteit",
+        "Bètablokker verhogen en ACE-remmer stoppen",
+        "Digoxine toevoegen bij persisterende klachten"
+      ],
+      "ex": "ACE-remmerhoest = bradykinine-effect. ARB blokkeert AT1-receptor zonder bradykinine-verhoging → geen hoest. Bewezen als ACE-remmervervanger bij HFrEF (CHARM-Alternative: candesartan). ARNI (sacubitril/valsartan) is volgende stap voor verdere mortaliteitsreductie bij nog optimaliseerbare patient.",
+      "dl": "Farmacologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 203,
+      "q": "Acuut nierfalen, creatinine gestegen:\nUrine-Na 7 mmol/L\nUrine-osmolaliteit 680 mosm/kg\nFractionele Na-excretie 0.6%\nPrerenaal of renaal (ATN)?",
+      "a": [
+        "Renaal (ATN): tubulus kan Na niet reabsorberen, FeNa >2%",
+        "Prerenaal: intact tubulus, maximale Na-reabsorptie en urineconcentratie",
+        "Postrenaal: hydronefrose + verhoogde blaasdruk",
+        "ATN: Urine-Na >40, isostenurie (osmolaliteit ~300)"
+      ],
+      "ex": "Prerenaal: intact tubulus → maximale Na-reabsorptie (Urine-Na <20, FeNa <1%) en urineconcentratie (osmolaliteit >500). ATN (renaal): tubulaire schade → Urine-Na >40, FeNa >2%, osmolaliteit ~300, granulaircilinders. FeNa 0.6% + osmolaliteit 680 = prerenaal → vochtresuscitatie.",
+      "dl": "Laboratorium",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 204,
+      "q": "Microcytaire anemie, MCV 70 fL:\nFerritine 165 µg/L\nTransferrinesaturatie 9%\nTIBC laag\nIJzergebreksanemie of anemie van chronische ziekte (ACD)?",
+      "a": [
+        "IJzergebrek: ferritine altijd laag, TIBC hoog",
+        "ACD: ferritine normaal/hoog (acutefase-eiwit), lage saturatie, laag TIBC",
+        "Thalassemie: normaal ferritine en saturatie, geen anemie van ziekte",
+        "Sideroblastaire anemie: ringed sideroblasts op beenmergbiopt"
+      ],
+      "ex": "IJzergebrek: ferritine LAAG (<30), transferrinesaturatie laag, TIBC HOOG. ACD: ferritine NORMAAL/HOOG (is acutefase-eiwit bij infectie/maligniteit/RA), saturatie laag, TIBC LAAG. Ferritine 165 + lage saturatie + laag TIBC = ACD. Zoek onderliggende oorzaak (maligniteit, chronische infectie, inflammatoire ziekte).",
+      "dl": "Laboratorium",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 205,
+      "q": "Vrouw 42j: plotse \"donderslag-hoofdpijn\", maximale intensiteit in seconden, nekstijfheid, CT hersenen negatief. Welke test is nu essentieel?",
+      "a": [
+        "MRI hersenen met gadolinium",
+        "Lumbaalpunctie (LP) — bloedige/xanthochrome liquor bij SAB",
+        "EEG bij verdenking epileptische aanval",
+        "Doppler a. carotis"
+      ],
+      "ex": "CT mist 2-5% van SAB, met name vroeg (<6u) of kleine bloedingen. Bij negatieve CT + sterke verdenking SAB (donderslag-hoofdpijn) is LP verplicht: xanthochromie (geel verkleurd door afbraak hemoglobine) bewijst SAB. MRI is minder sensitief voor acuut bloed dan CT.",
+      "dl": "Neurologie",
+      "wiki_kern": "Thunderclap + negatieve CT = LP verplicht. CT heeft 98% sensitiviteit in eerste 6u maar daalt tot 85% na 24u. LP na ≥6-12u detecteert xanthochromie (geel vocht door afbraak hemoglobine) — bewijzend voor SAB.",
+      "wiki_redflag": "Negatieve CT sluit SAB NIET uit. 5% van SAB wordt gemist op CT. Geen LP = gemist SAB = kans op fatale reruptuur.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "CT-sensitiviteit daalt",
+          "desc": "Bloed wordt progressief afgebroken → na 12-24u neemt CT-signaal af. CT-positief in eerste 6u bij 98%, na 24u slechts 85%."
+        },
+        {
+          "title": "Xanthochromie",
+          "desc": "Hemoglobine breekt af tot bilirubine in liquor → gele verkleuring zichtbaar na 6-12u, blijft 2 weken aanwezig. Spectrofotometrie is gevoeliger dan visuele inspectie."
+        },
+        {
+          "title": "LP-timing",
+          "desc": "LP te vroeg (<6u): alleen vers bloed, kan traumatische punctie zijn. Wacht minimaal 6-12u na symptoomonset."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "SAB — LP positief",
+          "desc": "Xanthochromie bij spectrofotometrie. Bewijst bloeding. Spoed-neurochirurgie/neuroradiologie."
+        },
+        {
+          "label": "SAB — LP negatief",
+          "desc": "Xanthochromie afwezig ≥12u na start klachten = SAB uitgesloten. Overweeg andere thunderclap-oorzaken (RCVS, CVT)."
+        },
+        {
+          "label": "Traumatische LP",
+          "desc": "Vers bloed in eerste buisje, opklarend in volgende buisjes. Geen xanthochromie. Artefact."
+        }
+      ],
+      "wiki_therapie_urgent": "LP na ≥6-12u → xanthochromie spectrofotometrie → bij positief: angiografie (CTA of DSA) → aneurysmabehandeling.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "CTA hersenvaten",
+          "detail": "Na bevestiging SAB: CTA voor lokalisatie aneurysma (98% sensitief). DSA bij negatieve CTA bij sterke klinische verdenking."
+        },
+        {
+          "naam": "Nimodipine",
+          "detail": "60 mg oraal 4x/dag 21 dagen — reduceert vasospasmen en ischemisch risico dag 4-14."
+        },
+        {
+          "naam": "Reruptuur preventie",
+          "detail": "Coiling of clipping binnen 24-72u. 30% reruptuur-risico zonder behandeling, mortaliteit 70%."
+        }
+      ]
+    },
+    {
+      "_i": 206,
+      "q": "Man 28j: twee aparte demyeliniserende episodes, klachten >24u, MRI witte-stof periventriculair. Verdenking MS — welke test voegt diagnostisch het meest toe?",
+      "a": [
+        "EEG: slow-wave activiteit bij MS",
+        "LP: oligoklonale banden in liquor bevestigen intrathecale immunoglobulineproductie",
+        "PET-scan: metabolisme witte stof",
+        "EMG: neurogene patronen bij demyelinisatie"
+      ],
+      "ex": "MRI is eerste keus bij MS (McDonald-criteria). LP met oligoklonale banden (aanwezig in >95% MS, niet in serum) bevestigt intrathecale ontsteking als MRI niet volledig diagnostisch is. Visueel-evoked potentials (VEP) kunnen ook bijdragen bij opticus-betrokkenheid. EEG heeft geen rol bij MS.",
+      "dl": "Neurologie",
+      "wiki_kern": "Na MRI is LP met oligoklonale banden (OCB) de meest waardevolle aanvullende test bij MS. OCB in liquor (niet serum) zijn aanwezig bij >95% van MS-patiënten en kunnen \"disseminatie in tijd\" bevestigen — waarmee diagnose eerder gesteld kan worden.",
+      "wiki_redflag": "OCB zijn niet MS-specifiek — ook bij neuroborreliose, neurosyfilis, NMO en andere neuroinflammatie. Altijd AQP4-antilichamen bepalen om NMO uit te sluiten.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "McDonald-criteria",
+          "desc": "MS-diagnose vereist disseminatie in ruimte (≥2 CZS-locaties) én tijd (≥2 episodes of nieuwe MRI-laesies). LP-OCB kan \"disseminatie in tijd\" vervangen."
+        },
+        {
+          "title": "OCB als \"disseminatie in tijd\"",
+          "desc": "Aanwezigheid van OCB bij eerste klinische aanval + MRI-laesies voldoende voor MS-diagnose (McDonald 2017) — zonder een tweede aanval te hoeven afwachten."
+        },
+        {
+          "title": "EEG: geen rol",
+          "desc": "EEG heeft geen diagnostische waarde bij MS. Relevant voor epilepsie-diagnostiek, niet voor demyeliniserende ziekten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "LP-OCB bij MS",
+          "desc": "Gevoeligheid >95%. Specificiteit matig — combineer altijd met MRI en kliniek. Geen OCB = MS onwaarschijnlijk."
+        },
+        {
+          "label": "VEP (visueel evoked potential)",
+          "desc": "Vertraagde P100-golf bewijst subklinische opticus-betrokkenheid — nuttig bij mono-symptomatisch begin."
+        },
+        {
+          "label": "AQP4-antilichamen",
+          "desc": "Negatief bij MS, positief bij NMO (80%). Altijd bepalen bij atypisch beeld of longitudinale myelitis."
+        }
+      ],
+      "wiki_therapie_urgent": "Diagnose MS bevestigen → direct bespreken ziekte-modificerende therapie (DMT) om relapsen te verminderen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Eerstelaijn DMT",
+          "detail": "Interferon-bèta, glatirameracetat, dimethylfumaraat — voor milde-matige MS."
+        },
+        {
+          "naam": "Tweedelijns DMT",
+          "detail": "Natalizumab, ocrelizumab — voor actieve of snel progressieve MS."
+        },
+        {
+          "naam": "Relaps",
+          "detail": "Methylprednisolon 1g IV 3-5 dagen bij acute relaps met functieverlies."
+        }
+      ]
+    },
+    {
+      "_i": 207,
+      "q": "Jongeman 22j: aanval met bewustzijnsverlies, tongbeet, incontinentie, 2 minuten. Epilepsie of syncope — welke test onderscheidt het best?",
+      "a": [
+        "CT hersenen: altijd eerste stap",
+        "EEG na aanval voor interictale afwijkingen + tilttest/Holter voor syncope",
+        "Bloedsuiker tijdens aanval",
+        "Slaaponderzoek: slaapapneu als oorzaak"
+      ],
+      "ex": "Epilepsie vs syncope: EEG (interictale epileptiforme activiteit, sensitief 50-60%) + anamnese (tongbeet/incontinentie wijst naar epilepsie). Syncope: tilttest (orthostatisch/vasovagaal), Holter (cardiaal). Tongbeet + incontinentie + postictale verwardheid = epilepsie waarschijnlijk. MRI daarna voor structurele oorzaak.",
+      "dl": "Neurologie",
+      "wiki_kern": "Tongbeet (zijkant!) + incontinentie + postictale verwardheid = epilepsie. EEG detecteert interictale activiteit (sensitiviteit 50-60% bij eerste EEG, hogere bij slaap-EEG). Syncope: Holter + tilttest.",
+      "wiki_redflag": "Niet elke \"stuip\" is epilepsie. Syncope met spierschokken (convulsief syncope) wordt vaak verward met epilepsie. Belangrijkste onderscheid: bij syncope geen postictale verwardheid.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Epilepsie-kenmerken",
+          "desc": "Tongbeet lateraal (zijkant — mediaan wijst op ander trauma), urine-incontinentie, tonisch-clonisch >1-2 min, postictale verwardheid/slaap."
+        },
+        {
+          "title": "Syncope-kenmerken",
+          "desc": "Kortdurend (<30 sec), uitgelokt (staan, emotie, pijn), korte spierschokken mogelijk maar geen tongbeet, snel herstel zonder verwardheid."
+        },
+        {
+          "title": "EEG-waarde",
+          "desc": "Interictale epileptiforme activiteit bij eerste EEG: sensitiviteit 50-60%. Slaap-EEG of herhaal-EEG: hogere sensitiviteit. Normaal EEG sluit epilepsie NIET uit."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Epilepsie",
+          "desc": "Tongbeet zijkant + incontinentie + postictale verwardheid/slaap + EEG-afwijking. MRI voor structurele oorzaak."
+        },
+        {
+          "label": "Convulsief syncope",
+          "desc": "Spierschokken bij bewustzijnsverlies maar kortdurend, geen tongbeet, snel herstel, ECG/tilttest positief."
+        },
+        {
+          "label": "Non-epileptische aanval (PNES)",
+          "desc": "Psychogene aanval. Geen EEG-correlaat. Diagnose via video-EEG. Behandeling: psychotherapie."
+        },
+        {
+          "label": "Cardiaal syncope",
+          "desc": "Plotse bewusteloosheid zonder aura, ECG-afwijking, familiaire plotse dood. Holter/ILR verplicht."
+        }
+      ],
+      "wiki_therapie_urgent": "Eerste aanval: bloedsuiker meten, EEG + MRI aanvragen. Rijverbod melden.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "EEG",
+          "detail": "Zo snel mogelijk na de aanval (binnen 24u sensitiever). Slaap-EEG bij negatief wakker-EEG. Video-EEG bij twijfel PNES vs epilepsie."
+        },
+        {
+          "naam": "MRI",
+          "detail": "MRI hersenen (protocol epilepsie) na eerste aanval bij volwassene — altijd structurele oorzaak uitsluiten."
+        },
+        {
+          "naam": "Antiepilepticum",
+          "detail": "Bij tweede aanval of hoog recidiefrisico: levetiracetam of lamotrigine. Rijverbod tot 1 jaar aanvalsvrij."
+        }
+      ]
+    },
+    {
+      "_i": 208,
+      "q": "Man 58j: drukkende thoraxpijn 20 min, uitstraling linkerarm, zweten. Verdenking ACS — wat doe je als eerste diagnostische stap?",
+      "a": [
+        "CT-coronair angiografie: anatomie coronairen",
+        "ECG binnen 10 minuten + hoogsensitief troponine (0u en 1u/3u)",
+        "Stress-echo: ischemie provoceren",
+        "Holter: ritmestoornis uitsluiten"
+      ],
+      "ex": "Richtlijn: ECG binnen 10 minuten na binnenkomst (STEMI = direct katheterslab). Hoogsensitief troponine bij aankomst + 1u of 3u later (0/1h-protocol of 0/3h). Dit algoritme sluit >99% van NSTEMI/ACS uit of bevestigt het. CT-coronair bij stabiele patiënt met lagere verdenking.",
+      "dl": "Cardiologie",
+      "wiki_kern": "ACS-diagnostiek volgt een strikt tijdprotocol. ECG binnen 10 minuten identificeert STEMI voor directe PCI. Hs-troponine op 0u en 1-3u later sluit NSTEMI uit of bevestigt het. Dit algoritme heeft een negatief voorspellende waarde van >99,5%.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": "minuten",
+      "wiki_bigfact_sub": "ECG-tijdsdoel na aankomst bij verdenking ACS — bij STEMI direct katheterslab activeren",
+      "wiki_mechanisme": [
+        {
+          "title": "ECG: onmiddellijke beslissing",
+          "desc": "STEMI (ST-elevatie ≥1mm in ≥2 aangrenzende afleidingen) = directe PCI, geen verdere diagnostiek nodig. Geen STEMI maar klachten: NSTEMI-protokol starten."
+        },
+        {
+          "title": "Hs-troponine tijdsvenster",
+          "desc": "Troponine lekt na myocardschade uit → meetbaar in bloed na 1-3 uur. Eén meting is onvoldoende. Serieel (delta-troponine) meten: stijging of daling van ≥52% over 1u = rule-in ACS."
+        },
+        {
+          "title": "0/1u vs 0/3u protocol",
+          "desc": "0/1u-algoritme (ESC 2020): snellere triage. Meetbare stijging in 1 uur = rule-in. Geen stijging + laag absoluut niveau = rule-out. 0/3u bij onduidelijk hs-TnT-baseline."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "ECG + hs-troponine 0/1h protocol",
+          "desc": "Eerste keus bij verdenking ACS: ECG <10 min, troponine bij aankomst + 1u. Sensitiever en sneller dan conventioneel troponine-protocol."
+        },
+        {
+          "label": "CT-coronair angiografie",
+          "desc": "Voor stabiele patiënten met lage-tot-matige pre-testkans op coronairlijden (buiten de acute fase). Niet geschikt als eerste stap bij acuut ACS."
+        },
+        {
+          "label": "Inspanningstest/stress-echo",
+          "desc": "Alleen bij stabiele patiënten met twijfelachtig klachtenpatroon na uitsluiten acuut MI. Nooit in de acute presentatiefase."
+        }
+      ],
+      "wiki_therapie_urgent": "Bij STEMI: activeer katheterslab terwijl ECG nog wordt gemaakt — geen minuut verliezen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "NSTEMI/onzeker",
+          "detail": "Aspirine + heparine + GRACE-score bepalen → invasieve strategie (coronairangiografie) binnen 24-72u afhankelijk van risicoscore."
+        },
+        {
+          "naam": "Rule-out na 0/1u-protocol",
+          "detail": "Negatief hs-troponine op 0u EN 1u + geen ECG-afwijkingen + lage HEART-score → ontslag veilig mogelijk."
+        }
+      ]
+    },
+    {
+      "_i": 209,
+      "q": "Vrouw 68j: dyspneu, enkelloedeem, verhoogde CVD. Verdenking hartfalen — BNP/NT-proBNP of echocardiografie als eerste test?",
+      "a": [
+        "Echocardiografie altijd eerst: definitieve diagnose",
+        "BNP/NT-proBNP eerst: snel, hoge negatieve predictieve waarde — normaal sluit hartfalen vrijwel uit",
+        "X-thorax: vochtige longen = bewijs hartfalen",
+        "24u urinecortisol: bijnierinsufficiëntie uitsluiten"
+      ],
+      "ex": "BNP/NT-proBNP: hoge negatieve predictieve waarde. Normaal BNP (<35 pg/mL) maakt hartfalen onwaarschijnlijk → geen echo nodig. Verhoogd BNP → echo voor bevestiging (systolisch/diastolisch) en behandelgeleiding. Hartfalen + normaal BNP = denk aan andere oorzaak dyspneu.",
+      "dl": "Cardiologie",
+      "wiki_kern": "BNP (brain natriuretic peptide) en NT-proBNP worden vrijgegeven door cardiomyocyten bij verhoogde wandspanning (volume- of drukoverload). Negatief BNP (<35 pg/mL voor BNP, <125 pg/mL voor NT-proBNP) sluit hartfalen vrijwel uit als oorzaak van dyspneu.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": "negatief voorspellende waarde",
+      "wiki_bigfact_sub": "normaal BNP (<35 pg/mL) bij verdenking hartfalen in de acute setting",
+      "wiki_mechanisme": [
+        {
+          "title": "Synthese en vrijgave",
+          "desc": "Ventrikelwand gerekt door verhoogde vullingsdruk of verhoogd volume → pro-BNP gesplitst → actief BNP + inactief NT-proBNP. BNP: actieve natriurese en vasodilatatie. NT-proBNP: langere halfwaardetijd (~70u vs ~20 min BNP) → stabielere spiegel."
+        },
+        {
+          "title": "Specificiteit BNP",
+          "desc": "BNP/NT-proBNP verhoogd bij hartfalen, maar ook bij: nierfalen, sepsis, PE, COPD-exacerbatie, ouderen. Specificiteit ~70% → verhoogd BNP = verdenking hartfalen, maar bevestiging via echo nodig."
+        },
+        {
+          "title": "Echo na verhoogd BNP",
+          "desc": "Echocardiografie bepaalt type hartfalen (HFrEF EF <40% vs HFpEF EF ≥50%), onderliggende oorzaak (klepgebrek, wandbewegingsstoornissen) en behandelgeleiding."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "BNP/NT-proBNP eerst: uitsluiting hartfalen",
+          "desc": "Normaal BNP maakt hartfalen onwaarschijnlijk — goedkoop, snel. Verhoogd BNP → echo voor bevestiging en specificatie."
+        },
+        {
+          "label": "Echocardiografie: definitieve diagnose",
+          "desc": "Bevestigt hartfalen, bepaalt EF, vullingsdrukken, klepgebrek. Indicatie na verhoogd BNP of bij sterke klinische verdenking ondanks normaal BNP."
+        },
+        {
+          "label": "X-thorax bij hartfalen",
+          "desc": "Pulmonaalstuwing, Kerley-B-lijnen, cardiomegalie — ondersteunend maar niet diagnostisch. Specifiek bij acuut longoedeem maar minder gevoelig."
+        }
+      ],
+      "wiki_therapie_urgent": "Acuut hartfalen met verhoogd BNP + klinische kenmerken: furosemide IV + zuurstof.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "BNP als behandeldoel",
+          "detail": "BNP-geleid dosisaanpassing van diuretica verlaagt recidief-ziekenhuisopnames (PRIMA-studie). Target: BNP-daling >30% na behandeling."
+        },
+        {
+          "naam": "Echo voor therapiekeuze",
+          "detail": "HFrEF vs HFpEF bepaalt de medicamenteuze strategie — echo is hiervoor onmisbaar."
+        }
+      ]
+    },
+    {
+      "_i": 210,
+      "q": "Patient met koorts, nieuw hartgeruis en positieve bloedkweken (S. aureus). Verdenking endocarditis — TTE of TEE?",
+      "a": [
+        "TTE altijd voldoende: goede beeldkwaliteit bij alle patiënten",
+        "TEE: hogere sensitiviteit (>90%) voor vegetaties en complicaties, altijd bij hoog-risico of negatieve TTE",
+        "CT-thorax: perifere embolieën opsporen",
+        "Alleen bloedkweken voldoende voor diagnose"
+      ],
+      "ex": "TTE (transthoracaal): eerste keus, non-invasief, sensitiviteit 60-75%. TEE (transoesofageaal): sensitiviteit >90%, indicatie bij: negatieve TTE maar hoge klinische verdenking, prostetische kleppen, S. aureus-bacteriemie, aortaklep-betrokkenheid, complicaties zoeken. Duke-criteria: twee major (bloedkweken + echo) = definitief.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Endocarditis-diagnostiek: TTE is de eerste stap (niet-invasief, snel), maar TEE is essentieel bij hoog-risico patiënten (S. aureus, kunstklep, negatieve TTE bij hoge klinische verdenking). TEE heeft sensitiviteit >90% vs 60-75% voor TTE.",
+      "wiki_redflag": "S. aureus-bacteriemie = TEE altijd verplicht, ook bij negatieve TTE. S. aureus hecht ook aan intacte kleppen en veroorzaakt snel klepdestructie — missen van endocarditis is fataal. Chirurgie-indicaties vroegtijdig overwegen.",
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Duke-criteria",
+          "desc": "Major: ≥2 positieve bloedkweken van typische verwekker + echocardiografisch bewijs (vegetatie/abces/perforatie). Minor: predispositie, koorts, vasculaire fenomenen, immunologische tekenen. Definitief: 2 major, of 1 major + 3 minor."
+        },
+        {
+          "title": "TEE vs TTE",
+          "desc": "TTE: sonde extern, longweefsel/ribben/vet attenueren het beeld. TEE: sonde in oesofagus direct achter het hart → geen attentuatie → hogere resolutie, detectie vegetaties <3 mm, abcessen in aortawortel/ringgebied."
+        },
+        {
+          "title": "Indicaties TEE",
+          "desc": "Negatieve TTE bij hoge klinische verdenking, kunstkleppen (TTE bijna altijd onvoldoende), S. aureus-bacteriemie, intracardiaal apparaat (ICD/pacemaker), klinische verslechtering."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "TEE bij hoog-risico endocarditis",
+          "desc": "S. aureus-bacteriemie, negatieve TTE bij hoge verdenking, kunstklep, aortaklep-betrokkenheid. Sensitiviteit >90% voor vegetaties en complicaties (abces, fistel)."
+        },
+        {
+          "label": "TTE als eerste stap",
+          "desc": "Non-invasief, breed beschikbaar. Voldoende bij: lage verdenking endocarditis, goede beeldkwaliteit, natieve mitris-/aortaklep zonder complicaties. Gevolgd door TEE indien positief of bij twijfel."
+        },
+        {
+          "label": "CT-thorax/abdomen",
+          "desc": "Aanvullend voor perifere septische embolieën, aortabetrokkenheid, chirurgische planning. Niet voor diagnose endocarditis."
+        }
+      ],
+      "wiki_therapie_urgent": "Start empirische antibiotica na het afnemen van ten minste 2 sets bloedkweken — nooit uitstellen voor echocardiografie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Antibiotica (S. aureus MSSA)",
+          "detail": "Flucloxacilline 12g/dag IV gedurende 6 weken."
+        },
+        {
+          "naam": "Chirurgie-indicaties",
+          "detail": "Hartfalen, ongecontroleerde infectie, embolieprophylaxe (vegetatie >10 mm + hoog-risico verwekker). Endocarditis-team beslist multidisciplinair."
+        }
+      ]
+    },
+    {
+      "_i": 211,
+      "q": "Patient met moeheid, gewichtstoename, kouwelijkheid. Schildklierfunctie evalueren — welke test is de beste eerste stap?",
+      "a": [
+        "Vrij T4 (fT4): direct spiegelmeting schildklier",
+        "TSH: meest sensitieve marker voor schildklierfunctie, verhoogd bij hypothyreoïdie",
+        "Anti-TPO antilichamen: auto-immuun oorzaak",
+        "T3: alleen verhoogd bij T3-toxicose"
+      ],
+      "ex": "TSH is de beste screeningstest: de hypofyse is extreem gevoelig voor kleine veranderingen in schildklierhormoonstatus. Verhoogd TSH = hypothyreoïdie (ook subklinisch). Normaal TSH = schildklier vrijwel zeker intact. Alleen bij afwijkend TSH dan vrij T4 en evt. vrij T3 meten.",
+      "dl": "Laboratorium",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 212,
+      "q": "Patient met geelzucht, donkere urine, clay-coloured ontlasting, ALAT 420 U/L. Cholestatisch vs. hepatocellulair — welke test maakt het onderscheid het best?",
+      "a": [
+        "Leverbiopsie: altijd eerste stap bij geelzucht",
+        "Echo abdomen: biliaire obstructie vs. parenchymale leverziekte",
+        "PET-scan: maligniteit uitsluiten",
+        "Galzuurmeting: primaire biliaire cholangitis"
+      ],
+      "ex": "Echo abdomen is eerste stap bij geelzucht: verwijde galwegen = extrahepatische obstructie (steen, maligniteit) → ERCP. Geen verwijding = intrahepatische oorzaak (hepatitis, cirrose). Leverbiopsie pas na uitsluiten obstructie. Bloedonderzoek (ALAT/AF-ratio) geeft richting maar echo is anatomisch beslissend.",
+      "dl": "Laboratorium",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 213,
+      "q": "Patient met bloedingsneiging: makkelijk blauwe plekken, tandvleesbloeding. PT verhoogd, APTT normaal, trombocyten normaal. Welk stollingsprobleem past hier?",
+      "a": [
+        "Trombocytopenie: laag trombocyten",
+        "Extrinsieke cascadestoornis — vitamine K-gebrek of leverfunctiestoorniss (PT verhoogd, APTT normaal)",
+        "Von Willebrand ziekte: APTT verhoogd",
+        "Hemofilie A: factor VIII-gebrek, APTT verhoogd"
+      ],
+      "ex": "PT meet de extrinsieke cascade (factor VII, X, V, II, I). APTT meet de intrinsieke cascade (VIII, IX, XI). PT verhoogd + APTT normaal = stoornis in extrinsieke route → vitamine K-gebrek (factor VII kortste halfwaardetijd), VKA-gebruik, of vroeg leverfalen. Hemofilie en vWD geven APTT-verhoging.",
+      "dl": "Laboratorium",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 214,
+      "q": "Man 65j: koorts, hoest, infiltraat rechter onderkwab. CAP (community-acquired pneumonie) — welke test geeft het snelst de verwekker?",
+      "a": [
+        "Sputumkweek: altijd betrouwbaar en snel",
+        "Urine-antigeen (pneumokok + legionella): snel resultaat, ook bij antibiotica reeds gestart",
+        "Bronchoscopie met BAL: goudstandaard altijd",
+        "Bloedkweek alleen bij ernstige sepsis"
+      ],
+      "ex": "Urine-antigeen (pneumokokken en legionella): resultaat binnen uren, niet beïnvloed door antibioticagebruik — bij twijfel of ernstige pneumonie altijd afnemen. Sputumkweek: betrouwbaar maar traag (48-72u), bij ziekenhuisopname afnemen. Bloedkweek: lage sensitiviteit (5-14%) maar altijd bij ernstige CAP (CURB-65 ≥3).",
+      "dl": "Infectiologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 215,
+      "q": "Patient met koorts, nekstijfheid, fotofobie. Verdenking bacteriële meningitis — LP direct of eerst CT hersenen?",
+      "a": [
+        "Altijd eerst CT, dan LP — CT is veiliger",
+        "LP direct als geen tekenen verhoogde intracraniële druk (focal neurologisch, bewustzijnsdaling, papiloedeem) — antibiotica niet uitstellen",
+        "Wacht op PCR-resultaat voor LP",
+        "MRI is beter dan CT voor LP-indicatiestelling"
+      ],
+      "ex": "LP mag direct als geen tekenen verhoogde ICP (bewustzijn normaal, geen papilloedeem, geen focale uitval). CT eerst bij: focale uitval, bewustzijnsdaling, epilepsie, immuno-gecompromitteerd. CRUCIAAL: antibiotica nooit uitstellen voor LP of CT. Start ceftriaxon + dexamethason direct, doe LP zo snel mogelijk daarna.",
+      "dl": "Infectiologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 216,
+      "q": "Patient met koorts en klinische sepsis, verdenking bacteriemie. Wanneer bloedkweken afnemen voor optimale opbrengst?",
+      "a": [
+        "Altijd na start antibiotica: bacteriën dan beter aantoonbaar",
+        "Voor start antibiotica, bij voorkeur tijdens of vlak voor koortspiek — twee sets van verschillende locaties",
+        "Alleen bij temperatuur >39°C: anders te weinig bacteriemie",
+        "Eén set voldoende: dubbel is verspilling"
+      ],
+      "ex": "Bloedkweken VOOR antibiotica: antibiotica verlagen sensitiviteit drastisch. Timing bij of vlak voor koortspiek (tijdens bacteriemische fase). Twee sets (aerob + anaeroob) van twee verschillende locaties: verhoogt sensitiviteit van 80% naar >90% en onderscheidt contaminant van echte bacteriemie. Niet uitstellen voor behandeling bij ernstige sepsis.",
+      "dl": "Infectiologie",
+      "wiki_kern": null,
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": null,
+      "wiki_onderscheid": null,
+      "wiki_therapie_urgent": null,
+      "wiki_therapie_stappen": null
+    },
+    {
+      "_i": 217,
+      "q": "Man van 68 jaar met plotse hartkloppingen en lichte duizeligheid. Welk ritme is te zien op dit ECG?",
+      "a": [
+        "Sinustachycardie",
+        "Atriumfibrilleren",
+        "Atriumflutter 2:1",
+        "Ventriculaire tachycardie"
+      ],
+      "ex": "Absoluut irregulair QRS-ritme zonder P-toppen = atriumfibrilleren. Let op de onregelmatige RR-intervallen en de chaotische fibrillatiebasisline. Bij atriumflutter zijn er zaagvormige F-golven met een regulier ritme (~150/min). Risico op trombus in linker hartoor → anticoagulatie.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Atriumfibrilleren (AF) is het meest voorkomende hartritmestoornis. Meerdere chaotische re-entry circuits in de atria (400-600/min) maken gecoördineerde contractie onmogelijk.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Chaotische atriale activiteit",
+          "desc": "Meerdere re-entry circuits in de atria (400-600/min) — gecoördineerde atriale contractie is onmogelijk. Linker hartoor contraheert nauwelijks."
+        },
+        {
+          "title": "Trombusvorming",
+          "desc": "Stase van bloed in het linker hartoor → trombusvorming → embolisatie naar hersenen of andere organen. Dit is de reden waarom anticoagulatie de hoeksteen is van behandeling."
+        },
+        {
+          "title": "Onregelmatig ventrikelritme",
+          "desc": "AV-knoop geleidt willekeurig van de chaotische atriale prikkels → absoluut irregulair RR-ritme. Geen P-toppen op het ECG — alleen fibrillatiebasisline."
+        },
+        {
+          "title": "CHA₂DS₂-VASc risicostratificatie",
+          "desc": "Indicatie anticoagulatie: mannen ≥2 punten, vrouwen ≥3 punten. Punten voor: hartfalen, hypertensie, leeftijd ≥75 (2pt), DM, beroerte/TIA (2pt), vaatlijden, leeftijd 65-74, vrouwelijk geslacht."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Atriumfibrilleren",
+          "desc": "Absoluut irregulair RR-ritme, geen P-toppen, chaotische fibrillatiebasisline. Anticoagulatie op basis van CHA₂DS₂-VASc-score."
+        },
+        {
+          "label": "Atriumflutter",
+          "desc": "Regelmatig ~150/min, zaagvormige F-golven in II/III/aVF, carotismassage maakt F-golven zichtbaar."
+        },
+        {
+          "label": "Sinustachycardie",
+          "desc": "Regelmatig, duidelijke P-top vóór elk QRS, frequentie varieert met ademhaling."
+        },
+        {
+          "label": "AVNRT",
+          "desc": "Paroxysmaal, regelmatig smalcomplex, plotse start/stop, P verborgen in of net achter QRS."
+        }
+      ],
+      "wiki_therapie_urgent": "Acuut hemodynamisch instabiel: directe elektrische cardioversie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Rate control",
+          "detail": "Bètablokker (metoprolol) of non-DHP calciumantagonist (diltiazem) — eerstekeus bij permanente AF."
+        },
+        {
+          "naam": "Rhythm control",
+          "detail": "Flecaïnide (geen structureel hartlijden) of amiodaron — cardioversie na ≥3 weken anticoagulatie of TEE om trombus uit te sluiten."
+        },
+        {
+          "naam": "Anticoagulatie",
+          "detail": "DOAC (apixaban, rivaroxaban, dabigatran) op basis van CHA₂DS₂-VASc. VKA bij mechanische klep of mitralisstenose."
+        },
+        {
+          "naam": "Pulmonaalvene-ablatie",
+          "detail": "Curatief bij symptomatische paroxismale AF — isolatie van de ectopische foci in longvenen."
+        }
+      ]
+    },
+    {
+      "_i": 218,
+      "q": "Patiënt van 58 jaar met 40 minuten drukkende retrosternale pijn. Welke diagnose toont dit ECG-fragment?",
+      "a": [
+        "Pericarditis",
+        "Inferieur STEMI",
+        "NSTEMI",
+        "Normaal ECG"
+      ],
+      "ex": "Gelokaliseerde ST-elevatie in de inferieure afleidingen (II, III, aVF) past bij een inferieur STEMI door RCA-occlusie. Direct PCI binnen 90 minuten! De dashed lijn toont de basislijn — het ST-segment ligt er duidelijk boven. Pericarditis geeft diffuse saddle-shape ST-elevatie in ALLE afleidingen.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Inferieur STEMI (leads II, III, aVF) wordt veroorzaakt door afsluiting van de rechter coronairarterie (RCA). ST-elevatie toont transmuraal infarct — elke minuut vertraging = meer myocardschade.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Plaque ruptuur",
+          "desc": "Atherosclerotische plaque in de RCA scheurt open → subendotheliaal collageen blootgesteld → plaatjesaggregatie."
+        },
+        {
+          "title": "Trombusvorming",
+          "desc": "Volledige afsluiting van de RCA door een trombus → transmuraal inferieur myocard ischemisch."
+        },
+        {
+          "title": "ST-elevatie mechanisme",
+          "desc": "Ischemische cellen depolariseren abnormaal → stroomlus naar aangrenzend gezond weefsel → ST-elevatie in inferieure afleidingen (II, III, aVF)."
+        },
+        {
+          "title": "Reciproke depressie",
+          "desc": "Tegenoverlegen afleidingen (I, aVL) tonen spiegelbeeldige ST-depressie — bevestigt de lokalisatie en is typisch voor STEMI (ontbreekt bij pericarditis)."
+        },
+        {
+          "title": "RV-infarct risico",
+          "desc": "Proximale RCA voedt ook het RV → altijd V4R afnemen. ST-elevatie ≥1 mm in V4R = RV-infarct → geen nitraten of diuretica geven!"
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Inferieur STEMI (RCA-occlusie)",
+          "desc": "ST-elevatie in II, III en aVF. Reciproke depressie in I en aVL. Altijd rechter-ECG (V4R) afnemen om RV-infarct uit te sluiten."
+        },
+        {
+          "label": "Pericarditis",
+          "desc": "Diffuse saddle-shape ST-elevatie in álle afleidingen, PR-depressie, geen reciproke depressies, houdingsafhankelijke pijn."
+        },
+        {
+          "label": "NSTEMI",
+          "desc": "Geen ST-elevatie, wél troponine verhoogd. ST-depressie en T-inversie mogelijk."
+        },
+        {
+          "label": "Vroege repolarisatie",
+          "desc": "Concave (schaalvormige) ST-elevatie bij jonge patiënten zonder klachten — benigne variant."
+        }
+      ],
+      "wiki_therapie_urgent": "Directe PCI binnen 90 minuten — elke minuut vertraging = meer myocardverlies.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Dubbele plaatjesremming",
+          "detail": "Aspirine 300 mg + ticagrelor 180 mg direct bij binnenkomst."
+        },
+        {
+          "naam": "Heparine IV",
+          "detail": "Bridging tot PCI — voorkomt verdere trombosgroei in de RCA."
+        },
+        {
+          "naam": "V4R altijd",
+          "detail": "Bij inferieur STEMI: rechter ECG-afleidingen om RV-infarct uit te sluiten — dit verandert het beleid (geen nitraten)."
+        },
+        {
+          "naam": "Secundaire preventie",
+          "detail": "Statine + bètablokker + ACE-remmer + SGLT2-remmer na ontslag."
+        }
+      ]
+    },
+    {
+      "_i": 219,
+      "q": "Welk geleidingsstoornispatroon toont dit ECG (let op de PR-intervallen)?",
+      "a": [
+        "Eerstegraads AV-blok",
+        "Wenckebach (Mobitz type I)",
+        "Mobitz type II AV-blok",
+        "Derdegraads AV-blok"
+      ],
+      "ex": "Wenckebach (Mobitz I): PR-interval wordt iedere slag langer totdat één QRS uitvalt — dan reset. Herkenbaar door de progressieve PR-verlenging en de periodiek uitvallende QRS. Benigne, typisch bij inferiorwandinfarct of verhoogde vagustonus. Mobitz II: plotse QRS-uitval zónder PR-verlenging — gevaarlijker.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Wenckebach is een tweedegraads AV-blok waarbij de AV-knoop na elke geleide slag \"vermoeid\" raakt → steeds langere PR → uiteindelijk een prikkel die niet geleid wordt. Daarna recupereert de AV-knoop en begint de cyclus opnieuw.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Oorzaken",
+          "desc": "AV-knooppathologie door ischemie inferieure wand (RCA), verhoogde vagustonus (atleten, slaap) of digoxine-toxiciteit."
+        },
+        {
+          "title": "Het Wenckebach-patroon",
+          "desc": "Cyclische perioden: eerste slag kort PR, elke volgende slag langer PR, tot de prikkel niet door de AV-knoop komt (QRS uitvalt) → dan reset naar kort PR. Voorbeeld: 3:2 blok = 2 QRS op 3 P-golven."
+        },
+        {
+          "title": "Benigne karakter",
+          "desc": "Wenckebach is AV-knoop-niveau — het escape-ritme bij blokkade is junctionaal (~50/min), voldoende hemodynamisch. Mobitz II (His-bundelniveau) is gevaarlijker (ventriculair escape ~30/min)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Wenckebach (Mobitz I)",
+          "desc": "Progressief langer PR → QRS-uitval → reset. Benigne, AV-knoodfenomeen, typisch bij inferieur MI of digoxine-toxiciteit."
+        },
+        {
+          "label": "Mobitz II",
+          "desc": "Constant PR-interval tot plotse QRS-uitval — His-bundelschade, ernstiger, kan snel totaal blok geven → pacemaker indicatie."
+        },
+        {
+          "label": "Eerstegraads AV-blok",
+          "desc": "PR >200 ms maar elke P geleidt → asymptomatisch, geen behandeling nodig."
+        },
+        {
+          "label": "Derdegraads AV-blok",
+          "desc": "P en QRS volledig ontkoppeld, ventriculair escape-ritme ~35/min — urgente pacemaker altijd."
+        }
+      ],
+      "wiki_therapie_urgent": "Wenckebach bij inferieur MI: observatie, reversibel. Wenckebach bij digoxine: stop digoxine.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Symptomatisch",
+          "detail": "Atropine 0,5 mg IV bij symptomatische bradycardie — verhoogt AV-knoopgeleiding."
+        },
+        {
+          "naam": "Onderliggende oorzaak",
+          "detail": "Behandel inferieur MI (PCI), stop culprit-medicatie (digoxine, bètablokker, calciumantagonist)."
+        },
+        {
+          "naam": "Pacemaker zelden nodig",
+          "detail": "Wenckebach is doorgaans benigne en reversibel — permanent blok is zeldzaam bij Wenckebach."
+        }
+      ]
+    },
+    {
+      "_i": 220,
+      "q": "Patiënt van 72 jaar met presyncope en een polsfrequentie van 35/min. Welk ritme toont deze ritmestrook?",
+      "a": [
+        "Wenckebach (Mobitz I)",
+        "Mobitz type II AV-blok",
+        "Totaal (derdegraads) AV-blok",
+        "Sick Sinus Syndroom"
+      ],
+      "ex": "Totaal AV-blok: P-toppen (blauw, 75/min) en QRS-complexen (35/min) zijn volledig ontkoppeld — geen enkel signaal uit de atria bereikt de ventrikels. De ventrikels slaan op eigen ritme via een escape-pacemaker in het His-Purkinje systeem. Levensbedreiging — urgente tijdelijke pacemaker.",
+      "dl": "Cardiologie",
+      "wiki_kern": "Bij een derdegraads (totaal) AV-blok geleidt geen enkele atriale prikkel naar de ventrikels. De atria en ventrikels slaan onafhankelijk van elkaar: atria ~75/min, ventrikels ~35/min via junctionaal of ventriculair escape-ritme.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Oorzaken",
+          "desc": "Inferieur MI (tijdelijk, junctionaal escape ~50/min, reversibel na PCI), anterieur MI (His-bundelschade, ventriculair escape ~30/min, slechte prognose), degeneratieve fibrose (Lenegre, bij ouderen), aortaklepchirurgie, digitalis-toxiciteit."
+        },
+        {
+          "title": "Escape-ritme",
+          "desc": "Ventrikels slaan op eigen pace via een laag escape-centrum: junctionaal ~50/min (smal QRS, hemodynamisch beter) of ventriculair ~30/min (breed QRS, hemodynamisch instabiel). Onbetrouwbaar → syncope, hemodynamische collaps."
+        },
+        {
+          "title": "Hemodynamische gevolgen",
+          "desc": "Lage cardiac output door trage ventrikelfrequentie → hypotensie, presyncope/syncope, angina. Atria en ventrikels slaan volledig onafhankelijk — AV-dissociatie is pathognomonisch."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Totaal (derdegraads) AV-blok",
+          "desc": "P-toppen (~75/min) en QRS-escape-ritme (~35/min) volledig ontkoppeld — geen enkele atriale prikkel bereikt de ventrikels. Urgente pacemaker."
+        },
+        {
+          "label": "Wenckebach (Mobitz I)",
+          "desc": "Sommige P-golven geleid, PR progressief verlengd → QRS-uitval → reset. Benigne."
+        },
+        {
+          "label": "Mobitz II",
+          "desc": "Constant PR tot plotse QRS-uitval — ook ernstig maar P-QRS-relatie bestaat nog."
+        },
+        {
+          "label": "Sinusbradycardie",
+          "desc": "Traag maar P en QRS altijd gecorreleerd met normaal PR-interval."
+        }
+      ],
+      "wiki_therapie_urgent": "Transcutane pacemaker als overbrugging bij hemodynamische instabiliteit — isoprenaline infuus als alternatief.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Permanente pacemaker",
+          "detail": "Definitieve behandeling bij symptomatisch of irreversibel totaal AV-blok."
+        },
+        {
+          "naam": "Reversibele oorzaak",
+          "detail": "Inferieur STEMI: tijdelijk blok, herstel na PCI. Digitalis-toxiciteit: stop medicatie, Fab-antilichamen bij ernstige toxiciteit."
+        }
+      ]
+    },
+    {
+      "_i": 221,
+      "q": "De oranje curve toont het spirogram van een 65-jarige roker. Welke interpretatie past het best?",
+      "a": [
+        "Normaal spirogram",
+        "Restrictief patroon (FVC verlaagd, FEV1/FVC normaal)",
+        "Obstructief patroon (FEV1/FVC verlaagd)",
+        "Gemengd patroon"
+      ],
+      "ex": "Obstructief patroon: de oranje curve heeft een lagere piekstroom en een concave (naar binnen gebogen) expiratoire limb — kenmerk van flow-limitatie bij COPD of astma. FEV1/FVC-ratio <0.70 bevestigt obstructie. Restrictief patroon: smaller loop, lagere FVC, maar normaal gevormde curve.",
+      "dl": "Laboratorium",
+      "wiki_kern": "De stroom-volumecurve toont de expiratoire flow (Y-as) uitgezet tegen het volume (X-as). Bij COPD: dynamische luchtwegcompressie tijdens expiratie → lagere piekstroom, concave curve.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "COPD: alveolaire destructie (emfyseem) + luchtwegontsteking."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "elastische terugkeer ↓ + luchtwegweerstand ↑."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "air trapping (RV vergroot) + flow-limitatie. De concave curve ontstaat doordat de flow vroeg afneemt omdat de kleine luchtwegen al instorten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Obstructief patroon (COPD)",
+          "desc": "FEV1/FVC <0,70 na bronchodilatatie, concave expiratoire curve. Bij roker: COPD. FEV1-daling bepaalt ernst (GOLD-stadia I-IV)."
+        },
+        {
+          "label": "Obstructief patroon (Astma)",
+          "desc": "Ook FEV1/FVC verlaagd, maar reversibel: FEV1 stijgt ≥12% én ≥200 ml na bronchodilatator — onderscheidt astma van COPD."
+        },
+        {
+          "label": "Restrictief patroon (fibrose, obesitas)",
+          "desc": "FVC laag, FEV1/FVC normaal of verhoogd, curve kleiner maar normaal van vorm. TLC <80% bevestigt restrictie."
+        },
+        {
+          "label": "Gemengd patroon",
+          "desc": "Verlaagd FEV1/FVC én verlaagd TLC — obstructie én restrictie tegelijk (bijv. COPD + obesitas)."
+        }
+      ],
+      "wiki_therapie_urgent": "COPD-exacerbatie: SABA (salbutamol) + ipratropium vernevelaar + prednisolon 30 mg oraal + antibiotica bij infectieus.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stabiele COPD",
+          "detail": "Stoppen met roken (meest effectief), SABA/LABA, LAMA (tiotropium), ICS bij recidiverende exacerbaties."
+        },
+        {
+          "naam": "Zuurstof",
+          "detail": "Bij SpO₂ <92%: doseer op target 88-92% bij COPD — te veel O₂ kan hypercapnie verergeren."
+        },
+        {
+          "naam": "Longrevalidatie",
+          "detail": "Bewezen effectief voor kwaliteit van leven en inspanningstolerantie."
+        }
+      ]
+    },
+    {
+      "_i": 222,
+      "q": "Man van 65 jaar, 40 pakjaren roken. Progressieve dyspneu bij inspanning, hoest met sputum. Spirometrie na bronchodilatator: FEV1/FVC 0.62, FEV1 58% predicted. Meest waarschijnlijke diagnose?",
+      "a": [
+        "COPD",
+        "Astma",
+        "Idiopathische pulmonale fibrose",
+        "Bronchiëctasieën"
+      ],
+      "ex": "COPD: postbronchodilatator FEV1/FVC <0.70 bij een roker met passende klachten. Bij astma is er significante reversibiliteit (>12% FEV1-stijging). IPF geeft een restrictief patroon (FVC laag, FEV1/FVC normaal of verhoogd).",
+      "dl": "Pulmonologie",
+      "wiki_kern": "COPD is een chronische, progressieve luchtwegziekte met niet-volledig reversibele obstructie. Twee pathomechanismen: chronische bronchitis (hypersecretie) en emfyseem (alveolaire destructie).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Tabaksrook."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "ontsteking in kleine luchtwegen."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "fibrose en vernauwing + alveolaire destructie."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "verminderde elastische terugkeer."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "air trapping. FEV1/FVC-ratio daalt. GOLD-stadium I-IV op basis van FEV1% predicted."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Astma",
+          "desc": "jongere leeftijd, atopie, variabiliteit, reversibel."
+        },
+        {
+          "label": "IPF",
+          "desc": "restrictief patroon, bibasale crepitaties, trommelstokvingers, honingraatpatroon op HRCT."
+        },
+        {
+          "label": "Bronchiëctasieën",
+          "desc": "dagelijkse purulente sputumproductie, recidiverende infecties."
+        }
+      ],
+      "wiki_therapie_urgent": "Stap 1: SABA (salbutamol) bij klachten.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 2",
+          "detail": "LAMA (tiotropium)."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "LAMA+LABA of LABA+ICS."
+        },
+        {
+          "naam": "Bij exacerbaties",
+          "detail": "prednisolon + antibiotica."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "Stoppen met roken vertraagt het FEV1-verval."
+        }
+      ]
+    },
+    {
+      "_i": 223,
+      "q": "Vrouw van 34 jaar, plotse dyspneu en pleuritische thoraxpijn rechts, polsslag 108/min. D-dimeer 2.1 mg/L, Wells-score 5 punten. Welk onderzoek is nu als eerste geïndiceerd?",
+      "a": [
+        "CT-pulmonalisangiografie",
+        "Thoraxfoto",
+        "V/Q-scintigrafie",
+        "Echo hart"
+      ],
+      "ex": "Bij hoge klinische verdenking (Wells ≥5) is directe CT-PA geïndiceerd. D-dimeer heeft bij hoge pre-test kans geen meerwaarde als uitsluitingstest. CT-PA is de gouden standaard voor de diagnose longembolie.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Longembolie (LE): trombus in de pulmonale circulatie, doorgaans afkomstig uit diepe veneuze trombose. De Wells-score schat de klinische verdenking in.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Trombus."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "verhoogde pulmonale vaatweerstand."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "acuut rechtsventrikeloverbelasting. Kleine emboli: pleuritische pijn door perifeer infarct. Grote emboli: hypotensie, syncope, cardiogene shock."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Pneumothorax",
+          "desc": "ook plotse dyspneu maar hypersonore percussie en afwezig ademgeruis."
+        },
+        {
+          "label": "Pneumonie",
+          "desc": "koorts, productief hoesten, infiltraat op X-thorax."
+        },
+        {
+          "label": "Pericarditis",
+          "desc": "houdingsafhankelijke pijn, wrijfgeruis."
+        }
+      ],
+      "wiki_therapie_urgent": "Anticoagulatie direct: LMWH, daarna DOAC (rivaroxaban of apixaban).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Massieve LE met shock",
+          "detail": "overweeg trombolyse."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Minimaal 3 maanden anticoagulatie."
+        }
+      ]
+    },
+    {
+      "_i": 224,
+      "q": "Man van 22 jaar, acuut ontstane dyspneu en pleuritische pijn links. Percussie: hypersonoor links. Ademgeruis links afwezig. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Spontane pneumothorax",
+        "Longembolie",
+        "Pleuravochtstapeling",
+        "Pneumonie"
+      ],
+      "ex": "Spontane pneumothorax: hypersonore percussie + afwezig ademgeruis ipsilateraal = lucht in de pleurale ruimte. Typisch bij lange, magere jongemannen door ruptuur van subpleurale bullae. Pleuravocht geeft juist demping bij percussie.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Primaire spontane pneumothorax bij jonge magere mannen door ruptuur van subpleurale bullae aan de longapex. Risico op recidief: 30-50% na eerste episode.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Ruptuur bulla."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "lucht in pleurale ruimte."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "long collabiert. Gespannen pneumothorax: ventielwerking."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "mediastinum verschuift contralateraal."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "compressie grote vaten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Pleuravocht",
+          "desc": "demping bij percussie, verminderd ademgeruis."
+        },
+        {
+          "label": "Atelectase",
+          "desc": "demping, trachea devieert ipsilateraal."
+        },
+        {
+          "label": "Pneumonie",
+          "desc": "koorts, bronchiaal ademen, crepitaties."
+        }
+      ],
+      "wiki_therapie_urgent": "Klein en stabiel: observatie + zuurstof (versnelt resorptie).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Symptomatisch",
+          "detail": "aspiratie of drainslang."
+        },
+        {
+          "naam": "Gespannen pneumothorax",
+          "detail": "directe naalddécompressie 2e ICS midclaviculaire lijn zonder wachten op X-thorax."
+        }
+      ]
+    },
+    {
+      "_i": 225,
+      "q": "Welk mechanisme verklaart de bronchodilaterende werking van tiotropium bij COPD?",
+      "a": [
+        "Blokkade van de M3-muscarinereceptor in de bronchiaalwand",
+        "Beta-2-receptoragonisme in gladde bronchiaalspiercellen",
+        "Remming van fosfodiësterase-4 → cAMP-stijging",
+        "Remming van leukotrieensynthese via 5-lipoxygenase"
+      ],
+      "ex": "Tiotropium is een LAMA (Long-Acting Muscarinic Antagonist). Het blokkeert de M3-receptor → relaxatie gladde bronchiaalspiercellen → bronchodilatatie. Eenmalige dosering per dag, werking 24 uur.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Acetylcholine via de M3-receptor veroorzaakt bronchoconstrictie en mucusproductie. LAMA's blokkeren dit → bronchodilatatie en minder secretie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "LAMA-werking",
+          "desc": "Blokkeert M3-receptor in bronchiaalspiercellen → relaxatie → bronchodilatatie. Verbetert FEV1, vermindert hyperinflatie en exacerbatiefrequentie."
+        },
+        {
+          "title": "Bijwerkingen",
+          "desc": "Droge mond, urineretentie (cave: prostaatproblematiek), constipatie, smalle-kamerhoekglaucoom."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "SABA (salbutamol)",
+          "desc": "Beta-2 agonist, snel werkend (5-15 min), rescue-gebruik bij acute dyspneu."
+        },
+        {
+          "label": "LABA (salmeterol/formoterol)",
+          "desc": "Beta-2 agonist, langwerkend (12u), onderhoudsmedicatie — combineer met LAMA bij ernstige COPD."
+        },
+        {
+          "label": "ICS",
+          "desc": "Remt luchtwegontsteking, geen directe bronchodilatatie. Toevoegen bij frequente exacerbaties."
+        }
+      ],
+      "wiki_therapie_urgent": "Acute COPD-exacerbatie: SABA + ipratropium vernevelaars, zuurstof O2-sat 88-92%, corticosteroïden oraal.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Onderhoudstherapie COPD",
+          "detail": "LAMA (tiotropium) als eerste keus monotherapie bij stabiele COPD. Bij aanhoudende dyspneu: LAMA + LABA combinatie."
+        },
+        {
+          "naam": "Ernstige COPD (FEV1<50%)",
+          "detail": "Drievoudige therapie: LAMA + LABA + ICS — vermindert exacerbatiefrequentie significant."
+        },
+        {
+          "naam": "Stoppen met roken",
+          "detail": "Enige interventie die FEV1-daling vertraagt. Altijd combineren met farmacologische behandeling."
+        }
+      ]
+    },
+    {
+      "_i": 226,
+      "q": "Welk antibioticum is eerste keus bij een ambulante community-acquired pneumonie (CAP) zonder comorbiditeiten bij een volwassene?",
+      "a": [
+        "Amoxicilline oraal",
+        "Ciprofloxacine oraal",
+        "Azitromycine monotherapie",
+        "Ceftriaxon intraveneus"
+      ],
+      "ex": "Ambulante CAP zonder comorbiditeiten: amoxicilline 500 mg 3×/dag. Streptococcus pneumoniae is de meest frequente verwekker en is goed gevoelig voor amoxicilline. Ciprofloxacine dekt S. pneumoniae slecht en is geen standaard keus voor CAP.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "S. pneumoniae veroorzaakt 30-40% van alle CAP-gevallen. Amoxicilline heeft uitstekende pneumokokkendekking en is eerste keus bij ambulante CAP zonder comorbiditeiten.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "CURB-65",
+          "desc": "Bepaalt ernst en opnamebeleid: Confusion, Ureum >7 mmol/L, Respiratory rate ≥30, Blood pressure <90 mmHg systolisch, leeftijd ≥65."
+        },
+        {
+          "title": "Score 0-1",
+          "desc": "Ambulant behandelen — amoxicilline 500 mg 3×/dag 5 dagen."
+        },
+        {
+          "title": "Score ≥3",
+          "desc": "Ziekenhuisopname + IV antibiotica (amoxicilline/clavulaanzuur of ceftriaxon + macrolide)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Amoxicilline (eerste keus)",
+          "desc": "Uitstekende pneumokokkendekking, oraal, goedkoop. Ambulante CAP zonder comorbiditeiten."
+        },
+        {
+          "label": "Ciprofloxacine",
+          "desc": "Slecht werkzaam tegen S. pneumoniae — NIET als monotherapie voor CAP."
+        },
+        {
+          "label": "Levofloxacine",
+          "desc": "Effectief, maar hogere bijwerkingendrempel (peesruptuur, QT-verlenging). Reserveren voor complicaties."
+        }
+      ],
+      "wiki_therapie_urgent": "Start antibiotica binnen 4 uur na diagnose — vertraagde start verhoogt mortaliteit.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Ambulant CURB-65 0-1",
+          "detail": "Amoxicilline 500 mg 3×/dag 5 dagen."
+        },
+        {
+          "naam": "Opname CURB-65 2",
+          "detail": "Amoxicilline 4×/dag IV of co-amoxiclav oraal, overweeg macrolide toevoegen bij verdenking atypische verwekker."
+        },
+        {
+          "naam": "IC CURB-65 ≥3",
+          "detail": "Piperacilline/tazobactam IV + macrolide of levofloxacine. Laat Legionella-urine-antigeen testen."
+        }
+      ]
+    },
+    {
+      "_i": 227,
+      "q": "Vrouw van 58 jaar, nooit gerookt. Maandenlange droge hoest en progressieve dyspneu. Bibasale eind-inspiratoire crepitaties en trommelstokvingers. HRCT: honingraatpatroon bibasaal. Diagnose?",
+      "a": [
+        "Idiopathische pulmonale fibrose",
+        "COPD",
+        "Sarcoidose",
+        "Extrinsische allergische alveolitis"
+      ],
+      "ex": "IPF: progressieve fibrosering bij ouderen (nooit gerookt), bibasale crepitaties, trommelstokvingers en honingraatpatroon (UIP-patroon) op HRCT. Sarcoidose geeft eerder hilaire lymfadenopathie bij jongere patiënten.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "IPF is een chronisch fibroserende interstitiële longziekte met slechte prognose (mediane overleving 3-5 jaar). UIP-patroon op HRCT (honingraat + traktionsbronchiëctasieën bibasaal) is bewijzend zonder biopt bij klassieke presentatie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Herhaald micro-trauma aan het alveolair epitheel."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "abnormale wondheling."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "fibroblasten activatie."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "collageen depositie."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "verlies van gaswisselend oppervlak. Restrictief longfunctiepatroon: FVC verlaagd, FEV1/FVC normaal, DLCO verlaagd."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "EAA (extrinsische allergische alveolitis)",
+          "desc": "anamnese antigene blootstelling (vogels, schimmels), jonger, deels reversibel."
+        },
+        {
+          "label": "Sarcoidose",
+          "desc": "bilaterale hilaire lymfadenopathie, granulomen."
+        },
+        {
+          "label": "NSIP",
+          "desc": "jongere vrouwen, minder honingraat, betere prognose."
+        }
+      ],
+      "wiki_therapie_urgent": "Pirfenidon en nintedanib vertragen FVC-achteruitgang.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Geen corticosteroïden bij IPF."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Longtransplantatie bij geschikte patiënten."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Vroegtijdige palliatieve zorg en zuurstof bij hypoxemie."
+        }
+      ]
+    },
+    {
+      "_i": 228,
+      "q": "Jonge man van 28 jaar. Bilaterale hilaire lymfadenopathie op thoraxfoto, erythema nodosum aan de benen, gewrichtspijn. Geen koorts. Diagnose?",
+      "a": [
+        "Sarcoidose (Löfgren-syndroom)",
+        "Tuberculose",
+        "Non-Hodgkin lymfoom",
+        "Mycoplasma-pneumonie"
+      ],
+      "ex": "Löfgren-syndroom: de klassieke triade van bilaterale hilaire lymfadenopathie + erythema nodosum + gewrichtspijnen is pathognomonisch voor acute sarcoidose. Prognose uitstekend: >80% spontane remissie.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Sarcoidose is een multisysteemziekte met niet-verkazende granulomen. Löfgren-syndroom is de acute presentatievorm, typisch bij vrouwen in de vruchtbare leeftijd en Noord-Europese mannen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Onbekende trigger."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "CD4+ T-helper cel activatie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "granulooomvorming. Verhoogd serum-ACE en hypercalciëmie (door 1,25-OH-vitamine D-productie in granulomen) zijn suggestief maar niet specifiek."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Tuberculose",
+          "desc": "ook hilaire klieren maar asymmetrisch, koorts, nachtzweten, gewichtsverlies, positieve Quantiferon."
+        },
+        {
+          "label": "Lymfoom",
+          "desc": "asymmetrisch, B-symptomen."
+        },
+        {
+          "label": "Berylliose",
+          "desc": "beroepsblootstelling beryllium."
+        }
+      ],
+      "wiki_therapie_urgent": "Löfgren: NSAID voor gewrichtsklachten, expectatief beleid gezien goede prognose.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Ernstige of persisterende sarcoidose",
+          "detail": "prednison."
+        },
+        {
+          "naam": "Chronisch",
+          "detail": "methotrexaat of hydroxychloroquine als steroïdsparend middel."
+        }
+      ]
+    },
+    {
+      "_i": 229,
+      "q": "Patiënt met HIV (CD4+ 55 cellen/μL), koorts, droge hoest en progressieve dyspneu over 2 weken. Saturatie 88%. X-thorax: bilaterale vlindervormige infiltraten. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Pneumocystis jirovecii pneumonie (PCP)",
+        "Bacteriële pneumonie",
+        "Tuberculose",
+        "CMV-pneumonitis"
+      ],
+      "ex": "PCP treedt op bij ernstige immunosuppressie (CD4+ <200/μL). Klassiek: subacuut beloop, droge hoest, progressieve dyspneu, lage saturatie, bilaterale vlindervormige infiltraten. LDH verhoogd. Behandeling: cotrimoxazol (TMP-SMX).",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Pneumocystis jirovecii is een schimmel die bij immuuncompetente personen latent aanwezig is. Bij CD4+ <200/μL: risico op ernstige pneumonie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "P. jirovecii infecteert alveoli."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "trofozoïten vullen alveolaire ruimte."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "belemmerde gaswisseling."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "hypoxemie. Verhoogd LDH is een marker van longparenchymschade."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "TB bij HIV",
+          "desc": "koorts, nachtelijk zweten, gewichtsverlies, cavernes of miliaire afwijkingen."
+        },
+        {
+          "label": "CMV-pneumonitis",
+          "desc": "ook bij ernstige HIV."
+        },
+        {
+          "label": "Bacteriële pneumonie",
+          "desc": "acuter, lobair, productief hoesten."
+        }
+      ],
+      "wiki_therapie_urgent": "TMP-SMX (cotrimoxazol) 21 dagen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bij matige/ernstige PCP (PaO2 <70 mmHg)",
+          "detail": "prednisolon toevoegen vermindert mortaliteit."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "ART starten na stabilisatie."
+        }
+      ]
+    },
+    {
+      "_i": 230,
+      "q": "Man van 62 jaar, ernstige pneumonie die niet reageert op amoxicilline. Bilaterale infiltraten op X-thorax. Legionella-urine-antigeen positief. Welk antibioticum is nu eerste keus?",
+      "a": [
+        "Levofloxacine intraveneus",
+        "Amoxicilline intraveneus",
+        "Benzylpenicilline intraveneus",
+        "Cotrimoxazol intraveneus"
+      ],
+      "ex": "Legionella pneumophila is een intracellulaire bacterie. Bètalactam-antibiotica (amoxicilline, penicilline) zijn ineffectief omdat zij de cel niet binnendringen. Eerste keus: fluoroquinolon (levofloxacine) of macrolide (azitromycine), bij voorkeur fluoroquinolon bij ernstige presentatie.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Legionella overleeft in alveolaire macrofagen — standaard bètalactams bereiken de intracellulaire locatie niet. Klassieke trias: hoge koorts + relatieve bradycardie + hyponatriëmie. Bron: besmet water (koeltorens, douchesystemen).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Intracellulaire bacterie",
+          "desc": "Legionella vermenigvuldigt zich in macrofagen → bètalactams (amoxicilline, penicilline) die niet in cellen doordringen zijn ineffectief."
+        },
+        {
+          "title": "Atypisch beeld",
+          "desc": "Verhoogd LDH, leverenzymafwijkingen, nierinsufficiëntie, hyponatriëmie. Bilaterale pneumonie, soms snel progressief."
+        },
+        {
+          "title": "Urine-antigeen",
+          "desc": "Serogroep 1 (80% van gevallen) detecteerbaar in urine — snel en gevoelig. Bij negatief antigeen maar sterke verdenking: kweken op BCYE-agar."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Legionella",
+          "desc": "Hoge koorts, hyponatriëmie, verhoogd LDH, bilateraal. Urine-antigeen positief. Levofloxacine/azitromycine."
+        },
+        {
+          "label": "Mycoplasma",
+          "desc": "Jongere patiënt, mildere loop, koude agglutininen, macrolide gevoelig. Loopt soms op school/kazerne."
+        },
+        {
+          "label": "S. pneumoniae",
+          "desc": "Meest frequent, penicillinegevoelig, geen hyponatriëmie, geen LDH-stijging."
+        }
+      ],
+      "wiki_therapie_urgent": "Levofloxacine 500 mg 2×/dag IV — eerste keus bij ernstige Legionella-pneumonie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Duur",
+          "detail": "10-14 dagen (langer dan standaard CAP — om recidief te voorkomen)."
+        },
+        {
+          "naam": "Alternatief",
+          "detail": "Azitromycine 500 mg 1×/dag IV bij mildere presentatie."
+        },
+        {
+          "naam": "Meldingsplicht",
+          "detail": "Legionella is meldingsplichtig — bron-onderzoek verplicht om verspreiding te stoppen."
+        }
+      ]
+    },
+    {
+      "_i": 231,
+      "q": "Arterieel bloedgas bij COPD-exacerbatie: pH 7.28, pCO2 72 mmHg, pO2 50 mmHg, HCO3- 32 mmol/L. Welke interpretatie is correct?",
+      "a": [
+        "Respiratoire acidose met metabole compensatie",
+        "Respiratoire alkalose met metabole compensatie",
+        "Gemengde metabole en respiratoire acidose",
+        "Metabole alkalose met respiratoire compensatie"
+      ],
+      "ex": "pH verlaagd (7.28) + pCO2 verhoogd (72) = respiratoire acidose als primaire stoornis. HCO3- verhoogd (32) = chronische renale compensatie. Dit is het klassieke acuut-op-chronisch CO2-retentiepatroon bij COPD.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Zuur-base stappenplan: (1) pH laag = acidose. (2) pCO2 hoog = respiratoire oorzaak. (3) HCO3- hoog = chronische renale compensatie. Verwacht HCO3 bij chronische respiratoire acidose: +3,5 mmol per 10 mmHg pCO2-stijging.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Alveolaire hypoventilatie",
+          "desc": "CO2 accumuleert → carboonzuur → pH daalt (respiratoire acidose)."
+        },
+        {
+          "title": "Chronische compensatie",
+          "desc": "Nieren retineren HCO3- om pH te bufferen (dagen). HCO3- +3,5 mmol/10 mmHg pCO2-stijging."
+        },
+        {
+          "title": "Acuut-op-chronisch",
+          "desc": "Patiënt had al verhoogd HCO3- door chronische CO2-retentie. Acute exacerbatie = pH daalt verder terwijl HCO3- al hoog is."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Respiratoire acidose",
+          "desc": "pH laag, pCO2 hoog, HCO3- hoog (compensatoir). Oorzaak: hypoventilatie (COPD, sedatie, neuromusculair)."
+        },
+        {
+          "label": "Metabole acidose",
+          "desc": "pH laag, HCO3- laag, pCO2 laag (compensatoir). Oorzaak: DKA, nierfalen, melkzuuracidose."
+        },
+        {
+          "label": "Respiratoire alkalose",
+          "desc": "pH hoog, pCO2 laag. Oorzaak: hyperventilatie, sepsis, leverinsufficiëntie."
+        }
+      ],
+      "wiki_therapie_urgent": "NIV (non-invasieve beademing) bij pH <7.35 en pCO2 >45 — vermindert intubatiebehoefte en mortaliteit bij COPD-exacerbatie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Zuurstof gecontroleerd",
+          "detail": "O2-saturatie doel 88-92% bij COPD met CO2-retentie. Venturi-masker 24-28% FiO2."
+        },
+        {
+          "naam": "Bronchodilatoren",
+          "detail": "SABA + SAMA vernevelaars. Systemische corticosteroïden (prednisolon 40 mg/dag 5 dagen)."
+        },
+        {
+          "naam": "Antibiotica",
+          "detail": "Bij purulent sputum of koorts: amoxicilline of doxycycline 5 dagen."
+        }
+      ]
+    },
+    {
+      "_i": 232,
+      "q": "Vrouw van 45 jaar, recidiverende luchtweginfecties, dagelijks purulente sputumproductie, chronische hoest. CT-thorax: cilindrisch verwijde luchtwegen bibasaal. Diagnose?",
+      "a": [
+        "Bronchiëctasieën",
+        "COPD",
+        "Astma",
+        "Longfibrose"
+      ],
+      "ex": "Bronchiëctasieën: irreversibele verwijding van de luchtwegen zichtbaar op CT als \"signet ring sign\" (luchtweg groter dan begeleidend vat) en tram-track lijnen. Kenmerk: dagelijkse purulente sputumproductie en recidiverende infecties.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Bronchiëctasieën ontstaan door destructie van de luchtwegwand door chronische infectie en ontsteking → irreversibele verwijding → secretiestase → verdere infectie (vicieuze cirkel). Meest frequente verwekkers: H. influenzae, P. aeruginosa (gevorderd stadium).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "HRCT is de gouden standaard."
+        },
+        {
+          "title": "Oorzaken zoeken",
+          "desc": "CF (sweat chloride test), primaire ciliaire dyskinesie (PCD), immunodeficiëntie (Ig-spiegels), post-tuberculose, post-infectieus."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "In 50% idiopathisch."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "COPD",
+          "desc": "emfyseem + obstructie maar geen cilindrische verwijding op CT."
+        },
+        {
+          "label": "Astma",
+          "desc": "reversibel, geen structurele CT-afwijkingen."
+        },
+        {
+          "label": "CF",
+          "desc": "ook bronchiëctasieën maar met pancreasinsufficiëntie en verhoogd zweet-chloride."
+        }
+      ],
+      "wiki_therapie_urgent": "Airway clearance (PEP, autogene drainage).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Exacerbaties",
+          "detail": "amoxicilline/co-amoxiclav; P. aeruginosa: ciprofloxacine."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Chronisch macrolide (azitromycine 3×/week) bij frequente exacerbaties."
+        }
+      ]
+    },
+    {
+      "_i": 233,
+      "q": "Welk klinisch kenmerk onderscheidt astma het meest betrouwbaar van COPD bij een patiënt met luchtwegobstructie?",
+      "a": [
+        "Significante reversibiliteit na bronchodilatator (FEV1-stijging >12% én >200 mL)",
+        "Piepende ademhaling bij auscultatie",
+        "Leeftijd onder de 40 jaar",
+        "Nachtelijke symptomen en hoest"
+      ],
+      "ex": "Reversibiliteit is het fysiologische sleutelcriterium: bij astma normaliseert of verbetert de FEV1 significant na salbutamol (>12% én >200 mL). Bij COPD is de obstructie per definitie niet volledig reversibel. Piepende ademhaling en nachtelijke klachten kunnen bij beide voorkomen.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Het centrale onderscheid tussen astma en COPD is reversibiliteit. Astma: FEV1 stijgt >12% én >200 mL na bronchodilatator. COPD: persistente obstructie (FEV1/FVC <0,70 postbronchodilatator).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Astma",
+          "desc": "Eosinofiele ontsteking, IgE-gemedieerd of niet-atopisch, intermitterend. Luchtwegoverreactiviteit. Reversibel."
+        },
+        {
+          "title": "COPD",
+          "desc": "Neutrofiele ontsteking, tabaksrook, emfyseem + chronische bronchitis. Persistent progressief. Irreversibel."
+        },
+        {
+          "title": "ACOS",
+          "desc": "Overlap bij rokers met atopie — kenmerken van beide. Behandel beide componenten."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Astma",
+          "desc": "Jong, atopie, reversibiliteit na salbutamol, FeNO verhoogd, nachtelijke klachten, geen rookgeschiedenis."
+        },
+        {
+          "label": "COPD",
+          "desc": "Roker >10 pakjaar, >40j, persistente obstructie, emfyseem op CT, geen significante reversibiliteit."
+        },
+        {
+          "label": "ACOS",
+          "desc": "Roker mét atopie, deels reversibel. Beide behandelen: ICS + LABA + LAMA."
+        }
+      ],
+      "wiki_therapie_urgent": "Acute astma-aanval: SABA (salbutamol) herhaald + O2 + systemisch prednisolon.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Astma stappenschema",
+          "detail": "Stap 1: SABA rescue. Stap 2: laagdosis ICS. Stap 3: ICS + LABA. Stap 4: hoge ICS + LABA ± LAMA. Stap 5: add-on biologicals (omalizumab, mepolizumab)."
+        },
+        {
+          "naam": "COPD GOLD-stadia",
+          "detail": "GOLD A: LAMA of LABA. GOLD B: LAMA + LABA. Frequent exacerbaties: +ICS of macrolide."
+        }
+      ]
+    },
+    {
+      "_i": 234,
+      "q": "Wat is de meest frequente oorzaak van chronisch hoesten (>8 weken) bij een niet-rokende volwassene zonder afwijkingen op X-thorax?",
+      "a": [
+        "Postnasal drip (upper airway cough syndrome)",
+        "COPD",
+        "Longcarcinoom",
+        "Bronchiëctasieën"
+      ],
+      "ex": "De \"big three\" oorzaken van chronisch hoesten: (1) postnasal drip/UACS (~40%), (2) cough-variant astma (~25%), (3) GERD (~20%). Postnasal drip is de meest frequente oorzaak. Altijd ook ACE-remmer als iatrogene oorzaak uitsluiten.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "De \"big three\" oorzaken van chronisch hoesten bij niet-rokers: (1) postnasal drip/UACS (~40%), (2) cough-variant astma (~25%), (3) GERD (~20%). Altijd ACE-remmers uitsluiten als iatrogene oorzaak.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Postnasal drip (UACS)",
+          "desc": "Neussecretie druppelt naar keelholte → prikkeling hoestreflex. Behandel rhinitis/sinusitis."
+        },
+        {
+          "title": "Cough-variant astma",
+          "desc": "Hoest als enige symptoom, geen dyspneu. Bevestig met bronchoprovocatietest (methacholine)."
+        },
+        {
+          "title": "ACE-remmerhoest",
+          "desc": "Bradykinine-accumulatie → hoestreflex bij 5-20% gebruikers. Stop ACE-remmer → hoest verdwijnt 4-8 weken."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Postnasal drip",
+          "desc": "Gevoel van druppelen achter keel, snuiten, allergiegeschiedenis. Behandel met antihistaminica + nasale steroïden."
+        },
+        {
+          "label": "ACE-remmerhoest",
+          "desc": "Droge hoest, begon na start ACE-remmer. Stop medicatie → hoest verdwijnt. Vervang door ARB."
+        },
+        {
+          "label": "Longcarcinoom",
+          "desc": "Roker, ouder, haemoptoë, gewichtsverlies — altijd uitsluiten! X-thorax/CT verplicht."
+        },
+        {
+          "label": "GERD",
+          "desc": "Hoest erger na maaltijd of liggend. Geen brandend maagzuur noodzakelijk (\"silent reflux\")."
+        }
+      ],
+      "wiki_therapie_urgent": "ACE-remmer stoppen als medicamenteuze oorzaak — vervanging door ARB (geen bradykinine-effect).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Postnasal drip",
+          "detail": "Nasale steroïden (mometason) + non-sederende antihistaminica. Ophogen bij persisterend."
+        },
+        {
+          "naam": "Cough-variant astma",
+          "detail": "ICS proefbehandeling 4-6 weken. Positief antwoord bevestigt diagnose."
+        },
+        {
+          "naam": "GERD",
+          "detail": "PPI 2×/dag 8 weken proefbehandeling. Geen maaltijden laat, hoofdeinde bed omhoog."
+        }
+      ]
+    },
+    {
+      "_i": 235,
+      "q": "Bij een COPD-patiënt met chronische CO2-retentie moet bij een exacerbatie altijd 100% zuurstof worden gegeven om de saturatie zo snel mogelijk te normaliseren.",
+      "a": null,
+      "ex": "NIET WAAR. COPD-patiënten met chronische hypercapnie rijden deels op hypoxische ademhalingsaandrijving. Hoge zuurstofconcentraties kunnen de ademprikkel verminderen → CO2-retentie verergert. Target SpO2: 88-92% (Venturi-masker 24-28%).",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Bij chronische hypercapnie raken centrale chemoceptoren gedesensibiliseerd voor CO2. 100% zuurstof bij COPD met CO2-retentie vermindert hypoxische ademprikkel → hypoventilatie → pCO2 stijgt verder. Doel: SpO2 88-92%.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Hypoxische drive",
+          "desc": "Perifere (carotis)chemoceptoren reageren op O2 — bij hoog FiO2 vermindert dit signaal → verminderde ademprikkel → hypoventilatie."
+        },
+        {
+          "title": "Haldane-effect",
+          "desc": "Zuurstof verdringt CO2 van hemoglobine → vrij CO2 stijgt in bloed. Bijdragend aan CO2-retentie bij hoge FiO2."
+        },
+        {
+          "title": "Venturi-masker",
+          "desc": "Levert nauwkeurig 24-28% O2 onafhankelijk van ademfrequentie — geschikt voor gecontroleerde zuurstoftherapie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "COPD met chronische hypercapnie",
+          "desc": "Doel SpO2 88-92%. Venturi-masker 24-28%. Monitor pCO2 via bloedgas."
+        },
+        {
+          "label": "Andere patiënten (geen CO2-retentie)",
+          "desc": "Normaliseer saturatie >94%. Geen gevaar van CO2-retentie bij acuut zuurstofgebruik."
+        },
+        {
+          "label": "NIV"
+        }
+      ],
+      "wiki_therapie_urgent": "Gecontroleerde O2 via Venturi-masker 24-28% — SpO2-doel 88-92%. Bloedgas na 30-60 min herhalen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "NIV bij acidose",
+          "detail": "pH <7.35 + pCO2 >45: non-invasieve beademing (BIPAP) — vermindert intubatiebehoefte bij COPD-exacerbatie."
+        },
+        {
+          "naam": "Vermijd hoge O2",
+          "detail": "Geen non-rebreather masker bij chronische CO2-retentie — risico op hypoventilatiespiraal."
+        }
+      ]
+    },
+    {
+      "_i": 236,
+      "q": "Een negatieve D-dimeer sluit een longembolie uit bij een patiënt met een hoge klinische verdenking (Wells-score ≥7).",
+      "a": null,
+      "ex": "NIET WAAR. D-dimeer is een uitsluitingstest die alleen bruikbaar is bij lage of intermediaire klinische verdenking. Bij hoge verdenking (Wells ≥7) is de prevalentie van LE hoog — direct CT-pulmonalisangiografie uitvoeren, D-dimeer niet afnemen.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "D-dimeer heeft een hoge sensitiviteit maar lage specificiteit — bruikbaar alleen bij lage of intermediaire klinische verdenking. Wells ≥7 = directe CT-PA, D-dimeer weglaten. Negatieve D-dimeer bij lage verdenking heeft NPV >99%.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Bayesiaanse redenering",
+          "desc": "Bij hoge pre-test kans (Wells ≥7) is prevalentie van LE hoog. Een matig sensitieve test zoals D-dimeer kan de diagnose dan NIET uitsluiten."
+        },
+        {
+          "title": "Wells-score algoritme",
+          "desc": "Score <2: PERC-regel toepassen of D-dimeer. Score 2-6: D-dimeer. Score ≥7: direct CT-PA."
+        },
+        {
+          "title": "D-dimeer verhoogd bij",
+          "desc": "Infectie, trauma, kanker, zwangerschap, hoge leeftijd, postoperatief — lage specificiteit maakt het onbruikbaar als bevestigingstest."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "CT-PA",
+          "desc": "Gouden standaard bij hoge of intermediaire Wells-score — toont lokalisatie, uitgebreidheid en alternatieven (pneumonie, pericard)."
+        },
+        {
+          "label": "V/Q-scintigrafie",
+          "desc": "Alternatief bij contrastovergevoeligheid (allergie), nierfalen of zwangerschap (minder straling)."
+        },
+        {
+          "label": "Echo onderste extremiteiten",
+          "desc": "Aanvullend bij DVT-vermoeden. Positieve DVT + klinische verdenking LE = behandel zonder CT."
+        }
+      ],
+      "wiki_therapie_urgent": "Hoge Wells + hemodynamisch instabiel: systemische trombolyse (alteplase) of katheter-embolectomie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Anticoagulantia",
+          "detail": "LMWH (enoxaparine) SC als overbrugging. Start DOAC (apixaban 10 mg 2×/dag 7 dagen, daarna 5 mg 2×/dag) — eenvoudiger dan VKA."
+        },
+        {
+          "naam": "Duur behandeling",
+          "detail": "3 maanden bij uitgelokte LE (chirurgie). 6 maanden bij idiopathisch. Levenslang bij recidief of maligniteit."
+        }
+      ]
+    },
+    {
+      "_i": 237,
+      "q": "Astma wordt gekenmerkt door irreversibele luchtwegobstructie die niet reageert op bronchodilatatoren.",
+      "a": null,
+      "ex": "NIET WAAR. Astma is per definitie een reversibele luchtwegobstructie. Een FEV1-stijging >12% én >200 mL na bronchodilatator is kenmerkend. Irreversibele obstructie is het onderscheidende kenmerk van COPD.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Astma is per definitie reversibele luchtwegobstructie. Reversibiliteitstesting: FEV1 stijgt >12% én >200 mL na salbutamol. COPD: persistente obstructie ook na bronchodilatator (FEV1/FVC <0,70).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Reversibiliteitstest",
+          "desc": "FEV1 meten vóór en 15 min na salbutamol 400 mcg. Stijging >12% én >200 mL = significante reversibiliteit → astma."
+        },
+        {
+          "title": "Remodelling",
+          "desc": "Langdurig niet-behandeld astma kan door structurele luchtwegverandering gedeeltelijk irreversibel worden. Vroeg behandelen voorkomt dit."
+        },
+        {
+          "title": "PEF-variabiliteit",
+          "desc": "Dagelijkse PEF-meting >20% variatie over 2 weken bevestigt astma — eenvoudig diagnostisch hulpmiddel."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Astma",
+          "desc": "Reversibel, FEV1 normaal tussen aanvallen, atopie, jong, FeNO verhoogd."
+        },
+        {
+          "label": "COPD",
+          "desc": "FEV1/FVC <0,70 persistent ondanks bronchodilatator. Progressief, roker, ouder."
+        },
+        {
+          "label": "Vocal cord dysfunction (VCD)",
+          "desc": "Inspiratoire stridor, variabel, normale spirometrie buiten aanval. Behandeling: spraaktherapie."
+        }
+      ],
+      "wiki_therapie_urgent": "Ernstige astma-aanval: salbutamol vernevelaar elke 20 min + ipratropium + prednisolon 40 mg + O2.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Intermitterend (stap 1)",
+          "detail": "SABA on demand. Geen onderhoudstherapie nodig."
+        },
+        {
+          "naam": "Mild persistent (stap 2)",
+          "detail": "Laagdosis ICS dagelijks + SABA rescue."
+        },
+        {
+          "naam": "Matig-ernstig (stap 3-4)",
+          "detail": "ICS + LABA combinatie. Bij onvoldoende controle: hoge ICS + LAMA toevoegen."
+        }
+      ]
+    },
+    {
+      "_i": 238,
+      "q": "Pleuravocht bij een patiënt met hartfalen voldoet aan de Light-criteria voor een exsudaat.",
+      "a": null,
+      "ex": "NIET WAAR. Hartfalen geeft een transsudaat: hydrostatische drukverhoging → eiwitarm vocht. Light-criteria voor exsudaat: vocht/serum-eiwit >0.5, of LDH-ratio >0.6, of LDH >2/3 van upper limit normaal. Hartfalen voldoet aan geen van deze criteria.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Pleuravocht classificatie met Light-criteria: exsudaat als vocht/serum-eiwit >0,5, LDH-ratio >0,6, of LDH >2/3 bovengrens normaal. Hartfalen geeft een transsudaat — voldoet niet aan Light-criteria.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Transsudaat-mechanisme",
+          "desc": "Hartfalen → verhoogde pulmonale capillairdruk → eiwitarm vocht lekt in pleuraholte. Lage eiwitconcentratie → Light-criteria negatief."
+        },
+        {
+          "title": "Pseudo-exsudaat",
+          "desc": "Na diuretica voor hartfalen: vocht wordt geconcentreerd → Light-criteria kunnen positief worden (pseudo-exsudaat). Gebruik albumine-gradiënt: serum-pleura albumine >1,2 g/dL → toch hartfalen."
+        },
+        {
+          "title": "Exsudaat-oorzaken",
+          "desc": "Pneumonie, maligniteit, tuberculose, longembolie (verhoogde vasculaire permeabiliteit)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Hartfalen (transsudaat)",
+          "desc": "Light-criteria negatief, bilateraal, reageert op diuretica. Cave pseudo-exsudaat."
+        },
+        {
+          "label": "Tuberculose (exsudaat)",
+          "desc": "Lymfocytose, hoog ADA (>40 U/L), eenzijdig, jonge patiënt. ADA-test is snel en goedkoop."
+        },
+        {
+          "label": "Maligniteit (exsudaat)",
+          "desc": "Bloederig, cytologie positief, hoog LDH. Eenzijdig, gewichtsverlies, roken."
+        },
+        {
+          "label": "Chylothorax",
+          "desc": "Triglycerides >1,24 mmol/L in pleuravocht — chijleuze ductus beschadigd (trauma, lymfoom)."
+        }
+      ],
+      "wiki_therapie_urgent": "Grote effusie met dyspneu: therapeutische thoracentese (drainage 1-1,5 L max per sessie).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Hartfalen",
+          "detail": "Diuretica (furosemide). Hartfalen optimaliseren — effusie verdwijnt als hartfalen herstelt."
+        },
+        {
+          "naam": "Parapneumonisch",
+          "detail": "Antibiotica voor pneumonie. Bij gelocaliseerd exsudaat met laag pH (<7.20): drainage via thoraxdrain."
+        },
+        {
+          "naam": "Maligne effusie",
+          "detail": "Herhaalde thoracentese of pleurodese (talcpoeder) voor palliatieve drainage."
+        }
+      ]
+    },
+    {
+      "_i": 239,
+      "q": "Longcarcinoom is wereldwijd de meest voorkomende oorzaak van kankersterfte bij zowel mannen als vrouwen.",
+      "a": null,
+      "ex": "WAAR. Longcarcinoom is de voornaamste oorzaak van kankersterfte wereldwijd bij mannen én vrouwen. De 5-jaarsoverleving is <20% door laattijdige diagnose: 75% presenteert zich met gevorderd stadium.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Longcarcinoom: NSCLC (85%) versus SCLC (15%). NSCLC: adenocarcinoom (ook niet-rokers, EGFR-mutaties), plaveiselcel (rokers, centraal). SCLC: bijna uitsluitend rokers, snel groeiend, vroeg metastaserend, paraneoplastische syndromen.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Adenocarcinoom",
+          "desc": "Perifeer, ook bij niet-rokers (Aziatische vrouwen: EGFR-mutaties bij 40-60%). Gerichte therapie: erlotinib, gefitinib, osimertinib."
+        },
+        {
+          "title": "Plaveiselcelcarcinoom",
+          "desc": "Centraal, sterk gerelateerd aan roken, hemoptoë. Cavitaties mogelijk. Squamous cell carcinoma marker."
+        },
+        {
+          "title": "SCLC",
+          "desc": "Snel groeiend, vroeg metastaserend. Paraneoplastische syndromen: SIADH, ectopisch ACTH (Cushing), Eaton-Lambert."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "NSCLC (adenocarcinoom)",
+          "desc": "Perifeer, vroeg stadium chirurgie. EGFR-mutatie: TKI. PD-L1 positief: immunotherapie (pembrolizumab)."
+        },
+        {
+          "label": "SCLC",
+          "desc": "Chemotherapie + radiotherapie. Chirurgie zelden mogelijk. Snel recidief. Paraneoplastische syndromen."
+        },
+        {
+          "label": "Metastasen",
+          "desc": "Longmetastasen van andere primaire tumor (borst, colon, nieren) — CT/PET ter onderscheid."
+        }
+      ],
+      "wiki_therapie_urgent": "Hemoptyse bij longcarcinoom: CT-angiografie, eventueel bronchiale arterieëmbolisatie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stadium I-II NSCLC",
+          "detail": "Chirurgische resectie (lobectomie) — curatief. Adjuvante chemotherapie bij positieve klieren."
+        },
+        {
+          "naam": "Stadium III-IV NSCLC",
+          "detail": "Mutatie-testen: EGFR, ALK, ROS1, PD-L1. Gerichte therapie of immunotherapie + chemotherapie."
+        },
+        {
+          "naam": "Screening",
+          "detail": "Lage-dosis CT bij rokers >20 pakjaar en leeftijd 50-80j — vermindert mortaliteit 20% (NLST-studie)."
+        }
+      ]
+    },
+    {
+      "_i": 240,
+      "q": "Bij welke patiënt is spirometrie het meest geëigende eerstelijns diagnostische onderzoek?",
+      "a": [
+        "55-jarige roker met progressieve dyspneu bij inspanning en hoest",
+        "22-jarige met acute pleuritische pijn en dyspneu",
+        "Patiënt met hoge koorts, productieve hoest en lobair infiltraat",
+        "Patiënt met hemodynamische instabiliteit en tachycardie 120/min"
+      ],
+      "ex": "Spirometrie is het diagnostisch instrument voor chronische luchtwegziekten (COPD, astma) bij patiënten met chronische klachten. Bij acute presentaties (pneumothorax, longembolie, pneumonie) zijn andere onderzoeken prioritair. Spirometrie is niet nuttig in de acute setting.",
+      "dl": "Pulmonologie",
+      "wiki_kern": "Spirometrie is het diagnostische instrument voor chronische luchtwegobstructie. COPD-diagnose vereist postbronchodilatator FEV1/FVC <0,70. Astma: reversibiliteitstest >12% én >200 mL. Niet nuttig in acute setting.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Obstructief patroon",
+          "desc": "FEV1/FVC <0,70 postbronchodilatator = COPD. FEV1 verlaagd, FVC normaal of licht verlaagd."
+        },
+        {
+          "title": "Restrictief patroon",
+          "desc": "FVC verlaagd, FEV1/FVC normaal of verhoogd. Oorzaken: pulmonale fibrose, obesitas, pleuravocht, neuromusculaire aandoening."
+        },
+        {
+          "title": "COPD GOLD-stadiëring",
+          "desc": "Gebaseerd op FEV1 na bronchodilatator: GOLD 1 FEV1 ≥80%, GOLD 2 50-80%, GOLD 3 30-50%, GOLD 4 <30%."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Spirometrie",
+          "desc": "Chronische klachten, vermoeden COPD/astma, preoperatief. Niet voor acute ziektebeelden."
+        },
+        {
+          "label": "X-thorax",
+          "desc": "Acute presentatie, structuurafwijkingen, cardiomegalie. Eerste stap bij acuut."
+        },
+        {
+          "label": "CT-PA",
+          "desc": "Verdenking longembolie, emfyseem-evaluatie, maligniteit."
+        },
+        {
+          "label": "Bloedgas",
+          "desc": "Acuut zuur-base-probleem, oxygenatie, CO2-retentie. Aanvullend op spirometrie bij ernstige COPD."
+        }
+      ],
+      "wiki_therapie_urgent": "Spirometrie is diagnostisch — geen directe therapeutische implicatie anders dan diagnose stellen.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Na COPD-diagnose",
+          "detail": "Start LAMA of LABA monotherapie. Stoppen met roken als prioriteit. Longrevalidatie."
+        },
+        {
+          "naam": "Na astma-diagnose",
+          "detail": "ICS als onderhoudstherapie. Reversibiliteitstest herhalen na 4-6 weken behandeling."
+        },
+        {
+          "naam": "Preoperatief",
+          "detail": "FEV1 <1L: verhoogd perioperatief risico. FEV1 <0,8L: hoog risico → anesthesiologisch overleg."
+        }
+      ]
+    },
+    {
+      "_i": 241,
+      "q": "Man van 55 jaar, 4 weken melena, gebruik van ibuprofen al 2 maanden. Hemoglobine 7.4 g/dL. Meest waarschijnlijke oorzaak?",
+      "a": [
+        "NSAID-geïnduceerd maagulcus",
+        "Colorectaal carcinoom",
+        "Oesofagusvarices",
+        "Diverticulose colon"
+      ],
+      "ex": "NSAID-gebruik is de meest frequente iatrogene oorzaak van bovenste GI-bloedingen. NSAIDs remmen COX-1 → verminderde prostaglandinesynthese → verzwakte maagslijmvliesbarrière → ulcusvorming. Melena = bloed uit bovenste GI-tractus.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Melena (zwarte teerachtige ontlasting) ontstaat door oxidatie van hemoglobine in de darm, wat aangeeft dat de bloedingsbron zich boven het colon transversum bevindt. Maagulcera en duodenumulcera zijn samen de meest voorkomende oorzaak van bovenste GI-bloeding.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "NSAIDs: remming COX-1."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "prostaglandin E2-synthese daalt."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "maagslijmvlies wordt niet beschermd (minder mucus en bicarbonaat, verminderde doorbloeding). Risicofactoren voor NSAID-ulcus: leeftijd >65j, H. pylori co-infectie, hoge NSAID-dosis, gelijktijdig corticosteroïdgebruik."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Colorectaal carcinoom",
+          "desc": "eerder rood bloed bij de ontlasting of occult bloedverlies + gewichtsverlies."
+        },
+        {
+          "label": "Oesofagusvarices",
+          "desc": "bij levercirrose, plotse hematemese."
+        },
+        {
+          "label": "Diverticulose",
+          "desc": "lager GI, eerder helder rood bloed, geen melena."
+        }
+      ],
+      "wiki_therapie_urgent": "Stop NSAID.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "PPI IV (esomeprazol of pantoprazol)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Spoed-endoscopie binnen 24u."
+        },
+        {
+          "naam": "Bij actieve bloeding",
+          "detail": "endoscopische hemostase (clips, coagulatie)."
+        },
+        {
+          "naam": "Stap 4",
+          "detail": "H. pylori-eradicatie indien aangetoond."
+        }
+      ]
+    },
+    {
+      "_i": 242,
+      "q": "Vrouw van 28 jaar, bloederige diarree >6 weken, buikkrampen, gewichtsverlies. Colonoscopie: continue ontsteking van rectum proximaal uitbreidend, geen skip-lesions. Diagnose?",
+      "a": [
+        "Colitis ulcerosa",
+        "Ziekte van Crohn",
+        "Infectieuze colitis",
+        "Ischemische colitis"
+      ],
+      "ex": "Colitis ulcerosa: continue ontsteking starting in het rectum, proximaal uitbreidend, geen skip-lesions, alleen mucosa aangedaan. Crohn: discontinue ontsteking (skip-lesions), transmurale ontsteking, kan overal in de darm voorkomen.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "IBD: chronische immuungemedieerde darmontstekingen. CU beperkt zich tot de mucosa van het colon, altijd met rectumbetrokkenheid.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "CU",
+          "desc": "mucosal ulceraties, cryptabcessen, pseudopoliepen."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Risico op colorectaal carcinoom na 8-10 jaar actieve CU → surveillance colonoscopie."
+        },
+        {
+          "title": "Crohn",
+          "desc": "slijmvliesafwijkingen, fistels, stenosen, perianale ziekte."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Infectieuze colitis",
+          "desc": "acuut beloop, kweek positief (Campylobacter, Salmonella, C. diff)."
+        },
+        {
+          "label": "Ischemische colitis",
+          "desc": "ouderen, vasculaire risicofactoren, splenic flexure-verdeling."
+        },
+        {
+          "label": "Microscopische colitis",
+          "desc": "waterige diarree, normaal colonoscopiebeeld."
+        }
+      ],
+      "wiki_therapie_urgent": "CU remissie-inductie: 5-ASA (mesalazine) voor milde/matige ziekte; corticosteroïden bij matig/ernstig beloop.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Onderhoud",
+          "detail": "5-ASA."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Biologicals (infliximab, vedolizumab) bij therapieresistentie."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Chirurgie (colectomie) bij ernstige of therapieresistente CU."
+        }
+      ]
+    },
+    {
+      "_i": 243,
+      "q": "Man van 45 jaar, acute epigastrische pijn uitstralend naar de rug, misselijkheid, braken. Amylase 850 U/L (normaal <100). Meest waarschijnlijke oorzaak?",
+      "a": [
+        "Acute pancreatitis door galstenen of alcohol",
+        "Maagperforatie",
+        "Mesenteriale ischemie",
+        "Aortadissectie"
+      ],
+      "ex": "Acute pancreatitis: verhoogd amylase >3× normaal bij epigastrische pijn uitstralend naar de rug. Meest voorkomende oorzaken: galstenen (45%) en alcohol (35%). Diagnose bij ≥2 van de 3 criteria: typische pijn, amylase/lipase >3×normaal, beeldvorming.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Amylase en lipase stijgen bij pancreatitis. Lipase is specifieker (amylase ook verhoogd bij nierinsufficiëntie, speekselklierafwijkingen, darmischemie).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Vroegtijdige activatie van trypsine."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "auto-digestie van het pancreas."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "lokale en systemische inflammatie. Galsteenpancreatitis: steen blokkeert ductus pancreaticus."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "obstructie. Alcoholpancreatitis: directe toxiciteit op acinaire cellen."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Maagperforatie",
+          "desc": "rigide buik, pneumoperitoneum op X-thorax."
+        },
+        {
+          "label": "Mesenteriale ischemie",
+          "desc": "ouder, vasculaire risicofactoren, pijn erger dan bevindingen."
+        },
+        {
+          "label": "Aortadissectie",
+          "desc": "scheurende pijn, bloeddrukasymmetrie."
+        }
+      ],
+      "wiki_therapie_urgent": "Conservatief: niets per os initieel, agressieve IV vochtsuppletie (Ringer-lactaat geprefereerd), pijnstilling.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Galsteenpancreatitis",
+          "detail": "ERCP bij biliaire obstructie + cholecystectomie tijdens zelfde opname."
+        },
+        {
+          "naam": "Geïnfecteerde necrose",
+          "detail": "antibiotica + drainage."
+        }
+      ]
+    },
+    {
+      "_i": 244,
+      "q": "Man van 62 jaar, geleidelijk toegenomen geelzucht, gewichtsverlies, pijnloos. Echo abdomen: verwijde galwegen, hypoechogene massa in caput pancreatis. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Pancreascarcinoom",
+        "Choledocholithiasis",
+        "Primaire scleroserende cholangitis",
+        "Hepatocellulair carcinoom"
+      ],
+      "ex": "Pijnloze obstructieve icterus + massa in pancreaskop is klassiek voor pancreascarcinoom. Courvoisier-teken: palpabele, niet-pijnlijke galblaas bij geelzucht wijst op maligne obstructie (niet op galstenen, die geven een gecontraheerde galblaas).",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Pancreascarcinoom: 5-jaarsoverleving <10% door laattijdige diagnose. Adenocarcinoom van het ductale epitheel (95%).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Obstructie van de ductus choledochus."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "gal kan niet naar darm."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "geconjugeerd bilirubine stijgt in bloed."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "icterus, donkere urine, ontkleurde ontlasting. Verwijding van galwegen en galblaas door obstructie (Courvoisier)."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Choledocholithiasis",
+          "desc": "pijnlijke icterus, koorts (Charcot-trias), galstenen op echo."
+        },
+        {
+          "label": "PSC",
+          "desc": "galgangsvernauwingen en -verwijd, geassocieerd met colitis ulcerosa."
+        },
+        {
+          "label": "HCC",
+          "desc": "bij levercirrose, AFP verhoogd."
+        }
+      ],
+      "wiki_therapie_urgent": "Resectabel: Whipple-procedure (pancreaticoduodenectomie).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Palliatief",
+          "detail": "galwegdrainage via ERCP (stent), chemotherapie (FOLFIRINOX of gemcitabine+nab-paclitaxel)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Prognose slecht bij gemetastaseerde ziekte."
+        }
+      ]
+    },
+    {
+      "_i": 245,
+      "q": "Via welk mechanisme verlagen protonpompremmers (PPI's) de maagzuurproductie?",
+      "a": [
+        "Irreversibele blokkade van H+/K+-ATPase in parietaalcellen",
+        "Blokkade van H2-receptoren op parietaalcellen",
+        "Neutralisatie van maagzuur door basische verbindingen",
+        "Remming van gastrine-afgifte door G-cellen"
+      ],
+      "ex": "PPI's (omeprazol, pantoprazol) blokkeren irreversibel de H+/K+-ATPase (protonpomp) in de parietaalcellen → meest effectieve remming van maagzuurproductie. H2-blokkers (ranitidine) blokkeren H2-receptoren maar zijn minder effectief.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "PPI's zijn prodrugs die geactiveerd worden in het zure milieu van de parietaalcel. Na activatie binden ze covalent aan de H+/K+-ATPase → irreversibele remming tot nieuwe pomp gesynthetiseerd is (24-48u). Meest effectieve zuurremming.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "H+/K+-ATPase blokkade",
+          "desc": "PPI wordt geactiveerd bij pH <2 → covalente binding aan cysteïne van de protonpomp → irreversibele remming. Dagelijks ingenomen voor maaltijd (pomp is dan actief)."
+        },
+        {
+          "title": "H2-blokkers (cimetidine)",
+          "desc": "Remmen histamine-gestimuleerde zuurproductie — minder effectief dan PPI's. Sneller effect maar kortere duur."
+        },
+        {
+          "title": "Langdurig gebruik",
+          "desc": "Hypomagnesiëmie, vitamine B12-tekort, verhoogd Clostridioides difficile-risico, osteoporose. Minimale effectieve dosis gebruiken."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "PPI indicaties",
+          "desc": "GERD, maagulcus, H. pylori-eradicatie (tripeltherapie), NSAID-gastroprotectie bij risicopatiënten, Zollinger-Ellison."
+        },
+        {
+          "label": "H2-blokkers",
+          "desc": "Minder effectief dan PPI — bruikbaar bij milde GERD of als aanvulling (nachtelijke zuurbreuk)."
+        },
+        {
+          "label": "Antacida",
+          "desc": "Symptomatische verlichting snel maar kortdurend (1-2u). Geen healing van ulcera of oesofagitis."
+        }
+      ],
+      "wiki_therapie_urgent": "Hoge-risico GI-bloeding: IV PPI (pantoprazol) continue infusie vóór endoscopie — vermindert actief bloedende Forrest Ia laesies.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "GERD",
+          "detail": "Omeprazol/pantoprazol 20-40 mg 1×/dag, 30 min voor ontbijt. 4-8 weken, daarna probeer af te bouwen."
+        },
+        {
+          "naam": "Ulcus duodeni",
+          "detail": "PPI + H. pylori-eradicatie (amoxicilline + clarithromycine + PPI 7-14 dagen). Na eradicatie: PPI 4 weken."
+        },
+        {
+          "naam": "Langdurig gebruik",
+          "detail": "Laagst effectieve dosis. Jaarlijkse herevaluatie of PPI nog nodig."
+        }
+      ]
+    },
+    {
+      "_i": 246,
+      "q": "Vrouw van 52 jaar, pijn rechter bovenbuik na vette maaltijden, misselijkheid. Echo abdomen: galstenen zichtbaar, galblaas normaal groot. Diagnose?",
+      "a": [
+        "Symptomatische cholecystolithiasis",
+        "Acute cholecystitis",
+        "Choledocholithiasis",
+        "Hepatitis A"
+      ],
+      "ex": "Symptomatische cholecystolithiasis (galsteenkolieken): pijn rechter bovenbuik na maaltijden, misselijkheid, galblaas normaal groot op echo. Bij acute cholecystitis is de galblaas vergroot, wandverdikt, met positief Murphy-teken.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Galstenen aanwezig bij 10-15% van de westerse bevolking. Meeste asymptomatisch.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Murphy-teken",
+          "desc": "palpatie van de rechter bovenbuik tijdens inspiratie → pijn door druk op ontstoken galblaas."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Positief bij acute cholecystitis."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Charcot-trias (pijn + koorts + icterus) = cholangitis door steen in ductus choledochus."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Acute cholecystitis",
+          "desc": "koorts, leukocytose, verdikt galblaaswan op echo, positief Murphy."
+        },
+        {
+          "label": "Choledocholithiasis",
+          "desc": "icterus, verhoogd bilirubine en alkalisch fosfatase."
+        },
+        {
+          "label": "Hepatitis A",
+          "desc": "ook rechter bovenbuikpijn maar icterus, verhoogd ALAT/ASAT."
+        }
+      ],
+      "wiki_therapie_urgent": "Cholecystectomie (laparoscopisch): bij symptomatische cholecystolithiasis de enige curatieve behandeling.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Acuut cholecystitis",
+          "detail": "eerst antibiotica + pijnstilling, cholecystectomie binnen 72u of na 6 weken."
+        }
+      ]
+    },
+    {
+      "_i": 247,
+      "q": "Man van 38 jaar, recidiverende episoden van abdominale pijn, opgeblazen gevoel, afwisselend diarree en obstipatie, al jaren. Geen gewichtsverlies, bloed bij ontlasting negatief. Colonoscopie normaal. Diagnose?",
+      "a": [
+        "Prikkelbare darmsyndroom (IBS)",
+        "Colitis ulcerosa",
+        "Ziekte van Crohn",
+        "Colorectaal carcinoom"
+      ],
+      "ex": "IBS: functionele darmaandoening zonder organische pathologie. Rome IV-criteria: recidiverende buikpijn ≥1 dag/week de afgelopen 3 maanden, geassocieerd met defecatieverandering en/of consistentiewijziging van de ontlasting. Uitsluiting organische pathologie is essentieel.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "IBS treft 10-15% van de bevolking. Subtypes: IBS-D (diarree-dominant), IBS-C (obstipatie-dominant), IBS-M (gemengd).",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Viscerale hypersensitiviteit, gestoorde darm-hersenas communicatie, microbioomveranderingen."
+        },
+        {
+          "title": "Mogelijke triggers",
+          "desc": "stress, voeding (FODMAP), infectie (post-infectieus IBS)."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Geen structurele afwijkingen op beeldvorming of biopsie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "IBD (CU/Crohn)",
+          "desc": "bloederige diarree, gewichtsverlies, afwijkingen op colonoscopie en biopsie, verhoogde CRP/calprotectine."
+        },
+        {
+          "label": "Alarm signs (\"red flags\") bij IBS",
+          "desc": "bloed in ontlasting, gewichtsverlies, nachtelijke klachten, positieve familieanamnese colorectaal carcinoom → aanvullend onderzoek."
+        }
+      ],
+      "wiki_therapie_urgent": "Leefstijladviezen: low-FODMAP dieet, stressmanagement.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Farmacologisch",
+          "detail": "spasmolytica (mebeverine), loperamide bij IBS-D, laxantia bij IBS-C."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Psychologische therapie effectief bij ernstige klachten."
+        }
+      ]
+    },
+    {
+      "_i": 248,
+      "q": "Man van 50 jaar, verhoogd ALAT (5×ULN), vermoeidheid, rechter bovenbuikongemak. Hij drinkt geen alcohol. Echo: verhoogde echogeniciteit lever. BMI 34, diabetes type 2. Meest waarschijnlijke diagnose?",
+      "a": [
+        "Non-alcoholische leververvetting (NAFLD/NASH)",
+        "Alcoholische hepatitis",
+        "Virale hepatitis B",
+        "Primaire biliaire cholangitis"
+      ],
+      "ex": "NAFLD/NASH: leversteatos bij afwezigheid van significante alcoholconsumptie. Sterk geassocieerd met obesitas, diabetes type 2 en metabool syndroom. NASH (non-alcoholische steatohepatitis) kan progresseren naar cirrose.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "NAFLD = spectrum van leveraandoeningen: eenvoudige steatose (NAFL) tot steatohepatitis (NASH) tot cirrose. Prevalentie 25% in de westerse bevolking, stijgend door de obesitasepidemie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Insulineresistentie."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "lipide-accumulatie in hepatocyten."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "oxidatieve stress."
+        },
+        {
+          "title": "Stap 4",
+          "desc": "ontsteking."
+        },
+        {
+          "title": "Stap 5",
+          "desc": "fibrose. Tweede stap: mitochondriaal disfunctioneren, intestinale dysbiose, adipokinedebalans."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Alcoholische hepatitis",
+          "desc": "alcohol-anamnese, ASAT/ALAT-ratio >2:1."
+        },
+        {
+          "label": "Virale hepatitis B/C",
+          "desc": "serologie positief."
+        },
+        {
+          "label": "PBC",
+          "desc": "vrouwen middelbaren leeftijd, AMA positief, pruritus, cholestasepatroon."
+        }
+      ],
+      "wiki_therapie_urgent": "Gewichtsreductie (10% gewichtsverlies verbetert histologie significant).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Behandeling metabole risicofactoren (diabetes, hypertensie, dyslipidemie)."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Vitamine E bij NASH zonder diabetes."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Geen specifieke farmacologische therapie bewezen effectief; nieuwe middelen in onderzoek."
+        }
+      ]
+    },
+    {
+      "_i": 249,
+      "q": "Welk symptoom onderscheidt de ziekte van Crohn het meest van colitis ulcerosa?",
+      "a": [
+        "Perianale fistels en abcessen",
+        "Bloederige diarree",
+        "Buikkrampen",
+        "Verhoogd CRP bij opvlamming"
+      ],
+      "ex": "Perianale fistels zijn karakteristiek voor de ziekte van Crohn door de transmurale, discontinue ontsteking die fistels kan veroorzaken. Bij colitis ulcerosa (mucosale ontsteking, alleen colon) komen perianale fistels niet voor. Bloederige diarree, buikkrampen en verhoogd CRP kunnen bij beide voorkomen.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Crohn vs CU: Crohn is transmuraal (skip-lesions, perianale fistels, kan ileum en mondholte treffen). CU is mucosaal en continu, altijd rectum betrokken, nooit peranale fistels.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Transmuraal (Crohn)",
+          "desc": "Alle lagen darmwand aangedaan → fistelvorming (perianaal, enterovesicaal), stenosen, perforatie, abcessen."
+        },
+        {
+          "title": "Mucosaal (CU)",
+          "desc": "Alleen mucosa en submucosa aangedaan — continu vanaf rectum proximaal. Geen skip-lesions, geen perianale fistels."
+        },
+        {
+          "title": "Serologie",
+          "desc": "ASCA (anti-Saccharomyces cerevisiae) positief bij Crohn (60%). pANCA positief bij CU (65%). Niet diagnostisch — adjuvant."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Crohn",
+          "desc": "Skip-lesions, transmuraal, perianale fistels, ileumbetrokkenheid, granulomen op biopsie. ASCA positief."
+        },
+        {
+          "label": "Colitis ulcerosa",
+          "desc": "Continu rectum → proximaal, alleen colon, mucosaal, geen fistels, PSC als extraïntestinale manifestatie. pANCA positief."
+        },
+        {
+          "label": "Infectieuze colitis",
+          "desc": "Acuut begin, koorts, positieve kweek (Campylobacter, Salmonella, C. difficile). Biopsie: geen chronische veranderingen."
+        }
+      ],
+      "wiki_therapie_urgent": "Ernstige opvlamming: prednisolon 40 mg/dag oraal of IV methylprednisolon. Biologicals bij steroïdrefractair.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Milde Crohn",
+          "detail": "Budesonide (ileocolische Crohn). Azathioprine/6-MP als onderhoud."
+        },
+        {
+          "naam": "Matig-ernstige Crohn",
+          "detail": "Anti-TNF (infliximab, adalimumab) of vedolizumab/ustekinumab bij falen."
+        },
+        {
+          "naam": "CU",
+          "detail": "Mesalazine (5-ASA) oraal + rectaal bij milde CU. Sterke opvlamming: IV steroïden → biologicals."
+        }
+      ]
+    },
+    {
+      "_i": 250,
+      "q": "Vrouw van 35 jaar, zuurbranden na maaltijden, regurgitatie, nachtelijke hoest. Klachten verbeteren bij het hoofd hoog leggen. Welke diagnose is het meest waarschijnlijk?",
+      "a": [
+        "Gastro-oesofageale refluxziekte (GERD)",
+        "Maagulcus",
+        "Achalasie",
+        "Eosinofiele oesofagitis"
+      ],
+      "ex": "GERD: klassiek zuurbranden + regurgitatie, verergering liggend of na maaltijden, verbetering bij antacida/PPI en hoofd hoog leggen. Nachtelijke hoest en heesheid zijn atypische manifestaties van GERD door laryngeale irritatie.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "GERD: maaginhoud stroomt terug in de slokdarm door insufficiënte lagere oesofageale sfincter. Prevalentie 10-20% in de westerse wereld.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Barrett-oesofagus",
+          "desc": "metaplasie van plaveiselcelpitheel naar cilindrisch darmepitheel door chronische blootstelling aan maagzuur."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "Risicofactor voor oesofagusadenocarcinoom (30-40× verhoogd risico)."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "Surveillance endoscopie elke 3-5 jaar."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Achalasie",
+          "desc": "dysfagie voor vaste én vloeibare voeding, regurgitatie ongericht, manometrie: verhoogde LOS-druk."
+        },
+        {
+          "label": "Eosinofiele oesofagitis",
+          "desc": "dysfagie jongeren, bolus-impactie, eosinofilie op biopsie."
+        },
+        {
+          "label": "Maagulcus",
+          "desc": "epigastrische pijn, afhankelijk van maaltijd."
+        }
+      ],
+      "wiki_therapie_urgent": "Leefstijl: gewichtsreductie, hoofd hoog slapen, vermijden van triggers (alcohol, koffie, chocola, vet).",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "PPI 4-8 weken."
+        },
+        {
+          "naam": "Stap 2",
+          "detail": "Onderhoudstherapie bij recidief."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Fundoplicatie (chirurgie) bij therapieresistentie."
+        }
+      ]
+    },
+    {
+      "_i": 251,
+      "q": "Helicobacter pylori-infectie is een risicofactor voor zowel maagulcus als maagcarcinoom.",
+      "a": null,
+      "ex": "WAAR. H. pylori is aanwezig bij >90% van de duodenumulcera en ~70% van de maagulcera. Het is ook geclassificeerd als IARC groep 1 carcinogeen voor maagcarcinoom. Eradicatie vermindert ulcusrecidief en het carcinoomrisico.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "H. pylori koloniseert de maagmucosa en veroorzaakt chronische gastritis. Risicofactor voor duodenumulcus (>90%), maagulcus (~70%), MALT-lymfoom en maagcarcinoom. Eradicatie vermindert ulcusrecidief en carcinoomrisico.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Virulentiefactoren",
+          "desc": "CagA (oncoproteïne) en VacA (vacuoliserende cytotoxine) → mucosale inflammatie → atrofische gastritis → intestinale metaplasie → maagcarcinoom."
+        },
+        {
+          "title": "Ulcusmechanisme",
+          "desc": "H. pylori vermindert mucosale afweer en verhoogt gastrineproductie → zuurhypersecretie → ulcus."
+        },
+        {
+          "title": "MALT-lymfoom",
+          "desc": "Mucosa-associated lymphoid tissue lymfoom — bij 70-80% genezing na H. pylori-eradicatie alleen."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Ureumademtest (UBT)",
+          "desc": "Gouden standaard voor non-invasieve diagnose én verificatie eradicatie. Stop PPI 2 weken voor test."
+        },
+        {
+          "label": "Fecesantigeen",
+          "desc": "Alternatief voor UBT — stop PPI 2 weken. Goedkoop en betrouwbaar."
+        },
+        {
+          "label": "Biopsie (CLO-test/histologie)",
+          "desc": "Bij gastroscopie — direct tijdens endoscopie. Nodig bij alarm-symptomen of therapiefalen."
+        },
+        {
+          "label": "Serologie",
+          "desc": "Bewijst blootstelling, niet actieve infectie — niet geschikt voor eradicatiecontrole."
+        }
+      ],
+      "wiki_therapie_urgent": "Tripeltherapie 7-14 dagen: PPI + amoxicilline + clarithromycine (claritromax). Of quadrupaltherapie bij resistentie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Tripeltherapie",
+          "detail": "PPI 2×/dag + amoxicilline 1g 2×/dag + clarithromycine 500 mg 2×/dag × 7-14 dagen."
+        },
+        {
+          "naam": "Bij penicillineallergie",
+          "detail": "PPI + metronidazol + clarithromycine (of bismut-quadrupaltherapie)."
+        },
+        {
+          "naam": "Eradicatiecontrole",
+          "detail": "Ureumademtest 4-6 weken na einde antibiotica (PPI 2 weken gestopt). Eradicatie in >95% bij adequate therapie."
+        }
+      ]
+    },
+    {
+      "_i": 252,
+      "q": "Bij verdenking op een bovenste GI-bloeding moet altijd eerst een CT-scan van het abdomen worden verricht vóór endoscopie.",
+      "a": null,
+      "ex": "NIET WAAR. Spoed-endoscopie (gastroscopie) binnen 24 uur is de eerste keus bij een bovenste GI-bloeding. Endoscopie is zowel diagnostisch als therapeutisch (hemostase mogelijk). CT-angiografie wordt pas overwogen als endoscopie mislukt of als bron onduidelijk blijft.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Bovenste GI-bloeding: resusciteer eerst, daarna endoscopie binnen 24u (of <12u bij hemodynamische instabiliteit). CT-scan heeft geen diagnostische voorrang boven endoscopie — endoscopie is ook therapeutisch.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Forrest-classificatie",
+          "desc": "Ia: actief sproeiend (directe hemostase). IIa/IIb: zichtbaar vat/klonter (interventie). IIc/III: haematine/clean base (conservatief)."
+        },
+        {
+          "title": "Pre-endoscopische PPI",
+          "desc": "IV pantoprazol voor endoscopie → vermindert hoog-risico stigmata → minder interventies nodig."
+        },
+        {
+          "title": "Hemostase methoden",
+          "desc": "Epinefrine-injectie, hemostaseclips, thermische coagulatie, argonplasmacoagulatie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Gastroscopie (eerste keus)",
+          "desc": "Diagnostisch én therapeutisch. Binnen 24u (stabiel) of <12u (instabiel). Forrest-classificatie bepaalt beleid."
+        },
+        {
+          "label": "CT-angiografie",
+          "desc": "Bij massieve bloeding of als bron onduidelijk na endoscopie. Kan embolisatie voorbereiden."
+        },
+        {
+          "label": "Colonoscopie",
+          "desc": "Bij lage GI-bloeding (helder rood bloed per anum) — na stabilisatie en voorbereiding."
+        }
+      ],
+      "wiki_therapie_urgent": "Resuscitatie: IV toegang ×2, kristalloïden, bloedproducten bij Hb <8 g/dL. PPI IV direct.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Pre-endoscopie",
+          "detail": "Pantoprazol 80 mg bolus IV → 8 mg/u continu. Overweeg erytromycine IV als prokineticm (leegt maag)."
+        },
+        {
+          "naam": "Endoscopische hemostase",
+          "detail": "Forrest Ia/IIa: clip + injectie. Succes >90%. Recidief: herhaal endoscopie of angiografie."
+        },
+        {
+          "naam": "Na hemostase",
+          "detail": "Orale PPI 2×/dag 72u, daarna dagelijks. H. pylori testen en eradiceren als aanwezig."
+        }
+      ]
+    },
+    {
+      "_i": 253,
+      "q": "Een acuut abdomen met pneumoperitoneum op de thoraxfoto is een absolute indicatie voor spoedslaparotomie.",
+      "a": null,
+      "ex": "WAAR. Vrij lucht onder het diafragma (pneumoperitoneum) wijst op een geperforeerd hol orgaan (maag, duodenum, colon). Dit is een chirurgische spoedindicatie. De meest frequente oorzaak is een perforatie van een maag- of duodenumulcus.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Pneumoperitoneum = vrije lucht onder het diafragma op staande thoraxfoto → geperforeerd hol orgaan tot bewijs van het tegendeel. Chirurgische spoed. Meest frequente oorzaak: maag- of duodenumulcusperforatie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Perforatie-cascade",
+          "desc": "Perforatie → lucht + maaginhoud/darminhoud lekken in buikholte → chemische peritonitis → bacteriële peritonitis → sepsis."
+        },
+        {
+          "title": "Klinisch beeld",
+          "desc": "Rigide buik (\"plankbuik\"), diffuse drukpijn, loslaatpijn, tachycardie. Patiënt ligt stil (beweging pijnlijk)."
+        },
+        {
+          "title": "CT-abdomen",
+          "desc": "Gevoeliger dan thoraxfoto voor kleine hoeveelheid vrij gas — altijd bij twijfel. Toont ook de bron."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Echte perforatie",
+          "desc": "Plotse buikpijn, plankbuik, koorts, pneumoperitoneum op thoraxfoto/CT. Chirurgische spoed."
+        },
+        {
+          "label": "Pseudopneumoperitoneum",
+          "desc": "Chilaiditi-syndroom (colon tussen lever en diafragma) — geen symptomen, geen chirurgie nodig. Klinische correlatie essentieel."
+        },
+        {
+          "label": "Ischemische colitis",
+          "desc": "Buikpijn + hematochezie maar geen pneumoperitoneum initieel. CT: colonwandverdikking."
+        }
+      ],
+      "wiki_therapie_urgent": "Spoedslaparotomie of -laparoscopie — geen uitstel. Peroraal niets.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Preoperatief",
+          "detail": "IV toegang, vloeistofresuscitatie, antibiotica (piperacilline/tazobactam of cefuroxim + metronidazol), maagslang."
+        },
+        {
+          "naam": "Chirurgie",
+          "detail": "Maagperforatie: primaire sluiting + omentumpatch (Graham-techniek). Colonperforatie: Hartmann-procedure of primaire anastomose."
+        },
+        {
+          "naam": "Postoperatief",
+          "detail": "IC-bewaking, PPI, H. pylori-eradicatie als ulcus de oorzaak was."
+        }
+      ]
+    },
+    {
+      "_i": 254,
+      "q": "Colonoscopie is de screeningsmethode van eerste keus voor colorectaal carcinoom bij een 50-jarige zonder bijzondere risicofactoren.",
+      "a": null,
+      "ex": "WAAR. Colonoscopie is de gouden standaard voor colorectaal carcinoomscreening: detectie én directe verwijdering van poliepen. In Nederland wordt echter fecaal immunochemisch testen (FIT) gebruikt als populatiescreen, met colonoscopie bij positieve FIT.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Colorectaal carcinoom: 3e meest voorkomende kanker, 2e oorzaak van kankersterfte. Adenom-carcinoomsequentie duurt 10-15 jaar — het venster voor succesvolle screening en preventie. Colonoscopie is goudstandaard: diagnostisch én therapeutisch.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Adenom-carcinoomsequentie",
+          "desc": "Adenoom → APC-mutatie → K-ras mutatie → p53-verlies → invasief carcinoom. 10-15 jaar tijdvenster voor preventieve polypectomie."
+        },
+        {
+          "title": "Risicofactoren",
+          "desc": "Leeftijd >50j, IBD, familiaire belasting CRC, FAP (APC-mutatie), Lynch-syndroom (HNPCC, MMR-genen)."
+        },
+        {
+          "title": "CEA",
+          "desc": "Niet geschikt voor screening — te weinig specifiek. Wel bruikbaar voor recidief-monitoring na curatieve resectie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Colonoscopie",
+          "desc": "Goudstandaard: diagnostisch + therapeutisch (polypectomie). Eens per 10 jaar bij normaal resultaat."
+        },
+        {
+          "label": "FIT (fecaal immunochemisch testen)",
+          "desc": "Nederlands bevolkingsonderzoek: niet-invasief, jaarlijks of tweejaarlijks. Positief → colonoscopie."
+        },
+        {
+          "label": "CT-colonografie",
+          "desc": "Niet-invasief alternatief maar geen therapeutische mogelijkheid (polyepen verwijderen onmogelijk)."
+        }
+      ],
+      "wiki_therapie_urgent": "Obstructie door CRC: spoed-colonoscopie of CT-colonografie → stentplaatsing of Hartmann-procedure.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stadium I-II",
+          "detail": "Chirurgische resectie curatief. Adjuvante chemotherapie bij stadium III (FOLFOX)."
+        },
+        {
+          "naam": "Stadium IV (metastasen)",
+          "detail": "Chemotherapie (FOLFOX of FOLFIRI) ± bevacizumab/cetuximab afhankelijk van RAS-mutatiestatus."
+        },
+        {
+          "naam": "Lynch-syndroom",
+          "detail": "Genetisch onderzoek familieleden. Intensievere surveillance. Immunotherapie (pembrolizumab) effectief bij MSI-H CRC."
+        }
+      ]
+    },
+    {
+      "_i": 255,
+      "q": "Een 70-jarige patiënt met vermoeden van bovenste GI-bloeding (hematemese, hemodynamisch stabiel). Welk onderzoek heeft de hoogste prioriteit?",
+      "a": [
+        "Gastroscopie binnen 24 uur",
+        "CT-abdomen met contrast",
+        "Arteriële angiografie",
+        "X-abdomen staand"
+      ],
+      "ex": "Gastroscopie is zowel diagnostisch als therapeutisch (hemostase). Bij stabiele patiënt: binnen 24u. Bij hemodynamisch instabiele patiënt: resusciteer eerst, daarna zo snel mogelijk gastroscopie (<12u). CT heeft geen therapeutisch voordeel in eerste instantie.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Gastroscopie is de eerste stap bij bovenste GI-bloeding — diagnostisch én therapeutisch. Glasgow-Blatchford Score bepaalt urgentie. Pre-endoscopische IV PPI vermindert hoog-risico stigmata.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Glasgow-Blatchford Score",
+          "desc": "Score 0: poliklinisch veilig. Score hoog (>6): spoed-endoscopie. Bepaalt op basis van Hb, ureum, systolische BD, hartfrequentie, comorbiditeit."
+        },
+        {
+          "title": "Endoscopische hemostase",
+          "desc": "Epinefrine-injectie, hemostaseclips, thermische coagulatie, APC. Succes >90% bij actieve bloeding."
+        },
+        {
+          "title": "Recidiefbloeding",
+          "desc": "Herhaal endoscopie → bij falen: angiografie met embolisatie → chirurgie als laatste redmiddel."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Gastroscopie (eerste keus)",
+          "desc": "Diagnostisch + therapeutisch. Stabiel: binnen 24u. Instabiel: na resuscitatie <12u."
+        },
+        {
+          "label": "Angiografie/embolisatie",
+          "desc": "Bij recidief na endoscopie of als bron endoscopisch onbereikbaar."
+        },
+        {
+          "label": "X-abdomen staand",
+          "desc": "Geen rol bij GI-bloeding — wél bij verdenking perforatie (vrij gas onder diafragma)."
+        }
+      ],
+      "wiki_therapie_urgent": "IV pantoprazol 80 mg bolus → 8 mg/u continu. Gastroscopie zo snel mogelijk.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Bloedtransfusie",
+          "detail": "Restrictief beleid: transfusie bij Hb <8 g/dL (cirrosepatiënten: <7 g/dL — over-transfusie verhoogt portale druk)."
+        },
+        {
+          "naam": "Varicesbloeding",
+          "detail": "Terlipressine + antibiotica (norfloxacine) + endoscopische ligatie — direct variceuze bloeding behandelen anders dan peptische ulcusbloeding."
+        },
+        {
+          "naam": "Na hemostase",
+          "detail": "H. pylori testen/eradiceren. NSAID stoppen. Onderhouds-PPI bij risicopatiënten."
+        }
+      ]
+    },
+    {
+      "_i": 256,
+      "q": "Man van 68 jaar, acuut ernstige buikpijn, koorts 39°C, linker onderbuikpijn, défense musculaire links. CT-abdomen: verdikking sigmacolon, pericolisch vet ontstoken. Diagnose?",
+      "a": [
+        "Acute diverticulitis",
+        "Coloncarcinoom sigmoïd",
+        "Ischemische colitis",
+        "Hernia inguinalis incarcerata"
+      ],
+      "ex": "Acute diverticulitis: acute ontsteking van een divertikel (uitstulping van de colonwand). Klassiek: linker onderbuikpijn (sigmacolon meest aangedaan), koorts, leukocytose. CT-abdomen is diagnostisch: pericolisch vet, verdikking colonwand.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Diverticulose (aanwezigheid divertikels) bij >50% van de westerse bevolking >70 jaar. Complicaties: diverticulitis (20%), bloeding, fistel, abces, perforatie.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Diverticulitis ontstaat bij obstructie van een divertikelhals."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "bacteriële proliferatie."
+        },
+        {
+          "title": "Stap 3",
+          "desc": "micro- of macroperforatie. Hinchey-classificatie van ernst (I-IV): I = pericolisch abces, IV = fecale peritonitis."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Coloncarcinoom",
+          "desc": "langzamer beloop, gewichtsverlies, veranderd defecatiepatroon, bloedverlies."
+        },
+        {
+          "label": "Ischemische colitis",
+          "desc": "acuut, links, hematochezie, ouder, vasculaire risicofactoren."
+        },
+        {
+          "label": "Appendicitis",
+          "desc": "rechts onderbuik, McBurney."
+        }
+      ],
+      "wiki_therapie_urgent": "Ongecompliceerd: antibiotica (ciprofloxacine + metronidazol of amoxicilline-clavulanaat), rustdieet.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Gecompliceerd (abces)",
+          "detail": "CT-geleide drainage."
+        },
+        {
+          "naam": "Perforatie",
+          "detail": "spoedslaparotomie (Hartmann-procedure)."
+        },
+        {
+          "naam": "Stap 3",
+          "detail": "Electieve sigmoïdresectie na ≥2 gecompliceerde episoden."
+        }
+      ]
+    },
+    {
+      "_i": 257,
+      "q": "Vrouw van 42 jaar met levercirrose (Child-Pugh B). Acute hematemese, bloeddruk 90/60 mmHg. Meest waarschijnlijke bloedingsbron?",
+      "a": [
+        "Oesofagusvarices",
+        "Maagulcus",
+        "Mallory-Weiss scheur",
+        "Angiodysplasie"
+      ],
+      "ex": "Bij een cirrosepatiënt met hematemese zijn oesofagusvarices de meest waarschijnlijke oorzaak (portale hypertensie → varices). Mortaliteit per bloedingsepisode 15-25%. Directe behandeling: terlipressine + somatostatine-analoog + antibiotica + endoscopie.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Portale hypertensie (portale druk >10 mmHg) bij cirrose → vorming van varices in oesofagus en fundus maag → risico op ruptuur. Variceuze bloeding treedt op bij 25-35% van de cirrosepatïënten.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Acuut management",
+          "desc": "resuscitatie (voorzichtig met vocht!), terlipressine (of somatostatine/octreotide) IV vermindert portale druk, antibiotica (norfloxacine → infectieprofylaxe), endoscopie met ligatie of sclerotherapie."
+        },
+        {
+          "title": "Stap 2",
+          "desc": "TIPS bij refractaire bloeding."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Maagulcus",
+          "desc": "ook bij cirrose maar minder acute shock."
+        },
+        {
+          "label": "Mallory-Weiss",
+          "desc": "scheur bij cardio-oesofageale junctie na braken, minder ernstig."
+        },
+        {
+          "label": "Portale gastropathie",
+          "desc": "diffuse mukosale bloeding, ook bij cirrose."
+        }
+      ],
+      "wiki_therapie_urgent": "Ballon-tamponade (Sengstaken-Blakemore): temporair bij massieve bloeding.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "TIPS (transjugulaire intrahepatische portosystemische shunt): refractaire varicesbloeding."
+        },
+        {
+          "naam": "Secundaire profylaxe",
+          "detail": "bètalokker + endoscopische varicesligatie."
+        }
+      ]
+    },
+    {
+      "_i": 258,
+      "q": "Man van 25 jaar, progressieve dysfagie voor vaste en vloeibare voeding, regurgitatie van niet-verteerd voedsel. Manometrie: verhoogde onderste oesofageale sfincterdruk, aperistaltiek. Diagnose?",
+      "a": [
+        "Achalasie",
+        "Gastro-oesofageale reflux",
+        "Oesofaguscarcinoom",
+        "Eosinofiele oesofagitis"
+      ],
+      "ex": "Achalasie: neuromusculaire aandoening van de oesofagus met verlies van nitrinerge inhibitoire neuronen → onvolledige relaxatie van de onderste oesofageale sfincter + aperistaltiek. Dysfagie voor vaste én vloeibare voeding is kenmerkend (onderscheid van carcinoom).",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Achalasie: afwezigheid van inhibitoire nitrinerge plexus myentericus neuronen → LOS relaxeert onvoldoende bij slikken → oesofageale retentie → regurgitatie. Barium-slikfoto: \"bird-beak\" vernauwing.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Stap 1",
+          "desc": "Oorzaak onbekend (idiopathisch); secundaire achalasie: Chagas-ziekte (Trypanosoma cruzi), pseudoachalasie door tumor bij cardia."
+        },
+        {
+          "title": "Manometrie is gouden standaard",
+          "desc": "verhoogd basale LOS-druk en incomplete LOS-relaxatie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Oesofaguscarcinoom",
+          "desc": "ouder, gewichtsverlies, roken/alcohol, progressieve dysfagie eerder voor vast dan vloeistof."
+        },
+        {
+          "label": "GERD",
+          "desc": "zuurbranden, geen dysfagie als hoofdklacht."
+        },
+        {
+          "label": "Eosinofiele oesofagitis",
+          "desc": "jongeren, atopie, voedselallergie, bolus-impactie."
+        }
+      ],
+      "wiki_therapie_urgent": "Endoscopische pneumatische dilatatie van de LOS.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Stap 1",
+          "detail": "Laparoscopische Heller-myotomie (+ Dor-fundoplicatie)."
+        },
+        {
+          "naam": "POEM (Per Oral Endoscopic Myotomy)",
+          "detail": "minimaal invasief."
+        },
+        {
+          "naam": "Botoxtinjectie",
+          "detail": "tijdelijk, voor patiënten die niet operabel zijn."
+        }
+      ]
+    },
+    {
+      "_i": 259,
+      "q": "Wat is de meest voorkomende oorzaak van levercirrose in de westerse wereld?",
+      "a": [
+        "Alcoholisch leverlijden",
+        "Virale hepatitis C",
+        "NAFLD/NASH",
+        "Primaire biliaire cholangitis"
+      ],
+      "ex": "Alcoholisch leverlijden is de meest voorkomende oorzaak van cirrose in westerse landen, gevolgd door virale hepatitis C en NAFLD/NASH (toenemend door obesitas-epidemie). Wereldwijd is virale hepatitis B de meest frequente oorzaak.",
+      "dl": "Gastro-enterologie",
+      "wiki_kern": "Alcoholisch leverlijden is de meest voorkomende oorzaak van cirrose in westerse landen. Cirrose = eindstadium: fibrose + portale hypertensie → ascites, varices, encefalopathie, SBP, HCC.",
+      "wiki_redflag": null,
+      "wiki_bigfact_label": null,
+      "wiki_bigfact_sub": null,
+      "wiki_mechanisme": [
+        {
+          "title": "Alcoholische hepatitis",
+          "desc": "Directe hepatotoxiciteit + acetaldehyde-schade + oxidatieve stress → steatohepatitis → fibrose → cirrose."
+        },
+        {
+          "title": "Child-Pugh-score",
+          "desc": "A/B/C op basis van bilirubine, albumine, protrombinetijd, ascites, encefalopathie. Child C = slechte prognose."
+        },
+        {
+          "title": "MELD-score",
+          "desc": "Bepaalt prioriteit levertransplantatielijst (creatinine, bilirubine, INR). Score >15 = overweeg transplantatie."
+        }
+      ],
+      "wiki_onderscheid": [
+        {
+          "label": "Alcoholische cirrose",
+          "desc": "Alcohol-anamnese, ASAT/ALAT >2:1 bij actief drinken, MCV hoog. Abstinentie vertraagt progressie."
+        },
+        {
+          "label": "HCV-cirrose",
+          "desc": "Anti-HCV positief, HCV-PCR positief. Curatieve DAA-therapie (>95% SVR). Cirroseregressie mogelijk."
+        },
+        {
+          "label": "NAFLD/NASH",
+          "desc": "Toenemend door obesitas-epidemie. Geen alcohol. Metabool syndroom. Gewichtsreductie als therapie."
+        },
+        {
+          "label": "Hemochromatose",
+          "desc": "Hoog ferritine + transferrinesaturatie >45%. Genetisch (HFE-mutatie). Aderlating als therapie."
+        }
+      ],
+      "wiki_therapie_urgent": "Hepatische encefalopathie: lactulose 3×/dag, rifaximine. Ascites: spironolacton ± furosemide. Varicesbloeding: terlipressine + endoscopie.",
+      "wiki_therapie_stappen": [
+        {
+          "naam": "Abstinentie alcohol",
+          "detail": "Enige interventie die progressie vertraagt en soms cirroseregressie induceert. Multidisciplinaire ondersteuning."
+        },
+        {
+          "naam": "SBP-profylaxe",
+          "detail": "Norfloxacine of ciprofloxacine oraal bij ascites-TP <15 g/L of na eerste SBP-episode."
+        },
+        {
+          "naam": "HCC-screening",
+          "detail": "Echo lever + AFP elke 6 maanden — cirrosepatiënten hebben verhoogd HCC-risico."
+        }
+      ]
+    }
+  ]
+}
