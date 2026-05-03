@@ -105,13 +105,16 @@
   <script src="src/api/storage.js"></script>
   <script src="src/api/state.js"></script>
   <script src="src/api/idb.js"></script>
-  <!-- Backend env. Vite will replace this block at build time. For local
-       dev without a backend, leave the values empty — the app falls back
-       to the bundled question bank. -->
+  <!-- Backend env. Vite's `define` replaces the bare __MD_*__ identifiers
+       below at build time with JSON-stringified values from .env.
+       When opened without Vite (e.g. `npx serve .`) those identifiers are
+       undefined; the typeof guards below default them to "" so the app
+       falls back to the bundled question bank. -->
   <script>
     window.MD_ENV = {
-      SUPABASE_URL:      "",
-      SUPABASE_ANON_KEY: ""
+      SUPABASE_URL:      typeof __MD_SUPABASE_URL__      !== "undefined" ? __MD_SUPABASE_URL__      : "",
+      SUPABASE_ANON_KEY: typeof __MD_SUPABASE_ANON_KEY__ !== "undefined" ? __MD_SUPABASE_ANON_KEY__ : "",
+      BUILD_TIME:        typeof __MD_BUILD_TIME__        !== "undefined" ? __MD_BUILD_TIME__        : "",
     };
   </script>
   <script src="src/api/supabase-client.js"></script>
