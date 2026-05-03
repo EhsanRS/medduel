@@ -155,11 +155,17 @@ LocalStorage keys imported:
 
 ## 6. Mobile (Capacitor)
 
+The Capacitor config (`capacitor.config.ts`) wraps `dist/` (the Vite build
+output) for iOS and Android. The native projects are generated locally on
+the developer's machine — they are not stored in this repo until the
+first `npx cap add` is run, after which they should be committed.
+
 ```bash
-npm run build                  # build the SPA into dist/
-npx cap add ios
-npx cap add android
-npx cap sync
+npm install
+npm run build                  # vite build + postbuild copy → dist/
+npx cap add ios                # creates ios/ project (macOS + Xcode required)
+npx cap add android            # creates android/ project (Android Studio required)
+npx cap sync                   # copies dist/ + plugins into native projects
 npm run cap:ios                # opens Xcode
 npm run cap:android            # opens Android Studio
 ```
@@ -177,3 +183,12 @@ Auth on native:
 - Google Sign-In: native sheet via `@codetrix-studio/capacitor-google-auth` →
   exchanges ID token with Supabase Auth.
 - Email magic link: opens system browser, returns via universal link.
+
+### Storage on native
+
+`src/api/native.js` runs on every page load and detects `window.Capacitor`.
+On iOS/Android it dynamically loads `@capacitor/preferences` and replaces
+the `MDStorage` adapter with a native `PreferencesAdapter`. From the rest
+of the app's perspective nothing changes — `MDState.getXP()` etc. still
+work — but the underlying writes go to UserDefaults / SharedPreferences
+instead of WebView localStorage (which iOS may purge under disk pressure).

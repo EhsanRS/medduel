@@ -1,10 +1,11 @@
-const CACHE = 'medduel-v92';
+const CACHE = 'medduel-v93';
 const ASSETS = [
   '/',
   '/index.html',
   '/history.html',
   '/src/styles.css',
   '/src/api/storage.js',
+  '/src/api/native.js',
   '/src/api/state.js',
   '/src/api/idb.js',
   '/src/api/supabase-client.js',
