@@ -221,6 +221,7 @@ function renderProfielTab() {
       <h2 class="htab-title">${name ? `Hey, ${name}` : t('profile_title')}</h2>
       <p class="htab-sub">Your progress & statistics</p>
     </div>
+    <div id="authCard" class="fade-in-1"></div>
     <div id="xpWrap" class="fade-in-1"></div>
 
     <div class="stats-summary-card fade-in-2">
@@ -283,6 +284,7 @@ function renderProfielTab() {
           </button>`).join('')}
       </div>
     </div>`;
+  renderAuthCard();
   renderXPHome();
   const achWrap = document.getElementById('achievementsWrap');
   if (achWrap) achWrap.innerHTML = renderAchievements();
@@ -298,6 +300,144 @@ function renderProfielTab() {
     if (wrap) wrap.insertAdjacentHTML('afterend', histHTML);
   }
   renderWeakHome();
+}
+
+async function renderAuthCard() {
+  const wrap = document.getElementById('authCard');
+  if (!wrap) return;
+
+  const configured = window.MDAuth && window.MDAuth.isConfigured();
+  if (!configured) {
+    // No backend yet — render a passive card explaining the state.
+    wrap.innerHTML = `
+      <div class="auth-card auth-card-offline">
+        <div class="auth-card-icon">📡</div>
+        <div class="auth-card-info">
+          <span class="auth-card-name">Offline mode</span>
+          <span class="auth-card-sub">Set up Supabase to sync progress, sign in with Apple/Google, and unlock leaderboards.</span>
+        </div>
+      </div>`;
+    return;
+  }
+
+  const user = await window.MDAuth.getUser();
+  if (user) {
+    wrap.innerHTML = `
+      <div class="auth-card auth-card-signed">
+        <div class="auth-card-icon">✓</div>
+        <div class="auth-card-info">
+          <span class="auth-card-name">${user.email || 'Signed in'}</span>
+          <span class="auth-card-sub">Progress is syncing across devices.</span>
+        </div>
+        <button class="auth-card-btn" onclick="onSignOutClick()">Sign out</button>
+      </div>`;
+  } else {
+    wrap.innerHTML = `
+      <div class="auth-card auth-card-anon">
+        <div class="auth-card-icon">👤</div>
+        <div class="auth-card-info">
+          <span class="auth-card-name">Save your progress</span>
+          <span class="auth-card-sub">Sign in to sync across devices and join leaderboards.</span>
+        </div>
+        <button class="auth-card-btn" onclick="openSignInSheet()">Sign in</button>
+      </div>`;
+  }
+}
+
+function openSignInSheet() {
+  const sheet = document.createElement('div');
+  sheet.className = 'auth-sheet-overlay';
+  sheet.innerHTML = `
+    <div class="auth-sheet-backdrop" onclick="closeSignInSheet()"></div>
+    <div class="auth-sheet">
+      <div class="auth-sheet-handle"></div>
+      <h3 class="auth-sheet-title">Sign in to MedDuel</h3>
+      <p class="auth-sheet-sub">Pick a method. We never share or sell your data.</p>
+
+      <button class="auth-sheet-btn auth-btn-apple" onclick="onSignInApple()">
+        <span class="auth-btn-glyph"></span>
+        <span>Continue with Apple</span>
+      </button>
+      <button class="auth-sheet-btn auth-btn-google" onclick="onSignInGoogle()">
+        <span class="auth-btn-glyph">G</span>
+        <span>Continue with Google</span>
+      </button>
+
+      <div class="auth-sheet-divider"><span>or</span></div>
+
+      <input type="email" class="auth-sheet-input" id="authEmailInput"
+        placeholder="you@example.com" autocomplete="email"
+        autocapitalize="off" spellcheck="false">
+      <button class="auth-sheet-btn auth-btn-email" onclick="onSignInEmail()">
+        Send magic link
+      </button>
+
+      <button class="auth-sheet-cancel" onclick="closeSignInSheet()">Cancel</button>
+      <div id="authSheetMsg" class="auth-sheet-msg"></div>
+    </div>`;
+  document.body.appendChild(sheet);
+  requestAnimationFrame(() => sheet.classList.add('open'));
+  setTimeout(() => {
+    const inp = document.getElementById('authEmailInput');
+    if (inp) inp.focus();
+  }, 250);
+}
+
+function closeSignInSheet() {
+  const el = document.querySelector('.auth-sheet-overlay');
+  if (!el) return;
+  el.classList.remove('open');
+  setTimeout(() => el.remove(), 240);
+}
+
+function _authMsg(text, kind) {
+  const el = document.getElementById('authSheetMsg');
+  if (!el) return;
+  el.textContent = text || '';
+  el.className   = 'auth-sheet-msg' + (kind ? ' ' + kind : '');
+}
+
+async function onSignInApple() {
+  _authMsg('Opening Apple sign-in…');
+  try {
+    await window.MDAuth.signInWithApple();
+  } catch (err) {
+    _authMsg(err.message === 'native_oauth_not_wired_yet'
+      ? 'Apple sign-in is wired natively only on iOS — install the app to use it.'
+      : (err.message || 'Apple sign-in failed.'), 'err');
+  }
+}
+
+async function onSignInGoogle() {
+  _authMsg('Opening Google sign-in…');
+  try {
+    await window.MDAuth.signInWithGoogle();
+  } catch (err) {
+    _authMsg(err.message === 'native_oauth_not_wired_yet'
+      ? 'Google sign-in is wired natively only on Android — install the app to use it.'
+      : (err.message || 'Google sign-in failed.'), 'err');
+  }
+}
+
+async function onSignInEmail() {
+  const inp = document.getElementById('authEmailInput');
+  const email = (inp && inp.value || '').trim();
+  if (!/.+@.+\..+/.test(email)) {
+    _authMsg('Enter a valid email address.', 'err');
+    return;
+  }
+  _authMsg('Sending magic link…');
+  try {
+    const r = await window.MDAuth.signInMagicLink(email);
+    _authMsg(r.message || 'Check your email.', 'ok');
+  } catch (err) {
+    _authMsg(err.message || 'Sending failed.', 'err');
+  }
+}
+
+async function onSignOutClick() {
+  await window.MDAuth.signOut();
+  renderAuthCard();
 }
 
 function renderOpenPatientCard() {
@@ -491,16 +631,28 @@ function switchHomeTab(tab, btn) {
 // and revalidates in the background, so first paint is instant.
 
 function bootApp() {
-  // Kick the question-bank load asynchronously. Right now the legacy
-  // gameplay code (game.js, dossier.js, daily.js, …) still reads from
-  // window.QUESTIONS, which the bundled src/data/questions.js has
-  // already populated synchronously. We DO NOT swap window.QUESTIONS
-  // to the server rows yet because the server strips the `correct`
-  // field — local grading would break. The cache warmup makes the next
-  // refactor batch (which will plumb grading through gradeAttempt())
-  // a one-line swap.
+  // 1. Warm question-bank cache. window.QUESTIONS stays as-is (bundled)
+  //    until the server-authoritative grading path lands.
   if (window.MDQuestions && typeof window.MDQuestions.load === 'function') {
     window.MDQuestions.load().catch(() => {});
+  }
+
+  // 2. Restore Supabase session and wire auth → sync. No-op when the
+  //    backend isn't configured (the auth module short-circuits).
+  if (window.MDAuth && window.MDAuth.isConfigured()) {
+    window.MDAuth.onChange(async (user) => {
+      if (user && window.MDSync) {
+        try { await window.MDSync.syncOnSignIn(user.id); } catch {}
+      }
+      // Re-render profile tab if it's visible, so sign-in/out updates
+      // the UI without a manual refresh.
+      const active = document.querySelector('#bottomNav .bn-tab.active');
+      if (active && active.querySelector('.bn-label') &&
+          /profile|profiel/i.test(active.querySelector('.bn-label').textContent)) {
+        try { renderProfielTab(); } catch {}
+      }
+    });
+    window.MDAuth.init().catch(() => {});
   }
 
   if (new URLSearchParams(window.location.search).get('admin') === '1') {

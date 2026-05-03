@@ -276,7 +276,7 @@ function answerMC(idx, btn) {
     if (parseInt(b.dataset.i) === q.c) b.classList.add('correct');
   });
   if (!ok) btn.classList.add('wrong');
-  processAnswer(ok, q, ok ? null : q.a[idx]);
+  processAnswer(ok, q, ok ? null : q.a[idx], idx);
 }
 
 function answerTF(val, btn) {
@@ -292,13 +292,19 @@ function answerTF(val, btn) {
         b.classList.add('correct');
     });
   }
-  processAnswer(ok, q, ok ? null : (val ? 'True' : 'False'));
+  processAnswer(ok, q, ok ? null : (val ? 'True' : 'False'), val);
 }
 
-function processAnswer(ok, q, wrongLabel) {
+function processAnswer(ok, q, wrongLabel, chosen) {
   const dotIdx = G.answered;
   G.answered++;
   G.sessionLog.push({ q, ok, wrongLabel: wrongLabel || null });
+
+  // Fire-and-forget server recording. No-op when Supabase isn't
+  // configured or the user isn't signed in; UX path is unchanged.
+  if (window.mdRecordAttempt && chosen !== undefined) {
+    window.mdRecordAttempt(q, chosen, ok, { mode: G.mode });
+  }
 
   if (ok) {
     navigator.vibrate && navigator.vibrate(40);
