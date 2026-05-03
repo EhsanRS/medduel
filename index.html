@@ -104,6 +104,18 @@
        localStorage callers continue to work unchanged. -->
   <script src="src/api/storage.js"></script>
   <script src="src/api/state.js"></script>
+  <script src="src/api/idb.js"></script>
+  <!-- Backend env. Vite will replace this block at build time. For local
+       dev without a backend, leave the values empty — the app falls back
+       to the bundled question bank. -->
+  <script>
+    window.MD_ENV = {
+      SUPABASE_URL:      "",
+      SUPABASE_ANON_KEY: ""
+    };
+  </script>
+  <script src="src/api/supabase-client.js"></script>
+  <script src="src/api/questions-repo.js"></script>
 
   <!-- i18n — must load first -->
   <script src="src/i18n.js"></script>

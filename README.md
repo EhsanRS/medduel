@@ -23,14 +23,36 @@ medduel/
 ## Lokaal draaien
 
 ```bash
-# Geen build nodig. Open gewoon:
+# Geen build nodig voor de bestaande app:
 open index.html
-
-# Of met een lokale server (aangeraden voor clipboard API):
-npx serve .
-# of
-python3 -m http.server 8080
+npx serve .                  # of: python3 -m http.server 8080
 ```
+
+## Backend (in ontwikkeling)
+
+De backend wordt gebouwd op **Supabase** (Postgres + Auth + Edge Functions).
+Mobiel komt via **Capacitor**. Volledige uitleg in
+[`docs/BACKEND.md`](docs/BACKEND.md).
+
+Snelle start zodra je een Supabase-project hebt:
+
+```bash
+npm install
+cp .env.example .env.local              # vul VITE_SUPABASE_URL/ANON_KEY in
+npm run supabase:start                  # lokaal Postgres + Auth + Studio
+npm run supabase:reset                  # past migrations + seed.sql toe
+npm run supabase:seed                   # genereert seed.sql opnieuw uit src/data/
+```
+
+**Status:**
+- ✅ Schema (profiles, questions, attempts, sr_state, sessions, daily, ...)
+- ✅ RLS policies + answer-key-vrije `questions_public` view
+- ✅ Seed-script: 387 vragen, 15 dossier casussen, 3 detective casussen
+- ✅ Edge Functions: `GET /questions`, `POST /attempt`
+- ✅ Frontend storage-adapter laag (`MDStorage`, `MDState`, `MDIdb`, `MDApi`, `MDQuestions`)
+- 🚧 Auth UI (Apple / Google / e-mail) — volgende batch
+- 🚧 LocalStorage → cloud-sync importer — volgende batch
+- 🚧 Capacitor scaffold + native auth — daarna
 
 ## Spelmodi
 

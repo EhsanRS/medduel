@@ -1,4 +1,4 @@
-const CACHE = 'medduel-v90';
+const CACHE = 'medduel-v91';
 const ASSETS = [
   '/',
   '/index.html',
@@ -6,6 +6,9 @@ const ASSETS = [
   '/src/styles.css',
   '/src/api/storage.js',
   '/src/api/state.js',
+  '/src/api/idb.js',
+  '/src/api/supabase-client.js',
+  '/src/api/questions-repo.js',
   '/src/ui.js',
   '/src/game.js',
   '/src/dossier.js',
