@@ -13,6 +13,7 @@
     "supabase:stop": "supabase stop",
     "supabase:reset": "supabase db reset",
     "supabase:seed": "node scripts/seed-questions.mjs",
+    "supabase:bundle": "node scripts/seed-questions.mjs && node scripts/build-dashboard-sql.mjs",
     "supabase:types": "supabase gen types typescript --local > src/api/supabase.types.d.ts",
     "cap:sync": "cap sync",
     "cap:ios": "cap open ios",
